@@ -11,28 +11,28 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AES {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f43984d = "UTF-8";
+    public static final String f41756d = "UTF-8";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f43985e = "AES/CBC/NoPadding";
+    public static final String f41757e = "AES/CBC/NoPadding";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f43986f = "AES";
+    public static final String f41758f = "AES";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43987a;
+    public String f41759a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43988b;
+    public String f41760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43989c;
+    public String f41761c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AES() {
@@ -73,9 +73,9 @@ public class AES {
             if (bArr != null && bArr.length != 0) {
                 byte[] bArr2 = new byte[0];
                 try {
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f43987a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f43989c);
-                    Cipher cipher = Cipher.getInstance(this.f43988b);
+                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f41759a));
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f41761c);
+                    Cipher cipher = Cipher.getInstance(this.f41760b);
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(bArr);
                 } catch (Throwable unused) {
@@ -93,9 +93,9 @@ public class AES {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
             if (str != null && str.length() != 0) {
                 try {
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f43987a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f43989c);
-                    Cipher cipher = Cipher.getInstance(this.f43988b);
+                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f41759a));
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f41761c);
+                    Cipher cipher = Cipher.getInstance(this.f41760b);
                     cipher.init(1, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(a(str).getBytes());
                 } catch (NoSuchAlgorithmException | NoSuchPaddingException unused) {
@@ -143,11 +143,11 @@ public class AES {
                 return;
             }
         }
-        this.f43987a = "UTF-8";
-        this.f43988b = "AES/CBC/NoPadding";
-        this.f43989c = "AES";
-        this.f43989c = str;
-        this.f43988b = str2;
-        this.f43987a = str3;
+        this.f41759a = "UTF-8";
+        this.f41760b = "AES/CBC/NoPadding";
+        this.f41761c = "AES";
+        this.f41761c = str;
+        this.f41760b = str2;
+        this.f41759a = str3;
     }
 }

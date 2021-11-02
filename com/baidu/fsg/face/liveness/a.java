@@ -25,18 +25,18 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.fsg.face.liveness.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C1655a {
+    /* loaded from: classes7.dex */
+    public static class C1612a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f39962a;
+        public static a f37887a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,10 +52,10 @@ public class a {
                     return;
                 }
             }
-            f39962a = new a();
+            f37887a = new a();
         }
 
-        public C1655a() {
+        public C1612a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1655a.f39962a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1612a.f37887a : (a) invokeV.objValue;
     }
 
     public static String b() {
@@ -115,20 +115,20 @@ public class a {
             RimStatisticsUtil.onEventWithValues(d.I, arrayList);
         } else {
             sapiLivenessOperation.operationType = SapiLivenessOperation.OperationType.RECOGNIZE;
-            RimStatisticsUtil.onEventWithValue(d.f40298a, a2 != null ? a2.getSpno() : "");
+            RimStatisticsUtil.onEventWithValue(d.f38208a, a2 != null ? a2.getSpno() : "");
         }
         SapiLivenessRecogManager.getInstance().execute(sapiLivenessOperation, new LivenessRecogCallback(this, sapiLivenessOperation, routerCallback) { // from class: com.baidu.fsg.face.liveness.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SapiLivenessOperation f39959a;
+            public final /* synthetic */ SapiLivenessOperation f37884a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RouterCallback f39960b;
+            public final /* synthetic */ RouterCallback f37885b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a f39961c;
+            public final /* synthetic */ a f37886c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -145,9 +145,9 @@ public class a {
                         return;
                     }
                 }
-                this.f39961c = this;
-                this.f39959a = sapiLivenessOperation;
-                this.f39960b = routerCallback;
+                this.f37886c = this;
+                this.f37884a = sapiLivenessOperation;
+                this.f37885b = routerCallback;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -158,7 +158,7 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, livenessRecogResult) == null) {
                     SapiLivenessRecogManager.getInstance().cleanLivenessRecogCallback();
-                    if (this.f39959a.operationType == SapiLivenessOperation.OperationType.VIDEORECOG) {
+                    if (this.f37884a.operationType == SapiLivenessOperation.OperationType.VIDEORECOG) {
                         if (livenessRecogResult != null) {
                             HashMap hashMap2 = new HashMap();
                             try {
@@ -177,7 +177,7 @@ public class a {
                                 }
                                 jSONObject2.remove("need_confirm");
                                 hashMap2.put("result", jSONObject2.toString());
-                                this.f39960b.onResult(0, hashMap2);
+                                this.f37885b.onResult(0, hashMap2);
                                 com.baidu.fsg.face.liveness.beans.c.a().b();
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
@@ -213,7 +213,7 @@ public class a {
                             }
                             jSONObject.remove("need_confirm");
                             hashMap3.put("result", jSONObject.toString());
-                            this.f39960b.onResult(0, hashMap3);
+                            this.f37885b.onResult(0, hashMap3);
                             com.baidu.fsg.face.liveness.beans.c.a().b();
                         } catch (JSONException e3) {
                             e3.printStackTrace();
@@ -229,12 +229,12 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048579, this, livenessRecogResult) == null) {
                     SapiLivenessRecogManager.getInstance().cleanLivenessRecogCallback();
-                    if (this.f39959a.operationType == SapiLivenessOperation.OperationType.VIDEORECOG) {
+                    if (this.f37884a.operationType == SapiLivenessOperation.OperationType.VIDEORECOG) {
                         if (livenessRecogResult != null) {
                             HashMap hashMap2 = new HashMap();
                             hashMap2.put(BaiduRimConstants.RETCODE_KEY, Integer.valueOf(livenessRecogResult.getResultCode()));
                             hashMap2.put("retMsg", livenessRecogResult.getResultMsg());
-                            this.f39960b.onResult(livenessRecogResult.getResultCode(), hashMap2);
+                            this.f37885b.onResult(livenessRecogResult.getResultCode(), hashMap2);
                             com.baidu.fsg.face.liveness.beans.c.a().b();
                         }
                     } else if (livenessRecogResult != null) {
@@ -269,7 +269,7 @@ public class a {
                                 jSONObject.remove("need_confirm");
                                 hashMap3.put("result", jSONObject.toString());
                             }
-                            this.f39960b.onResult(livenessRecogResult.getResultCode(), hashMap3);
+                            this.f37885b.onResult(livenessRecogResult.getResultCode(), hashMap3);
                             com.baidu.fsg.face.liveness.beans.c.a().b();
                         } catch (JSONException e2) {
                             e2.printStackTrace();

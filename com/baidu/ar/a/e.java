@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "e";
@@ -72,7 +72,7 @@ public class e {
                 o.a(context, jSONObject);
                 jSONObject.put("device_platform", "");
                 jSONObject.put(HttpConstants.OS_VERSION, Build.VERSION.SDK_INT);
-                jSONObject.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
+                jSONObject.put("device_type", Build.BRAND);
                 jSONObject.put("device_id", o.y(context));
                 jSONObject.put("app_version", com.baidu.ar.h.c.getVersionCode());
                 jSONObject.put("manufacture", Build.MANUFACTURER);

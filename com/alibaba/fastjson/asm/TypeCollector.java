@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.asm;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.util.ASMUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TypeCollector {
     public static /* synthetic */ Interceptable $ic;
     public static String JSONType;
@@ -60,7 +61,7 @@ public class TypeCollector {
                 put("boolean", "Z");
                 put("byte", "B");
                 put("char", "C");
-                put("short", "S");
+                put("short", ExifInterface.LATITUDE_SOUTH);
                 put(ShaderParams.VALUE_TYPE_FLOAT, "F");
                 put("long", "J");
                 put("double", "D");

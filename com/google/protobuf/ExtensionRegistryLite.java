@@ -14,7 +14,7 @@ import com.google.protobuf.GeneratedMessageLite;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ExtensionRegistryLite {
     public static /* synthetic */ Interceptable $ic;
     public static final ExtensionRegistryLite EMPTY;
@@ -22,7 +22,7 @@ public class ExtensionRegistryLite {
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<ObjectIntPair, GeneratedMessageLite.GeneratedExtension<?, ?>> extensionsByNumber;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ObjectIntPair {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

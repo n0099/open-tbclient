@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.text.TextUtils;
-import c.a.e.e.a.d;
-import c.a.e.e.a.f.c;
-import c.a.e.e.l.b;
-import c.a.e.e.p.j;
-import c.a.e.e.p.l;
-import c.a.e.l.d.a;
+import b.a.e.e.a.d;
+import b.a.e.e.a.f.c;
+import b.a.e.e.l.b;
+import b.a.e.e.p.j;
+import b.a.e.e.p.l;
+import b.a.e.l.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,18 +85,18 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
         cVar.setData(bArr);
         cVar.setSdCard(false);
         cVar.setGif(booleanValue);
-        d.g().a(cVar);
+        d.f().a(cVar);
         b bVar = (b) objArr[3];
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f2382a = diskCancelWorker;
+            bVar.f1859a = diskCancelWorker;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, c.a.e.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, b.a.e.e.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -115,10 +115,10 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                bVar.f2382a = diskCancelWorker;
+                bVar.f1859a = diskCancelWorker;
             }
-            if (!d.g().a(createDiskPicOperate)) {
-                c.a.e.e.l.a.f(false, 0L);
+            if (!d.f().a(createDiskPicOperate)) {
+                b.a.e.e.l.a.f(false, 0L);
                 return null;
             }
             int i4 = j.H() ? 300 : 2000;
@@ -129,7 +129,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
                 }
             }
             a createImageFromDiskPicOperate = createDiskPicOperate.isSuccess() ? createImageFromDiskPicOperate(createDiskPicOperate, str2, i2, i3) : null;
-            c.a.e.e.l.a.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
+            b.a.e.e.l.a.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
             return createImageFromDiskPicOperate;
         }
         return (a) invokeCommon.objValue;

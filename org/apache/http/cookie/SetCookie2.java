@@ -1,6 +1,6 @@
 package org.apache.http.cookie;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface SetCookie2 extends SetCookie {
     void setCommentURL(String str);
 

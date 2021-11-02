@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.HttpConnection;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IdleConnectionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class IdleConnectionHandler {
         throw new RuntimeException("Stub!");
     }
 
-    public void add(HttpConnection httpConnection, long j2, TimeUnit timeUnit) {
+    public void add(HttpConnection httpConnection, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{httpConnection, Long.valueOf(j2), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{httpConnection, Long.valueOf(j), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -44,9 +44,9 @@ public class IdleConnectionHandler {
         }
     }
 
-    public void closeIdleConnections(long j2) {
+    public void closeIdleConnections(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             throw new RuntimeException("Stub!");
         }
     }

@@ -14,17 +14,17 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.c;
-import c.a.p0.a.d;
-import c.a.p0.a.e;
-import c.a.p0.a.f;
-import c.a.p0.a.g;
+import b.a.p0.a.c;
+import b.a.p0.a.d;
+import b.a.p0.a.e;
+import b.a.p0.a.f;
+import b.a.p0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CommonEmptyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView mSubTitle;
     public TextView mTitle;
 
-    /* loaded from: classes6.dex */
-    public class a implements c.a.p0.a.g2.a {
+    /* loaded from: classes8.dex */
+    public class a implements b.a.p0.a.g2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmptyView f46273a;
+        public final /* synthetic */ CommonEmptyView f43960a;
 
         public a(CommonEmptyView commonEmptyView) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class CommonEmptyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f46273a = commonEmptyView;
+            this.f43960a = commonEmptyView;
         }
     }
 
@@ -105,7 +105,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            c.a.p0.a.c1.a.H().f(this, new a(this));
+            b.a.p0.a.c1.a.H().f(this, new a(this));
         }
     }
 
@@ -134,7 +134,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            c.a.p0.a.c1.a.H().g(this);
+            b.a.p0.a.c1.a.H().g(this);
         }
     }
 

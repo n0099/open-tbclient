@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.webview.a;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface a {
     @NonNull
     String a();

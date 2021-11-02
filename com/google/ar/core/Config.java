@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f70585a;
+    public long f63094a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class AugmentedFaceMode {
         public static final /* synthetic */ AugmentedFaceMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,7 +99,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class CloudAnchorMode {
         public static final /* synthetic */ CloudAnchorMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -180,7 +180,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class FocusMode {
         public static final /* synthetic */ FocusMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -261,7 +261,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class LightEstimationMode {
         public static final /* synthetic */ LightEstimationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -342,7 +342,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class PlaneFindingMode {
         public static final /* synthetic */ PlaneFindingMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -427,7 +427,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class UpdateMode {
         public static final /* synthetic */ UpdateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -520,47 +520,47 @@ public class Config {
                 return;
             }
         }
-        this.f70585a = 0L;
+        this.f63094a = 0L;
     }
 
-    public static native long nativeCreate(long j2);
+    public static native long nativeCreate(long j);
 
-    public static native void nativeDestroy(long j2);
+    public static native void nativeDestroy(long j);
 
-    private native int nativeGetAugmentedFaceMode(long j2, long j3);
+    private native int nativeGetAugmentedFaceMode(long j, long j2);
 
-    private native long nativeGetAugmentedImageDatabase(long j2, long j3);
+    private native long nativeGetAugmentedImageDatabase(long j, long j2);
 
-    private native int nativeGetCloudAnchorMode(long j2, long j3);
+    private native int nativeGetCloudAnchorMode(long j, long j2);
 
-    private native int nativeGetFocusMode(long j2, long j3);
+    private native int nativeGetFocusMode(long j, long j2);
 
-    private native int nativeGetLightEstimationMode(long j2, long j3);
+    private native int nativeGetLightEstimationMode(long j, long j2);
 
-    private native int nativeGetPlaneFindingMode(long j2, long j3);
+    private native int nativeGetPlaneFindingMode(long j, long j2);
 
-    private native int nativeGetUpdateMode(long j2, long j3);
+    private native int nativeGetUpdateMode(long j, long j2);
 
-    private native void nativeSetAugmentedFaceMode(long j2, long j3, int i2);
+    private native void nativeSetAugmentedFaceMode(long j, long j2, int i2);
 
-    private native void nativeSetAugmentedImageDatabase(long j2, long j3, long j4);
+    private native void nativeSetAugmentedImageDatabase(long j, long j2, long j3);
 
-    private native void nativeSetCloudAnchorMode(long j2, long j3, int i2);
+    private native void nativeSetCloudAnchorMode(long j, long j2, int i2);
 
-    private native void nativeSetFocusMode(long j2, long j3, int i2);
+    private native void nativeSetFocusMode(long j, long j2, int i2);
 
-    private native void nativeSetLightEstimationMode(long j2, long j3, int i2);
+    private native void nativeSetLightEstimationMode(long j, long j2, int i2);
 
-    private native void nativeSetPlaneFindingMode(long j2, long j3, int i2);
+    private native void nativeSetPlaneFindingMode(long j, long j2, int i2);
 
-    private native void nativeSetUpdateMode(long j2, long j3, int i2);
+    private native void nativeSetUpdateMode(long j, long j2, int i2);
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f70585a;
-            if (j2 != 0) {
-                nativeDestroy(j2);
+            long j = this.f63094a;
+            if (j != 0) {
+                nativeDestroy(j);
             }
             super.finalize();
         }

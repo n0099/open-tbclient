@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AppIconSetting implements Parcelable {
     public static final String APP_ICON_SETTING = "is";
     public static final Parcelable.Creator<AppIconSetting> CREATOR = new Parcelable.Creator<AppIconSetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.AppIconSetting.1
@@ -46,7 +46,7 @@ public class AppIconSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                b.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -71,7 +71,7 @@ public class AppIconSetting implements Parcelable {
             return appIconSetting;
         }
         str = "no such tag app_icon_setting";
-        c.l.a.a.a.b(TAG, str);
+        b.l.a.a.a.b(TAG, str);
         return appIconSetting;
     }
 

@@ -12,7 +12,7 @@ import com.facebook.cache.common.SimpleCacheKey;
 import com.facebook.imagepipeline.nativecode.NativeRoundingFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RoundAsCirclePostprocessor extends BasePostprocessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean ENABLE_ANTI_ALIASING = true;
@@ -61,7 +61,7 @@ public class RoundAsCirclePostprocessor extends BasePostprocessor {
     public void process(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-            NativeRoundingFilter.toCircle(bitmap, this.mEnableAntiAliasing);
+            NativeRoundingFilter.toCircleFast(bitmap, this.mEnableAntiAliasing);
         }
     }
 

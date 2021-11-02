@@ -18,37 +18,37 @@ import com.kwad.sdk.core.d.a;
 import com.kwad.sdk.utils.ap;
 import com.kwad.sdk.utils.au;
 import com.kwad.sdk.widget.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f72751a;
+    public long f65202a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f72752b;
+    public float f65203b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f72753c;
+    public boolean f65204c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f72754d;
+    public boolean f65205d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f72755e;
+    public int f65206e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f72756f;
+    public ViewTreeObserver.OnScrollChangedListener f65207f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewTreeObserver f72757g;
+    public ViewTreeObserver f65208g;
 
     /* renamed from: h  reason: collision with root package name */
-    public au f72758h;
+    public au f65209h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f72759i;
+    public d f65210i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdBasePvFrameLayout(@NonNull Context context) {
@@ -68,9 +68,9 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 return;
             }
         }
-        this.f72751a = 500L;
-        this.f72752b = 0.1f;
-        this.f72754d = true;
+        this.f65202a = 500L;
+        this.f65203b = 0.1f;
+        this.f65205d = true;
         a();
     }
 
@@ -93,9 +93,9 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 return;
             }
         }
-        this.f72751a = 500L;
-        this.f72752b = 0.1f;
-        this.f72754d = true;
+        this.f65202a = 500L;
+        this.f65203b = 0.1f;
+        this.f65205d = true;
         a();
     }
 
@@ -118,18 +118,18 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 return;
             }
         }
-        this.f72751a = 500L;
-        this.f72752b = 0.1f;
-        this.f72754d = true;
+        this.f65202a = 500L;
+        this.f65203b = 0.1f;
+        this.f65205d = true;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f72758h = new au(this);
-            this.f72755e = ap.l(getContext());
-            this.f72754d = m();
+            this.f65209h = new au(this);
+            this.f65206e = ap.l(getContext());
+            this.f65205d = m();
         }
     }
 
@@ -149,24 +149,24 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (!this.f72758h.a() || Math.abs(this.f72758h.f74277a.height() - getHeight()) > getHeight() * (1.0f - this.f72752b) || getHeight() <= 0 || getWidth() <= 0) {
+            if (!this.f65209h.a() || Math.abs(this.f65209h.f66660a.height() - getHeight()) > getHeight() * (1.0f - this.f65203b) || getHeight() <= 0 || getWidth() <= 0) {
                 return false;
             }
-            Rect rect = this.f72758h.f74277a;
-            return rect.bottom > 0 && rect.top < this.f72755e;
+            Rect rect = this.f65209h.f66660a;
+            return rect.bottom > 0 && rect.top < this.f65206e;
         }
         return invokeV.booleanValue;
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f72756f == null) {
-            this.f72756f = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f65207f == null) {
+            this.f65207f = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdBasePvFrameLayout f72760a;
+                public final /* synthetic */ AdBasePvFrameLayout f65211a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,21 +183,21 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                             return;
                         }
                     }
-                    this.f72760a = this;
+                    this.f65211a = this;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public void onScrollChanged() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f72760a.c()) {
-                        this.f72760a.o();
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f65211a.c()) {
+                        this.f65211a.o();
                     }
                 }
             };
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-            this.f72757g = viewTreeObserver;
+            this.f65208g = viewTreeObserver;
             if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.f72756f);
+                viewTreeObserver.addOnScrollChangedListener(this.f65207f);
             }
         }
     }
@@ -213,7 +213,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
 
     public void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f72754d) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f65205d) {
             b();
         }
     }
@@ -222,7 +222,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             p();
-            d dVar = this.f72759i;
+            d dVar = this.f65210i;
             if (dVar != null) {
                 dVar.a();
             }
@@ -244,7 +244,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
             p();
-            this.f72753c = false;
+            this.f65204c = false;
         }
     }
 
@@ -253,10 +253,10 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
             boolean z = true;
-            if (this.f72753c || (i4 | i5) != 0 || (i2 | i3) == 0) {
+            if (this.f65204c || (i4 | i5) != 0 || (i2 | i3) == 0) {
                 z = false;
             } else {
-                this.f72753c = true;
+                this.f65204c = true;
             }
             super.onSizeChanged(i2, i3, i4, i5);
             if (z) {
@@ -269,10 +269,10 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
-                if (this.f72756f != null && this.f72757g != null && this.f72757g.isAlive()) {
-                    this.f72757g.removeOnScrollChangedListener(this.f72756f);
+                if (this.f65207f != null && this.f65208g != null && this.f65208g.isAlive()) {
+                    this.f65208g.removeOnScrollChangedListener(this.f65207f);
                 }
-                this.f72756f = null;
+                this.f65207f = null;
             } catch (Exception e2) {
                 a.a(e2);
             }
@@ -282,14 +282,14 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public void setCheckDefaultImpressionLogThreshold(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f72752b = f2;
+            this.f65203b = f2;
         }
     }
 
     public void setVisibleListener(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            this.f72759i = dVar;
+            this.f65210i = dVar;
         }
     }
 }

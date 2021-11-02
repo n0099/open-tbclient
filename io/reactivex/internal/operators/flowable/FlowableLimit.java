@@ -15,13 +15,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @Experimental
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableLimit<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long n;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class LimitSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2288246011222124525L;
@@ -30,12 +30,12 @@ public final class FlowableLimit<T> extends AbstractFlowableWithUpstream<T, T> {
         public long remaining;
         public Subscription upstream;
 
-        public LimitSubscriber(Subscriber<? super T> subscriber, long j2) {
+        public LimitSubscriber(Subscriber<? super T> subscriber, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2)};
+                Object[] objArr = {subscriber, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -46,8 +46,8 @@ public final class FlowableLimit<T> extends AbstractFlowableWithUpstream<T, T> {
                 }
             }
             this.actual = subscriber;
-            this.remaining = j2;
-            lazySet(j2);
+            this.remaining = j;
+            lazySet(j);
         }
 
         @Override // org.reactivestreams.Subscription
@@ -85,12 +85,12 @@ public final class FlowableLimit<T> extends AbstractFlowableWithUpstream<T, T> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                long j2 = this.remaining;
-                if (j2 > 0) {
-                    long j3 = j2 - 1;
-                    this.remaining = j3;
+                long j = this.remaining;
+                if (j > 0) {
+                    long j2 = j - 1;
+                    this.remaining = j2;
                     this.actual.onNext(t);
-                    if (j3 == 0) {
+                    if (j2 == 0) {
                         this.upstream.cancel();
                         this.actual.onComplete();
                     }
@@ -113,31 +113,31 @@ public final class FlowableLimit<T> extends AbstractFlowableWithUpstream<T, T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
+            long j2;
             long j3;
-            long j4;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
                 do {
-                    j3 = get();
-                    if (j3 == 0) {
+                    j2 = get();
+                    if (j2 == 0) {
                         return;
                     }
-                    j4 = j3 <= j2 ? j3 : j2;
-                } while (!compareAndSet(j3, j3 - j4));
-                this.upstream.request(j4);
+                    j3 = j2 <= j ? j2 : j;
+                } while (!compareAndSet(j2, j2 - j3));
+                this.upstream.request(j3);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableLimit(Flowable<T> flowable, long j2) {
+    public FlowableLimit(Flowable<T> flowable, long j) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2)};
+            Object[] objArr = {flowable, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -148,7 +148,7 @@ public final class FlowableLimit<T> extends AbstractFlowableWithUpstream<T, T> {
                 return;
             }
         }
-        this.n = j2;
+        this.n = j;
     }
 
     @Override // io.reactivex.Flowable

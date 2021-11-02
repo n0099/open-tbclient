@@ -10,7 +10,7 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.JSONMessageCodec;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class SystemChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SystemChannel";

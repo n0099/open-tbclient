@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AccessibilityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODE_ACCESSIBILITY_TAG = "talkback";
@@ -74,6 +74,6 @@ public class AccessibilityUtils {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, touchExplorationStateChangeListener) == null) || (accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility")) == null || Build.VERSION.SDK_INT < 19) {
             return;
         }
-        accessibilityManager.addTouchExplorationStateChangeListener(touchExplorationStateChangeListener);
+        accessibilityManager.removeTouchExplorationStateChangeListener(touchExplorationStateChangeListener);
     }
 }

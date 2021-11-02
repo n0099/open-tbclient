@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends e implements OrientationManager.OrientationListener, l {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean gS = true;
@@ -63,7 +63,7 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     public List<String> u;
 
     /* renamed from: com.baidu.ar.arrender.c$6  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] ha;
@@ -103,12 +103,12 @@ public class c extends e implements OrientationManager.OrientationListener, l {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void onInputSizeChange(int i2, int i3);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(int i2, int i3);
     }
@@ -203,13 +203,13 @@ public class c extends e implements OrientationManager.OrientationListener, l {
 
     private void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65545, this, z) == null) || this.f38443f == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65545, this, z) == null) || this.f36443f == null) {
             return;
         }
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 10200);
         hashMap.put("front_camera", Integer.valueOf(!z ? 1 : 0));
-        this.f38443f.b(1902, hashMap);
+        this.f36443f.b(1902, hashMap);
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arrender.f
@@ -218,20 +218,20 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.l
-    public void a(long j2, String str) {
+    public void a(long j, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, str) == null) || this.hx == null || j2 <= 0 || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) || this.hx == null || j <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         com.baidu.ar.ability.c cVar = new com.baidu.ar.ability.c();
         cVar.r(str);
-        cVar.setTimestamp(AlgoHandleAdapter.getHandleTimeStamp(j2));
-        cVar.d(AlgoHandleAdapter.getHandleIsFront(j2));
-        cVar.c(AlgoHandleAdapter.getHandleEnableSync(j2));
+        cVar.setTimestamp(AlgoHandleAdapter.getHandleTimeStamp(j));
+        cVar.d(AlgoHandleAdapter.getHandleIsFront(j));
+        cVar.c(AlgoHandleAdapter.getHandleEnableSync(j));
         if (a(cVar)) {
             return;
         }
-        this.hx.setAlgoDataHandle(j2);
+        this.hx.setAlgoDataHandle(j);
     }
 
     public void a(Bitmap bitmap, float f2, float f3, float f4, float f5) {
@@ -729,13 +729,13 @@ public class c extends e implements OrientationManager.OrientationListener, l {
         super.destroyPixelReader(pixelReadParams, pixelReadListener);
     }
 
-    public void f(long j2) {
+    public void f(long j) {
         ARPEngine aRPEngine;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048618, this, j2) == null) || (aRPEngine = this.hx) == null || aRPEngine.getARPRenderer() == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048618, this, j) == null) || (aRPEngine = this.hx) == null || aRPEngine.getARPRenderer() == null) {
             return;
         }
-        this.hx.getARPRenderer().setAlgoPts(j2);
+        this.hx.getARPRenderer().setAlgoPts(j);
     }
 
     @Override // com.baidu.ar.arrender.l
@@ -835,14 +835,14 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arplay.core.renderer.OnRenderFinishedListener
-    public void onRenderFinished(long j2) {
+    public void onRenderFinished(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
             ARRenderFpsCallback aRRenderFpsCallback = this.gW;
             if (aRRenderFpsCallback != null && (aRRenderFpsCallback.listenType() & 2) != 0) {
                 this.gW.onRenderFinished();
             }
-            super.onRenderFinished(j2);
+            super.onRenderFinished(j);
             if (gS) {
                 com.baidu.ar.h.b.c("profile_frame_time_cpu", "= " + (System.currentTimeMillis() - this.gU));
             }
@@ -850,9 +850,9 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arplay.core.renderer.OnRenderStartedListener
-    public void onRenderStarted(long j2) {
+    public void onRenderStarted(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
             ARRenderFpsCallback aRRenderFpsCallback = this.gW;
             if (aRRenderFpsCallback != null && (aRRenderFpsCallback.listenType() & 1) != 0) {
                 this.gW.onRenderStarted();
@@ -878,7 +878,7 @@ public class c extends e implements OrientationManager.OrientationListener, l {
                 }
                 this.gU = System.currentTimeMillis();
             }
-            super.onRenderStarted(j2);
+            super.onRenderStarted(j);
             bz();
         }
     }
@@ -886,11 +886,11 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     @Override // com.baidu.ar.arplay.core.engine.rotate.OrientationManager.OrientationListener
     public void onRotateOrientation(Orientation orientation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048630, this, orientation) == null) || this.f38443f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, orientation) == null) || this.f36443f == null) {
             return;
         }
         com.baidu.ar.h.b.c("ARRenderer", "sendOrientation2Render orientation = " + orientation);
-        this.f38443f.b(4001, com.baidu.ar.arrender.b.a(orientation));
+        this.f36443f.b(4001, com.baidu.ar.arrender.b.a(orientation));
     }
 
     @Override // com.baidu.ar.arrender.e, android.view.View.OnTouchListener

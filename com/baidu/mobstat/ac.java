@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f43142a;
+    public boolean f40942a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43143b;
+    public String f40943b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f43144c;
+    public boolean f40944c;
 
     public ac() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class ac {
                 return;
             }
         }
-        this.f43142a = false;
-        this.f43143b = "";
-        this.f43144c = false;
+        this.f40942a = false;
+        this.f40943b = "";
+        this.f40944c = false;
     }
 
     public JSONObject a() {
@@ -45,17 +45,17 @@ public class ac {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("SDK_BPLUS_SERVICE", this.f43142a);
+                jSONObject.put("SDK_BPLUS_SERVICE", this.f40942a);
             } catch (JSONException e2) {
                 bb.c().b(e2);
             }
             try {
-                jSONObject.put("SDK_PRODUCT_LY", this.f43143b);
+                jSONObject.put("SDK_PRODUCT_LY", this.f40943b);
             } catch (JSONException e3) {
                 bb.c().b(e3);
             }
             try {
-                jSONObject.put("SDK_LOCAL_SERVER", this.f43144c);
+                jSONObject.put("SDK_LOCAL_SERVER", this.f40944c);
             } catch (JSONException e4) {
                 bb.c().b(e4);
             }
@@ -79,21 +79,21 @@ public class ac {
                 return;
             }
         }
-        this.f43142a = false;
-        this.f43143b = "";
-        this.f43144c = false;
+        this.f40942a = false;
+        this.f40943b = "";
+        this.f40944c = false;
         try {
-            this.f43142a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+            this.f40942a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
         } catch (Exception e2) {
             bb.c().b(e2);
         }
         try {
-            this.f43143b = jSONObject.getString("SDK_PRODUCT_LY");
+            this.f40943b = jSONObject.getString("SDK_PRODUCT_LY");
         } catch (Exception e3) {
             bb.c().b(e3);
         }
         try {
-            this.f43144c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
+            this.f40944c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
         } catch (Exception e4) {
             bb.c().b(e4);
         }

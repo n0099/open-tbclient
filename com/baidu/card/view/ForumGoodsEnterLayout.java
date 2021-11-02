@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.q.a;
-import c.a.q0.s.q.d2;
+import b.a.q0.s.q.a;
+import b.a.q0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
@@ -18,22 +18,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ForumGoodsEnterLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38715e;
+    public Context f36696e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadForumEnterGoodsButton f38716f;
+    public ThreadForumEnterGoodsButton f36697f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f38717g;
+    public View.OnClickListener f36698g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38718h;
+    public int f36699h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumGoodsEnterLayout(Context context) {
@@ -59,8 +59,8 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f38715e = context;
-            this.f38716f = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
+            this.f36696e = context;
+            this.f36697f = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
         }
     }
 
@@ -79,7 +79,7 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.f38716f.onChangeSkinType();
+            this.f36697f.onChangeSkinType();
         }
     }
 
@@ -88,13 +88,13 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             d2 threadData = aVar.getThreadData();
-            if (c(aVar) || b(aVar) || aVar.getThreadData() == null || !aVar.getThreadData().a2() || this.f38718h == 3) {
+            if (c(aVar) || b(aVar) || aVar.getThreadData() == null || !aVar.getThreadData().a2() || this.f36699h == 3) {
                 z = false;
             } else {
-                this.f38716f.setVisibility(0);
-                this.f38716f.setFrom(2);
-                this.f38716f.bindData(threadData);
-                this.f38716f.setAfterClickListener(this.f38717g);
+                this.f36697f.setVisibility(0);
+                this.f36697f.setFrom(2);
+                this.f36697f.bindData(threadData);
+                this.f36697f.setAfterClickListener(this.f36698g);
                 z = true;
             }
             setVisibility(z ? 0 : 8);
@@ -110,14 +110,14 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public void setFrstype(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f38718h = i2;
+            this.f36699h = i2;
         }
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f38717g = onClickListener;
+            this.f36698g = onClickListener;
         }
     }
 

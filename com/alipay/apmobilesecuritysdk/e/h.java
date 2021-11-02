@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35828a = "";
+    public static String f33934a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -73,10 +73,10 @@ public class h {
         }
     }
 
-    public static void a(Context context, String str, long j2) {
+    public static void a(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
-            com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", "vkey_valid" + str, String.valueOf(j2));
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+            com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", "vkey_valid" + str, String.valueOf(j));
         }
     }
 
@@ -157,19 +157,19 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             synchronized (h.class) {
-                if (com.alipay.security.mobile.module.a.a.a(f35828a)) {
+                if (com.alipay.security.mobile.module.a.a.a(f33934a)) {
                     String a2 = com.alipay.security.mobile.module.c.e.a(context, "alipay_vkey_random", "random", "");
-                    f35828a = a2;
+                    f33934a = a2;
                     if (com.alipay.security.mobile.module.a.a.a(a2)) {
                         String a3 = com.alipay.security.mobile.module.a.a.b.a(UUID.randomUUID().toString());
-                        f35828a = a3;
+                        f33934a = a3;
                         if (a3 != null && (edit = context.getSharedPreferences("alipay_vkey_random", 0).edit()) != null) {
                             edit.putString("random", a3);
                             edit.commit();
                         }
                     }
                 }
-                str = f35828a;
+                str = f33934a;
             }
             return str;
         }

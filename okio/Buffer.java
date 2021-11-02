@@ -1,8 +1,10 @@
 package okio;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,7 +34,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Buffer implements BufferedSource, BufferedSink, Cloneable, ByteChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] DIGITS;
@@ -42,7 +44,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     public Segment head;
     public long size;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UnsafeCursor implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,18 +101,18 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                     Buffer buffer = this.buffer;
                     if (buffer != null) {
                         if (this.readWrite) {
-                            long j2 = buffer.size;
+                            long j = buffer.size;
                             Segment writableSegment = buffer.writableSegment(i2);
                             int i3 = 8192 - writableSegment.limit;
                             writableSegment.limit = 8192;
-                            long j3 = i3;
-                            this.buffer.size = j2 + j3;
+                            long j2 = i3;
+                            this.buffer.size = j + j2;
                             this.segment = writableSegment;
-                            this.offset = j2;
+                            this.offset = j;
                             this.data = writableSegment.data;
                             this.start = 8192 - i3;
                             this.end = 8192;
-                            return j3;
+                            return j2;
                         }
                         throw new IllegalStateException("expandBuffer() only permitted for read/write buffers");
                     }
@@ -126,67 +128,67 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                long j2 = this.offset;
-                if (j2 != this.buffer.size) {
-                    if (j2 == -1) {
+                long j = this.offset;
+                if (j != this.buffer.size) {
+                    if (j == -1) {
                         return seek(0L);
                     }
-                    return seek(j2 + (this.end - this.start));
+                    return seek(j + (this.end - this.start));
                 }
                 throw new IllegalStateException();
             }
             return invokeV.intValue;
         }
 
-        public final long resizeBuffer(long j2) {
+        public final long resizeBuffer(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
                 Buffer buffer = this.buffer;
                 if (buffer != null) {
                     if (this.readWrite) {
-                        long j3 = buffer.size;
-                        int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+                        long j2 = buffer.size;
+                        int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
                         if (i2 <= 0) {
-                            if (j2 >= 0) {
-                                long j4 = j3 - j2;
+                            if (j >= 0) {
+                                long j3 = j2 - j;
                                 while (true) {
-                                    if (j4 <= 0) {
+                                    if (j3 <= 0) {
                                         break;
                                     }
                                     Buffer buffer2 = this.buffer;
                                     Segment segment = buffer2.head.prev;
                                     int i3 = segment.limit;
-                                    long j5 = i3 - segment.pos;
-                                    if (j5 <= j4) {
+                                    long j4 = i3 - segment.pos;
+                                    if (j4 <= j3) {
                                         buffer2.head = segment.pop();
                                         SegmentPool.recycle(segment);
-                                        j4 -= j5;
+                                        j3 -= j4;
                                     } else {
-                                        segment.limit = (int) (i3 - j4);
+                                        segment.limit = (int) (i3 - j3);
                                         break;
                                     }
                                 }
                                 this.segment = null;
-                                this.offset = j2;
+                                this.offset = j;
                                 this.data = null;
                                 this.start = -1;
                                 this.end = -1;
                             } else {
-                                throw new IllegalArgumentException("newSize < 0: " + j2);
+                                throw new IllegalArgumentException("newSize < 0: " + j);
                             }
                         } else if (i2 > 0) {
-                            long j6 = j2 - j3;
+                            long j5 = j - j2;
                             boolean z = true;
-                            while (j6 > 0) {
+                            while (j5 > 0) {
                                 Segment writableSegment = this.buffer.writableSegment(1);
-                                int min = (int) Math.min(j6, 8192 - writableSegment.limit);
+                                int min = (int) Math.min(j5, 8192 - writableSegment.limit);
                                 int i4 = writableSegment.limit + min;
                                 writableSegment.limit = i4;
-                                j6 -= min;
+                                j5 -= min;
                                 if (z) {
                                     this.segment = writableSegment;
-                                    this.offset = j3;
+                                    this.offset = j2;
                                     this.data = writableSegment.data;
                                     this.start = i4 - min;
                                     this.end = i4;
@@ -194,8 +196,8 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                                 }
                             }
                         }
-                        this.buffer.size = j2;
-                        return j3;
+                        this.buffer.size = j;
+                        return j2;
                     }
                     throw new IllegalStateException("resizeBuffer() only permitted for read/write buffers");
                 }
@@ -204,48 +206,48 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
             return invokeJ.longValue;
         }
 
-        public final int seek(long j2) {
+        public final int seek(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                int i2 = (j2 > (-1L) ? 1 : (j2 == (-1L) ? 0 : -1));
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                int i2 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
                 if (i2 >= 0) {
                     Buffer buffer = this.buffer;
-                    long j3 = buffer.size;
-                    if (j2 <= j3) {
-                        if (i2 != 0 && j2 != j3) {
-                            long j4 = 0;
+                    long j2 = buffer.size;
+                    if (j <= j2) {
+                        if (i2 != 0 && j != j2) {
+                            long j3 = 0;
                             Segment segment = buffer.head;
                             Segment segment2 = this.segment;
                             if (segment2 != null) {
-                                long j5 = this.offset - (this.start - segment2.pos);
-                                if (j5 > j2) {
-                                    j3 = j5;
+                                long j4 = this.offset - (this.start - segment2.pos);
+                                if (j4 > j) {
+                                    j2 = j4;
                                     segment2 = segment;
                                     segment = segment2;
                                 } else {
-                                    j4 = j5;
+                                    j3 = j4;
                                 }
                             } else {
                                 segment2 = segment;
                             }
-                            if (j3 - j2 > j2 - j4) {
+                            if (j2 - j > j - j3) {
                                 while (true) {
                                     int i3 = segment2.limit;
                                     int i4 = segment2.pos;
-                                    if (j2 < (i3 - i4) + j4) {
+                                    if (j < (i3 - i4) + j3) {
                                         break;
                                     }
-                                    j4 += i3 - i4;
+                                    j3 += i3 - i4;
                                     segment2 = segment2.next;
                                 }
                             } else {
-                                while (j3 > j2) {
+                                while (j2 > j) {
                                     segment = segment.prev;
-                                    j3 -= segment.limit - segment.pos;
+                                    j2 -= segment.limit - segment.pos;
                                 }
                                 segment2 = segment;
-                                j4 = j3;
+                                j3 = j2;
                             }
                             if (this.readWrite && segment2.shared) {
                                 Segment unsharedCopy = segment2.unsharedCopy();
@@ -257,23 +259,23 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                                 segment2.prev.pop();
                             }
                             this.segment = segment2;
-                            this.offset = j2;
+                            this.offset = j;
                             this.data = segment2.data;
-                            int i5 = segment2.pos + ((int) (j2 - j4));
+                            int i5 = segment2.pos + ((int) (j - j3));
                             this.start = i5;
                             int i6 = segment2.limit;
                             this.end = i6;
                             return i6 - i5;
                         }
                         this.segment = null;
-                        this.offset = j2;
+                        this.offset = j;
                         this.data = null;
                         this.start = -1;
                         this.end = -1;
                         return -1;
                     }
                 }
-                throw new ArrayIndexOutOfBoundsException(String.format("offset=%s > size=%s", Long.valueOf(j2), Long.valueOf(this.buffer.size)));
+                throw new ArrayIndexOutOfBoundsException(String.format("offset=%s > size=%s", Long.valueOf(j), Long.valueOf(this.buffer.size)));
             }
             return invokeJ.intValue;
         }
@@ -391,13 +393,13 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j2 = this.size;
-            if (j2 == 0) {
+            long j = this.size;
+            if (j == 0) {
                 return 0L;
             }
             Segment segment = this.head.prev;
             int i2 = segment.limit;
-            return (i2 >= 8192 || !segment.owner) ? j2 : j2 - (i2 - segment.pos);
+            return (i2 >= 8192 || !segment.owner) ? j : j - (i2 - segment.pos);
         }
         return invokeV.longValue;
     }
@@ -432,19 +434,19 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
             }
             if (obj instanceof Buffer) {
                 Buffer buffer = (Buffer) obj;
-                long j2 = this.size;
-                if (j2 != buffer.size) {
+                long j = this.size;
+                if (j != buffer.size) {
                     return false;
                 }
-                long j3 = 0;
-                if (j2 == 0) {
+                long j2 = 0;
+                if (j == 0) {
                     return true;
                 }
                 Segment segment = this.head;
                 Segment segment2 = buffer.head;
                 int i2 = segment.pos;
                 int i3 = segment2.pos;
-                while (j3 < this.size) {
+                while (j2 < this.size) {
                     long min = Math.min(segment.limit - i2, segment2.limit - i3);
                     int i4 = 0;
                     while (i4 < min) {
@@ -465,7 +467,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                         segment2 = segment2.next;
                         i3 = segment2.pos;
                     }
-                    j3 += min;
+                    j2 += min;
                 }
                 return true;
             }
@@ -488,37 +490,37 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         }
     }
 
-    public final byte getByte(long j2) {
+    public final byte getByte(long j) {
         InterceptResult invokeJ;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048591, this, j2)) != null) {
+        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048591, this, j)) != null) {
             return invokeJ.byteValue;
         }
-        Util.checkOffsetAndCount(this.size, j2, 1L);
-        long j3 = this.size;
-        if (j3 - j2 > j2) {
+        Util.checkOffsetAndCount(this.size, j, 1L);
+        long j2 = this.size;
+        if (j2 - j > j) {
             Segment segment = this.head;
             while (true) {
                 int i3 = segment.limit;
                 int i4 = segment.pos;
-                long j4 = i3 - i4;
-                if (j2 < j4) {
-                    return segment.data[i4 + ((int) j2)];
+                long j3 = i3 - i4;
+                if (j < j3) {
+                    return segment.data[i4 + ((int) j)];
                 }
-                j2 -= j4;
+                j -= j3;
                 segment = segment.next;
             }
         } else {
-            long j5 = j2 - j3;
+            long j4 = j - j2;
             Segment segment2 = this.head;
             do {
                 segment2 = segment2.prev;
                 int i5 = segment2.limit;
                 i2 = segment2.pos;
-                j5 += i5 - i2;
-            } while (j5 < 0);
-            return segment2.data[i2 + ((int) j5)];
+                j4 += i5 - i2;
+            } while (j4 < 0);
+            return segment2.data[i2 + ((int) j4)];
         }
     }
 
@@ -733,10 +735,10 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public boolean rangeEquals(long j2, ByteString byteString) {
+    public boolean rangeEquals(long j, ByteString byteString) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048607, this, j2, byteString)) == null) ? rangeEquals(j2, byteString, 0, byteString.size()) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048607, this, j, byteString)) == null) ? rangeEquals(j, byteString, 0, byteString.size()) : invokeJL.booleanValue;
     }
 
     @Override // okio.BufferedSource
@@ -751,11 +753,11 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, sink)) == null) {
-            long j2 = this.size;
-            if (j2 > 0) {
-                sink.write(this, j2);
+            long j = this.size;
+            if (j > 0) {
+                sink.write(this, j);
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -771,14 +773,14 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            long j2 = this.size;
-            if (j2 != 0) {
+            long j = this.size;
+            if (j != 0) {
                 Segment segment = this.head;
                 int i2 = segment.pos;
                 int i3 = segment.limit;
                 int i4 = i2 + 1;
                 byte b2 = segment.data[i2];
-                this.size = j2 - 1;
+                this.size = j - 1;
                 if (i4 == i3) {
                     this.head = segment.pop();
                     SegmentPool.recycle(segment);
@@ -836,10 +838,10 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         byte b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            long j2 = 0;
+            long j = 0;
             if (this.size != 0) {
-                long j3 = -922337203685477580L;
-                long j4 = -7;
+                long j2 = -922337203685477580L;
+                long j3 = -7;
                 int i2 = 0;
                 boolean z = false;
                 boolean z2 = false;
@@ -852,13 +854,13 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                         b2 = bArr[i3];
                         if (b2 >= 48 && b2 <= 57) {
                             int i5 = 48 - b2;
-                            int i6 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-                            if (i6 < 0 || (i6 == 0 && i5 < j4)) {
+                            int i6 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                            if (i6 < 0 || (i6 == 0 && i5 < j3)) {
                                 break loop0;
                             }
-                            j2 = (j2 * 10) + i5;
+                            j = (j * 10) + i5;
                         } else if (b2 == 45 && i2 == 0) {
-                            j4--;
+                            j3--;
                             z = true;
                         } else if (i2 == 0) {
                             throw new NumberFormatException("Expected leading [0-9] or '-' character but was 0x" + Integer.toHexString(b2));
@@ -873,11 +875,11 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                             if (!!z2 || this.head == null) {
                                 break;
                             }
-                            j3 = -922337203685477580L;
+                            j2 = -922337203685477580L;
                         }
                         i3++;
                         i2++;
-                        j3 = -922337203685477580L;
+                        j2 = -922337203685477580L;
                     }
                     if (i3 != i4) {
                     }
@@ -886,7 +888,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                     }
                     break;
                 }
-                Buffer writeByte = new Buffer().writeDecimalLong(j2).writeByte((int) b2);
+                Buffer writeByte = new Buffer().writeDecimalLong(j).writeByte((int) b2);
                 if (!z) {
                     writeByte.readByte();
                 }
@@ -908,14 +910,14 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public void readFully(Buffer buffer, long j2) throws EOFException {
+    public void readFully(Buffer buffer, long j) throws EOFException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048624, this, buffer, j2) == null) {
-            long j3 = this.size;
-            if (j3 >= j2) {
-                buffer.write(this, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048624, this, buffer, j) == null) {
+            long j2 = this.size;
+            if (j2 >= j) {
+                buffer.write(this, j);
             } else {
-                buffer.write(this, j3);
+                buffer.write(this, j2);
                 throw new EOFException();
             }
         }
@@ -937,7 +939,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             if (this.size != 0) {
                 int i4 = 0;
-                long j2 = 0;
+                long j = 0;
                 boolean z = false;
                 do {
                     Segment segment = this.head;
@@ -969,11 +971,11 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                         } else {
                             i3 = b2 - 48;
                         }
-                        if (((-1152921504606846976L) & j2) != 0) {
-                            Buffer writeByte = new Buffer().writeHexadecimalUnsignedLong(j2).writeByte((int) b2);
+                        if (((-1152921504606846976L) & j) != 0) {
+                            Buffer writeByte = new Buffer().writeHexadecimalUnsignedLong(j).writeByte((int) b2);
                             throw new NumberFormatException("Number too large: " + writeByte.readUtf8());
                         }
-                        j2 = (j2 << 4) | i3;
+                        j = (j << 4) | i3;
                         i5++;
                         i4++;
                     }
@@ -983,7 +985,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                     }
                 } while (this.head != null);
                 this.size -= i4;
-                return j2;
+                return j;
             }
             throw new IllegalStateException("size == 0");
         }
@@ -995,8 +997,8 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
-            long j2 = this.size;
-            if (j2 >= 4) {
+            long j = this.size;
+            if (j >= 4) {
                 Segment segment = this.head;
                 int i2 = segment.pos;
                 int i3 = segment.limit;
@@ -1011,7 +1013,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 int i8 = i6 | ((bArr[i5] & 255) << 8);
                 int i9 = i7 + 1;
                 int i10 = i8 | (bArr[i7] & 255);
-                this.size = j2 - 4;
+                this.size = j - 4;
                 if (i9 == i3) {
                     this.head = segment.pop();
                     SegmentPool.recycle(segment);
@@ -1037,8 +1039,8 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            long j2 = this.size;
-            if (j2 >= 8) {
+            long j = this.size;
+            if (j >= 8) {
                 Segment segment = this.head;
                 int i2 = segment.pos;
                 int i3 = segment.limit;
@@ -1048,22 +1050,22 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 byte[] bArr = segment.data;
                 int i4 = i2 + 1;
                 int i5 = i4 + 1;
-                long j3 = (bArr[i4] & 255) << 48;
+                long j2 = (bArr[i4] & 255) << 48;
                 int i6 = i5 + 1;
                 int i7 = i6 + 1;
                 int i8 = i7 + 1;
                 int i9 = i8 + 1;
                 int i10 = i9 + 1;
                 int i11 = i10 + 1;
-                long j4 = j3 | ((bArr[i2] & 255) << 56) | ((bArr[i5] & 255) << 40) | ((bArr[i6] & 255) << 32) | ((bArr[i7] & 255) << 24) | ((bArr[i8] & 255) << 16) | ((bArr[i9] & 255) << 8) | (bArr[i10] & 255);
-                this.size = j2 - 8;
+                long j3 = j2 | ((bArr[i2] & 255) << 56) | ((bArr[i5] & 255) << 40) | ((bArr[i6] & 255) << 32) | ((bArr[i7] & 255) << 24) | ((bArr[i8] & 255) << 16) | ((bArr[i9] & 255) << 8) | (bArr[i10] & 255);
+                this.size = j - 8;
                 if (i11 == i3) {
                     this.head = segment.pop();
                     SegmentPool.recycle(segment);
                 } else {
                     segment.pos = i11;
                 }
-                return j4;
+                return j3;
             }
             throw new IllegalStateException("size < 8: " + this.size);
         }
@@ -1082,8 +1084,8 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
-            long j2 = this.size;
-            if (j2 >= 2) {
+            long j = this.size;
+            if (j >= 2) {
                 Segment segment = this.head;
                 int i2 = segment.pos;
                 int i3 = segment.limit;
@@ -1094,7 +1096,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 int i4 = i2 + 1;
                 int i5 = i4 + 1;
                 int i6 = ((bArr[i2] & 255) << 8) | (bArr[i4] & 255);
-                this.size = j2 - 2;
+                this.size = j - 2;
                 if (i5 == i3) {
                     this.head = segment.pop();
                     SegmentPool.recycle(segment);
@@ -1179,18 +1181,18 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                     i3 = 4;
                     i4 = 65536;
                 }
-                long j2 = i3;
-                if (this.size >= j2) {
+                long j = i3;
+                if (this.size >= j) {
                     for (int i5 = 1; i5 < i3; i5++) {
-                        long j3 = i5;
-                        byte b3 = getByte(j3);
-                        if ((b3 & 192) != 128) {
-                            skip(j3);
+                        long j2 = i5;
+                        byte b3 = getByte(j2);
+                        if ((b3 & ExifInterface.MARKER_SOF0) != 128) {
+                            skip(j2);
                             return REPLACEMENT_CHARACTER;
                         }
                         i2 = (i2 << 6) | (b3 & 63);
                     }
-                    skip(j2);
+                    skip(j);
                     return i2 > 1114111 ? REPLACEMENT_CHARACTER : ((i2 < 55296 || i2 > 57343) && i2 >= i4) ? i2 : REPLACEMENT_CHARACTER;
                 }
                 throw new EOFException("size < " + i3 + ": " + this.size + " (to read code point prefixed 0x" + Integer.toHexString(b2) + SmallTailInfo.EMOTION_SUFFIX);
@@ -1208,9 +1210,9 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
             long indexOf = indexOf((byte) 10);
             if (indexOf == -1) {
-                long j2 = this.size;
-                if (j2 != 0) {
-                    return readUtf8(j2);
+                long j = this.size;
+                if (j != 0) {
+                    return readUtf8(j);
                 }
                 return null;
             }
@@ -1227,16 +1229,16 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public boolean request(long j2) {
+    public boolean request(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048644, this, j2)) == null) ? this.size >= j2 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048644, this, j)) == null) ? this.size >= j : invokeJ.booleanValue;
     }
 
     @Override // okio.BufferedSource
-    public void require(long j2) throws EOFException {
+    public void require(long j) throws EOFException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048645, this, j2) == null) && this.size < j2) {
+        if ((interceptable == null || interceptable.invokeJ(1048645, this, j) == null) && this.size < j) {
             throw new EOFException();
         }
     }
@@ -1418,16 +1420,16 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public void skip(long j2) throws EOFException {
+    public void skip(long j) throws EOFException {
         Segment segment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048653, this, j2) == null) {
-            while (j2 > 0) {
+        if (interceptable == null || interceptable.invokeJ(1048653, this, j) == null) {
+            while (j > 0) {
                 if (this.head != null) {
-                    int min = (int) Math.min(j2, segment.limit - segment.pos);
-                    long j3 = min;
-                    this.size -= j3;
-                    j2 -= j3;
+                    int min = (int) Math.min(j, segment.limit - segment.pos);
+                    long j2 = min;
+                    this.size -= j2;
+                    j -= j2;
                     Segment segment2 = this.head;
                     int i2 = segment2.pos + min;
                     segment2.pos = i2;
@@ -1446,9 +1448,9 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
-            long j2 = this.size;
-            if (j2 <= 2147483647L) {
-                return snapshot((int) j2);
+            long j = this.size;
+            if (j <= 2147483647L) {
+                return snapshot((int) j);
             }
             throw new IllegalArgumentException("size > Integer.MAX_VALUE: " + this.size);
         }
@@ -1499,13 +1501,13 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         if (source == null) {
             throw new IllegalArgumentException("source == null");
         }
-        long j2 = 0;
+        long j = 0;
         while (true) {
             long read = source.read(this, 8192L);
             if (read == -1) {
-                return j2;
+                return j;
             }
-            j2 += read;
+            j += read;
         }
     }
 
@@ -1542,32 +1544,32 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         }
     }
 
-    public final Buffer copyTo(OutputStream outputStream, long j2, long j3) throws IOException {
+    public final Buffer copyTo(OutputStream outputStream, long j, long j2) throws IOException {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{outputStream, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{outputStream, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (outputStream != null) {
-                Util.checkOffsetAndCount(this.size, j2, j3);
-                if (j3 == 0) {
+                Util.checkOffsetAndCount(this.size, j, j2);
+                if (j2 == 0) {
                     return this;
                 }
                 Segment segment = this.head;
                 while (true) {
                     int i3 = segment.limit;
                     int i4 = segment.pos;
-                    if (j2 < i3 - i4) {
+                    if (j < i3 - i4) {
                         break;
                     }
-                    j2 -= i3 - i4;
+                    j -= i3 - i4;
                     segment = segment.next;
                 }
-                while (j3 > 0) {
-                    int min = (int) Math.min(segment.limit - i2, j3);
-                    outputStream.write(segment.data, (int) (segment.pos + j2), min);
-                    j3 -= min;
+                while (j2 > 0) {
+                    int min = (int) Math.min(segment.limit - i2, j2);
+                    outputStream.write(segment.data, (int) (segment.pos + j), min);
+                    j2 -= min;
                     segment = segment.next;
-                    j2 = 0;
+                    j = 0;
                 }
                 return this;
             }
@@ -1577,81 +1579,81 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2, long j2) {
+    public long indexOf(byte b2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j2)})) == null) ? indexOf(b2, j2, Long.MAX_VALUE) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j)})) == null) ? indexOf(b2, j, Long.MAX_VALUE) : invokeCommon.longValue;
     }
 
     @Override // okio.BufferedSource
-    public long indexOfElement(ByteString byteString, long j2) {
+    public long indexOfElement(ByteString byteString, long j) {
         InterceptResult invokeLJ;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048602, this, byteString, j2)) == null) {
-            long j3 = 0;
-            if (j2 >= 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048602, this, byteString, j)) == null) {
+            long j2 = 0;
+            if (j >= 0) {
                 Segment segment = this.head;
                 if (segment == null) {
                     return -1L;
                 }
-                long j4 = this.size;
-                if (j4 - j2 < j2) {
-                    while (j4 > j2) {
+                long j3 = this.size;
+                if (j3 - j < j) {
+                    while (j3 > j) {
                         segment = segment.prev;
-                        j4 -= segment.limit - segment.pos;
+                        j3 -= segment.limit - segment.pos;
                     }
                 } else {
                     while (true) {
-                        long j5 = (segment.limit - segment.pos) + j3;
-                        if (j5 >= j2) {
+                        long j4 = (segment.limit - segment.pos) + j2;
+                        if (j4 >= j) {
                             break;
                         }
                         segment = segment.next;
-                        j3 = j5;
+                        j2 = j4;
                     }
-                    j4 = j3;
+                    j3 = j2;
                 }
                 if (byteString.size() == 2) {
                     byte b2 = byteString.getByte(0);
                     byte b3 = byteString.getByte(1);
-                    while (j4 < this.size) {
+                    while (j3 < this.size) {
                         byte[] bArr = segment.data;
-                        i2 = (int) ((segment.pos + j2) - j4);
+                        i2 = (int) ((segment.pos + j) - j3);
                         int i4 = segment.limit;
                         while (i2 < i4) {
                             byte b4 = bArr[i2];
                             if (b4 == b2 || b4 == b3) {
                                 i3 = segment.pos;
-                                return (i2 - i3) + j4;
+                                return (i2 - i3) + j3;
                             }
                             i2++;
                         }
-                        j4 += segment.limit - segment.pos;
+                        j3 += segment.limit - segment.pos;
                         segment = segment.next;
-                        j2 = j4;
+                        j = j3;
                     }
                     return -1L;
                 }
                 byte[] internalArray = byteString.internalArray();
-                while (j4 < this.size) {
+                while (j3 < this.size) {
                     byte[] bArr2 = segment.data;
-                    i2 = (int) ((segment.pos + j2) - j4);
+                    i2 = (int) ((segment.pos + j) - j3);
                     int i5 = segment.limit;
                     while (i2 < i5) {
                         byte b5 = bArr2[i2];
                         for (byte b6 : internalArray) {
                             if (b5 == b6) {
                                 i3 = segment.pos;
-                                return (i2 - i3) + j4;
+                                return (i2 - i3) + j3;
                             }
                         }
                         i2++;
                     }
-                    j4 += segment.limit - segment.pos;
+                    j3 += segment.limit - segment.pos;
                     segment = segment.next;
-                    j2 = j4;
+                    j = j3;
                 }
                 return -1L;
             }
@@ -1661,15 +1663,15 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public boolean rangeEquals(long j2, ByteString byteString, int i2, int i3) {
+    public boolean rangeEquals(long j, ByteString byteString, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j2), byteString, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (j2 < 0 || i2 < 0 || i3 < 0 || this.size - j2 < i3 || byteString.size() - i2 < i3) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), byteString, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (j < 0 || i2 < 0 || i3 < 0 || this.size - j < i3 || byteString.size() - i2 < i3) {
                 return false;
             }
             for (int i4 = 0; i4 < i3; i4++) {
-                if (getByte(i4 + j2) != byteString.getByte(i2 + i4)) {
+                if (getByte(i4 + j) != byteString.getByte(i2 + i4)) {
                     return false;
                 }
             }
@@ -1717,21 +1719,21 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public ByteString readByteString(long j2) throws EOFException {
+    public ByteString readByteString(long j) throws EOFException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j2)) == null) ? new ByteString(readByteArray(j2)) : (ByteString) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j)) == null) ? new ByteString(readByteArray(j)) : (ByteString) invokeJ.objValue;
     }
 
-    public final Buffer readFrom(InputStream inputStream, long j2) throws IOException {
+    public final Buffer readFrom(InputStream inputStream, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048623, this, inputStream, j2)) == null) {
-            if (j2 >= 0) {
-                readFrom(inputStream, j2, false);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048623, this, inputStream, j)) == null) {
+            if (j >= 0) {
+                readFrom(inputStream, j, false);
                 return this;
             }
-            throw new IllegalArgumentException("byteCount < 0: " + j2);
+            throw new IllegalArgumentException("byteCount < 0: " + j);
         }
         return (Buffer) invokeLJ.objValue;
     }
@@ -1751,24 +1753,24 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public String readUtf8LineStrict(long j2) throws EOFException {
+    public String readUtf8LineStrict(long j) throws EOFException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048643, this, j2)) == null) {
-            if (j2 >= 0) {
-                long j3 = j2 != Long.MAX_VALUE ? j2 + 1 : Long.MAX_VALUE;
-                long indexOf = indexOf((byte) 10, 0L, j3);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048643, this, j)) == null) {
+            if (j >= 0) {
+                long j2 = j != Long.MAX_VALUE ? j + 1 : Long.MAX_VALUE;
+                long indexOf = indexOf((byte) 10, 0L, j2);
                 if (indexOf != -1) {
                     return readUtf8Line(indexOf);
                 }
-                if (j3 < size() && getByte(j3 - 1) == 13 && getByte(j3) == 10) {
-                    return readUtf8Line(j3);
+                if (j2 < size() && getByte(j2 - 1) == 13 && getByte(j2) == 10) {
+                    return readUtf8Line(j2);
                 }
                 Buffer buffer = new Buffer();
                 copyTo(buffer, 0L, Math.min(32L, size()));
-                throw new EOFException("\\n not found: limit=" + Math.min(size(), j2) + " content=" + buffer.readByteString().hex() + Typography.ellipsis);
+                throw new EOFException("\\n not found: limit=" + Math.min(size(), j) + " content=" + buffer.readByteString().hex() + Typography.ellipsis);
             }
-            throw new IllegalArgumentException("limit < 0: " + j2);
+            throw new IllegalArgumentException("limit < 0: " + j);
         }
         return (String) invokeJ.objValue;
     }
@@ -1792,30 +1794,30 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // okio.BufferedSink
-    public Buffer writeDecimalLong(long j2) {
+    public Buffer writeDecimalLong(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048671, this, j2)) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048671, this, j)) == null) {
+            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i2 == 0) {
                 return writeByte(48);
             }
             boolean z = false;
             int i3 = 1;
             if (i2 < 0) {
-                j2 = -j2;
-                if (j2 < 0) {
+                j = -j;
+                if (j < 0) {
                     return writeUtf8("-9223372036854775808");
                 }
                 z = true;
             }
-            if (j2 >= 100000000) {
-                i3 = j2 < BasicLabelFormatter.TRILLION ? j2 < 10000000000L ? j2 < 1000000000 ? 9 : 10 : j2 < 100000000000L ? 11 : 12 : j2 < 1000000000000000L ? j2 < 10000000000000L ? 13 : j2 < 100000000000000L ? 14 : 15 : j2 < 100000000000000000L ? j2 < 10000000000000000L ? 16 : 17 : j2 < 1000000000000000000L ? 18 : 19;
-            } else if (j2 >= 10000) {
-                i3 = j2 < 1000000 ? j2 < 100000 ? 5 : 6 : j2 < 10000000 ? 7 : 8;
-            } else if (j2 >= 100) {
-                i3 = j2 < 1000 ? 3 : 4;
-            } else if (j2 >= 10) {
+            if (j >= CoolPraiseView.BILLION) {
+                i3 = j < BasicLabelFormatter.TRILLION ? j < 10000000000L ? j < 1000000000 ? 9 : 10 : j < 100000000000L ? 11 : 12 : j < 1000000000000000L ? j < 10000000000000L ? 13 : j < 100000000000000L ? 14 : 15 : j < 100000000000000000L ? j < 10000000000000000L ? 16 : 17 : j < 1000000000000000000L ? 18 : 19;
+            } else if (j >= 10000) {
+                i3 = j < 1000000 ? j < 100000 ? 5 : 6 : j < 10000000 ? 7 : 8;
+            } else if (j >= 100) {
+                i3 = j < 1000 ? 3 : 4;
+            } else if (j >= 10) {
                 i3 = 2;
             }
             if (z) {
@@ -1824,10 +1826,10 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
             Segment writableSegment = writableSegment(i3);
             byte[] bArr = writableSegment.data;
             int i4 = writableSegment.limit + i3;
-            while (j2 != 0) {
+            while (j != 0) {
                 i4--;
-                bArr[i4] = DIGITS[(int) (j2 % 10)];
-                j2 /= 10;
+                bArr[i4] = DIGITS[(int) (j % 10)];
+                j /= 10;
             }
             if (z) {
                 bArr[i4 - 1] = UtilsBlink.VER_TYPE_SEPARATOR;
@@ -1841,20 +1843,20 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // okio.BufferedSink
-    public Buffer writeHexadecimalUnsignedLong(long j2) {
+    public Buffer writeHexadecimalUnsignedLong(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048673, this, j2)) == null) {
-            if (j2 == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048673, this, j)) == null) {
+            if (j == 0) {
                 return writeByte(48);
             }
-            int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j2)) / 4) + 1;
+            int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j)) / 4) + 1;
             Segment writableSegment = writableSegment(numberOfTrailingZeros);
             byte[] bArr = writableSegment.data;
             int i2 = writableSegment.limit;
             for (int i3 = (i2 + numberOfTrailingZeros) - 1; i3 >= i2; i3--) {
-                bArr[i3] = DIGITS[(int) (15 & j2)];
-                j2 >>>= 4;
+                bArr[i3] = DIGITS[(int) (15 & j)];
+                j >>>= 4;
             }
             writableSegment.limit += numberOfTrailingZeros;
             this.size += numberOfTrailingZeros;
@@ -1896,28 +1898,28 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // okio.BufferedSink
-    public Buffer writeLong(long j2) {
+    public Buffer writeLong(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048679, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048679, this, j)) == null) {
             Segment writableSegment = writableSegment(8);
             byte[] bArr = writableSegment.data;
             int i2 = writableSegment.limit;
             int i3 = i2 + 1;
-            bArr[i2] = (byte) ((j2 >>> 56) & 255);
+            bArr[i2] = (byte) ((j >>> 56) & 255);
             int i4 = i3 + 1;
-            bArr[i3] = (byte) ((j2 >>> 48) & 255);
+            bArr[i3] = (byte) ((j >>> 48) & 255);
             int i5 = i4 + 1;
-            bArr[i4] = (byte) ((j2 >>> 40) & 255);
+            bArr[i4] = (byte) ((j >>> 40) & 255);
             int i6 = i5 + 1;
-            bArr[i5] = (byte) ((j2 >>> 32) & 255);
+            bArr[i5] = (byte) ((j >>> 32) & 255);
             int i7 = i6 + 1;
-            bArr[i6] = (byte) ((j2 >>> 24) & 255);
+            bArr[i6] = (byte) ((j >>> 24) & 255);
             int i8 = i7 + 1;
-            bArr[i7] = (byte) ((j2 >>> 16) & 255);
+            bArr[i7] = (byte) ((j >>> 16) & 255);
             int i9 = i8 + 1;
-            bArr[i8] = (byte) ((j2 >>> 8) & 255);
-            bArr[i9] = (byte) (j2 & 255);
+            bArr[i8] = (byte) ((j >>> 8) & 255);
+            bArr[i9] = (byte) (j & 255);
             writableSegment.limit = i9 + 1;
             this.size += 8;
             return this;
@@ -1927,10 +1929,10 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // okio.BufferedSink
-    public Buffer writeLongLe(long j2) {
+    public Buffer writeLongLe(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048681, this, j2)) == null) ? writeLong(Util.reverseBytesLong(j2)) : (Buffer) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048681, this, j)) == null) ? writeLong(Util.reverseBytesLong(j)) : (Buffer) invokeJ.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -1960,21 +1962,21 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         return (interceptable == null || (invokeI = interceptable.invokeI(1048685, this, i2)) == null) ? writeShort((int) Util.reverseBytesShort((short) i2)) : (Buffer) invokeI.objValue;
     }
 
-    public final Buffer writeTo(OutputStream outputStream, long j2) throws IOException {
+    public final Buffer writeTo(OutputStream outputStream, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048692, this, outputStream, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048692, this, outputStream, j)) == null) {
             if (outputStream != null) {
-                Util.checkOffsetAndCount(this.size, 0L, j2);
+                Util.checkOffsetAndCount(this.size, 0L, j);
                 Segment segment = this.head;
-                while (j2 > 0) {
-                    int min = (int) Math.min(j2, segment.limit - segment.pos);
+                while (j > 0) {
+                    int min = (int) Math.min(j, segment.limit - segment.pos);
                     outputStream.write(segment.data, segment.pos, min);
                     int i2 = segment.pos + min;
                     segment.pos = i2;
-                    long j3 = min;
-                    this.size -= j3;
-                    j2 -= j3;
+                    long j2 = min;
+                    this.size -= j2;
+                    j -= j2;
                     if (i2 == segment.limit) {
                         Segment pop = segment.pop();
                         this.head = pop;
@@ -2022,93 +2024,93 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2, long j2, long j3) {
+    public long indexOf(byte b2, long j, long j2) {
         InterceptResult invokeCommon;
         Segment segment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j4 = 0;
-            if (j2 >= 0 && j3 >= j2) {
-                long j5 = this.size;
-                if (j3 <= j5) {
-                    j5 = j3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = 0;
+            if (j >= 0 && j2 >= j) {
+                long j4 = this.size;
+                if (j2 <= j4) {
+                    j4 = j2;
                 }
-                if (j2 == j5 || (segment = this.head) == null) {
+                if (j == j4 || (segment = this.head) == null) {
                     return -1L;
                 }
-                long j6 = this.size;
-                if (j6 - j2 < j2) {
-                    while (j6 > j2) {
+                long j5 = this.size;
+                if (j5 - j < j) {
+                    while (j5 > j) {
                         segment = segment.prev;
-                        j6 -= segment.limit - segment.pos;
+                        j5 -= segment.limit - segment.pos;
                     }
                 } else {
                     while (true) {
-                        long j7 = (segment.limit - segment.pos) + j4;
-                        if (j7 >= j2) {
+                        long j6 = (segment.limit - segment.pos) + j3;
+                        if (j6 >= j) {
                             break;
                         }
                         segment = segment.next;
-                        j4 = j7;
+                        j3 = j6;
                     }
-                    j6 = j4;
+                    j5 = j3;
                 }
-                long j8 = j2;
-                while (j6 < j5) {
+                long j7 = j;
+                while (j5 < j4) {
                     byte[] bArr = segment.data;
-                    int min = (int) Math.min(segment.limit, (segment.pos + j5) - j6);
-                    for (int i2 = (int) ((segment.pos + j8) - j6); i2 < min; i2++) {
+                    int min = (int) Math.min(segment.limit, (segment.pos + j4) - j5);
+                    for (int i2 = (int) ((segment.pos + j7) - j5); i2 < min; i2++) {
                         if (bArr[i2] == b2) {
-                            return (i2 - segment.pos) + j6;
+                            return (i2 - segment.pos) + j5;
                         }
                     }
-                    j6 += segment.limit - segment.pos;
+                    j5 += segment.limit - segment.pos;
                     segment = segment.next;
-                    j8 = j6;
+                    j7 = j5;
                 }
                 return -1L;
             }
-            throw new IllegalArgumentException(String.format("size=%s fromIndex=%s toIndex=%s", Long.valueOf(this.size), Long.valueOf(j2), Long.valueOf(j3)));
+            throw new IllegalArgumentException(String.format("size=%s fromIndex=%s toIndex=%s", Long.valueOf(this.size), Long.valueOf(j), Long.valueOf(j2)));
         }
         return invokeCommon.longValue;
     }
 
     @Override // okio.BufferedSource
-    public byte[] readByteArray(long j2) throws EOFException {
+    public byte[] readByteArray(long j) throws EOFException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j2)) == null) {
-            Util.checkOffsetAndCount(this.size, 0L, j2);
-            if (j2 <= 2147483647L) {
-                byte[] bArr = new byte[(int) j2];
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j)) == null) {
+            Util.checkOffsetAndCount(this.size, 0L, j);
+            if (j <= 2147483647L) {
+                byte[] bArr = new byte[(int) j];
                 readFully(bArr);
                 return bArr;
             }
-            throw new IllegalArgumentException("byteCount > Integer.MAX_VALUE: " + j2);
+            throw new IllegalArgumentException("byteCount > Integer.MAX_VALUE: " + j);
         }
         return (byte[]) invokeJ.objValue;
     }
 
     @Override // okio.BufferedSource
-    public String readString(long j2, Charset charset) throws EOFException {
+    public String readString(long j, Charset charset) throws EOFException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048633, this, j2, charset)) == null) {
-            Util.checkOffsetAndCount(this.size, 0L, j2);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048633, this, j, charset)) == null) {
+            Util.checkOffsetAndCount(this.size, 0L, j);
             if (charset != null) {
-                if (j2 > 2147483647L) {
-                    throw new IllegalArgumentException("byteCount > Integer.MAX_VALUE: " + j2);
-                } else if (j2 == 0) {
+                if (j > 2147483647L) {
+                    throw new IllegalArgumentException("byteCount > Integer.MAX_VALUE: " + j);
+                } else if (j == 0) {
                     return "";
                 } else {
                     Segment segment = this.head;
-                    if (segment.pos + j2 > segment.limit) {
-                        return new String(readByteArray(j2), charset);
+                    if (segment.pos + j > segment.limit) {
+                        return new String(readByteArray(j), charset);
                     }
-                    String str = new String(segment.data, segment.pos, (int) j2, charset);
-                    int i2 = (int) (segment.pos + j2);
+                    String str = new String(segment.data, segment.pos, (int) j, charset);
+                    int i2 = (int) (segment.pos + j);
                     segment.pos = i2;
-                    this.size -= j2;
+                    this.size -= j;
                     if (i2 == segment.limit) {
                         this.head = segment.pop();
                         SegmentPool.recycle(segment);
@@ -2122,10 +2124,10 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public String readUtf8(long j2) throws EOFException {
+    public String readUtf8(long j) throws EOFException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048638, this, j2)) == null) ? readString(j2, Util.UTF_8) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048638, this, j)) == null) ? readString(j, Util.UTF_8) : (String) invokeJ.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -2144,20 +2146,20 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         return (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, str)) == null) ? writeUtf8(str, 0, str.length()) : (Buffer) invokeL.objValue;
     }
 
-    private void readFrom(InputStream inputStream, long j2, boolean z) throws IOException {
+    private void readFrom(InputStream inputStream, long j, boolean z) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{inputStream, Long.valueOf(j2), Boolean.valueOf(z)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{inputStream, Long.valueOf(j), Boolean.valueOf(z)}) != null) {
             return;
         }
         if (inputStream == null) {
             throw new IllegalArgumentException("in == null");
         }
         while (true) {
-            if (j2 <= 0 && !z) {
+            if (j <= 0 && !z) {
                 return;
             }
             Segment writableSegment = writableSegment(1);
-            int read = inputStream.read(writableSegment.data, writableSegment.limit, (int) Math.min(j2, 8192 - writableSegment.limit));
+            int read = inputStream.read(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
             if (read == -1) {
                 if (!z) {
                     throw new EOFException();
@@ -2165,25 +2167,25 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 return;
             }
             writableSegment.limit += read;
-            long j3 = read;
-            this.size += j3;
-            j2 -= j3;
+            long j2 = read;
+            this.size += j2;
+            j -= j2;
         }
     }
 
-    public String readUtf8Line(long j2) throws EOFException {
+    public String readUtf8Line(long j) throws EOFException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048641, this, j2)) == null) {
-            if (j2 > 0) {
-                long j3 = j2 - 1;
-                if (getByte(j3) == 13) {
-                    String readUtf8 = readUtf8(j3);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048641, this, j)) == null) {
+            if (j > 0) {
+                long j2 = j - 1;
+                if (getByte(j2) == 13) {
+                    String readUtf8 = readUtf8(j2);
                     skip(2L);
                     return readUtf8;
                 }
             }
-            String readUtf82 = readUtf8(j2);
+            String readUtf82 = readUtf8(j);
             skip(1L);
             return readUtf82;
         }
@@ -2378,8 +2380,8 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048662, this, bArr, i2, i3)) == null) {
             if (bArr != null) {
-                long j2 = i3;
-                Util.checkOffsetAndCount(bArr.length, i2, j2);
+                long j = i3;
+                Util.checkOffsetAndCount(bArr.length, i2, j);
                 int i4 = i3 + i2;
                 while (i2 < i4) {
                     Segment writableSegment = writableSegment(1);
@@ -2388,7 +2390,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                     i2 += min;
                     writableSegment.limit += min;
                 }
-                this.size += j2;
+                this.size += j;
                 return this;
             }
             throw new IllegalArgumentException("source == null");
@@ -2396,31 +2398,31 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         return (Buffer) invokeLII.objValue;
     }
 
-    public final Buffer copyTo(Buffer buffer, long j2, long j3) {
+    public final Buffer copyTo(Buffer buffer, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{buffer, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{buffer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (buffer != null) {
-                Util.checkOffsetAndCount(this.size, j2, j3);
-                if (j3 == 0) {
+                Util.checkOffsetAndCount(this.size, j, j2);
+                if (j2 == 0) {
                     return this;
                 }
-                buffer.size += j3;
+                buffer.size += j2;
                 Segment segment = this.head;
                 while (true) {
                     int i2 = segment.limit;
                     int i3 = segment.pos;
-                    if (j2 < i2 - i3) {
+                    if (j < i2 - i3) {
                         break;
                     }
-                    j2 -= i2 - i3;
+                    j -= i2 - i3;
                     segment = segment.next;
                 }
-                while (j3 > 0) {
+                while (j2 > 0) {
                     Segment sharedCopy = segment.sharedCopy();
-                    int i4 = (int) (sharedCopy.pos + j2);
+                    int i4 = (int) (sharedCopy.pos + j);
                     sharedCopy.pos = i4;
-                    sharedCopy.limit = Math.min(i4 + ((int) j3), sharedCopy.limit);
+                    sharedCopy.limit = Math.min(i4 + ((int) j2), sharedCopy.limit);
                     Segment segment2 = buffer.head;
                     if (segment2 == null) {
                         sharedCopy.prev = sharedCopy;
@@ -2429,9 +2431,9 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                     } else {
                         segment2.prev.push(sharedCopy);
                     }
-                    j3 -= sharedCopy.limit - sharedCopy.pos;
+                    j2 -= sharedCopy.limit - sharedCopy.pos;
                     segment = segment.next;
-                    j2 = 0;
+                    j = 0;
                 }
                 return this;
             }
@@ -2494,23 +2496,23 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.Source
-    public long read(Buffer buffer, long j2) {
+    public long read(Buffer buffer, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048612, this, buffer, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048612, this, buffer, j)) == null) {
             if (buffer != null) {
-                if (j2 >= 0) {
-                    long j3 = this.size;
-                    if (j3 == 0) {
+                if (j >= 0) {
+                    long j2 = this.size;
+                    if (j2 == 0) {
                         return -1L;
                     }
-                    if (j2 > j3) {
-                        j2 = j3;
+                    if (j > j2) {
+                        j = j2;
                     }
-                    buffer.write(this, j2);
-                    return j2;
+                    buffer.write(this, j);
+                    return j;
                 }
-                throw new IllegalArgumentException("byteCount < 0: " + j2);
+                throw new IllegalArgumentException("byteCount < 0: " + j);
             }
             throw new IllegalArgumentException("sink == null");
         }
@@ -2518,51 +2520,51 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(ByteString byteString, long j2) throws IOException {
+    public long indexOf(ByteString byteString, long j) throws IOException {
         InterceptResult invokeLJ;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048600, this, byteString, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048600, this, byteString, j)) == null) {
             if (byteString.size() != 0) {
-                long j3 = 0;
-                if (j2 >= 0) {
+                long j2 = 0;
+                if (j >= 0) {
                     Segment segment = this.head;
-                    long j4 = -1;
+                    long j3 = -1;
                     if (segment == null) {
                         return -1L;
                     }
-                    long j5 = this.size;
-                    if (j5 - j2 < j2) {
-                        while (j5 > j2) {
+                    long j4 = this.size;
+                    if (j4 - j < j) {
+                        while (j4 > j) {
                             segment = segment.prev;
-                            j5 -= segment.limit - segment.pos;
+                            j4 -= segment.limit - segment.pos;
                         }
                     } else {
                         while (true) {
-                            long j6 = (segment.limit - segment.pos) + j3;
-                            if (j6 >= j2) {
+                            long j5 = (segment.limit - segment.pos) + j2;
+                            if (j5 >= j) {
                                 break;
                             }
                             segment = segment.next;
-                            j3 = j6;
+                            j2 = j5;
                         }
-                        j5 = j3;
+                        j4 = j2;
                     }
                     byte b2 = byteString.getByte(0);
                     int size = byteString.size();
-                    long j7 = 1 + (this.size - size);
-                    long j8 = j2;
+                    long j6 = 1 + (this.size - size);
+                    long j7 = j;
                     Segment segment2 = segment;
-                    long j9 = j5;
-                    while (j9 < j7) {
+                    long j8 = j4;
+                    while (j8 < j6) {
                         byte[] bArr2 = segment2.data;
-                        int min = (int) Math.min(segment2.limit, (segment2.pos + j7) - j9);
-                        int i2 = (int) ((segment2.pos + j8) - j9);
+                        int min = (int) Math.min(segment2.limit, (segment2.pos + j6) - j8);
+                        int i2 = (int) ((segment2.pos + j7) - j8);
                         while (i2 < min) {
                             if (bArr2[i2] == b2) {
                                 bArr = bArr2;
                                 if (rangeEquals(segment2, i2 + 1, byteString, 1, size)) {
-                                    return (i2 - segment2.pos) + j9;
+                                    return (i2 - segment2.pos) + j8;
                                 }
                             } else {
                                 bArr = bArr2;
@@ -2570,12 +2572,12 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                             i2++;
                             bArr2 = bArr;
                         }
-                        j9 += segment2.limit - segment2.pos;
+                        j8 += segment2.limit - segment2.pos;
                         segment2 = segment2.next;
-                        j8 = j9;
-                        j4 = -1;
+                        j7 = j8;
+                        j3 = -1;
                     }
-                    return j4;
+                    return j3;
                 }
                 throw new IllegalArgumentException("fromIndex < 0");
             }
@@ -2585,16 +2587,16 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink write(Source source, long j2) throws IOException {
+    public BufferedSink write(Source source, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048664, this, source, j2)) == null) {
-            while (j2 > 0) {
-                long read = source.read(this, j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048664, this, source, j)) == null) {
+            while (j > 0) {
+                long read = source.read(this, j);
                 if (read == -1) {
                     throw new EOFException();
                 }
-                j2 -= read;
+                j -= read;
             }
             return this;
         }
@@ -2602,31 +2604,31 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     }
 
     @Override // okio.Sink
-    public void write(Buffer buffer, long j2) {
+    public void write(Buffer buffer, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048667, this, buffer, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048667, this, buffer, j) == null) {
             if (buffer == null) {
                 throw new IllegalArgumentException("source == null");
             }
             if (buffer != this) {
-                Util.checkOffsetAndCount(buffer.size, 0L, j2);
-                while (j2 > 0) {
+                Util.checkOffsetAndCount(buffer.size, 0L, j);
+                while (j > 0) {
                     Segment segment = buffer.head;
-                    if (j2 < segment.limit - segment.pos) {
+                    if (j < segment.limit - segment.pos) {
                         Segment segment2 = this.head;
                         Segment segment3 = segment2 != null ? segment2.prev : null;
                         if (segment3 != null && segment3.owner) {
-                            if ((segment3.limit + j2) - (segment3.shared ? 0 : segment3.pos) <= 8192) {
-                                buffer.head.writeTo(segment3, (int) j2);
-                                buffer.size -= j2;
-                                this.size += j2;
+                            if ((segment3.limit + j) - (segment3.shared ? 0 : segment3.pos) <= 8192) {
+                                buffer.head.writeTo(segment3, (int) j);
+                                buffer.size -= j;
+                                this.size += j;
                                 return;
                             }
                         }
-                        buffer.head = buffer.head.split((int) j2);
+                        buffer.head = buffer.head.split((int) j);
                     }
                     Segment segment4 = buffer.head;
-                    long j3 = segment4.limit - segment4.pos;
+                    long j2 = segment4.limit - segment4.pos;
                     buffer.head = segment4.pop();
                     Segment segment5 = this.head;
                     if (segment5 == null) {
@@ -2636,9 +2638,9 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                     } else {
                         segment5.prev.push(segment4).compact();
                     }
-                    buffer.size -= j3;
-                    this.size += j3;
-                    j2 -= j3;
+                    buffer.size -= j2;
+                    this.size += j2;
+                    j -= j2;
                 }
                 return;
             }

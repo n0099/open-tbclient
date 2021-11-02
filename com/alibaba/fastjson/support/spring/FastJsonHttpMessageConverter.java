@@ -33,7 +33,7 @@ import org.springframework.http.converter.GenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.util.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> implements GenericHttpMessageConverter<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType APPLICATION_JAVASCRIPT;
@@ -46,7 +46,7 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
     @Deprecated
     public SerializeFilter[] filters;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Spring4TypeResolvableHelper {
         public static /* synthetic */ Interceptable $ic;
         public static boolean hasClazzResolvableType;

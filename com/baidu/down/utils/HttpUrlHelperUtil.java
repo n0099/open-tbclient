@@ -13,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.net.URLEncoder;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpUrlHelperUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -155,18 +155,18 @@ public class HttpUrlHelperUtil {
         return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) ? new String(new byte[]{(byte) i2}) : (String) invokeI.objValue;
     }
 
-    public static String writeHexadecimalUnsignedLong(long j2) {
+    public static String writeHexadecimalUnsignedLong(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j2)) == null) {
-            if (j2 == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+            if (j == 0) {
                 return writeByte(48);
             }
-            int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j2)) / 4) + 1;
+            int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j)) / 4) + 1;
             byte[] bArr = new byte[numberOfTrailingZeros];
             for (int i2 = numberOfTrailingZeros - 1; i2 >= 0; i2--) {
-                bArr[i2] = DIGITS[(int) (15 & j2)];
-                j2 >>>= 4;
+                bArr[i2] = DIGITS[(int) (15 & j)];
+                j >>>= 4;
             }
             try {
                 return URLEncoder.encode(new String(bArr), "utf-8");

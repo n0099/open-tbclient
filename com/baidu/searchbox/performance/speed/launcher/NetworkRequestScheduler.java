@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NetworkRequestScheduler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,11 +25,11 @@ public class NetworkRequestScheduler {
         }
     }
 
-    public static synchronized void execute(Runnable runnable, String str, long j2, boolean z) {
+    public static synchronized void execute(Runnable runnable, String str, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             synchronized (NetworkRequestScheduler.class) {
-                new Handler(Looper.getMainLooper()).postDelayed(runnable, j2);
+                new Handler(Looper.getMainLooper()).postDelayed(runnable, j);
             }
         }
     }

@@ -16,10 +16,10 @@ import javax.annotation.meta.When;
 @TypeQualifier(applicableTo = String.class)
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public @interface MatchesPattern {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Checker implements TypeQualifierValidator<MatchesPattern> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

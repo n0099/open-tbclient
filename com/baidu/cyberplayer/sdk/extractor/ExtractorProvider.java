@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class ExtractorProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public abstract class ExtractorProvider {
 
     public abstract void setDataSource(String str);
 
-    public void setOption(int i2, String str, long j2) {
+    public void setOption(int i2, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}) == null) {
         }
     }
 }

@@ -4,9 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.q0.h0.b;
-import c.a.q0.h0.c;
-import c.a.r0.x0.i0;
+import b.a.q0.h0.b;
+import b.a.q0.h0.c;
+import b.a.r0.x0.i0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsGameStrategyFragmentDelegateStatic extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,15 +62,15 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             i0 i0Var = (i0) customResponsedMessage.getData();
             FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
             i0Var.a(frsGameStrategyFragmentDelegateStatic);
-            if (i0Var.b() == null || (fragmentTabStructure = frsGameStrategyFragmentDelegateStatic.getFragmentTabStructure()) == null) {
+            if (i0Var.getContext() == null || (fragmentTabStructure = frsGameStrategyFragmentDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
             Bundle bundle = new Bundle();
-            bundle.putString("name", i0Var.e());
+            bundle.putString("name", i0Var.d());
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-            fragmentTabStructure.f13471a.setArguments(bundle);
+            fragmentTabStructure.f12612a.setArguments(bundle);
         }
     }
 
@@ -104,21 +104,21 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.q0.h0.b
+    @Override // b.a.q0.h0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f13471a = new FrsGameStrategyMainFragment();
-            cVar.f13475e = 3;
-            cVar.f13479i = c.k;
+            cVar.f12612a = new FrsGameStrategyMainFragment();
+            cVar.f12616e = 3;
+            cVar.f12620i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.q0.h0.b
+    @Override // b.a.q0.h0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.q0.h0.b
+    @Override // b.a.q0.h0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

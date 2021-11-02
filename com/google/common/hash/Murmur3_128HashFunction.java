@@ -1,9 +1,9 @@
 package com.google.common.hash;
 
-import c.i.d.d.b;
-import c.i.d.d.d;
-import c.i.d.d.e;
-import c.i.d.d.f;
+import b.i.d.d.b;
+import b.i.d.d.d;
+import b.i.d.d.e;
+import b.i.d.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Murmur3_128HashFunction extends b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final e GOOD_FAST_HASH_128;
@@ -25,19 +25,19 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public final int seed;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f71161d;
+        public long f63648d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f71162e;
+        public long f63649e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f71163f;
+        public int f63650f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2) {
@@ -57,234 +57,234 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     return;
                 }
             }
-            long j2 = i2;
-            this.f71161d = j2;
-            this.f71162e = j2;
-            this.f71163f = 0;
+            long j = i2;
+            this.f63648d = j;
+            this.f63649e = j;
+            this.f63650f = 0;
         }
 
-        public static long s(long j2) {
+        public static long s(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) {
-                long j3 = (j2 ^ (j2 >>> 33)) * (-49064778989728563L);
-                long j4 = (j3 ^ (j3 >>> 33)) * (-4265267296055464877L);
-                return j4 ^ (j4 >>> 33);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+                long j2 = (j ^ (j >>> 33)) * (-49064778989728563L);
+                long j3 = (j2 ^ (j2 >>> 33)) * (-4265267296055464877L);
+                return j3 ^ (j3 >>> 33);
             }
             return invokeJ.longValue;
         }
 
-        public static long t(long j2) {
+        public static long t(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? Long.rotateLeft(j2 * (-8663945395140668459L), 31) * 5545529020109919103L : invokeJ.longValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? Long.rotateLeft(j * (-8663945395140668459L), 31) * 5545529020109919103L : invokeJ.longValue;
         }
 
-        public static long u(long j2) {
+        public static long u(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? Long.rotateLeft(j2 * 5545529020109919103L, 33) * (-8663945395140668459L) : invokeJ.longValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? Long.rotateLeft(j * 5545529020109919103L, 33) * (-8663945395140668459L) : invokeJ.longValue;
         }
 
-        @Override // c.i.d.d.d
+        @Override // b.i.d.d.d
         public HashCode l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long j2 = this.f71161d;
-                int i2 = this.f71163f;
-                long j3 = j2 ^ i2;
-                this.f71161d = j3;
-                long j4 = this.f71162e ^ i2;
-                this.f71162e = j4;
-                long j5 = j3 + j4;
-                this.f71161d = j5;
-                this.f71162e = j4 + j5;
-                this.f71161d = s(j5);
-                long s = s(this.f71162e);
-                this.f71162e = s;
-                long j6 = this.f71161d + s;
-                this.f71161d = j6;
-                this.f71162e = s + j6;
-                return HashCode.fromBytesNoCopy(ByteBuffer.wrap(new byte[16]).order(ByteOrder.LITTLE_ENDIAN).putLong(this.f71161d).putLong(this.f71162e).array());
+                long j = this.f63648d;
+                int i2 = this.f63650f;
+                long j2 = j ^ i2;
+                this.f63648d = j2;
+                long j3 = this.f63649e ^ i2;
+                this.f63649e = j3;
+                long j4 = j2 + j3;
+                this.f63648d = j4;
+                this.f63649e = j3 + j4;
+                this.f63648d = s(j4);
+                long s = s(this.f63649e);
+                this.f63649e = s;
+                long j5 = this.f63648d + s;
+                this.f63648d = j5;
+                this.f63649e = s + j5;
+                return HashCode.fromBytesNoCopy(ByteBuffer.wrap(new byte[16]).order(ByteOrder.LITTLE_ENDIAN).putLong(this.f63648d).putLong(this.f63649e).array());
             }
             return (HashCode) invokeV.objValue;
         }
 
-        @Override // c.i.d.d.d
+        @Override // b.i.d.d.d
         public void o(ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
                 r(byteBuffer.getLong(), byteBuffer.getLong());
-                this.f71163f += 16;
+                this.f63650f += 16;
             }
         }
 
-        @Override // c.i.d.d.d
+        @Override // b.i.d.d.d
         public void p(ByteBuffer byteBuffer) {
+            long j;
             long j2;
             long j3;
             long j4;
             long j5;
             long j6;
-            long j7;
             long c2;
+            long j7;
             long j8;
             long j9;
             long j10;
             long j11;
             long j12;
             long j13;
-            long j14;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-                this.f71163f += byteBuffer.remaining();
-                long j15 = 0;
+                this.f63650f += byteBuffer.remaining();
+                long j14 = 0;
                 switch (byteBuffer.remaining()) {
                     case 1:
-                        j2 = 0;
-                        c2 = c.i.d.g.b.c(byteBuffer.get(0)) ^ j2;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j = 0;
+                        c2 = b.i.d.g.b.c(byteBuffer.get(0)) ^ j;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 2:
-                        j3 = 0;
-                        j2 = j3 ^ (c.i.d.g.b.c(byteBuffer.get(1)) << 8);
-                        c2 = c.i.d.g.b.c(byteBuffer.get(0)) ^ j2;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j2 = 0;
+                        j = j2 ^ (b.i.d.g.b.c(byteBuffer.get(1)) << 8);
+                        c2 = b.i.d.g.b.c(byteBuffer.get(0)) ^ j;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 3:
-                        j4 = 0;
-                        j3 = j4 ^ (c.i.d.g.b.c(byteBuffer.get(2)) << 16);
-                        j2 = j3 ^ (c.i.d.g.b.c(byteBuffer.get(1)) << 8);
-                        c2 = c.i.d.g.b.c(byteBuffer.get(0)) ^ j2;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j3 = 0;
+                        j2 = j3 ^ (b.i.d.g.b.c(byteBuffer.get(2)) << 16);
+                        j = j2 ^ (b.i.d.g.b.c(byteBuffer.get(1)) << 8);
+                        c2 = b.i.d.g.b.c(byteBuffer.get(0)) ^ j;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 4:
-                        j5 = 0;
-                        j4 = j5 ^ (c.i.d.g.b.c(byteBuffer.get(3)) << 24);
-                        j3 = j4 ^ (c.i.d.g.b.c(byteBuffer.get(2)) << 16);
-                        j2 = j3 ^ (c.i.d.g.b.c(byteBuffer.get(1)) << 8);
-                        c2 = c.i.d.g.b.c(byteBuffer.get(0)) ^ j2;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j4 = 0;
+                        j3 = j4 ^ (b.i.d.g.b.c(byteBuffer.get(3)) << 24);
+                        j2 = j3 ^ (b.i.d.g.b.c(byteBuffer.get(2)) << 16);
+                        j = j2 ^ (b.i.d.g.b.c(byteBuffer.get(1)) << 8);
+                        c2 = b.i.d.g.b.c(byteBuffer.get(0)) ^ j;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 5:
-                        j6 = 0;
-                        j5 = j6 ^ (c.i.d.g.b.c(byteBuffer.get(4)) << 32);
-                        j4 = j5 ^ (c.i.d.g.b.c(byteBuffer.get(3)) << 24);
-                        j3 = j4 ^ (c.i.d.g.b.c(byteBuffer.get(2)) << 16);
-                        j2 = j3 ^ (c.i.d.g.b.c(byteBuffer.get(1)) << 8);
-                        c2 = c.i.d.g.b.c(byteBuffer.get(0)) ^ j2;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j5 = 0;
+                        j4 = j5 ^ (b.i.d.g.b.c(byteBuffer.get(4)) << 32);
+                        j3 = j4 ^ (b.i.d.g.b.c(byteBuffer.get(3)) << 24);
+                        j2 = j3 ^ (b.i.d.g.b.c(byteBuffer.get(2)) << 16);
+                        j = j2 ^ (b.i.d.g.b.c(byteBuffer.get(1)) << 8);
+                        c2 = b.i.d.g.b.c(byteBuffer.get(0)) ^ j;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 6:
-                        j7 = 0;
-                        j6 = j7 ^ (c.i.d.g.b.c(byteBuffer.get(5)) << 40);
-                        j5 = j6 ^ (c.i.d.g.b.c(byteBuffer.get(4)) << 32);
-                        j4 = j5 ^ (c.i.d.g.b.c(byteBuffer.get(3)) << 24);
-                        j3 = j4 ^ (c.i.d.g.b.c(byteBuffer.get(2)) << 16);
-                        j2 = j3 ^ (c.i.d.g.b.c(byteBuffer.get(1)) << 8);
-                        c2 = c.i.d.g.b.c(byteBuffer.get(0)) ^ j2;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j6 = 0;
+                        j5 = j6 ^ (b.i.d.g.b.c(byteBuffer.get(5)) << 40);
+                        j4 = j5 ^ (b.i.d.g.b.c(byteBuffer.get(4)) << 32);
+                        j3 = j4 ^ (b.i.d.g.b.c(byteBuffer.get(3)) << 24);
+                        j2 = j3 ^ (b.i.d.g.b.c(byteBuffer.get(2)) << 16);
+                        j = j2 ^ (b.i.d.g.b.c(byteBuffer.get(1)) << 8);
+                        c2 = b.i.d.g.b.c(byteBuffer.get(0)) ^ j;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 7:
-                        j7 = (c.i.d.g.b.c(byteBuffer.get(6)) << 48) ^ 0;
-                        j6 = j7 ^ (c.i.d.g.b.c(byteBuffer.get(5)) << 40);
-                        j5 = j6 ^ (c.i.d.g.b.c(byteBuffer.get(4)) << 32);
-                        j4 = j5 ^ (c.i.d.g.b.c(byteBuffer.get(3)) << 24);
-                        j3 = j4 ^ (c.i.d.g.b.c(byteBuffer.get(2)) << 16);
-                        j2 = j3 ^ (c.i.d.g.b.c(byteBuffer.get(1)) << 8);
-                        c2 = c.i.d.g.b.c(byteBuffer.get(0)) ^ j2;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j6 = (b.i.d.g.b.c(byteBuffer.get(6)) << 48) ^ 0;
+                        j5 = j6 ^ (b.i.d.g.b.c(byteBuffer.get(5)) << 40);
+                        j4 = j5 ^ (b.i.d.g.b.c(byteBuffer.get(4)) << 32);
+                        j3 = j4 ^ (b.i.d.g.b.c(byteBuffer.get(3)) << 24);
+                        j2 = j3 ^ (b.i.d.g.b.c(byteBuffer.get(2)) << 16);
+                        j = j2 ^ (b.i.d.g.b.c(byteBuffer.get(1)) << 8);
+                        c2 = b.i.d.g.b.c(byteBuffer.get(0)) ^ j;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 8:
-                        j8 = 0;
+                        j7 = 0;
                         c2 = byteBuffer.getLong() ^ 0;
-                        j15 = j8;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j14 = j7;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 9:
-                        j9 = 0;
-                        j8 = j9 ^ c.i.d.g.b.c(byteBuffer.get(8));
+                        j8 = 0;
+                        j7 = j8 ^ b.i.d.g.b.c(byteBuffer.get(8));
                         c2 = byteBuffer.getLong() ^ 0;
-                        j15 = j8;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j14 = j7;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 10:
-                        j10 = 0;
-                        j9 = j10 ^ (c.i.d.g.b.c(byteBuffer.get(9)) << 8);
-                        j8 = j9 ^ c.i.d.g.b.c(byteBuffer.get(8));
+                        j9 = 0;
+                        j8 = j9 ^ (b.i.d.g.b.c(byteBuffer.get(9)) << 8);
+                        j7 = j8 ^ b.i.d.g.b.c(byteBuffer.get(8));
                         c2 = byteBuffer.getLong() ^ 0;
-                        j15 = j8;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j14 = j7;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 11:
-                        j11 = 0;
-                        j10 = j11 ^ (c.i.d.g.b.c(byteBuffer.get(10)) << 16);
-                        j9 = j10 ^ (c.i.d.g.b.c(byteBuffer.get(9)) << 8);
-                        j8 = j9 ^ c.i.d.g.b.c(byteBuffer.get(8));
+                        j10 = 0;
+                        j9 = j10 ^ (b.i.d.g.b.c(byteBuffer.get(10)) << 16);
+                        j8 = j9 ^ (b.i.d.g.b.c(byteBuffer.get(9)) << 8);
+                        j7 = j8 ^ b.i.d.g.b.c(byteBuffer.get(8));
                         c2 = byteBuffer.getLong() ^ 0;
-                        j15 = j8;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j14 = j7;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 12:
-                        j12 = 0;
-                        j11 = j12 ^ (c.i.d.g.b.c(byteBuffer.get(11)) << 24);
-                        j10 = j11 ^ (c.i.d.g.b.c(byteBuffer.get(10)) << 16);
-                        j9 = j10 ^ (c.i.d.g.b.c(byteBuffer.get(9)) << 8);
-                        j8 = j9 ^ c.i.d.g.b.c(byteBuffer.get(8));
+                        j11 = 0;
+                        j10 = j11 ^ (b.i.d.g.b.c(byteBuffer.get(11)) << 24);
+                        j9 = j10 ^ (b.i.d.g.b.c(byteBuffer.get(10)) << 16);
+                        j8 = j9 ^ (b.i.d.g.b.c(byteBuffer.get(9)) << 8);
+                        j7 = j8 ^ b.i.d.g.b.c(byteBuffer.get(8));
                         c2 = byteBuffer.getLong() ^ 0;
-                        j15 = j8;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j14 = j7;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 13:
-                        j13 = 0;
-                        j12 = j13 ^ (c.i.d.g.b.c(byteBuffer.get(12)) << 32);
-                        j11 = j12 ^ (c.i.d.g.b.c(byteBuffer.get(11)) << 24);
-                        j10 = j11 ^ (c.i.d.g.b.c(byteBuffer.get(10)) << 16);
-                        j9 = j10 ^ (c.i.d.g.b.c(byteBuffer.get(9)) << 8);
-                        j8 = j9 ^ c.i.d.g.b.c(byteBuffer.get(8));
+                        j12 = 0;
+                        j11 = j12 ^ (b.i.d.g.b.c(byteBuffer.get(12)) << 32);
+                        j10 = j11 ^ (b.i.d.g.b.c(byteBuffer.get(11)) << 24);
+                        j9 = j10 ^ (b.i.d.g.b.c(byteBuffer.get(10)) << 16);
+                        j8 = j9 ^ (b.i.d.g.b.c(byteBuffer.get(9)) << 8);
+                        j7 = j8 ^ b.i.d.g.b.c(byteBuffer.get(8));
                         c2 = byteBuffer.getLong() ^ 0;
-                        j15 = j8;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j14 = j7;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 14:
-                        j14 = 0;
-                        j13 = j14 ^ (c.i.d.g.b.c(byteBuffer.get(13)) << 40);
-                        j12 = j13 ^ (c.i.d.g.b.c(byteBuffer.get(12)) << 32);
-                        j11 = j12 ^ (c.i.d.g.b.c(byteBuffer.get(11)) << 24);
-                        j10 = j11 ^ (c.i.d.g.b.c(byteBuffer.get(10)) << 16);
-                        j9 = j10 ^ (c.i.d.g.b.c(byteBuffer.get(9)) << 8);
-                        j8 = j9 ^ c.i.d.g.b.c(byteBuffer.get(8));
+                        j13 = 0;
+                        j12 = j13 ^ (b.i.d.g.b.c(byteBuffer.get(13)) << 40);
+                        j11 = j12 ^ (b.i.d.g.b.c(byteBuffer.get(12)) << 32);
+                        j10 = j11 ^ (b.i.d.g.b.c(byteBuffer.get(11)) << 24);
+                        j9 = j10 ^ (b.i.d.g.b.c(byteBuffer.get(10)) << 16);
+                        j8 = j9 ^ (b.i.d.g.b.c(byteBuffer.get(9)) << 8);
+                        j7 = j8 ^ b.i.d.g.b.c(byteBuffer.get(8));
                         c2 = byteBuffer.getLong() ^ 0;
-                        j15 = j8;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j14 = j7;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     case 15:
-                        j14 = (c.i.d.g.b.c(byteBuffer.get(14)) << 48) ^ 0;
-                        j13 = j14 ^ (c.i.d.g.b.c(byteBuffer.get(13)) << 40);
-                        j12 = j13 ^ (c.i.d.g.b.c(byteBuffer.get(12)) << 32);
-                        j11 = j12 ^ (c.i.d.g.b.c(byteBuffer.get(11)) << 24);
-                        j10 = j11 ^ (c.i.d.g.b.c(byteBuffer.get(10)) << 16);
-                        j9 = j10 ^ (c.i.d.g.b.c(byteBuffer.get(9)) << 8);
-                        j8 = j9 ^ c.i.d.g.b.c(byteBuffer.get(8));
+                        j13 = (b.i.d.g.b.c(byteBuffer.get(14)) << 48) ^ 0;
+                        j12 = j13 ^ (b.i.d.g.b.c(byteBuffer.get(13)) << 40);
+                        j11 = j12 ^ (b.i.d.g.b.c(byteBuffer.get(12)) << 32);
+                        j10 = j11 ^ (b.i.d.g.b.c(byteBuffer.get(11)) << 24);
+                        j9 = j10 ^ (b.i.d.g.b.c(byteBuffer.get(10)) << 16);
+                        j8 = j9 ^ (b.i.d.g.b.c(byteBuffer.get(9)) << 8);
+                        j7 = j8 ^ b.i.d.g.b.c(byteBuffer.get(8));
                         c2 = byteBuffer.getLong() ^ 0;
-                        j15 = j8;
-                        this.f71161d ^= t(c2);
-                        this.f71162e ^= u(j15);
+                        j14 = j7;
+                        this.f63648d ^= t(c2);
+                        this.f63649e ^= u(j14);
                         return;
                     default:
                         throw new AssertionError("Should never get here.");
@@ -292,24 +292,24 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
             }
         }
 
-        public final void r(long j2, long j3) {
+        public final void r(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                long t = t(j2) ^ this.f71161d;
-                this.f71161d = t;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                long t = t(j) ^ this.f63648d;
+                this.f63648d = t;
                 long rotateLeft = Long.rotateLeft(t, 27);
-                this.f71161d = rotateLeft;
-                long j4 = this.f71162e;
-                long j5 = rotateLeft + j4;
-                this.f71161d = j5;
-                this.f71161d = (j5 * 5) + 1390208809;
-                long u = u(j3) ^ j4;
-                this.f71162e = u;
+                this.f63648d = rotateLeft;
+                long j3 = this.f63649e;
+                long j4 = rotateLeft + j3;
+                this.f63648d = j4;
+                this.f63648d = (j4 * 5) + 1390208809;
+                long u = u(j2) ^ j3;
+                this.f63649e = u;
                 long rotateLeft2 = Long.rotateLeft(u, 31);
-                this.f71162e = rotateLeft2;
-                long j6 = rotateLeft2 + this.f71161d;
-                this.f71162e = j6;
-                this.f71162e = (j6 * 5) + 944331445;
+                this.f63649e = rotateLeft2;
+                long j5 = rotateLeft2 + this.f63648d;
+                this.f63649e = j5;
+                this.f63649e = (j5 * 5) + 944331445;
             }
         }
     }
@@ -328,7 +328,7 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
             }
         }
         MURMUR3_128 = new Murmur3_128HashFunction(0);
-        GOOD_FAST_HASH_128 = new Murmur3_128HashFunction(Hashing.f71156a);
+        GOOD_FAST_HASH_128 = new Murmur3_128HashFunction(Hashing.f63643a);
     }
 
     public Murmur3_128HashFunction(int i2) {
@@ -370,7 +370,7 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Murmur3_128HashFunction.class.hashCode() ^ this.seed : invokeV.intValue;
     }
 
-    @Override // c.i.d.d.e
+    @Override // b.i.d.d.e
     public f newHasher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

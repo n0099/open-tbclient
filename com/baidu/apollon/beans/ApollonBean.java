@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
@@ -137,13 +137,13 @@ public abstract class ApollonBean<T> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Class f37874a;
+                public final /* synthetic */ Class f35894a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Class f37875b;
+                public final /* synthetic */ Class f35895b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ApollonBean f37876c;
+                public final /* synthetic */ ApollonBean f35896c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -160,9 +160,9 @@ public abstract class ApollonBean<T> {
                             return;
                         }
                     }
-                    this.f37876c = this;
-                    this.f37874a = cls;
-                    this.f37875b = cls2;
+                    this.f35896c = this;
+                    this.f35894a = cls;
+                    this.f35895b = cls2;
                 }
 
                 @Override // java.lang.Runnable
@@ -171,13 +171,13 @@ public abstract class ApollonBean<T> {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             try {
-                                this.f37876c.prepareRestTemplate();
-                                this.f37876c.executeAndHandleResponse(this.f37874a, this.f37875b);
+                                this.f35896c.prepareRestTemplate();
+                                this.f35896c.executeAndHandleResponse(this.f35894a, this.f35895b);
                             } catch (Exception e2) {
-                                this.f37876c.handleCommonErrors(e2);
+                                this.f35896c.handleCommonErrors(e2);
                             }
                         } finally {
-                            this.f37876c.mRspCallback = null;
+                            this.f35896c.mRspCallback = null;
                         }
                     }
                 }

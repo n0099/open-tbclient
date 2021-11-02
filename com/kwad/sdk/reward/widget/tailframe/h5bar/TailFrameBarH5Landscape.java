@@ -20,19 +20,19 @@ import com.kwad.sdk.core.response.b.a;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TailFrameBarH5Landscape extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f74081a;
+    public TextView f66472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f74082b;
+    public TextView f66473b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ValueAnimator f74083c;
+    public ValueAnimator f66474c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TailFrameBarH5Landscape(Context context) {
@@ -102,29 +102,29 @@ public class TailFrameBarH5Landscape extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             LinearLayout.inflate(context, R.layout.ksad_video_tf_bar_h5_landscape, this);
-            this.f74081a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-            this.f74082b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+            this.f66472a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+            this.f66473b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            if (this.f74083c != null) {
+            if (this.f66474c != null) {
                 a();
-                this.f74083c.start();
+                this.f66474c.start();
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-            this.f74083c = ofFloat;
+            this.f66474c = ofFloat;
             ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.f74083c.setRepeatCount(-1);
-            this.f74083c.setRepeatMode(1);
-            this.f74083c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5Landscape.1
+            this.f66474c.setRepeatCount(-1);
+            this.f66474c.setRepeatMode(1);
+            this.f66474c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5Landscape.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TailFrameBarH5Landscape f74084a;
+                public final /* synthetic */ TailFrameBarH5Landscape f66475a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -141,7 +141,7 @@ public class TailFrameBarH5Landscape extends LinearLayout {
                             return;
                         }
                     }
-                    this.f74084a = this;
+                    this.f66475a = this;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -149,21 +149,21 @@ public class TailFrameBarH5Landscape extends LinearLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        this.f74084a.f74082b.setScaleY(floatValue);
-                        this.f74084a.f74082b.setScaleX(floatValue);
+                        this.f66475a.f66473b.setScaleY(floatValue);
+                        this.f66475a.f66473b.setScaleX(floatValue);
                     }
                 }
             });
-            this.f74083c.start();
+            this.f66474c.start();
         }
     }
 
     public void a() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f74083c) != null && valueAnimator.isRunning()) {
-            this.f74083c.cancel();
-            this.f74083c.end();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f66474c) != null && valueAnimator.isRunning()) {
+            this.f66474c.cancel();
+            this.f66474c.end();
         }
     }
 
@@ -171,8 +171,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
             AdInfo i2 = c.i(adTemplate);
-            this.f74081a.setText(a.m(i2));
-            this.f74082b.setText(a.u(i2));
+            this.f66472a.setText(a.m(i2));
+            this.f66473b.setText(a.u(i2));
             b();
         }
     }

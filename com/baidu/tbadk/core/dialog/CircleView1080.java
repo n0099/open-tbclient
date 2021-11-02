@@ -15,29 +15,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CircleView1080 extends View {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static int f47481j = 360;
+    public static int j = 360;
     public static int k = 100;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47482e;
+    public int f45081e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47483f;
+    public int f45082f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f47484g;
+    public Paint f45083g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f47485h;
+    public RectF f45084h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47486i;
+    public int f45085i;
 
     static {
         InterceptResult invokeClinit;
@@ -73,25 +71,25 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f47486i = 0;
+        this.f45085i = 0;
         init();
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47482e = getResources().getDimensionPixelSize(R.dimen.tbds122);
-            this.f47483f = getResources().getDimensionPixelSize(R.dimen.tbds6);
+            this.f45081e = getResources().getDimensionPixelSize(R.dimen.tbds122);
+            this.f45082f = getResources().getDimensionPixelSize(R.dimen.tbds6);
             Paint paint = new Paint();
-            this.f47484g = paint;
-            paint.setStrokeWidth(this.f47483f);
-            this.f47484g.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f47484g.setStyle(Paint.Style.STROKE);
-            this.f47484g.setAntiAlias(true);
-            this.f47484g.setStrokeCap(Paint.Cap.ROUND);
-            int i2 = this.f47483f;
-            int i3 = this.f47482e;
-            this.f47485h = new RectF(i2 / 2, i2 / 2, (i2 / 2) + i3, i3 + (i2 / 2));
+            this.f45083g = paint;
+            paint.setStrokeWidth(this.f45082f);
+            this.f45083g.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.f45083g.setStyle(Paint.Style.STROKE);
+            this.f45083g.setAntiAlias(true);
+            this.f45083g.setStrokeCap(Paint.Cap.ROUND);
+            int i2 = this.f45082f;
+            int i3 = this.f45081e;
+            this.f45084h = new RectF(i2 / 2, i2 / 2, (i2 / 2) + i3, i3 + (i2 / 2));
         }
     }
 
@@ -99,14 +97,14 @@ public class CircleView1080 extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f47485h, 270.0f, (f47481j * this.f47486i) / k, false, this.f47484g);
+            canvas.drawArc(this.f45084h, 270.0f, (j * this.f45085i) / k, false, this.f45083g);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f47486i = i2;
+            this.f45085i = i2;
             invalidate();
         }
     }
@@ -130,7 +128,7 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f47486i = 0;
+        this.f45085i = 0;
         init();
     }
 
@@ -152,7 +150,7 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f47486i = 0;
+        this.f45085i = 0;
         init();
     }
 }

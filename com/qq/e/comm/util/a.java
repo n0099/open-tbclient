@@ -1,8 +1,6 @@
 package com.qq.e.comm.util;
 
 import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,40 +14,46 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PublicKey f75776a;
+    public PublicKey f68080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f75777b;
+    public final boolean f68081b;
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C2051a {
+    /* loaded from: classes2.dex */
+    public static /* synthetic */ class C1961a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f75778a;
+        public static final a f68082a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(519442790, "Lcom/qq/e/comm/util/a$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(519442821, "Lcom/qq/e/comm/util/a$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(519442790, "Lcom/qq/e/comm/util/a$a;");
+                    classClinitInterceptable.invokePostClinit(519442821, "Lcom/qq/e/comm/util/a$b;");
                     return;
                 }
             }
-            f75778a = new a((byte) 0);
+            f68082a = new a(null);
         }
     }
 
@@ -68,48 +72,28 @@ public class a {
             }
         }
         try {
-            this.f75776a = b("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
+            this.f68080a = a("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
             z = true;
         } catch (Throwable unused) {
             z = false;
         }
-        this.f75777b = z;
+        this.f68081b = z;
     }
 
-    public /* synthetic */ a(byte b2) {
+    public /* synthetic */ a(C1961a c1961a) {
         this();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2051a.f75778a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f68082a : (a) invokeV.objValue;
     }
 
-    private String a(String str) {
+    private PublicKey a(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            if (this.f75776a != null) {
-                byte[] decode = Base64.decode(str, 0);
-                try {
-                    Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                    cipher.init(2, this.f75776a);
-                    return new String(cipher.doFinal(decode), "UTF-8").trim();
-                } catch (Throwable unused) {
-                    GDTLogger.d("ErrorWhileVerifySigNature");
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static PublicKey b(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
             } catch (NullPointerException unused) {
@@ -123,24 +107,32 @@ public class a {
         return (PublicKey) invokeL.objValue;
     }
 
-    public final boolean a(String str, String str2) {
+    public boolean a(String str, String str2) {
         InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? b(str, Md5Util.encode(str2)) : invokeLL.booleanValue;
-    }
-
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             if (StringUtil.isEmpty(str2)) {
                 return false;
             }
-            if (this.f75777b) {
-                String a2 = a(str);
-                boolean equals = str2.equals(a2);
-                GDTLogger.d("Verify Result" + equals + "src=" + str2 + " & target=" + a2);
-                return equals;
+            if (this.f68081b) {
+                if (this.f68080a != null) {
+                    byte[] decode = Base64.decode(str, 0);
+                    try {
+                        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                        cipher.init(2, this.f68080a);
+                        str3 = new String(cipher.doFinal(decode), "UTF-8").trim();
+                    } catch (Throwable unused) {
+                        GDTLogger.d("ErrorWhileVerifySigNature");
+                    }
+                    boolean equals = str2.equals(str3);
+                    GDTLogger.d("Verify Result" + equals + "src=" + str2 + " & target=" + str3);
+                    return equals;
+                }
+                str3 = null;
+                boolean equals2 = str2.equals(str3);
+                GDTLogger.d("Verify Result" + equals2 + "src=" + str2 + " & target=" + str3);
+                return equals2;
             }
             return true;
         }

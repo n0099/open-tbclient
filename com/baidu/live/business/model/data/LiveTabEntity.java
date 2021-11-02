@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LiveTabEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LiveTabEntity> CREATOR;
@@ -26,7 +26,7 @@ public class LiveTabEntity implements Parcelable {
     public List<TabLabelInfo> subTabList;
     public String type;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class TabLabelInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<TabLabelInfo> CREATOR;
@@ -36,7 +36,7 @@ public class LiveTabEntity implements Parcelable {
         public boolean selected;
         public String type;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class a implements Parcelable.Creator<TabLabelInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public class LiveTabEntity implements Parcelable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Parcelable.Creator<LiveTabEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

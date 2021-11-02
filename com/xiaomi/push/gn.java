@@ -8,30 +8,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class gn {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Random f78083a;
+    public static Random f71038a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final char[] f443a;
+    public static final char[] f444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f78084b;
+    public static final char[] f71039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f78085c;
+    public static final char[] f71040c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f78086d;
+    public static final char[] f71041d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f78087e;
+    public static final char[] f71042e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f78088f;
+    public static char[] f71043f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,13 +47,13 @@ public class gn {
                 return;
             }
         }
-        f443a = "&quot;".toCharArray();
-        f78084b = "&apos;".toCharArray();
-        f78085c = "&amp;".toCharArray();
-        f78086d = "&lt;".toCharArray();
-        f78087e = "&gt;".toCharArray();
-        f78083a = new Random();
-        f78088f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f444a = "&quot;".toCharArray();
+        f71039b = "&apos;".toCharArray();
+        f71040c = "&amp;".toCharArray();
+        f71041d = "&lt;".toCharArray();
+        f71042e = "&gt;".toCharArray();
+        f71038a = new Random();
+        f71043f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public static String a(int i2) {
@@ -65,7 +65,7 @@ public class gn {
             }
             char[] cArr = new char[i2];
             for (int i3 = 0; i3 < i2; i3++) {
-                cArr[i3] = f78088f[f78083a.nextInt(71)];
+                cArr[i3] = f71043f[f71038a.nextInt(71)];
             }
             return new String(cArr);
         }
@@ -92,13 +92,13 @@ public class gn {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f78086d);
+                        sb.append(f71041d);
                     } else if (c2 == '>') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f78087e);
+                        sb.append(f71042e);
                     } else if (c2 == '&') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
@@ -106,20 +106,20 @@ public class gn {
                         int i4 = i2 + 5;
                         if (length <= i4 || charArray[i2 + 1] != '#' || !Character.isDigit(charArray[i2 + 2]) || !Character.isDigit(charArray[i2 + 3]) || !Character.isDigit(charArray[i2 + 4]) || charArray[i4] != ';') {
                             i3 = i2 + 1;
-                            sb.append(f78085c);
+                            sb.append(f71040c);
                         }
                     } else if (c2 == '\"') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f443a);
+                        sb.append(f444a);
                     } else if (c2 == '\'') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f78084b);
+                        sb.append(f71039b);
                     }
                 }
                 i2++;

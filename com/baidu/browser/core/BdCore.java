@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class BdCore {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdCore f38564c;
+    public static BdCore f36554c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f38565a;
+    public Context f36555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38566b;
+    public boolean f36556b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class EditTextType {
         public static final /* synthetic */ EditTextType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,45 +104,45 @@ public final class BdCore {
             }
         }
         EditTextType editTextType = EditTextType.DEFAULT;
-        this.f38566b = false;
+        this.f36556b = false;
     }
 
-    public static synchronized BdCore b() {
+    public static synchronized BdCore a() {
         InterceptResult invokeV;
         BdCore bdCore;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (BdCore.class) {
-                if (f38564c == null) {
-                    f38564c = new BdCore();
+                if (f36554c == null) {
+                    f36554c = new BdCore();
                 }
-                bdCore = f38564c;
+                bdCore = f36554c;
             }
             return bdCore;
         }
         return (BdCore) invokeV.objValue;
     }
 
-    public Context a() {
+    public void b(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) || this.f36556b) {
+            return;
+        }
+        BdLog.f(z);
+        this.f36555a = context.getApplicationContext();
+        this.f36556b = true;
+    }
+
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Context context = this.f38565a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Context context = this.f36555a;
             if (context != null) {
                 return context;
             }
             throw new RuntimeException("context is null");
         }
         return (Context) invokeV.objValue;
-    }
-
-    public void c(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z) == null) || this.f38566b) {
-            return;
-        }
-        BdLog.f(z);
-        this.f38565a = context.getApplicationContext();
-        this.f38566b = true;
     }
 }

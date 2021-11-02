@@ -1,6 +1,6 @@
 package com.baidu.tieba.downloadmanager.net;
 
-import c.a.r0.j0.e.b;
+import b.a.r0.j0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemManage.ItemManageResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMessage<b, ItemManageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

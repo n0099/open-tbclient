@@ -42,43 +42,41 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39967c = 2;
+    public static final int f37892c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FaceProcessCallback f39968a;
+    public FaceProcessCallback f37893a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecordCallback f39969b;
+    public RecordCallback f37894b;
 
     /* renamed from: d  reason: collision with root package name */
-    public SurfaceView f39970d;
+    public SurfaceView f37895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceHolder f39971e;
+    public SurfaceHolder f37896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaPlayer f39972f;
+    public MediaPlayer f37897f;
     public String faceData;
     public b faceRectGroup;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39973g;
+    public int f37898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39974h;
+    public int f37899h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Rect f39975i;
+    public Rect f37900i;
     public boolean isRecording;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Rect f39976j;
+    public Rect j;
     public boolean k;
     public LivenessVideoState livenessVideoState;
     public IVideoRecordProcess mProcess;
@@ -86,7 +84,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
     public String sKey;
     public String xDeviceId;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements MediaPlayer.OnErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,12 +129,12 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
             }
         }
         this.livenessVideoState = new LivenessVideoState();
-        this.f39968a = new FaceProcessCallback(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.3
+        this.f37893a = new FaceProcessCallback(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LivenessCameraBaseActivity f39979a;
+            public final /* synthetic */ LivenessCameraBaseActivity f37903a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -153,7 +151,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                         return;
                     }
                 }
-                this.f39979a = this;
+                this.f37903a = this;
             }
 
             @Override // com.baidu.sofire.ac.FaceProcessCallback
@@ -191,9 +189,9 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
             public void onCollectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2, int i4) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{faceStatusNewEnum, str, hashMap, hashMap2, Integer.valueOf(i4)}) == null) {
-                    this.f39979a.onRefreshView(faceStatusNewEnum, str, i4);
+                    this.f37903a.onRefreshView(faceStatusNewEnum, str, i4);
                     if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
-                        this.f39979a.livenessVideoState.currentCount = 2;
+                        this.f37903a.livenessVideoState.currentCount = 2;
                     }
                 }
             }
@@ -202,23 +200,23 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
             public void onConfigCamera(Camera camera, Rect rect, Rect rect2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(1048581, this, camera, rect, rect2) == null) {
-                    Camera.Size similarRatioSize = CameraUtils.getSimilarRatioSize(camera.getParameters(), this.f39979a.f39973g, this.f39979a.f39974h);
+                    Camera.Size similarRatioSize = CameraUtils.getSimilarRatioSize(camera.getParameters(), this.f37903a.f37898g, this.f37903a.f37899h);
                     Camera.Parameters parameters = camera.getParameters();
                     parameters.setPreviewSize(similarRatioSize.width, similarRatioSize.height);
                     LogUtil.d("hello", "size.width:" + similarRatioSize.width + "size.height:" + similarRatioSize.height);
                     camera.setParameters(parameters);
-                    this.f39979a.f39976j = new Rect(0, 0, similarRatioSize.height, similarRatioSize.width);
-                    int width = this.f39979a.faceRectGroup.f39894a.width();
-                    double doubleValue = new BigDecimal(Double.toString((double) this.f39979a.faceRectGroup.f39894a.height())).divide(new BigDecimal(Double.toString((double) this.f39979a.f39974h)), 10, 4).doubleValue();
-                    double doubleValue2 = new BigDecimal(Double.toString((double) width)).divide(new BigDecimal(Double.toString((double) this.f39979a.f39973g)), 10, 4).doubleValue();
-                    double height = (this.f39979a.f39976j.height() - (this.f39979a.f39976j.height() * doubleValue)) / 2.0d;
-                    double width2 = (this.f39979a.f39976j.width() - (this.f39979a.f39976j.width() * doubleValue2)) / 2.0d;
-                    double height2 = this.f39979a.f39976j.height() - height;
-                    double width3 = this.f39979a.f39976j.width() - width2;
-                    this.f39979a.f39975i = new Rect((int) width2, (int) height, (int) width3, (int) height2);
-                    rect.set(this.f39979a.f39976j);
-                    rect2.set(this.f39979a.f39975i);
-                    LogUtil.d("hello", "face onConfigCamera:" + this.f39979a.f39976j.toString());
+                    this.f37903a.j = new Rect(0, 0, similarRatioSize.height, similarRatioSize.width);
+                    int width = this.f37903a.faceRectGroup.f37821a.width();
+                    double doubleValue = new BigDecimal(Double.toString((double) this.f37903a.faceRectGroup.f37821a.height())).divide(new BigDecimal(Double.toString((double) this.f37903a.f37899h)), 10, 4).doubleValue();
+                    double doubleValue2 = new BigDecimal(Double.toString((double) width)).divide(new BigDecimal(Double.toString((double) this.f37903a.f37898g)), 10, 4).doubleValue();
+                    double height = (this.f37903a.j.height() - (this.f37903a.j.height() * doubleValue)) / 2.0d;
+                    double width2 = (this.f37903a.j.width() - (this.f37903a.j.width() * doubleValue2)) / 2.0d;
+                    double height2 = this.f37903a.j.height() - height;
+                    double width3 = this.f37903a.j.width() - width2;
+                    this.f37903a.f37900i = new Rect((int) width2, (int) height, (int) width3, (int) height2);
+                    rect.set(this.f37903a.j);
+                    rect2.set(this.f37903a.f37900i);
+                    LogUtil.d("hello", "face onConfigCamera:" + this.f37903a.j.toString());
                 }
             }
 
@@ -236,13 +234,13 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                 if (interceptable2 == null || interceptable2.invokeIL(1048583, this, i4, requestInfo) == null) {
                     LogUtil.d("hello", "face onEnd called:" + i4);
                     if (i4 == -2) {
-                        this.f39979a.buildDataError();
+                        this.f37903a.buildDataError();
                     } else if (i4 == -3 || i4 == -4) {
-                        this.f39979a.notTrustedDevice();
+                        this.f37903a.notTrustedDevice();
                     } else if (i4 == -5) {
-                        this.f39979a.cameraException();
+                        this.f37903a.cameraException();
                     } else if (i4 == 1) {
-                        LivenessCameraBaseActivity livenessCameraBaseActivity = this.f39979a;
+                        LivenessCameraBaseActivity livenessCameraBaseActivity = this.f37903a;
                         if (livenessCameraBaseActivity.livenessVideoState.currentCount == 2) {
                             try {
                                 livenessCameraBaseActivity.xDeviceId = requestInfo.xDeviceId;
@@ -251,8 +249,8 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
-                            this.f39979a.dofaceMatch();
-                            this.f39979a.d();
+                            this.f37903a.dofaceMatch();
+                            this.f37903a.d();
                         }
                     }
                 }
@@ -286,12 +284,12 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                 }
             }
         };
-        this.f39969b = new RecordCallback(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.4
+        this.f37894b = new RecordCallback(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LivenessCameraBaseActivity f39980a;
+            public final /* synthetic */ LivenessCameraBaseActivity f37904a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -308,7 +306,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                         return;
                     }
                 }
-                this.f39980a = this;
+                this.f37904a = this;
             }
 
             @Override // com.baidu.sofire.ac.RecordCallback
@@ -340,7 +338,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048579, this, camera) == null) {
                     LogUtil.d("hello", "video onConfigCamera");
-                    Camera.Size similarRatioSize = CameraUtils.getSimilarRatioSize(camera.getParameters(), this.f39980a.f39973g, this.f39980a.f39974h);
+                    Camera.Size similarRatioSize = CameraUtils.getSimilarRatioSize(camera.getParameters(), this.f37904a.f37898g, this.f37904a.f37899h);
                     Camera.Parameters parameters = camera.getParameters();
                     parameters.setPreviewSize(similarRatioSize.width, similarRatioSize.height);
                     LogUtil.d("hello", "size.width:" + similarRatioSize.width + "size.height:" + similarRatioSize.height);
@@ -361,18 +359,18 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048581, this, i4, requestInfo) == null) {
                     if (i4 == -2) {
-                        this.f39980a.buildDataError();
+                        this.f37904a.buildDataError();
                     } else if (i4 == -3 || i4 == -4) {
-                        this.f39980a.notTrustedDevice();
+                        this.f37904a.notTrustedDevice();
                     } else if (i4 == -5) {
-                        this.f39980a.cameraException();
+                        this.f37904a.cameraException();
                     } else {
                         if (i4 == 1) {
                             try {
-                                this.f39980a.xDeviceId = requestInfo.xDeviceId;
-                                this.f39980a.sKey = requestInfo.sKey;
+                                this.f37904a.xDeviceId = requestInfo.xDeviceId;
+                                this.f37904a.sKey = requestInfo.sKey;
                                 g.a(requestInfo.path);
-                                this.f39980a.faceData = requestInfo.data.getString("data");
+                                this.f37904a.faceData = requestInfo.data.getString("data");
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
@@ -386,7 +384,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
             public void onPreviewFrame(byte[] bArr, Camera camera) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048582, this, bArr, camera) == null) {
-                    this.f39980a.a(bArr, camera);
+                    this.f37904a.a(bArr, camera);
                 }
             }
         };
@@ -427,7 +425,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LivenessCameraBaseActivity f39977a;
+                    public final /* synthetic */ LivenessCameraBaseActivity f37901a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -444,7 +442,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                                 return;
                             }
                         }
-                        this.f39977a = this;
+                        this.f37901a = this;
                     }
 
                     @Override // com.baidu.fsg.base.permission.RequestPermissionDialogCallBack
@@ -453,12 +451,12 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
                             if (z) {
-                                LivenessCameraBaseActivity livenessCameraBaseActivity = this.f39977a;
+                                LivenessCameraBaseActivity livenessCameraBaseActivity = this.f37901a;
                                 livenessCameraBaseActivity.permissionFlag = true;
                                 livenessCameraBaseActivity.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 2);
                                 return;
                             }
-                            this.f39977a.a(false, false, true);
+                            this.f37901a.a(false, false, true);
                         }
                     }
                 });
@@ -478,12 +476,12 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
             getWindow().addFlags(128);
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
             SurfaceView surfaceView = new SurfaceView(getActivity());
-            this.f39970d = surfaceView;
+            this.f37895d = surfaceView;
             SurfaceHolder holder = surfaceView.getHolder();
-            this.f39971e = holder;
+            this.f37896e = holder;
             holder.setFormat(-2);
-            this.f39971e.setType(3);
-            addContentView(this.f39970d, layoutParams);
+            this.f37896e.setType(3);
+            addContentView(this.f37895d, layoutParams);
             addContentView(a(), layoutParams);
             this.faceRectGroup = new b();
             f.b(this, getResources().getColor(17170445));
@@ -497,9 +495,9 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             try {
-                if (this.f39972f != null) {
-                    this.f39972f.stop();
-                    this.f39972f.release();
+                if (this.f37897f != null) {
+                    this.f37897f.stop();
+                    this.f37897f.release();
                 }
             } catch (Exception e2) {
                 d.a(e2);
@@ -530,16 +528,16 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
     public void playSound(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            MediaPlayer mediaPlayer = this.f39972f;
+            MediaPlayer mediaPlayer = this.f37897f;
             if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
                 MediaPlayer create = MediaPlayer.create(this, i2);
-                this.f39972f = create;
+                this.f37897f = create;
                 if (create == null) {
                     return;
                 }
                 create.setOnErrorListener(new a());
                 setVolumeControlStream(3);
-                this.f39972f.start();
+                this.f37897f.start();
             }
         }
     }
@@ -547,8 +545,8 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.f39970d.setVisibility(4);
-            this.f39970d.setVisibility(0);
+            this.f37895d.setVisibility(4);
+            this.f37895d.setVisibility(0);
         }
     }
 
@@ -556,7 +554,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.mProcess = FH.getVideoRecordProcess(getActivity(), this.f39971e, this.f39969b, -1);
+            this.mProcess = FH.getVideoRecordProcess(getActivity(), this.f37896e, this.f37894b, -1);
             String str = "get video process mProcess:" + this.mProcess;
             IVideoRecordProcess iVideoRecordProcess = this.mProcess;
             if (iVideoRecordProcess != null) {
@@ -570,12 +568,12 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             this.livenessVideoState.currentState = 0;
-            this.f39971e.addCallback(new SurfaceHolder.Callback(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.2
+            this.f37896e.addCallback(new SurfaceHolder.Callback(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessCameraBaseActivity f39978a;
+                public final /* synthetic */ LivenessCameraBaseActivity f37902a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -592,25 +590,25 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f39978a = this;
+                    this.f37902a = this;
                 }
 
                 @Override // android.view.SurfaceHolder.Callback
                 public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, surfaceHolder, i2, i3, i4) == null) {
-                        this.f39978a.f39973g = i3;
-                        this.f39978a.f39974h = i4;
+                        this.f37902a.f37898g = i3;
+                        this.f37902a.f37899h = i4;
                         LogUtil.d("hello", "face surfaceChanged,surWidth:" + i3 + ",surHeight:" + i4);
-                        LivenessCameraBaseActivity livenessCameraBaseActivity = this.f39978a;
+                        LivenessCameraBaseActivity livenessCameraBaseActivity = this.f37902a;
                         LivenessVideoState livenessVideoState = livenessCameraBaseActivity.livenessVideoState;
                         if (livenessVideoState.currentState != 0) {
                             return;
                         }
                         livenessVideoState.currentState = 1;
-                        livenessCameraBaseActivity.faceRectGroup.f39895b = new Rect(this.f39978a.f39970d.getLeft(), this.f39978a.f39970d.getTop(), this.f39978a.f39970d.getRight(), this.f39978a.f39970d.getBottom());
-                        this.f39978a.b();
-                        FH.startFaceVerify(this.f39978a.getActivity(), this.f39978a.f39971e, this.f39978a.f39968a, 0, null, false);
+                        livenessCameraBaseActivity.faceRectGroup.f37822b = new Rect(this.f37902a.f37895d.getLeft(), this.f37902a.f37895d.getTop(), this.f37902a.f37895d.getRight(), this.f37902a.f37895d.getBottom());
+                        this.f37902a.b();
+                        FH.startFaceVerify(this.f37902a.getActivity(), this.f37902a.f37896e, this.f37902a.f37893a, 0, null, false);
                         LogUtil.d("hello", "startFaceVerify");
                     }
                 }

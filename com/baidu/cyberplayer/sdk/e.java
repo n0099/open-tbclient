@@ -24,40 +24,38 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f39118a;
+    public a f37076a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float[] f39119b;
+    public final float[] f37077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FloatBuffer f39120c;
+    public FloatBuffer f37078c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f39121d;
+    public final String f37079d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f39122e;
+    public final String f37080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f39123f;
+    public float[] f37081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f39124g;
+    public float[] f37082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39125h;
+    public int f37083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39126i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f39127j;
+    public int f37084i;
+    public int j;
     public int k;
     public int l;
     public int m;
@@ -74,7 +72,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public int x;
     public i.a y;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
     }
@@ -92,11 +90,11 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 return;
             }
         }
-        this.f39119b = new float[]{-1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
-        this.f39121d = TextureRender.VERTEX_SHADER;
-        this.f39122e = TextureRender.FRAGMENT_SHADER;
-        this.f39123f = new float[16];
-        this.f39124g = new float[16];
+        this.f37077b = new float[]{-1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
+        this.f37079d = TextureRender.VERTEX_SHADER;
+        this.f37080e = TextureRender.FRAGMENT_SHADER;
+        this.f37081f = new float[16];
+        this.f37082g = new float[16];
         this.p = false;
         this.q = new Object();
         this.r = new Object();
@@ -104,10 +102,10 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         this.v = 1.0f;
         this.w = 0;
         this.x = 0;
-        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(this.f39119b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.f39120c = asFloatBuffer;
-        asFloatBuffer.put(this.f39119b).position(0);
-        Matrix.setIdentityM(this.f39124g, 0);
+        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(this.f37077b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.f37078c = asFloatBuffer;
+        asFloatBuffer.put(this.f37077b).position(0);
+        Matrix.setIdentityM(this.f37082g, 0);
         this.s = false;
         this.t = new f();
     }
@@ -227,33 +225,33 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     private void e() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (i2 = this.f39125h) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (i2 = this.f37083h) == 0) {
             return;
         }
         GLES20.glUseProgram(i2);
         a("glUseProgram");
         GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(36197, this.f39126i);
-        this.f39120c.position(0);
-        GLES20.glVertexAttribPointer(this.l, 3, 5126, false, 20, (Buffer) this.f39120c);
+        GLES20.glBindTexture(36197, this.f37084i);
+        this.f37078c.position(0);
+        GLES20.glVertexAttribPointer(this.l, 3, 5126, false, 20, (Buffer) this.f37078c);
         a("glVertexAttribPointer maPosition");
         GLES20.glEnableVertexAttribArray(this.l);
         a("glEnableVertexAttribArray maPositionHandle");
-        this.f39120c.position(3);
-        GLES20.glVertexAttribPointer(this.m, 3, 5126, false, 20, (Buffer) this.f39120c);
+        this.f37078c.position(3);
+        GLES20.glVertexAttribPointer(this.m, 3, 5126, false, 20, (Buffer) this.f37078c);
         a("glVertexAttribPointer maTextureHandle");
         GLES20.glEnableVertexAttribArray(this.m);
         a("glEnableVertexAttribArray maTextureHandle");
-        Matrix.setIdentityM(this.f39123f, 0);
+        Matrix.setIdentityM(this.f37081f, 0);
         float[] c2 = this.t.c();
         if (this.t.f()) {
             float[] e2 = this.t.e();
-            Matrix.translateM(this.f39123f, 0, e2[0], e2[1], 0.0f);
+            Matrix.translateM(this.f37081f, 0, e2[0], e2[1], 0.0f);
         }
-        Matrix.scaleM(this.f39123f, 0, c2[0], c2[1], 0.0f);
-        Matrix.rotateM(this.f39123f, 0, this.t.g(), 0.0f, 0.0f, 1.0f);
-        GLES20.glUniformMatrix4fv(this.f39127j, 1, false, this.f39123f, 0);
-        GLES20.glUniformMatrix4fv(this.k, 1, false, this.f39124g, 0);
+        Matrix.scaleM(this.f37081f, 0, c2[0], c2[1], 0.0f);
+        Matrix.rotateM(this.f37081f, 0, this.t.g(), 0.0f, 0.0f, 1.0f);
+        GLES20.glUniformMatrix4fv(this.j, 1, false, this.f37081f, 0);
+        GLES20.glUniformMatrix4fv(this.k, 1, false, this.f37082g, 0);
         GLES20.glDrawArrays(5, 0, 4);
         a("glDrawArrays");
         GLES20.glFinish();
@@ -265,8 +263,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             a(this.n);
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
-            this.f39126i = iArr[0];
-            SurfaceTexture surfaceTexture = new SurfaceTexture(this.f39126i);
+            this.f37084i = iArr[0];
+            SurfaceTexture surfaceTexture = new SurfaceTexture(this.f37084i);
             this.n = surfaceTexture;
             surfaceTexture.setOnFrameAvailableListener(this);
             i();
@@ -282,7 +280,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     if (this.p) {
                         if (this.n != null) {
                             this.n.updateTexImage();
-                            this.n.getTransformMatrix(this.f39124g);
+                            this.n.getTransformMatrix(this.f37082g);
                         }
                         this.p = false;
                         if (!this.s) {
@@ -306,7 +304,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         }
         try {
             if (this.n != null) {
-                this.n.attachToGLContext(this.f39126i);
+                this.n.attachToGLContext(this.f37084i);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -339,24 +337,24 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     int i3 = this.x;
                     this.u = false;
                     CyberLog.i("CyberRender", "drawScreenSnapshot called");
-                    int j2 = this.t.j();
+                    int j = this.t.j();
                     int k = this.t.k();
-                    int round = Math.round(j2 * this.v);
+                    int round = Math.round(j * this.v);
                     int round2 = Math.round(k * this.v);
                     if (round <= 0 || round2 <= 0) {
                         return;
                     }
-                    CyberLog.i("CyberRender", "drawScreenSnapshot called mSurfaceWidth:" + j2 + " mSurfaceHeight:" + k + " snapWidth:" + round + " snapHeight:" + round2);
+                    CyberLog.i("CyberRender", "drawScreenSnapshot called mSurfaceWidth:" + j + " mSurfaceHeight:" + k + " snapWidth:" + round + " snapHeight:" + round2);
                     GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
                     GLES20.glClear(16640);
                     b(i2, i3, round, round2);
                     c(i2, i3, round, round2);
-                    if (round != j2 || round2 != k) {
+                    if (round != j || round2 != k) {
                         GLES20.glClearColor(255.0f, 255.0f, 255.0f, 1.0f);
                         GLES20.glClear(16640);
                     }
                     GLES20.glViewport(0, 0, this.t.j(), this.t.k());
-                    a aVar = this.f39118a;
+                    a aVar = this.f37076a;
                     if (aVar != null) {
                         aVar.a();
                     }
@@ -389,7 +387,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 this.w = i2;
                 this.x = i3;
             }
-            a aVar = this.f39118a;
+            a aVar = this.f37076a;
             if (aVar != null) {
                 aVar.a();
             }
@@ -413,7 +411,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f39118a = aVar;
+            this.f37076a = aVar;
         }
     }
 
@@ -501,7 +499,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
                 this.p = true;
-                a aVar = this.f39118a;
+                a aVar = this.f37076a;
                 if (aVar != null) {
                     aVar.a();
                 }
@@ -530,7 +528,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, gl10, eGLConfig) == null) {
             int a2 = a(TextureRender.VERTEX_SHADER, TextureRender.FRAGMENT_SHADER);
-            this.f39125h = a2;
+            this.f37083h = a2;
             if (a2 == 0) {
                 return;
             }
@@ -540,21 +538,21 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 str = "CyberRender";
                 str2 = "Could not get attrib location for aPosition";
             } else {
-                this.m = GLES20.glGetAttribLocation(this.f39125h, "aTextureCoord");
+                this.m = GLES20.glGetAttribLocation(this.f37083h, "aTextureCoord");
                 a("glGetAttribLocation aTextureCoord");
                 if (this.m == -1) {
                     str = "CyberRender";
                     str2 = "Could not get attrib location for aTextureCoord";
                 } else {
-                    this.f39127j = GLES20.glGetUniformLocation(this.f39125h, "uMVPMatrix");
+                    this.j = GLES20.glGetUniformLocation(this.f37083h, "uMVPMatrix");
                     a("glGetUniformLocation uMVPMatrix");
-                    if (this.f39127j == -1) {
+                    if (this.j == -1) {
                         str = "CyberRender";
                         str2 = "Could not get attrib location for uMVPMatrix";
                     } else {
-                        this.k = GLES20.glGetUniformLocation(this.f39125h, "uSTMatrix");
+                        this.k = GLES20.glGetUniformLocation(this.f37083h, "uSTMatrix");
                         a("glGetUniformLocation uSTMatrix");
-                        if (this.f39127j != -1) {
+                        if (this.j != -1) {
                             GLES20.glTexParameterf(36197, 10241, 9728.0f);
                             GLES20.glTexParameterf(36197, 10240, 9729.0f);
                             i.a aVar = this.y;

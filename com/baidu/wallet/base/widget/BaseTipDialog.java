@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaseTipDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f60514a;
+    public LinearLayout f57424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f60515b;
+    public TextView f57425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout.LayoutParams f60516c;
+    public LinearLayout.LayoutParams f57426c;
     public Context mContext;
     public LayoutInflater mInflater;
 
@@ -54,8 +54,8 @@ public class BaseTipDialog extends Dialog {
     public void addContentView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f60514a.removeAllViews();
-            this.f60514a.addView(view, this.f60516c);
+            this.f57424a.removeAllViews();
+            this.f57424a.addView(view, this.f57426c);
         }
     }
 
@@ -70,16 +70,16 @@ public class BaseTipDialog extends Dialog {
                 this.mInflater = LayoutInflater.from(this.mContext);
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            this.f60516c = layoutParams;
+            this.f57426c = layoutParams;
             layoutParams.gravity = 17;
-            this.f60514a = (LinearLayout) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_content_layout"));
-            this.f60515b = (TextView) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title"));
+            this.f57424a = (LinearLayout) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_content_layout"));
+            this.f57425b = (TextView) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title"));
             findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title_close")).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.BaseTipDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseTipDialog f60517a;
+                public final /* synthetic */ BaseTipDialog f57427a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -96,14 +96,14 @@ public class BaseTipDialog extends Dialog {
                             return;
                         }
                     }
-                    this.f60517a = this;
+                    this.f57427a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f60517a.dismiss();
+                        this.f57427a.dismiss();
                     }
                 }
             });
@@ -112,7 +112,7 @@ public class BaseTipDialog extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseTipDialog f60518a;
+                public final /* synthetic */ BaseTipDialog f57428a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -129,14 +129,14 @@ public class BaseTipDialog extends Dialog {
                             return;
                         }
                     }
-                    this.f60518a = this;
+                    this.f57428a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f60518a.dismiss();
+                        this.f57428a.dismiss();
                     }
                 }
             });
@@ -148,7 +148,7 @@ public class BaseTipDialog extends Dialog {
     public void setTitleMessage(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (textView = this.f60515b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (textView = this.f57425b) == null) {
             return;
         }
         textView.setText(i2);
@@ -188,7 +188,7 @@ public class BaseTipDialog extends Dialog {
     public void setTitleMessage(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (textView = this.f60515b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (textView = this.f57425b) == null) {
             return;
         }
         textView.setText(str);

@@ -29,7 +29,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FaceLoginService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FACE_SHARE_V2_MAX_ACCOUNT_SIZE = 10;

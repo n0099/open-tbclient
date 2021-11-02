@@ -1,8 +1,8 @@
 package com.dxmpay.apollon.utils.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.f.a.h.a.a;
-import c.f.a.h.a.b;
+import b.f.a.h.a.a;
+import b.f.a.h.a.b;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,12 +17,12 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MethodUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Method> f69803a;
+    public static Map<String, Method> f62240a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class MethodUtils {
                 return;
             }
         }
-        f69803a = new HashMap();
+        f62240a = new HashMap();
     }
 
     public MethodUtils() {
@@ -174,8 +174,8 @@ public class MethodUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, cls, str, clsArr)) == null) {
             String a2 = a(cls, str, clsArr);
-            synchronized (f69803a) {
-                method = f69803a.get(a2);
+            synchronized (f62240a) {
+                method = f62240a.get(a2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -186,8 +186,8 @@ public class MethodUtils {
             try {
                 Method method2 = cls.getMethod(str, clsArr);
                 a.g(method2);
-                synchronized (f69803a) {
-                    f69803a.put(a2, method2);
+                synchronized (f62240a) {
+                    f62240a.put(a2, method2);
                 }
                 return method2;
             } catch (NoSuchMethodException unused) {
@@ -200,8 +200,8 @@ public class MethodUtils {
                 if (method3 != null) {
                     a.g(method3);
                 }
-                synchronized (f69803a) {
-                    f69803a.put(a2, method3);
+                synchronized (f62240a) {
+                    f62240a.put(a2, method3);
                     return method3;
                 }
             }
@@ -215,8 +215,8 @@ public class MethodUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, clsArr)) == null) {
             String a2 = a(cls, str, clsArr);
-            synchronized (f69803a) {
-                method = f69803a.get(a2);
+            synchronized (f62240a) {
+                method = f62240a.get(a2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -225,8 +225,8 @@ public class MethodUtils {
                 return method;
             }
             Method c2 = c(cls.getMethod(str, clsArr));
-            synchronized (f69803a) {
-                f69803a.put(a2, c2);
+            synchronized (f62240a) {
+                f62240a.put(a2, c2);
             }
             return c2;
         }

@@ -24,7 +24,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Cookie {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DAY_OF_MONTH_PATTERN;
@@ -42,7 +42,7 @@ public final class Cookie {
     public final boolean secure;
     public final String value;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,17 +85,17 @@ public final class Cookie {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? domain(str, false) : (Builder) invokeL.objValue;
         }
 
-        public Builder expiresAt(long j2) {
+        public Builder expiresAt(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                if (j2 <= 0) {
-                    j2 = Long.MIN_VALUE;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                if (j <= 0) {
+                    j = Long.MIN_VALUE;
                 }
-                if (j2 > HttpDate.MAX_DATE) {
-                    j2 = 253402300799999L;
+                if (j > HttpDate.MAX_DATE) {
+                    j = 253402300799999L;
                 }
-                this.expiresAt = j2;
+                this.expiresAt = j;
                 this.persistent = true;
                 return this;
             }
@@ -211,12 +211,12 @@ public final class Cookie {
         TIME_PATTERN = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
     }
 
-    public Cookie(String str, String str2, long j2, String str3, String str4, boolean z, boolean z2, boolean z3, boolean z4) {
+    public Cookie(String str, String str2, long j, String str3, String str4, boolean z, boolean z2, boolean z3, boolean z4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j2), str3, str4, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)};
+            Object[] objArr = {str, str2, Long.valueOf(j), str3, str4, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -228,7 +228,7 @@ public final class Cookie {
         }
         this.name = str;
         this.value = str2;
-        this.expiresAt = j2;
+        this.expiresAt = j;
         this.domain = str3;
         this.path = str4;
         this.secure = z;
@@ -446,8 +446,8 @@ public final class Cookie {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j2 = this.expiresAt;
-            return ((((((((((((((((527 + this.name.hashCode()) * 31) + this.value.hashCode()) * 31) + this.domain.hashCode()) * 31) + this.path.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.secure ? 1 : 0)) * 31) + (!this.httpOnly ? 1 : 0)) * 31) + (!this.persistent ? 1 : 0)) * 31) + (!this.hostOnly ? 1 : 0);
+            long j = this.expiresAt;
+            return ((((((((((((((((527 + this.name.hashCode()) * 31) + this.value.hashCode()) * 31) + this.domain.hashCode()) * 31) + this.path.hashCode()) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + (!this.secure ? 1 : 0)) * 31) + (!this.httpOnly ? 1 : 0)) * 31) + (!this.persistent ? 1 : 0)) * 31) + (!this.hostOnly ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -525,20 +525,20 @@ public final class Cookie {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Cookie parse(long j2, HttpUrl httpUrl, String str) {
+    public static Cookie parse(long j, HttpUrl httpUrl, String str) {
         InterceptResult invokeCommon;
-        long j3;
+        long j2;
         String host;
         Cookie cookie;
         String str2;
         String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j2), httpUrl, str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j), httpUrl, str})) == null) {
             int length = str.length();
             char c2 = ';';
             int delimiterOffset = Util.delimiterOffset(str, 0, length, ';');
-            char c3 = a.f36026h;
-            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f36026h);
+            char c3 = a.f34124h;
+            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f34124h);
             if (delimiterOffset2 == delimiterOffset) {
                 return null;
             }
@@ -553,8 +553,8 @@ public final class Cookie {
             int i2 = delimiterOffset + 1;
             String str3 = null;
             String str4 = null;
-            long j4 = -1;
-            long j5 = 253402300799999L;
+            long j3 = -1;
+            long j4 = 253402300799999L;
             boolean z = false;
             boolean z2 = false;
             boolean z3 = true;
@@ -566,11 +566,11 @@ public final class Cookie {
                 String trimSubstring4 = delimiterOffset4 < delimiterOffset3 ? Util.trimSubstring(str, delimiterOffset4 + 1, delimiterOffset3) : "";
                 if (trimSubstring3.equalsIgnoreCase("expires")) {
                     try {
-                        j5 = parseExpires(trimSubstring4, 0, trimSubstring4.length());
+                        j4 = parseExpires(trimSubstring4, 0, trimSubstring4.length());
                     } catch (NumberFormatException | IllegalArgumentException unused) {
                     }
                 } else if (trimSubstring3.equalsIgnoreCase(ClientCookie.MAX_AGE_ATTR)) {
-                    j4 = parseMaxAge(trimSubstring4);
+                    j3 = parseMaxAge(trimSubstring4);
                 } else {
                     if (trimSubstring3.equalsIgnoreCase("domain")) {
                         str4 = parseDomain(trimSubstring4);
@@ -584,22 +584,22 @@ public final class Cookie {
                     }
                     i2 = delimiterOffset3 + 1;
                     c2 = ';';
-                    c3 = a.f36026h;
+                    c3 = a.f34124h;
                 }
                 z4 = true;
                 i2 = delimiterOffset3 + 1;
                 c2 = ';';
-                c3 = a.f36026h;
+                c3 = a.f34124h;
             }
-            long j6 = Long.MIN_VALUE;
-            if (j4 != Long.MIN_VALUE) {
-                if (j4 != -1) {
-                    j6 = j2 + (j4 <= 9223372036854775L ? j4 * 1000 : Long.MAX_VALUE);
-                    if (j6 < j2 || j6 > HttpDate.MAX_DATE) {
-                        j3 = 253402300799999L;
+            long j5 = Long.MIN_VALUE;
+            if (j3 != Long.MIN_VALUE) {
+                if (j3 != -1) {
+                    j5 = j + (j3 <= 9223372036854775L ? j3 * 1000 : Long.MAX_VALUE);
+                    if (j5 < j || j5 > HttpDate.MAX_DATE) {
+                        j2 = 253402300799999L;
                     }
                 } else {
-                    j3 = j5;
+                    j2 = j4;
                 }
                 host = httpUrl.host();
                 if (str4 != null) {
@@ -621,9 +621,9 @@ public final class Cookie {
                     int lastIndexOf = encodedPath.lastIndexOf(47);
                     substring = lastIndexOf != 0 ? encodedPath.substring(0, lastIndexOf) : "/";
                 }
-                return new Cookie(trimSubstring, trimSubstring2, j3, str2, substring, z, z2, z3, z4);
+                return new Cookie(trimSubstring, trimSubstring2, j2, str2, substring, z, z2, z3, z4);
             }
-            j3 = j6;
+            j2 = j5;
             host = httpUrl.host();
             if (str4 != null) {
             }
@@ -634,7 +634,7 @@ public final class Cookie {
             String encodedPath2 = httpUrl.encodedPath();
             int lastIndexOf2 = encodedPath2.lastIndexOf(47);
             substring = lastIndexOf2 != 0 ? encodedPath2.substring(0, lastIndexOf2) : "/";
-            return new Cookie(trimSubstring, trimSubstring2, j3, str2, substring, z, z2, z3, z4);
+            return new Cookie(trimSubstring, trimSubstring2, j2, str2, substring, z, z2, z3, z4);
         }
         return (Cookie) invokeCommon.objValue;
     }
@@ -645,7 +645,7 @@ public final class Cookie {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.name);
-            sb.append(a.f36026h);
+            sb.append(a.f34124h);
             sb.append(this.value);
             if (this.persistent) {
                 if (this.expiresAt == Long.MIN_VALUE) {

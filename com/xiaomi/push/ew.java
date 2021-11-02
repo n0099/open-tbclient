@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ew {
     public static /* synthetic */ Interceptable $ic;
     public static final ew A;
@@ -41,10 +41,10 @@ public final class ew {
     public static final ew Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ew f77947a;
+    public static final ew f70906a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ew[] f345a;
+    public static final /* synthetic */ ew[] f346a;
     public static final ew aa;
     public static final ew ab;
     public static final ew ac;
@@ -52,31 +52,29 @@ public final class ew {
     public static final ew ae;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ew f77948b;
+    public static final ew f70907b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ew f77949c;
+    public static final ew f70908c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ew f77950d;
+    public static final ew f70909d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ew f77951e;
+    public static final ew f70910e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ew f77952f;
+    public static final ew f70911f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ew f77953g;
+    public static final ew f70912g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ew f77954h;
+    public static final ew f70913h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ew f77955i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final ew f77956j;
+    public static final ew f70914i;
+    public static final ew j;
     public static final ew k;
     public static final ew l;
     public static final ew m;
@@ -96,7 +94,7 @@ public final class ew {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f346a;
+    public final int f347a;
 
     static {
         InterceptResult invokeClinit;
@@ -111,16 +109,16 @@ public final class ew {
                 return;
             }
         }
-        f77947a = new ew("TCP_CONN_FAIL", 0, 1);
-        f77948b = new ew("TCP_CONN_TIME", 1, 2);
-        f77949c = new ew("PING_RTT", 2, 3);
-        f77950d = new ew("CHANNEL_CON_FAIL", 3, 4);
-        f77951e = new ew("CHANNEL_CON_OK", 4, 5);
-        f77952f = new ew("ICMP_PING_FAIL", 5, 6);
-        f77953g = new ew("ICMP_PING_OK", 6, 7);
-        f77954h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
-        f77955i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
-        f77956j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
+        f70906a = new ew("TCP_CONN_FAIL", 0, 1);
+        f70907b = new ew("TCP_CONN_TIME", 1, 2);
+        f70908c = new ew("PING_RTT", 2, 3);
+        f70909d = new ew("CHANNEL_CON_FAIL", 3, 4);
+        f70910e = new ew("CHANNEL_CON_OK", 4, 5);
+        f70911f = new ew("ICMP_PING_FAIL", 5, 6);
+        f70912g = new ew("ICMP_PING_OK", 6, 7);
+        f70913h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
+        f70914i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
+        j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
         k = new ew("CHANNEL_STATS_COUNTER", 10, 8000);
         l = new ew("GSLB_REQUEST_SUCCESS", 11, 10000);
         m = new ew("GSLB_TCP_NOACCESS", 12, 10101);
@@ -169,7 +167,7 @@ public final class ew {
         ad = new ew("CHANNEL_BOSH_EXCEPTION", 55, 40499);
         ew ewVar = new ew("CHANNEL_TIMER_DELAYED", 56, 50001);
         ae = ewVar;
-        f345a = new ew[]{f77947a, f77948b, f77949c, f77950d, f77951e, f77952f, f77953g, f77954h, f77955i, f77956j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
+        f346a = new ew[]{f70906a, f70907b, f70908c, f70909d, f70910e, f70911f, f70912g, f70913h, f70914i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
     }
 
     public ew(String str, int i2, int i3) {
@@ -190,7 +188,7 @@ public final class ew {
                 return;
             }
         }
-        this.f346a = i3;
+        this.f347a = i3;
     }
 
     public static ew a(int i2) {
@@ -201,21 +199,21 @@ public final class ew {
                 if (i2 != 30502) {
                     switch (i2) {
                         case 1:
-                            return f77947a;
+                            return f70906a;
                         case 2:
-                            return f77948b;
+                            return f70907b;
                         case 3:
-                            return f77949c;
+                            return f70908c;
                         case 4:
-                            return f77950d;
+                            return f70909d;
                         case 5:
-                            return f77951e;
+                            return f70910e;
                         case 6:
-                            return f77952f;
+                            return f70911f;
                         case 7:
-                            return f77953g;
+                            return f70912g;
                         case 8:
-                            return f77954h;
+                            return f70913h;
                         default:
                             switch (i2) {
                                 case 8000:
@@ -347,12 +345,12 @@ public final class ew {
     public static ew[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ew[]) f345a.clone() : (ew[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ew[]) f346a.clone() : (ew[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f346a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f347a : invokeV.intValue;
     }
 }

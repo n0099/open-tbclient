@@ -2,7 +2,7 @@ package com.baidu.pass.ecommerce.view.addressdialog;
 
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface OnDialogSelectedListenter extends NoProguard {
     void onItemSelected(AddressSelectedBean addressSelectedBean);
 }

@@ -1,0 +1,158 @@
+package b.a.s0.b.e;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InterruptedIOException;
+import java.net.SocketTimeoutException;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes6.dex */
+public class g implements Executor {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final BlockingQueue<Runnable> f28666e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f28667f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f28668g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f28669h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final String f28670i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2130460982, "Lb/a/s0/b/e/g;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2130460982, "Lb/a/s0/b/e/g;");
+            }
+        }
+    }
+
+    public g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f28667f = false;
+        this.f28668g = false;
+        this.f28669h = -1L;
+        this.f28670i = str;
+        this.f28666e = new LinkedBlockingQueue();
+    }
+
+    public void a() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(0);
+        }
+    }
+
+    public void b(int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            long nanoTime = System.nanoTime();
+            long convert = TimeUnit.NANOSECONDS.convert(i2, TimeUnit.MILLISECONDS);
+            if (!this.f28668g) {
+                if (!this.f28667f) {
+                    this.f28667f = true;
+                    while (this.f28667f) {
+                        if (i2 == 0) {
+                            try {
+                                c(false, 0L).run();
+                            } catch (InterruptedIOException | RuntimeException e2) {
+                                this.f28667f = false;
+                                this.f28668g = true;
+                                throw e2;
+                            }
+                        } else {
+                            c(true, (convert - System.nanoTime()) + nanoTime).run();
+                        }
+                    }
+                    return;
+                }
+                throw new IllegalStateException("Cannot run loop when it is already running.");
+            }
+            throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
+        }
+    }
+
+    public final Runnable c(boolean z, long j) throws InterruptedIOException {
+        Runnable poll;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+            try {
+                if (!z) {
+                    poll = this.f28666e.take();
+                } else {
+                    poll = this.f28666e.poll(j, TimeUnit.NANOSECONDS);
+                }
+                if (poll != null) {
+                    return poll;
+                }
+                b.a.s0.a.a.c("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.f28670i);
+                throw new SocketTimeoutException();
+            } catch (InterruptedException e2) {
+                InterruptedIOException interruptedIOException = new InterruptedIOException();
+                interruptedIOException.initCause(e2);
+                throw interruptedIOException;
+            }
+        }
+        return (Runnable) invokeCommon.objValue;
+    }
+
+    @Override // java.util.concurrent.Executor
+    public void execute(Runnable runnable) throws RejectedExecutionException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
+            if (runnable != null) {
+                try {
+                    this.f28666e.put(runnable);
+                    return;
+                } catch (InterruptedException e2) {
+                    throw new RejectedExecutionException(e2);
+                }
+            }
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void quit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f28667f = false;
+        }
+    }
+}

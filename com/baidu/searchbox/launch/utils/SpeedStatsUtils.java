@@ -13,7 +13,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SpeedStatsUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_NIGHT_MODE = "isNightMode";
@@ -80,13 +80,13 @@ public class SpeedStatsUtils {
         }
     }
 
-    public static JSONObject getJsonData(long j2, Map<String, String> map) {
+    public static JSONObject getJsonData(long j, Map<String, String> map) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j2, map)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, map)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("duration", j2);
+                jSONObject.put("duration", j);
                 if (map != null && map.size() > 0) {
                     JSONArray jSONArray = new JSONArray();
                     for (Map.Entry<String, String> entry : map.entrySet()) {

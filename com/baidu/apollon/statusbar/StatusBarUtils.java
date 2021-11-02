@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class StatusBarUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_BAR_DEFAULT_HEIGHT = 25;
@@ -132,13 +132,13 @@ public class StatusBarUtils {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f38232a;
+            public final /* synthetic */ View f36240a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup.LayoutParams f38233b;
+            public final /* synthetic */ ViewGroup.LayoutParams f36241b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Context f38234c;
+            public final /* synthetic */ Context f36242c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -155,9 +155,9 @@ public class StatusBarUtils {
                         return;
                     }
                 }
-                this.f38232a = view;
-                this.f38233b = layoutParams;
-                this.f38234c = context;
+                this.f36240a = view;
+                this.f36241b = layoutParams;
+                this.f36242c = context;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -166,11 +166,11 @@ public class StatusBarUtils {
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 19) {
                     return;
                 }
-                this.f38232a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                this.f38233b.height = this.f38232a.getHeight() + StatusBarUtils.getStatusBarHeight(this.f38234c);
-                View view2 = this.f38232a;
-                view2.setPadding(view2.getPaddingLeft(), this.f38232a.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f38234c), this.f38232a.getPaddingRight(), this.f38232a.getPaddingBottom());
-                this.f38232a.setLayoutParams(this.f38233b);
+                this.f36240a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                this.f36241b.height = this.f36240a.getHeight() + StatusBarUtils.getStatusBarHeight(this.f36242c);
+                View view2 = this.f36240a;
+                view2.setPadding(view2.getPaddingLeft(), this.f36240a.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f36242c), this.f36240a.getPaddingRight(), this.f36240a.getPaddingBottom());
+                this.f36240a.setLayoutParams(this.f36241b);
             }
         });
     }

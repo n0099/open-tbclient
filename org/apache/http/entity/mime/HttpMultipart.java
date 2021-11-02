@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.util.ByteArrayBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpMultipart {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteArrayBuffer CR_LF;
@@ -35,7 +35,7 @@ public class HttpMultipart {
     public final String subType;
 
     /* renamed from: org.apache.http.entity.mime.HttpMultipart$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$apache$http$entity$mime$HttpMultipartMode;
         public static /* synthetic */ Interceptable $ic;
@@ -220,17 +220,17 @@ public class HttpMultipart {
         ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (FormBodyPart formBodyPart : this.parts) {
                 long contentLength = formBodyPart.getBody().getContentLength();
                 if (contentLength < 0) {
                     return -1L;
                 }
-                j2 += contentLength;
+                j += contentLength;
             }
             try {
                 doWriteTo(this.mode, new ByteArrayOutputStream(), false);
-                return j2 + byteArrayOutputStream.toByteArray().length;
+                return j + byteArrayOutputStream.toByteArray().length;
             } catch (IOException unused) {
                 return -1L;
             }

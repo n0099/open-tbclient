@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.b;
 import com.kwad.sdk.utils.ar;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f71875a = true;
+    public static boolean f64347a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f71876b = "[KSAdSDK_3.3.11]";
+    public static String f64348b = "[KSAdSDK_3.3.11.4]";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f71877c;
+    public static boolean f64349c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public class a {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f71876b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f64348b : (String) invokeV.objValue;
     }
 
     public static void a(String str) {
@@ -56,7 +56,7 @@ public class a {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f71875a && b.f71521b.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f64347a && b.f64000b.booleanValue()) {
             b(a(), f(str, str2));
         }
     }
@@ -64,31 +64,31 @@ public class a {
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
-            boolean z = f71875a;
+            boolean z = f64347a;
         }
     }
 
     public static void a(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, str, z) == null) {
-            f71876b = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
-            f71875a = z;
+            f64348b = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
+            f64347a = z;
         }
     }
 
     public static void a(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) {
-            if (f71875a && th != null) {
+            if (f64347a && th != null) {
                 th.printStackTrace();
             }
-            if (b.f71521b.booleanValue()) {
+            if (b.f64000b.booleanValue()) {
                 ar.a(new Runnable(th) { // from class: com.kwad.sdk.core.d.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f71878a;
+                    public final /* synthetic */ Throwable f64350a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -105,14 +105,14 @@ public class a {
                                 return;
                             }
                         }
-                        this.f71878a = th;
+                        this.f64350a = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            throw new RuntimeException(this.f71878a);
+                            throw new RuntimeException(this.f64350a);
                         }
                     }
                 });
@@ -126,7 +126,7 @@ public class a {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f71877c) {
+            if (f64349c) {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 if (stackTrace.length > 3) {
                     str = stackTrace[3].getFileName();
@@ -153,14 +153,14 @@ public class a {
 
     public static void b(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, th) == null) && b.f71521b.booleanValue() && th != null) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, th) == null) && b.f64000b.booleanValue() && th != null) {
             th.printStackTrace();
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f71875a) {
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f64347a) {
             a();
             f(str, str2);
         }
@@ -168,7 +168,7 @@ public class a {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f71875a) {
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f64347a) {
             a();
             f(str, str2);
         }
@@ -176,7 +176,7 @@ public class a {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f71875a) {
+        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f64347a) {
             a();
             f(str, str2);
         }

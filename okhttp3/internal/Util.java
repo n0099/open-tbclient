@@ -48,7 +48,7 @@ import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EMPTY_BYTE_ARRAY;
@@ -239,15 +239,15 @@ public final class Util {
         return (String) invokeL.objValue;
     }
 
-    public static int checkDuration(String str, long j2, TimeUnit timeUnit) {
+    public static int checkDuration(String str, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, Long.valueOf(j2), timeUnit})) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, Long.valueOf(j), timeUnit})) == null) {
+            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i2 < 0) {
                 throw new IllegalArgumentException(str + " < 0");
             } else if (timeUnit != null) {
-                long millis = timeUnit.toMillis(j2);
+                long millis = timeUnit.toMillis(j);
                 if (millis > 2147483647L) {
                     throw new IllegalArgumentException(str + " too large.");
                 } else if (millis != 0 || i2 <= 0) {
@@ -262,10 +262,10 @@ public final class Util {
         return invokeCommon.intValue;
     }
 
-    public static void checkOffsetAndCount(long j2, long j3, long j4) {
+    public static void checkOffsetAndCount(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
                 throw new ArrayIndexOutOfBoundsException();
             }
         }

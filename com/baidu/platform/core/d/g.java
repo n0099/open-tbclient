@@ -3,13 +3,12 @@ package com.baidu.platform.core.d;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.route.IndoorRoutePlanOption;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,18 +34,18 @@ public class g extends com.baidu.platform.base.e {
     private void a(IndoorRoutePlanOption indoorRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, indoorRoutePlanOption) == null) {
-            this.f44279a.a("qt", "indoornavi");
-            this.f44279a.a("rp_format", "json");
-            this.f44279a.a("version", "1");
+            this.f42041a.a("qt", "indoornavi");
+            this.f42041a.a("rp_format", "json");
+            this.f42041a.a("version", "1");
             GeoPoint ll2mc = CoordUtil.ll2mc(indoorRoutePlanOption.mFrom.getLocation());
             if (ll2mc != null) {
                 String format = String.format("%f,%f", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6()));
-                this.f44279a.a(IAdRequestParam.SN, (format + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
+                this.f42041a.a("sn", (format + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
             }
             GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
             if (ll2mc2 != null) {
                 String format2 = String.format("%f,%f", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6()));
-                this.f44279a.a(com.baidu.fsg.base.statistics.h.f39560a, (format2 + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
+                this.f42041a.a(com.baidu.fsg.base.statistics.h.f37503a, (format2 + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
             }
         }
     }

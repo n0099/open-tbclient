@@ -107,16 +107,16 @@ public final class GrowingArrayUtils {
         return (int[]) invokeLIII.objValue;
     }
 
-    public static long[] append(long[] jArr, int i2, long j2) {
+    public static long[] append(long[] jArr, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jArr, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jArr, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             if (i2 + 1 > jArr.length) {
                 long[] jArr2 = new long[growSize(i2)];
                 System.arraycopy(jArr, 0, jArr2, 0, i2);
                 jArr = jArr2;
             }
-            jArr[i2] = j2;
+            jArr[i2] = j;
             return jArr;
         }
         return (long[]) invokeCommon.objValue;
@@ -137,18 +137,18 @@ public final class GrowingArrayUtils {
         return (boolean[]) invokeCommon.objValue;
     }
 
-    public static long[] insert(long[] jArr, int i2, int i3, long j2) {
+    public static long[] insert(long[] jArr, int i2, int i3, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{jArr, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{jArr, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
             if (i2 + 1 <= jArr.length) {
                 System.arraycopy(jArr, i3, jArr, i3 + 1, i2 - i3);
-                jArr[i3] = j2;
+                jArr[i3] = j;
                 return jArr;
             }
             long[] jArr2 = new long[growSize(i2)];
             System.arraycopy(jArr, 0, jArr2, 0, i3);
-            jArr2[i3] = j2;
+            jArr2[i3] = j;
             System.arraycopy(jArr, i3, jArr2, i3 + 1, jArr.length - i3);
             return jArr2;
         }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DefaultSailorAbTest implements ISailorAbTestInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,10 +49,10 @@ public class DefaultSailorAbTest implements ISailorAbTestInterface {
     }
 
     @Override // com.baidu.webkit.sdk.IABTestInterface
-    public long getSwitch(String str, long j2) {
+    public long getSwitch(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) ? j2 : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) ? j : invokeLJ.longValue;
     }
 
     @Override // com.baidu.webkit.sdk.IABTestInterface

@@ -13,7 +13,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RecyclableBufferedInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     public int markpos;
     public int pos;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class InvalidMarkException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4338378848813561757L;
@@ -254,37 +254,37 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized long skip(long j2) throws IOException {
+    public synchronized long skip(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
             synchronized (this) {
-                if (j2 < 1) {
+                if (j < 1) {
                     return 0L;
                 }
                 byte[] bArr = this.buf;
                 if (bArr != null) {
                     InputStream inputStream = ((FilterInputStream) this).in;
                     if (inputStream != null) {
-                        if (this.count - this.pos >= j2) {
-                            this.pos = (int) (this.pos + j2);
-                            return j2;
+                        if (this.count - this.pos >= j) {
+                            this.pos = (int) (this.pos + j);
+                            return j;
                         }
-                        long j3 = this.count - this.pos;
+                        long j2 = this.count - this.pos;
                         this.pos = this.count;
-                        if (this.markpos != -1 && j2 <= this.marklimit) {
+                        if (this.markpos != -1 && j <= this.marklimit) {
                             if (fillbuf(inputStream, bArr) == -1) {
-                                return j3;
-                            }
-                            if (this.count - this.pos >= j2 - j3) {
-                                this.pos = (int) ((this.pos + j2) - j3);
                                 return j2;
                             }
-                            long j4 = (j3 + this.count) - this.pos;
+                            if (this.count - this.pos >= j - j2) {
+                                this.pos = (int) ((this.pos + j) - j2);
+                                return j;
+                            }
+                            long j3 = (j2 + this.count) - this.pos;
                             this.pos = this.count;
-                            return j4;
+                            return j3;
                         }
-                        return j3 + inputStream.skip(j2 - j3);
+                        return j2 + inputStream.skip(j - j2);
                     }
                     throw streamClosed();
                 }

@@ -4,13 +4,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import b.a.r0.j1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HotRankListNormaItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,16 +57,16 @@ public class HotRankListNormaItemHolder extends TypeAdapter.ViewHolder {
         this.tipRule = null;
         this.topicNormalItem = null;
         this.tipRuleContainer = null;
-        this.topicRanking = (TextView) view.findViewById(R.id.hot_topic_rank);
-        this.topicNeme = (TextView) view.findViewById(R.id.hot_topic_title);
-        this.topicDiscussNum = (TextView) view.findViewById(R.id.hot_topic_num);
-        this.dividerLineTop = view.findViewById(R.id.devide_line_top);
-        this.dividerLineBottom = view.findViewById(R.id.topic_devide_line_bottom);
-        this.topicTagPic = (ImageView) view.findViewById(R.id.hot_topic_pic);
-        this.tipInfoItem = (LinearLayout) view.findViewById(R.id.tip_info_item);
-        this.tipTitle = (TextView) view.findViewById(R.id.tip_info_title);
-        this.tipRule = (TextView) view.findViewById(R.id.tip_info_rule);
-        this.topicNormalItem = (LinearLayout) view.findViewById(R.id.topic_normal_item);
-        this.tipRuleContainer = (LinearLayout) view.findViewById(R.id.tip_rule_container);
+        this.topicRanking = (TextView) view.findViewById(e.hot_topic_rank);
+        this.topicNeme = (TextView) view.findViewById(e.hot_topic_title);
+        this.topicDiscussNum = (TextView) view.findViewById(e.hot_topic_num);
+        this.dividerLineTop = view.findViewById(e.devide_line_top);
+        this.dividerLineBottom = view.findViewById(e.topic_devide_line_bottom);
+        this.topicTagPic = (ImageView) view.findViewById(e.hot_topic_pic);
+        this.tipInfoItem = (LinearLayout) view.findViewById(e.tip_info_item);
+        this.tipTitle = (TextView) view.findViewById(e.tip_info_title);
+        this.tipRule = (TextView) view.findViewById(e.tip_info_rule);
+        this.topicNormalItem = (LinearLayout) view.findViewById(e.topic_normal_item);
+        this.tipRuleContainer = (LinearLayout) view.findViewById(e.tip_rule_container);
     }
 }

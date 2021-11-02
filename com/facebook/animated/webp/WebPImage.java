@@ -12,12 +12,13 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 import com.facebook.imagepipeline.animated.base.AnimatedImage;
 import com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder;
+import com.facebook.imagepipeline.common.ImageDecodeOptions;
 import com.facebook.imagepipeline.nativecode.StaticWebpNativeLoader;
 import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,10 +40,10 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
         }
     }
 
-    public static WebPImage create(byte[] bArr) {
+    public static WebPImage createFromByteArray(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             StaticWebpNativeLoader.ensure();
             Preconditions.checkNotNull(bArr);
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);
@@ -53,9 +54,31 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
         return (WebPImage) invokeL.objValue;
     }
 
+    public static WebPImage createFromByteBuffer(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, byteBuffer)) == null) {
+            StaticWebpNativeLoader.ensure();
+            byteBuffer.rewind();
+            return nativeCreateFromDirectByteBuffer(byteBuffer);
+        }
+        return (WebPImage) invokeL.objValue;
+    }
+
+    public static WebPImage createFromNativeMemory(long j, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+            StaticWebpNativeLoader.ensure();
+            Preconditions.checkArgument(j != 0);
+            return nativeCreateFromNativeMemory(j, i2);
+        }
+        return (WebPImage) invokeCommon.objValue;
+    }
+
     public static native WebPImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
 
-    public static native WebPImage nativeCreateFromNativeMemory(long j2, int i2);
+    public static native WebPImage nativeCreateFromNativeMemory(long j, int i2);
 
     private native void nativeDispose();
 
@@ -78,10 +101,17 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     private native int nativeGetWidth();
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
-    public AnimatedImage decode(long j2, int i2) {
+    public AnimatedImage decodeFromByteBuffer(ByteBuffer byteBuffer, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, byteBuffer, imageDecodeOptions)) == null) ? createFromByteBuffer(byteBuffer) : (AnimatedImage) invokeLL.objValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
+    public AnimatedImage decodeFromNativeMemory(long j, int i2, ImageDecodeOptions imageDecodeOptions) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? create(j2, i2) : (AnimatedImage) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), imageDecodeOptions})) == null) ? createFromNativeMemory(j, i2) : (AnimatedImage) invokeCommon.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
@@ -174,12 +204,12 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     }
 
     @DoNotStrip
-    public WebPImage(long j2) {
+    public WebPImage(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -189,14 +219,7 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
                 return;
             }
         }
-        this.mNativeContext = j2;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
-    public AnimatedImage decode(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer)) == null) ? create(byteBuffer) : (AnimatedImage) invokeL.objValue;
+        this.mNativeContext = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -205,27 +228,5 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? nativeGetFrame(i2) : (WebPFrame) invokeI.objValue;
-    }
-
-    public static WebPImage create(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, byteBuffer)) == null) {
-            StaticWebpNativeLoader.ensure();
-            byteBuffer.rewind();
-            return nativeCreateFromDirectByteBuffer(byteBuffer);
-        }
-        return (WebPImage) invokeL.objValue;
-    }
-
-    public static WebPImage create(long j2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            StaticWebpNativeLoader.ensure();
-            Preconditions.checkArgument(j2 != 0);
-            return nativeCreateFromNativeMemory(j2, i2);
-        }
-        return (WebPImage) invokeCommon.objValue;
     }
 }

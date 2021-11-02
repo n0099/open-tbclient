@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import c.a.q0.s.f0.t.b;
+import b.a.e.e.p.l;
+import b.a.q0.s.g0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,24 +16,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CommonUserLikeButton extends TextView implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f48057e;
+    public a f45614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f48058f;
+    public View.OnClickListener f45615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48059g;
+    public boolean f45616g;
     public boolean mCurrentIsLike;
     public String mStrAlreadyFollowed;
     public String mStrFollow;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(int i2);
     }
@@ -59,11 +59,11 @@ public class CommonUserLikeButton extends TextView implements b {
         this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
         this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
         this.mCurrentIsLike = false;
-        this.f48059g = false;
+        this.f45616g = false;
         init();
     }
 
-    @Override // c.a.q0.s.f0.t.b
+    @Override // b.a.q0.s.g0.t.b
     public void bindOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
@@ -91,7 +91,7 @@ public class CommonUserLikeButton extends TextView implements b {
                 return;
             }
             SkinManager.setViewTextColor(this, R.color.btn_forum_focus_color);
-            if (this.f48059g) {
+            if (this.f45616g) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
             } else {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_focus_border_bg);
@@ -99,11 +99,11 @@ public class CommonUserLikeButton extends TextView implements b {
         }
     }
 
-    @Override // c.a.q0.s.f0.t.b
+    @Override // b.a.q0.s.g0.t.b
     public void onClickEvent(View view) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (onClickListener = this.f48058f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (onClickListener = this.f45615f) == null) {
             return;
         }
         onClickListener.onClick(view);
@@ -112,14 +112,14 @@ public class CommonUserLikeButton extends TextView implements b {
     public void setAfterOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f48058f = onClickListener;
+            this.f45615f = onClickListener;
         }
     }
 
     public void setBackGroundIsTransMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f48059g = z;
+            this.f45616g = z;
             SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
         }
     }
@@ -127,15 +127,15 @@ public class CommonUserLikeButton extends TextView implements b {
     public void setFanNumCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f48057e = aVar;
+            this.f45614e = aVar;
         }
     }
 
-    @Override // c.a.q0.s.f0.t.b
+    @Override // b.a.q0.s.g0.t.b
     public void updateFansNum(int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (aVar = this.f48057e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (aVar = this.f45614e) == null) {
             return;
         }
         aVar.a(i2);
@@ -180,7 +180,7 @@ public class CommonUserLikeButton extends TextView implements b {
         this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
         this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
         this.mCurrentIsLike = false;
-        this.f48059g = false;
+        this.f45616g = false;
         init();
     }
 
@@ -191,7 +191,7 @@ public class CommonUserLikeButton extends TextView implements b {
         }
     }
 
-    @Override // c.a.q0.s.f0.t.b
+    @Override // b.a.q0.s.g0.t.b
     public void updateLikeStatus(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
@@ -221,7 +221,7 @@ public class CommonUserLikeButton extends TextView implements b {
         this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
         this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
         this.mCurrentIsLike = false;
-        this.f48059g = false;
+        this.f45616g = false;
         init();
     }
 }

@@ -2,14 +2,14 @@ package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
 import com.airbnb.lottie.model.animatable.AnimatableShapeValue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Mask {
     public final boolean inverted;
     public final MaskMode maskMode;
     public final AnimatableShapeValue maskPath;
     public final AnimatableIntegerValue opacity;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum MaskMode {
         MASK_MODE_ADD,
         MASK_MODE_SUBTRACT,

@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class o extends BaseBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39599a;
+    public String f37540a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(Context context, String str) {
@@ -40,7 +40,7 @@ public class o extends BaseBean {
                 return;
             }
         }
-        this.f39599a = str;
+        this.f37540a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
@@ -49,7 +49,7 @@ public class o extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            String encodeToString = Base64.encodeToString(this.f39599a.getBytes(), 2);
+            String encodeToString = Base64.encodeToString(this.f37540a.getBytes(), 2);
             arrayList.add(new RestNameValuePair("datetime", System.currentTimeMillis() + ""));
             arrayList.add(new RestNameValuePair(TbConfig.TMP_LOG_DIR_NAME, encodeToString));
             return arrayList;

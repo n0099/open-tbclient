@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 8719785586052076737L;
@@ -17,7 +17,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
     public PlayDetailInfo playDetailInfo;
     public PlayEndInfo playEndInfo;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class AdBrowseInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 124904139820344132L;
@@ -40,7 +40,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class BannerAdInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3388161368206579078L;
@@ -63,7 +63,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class FeedAdInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7200581738130214277L;
@@ -86,7 +86,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class PlayDetailInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1341583579732471663L;
@@ -99,7 +99,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
         public int type;
         public WidgetAdInfo widgetAdInfo;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class ActionBarInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8435676971458116236L;
@@ -123,7 +123,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class DetailCommonInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7929119539282758308L;
@@ -146,7 +146,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class DetailTopToolBarInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7018855616083214769L;
@@ -173,7 +173,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class DetailWebCardInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3413444348973947395L;
@@ -201,7 +201,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class PatchAdInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2983090319692390903L;
@@ -235,7 +235,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class WidgetAdInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -7098364163341152274L;
@@ -285,7 +285,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class PlayEndInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4733855071604625289L;
@@ -299,7 +299,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
         public int showLandingPage3;
         public int type;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class AdWebCardInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 5629721137592788675L;
@@ -327,7 +327,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class EndTopToolBarInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3850938239125130621L;
@@ -350,7 +350,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Seria
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class HorizontalPatchAdInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8415386955501326466L;

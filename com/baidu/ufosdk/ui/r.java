@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class r implements l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f60128a;
+    public final /* synthetic */ int f57044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ j f60129b;
+    public final /* synthetic */ j f57045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f60130c;
+    public final /* synthetic */ FeedbackEditActivity f57046c;
 
     public r(FeedbackEditActivity feedbackEditActivity, int i2, j jVar) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public final class r implements l {
                 return;
             }
         }
-        this.f60130c = feedbackEditActivity;
-        this.f60128a = i2;
-        this.f60129b = jVar;
+        this.f57046c = feedbackEditActivity;
+        this.f57044a = i2;
+        this.f57045b = jVar;
     }
 
     @Override // com.baidu.ufosdk.ui.l
@@ -65,54 +65,54 @@ public final class r implements l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             com.baidu.ufosdk.f.c.a("DeleteConfirmDialog --> confirm clicked!");
-            int i2 = this.f60128a;
+            int i2 = this.f57044a;
             if (i2 == 1) {
-                list4 = this.f60130c.q;
+                list4 = this.f57046c.q;
                 int size = list4.size();
                 if (size == 1) {
-                    hashMap6 = this.f60130c.r;
+                    hashMap6 = this.f57046c.r;
                     hashMap6.remove("0");
                 } else if (size == 2) {
-                    hashMap7 = this.f60130c.r;
-                    hashMap8 = this.f60130c.r;
+                    hashMap7 = this.f57046c.r;
+                    hashMap8 = this.f57046c.r;
                     hashMap7.put("0", hashMap8.get("1"));
-                    hashMap9 = this.f60130c.r;
+                    hashMap9 = this.f57046c.r;
                     hashMap9.remove("1");
                 } else if (size == 3) {
-                    hashMap10 = this.f60130c.r;
-                    hashMap11 = this.f60130c.r;
+                    hashMap10 = this.f57046c.r;
+                    hashMap11 = this.f57046c.r;
                     hashMap10.put("0", hashMap11.get("1"));
-                    hashMap12 = this.f60130c.r;
-                    hashMap13 = this.f60130c.r;
+                    hashMap12 = this.f57046c.r;
+                    hashMap13 = this.f57046c.r;
                     hashMap12.put("1", hashMap13.get("2"));
-                    hashMap14 = this.f60130c.r;
+                    hashMap14 = this.f57046c.r;
                     hashMap14.remove("2");
                 }
-                list5 = this.f60130c.q;
+                list5 = this.f57046c.q;
                 list5.remove(0);
             } else if (i2 == 2) {
-                list2 = this.f60130c.q;
+                list2 = this.f57046c.q;
                 int size2 = list2.size();
                 if (size2 == 2) {
-                    hashMap2 = this.f60130c.r;
+                    hashMap2 = this.f57046c.r;
                     hashMap2.remove("1");
                 } else if (size2 == 3) {
-                    hashMap3 = this.f60130c.r;
-                    hashMap4 = this.f60130c.r;
+                    hashMap3 = this.f57046c.r;
+                    hashMap4 = this.f57046c.r;
                     hashMap3.put("1", hashMap4.get("2"));
-                    hashMap5 = this.f60130c.r;
+                    hashMap5 = this.f57046c.r;
                     hashMap5.remove("2");
                 }
-                list3 = this.f60130c.q;
+                list3 = this.f57046c.q;
                 list3.remove(1);
             } else {
-                hashMap = this.f60130c.r;
+                hashMap = this.f57046c.r;
                 hashMap.remove("2");
-                list = this.f60130c.q;
+                list = this.f57046c.q;
                 list.remove(2);
             }
-            this.f60130c.b();
-            this.f60129b.dismiss();
+            this.f57046c.b();
+            this.f57045b.dismiss();
         }
     }
 
@@ -121,7 +121,7 @@ public final class r implements l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.baidu.ufosdk.f.c.a("DeleteConfirmDialog --> cancel clicked!");
-            this.f60129b.dismiss();
+            this.f57045b.dismiss();
         }
     }
 }

@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.t.i;
+import b.a.x0.t.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MultiMediaDataSourceRealTimer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceRealTimer";
@@ -40,9 +40,9 @@ public class MultiMediaDataSourceRealTimer {
     public Runnable startRunnable;
     public Runnable stopRunnable;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface AnimatorUpdateListener {
-        void onAnimationUpdate(long j2);
+        void onAnimationUpdate(long j);
     }
 
     static {
@@ -370,14 +370,14 @@ public class MultiMediaDataSourceRealTimer {
                         i.a(str, "TimerTask thread : " + Thread.currentThread().getName());
                         this.this$0.mBeginTime = currentTimeMillis;
                     }
-                    long j2 = currentTimeMillis + this.this$0.mCurrentPlayTime;
-                    if (j2 == this.this$0.mBeginTime + this.this$0.mCurrentPlayTime) {
+                    long j = currentTimeMillis + this.this$0.mCurrentPlayTime;
+                    if (j == this.this$0.mBeginTime + this.this$0.mCurrentPlayTime) {
                         this.this$0.mJobHandler.post(this.this$0.animatorStartRunnable);
                     }
-                    if (j2 - this.this$0.mBeginTime < this.this$0.mDuration) {
+                    if (j - this.this$0.mBeginTime < this.this$0.mDuration) {
                         Message obtain = Message.obtain();
                         obtain.what = 0;
-                        obtain.obj = Long.valueOf(j2 - this.this$0.mBeginTime);
+                        obtain.obj = Long.valueOf(j - this.this$0.mBeginTime);
                         this.this$0.mJobHandler.sendMessage(obtain);
                         return;
                     }
@@ -444,17 +444,17 @@ public class MultiMediaDataSourceRealTimer {
         }
     }
 
-    public void setCurrentPlayTime(long j2) {
+    public void setCurrentPlayTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.mCurrentPlayTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.mCurrentPlayTime = j;
         }
     }
 
-    public void setDuration(long j2) {
+    public void setDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.mDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.mDuration = j;
         }
     }
 

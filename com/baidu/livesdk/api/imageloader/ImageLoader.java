@@ -2,7 +2,7 @@ package com.baidu.livesdk.api.imageloader;
 
 import android.graphics.Bitmap;
 import android.widget.ImageView;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface ImageLoader {
     Bitmap getBitmapFromCache(String str);
 

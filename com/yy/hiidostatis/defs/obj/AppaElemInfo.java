@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AppaElemInfo extends ParamableElem implements Elem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5075819899173282579L;
@@ -118,31 +118,31 @@ public class AppaElemInfo extends ParamableElem implements Elem {
         return (String) invokeV.objValue;
     }
 
-    public void setDtime(long j2) {
+    public void setDtime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.dtime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.dtime = j;
         }
     }
 
-    public void setFtime(long j2) {
+    public void setFtime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.ftime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.ftime = j;
         }
     }
 
-    public void setLingerTime(long j2) {
+    public void setLingerTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.ltime = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.ltime = j;
         }
     }
 
-    public void setStime(long j2) {
+    public void setStime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.stime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.stime = j;
         }
     }
 
@@ -155,12 +155,12 @@ public class AppaElemInfo extends ParamableElem implements Elem {
         return (String) invokeV.objValue;
     }
 
-    public AppaElemInfo(long j2, long j3, long j4, long j5) {
+    public AppaElemInfo(long j, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -170,9 +170,9 @@ public class AppaElemInfo extends ParamableElem implements Elem {
                 return;
             }
         }
-        this.stime = j2;
-        this.ftime = j3;
-        this.ltime = j4;
-        this.dtime = j5;
+        this.stime = j;
+        this.ftime = j2;
+        this.ltime = j3;
+        this.dtime = j4;
     }
 }

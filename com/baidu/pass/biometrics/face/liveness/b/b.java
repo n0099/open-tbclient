@@ -4,18 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f44087h = 0;
+    public static final int f41855h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f44088i = 1;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final int f44089j = 2;
+    public static final int f41856i = 1;
+    public static final int j = 2;
     public static final int k = 3;
     public static final int l = 4;
     public static final int m = 5;
@@ -34,25 +32,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f44090a;
+    public int f41857a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44091b;
+    public boolean f41858b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44092c;
+    public boolean f41859c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f44093d;
+    public long f41860d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f44094e;
+    public long f41861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44095f;
+    public boolean f41862f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44096g;
+    public boolean f41863g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -67,11 +65,11 @@ public class b {
                 return;
             }
         }
-        this.f44090a = 0;
-        this.f44091b = false;
-        this.f44092c = false;
-        this.f44094e = 20000L;
-        this.f44095f = false;
-        this.f44096g = false;
+        this.f41857a = 0;
+        this.f41858b = false;
+        this.f41859c = false;
+        this.f41861e = 20000L;
+        this.f41862f = false;
+        this.f41863g = false;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.wallet.api;
 
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface ILoginValidateListener {
     void onValidateSuccess(Map<String, String> map);
 }

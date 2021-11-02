@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
+import b.a.r0.x0.c1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,29 +18,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.ItemPlot;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ItemTableView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ItemTableRowView f51842e;
+    public ItemTableRowView f49172e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ItemTableRowView f51843f;
+    public ItemTableRowView f49173f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemTableRowView f51844g;
+    public ItemTableRowView f49174g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemTableRowView f51845h;
+    public ItemTableRowView f49175h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ItemTableRowView f51846i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public SparseArray<ItemTableRowView> f51847j;
+    public ItemTableRowView f49176i;
+    public SparseArray<ItemTableRowView> j;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +53,7 @@ public class ItemTableView extends LinearLayout {
                 return;
             }
         }
-        k = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+        k = l.g(TbadkCoreApplication.getInst().getContext(), c1.tbds5);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -83,18 +81,18 @@ public class ItemTableView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            this.f51846i = b(context, 0, 0);
-            this.f51845h = b(context, 1, k);
-            this.f51844g = b(context, 2, k);
-            this.f51843f = b(context, 3, k);
-            this.f51842e = b(context, 4, k);
+            this.f49176i = b(context, 0, 0);
+            this.f49175h = b(context, 1, k);
+            this.f49174g = b(context, 2, k);
+            this.f49173f = b(context, 3, k);
+            this.f49172e = b(context, 4, k);
             SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
-            this.f51847j = sparseArray;
-            sparseArray.put(5, this.f51846i);
-            this.f51847j.put(4, this.f51845h);
-            this.f51847j.put(3, this.f51844g);
-            this.f51847j.put(2, this.f51843f);
-            this.f51847j.put(1, this.f51842e);
+            this.j = sparseArray;
+            sparseArray.put(5, this.f49176i);
+            this.j.put(4, this.f49175h);
+            this.j.put(3, this.f49174g);
+            this.j.put(2, this.f49173f);
+            this.j.put(1, this.f49172e);
         }
     }
 
@@ -115,22 +113,22 @@ public class ItemTableView extends LinearLayout {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f51842e.clear();
-            this.f51843f.clear();
-            this.f51844g.clear();
-            this.f51845h.clear();
-            this.f51846i.clear();
+            this.f49172e.clear();
+            this.f49173f.clear();
+            this.f49174g.clear();
+            this.f49175h.clear();
+            this.f49176i.clear();
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f51842e.onChangeSkinType();
-            this.f51843f.onChangeSkinType();
-            this.f51844g.onChangeSkinType();
-            this.f51845h.onChangeSkinType();
-            this.f51846i.onChangeSkinType();
+            this.f49172e.onChangeSkinType();
+            this.f49173f.onChangeSkinType();
+            this.f49174g.onChangeSkinType();
+            this.f49175h.onChangeSkinType();
+            this.f49176i.onChangeSkinType();
         }
     }
 
@@ -145,7 +143,7 @@ public class ItemTableView extends LinearLayout {
                 if (itemPlot != null) {
                     int intValue = itemPlot.level.intValue();
                     float intValue2 = (itemPlot.num.intValue() * 1.0f) / i2;
-                    ItemTableRowView itemTableRowView = this.f51847j.get(intValue);
+                    ItemTableRowView itemTableRowView = this.j.get(intValue);
                     if (itemTableRowView != null) {
                         itemTableRowView.setData(intValue2);
                     }

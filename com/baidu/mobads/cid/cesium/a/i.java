@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class i extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,11 +25,11 @@ public final class i extends g {
                 return;
             }
         }
-        this.f42706a = 4294967295L;
-        this.f42707b = 4;
-        this.f42708c = 32;
-        this.f42709d = i2;
-        this.f42710e = i3;
+        this.f40516a = 4294967295L;
+        this.f40517b = 4;
+        this.f40518c = 32;
+        this.f40519d = i2;
+        this.f40520e = i3;
     }
 
     @Override // com.baidu.mobads.cid.cesium.a.g

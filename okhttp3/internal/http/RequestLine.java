@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.Proxy;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RequestLine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

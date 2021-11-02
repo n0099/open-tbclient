@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.model;
 
-import c.a.e.a.f;
-import c.a.e.e.p.j;
+import b.a.e.a.f;
+import b.a.e.e.p.j;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,24 +17,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.d4.u.l.a f59165e;
+    public b.a.r0.d4.u.l.a f56113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.c.g.a f59166f;
+    public b.a.e.c.g.a f56114f;
 
-    /* loaded from: classes8.dex */
-    public class a extends c.a.e.c.g.a {
+    /* loaded from: classes10.dex */
+    public class a extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StickerModel f59167a;
+        public final /* synthetic */ StickerModel f56115a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(StickerModel stickerModel, int i2, int i3) {
@@ -55,10 +55,10 @@ public class StickerModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f59167a = stickerModel;
+            this.f56115a = stickerModel;
         }
 
-        @Override // c.a.e.c.g.a
+        @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -72,8 +72,8 @@ public class StickerModel extends BdBaseModel {
                 } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                     list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                 }
-                if (this.f59167a.f59165e != null) {
-                    this.f59167a.f59165e.e(list);
+                if (this.f56115a.f56113e != null) {
+                    this.f56115a.f56113e.e(list);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class StickerModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
-        this.f59166f = aVar;
+        this.f56114f = aVar;
         registerListener(aVar);
     }
 
@@ -126,8 +126,8 @@ public class StickerModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (j.A()) {
-                c.a.r0.k3.e0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                c.a.r0.k3.e0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+                b.a.r0.l3.f0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                b.a.r0.l3.f0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);
@@ -138,10 +138,10 @@ public class StickerModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void x(c.a.r0.d4.u.l.a aVar) {
+    public void x(b.a.r0.d4.u.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f59165e = aVar;
+            this.f56113e = aVar;
         }
     }
 }

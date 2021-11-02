@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class VideoMiddleNiaiControllerView extends VideoControllerView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOTTOM_HEIGHT;
@@ -69,11 +69,21 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         }
     }
 
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.p.getLayoutParams().height = VERTICLE_CENTER_HEIGHT;
+            SeekBar seekBar = this.mProgress;
+            seekBar.setPadding(seekBar.getPaddingLeft(), EIGHT_WIDTH_PADDING_TOP, this.mProgress.getPaddingRight(), VERTICLE_CENTER_PADDING_BOTTOM);
+            this.p.requestLayout();
+        }
+    }
+
     @Override // com.baidu.tieba.play.VideoControllerView
     public View getLayout(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             View inflate = View.inflate(context, R.layout.video_middle_naivi_controller, null);
             this.p = inflate;
             this.q = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.pb_video_controller_seekBar);
@@ -82,28 +92,13 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         return (View) invokeL.objValue;
     }
 
-    public void initProgressUIType(int i2) {
+    public SeekBar getSeekBar() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 == 1) {
-                o();
-            } else {
-                m();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.q : (SeekBar) invokeV.objValue;
     }
 
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.p.getLayoutParams().height = VERTICLE_CENTER_HEIGHT;
-            SeekBar seekBar = this.mProgress;
-            seekBar.setPadding(seekBar.getPaddingLeft(), EIGHT_WIDTH_PADDING_TOP, this.mProgress.getPaddingRight(), VERTICLE_CENTER_PADDING_BOTTOM);
-            this.p.requestLayout();
-        }
-    }
-
-    public final void n() {
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.p.getLayoutParams().height = BOTTOM_HEIGHT;
@@ -113,7 +108,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         }
     }
 
-    public final void o() {
+    public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.p.getLayoutParams().height = BOTTOM_HEIGHT;
@@ -123,27 +118,38 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         }
     }
 
+    public void initProgressUIType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            if (i2 == 1) {
+                i();
+            } else {
+                g();
+            }
+        }
+    }
+
     public void setBottomBarShow(boolean z, int i2) {
         SeekBar seekBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (seekBar = this.mProgress) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (seekBar = this.mProgress) == null) {
             return;
         }
         if (z) {
             seekBar.setThumb(null);
             if (i2 == 1) {
-                o();
+                i();
             } else {
-                m();
+                g();
             }
             this.mProgress.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_three_width_seekbar));
             return;
         }
         seekBar.setThumb(null);
         if (i2 == 1) {
-            n();
+            h();
         } else {
-            m();
+            g();
         }
         this.mProgress.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
     }
@@ -151,7 +157,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
     public void setLoading(boolean z) {
         LinearVideoLoadingSeekBar linearVideoLoadingSeekBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (linearVideoLoadingSeekBar = this.q) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (linearVideoLoadingSeekBar = this.q) == null) {
             return;
         }
         linearVideoLoadingSeekBar.setLoading(z);

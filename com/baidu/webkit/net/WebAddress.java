@@ -10,11 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WebAddress implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GOOD_IRI_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef";
@@ -189,7 +188,7 @@ public class WebAddress implements INoProGuard {
                 str = ":" + Integer.toString(this.mPort);
             }
             if (this.mAuthInfo.length() > 0) {
-                str2 = this.mAuthInfo + TNCManager.TNC_PROBE_HEADER_SECEPTOR;
+                str2 = this.mAuthInfo + "@";
             }
             return this.mScheme + "://" + str2 + this.mHost + str + this.mPath;
         }

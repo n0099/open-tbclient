@@ -16,13 +16,13 @@ import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class p extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.datamodel.b f62733a;
+    public com.baidu.wallet.paysdk.datamodel.b f59602a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> p(Context context) {
@@ -42,7 +42,7 @@ public class p extends BaseBean<Object> {
                 return;
             }
         }
-        this.f62733a = (com.baidu.wallet.paysdk.datamodel.b) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_GET_SMS);
+        this.f59602a = (com.baidu.wallet.paysdk.datamodel.b) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_GET_SMS);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -59,8 +59,8 @@ public class p extends BaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f62733a.f62793a)));
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62733a.f62794b)));
+            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f59602a.f59662a)));
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f59602a.f59663b)));
             arrayList.add(new RestNameValuePair("request_type", "1"));
             arrayList.add(new RestNameValuePair("token", AccountManager.getInstance(this.mContext).getBfbToken()));
             return arrayList;

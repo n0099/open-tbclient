@@ -27,7 +27,7 @@ import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.WebRequestType;
 import com.sina.weibo.sdk.web.param.ShareWebViewRequestParam;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class WbShareHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int WB_SHARE_REQUEST = 1;

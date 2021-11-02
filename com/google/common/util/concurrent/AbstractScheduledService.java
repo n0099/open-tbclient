@@ -1,7 +1,7 @@
 package com.google.common.util.concurrent;
 
-import c.i.d.a.n;
-import c.i.d.a.r;
+import b.i.d.a.n;
+import b.i.d.a.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,19 +22,19 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Logger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractScheduledService implements Service {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
     public final AbstractService delegate;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class CustomScheduler extends Scheduler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public class ReschedulableCallable extends ForwardingFuture<Void> implements Callable<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public abstract class AbstractScheduledService implements Service {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.common.util.concurrent.ForwardingFuture, c.i.d.c.h0
+            @Override // com.google.common.util.concurrent.ForwardingFuture, b.i.d.c.h0
             public Future<Void> delegate() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -146,19 +146,19 @@ public abstract class AbstractScheduledService implements Service {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Schedule {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final long delay;
             public final TimeUnit unit;
 
-            public Schedule(long j2, TimeUnit timeUnit) {
+            public Schedule(long j, TimeUnit timeUnit) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Long.valueOf(j2), timeUnit};
+                    Object[] objArr = {Long.valueOf(j), timeUnit};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -168,7 +168,7 @@ public abstract class AbstractScheduledService implements Service {
                         return;
                     }
                 }
-                this.delay = j2;
+                this.delay = j;
                 n.p(timeUnit);
                 this.unit = timeUnit;
             }
@@ -207,18 +207,18 @@ public abstract class AbstractScheduledService implements Service {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Scheduler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static Scheduler newFixedDelaySchedule(long j2, long j3, TimeUnit timeUnit) {
+        public static Scheduler newFixedDelaySchedule(long j, long j2, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
                 n.p(timeUnit);
-                n.h(j3 > 0, "delay must be > 0, found %s", j3);
-                return new Scheduler(j2, j3, timeUnit) { // from class: com.google.common.util.concurrent.AbstractScheduledService.Scheduler.1
+                n.h(j2 > 0, "delay must be > 0, found %s", j2);
+                return new Scheduler(j, j2, timeUnit) { // from class: com.google.common.util.concurrent.AbstractScheduledService.Scheduler.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ long val$delay;
@@ -232,7 +232,7 @@ public abstract class AbstractScheduledService implements Service {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), timeUnit};
+                            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), timeUnit};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -243,8 +243,8 @@ public abstract class AbstractScheduledService implements Service {
                                 return;
                             }
                         }
-                        this.val$initialDelay = j2;
-                        this.val$delay = j3;
+                        this.val$initialDelay = j;
+                        this.val$delay = j2;
                         this.val$unit = timeUnit;
                     }
 
@@ -259,13 +259,13 @@ public abstract class AbstractScheduledService implements Service {
             return (Scheduler) invokeCommon.objValue;
         }
 
-        public static Scheduler newFixedRateSchedule(long j2, long j3, TimeUnit timeUnit) {
+        public static Scheduler newFixedRateSchedule(long j, long j2, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
                 n.p(timeUnit);
-                n.h(j3 > 0, "period must be > 0, found %s", j3);
-                return new Scheduler(j2, j3, timeUnit) { // from class: com.google.common.util.concurrent.AbstractScheduledService.Scheduler.2
+                n.h(j2 > 0, "period must be > 0, found %s", j2);
+                return new Scheduler(j, j2, timeUnit) { // from class: com.google.common.util.concurrent.AbstractScheduledService.Scheduler.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ long val$initialDelay;
@@ -279,7 +279,7 @@ public abstract class AbstractScheduledService implements Service {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), timeUnit};
+                            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), timeUnit};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -290,8 +290,8 @@ public abstract class AbstractScheduledService implements Service {
                                 return;
                             }
                         }
-                        this.val$initialDelay = j2;
-                        this.val$period = j3;
+                        this.val$initialDelay = j;
+                        this.val$period = j2;
                         this.val$unit = timeUnit;
                     }
 
@@ -323,7 +323,7 @@ public abstract class AbstractScheduledService implements Service {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class ServiceDelegate extends AbstractService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -333,7 +333,7 @@ public abstract class AbstractScheduledService implements Service {
         public final Runnable task;
         public final /* synthetic */ AbstractScheduledService this$0;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public class Task implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -424,7 +424,7 @@ public abstract class AbstractScheduledService implements Service {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // c.i.d.a.r
+                    @Override // b.i.d.a.r
                     public String get() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -746,18 +746,18 @@ public abstract class AbstractScheduledService implements Service {
     }
 
     @Override // com.google.common.util.concurrent.Service
-    public final void awaitRunning(long j2, TimeUnit timeUnit) throws TimeoutException {
+    public final void awaitRunning(long j, TimeUnit timeUnit) throws TimeoutException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit) == null) {
-            this.delegate.awaitRunning(j2, timeUnit);
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit) == null) {
+            this.delegate.awaitRunning(j, timeUnit);
         }
     }
 
     @Override // com.google.common.util.concurrent.Service
-    public final void awaitTerminated(long j2, TimeUnit timeUnit) throws TimeoutException {
+    public final void awaitTerminated(long j, TimeUnit timeUnit) throws TimeoutException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048580, this, j2, timeUnit) == null) {
-            this.delegate.awaitTerminated(j2, timeUnit);
+        if (interceptable == null || interceptable.invokeJL(1048580, this, j, timeUnit) == null) {
+            this.delegate.awaitTerminated(j, timeUnit);
         }
     }
 }

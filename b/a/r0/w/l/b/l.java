@@ -1,0 +1,157 @@
+package b.a.r0.w.l.b;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import b.a.r0.w.l.d.o;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaPersonCenterRealAuthenConfig;
+import com.baidu.ala.data.AlaUserInfoData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class l extends b.a.e.l.e.a<o, CardViewHolder<b.a.r0.w.l.h.a>> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext m;
+    public b.a.r0.w.l.e.a n;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ o f25156e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ l f25157f;
+
+        public a(l lVar, o oVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lVar, oVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f25157f = lVar;
+            this.f25156e = oVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f25157f.i0(this.f25156e);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(TbPageContext tbPageContext, b.a.r0.w.l.e.a aVar) {
+        super(tbPageContext.getPageActivity(), o.f25191f);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.m = tbPageContext;
+        this.n = aVar;
+    }
+
+    public final void h0(o oVar, b.a.r0.w.l.h.a aVar) {
+        b.a.r0.w.l.d.c g2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, oVar, aVar) == null) || (g2 = oVar.g()) == null || g2.b() == null) {
+            return;
+        }
+        aVar.u(0);
+        aVar.v(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen));
+        int i2 = g2.b().certify_status;
+        if (i2 == 0) {
+            aVar.s(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
+            aVar.t(0);
+        } else if (1 == i2) {
+            aVar.s(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen_in_review));
+            aVar.t(4);
+        } else if (2 == i2) {
+            aVar.s(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
+            aVar.t(4);
+        } else if (3 == i2) {
+            aVar.s(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen_denied));
+            aVar.t(0);
+        }
+        aVar.k(this.m, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void i0(o oVar) {
+        AlaUserInfoData b2;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, oVar) == null) || oVar == null || oVar.g() == null || oVar.g().b() == null || 1 == (i2 = (b2 = oVar.g().b()).certify_status) || 2 == i2) {
+            return;
+        }
+        Context context = this.f2419e;
+        String str = b2.user_id;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b2.certify_status + "")));
+        b.a.r0.w.l.e.a aVar = this.n;
+        if (aVar != null) {
+            aVar.a(1);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // b.a.e.l.e.a
+    /* renamed from: j0 */
+    public CardViewHolder<b.a.r0.w.l.h.a> T(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new b.a.r0.w.l.h.a(this.m)) : (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // b.a.e.l.e.a
+    /* renamed from: k0 */
+    public View Z(int i2, View view, ViewGroup viewGroup, o oVar, CardViewHolder<b.a.r0.w.l.h.a> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, oVar, cardViewHolder})) == null) {
+            if (cardViewHolder.getCardView() == null) {
+                return null;
+            }
+            h0(oVar, cardViewHolder.getCardView());
+            cardViewHolder.getCardView().i().setOnClickListener(new a(this, oVar));
+            return cardViewHolder.getCardView().i();
+        }
+        return (View) invokeCommon.objValue;
+    }
+}

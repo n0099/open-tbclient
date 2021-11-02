@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.NetworkBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseBean {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39462a = "/risk/init/stat";
+    public static final String f37408a = "/risk/init/stat";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39463b = 1;
+    public static final int f37409b = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39464c;
+    public String f37410c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39465d;
+    public String f37411d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39466e;
+    public String f37412e;
     public Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,9 +59,9 @@ public class a extends BaseBean {
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-            this.f39464c = str;
-            this.f39465d = str2;
-            this.f39466e = str3;
+            this.f37410c = str;
+            this.f37411d = str2;
+            this.f37412e = str3;
         }
     }
 
@@ -79,11 +79,11 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f39464c)) {
-                arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, this.f39464c));
+            if (!TextUtils.isEmpty(this.f37410c)) {
+                arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, this.f37410c));
             }
-            arrayList.add(new RestNameValuePair("ek", this.f39465d));
-            arrayList.add(new RestNameValuePair("ev", this.f39466e));
+            arrayList.add(new RestNameValuePair("ek", this.f37411d));
+            arrayList.add(new RestNameValuePair("ev", this.f37412e));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -104,7 +104,7 @@ public class a extends BaseBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f39462a;
+            return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f37408a;
         }
         return (String) invokeV.objValue;
     }

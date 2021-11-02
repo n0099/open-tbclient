@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GroupMsgImageActivityConfig extends AbsMsgImageActivityConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupMsgImageActivityConfig(Context context, String str, long j2, boolean z, String str2) {
+    public GroupMsgImageActivityConfig(Context context, String str, long j, boolean z, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Boolean.valueOf(z), str2};
+            Object[] objArr = {context, str, Long.valueOf(j), Boolean.valueOf(z), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,19 +31,19 @@ public class GroupMsgImageActivityConfig extends AbsMsgImageActivityConfig {
         }
         Intent intent = getIntent();
         intent.putExtra("current_url", str);
-        intent.putExtra("id", String.valueOf(j2));
+        intent.putExtra("id", String.valueOf(j));
         intent.putExtra("uniqueid", str2);
         intent.putExtra("isSingle", z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupMsgImageActivityConfig(Context context, String str, long j2, boolean z, String str2, String str3) {
+    public GroupMsgImageActivityConfig(Context context, String str, long j, boolean z, String str2, String str3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Boolean.valueOf(z), str2, str3};
+            Object[] objArr = {context, str, Long.valueOf(j), Boolean.valueOf(z), str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -56,7 +56,7 @@ public class GroupMsgImageActivityConfig extends AbsMsgImageActivityConfig {
         }
         Intent intent = getIntent();
         intent.putExtra("current_url", str);
-        intent.putExtra("id", String.valueOf(j2));
+        intent.putExtra("id", String.valueOf(j));
         intent.putExtra("uniqueid", str2);
         intent.putExtra("isSingle", z);
         intent.putExtra("assist_url", str3);

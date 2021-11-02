@@ -5,23 +5,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f75794a;
+    public long f68098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f75795b;
+    public long f68099b;
 
-    public c(a aVar, long j2) {
+    public c(a aVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Long.valueOf(j2)};
+            Object[] objArr = {aVar, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,14 +31,14 @@ public final class c {
                 return;
             }
         }
-        this.f75794a = 1500L;
-        this.f75794a = 2000L;
-        this.f75795b = System.currentTimeMillis();
+        this.f68098a = 1500L;
+        this.f68098a = 2000L;
+        this.f68099b = System.currentTimeMillis();
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f75795b > this.f75794a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f68099b > this.f68098a : invokeV.booleanValue;
     }
 }

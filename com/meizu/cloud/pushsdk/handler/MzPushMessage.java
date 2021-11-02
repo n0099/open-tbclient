@@ -6,7 +6,7 @@ import com.meizu.cloud.pushsdk.c.f.e;
 import java.io.Serializable;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MzPushMessage implements Serializable {
     public static final String TAG = "MzPushMessage";
     public String content;
@@ -38,7 +38,7 @@ public class MzPushMessage implements Serializable {
                 str = null;
             }
         }
-        c.l.a.a.a.b(TAG, "self json " + str);
+        b.l.a.a.a.b(TAG, "self json " + str);
         return str;
     }
 

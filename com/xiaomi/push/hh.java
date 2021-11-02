@@ -10,42 +10,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class hh {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hh f78128a;
+    public static final hh f71082a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hh[] f479a;
+    public static final /* synthetic */ hh[] f480a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hh f78129b;
+    public static final hh f71083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hh f78130c;
+    public static final hh f71084c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hh f78131d;
+    public static final hh f71085d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hh f78132e;
+    public static final hh f71086e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hh f78133f;
+    public static final hh f71087f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hh f78134g;
+    public static final hh f71088g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hh f78135h;
+    public static final hh f71089h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hh f78136i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final hh f78137j;
+    public static final hh f71090i;
+    public static final hh j;
     public static final hh k;
     public static final hh l;
     public static final hh m;
@@ -63,7 +61,7 @@ public final class hh {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f480a;
+    public final int f481a;
 
     static {
         InterceptResult invokeClinit;
@@ -78,16 +76,16 @@ public final class hh {
                 return;
             }
         }
-        f78128a = new hh("DeviceInfo", 0, 1);
-        f78129b = new hh("AppInstallList", 1, 2);
-        f78130c = new hh("AppActiveList", 2, 3);
-        f78131d = new hh("Bluetooth", 3, 4);
-        f78132e = new hh("Location", 4, 5);
-        f78133f = new hh("Account", 5, 6);
-        f78134g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
-        f78135h = new hh("Cellular", 7, 8);
-        f78136i = new hh("TopApp", 8, 9);
-        f78137j = new hh("BroadcastAction", 9, 10);
+        f71082a = new hh("DeviceInfo", 0, 1);
+        f71083b = new hh("AppInstallList", 1, 2);
+        f71084c = new hh("AppActiveList", 2, 3);
+        f71085d = new hh("Bluetooth", 3, 4);
+        f71086e = new hh("Location", 4, 5);
+        f71087f = new hh("Account", 5, 6);
+        f71088g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
+        f71089h = new hh("Cellular", 7, 8);
+        f71090i = new hh("TopApp", 8, 9);
+        j = new hh("BroadcastAction", 9, 10);
         k = new hh("BroadcastActionAdded", 10, 11);
         l = new hh("BroadcastActionRemoved", 11, 12);
         m = new hh("BroadcastActionReplaced", 12, 13);
@@ -103,7 +101,7 @@ public final class hh {
         w = new hh("Storage", 22, 23);
         hh hhVar = new hh("AppIsInstalled", 23, 24);
         x = hhVar;
-        f479a = new hh[]{f78128a, f78129b, f78130c, f78131d, f78132e, f78133f, f78134g, f78135h, f78136i, f78137j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
+        f480a = new hh[]{f71082a, f71083b, f71084c, f71085d, f71086e, f71087f, f71088g, f71089h, f71090i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
     }
 
     public hh(String str, int i2, int i3) {
@@ -124,7 +122,7 @@ public final class hh {
                 return;
             }
         }
-        this.f480a = i3;
+        this.f481a = i3;
     }
 
     public static hh a(int i2) {
@@ -133,25 +131,25 @@ public final class hh {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             switch (i2) {
                 case 1:
-                    return f78128a;
+                    return f71082a;
                 case 2:
-                    return f78129b;
+                    return f71083b;
                 case 3:
-                    return f78130c;
+                    return f71084c;
                 case 4:
-                    return f78131d;
+                    return f71085d;
                 case 5:
-                    return f78132e;
+                    return f71086e;
                 case 6:
-                    return f78133f;
+                    return f71087f;
                 case 7:
-                    return f78134g;
+                    return f71088g;
                 case 8:
-                    return f78135h;
+                    return f71089h;
                 case 9:
-                    return f78136i;
+                    return f71090i;
                 case 10:
-                    return f78137j;
+                    return j;
                 case 11:
                     return k;
                 case 12:
@@ -196,12 +194,12 @@ public final class hh {
     public static hh[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hh[]) f479a.clone() : (hh[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hh[]) f480a.clone() : (hh[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f480a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f481a : invokeV.intValue;
     }
 }

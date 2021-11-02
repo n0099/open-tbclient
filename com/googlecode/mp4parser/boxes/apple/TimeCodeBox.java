@@ -21,7 +21,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TimeCodeBox extends AbstractBox implements SampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tmcd";
@@ -239,11 +239,11 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
         }
     }
 
-    public void setFlags(long j2) {
+    public void setFlags(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this, Conversions.longObject(j2)));
-            this.flags = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this, Conversions.longObject(j)));
+            this.flags = j;
         }
     }
 

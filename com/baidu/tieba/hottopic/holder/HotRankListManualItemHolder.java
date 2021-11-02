@@ -3,14 +3,14 @@ package com.baidu.tieba.hottopic.holder;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import b.a.r0.j1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HotRankListManualItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,12 +51,12 @@ public class HotRankListManualItemHolder extends TypeAdapter.ViewHolder {
         this.dividerLineBottom = null;
         this.topicPic = null;
         this.topicManualItem = null;
-        this.topicModule = (TextView) view.findViewById(R.id.topic_module);
-        this.topicDesc = (TextView) view.findViewById(R.id.topic_desc);
-        this.topicNeme = (TextView) view.findViewById(R.id.topic_title);
-        this.topicPic = (TbImageView) view.findViewById(R.id.topic_pic);
-        this.dividerLineTop = view.findViewById(R.id.devide_line_top);
-        this.dividerLineBottom = view.findViewById(R.id.devide_line_bottom);
-        this.topicManualItem = (LinearLayout) view.findViewById(R.id.topic_manual_item);
+        this.topicModule = (TextView) view.findViewById(e.topic_module);
+        this.topicDesc = (TextView) view.findViewById(e.topic_desc);
+        this.topicNeme = (TextView) view.findViewById(e.topic_title);
+        this.topicPic = (TbImageView) view.findViewById(e.topic_pic);
+        this.dividerLineTop = view.findViewById(e.devide_line_top);
+        this.dividerLineBottom = view.findViewById(e.devide_line_bottom);
+        this.topicManualItem = (LinearLayout) view.findViewById(e.topic_manual_item);
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class n extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class n extends d {
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
             super.b(hashMap);
             hashMap.put("method", "unbind");
-            hashMap.put("model", l.a(((a) this).f37203a) + "");
-            if (com.baidu.android.pushservice.b.d.b(((a) this).f37203a)) {
-                hashMap.put("new_channel_id", com.baidu.android.pushservice.k.a(((a) this).f37203a).c());
+            hashMap.put("model", l.a(((a) this).f35244a) + "");
+            if (com.baidu.android.pushservice.b.d.b(((a) this).f35244a)) {
+                hashMap.put("new_channel_id", com.baidu.android.pushservice.k.a(((a) this).f35244a).c());
             }
-            hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(((a) this).f37203a) ? 1 : 0) + "");
+            hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(((a) this).f35244a) ? 1 : 0) + "");
             hashMap.put("manufacture", Build.MANUFACTURER);
-            hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(((a) this).f37203a) ? 1 : 0) + "");
+            hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(((a) this).f35244a) ? 1 : 0) + "");
         }
     }
 }

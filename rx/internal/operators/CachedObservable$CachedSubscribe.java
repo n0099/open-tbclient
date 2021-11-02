@@ -4,11 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.j;
-import i.o.a.b;
+import h.d;
+import h.j;
+import h.o.a.b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements d.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2817751667698696782L;
@@ -33,7 +33,7 @@ public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean imp
         this.state = bVar;
     }
 
-    @Override // i.n.b
+    @Override // h.d.a, h.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }
@@ -43,8 +43,8 @@ public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean imp
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
             CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(jVar, this.state);
             this.state.c(cachedObservable$ReplayProducer);
-            jVar.add(cachedObservable$ReplayProducer);
-            jVar.setProducer(cachedObservable$ReplayProducer);
+            jVar.b(cachedObservable$ReplayProducer);
+            jVar.f(cachedObservable$ReplayProducer);
             if (get() || !compareAndSet(false, true)) {
                 return;
             }

@@ -4,10 +4,10 @@ import android.content.Context;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.api.StatisOption;
 import com.yy.hiidostatis.message.Packer;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IStatisAPI {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface ReportResult {
         void onReportResult(boolean z);
     }
@@ -22,25 +22,25 @@ public interface IStatisAPI {
 
     void init(Context context, StatisOption statisOption);
 
-    void reportAppList(long j2, String str, String str2);
+    void reportAppList(long j, String str, String str2);
 
-    void reportAppList(long j2, String str, String str2, String str3);
+    void reportAppList(long j, String str, String str2, String str3);
 
-    void reportCrash(long j2, String str);
+    void reportCrash(long j, String str);
 
-    void reportCrash(long j2, Throwable th);
+    void reportCrash(long j, Throwable th);
 
-    void reportCrashInner(long j2, Throwable th);
+    void reportCrashInner(long j, Throwable th);
 
-    void reportDevice(long j2, StatisContent statisContent, ReportResult reportResult);
-
-    @Deprecated
-    boolean reportDevice(long j2);
+    void reportDevice(long j, StatisContent statisContent, ReportResult reportResult);
 
     @Deprecated
-    boolean reportDevice(long j2, StatisContent statisContent);
+    boolean reportDevice(long j);
 
-    void reportEvent(long j2, String str);
+    @Deprecated
+    boolean reportDevice(long j, StatisContent statisContent);
+
+    void reportEvent(long j, String str);
 
     @Deprecated
     void reportInstall(int i2, ReportResult reportResult);
@@ -50,15 +50,15 @@ public interface IStatisAPI {
     @Deprecated
     boolean reportInstall(int i2);
 
-    void reportLanuch(long j2, String str, StatisContent statisContent);
+    void reportLanuch(long j, String str, StatisContent statisContent);
 
-    void reportPage(long j2, String str);
+    void reportPage(long j, String str);
 
-    void reportPageState(long j2, String str, long j3);
+    void reportPageState(long j, String str, long j2);
 
-    void reportRecentAppList(long j2, String str, String str2);
+    void reportRecentAppList(long j, String str, String str2);
 
-    void reportSdkList(long j2, String str);
+    void reportSdkList(long j, String str);
 
     void setSession(String str);
 }

@@ -17,41 +17,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImageBase64Utils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38298a = "ImageBase64Utils";
+    public static final String f36305a = "ImageBase64Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f38299b = 70;
+    public static int f36306b = 70;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ImageBase64Utils f38300c;
+    public static ImageBase64Utils f36307c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends AsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageBase64Utils f38301a;
+        public final /* synthetic */ ImageBase64Utils f36308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageBase64Listener f38302b;
+        public ImageBase64Listener f36309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f38303c;
+        public String f36310c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f38304d;
+        public int f36311d;
 
         public a(ImageBase64Utils imageBase64Utils, ImageBase64Listener imageBase64Listener, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -68,10 +68,10 @@ public class ImageBase64Utils {
                     return;
                 }
             }
-            this.f38301a = imageBase64Utils;
-            this.f38302b = imageBase64Listener;
-            this.f38303c = str;
-            this.f38304d = i2;
+            this.f36308a = imageBase64Utils;
+            this.f36309b = imageBase64Listener;
+            this.f36310c = str;
+            this.f36311d = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +80,7 @@ public class ImageBase64Utils {
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f38303c, this.f38304d) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f36310c, this.f36311d) : (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public class ImageBase64Utils {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 super.onPostExecute(str);
-                ImageBase64Listener imageBase64Listener = this.f38302b;
+                ImageBase64Listener imageBase64Listener = this.f36309b;
                 if (imageBase64Listener != null) {
                     imageBase64Listener.onBase64Result(str);
                 }
@@ -146,7 +146,7 @@ public class ImageBase64Utils {
                     options.inJustDecodeBounds = false;
                     Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f38299b, byteArrayOutputStream);
+                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f36306b, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     LogUtil.d("ImageBase64Utils", "compress size:\t" + byteArray.length + "\tsampleSize" + a2 + "\twidth" + decodeFile.getWidth());
                     decodeFile.recycle();
@@ -170,10 +170,10 @@ public class ImageBase64Utils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f38300c == null) {
-                f38300c = new ImageBase64Utils();
+            if (f36307c == null) {
+                f36307c = new ImageBase64Utils();
             }
-            return f38300c;
+            return f36307c;
         }
         return (ImageBase64Utils) invokeV.objValue;
     }

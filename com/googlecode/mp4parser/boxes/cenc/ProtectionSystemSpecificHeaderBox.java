@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import java.util.UUID;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ProtectionSystemSpecificHeaderBox extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;

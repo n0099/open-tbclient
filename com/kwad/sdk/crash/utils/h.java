@@ -21,15 +21,15 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char f73067a;
+    public static final char f65511a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f73068b;
+    public static final String f65512b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,11 +45,11 @@ public class h {
                 return;
             }
         }
-        f73067a = File.separatorChar;
+        f65511a = File.separatorChar;
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        f73068b = stringBuilderWriter.toString();
+        f65512b = stringBuilderWriter.toString();
         printWriter.close();
     }
 
@@ -72,14 +72,14 @@ public class h {
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, reader, writer, cArr)) != null) {
             return invokeLLL.longValue;
         }
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = reader.read(cArr);
             if (-1 == read) {
-                return j2;
+                return j;
             }
             writer.write(cArr, 0, read);
-            j2 += read;
+            j += read;
         }
     }
 

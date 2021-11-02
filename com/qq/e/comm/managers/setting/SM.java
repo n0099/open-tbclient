@@ -10,46 +10,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.managers.setting.e;
+import com.qq.e.comm.managers.setting.f;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
 import com.qq.e.comm.util.SystemUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class SM {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f75710a;
+    public a f68017a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75711b;
+    public String f68018b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f75712c;
+    public a f68019c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f75713d;
+    public a f68020d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f75714e;
+    public String f68021e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f75715f;
+    public e f68022f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f75716g;
+    public e f68023g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f75717h;
+    public String f68024h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f75718i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final c f75719j;
+    public d f68025i;
+    public final d j;
     public String k;
     public String l;
     public Context m;
@@ -72,90 +76,97 @@ public class SM {
         }
         this.l = "";
         this.m = context;
-        this.f75710a = new a();
-        this.f75713d = new a();
-        this.f75716g = new b();
-        this.f75718i = new c();
-        this.f75719j = new c();
+        this.f68017a = new a();
+        this.f68020d = new a();
+        this.f68023g = new c();
+        this.f68025i = new d();
+        this.j = new d();
         this.n = SystemUtil.buildNewPathByProcessName("e_qq_com_setting");
-        try {
-            this.k = StringUtil.readAll(new File(this.m.getDir(this.n, 0), "gdt_suid"));
-        } catch (Throwable unused) {
-            this.k = null;
-            GDTLogger.d("IO Exception while loading suid");
-        }
+        d();
+        c();
         a();
         b();
-        c();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            e.a<d> b2 = e.b(this.m);
-            if (b2 == null) {
-                GDTLogger.d("Load Local SDK Cloud setting fail");
+            f.b<a> a2 = f.a(this.m);
+            if (a2 == null) {
+                GDTLogger.d("Load Local DEV Cloud setting fail");
                 return;
             }
-            this.f75714e = b2.a();
-            this.f75715f = b2.b();
+            this.f68019c = a2.a();
+            this.f68018b = a2.b();
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            e.a<a> a2 = e.a(this.m);
-            if (a2 == null) {
+            f.b<d> b2 = f.b(this.m);
+            if (b2 == null) {
                 GDTLogger.d("Load Local DEV Cloud setting fail");
                 return;
             }
-            this.f75712c = a2.b();
-            this.f75711b = a2.a();
+            this.f68025i = b2.a();
+            this.f68024h = b2.b();
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            e.a<c> c2 = e.c(this.m);
+            f.b<e> c2 = f.c(this.m);
             if (c2 == null) {
-                GDTLogger.d("Load Local DEV Cloud setting fail");
+                GDTLogger.d("Load Local SDK Cloud setting fail");
                 return;
             }
-            this.f75718i = c2.b();
-            this.f75717h = c2.a();
+            this.f68021e = c2.b();
+            this.f68022f = c2.a();
+        }
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            try {
+                this.k = StringUtil.readAll(new File(this.m.getDir(this.n, 0), "gdt_suid"));
+            } catch (Throwable unused) {
+                this.k = null;
+                GDTLogger.d("IO Exception while loading suid");
+            }
         }
     }
 
     public Object get(String str) {
         InterceptResult invokeL;
-        Object a2;
-        Object a3;
-        Object a4;
-        Object a5;
+        Object opt;
+        Object opt2;
+        Object opt3;
+        Object opt4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (StringUtil.isEmpty(str)) {
                 return null;
             }
             try {
-                if (this.f75710a == null || (a5 = this.f75710a.a(str)) == null) {
-                    if (this.f75712c == null || (a4 = this.f75712c.a(str)) == null) {
-                        if (this.f75713d == null || (a3 = this.f75713d.a(str)) == null) {
-                            if (this.f75715f == null || (a2 = this.f75715f.a(str)) == null) {
-                                if (this.f75716g != null) {
-                                    return this.f75716g.a(str);
+                if (this.f68017a == null || (opt4 = this.f68017a.f68026a.opt(str)) == null) {
+                    if (this.f68019c == null || (opt3 = this.f68019c.f68026a.opt(str)) == null) {
+                        if (this.f68020d == null || (opt2 = this.f68020d.f68026a.opt(str)) == null) {
+                            if (this.f68022f == null || (opt = this.f68022f.f68026a.opt(str)) == null) {
+                                if (this.f68023g != null) {
+                                    return this.f68023g.f68026a.opt(str);
                                 }
                                 return null;
                             }
-                            return a2;
+                            return opt;
                         }
-                        return a3;
+                        return opt2;
                     }
-                    return a4;
+                    return opt3;
                 }
-                return a5;
+                return opt4;
             } catch (Throwable unused) {
                 GDTLogger.d("Exception in settingManager.get Setting for key");
                 return null;
@@ -167,13 +178,13 @@ public class SM {
     public String getDevCloudSettingSig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75711b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68018b : (String) invokeV.objValue;
     }
 
     public Object getDisplaySetting(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f75719j.a(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.j.f68026a.opt(str) : invokeL.objValue;
     }
 
     public Object getForPlacement(String str, String str2) {
@@ -181,7 +192,6 @@ public class SM {
         Object a2;
         Object a3;
         Object a4;
-        Object a5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
             if (StringUtil.isEmpty(str)) {
@@ -191,8 +201,19 @@ public class SM {
                 return get(str);
             }
             try {
-                Object a6 = this.f75719j.a(str, str2);
-                return a6 != null ? a6 : (this.f75718i == null || (a5 = this.f75718i.a(str, str2)) == null) ? (this.f75710a == null || (a4 = this.f75710a.a(str, str2)) == null) ? (this.f75712c == null || (a3 = this.f75712c.a(str, str2)) == null) ? (this.f75713d == null || (a2 = this.f75713d.a(str, str2)) == null) ? get(str) : a2 : a3 : a4 : a5;
+                JSONObject optJSONObject = this.j.f68026a.optJSONObject(str2);
+                Object opt = optJSONObject != null ? optJSONObject.opt(str) : null;
+                if (opt != null) {
+                    return opt;
+                }
+                if (this.f68025i != null) {
+                    JSONObject optJSONObject2 = this.f68025i.f68026a.optJSONObject(str2);
+                    Object opt2 = optJSONObject2 != null ? optJSONObject2.opt(str) : null;
+                    if (opt2 != null) {
+                        return opt2;
+                    }
+                }
+                return (this.f68017a == null || (a4 = this.f68017a.a(str, str2)) == null) ? (this.f68019c == null || (a3 = this.f68019c.a(str, str2)) == null) ? (this.f68020d == null || (a2 = this.f68020d.a(str, str2)) == null) ? get(str) : a2 : a3 : a4;
             } catch (Throwable unused) {
                 GDTLogger.d("Exception in settingManager.getForPlacement");
                 return null;
@@ -225,13 +246,13 @@ public class SM {
     public String getPlacementCloudSettingSig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f75717h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68024h : (String) invokeV.objValue;
     }
 
     public String getSdkCloudSettingSig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f75714e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68021e : (String) invokeV.objValue;
     }
 
     public String getSettingDir() {
@@ -240,17 +261,55 @@ public class SM {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.n : (String) invokeV.objValue;
     }
 
+    public Set<String> getSettingKeySet(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            HashSet hashSet = new HashSet();
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            arrayList2.add(this.j);
+            arrayList2.add(this.f68025i);
+            arrayList2.add(this.f68017a);
+            arrayList2.add(this.f68019c);
+            arrayList2.add(this.f68020d);
+            arrayList2.add(this.f68022f);
+            arrayList2.add(this.f68023g);
+            Iterator it = arrayList2.iterator();
+            while (it.hasNext()) {
+                b bVar = (b) it.next();
+                if (bVar != null && (jSONObject = bVar.f68026a) != null) {
+                    arrayList.add(jSONObject);
+                    arrayList.add(bVar.f68026a.optJSONObject(str));
+                }
+            }
+            Iterator it2 = arrayList.iterator();
+            while (it2.hasNext()) {
+                JSONObject jSONObject2 = (JSONObject) it2.next();
+                if (jSONObject2 != null) {
+                    Iterator<String> keys = jSONObject2.keys();
+                    while (keys.hasNext()) {
+                        hashSet.add(keys.next());
+                    }
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeL.objValue;
+    }
+
     public String getSid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.l : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : (String) invokeV.objValue;
     }
 
     @Deprecated
     public String getString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             Object obj = get(str);
             if (obj == null) {
                 return null;
@@ -264,7 +323,7 @@ public class SM {
     public String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
             Object obj = get(str);
             return obj == null ? str2 : obj.toString();
         }
@@ -274,13 +333,13 @@ public class SM {
     public String getStringForPlacement(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) ? getStringForPlacement(str, str2, null) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) ? getStringForPlacement(str, str2, null) : (String) invokeLL.objValue;
     }
 
     public String getStringForPlacement(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, str, str2, str3)) == null) {
             Object forPlacement = getForPlacement(str, str2);
             return forPlacement == null ? str3 : forPlacement.toString();
         }
@@ -290,32 +349,33 @@ public class SM {
     public String getSuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k : (String) invokeV.objValue;
     }
 
     public void setDEVCodeSetting(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, str, obj) == null) {
-            this.f75713d.a(str, obj);
-        }
-    }
-
-    public void setDEVCodeSetting(String str, Object obj, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048592, this, str, obj, str2) == null) {
-            this.f75713d.a(str, obj, str2);
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, obj) == null) {
+            a aVar = this.f68020d;
+            if (aVar == null) {
+                throw null;
+            }
+            try {
+                aVar.f68026a.putOpt(str, obj);
+            } catch (JSONException unused) {
+                GDTLogger.d("Exception while update setting");
+            }
         }
     }
 
     public void updateContextSetting(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             try {
                 a aVar = new a();
                 if (!TextUtils.isEmpty(str)) {
                     aVar = new a(new String(Base64.decode(str, 0), "UTF-8"));
                 }
-                this.f75710a = aVar;
+                this.f68017a = aVar;
             } catch (Throwable unused) {
                 GDTLogger.d("Exception while update Context Setting");
             }
@@ -324,48 +384,69 @@ public class SM {
 
     public void updateDEVCloudSetting(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) && e.b(this.m, str, str2)) {
-            b();
+        if ((interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) && f.a(this.m, str, str2)) {
+            a();
         }
     }
 
     public void updateDisplaySetting(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, str, obj) == null) {
-            this.f75719j.a(str, obj);
+        if (interceptable == null || interceptable.invokeLL(1048596, this, str, obj) == null) {
+            d dVar = this.j;
+            if (dVar == null) {
+                throw null;
+            }
+            try {
+                dVar.f68026a.putOpt(str, obj);
+            } catch (JSONException e2) {
+                GDTLogger.d(e2.getMessage());
+            }
         }
     }
 
     public void updatePlacementSetting(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                e.d(this.m);
-                this.f75718i = new c();
-                this.f75717h = null;
-            } else if (e.c(this.m, str, str2)) {
-                c();
+        if (interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) {
+            if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
+                if (f.b(this.m, str, str2)) {
+                    b();
+                    return;
+                }
+                return;
             }
+            File dir = this.m.getDir(SystemUtil.buildNewPathByProcessName("e_qq_com_setting"), 0);
+            if (dir.exists()) {
+                File file = new File(dir, "placementCloudSetting.cfg");
+                if (file.exists()) {
+                    file.delete();
+                }
+                File file2 = new File(dir, "placementCloudSetting.sig");
+                if (file2.exists()) {
+                    file2.delete();
+                }
+            }
+            this.f68025i = new d();
+            this.f68024h = null;
         }
     }
 
     public void updateSDKCloudSetting(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) && e.a(this.m, str, str2)) {
-            a();
+        if ((interceptable == null || interceptable.invokeLL(1048598, this, str, str2) == null) && f.c(this.m, str, str2)) {
+            c();
         }
     }
 
     public void updateSID(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.l = str;
         }
     }
 
     public void updateSUID(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, str) == null) || TextUtils.isEmpty(str) || str.equals(this.k)) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, str) == null) || TextUtils.isEmpty(str) || str.equals(this.k)) {
             return;
         }
         this.k = str;
@@ -373,6 +454,35 @@ public class SM {
             StringUtil.writeTo(str, new File(this.m.getDir(this.n, 0), "gdt_suid"));
         } catch (IOException unused) {
             GDTLogger.d("Exception while persit suid");
+        }
+    }
+
+    public void setDEVCodeSetting(String str, Object obj, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048593, this, str, obj, str2) == null) {
+            a aVar = this.f68020d;
+            if (aVar == null) {
+                throw null;
+            }
+            try {
+                JSONObject optJSONObject = aVar.f68026a.optJSONObject("ps");
+                if (optJSONObject == null) {
+                    optJSONObject = new JSONObject();
+                    aVar.f68026a.putOpt("ps", optJSONObject);
+                }
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(str2);
+                if (optJSONObject2 == null) {
+                    optJSONObject2 = new JSONObject();
+                    optJSONObject.putOpt(str2, optJSONObject2);
+                }
+                if (obj == null) {
+                    optJSONObject2.remove(str);
+                } else {
+                    optJSONObject2.putOpt(str, obj);
+                }
+            } catch (JSONException unused) {
+                GDTLogger.d("Exception while update setting");
+            }
         }
     }
 }

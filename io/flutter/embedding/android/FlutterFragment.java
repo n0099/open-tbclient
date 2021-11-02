@@ -27,7 +27,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterFragment extends Fragment implements FlutterActivityAndFragmentDelegate.Host {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
@@ -45,17 +45,17 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     public FlutterActivityAndFragmentDelegate delegate;
 
     /* renamed from: io.flutter.embedding.android.FlutterFragment$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public @interface ActivityCallThrough {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class CachedEngineFragmentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -603,7 +603,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class NewEngineFragmentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

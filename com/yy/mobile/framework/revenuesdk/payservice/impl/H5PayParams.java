@@ -4,20 +4,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
-/* loaded from: classes10.dex */
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import java.util.Map;
+/* loaded from: classes2.dex */
 public class H5PayParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> appClientExpand;
+    public int appId;
     public IAppPayService appPayService;
+    public int cid;
     public String orderId;
     public PayCallBackBean payBackBean;
-    public IPayCallback payCallback;
-    public IPayInnerLogic payInnerLogic;
-    public ChargeCurrencyReqParams reqParams;
+    public String payChannel;
+    public String payMethod;
+    public IPayServiceCallback payServiceCallback;
+    public PayType payType;
+    public int sid;
+    public String token;
+    public IToken tokenCallback;
+    public String traceid;
+    public long uid;
+    public int usedChannel;
 
     public H5PayParams() {
         Interceptable interceptable = $ic;
@@ -29,7 +40,9 @@ public class H5PayParams {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.traceid = "";
     }
 }

@@ -17,12 +17,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f71730a;
+    public static SimpleDateFormat f64206a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,15 +38,15 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
                 return;
             }
         }
-        f71730a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
+        f64206a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
     }
 
-    public b(long j2) {
+    public b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -56,15 +56,15 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
                 return;
             }
         }
-        this.mPtr = j2;
+        this.mPtr = j;
     }
 
-    public b(long j2, String str, String str2) {
+    public b(long j, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, str2};
+            Object[] objArr = {Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -74,7 +74,7 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
                 return;
             }
         }
-        this.mPtr = AppStatusNative.nativeCreateAppRunningInfo(j2, str, str2);
+        this.mPtr = AppStatusNative.nativeCreateAppRunningInfo(j, str, str2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,7 +97,7 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @NonNull
+    @Nullable
     /* renamed from: a */
     public b clone() {
         InterceptResult invokeV;
@@ -110,19 +110,19 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
         return (b) invokeV.objValue;
     }
 
-    public String a(long j2) {
+    public String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? f71730a.format(new Date(j2)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? f64206a.format(new Date(j)) : (String) invokeJ.objValue;
     }
 
     @Override // com.kwad.sdk.collector.model.jni.NativeObject
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            long j2 = this.mPtr;
-            if (j2 != 0) {
-                AppStatusNative.nativeDeleteAppRunningInfo(j2);
+            long j = this.mPtr;
+            if (j != 0) {
+                AppStatusNative.nativeDeleteAppRunningInfo(j);
                 this.mPtr = 0L;
             }
         }

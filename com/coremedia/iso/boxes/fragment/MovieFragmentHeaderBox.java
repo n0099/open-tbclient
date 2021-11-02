@@ -17,7 +17,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MovieFragmentHeaderBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "mfhd";
@@ -106,11 +106,11 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public void setSequenceNumber(long j2) {
+    public void setSequenceNumber(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j2)));
-            this.sequenceNumber = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
+            this.sequenceNumber = j;
         }
     }
 

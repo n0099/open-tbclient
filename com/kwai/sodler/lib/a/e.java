@@ -1,5 +1,5 @@
 package com.kwai.sodler.lib.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface e {
     com.kwai.sodler.lib.ext.c b();
 

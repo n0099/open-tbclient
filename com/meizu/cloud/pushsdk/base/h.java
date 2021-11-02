@@ -2,36 +2,36 @@ package com.meizu.cloud.pushsdk.base;
 
 import android.content.Context;
 import android.os.Environment;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class h extends i<g> implements g {
 
     /* renamed from: c  reason: collision with root package name */
-    public static h f75098c;
+    public static h f67462c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f75099d;
+    public boolean f67463d;
 
     public h(g gVar) {
         super(gVar);
-        this.f75099d = false;
+        this.f67463d = false;
     }
 
     public static h b() {
-        if (f75098c == null) {
+        if (f67462c == null) {
             synchronized (h.class) {
-                if (f75098c == null) {
-                    f75098c = new h(new b());
+                if (f67462c == null) {
+                    f67462c = new h(new b());
                 }
             }
         }
-        return f75098c;
+        return f67462c;
     }
 
     public void a(Context context) {
-        if (this.f75099d) {
+        if (this.f67463d) {
             return;
         }
-        this.f75099d = true;
+        this.f67463d = true;
         b((context.getApplicationInfo().flags & 2) != 0);
         a(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
     }

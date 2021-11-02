@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.relationship;
 
-import c.a.q0.s.d0.b;
-import c.a.r0.t.f.a;
+import b.a.q0.s.e0.b;
+import b.a.r0.t.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,8 +62,8 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             a aVar = new a();
             this.mAddressListData = aVar;
             if (aVar.c(getAddressListResIdl.data)) {
-                b j2 = b.j();
-                j2.t("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                b j = b.j();
+                j.t("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             }
         }
         Error error = getAddressListResIdl.error;

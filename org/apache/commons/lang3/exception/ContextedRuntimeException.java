@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Set;
 import org.apache.commons.lang3.tuple.Pair;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ContextedRuntimeException extends RuntimeException implements ExceptionContext {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 20110706;

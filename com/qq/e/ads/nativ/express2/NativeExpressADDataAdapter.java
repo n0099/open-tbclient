@@ -14,23 +14,24 @@ import com.qq.e.comm.adevent.ADEventListener;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.compliance.DownloadConfirmCallBack;
 import com.qq.e.comm.compliance.DownloadConfirmListener;
+import java.util.Map;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NativeExpressADDataAdapter implements NativeExpressADData2, DownloadConfirmListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NativeExpressADData2 f75580a;
+    public NativeExpressADData2 f67903a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MediaEventListener f75581b;
+    public MediaEventListener f67904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdEventListener f75582c;
+    public AdEventListener f67905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DownloadConfirmListener f75583d;
+    public DownloadConfirmListener f67906d;
 
     public NativeExpressADDataAdapter(NativeExpressADData2 nativeExpressADData2) {
         Interceptable interceptable = $ic;
@@ -47,14 +48,14 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
                 return;
             }
         }
-        this.f75580a = nativeExpressADData2;
+        this.f67903a = nativeExpressADData2;
         if (nativeExpressADData2 instanceof ADEventListener) {
             ((ADEventListener) nativeExpressADData2).setAdListener(new ADListener(this) { // from class: com.qq.e.ads.nativ.express2.NativeExpressADDataAdapter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public /* synthetic */ NativeExpressADDataAdapter f75584a;
+                public final /* synthetic */ NativeExpressADDataAdapter f67907a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -71,7 +72,7 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
                             return;
                         }
                     }
-                    this.f75584a = this;
+                    this.f67907a = this;
                 }
 
                 @Override // com.qq.e.comm.adevent.ADListener
@@ -79,9 +80,9 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aDEvent) == null) {
                         if (aDEvent.getType() < 201) {
-                            NativeExpressADDataAdapter.a(this.f75584a, aDEvent);
+                            NativeExpressADDataAdapter.a(this.f67907a, aDEvent);
                         } else if (aDEvent.getType() < 301) {
-                            NativeExpressADDataAdapter.b(this.f75584a, aDEvent);
+                            NativeExpressADDataAdapter.b(this.f67907a, aDEvent);
                         }
                     }
                 }
@@ -89,55 +90,59 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
         }
     }
 
-    public static /* synthetic */ void a(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
-        if (nativeExpressADDataAdapter.f75582c != null) {
-            switch (aDEvent.getType()) {
-                case 101:
-                    nativeExpressADDataAdapter.f75582c.onClick();
-                    return;
-                case 102:
-                    nativeExpressADDataAdapter.f75582c.onExposed();
-                    return;
-                case 103:
-                    nativeExpressADDataAdapter.f75582c.onRenderSuccess();
-                    return;
-                case 104:
-                    nativeExpressADDataAdapter.f75582c.onRenderFail();
-                    return;
-                case 105:
-                    nativeExpressADDataAdapter.f75582c.onAdClosed();
-                    return;
-                default:
-                    return;
-            }
+    public static void a(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, nativeExpressADDataAdapter, aDEvent) == null) || nativeExpressADDataAdapter.f67905c == null) {
+            return;
+        }
+        switch (aDEvent.getType()) {
+            case 101:
+                nativeExpressADDataAdapter.f67905c.onClick();
+                return;
+            case 102:
+                nativeExpressADDataAdapter.f67905c.onExposed();
+                return;
+            case 103:
+                nativeExpressADDataAdapter.f67905c.onRenderSuccess();
+                return;
+            case 104:
+                nativeExpressADDataAdapter.f67905c.onRenderFail();
+                return;
+            case 105:
+                nativeExpressADDataAdapter.f67905c.onAdClosed();
+                return;
+            default:
+                return;
         }
     }
 
-    public static /* synthetic */ void b(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
-        if (nativeExpressADDataAdapter.f75581b != null) {
-            switch (aDEvent.getType()) {
-                case 201:
-                    nativeExpressADDataAdapter.f75581b.onVideoCache();
-                    return;
-                case 202:
-                    nativeExpressADDataAdapter.f75581b.onVideoStart();
-                    return;
-                case 203:
-                    nativeExpressADDataAdapter.f75581b.onVideoResume();
-                    return;
-                case 204:
-                case 205:
-                    nativeExpressADDataAdapter.f75581b.onVideoPause();
-                    return;
-                case 206:
-                    nativeExpressADDataAdapter.f75581b.onVideoComplete();
-                    return;
-                case 207:
-                    nativeExpressADDataAdapter.f75581b.onVideoError();
-                    return;
-                default:
-                    return;
-            }
+    public static void b(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, nativeExpressADDataAdapter, aDEvent) == null) || nativeExpressADDataAdapter.f67904b == null) {
+            return;
+        }
+        switch (aDEvent.getType()) {
+            case 201:
+                nativeExpressADDataAdapter.f67904b.onVideoCache();
+                return;
+            case 202:
+                nativeExpressADDataAdapter.f67904b.onVideoStart();
+                return;
+            case 203:
+                nativeExpressADDataAdapter.f67904b.onVideoResume();
+                return;
+            case 204:
+            case 205:
+                nativeExpressADDataAdapter.f67904b.onVideoPause();
+                return;
+            case 206:
+                nativeExpressADDataAdapter.f67904b.onVideoComplete();
+                return;
+            case 207:
+                nativeExpressADDataAdapter.f67904b.onVideoError();
+                return;
+            default:
+                return;
         }
     }
 
@@ -145,7 +150,7 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f75580a.destroy();
+            this.f67903a.destroy();
         }
     }
 
@@ -153,7 +158,7 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
     public View getAdView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75580a.getAdView() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67903a.getAdView() : (View) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
@@ -161,7 +166,7 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NativeExpressADData2 nativeExpressADData2 = this.f75580a;
+            NativeExpressADData2 nativeExpressADData2 = this.f67903a;
             if (nativeExpressADData2 != null) {
                 return nativeExpressADData2.getApkInfoUrl();
             }
@@ -174,35 +179,42 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75580a.getECPM() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67903a.getECPM() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public String getECPMLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f75580a.getECPMLevel() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f67903a.getECPMLevel() : (String) invokeV.objValue;
+    }
+
+    @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
+    public Map<String, Object> getExtraInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f67903a.getExtraInfo() : (Map) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public int getVideoDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f75580a.getVideoDuration() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f67903a.getVideoDuration() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public boolean isVideoAd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f75580a.isVideoAd() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f67903a.isVideoAd() : invokeV.booleanValue;
     }
 
     @Override // com.qq.e.comm.compliance.DownloadConfirmListener
     public void onDownloadConfirm(Activity activity, int i2, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
         DownloadConfirmListener downloadConfirmListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048583, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f75583d) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f67906d) == null) {
             return;
         }
         downloadConfirmListener.onDownloadConfirm(activity, i2, str, downloadConfirmCallBack);
@@ -211,41 +223,49 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void render() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f75580a.render();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f67903a.render();
         }
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void sendLossNotification(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, str) == null) {
-            this.f75580a.sendLossNotification(i2, i3, str);
+        if (interceptable == null || interceptable.invokeIIL(1048586, this, i2, i3, str) == null) {
+            this.f67903a.sendLossNotification(i2, i3, str);
         }
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void sendWinNotification(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f75580a.sendWinNotification(i2);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.f67903a.sendWinNotification(i2);
         }
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void setAdEventListener(AdEventListener adEventListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, adEventListener) == null) {
-            this.f75582c = adEventListener;
+        if (interceptable == null || interceptable.invokeL(1048588, this, adEventListener) == null) {
+            this.f67905c = adEventListener;
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
+    public void setBidECPM(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.f67903a.setBidECPM(i2);
         }
     }
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, downloadConfirmListener) == null) {
-            this.f75583d = downloadConfirmListener;
-            NativeExpressADData2 nativeExpressADData2 = this.f75580a;
+        if (interceptable == null || interceptable.invokeL(1048590, this, downloadConfirmListener) == null) {
+            this.f67906d = downloadConfirmListener;
+            NativeExpressADData2 nativeExpressADData2 = this.f67903a;
             if (nativeExpressADData2 != null) {
                 nativeExpressADData2.setDownloadConfirmListener(this);
             }
@@ -255,8 +275,8 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void setMediaListener(MediaEventListener mediaEventListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, mediaEventListener) == null) {
-            this.f75581b = mediaEventListener;
+        if (interceptable == null || interceptable.invokeL(1048591, this, mediaEventListener) == null) {
+            this.f67904b = mediaEventListener;
         }
     }
 }

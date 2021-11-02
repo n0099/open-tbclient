@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ProductInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,6 +18,8 @@ public class ProductInfo {
     public long destAmount;
     public String expand;
     public long firstRushAmount;
+    public List<GiftBagTagInfo> giftBagTagInfos;
+    public List<GiftBagsInfo> giftbags;
     public boolean hasAct;
     public boolean hasCurrencyAct;
     public boolean hasDestCurrencyAct;
@@ -43,7 +45,7 @@ public class ProductInfo {
     public int propsSum;
     public long spAmount;
     public long spSumAmount;
-    public Double srcAmount;
+    public double srcAmount;
     public String srcCurrencySymbol;
     public String subChannel;
     public int usedChannelType;
@@ -63,13 +65,15 @@ public class ProductInfo {
         }
         this.otherCurrencies = new ArrayList();
         this.props = new ArrayList();
+        this.giftbags = new ArrayList();
+        this.giftBagTagInfos = new ArrayList();
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ProductInfo{cid=" + this.cid + ", offersTips='" + this.offersTips + ExtendedMessageFormat.QUOTE + ", name='" + this.name + ExtendedMessageFormat.QUOTE + ", level=" + this.level + ", srcAmount=" + this.srcAmount + ", srcCurrencySymbol=" + this.srcCurrencySymbol + ", destAmount=" + this.destAmount + ", offersType=" + this.offersType + ", offersRate=" + this.offersRate + ", offers_currency_same=" + this.offers_currency_same + ", offers_currency_type=" + this.offers_currency_type + ", offers_currency_name='" + this.offers_currency_name + ExtendedMessageFormat.QUOTE + ", hasAct=" + this.hasAct + ", hasCurrencyAct=" + this.hasCurrencyAct + ", hasDestCurrencyAct=" + this.hasDestCurrencyAct + ", spAmount=" + this.spAmount + ", spSumAmount=" + this.spSumAmount + ", hasOtherCurrencyAct=" + this.hasOtherCurrencyAct + ", otherCurrenciesSum=" + this.otherCurrenciesSum + ", otherCurrencies=" + this.otherCurrencies + ", hasFirstRush=" + this.hasFirstRush + ", firstRushAmount=" + this.firstRushAmount + ", hasPropsAct=" + this.hasPropsAct + ", propsSum=" + this.propsSum + ", props=" + this.props + ", chargeRate=" + this.chargeRate + ", productId='" + this.productId + ExtendedMessageFormat.QUOTE + ", expand=" + this.expand + ", currencyCode=" + this.currencyCode + ", otherPrice=" + this.otherPrice + ", payChannel=" + this.payChannel + ", payMethod=" + this.payMethod + ", subChannel=" + this.subChannel + ", payType=" + this.payType + ", usedChannelType=" + this.usedChannelType + ExtendedMessageFormat.END_FE;
+            return "ProductInfo{cid=" + this.cid + ", offersTips='" + this.offersTips + ExtendedMessageFormat.QUOTE + ", name='" + this.name + ExtendedMessageFormat.QUOTE + ", level=" + this.level + ", srcAmount=" + this.srcAmount + ", srcCurrencySymbol=" + this.srcCurrencySymbol + ", destAmount=" + this.destAmount + ", offersType=" + this.offersType + ", offersRate=" + this.offersRate + ", offers_currency_same=" + this.offers_currency_same + ", offers_currency_type=" + this.offers_currency_type + ", offers_currency_name='" + this.offers_currency_name + ExtendedMessageFormat.QUOTE + ", hasAct=" + this.hasAct + ", hasCurrencyAct=" + this.hasCurrencyAct + ", hasDestCurrencyAct=" + this.hasDestCurrencyAct + ", spAmount=" + this.spAmount + ", spSumAmount=" + this.spSumAmount + ", hasOtherCurrencyAct=" + this.hasOtherCurrencyAct + ", otherCurrenciesSum=" + this.otherCurrenciesSum + ", otherCurrencies=" + this.otherCurrencies + ", giftbags=" + this.giftbags + ", giftBagTagInfos=" + this.giftBagTagInfos + ", hasFirstRush=" + this.hasFirstRush + ", firstRushAmount=" + this.firstRushAmount + ", hasPropsAct=" + this.hasPropsAct + ", propsSum=" + this.propsSum + ", props=" + this.props + ", chargeRate=" + this.chargeRate + ", productId='" + this.productId + ExtendedMessageFormat.QUOTE + ", expand=" + this.expand + ", currencyCode=" + this.currencyCode + ", otherPrice=" + this.otherPrice + ", payChannel=" + this.payChannel + ", payMethod=" + this.payMethod + ", subChannel=" + this.subChannel + ", payType=" + this.payType + ", usedChannelType=" + this.usedChannelType + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

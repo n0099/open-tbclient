@@ -12,55 +12,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c implements Parcelable, Comparable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<c> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f76360a;
+    public final String f69640a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f76361b;
-
-    /* loaded from: classes10.dex */
-    public static class a implements Parcelable.Creator<c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public c createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new c(parcel) : (c) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: b */
-        public c[] newArray(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new c[i2] : (c[]) invokeI.objValue;
-        }
-    }
+    public final String f69641b;
 
     static {
         InterceptResult invokeClinit;
@@ -75,7 +37,42 @@ public class c implements Parcelable, Comparable {
                 return;
             }
         }
-        CREATOR = new a();
+        CREATOR = new Parcelable.Creator<c>() { // from class: com.ss.android.socialbase.downloader.model.c.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            /* renamed from: a */
+            public c createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new c(parcel) : (c) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            /* renamed from: a */
+            public c[] newArray(int i2) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new c[i2] : (c[]) invokeI.objValue;
+            }
+        };
     }
 
     public c(String str, String str2) {
@@ -93,20 +90,20 @@ public class c implements Parcelable, Comparable {
                 return;
             }
         }
-        this.f76360a = str;
-        this.f76361b = str2;
+        this.f69640a = str;
+        this.f69641b = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76360a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69640a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76361b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69641b : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Comparable
@@ -116,10 +113,10 @@ public class c implements Parcelable, Comparable {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (obj instanceof c) {
                 c cVar = (c) obj;
-                if (TextUtils.equals(this.f76360a, cVar.a())) {
+                if (TextUtils.equals(this.f69640a, cVar.a())) {
                     return 0;
                 }
-                String str = this.f76360a;
+                String str = this.f69640a;
                 if (str == null) {
                     return -1;
                 }
@@ -155,7 +152,7 @@ public class c implements Parcelable, Comparable {
                 return false;
             }
             c cVar = (c) obj;
-            return TextUtils.equals(this.f76360a, cVar.f76360a) && TextUtils.equals(this.f76361b, cVar.f76361b);
+            return TextUtils.equals(this.f69640a, cVar.f69640a) && TextUtils.equals(this.f69641b, cVar.f69641b);
         }
         return invokeL.booleanValue;
     }
@@ -164,9 +161,9 @@ public class c implements Parcelable, Comparable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String str = this.f76360a;
+            String str = this.f69640a;
             int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            String str2 = this.f76361b;
+            String str2 = this.f69641b;
             return hashCode + (str2 != null ? str2.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -176,7 +173,7 @@ public class c implements Parcelable, Comparable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "HttpHeader{name='" + this.f76360a + ExtendedMessageFormat.QUOTE + ", value='" + this.f76361b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "HttpHeader{name='" + this.f69640a + ExtendedMessageFormat.QUOTE + ", value='" + this.f69641b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -185,8 +182,8 @@ public class c implements Parcelable, Comparable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
-            parcel.writeString(this.f76360a);
-            parcel.writeString(this.f76361b);
+            parcel.writeString(this.f69640a);
+            parcel.writeString(this.f69641b);
         }
     }
 
@@ -205,7 +202,7 @@ public class c implements Parcelable, Comparable {
                 return;
             }
         }
-        this.f76360a = parcel.readString();
-        this.f76361b = parcel.readString();
+        this.f69640a = parcel.readString();
+        this.f69641b = parcel.readString();
     }
 }

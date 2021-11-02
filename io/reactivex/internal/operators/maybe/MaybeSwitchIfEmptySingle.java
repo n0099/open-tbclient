@@ -15,14 +15,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class MaybeSwitchIfEmptySingle<T> extends Single<T> implements HasUpstreamMaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<? extends T> other;
     public final MaybeSource<T> source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class SwitchIfEmptyMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4603919676453758899L;
@@ -30,7 +30,7 @@ public final class MaybeSwitchIfEmptySingle<T> extends Single<T> implements HasU
         public final SingleObserver<? super T> actual;
         public final SingleSource<? extends T> other;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public static final class OtherSingleObserver<T> implements SingleObserver<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

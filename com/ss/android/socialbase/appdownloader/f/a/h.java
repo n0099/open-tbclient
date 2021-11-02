@@ -1,30 +1,29 @@
 package com.ss.android.socialbase.appdownloader.f.a;
 
-import c.p.a.e.a.h.a.f;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class h extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f76097a;
+    public Throwable f69014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f76098b;
+    public int f69015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f76099c;
+    public int f69016c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public h(String str, f fVar, Throwable th) {
+    public h(String str, g gVar, Throwable th) {
         super(r0.toString());
         String str2;
         String str3;
@@ -32,7 +31,7 @@ public class h extends Exception {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, fVar, th};
+            Object[] objArr = {str, gVar, th};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -51,37 +50,37 @@ public class h extends Exception {
             str2 = str + " ";
         }
         sb.append(str2);
-        if (fVar == null) {
+        if (gVar == null) {
             str3 = "";
         } else {
-            str3 = "(position:" + fVar.d() + ") ";
+            str3 = "(position:" + gVar.d() + ") ";
         }
         sb.append(str3);
         if (th != null) {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f76098b = -1;
-        this.f76099c = -1;
-        if (fVar != null) {
-            this.f76098b = fVar.c();
-            this.f76099c = fVar.f();
+        this.f69015b = -1;
+        this.f69016c = -1;
+        if (gVar != null) {
+            this.f69015b = gVar.c();
+            this.f69016c = gVar.f();
         }
-        this.f76097a = th;
+        this.f69014a = th;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f76097a == null) {
+            if (this.f69014a == null) {
                 super.printStackTrace();
                 return;
             }
             synchronized (System.err) {
                 PrintStream printStream = System.err;
                 printStream.println(super.getMessage() + "; nested exception is:");
-                this.f76097a.printStackTrace();
+                this.f69014a.printStackTrace();
             }
         }
     }

@@ -10,7 +10,7 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.internal.fuseable.ScalarCallable;
 import io.reactivex.internal.operators.observable.ObservableScalarXMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableJust<T> extends Observable<T> implements ScalarCallable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

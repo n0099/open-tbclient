@@ -1,8 +1,8 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.c.u0;
+import b.i.d.a.n;
+import b.i.d.c.u0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SimpleTimeLimiter implements TimeLimiter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,24 +49,24 @@ public final class SimpleTimeLimiter implements TimeLimiter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public <T> T callWithTimeout(Callable<T> callable, long j2, TimeUnit timeUnit, boolean z) throws Exception {
+    public <T> T callWithTimeout(Callable<T> callable, long j, TimeUnit timeUnit, boolean z) throws Exception {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{callable, Long.valueOf(j2), timeUnit, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{callable, Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) {
             n.p(callable);
             n.p(timeUnit);
-            checkPositiveTimeout(j2);
+            checkPositiveTimeout(j);
             Future<T> submit = this.executor.submit(callable);
             try {
                 if (z) {
                     try {
-                        return submit.get(j2, timeUnit);
+                        return submit.get(j, timeUnit);
                     } catch (InterruptedException e2) {
                         submit.cancel(true);
                         throw e2;
                     }
                 }
-                return (T) Uninterruptibles.getUninterruptibly(submit, j2, timeUnit);
+                return (T) Uninterruptibles.getUninterruptibly(submit, j, timeUnit);
             } catch (ExecutionException e3) {
                 throw throwCause(e3, true);
             } catch (TimeoutException e4) {
@@ -77,10 +77,10 @@ public final class SimpleTimeLimiter implements TimeLimiter {
         return (T) invokeCommon.objValue;
     }
 
-    public static void checkPositiveTimeout(long j2) {
+    public static void checkPositiveTimeout(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2) == null) {
-            n.h(j2 > 0, "timeout must be positive: %s", j2);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
+            n.h(j > 0, "timeout must be positive: %s", j);
         }
     }
 
@@ -166,16 +166,16 @@ public final class SimpleTimeLimiter implements TimeLimiter {
     }
 
     @Override // com.google.common.util.concurrent.TimeLimiter
-    public <T> T callUninterruptiblyWithTimeout(Callable<T> callable, long j2, TimeUnit timeUnit) throws TimeoutException, ExecutionException {
+    public <T> T callUninterruptiblyWithTimeout(Callable<T> callable, long j, TimeUnit timeUnit) throws TimeoutException, ExecutionException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{callable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{callable, Long.valueOf(j), timeUnit})) == null) {
             n.p(callable);
             n.p(timeUnit);
-            checkPositiveTimeout(j2);
+            checkPositiveTimeout(j);
             Future<T> submit = this.executor.submit(callable);
             try {
-                return (T) Uninterruptibles.getUninterruptibly(submit, j2, timeUnit);
+                return (T) Uninterruptibles.getUninterruptibly(submit, j, timeUnit);
             } catch (ExecutionException e2) {
                 wrapAndThrowExecutionExceptionOrError(e2.getCause());
                 throw new AssertionError();
@@ -188,16 +188,16 @@ public final class SimpleTimeLimiter implements TimeLimiter {
     }
 
     @Override // com.google.common.util.concurrent.TimeLimiter
-    public <T> T newProxy(T t, Class<T> cls, long j2, TimeUnit timeUnit) {
+    public <T> T newProxy(T t, Class<T> cls, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{t, cls, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{t, cls, Long.valueOf(j), timeUnit})) == null) {
             n.p(t);
             n.p(cls);
             n.p(timeUnit);
-            checkPositiveTimeout(j2);
+            checkPositiveTimeout(j);
             n.e(cls.isInterface(), "interfaceType must be an interface type");
-            return (T) newProxy(cls, new InvocationHandler(this, t, j2, timeUnit, findInterruptibleMethods(cls)) { // from class: com.google.common.util.concurrent.SimpleTimeLimiter.1
+            return (T) newProxy(cls, new InvocationHandler(this, t, j, timeUnit, findInterruptibleMethods(cls)) { // from class: com.google.common.util.concurrent.SimpleTimeLimiter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SimpleTimeLimiter this$0;
@@ -211,7 +211,7 @@ public final class SimpleTimeLimiter implements TimeLimiter {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, t, Long.valueOf(j2), timeUnit, r11};
+                        Object[] objArr = {this, t, Long.valueOf(j), timeUnit, r11};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -223,7 +223,7 @@ public final class SimpleTimeLimiter implements TimeLimiter {
                     }
                     this.this$0 = this;
                     this.val$target = t;
-                    this.val$timeoutDuration = j2;
+                    this.val$timeoutDuration = j;
                     this.val$timeoutUnit = timeUnit;
                     this.val$interruptibleMethods = r11;
                 }
@@ -280,15 +280,15 @@ public final class SimpleTimeLimiter implements TimeLimiter {
     }
 
     @Override // com.google.common.util.concurrent.TimeLimiter
-    public void runUninterruptiblyWithTimeout(Runnable runnable, long j2, TimeUnit timeUnit) throws TimeoutException {
+    public void runUninterruptiblyWithTimeout(Runnable runnable, long j, TimeUnit timeUnit) throws TimeoutException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit}) == null) {
             n.p(runnable);
             n.p(timeUnit);
-            checkPositiveTimeout(j2);
+            checkPositiveTimeout(j);
             Future<?> submit = this.executor.submit(runnable);
             try {
-                Uninterruptibles.getUninterruptibly(submit, j2, timeUnit);
+                Uninterruptibles.getUninterruptibly(submit, j, timeUnit);
             } catch (ExecutionException e2) {
                 wrapAndThrowRuntimeExecutionExceptionOrError(e2.getCause());
                 throw new AssertionError();
@@ -300,15 +300,15 @@ public final class SimpleTimeLimiter implements TimeLimiter {
     }
 
     @Override // com.google.common.util.concurrent.TimeLimiter
-    public void runWithTimeout(Runnable runnable, long j2, TimeUnit timeUnit) throws TimeoutException, InterruptedException {
+    public void runWithTimeout(Runnable runnable, long j, TimeUnit timeUnit) throws TimeoutException, InterruptedException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j2), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit}) == null) {
             n.p(runnable);
             n.p(timeUnit);
-            checkPositiveTimeout(j2);
+            checkPositiveTimeout(j);
             Future<?> submit = this.executor.submit(runnable);
             try {
-                submit.get(j2, timeUnit);
+                submit.get(j, timeUnit);
             } catch (InterruptedException e2) {
                 e = e2;
                 submit.cancel(true);
@@ -331,16 +331,16 @@ public final class SimpleTimeLimiter implements TimeLimiter {
     }
 
     @Override // com.google.common.util.concurrent.TimeLimiter
-    public <T> T callWithTimeout(Callable<T> callable, long j2, TimeUnit timeUnit) throws TimeoutException, InterruptedException, ExecutionException {
+    public <T> T callWithTimeout(Callable<T> callable, long j, TimeUnit timeUnit) throws TimeoutException, InterruptedException, ExecutionException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{callable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{callable, Long.valueOf(j), timeUnit})) == null) {
             n.p(callable);
             n.p(timeUnit);
-            checkPositiveTimeout(j2);
+            checkPositiveTimeout(j);
             Future<T> submit = this.executor.submit(callable);
             try {
-                return submit.get(j2, timeUnit);
+                return submit.get(j, timeUnit);
             } catch (InterruptedException e2) {
                 e = e2;
                 submit.cancel(true);

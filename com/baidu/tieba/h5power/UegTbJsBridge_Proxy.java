@@ -1,9 +1,9 @@
 package com.baidu.tieba.h5power;
 
-import c.a.e.e.p.k;
-import c.a.r0.k3.m0.d.a;
-import c.a.r0.k3.m0.d.c;
-import c.a.r0.k3.m0.d.e;
+import b.a.e.e.p.k;
+import b.a.r0.l3.n0.d.a;
+import b.a.r0.l3.n0.d.c;
+import b.a.r0.l3.n0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.UegTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UegTbJsBridge_Proxy extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class UegTbJsBridge_Proxy extends a {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // c.a.r0.k3.m0.d.a
+    @Override // b.a.r0.l3.n0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class UegTbJsBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.r0.k3.m0.d.a
+    @Override // b.a.r0.l3.n0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

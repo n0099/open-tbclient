@@ -1,6 +1,6 @@
 package com.baidu.tieba.userblock;
 
-import c.a.e.a.f;
+import b.a.e.a.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -20,27 +20,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetUserBlackInfo.DataRes;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UserBlockInfoModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f57578e;
+    public long f54626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.q0.n.a f57579f;
+    public b.a.q0.n.a f54627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.c.g.a f57580g;
+    public b.a.e.c.g.a f54628g;
 
-    /* loaded from: classes7.dex */
-    public class a extends c.a.e.c.g.a {
+    /* loaded from: classes9.dex */
+    public class a extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserBlockInfoModel f57581a;
+        public final /* synthetic */ UserBlockInfoModel f54629a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(UserBlockInfoModel userBlockInfoModel, int i2, int i3) {
@@ -61,14 +61,14 @@ public class UserBlockInfoModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f57581a = userBlockInfoModel;
+            this.f54629a = userBlockInfoModel;
         }
 
-        @Override // c.a.e.c.g.a
+        @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UserBlockInfoRequestMessage userBlockInfoRequestMessage;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.f57581a.f57579f == null || responsedMessage == null || (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockInfoRequestMessage.getBlockUserId() != this.f57581a.f57578e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.f54629a.f54627f == null || responsedMessage == null || (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockInfoRequestMessage.getBlockUserId() != this.f54629a.f54626e) {
                 return;
             }
             int error = responsedMessage.getError();
@@ -78,14 +78,14 @@ public class UserBlockInfoModel extends BdBaseModel {
                 if (responsedMessage instanceof UserBlockInfoHttpResponseMessage) {
                     data = ((UserBlockInfoHttpResponseMessage) responsedMessage).getData();
                 }
-                this.f57581a.f57579f.onSuccess(data);
-                this.f57581a.f57578e = -1L;
+                this.f54629a.f54627f.onSuccess(data);
+                this.f54629a.f54626e = -1L;
                 return;
             }
             if (StringUtils.isNull(errorString)) {
-                errorString = this.f57581a.A(R.string.error_unkown_try_again);
+                errorString = this.f54629a.A(R.string.error_unkown_try_again);
             }
-            this.f57581a.f57579f.onError(error, errorString);
+            this.f54629a.f54627f.onError(error, errorString);
         }
     }
 
@@ -107,7 +107,7 @@ public class UserBlockInfoModel extends BdBaseModel {
                 return;
             }
         }
-        this.f57580g = new a(this, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, 309698);
+        this.f54628g = new a(this, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, 309698);
         setUniqueId(bdUniqueId);
         B();
     }
@@ -121,28 +121,28 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.r0.k3.e0.a.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
-            c.a.r0.k3.e0.a.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
-            this.f57580g.getHttpMessageListener().setSelfListener(true);
-            this.f57580g.getSocketMessageListener().setSelfListener(true);
-            registerListener(this.f57580g);
+            b.a.r0.l3.f0.a.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
+            b.a.r0.l3.f0.a.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
+            this.f54628g.getHttpMessageListener().setSelfListener(true);
+            this.f54628g.getSocketMessageListener().setSelfListener(true);
+            registerListener(this.f54628g);
         }
     }
 
-    public void C(long j2) {
+    public void C(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f57578e = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.f54626e = j;
             UserBlockInfoRequestMessage userBlockInfoRequestMessage = new UserBlockInfoRequestMessage();
-            userBlockInfoRequestMessage.setBlockUserId(j2);
+            userBlockInfoRequestMessage.setBlockUserId(j);
             sendMessage(userBlockInfoRequestMessage);
         }
     }
 
-    public void D(c.a.q0.n.a aVar) {
+    public void D(b.a.q0.n.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f57579f = aVar;
+            this.f54627f = aVar;
         }
     }
 
@@ -169,8 +169,8 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f57578e = -1L;
-            MessageManager.getInstance().unRegisterListener(this.f57580g);
+            this.f54626e = -1L;
+            MessageManager.getInstance().unRegisterListener(this.f54628g);
         }
     }
 }

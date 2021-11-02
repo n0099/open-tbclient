@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, String> f78601a;
+    public static final HashMap<String, String> f71539a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,28 +29,28 @@ public class x {
             }
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        f78601a = hashMap;
+        f71539a = hashMap;
         hashMap.put("FFD8FF", "jpg");
-        f78601a.put("89504E47", "png");
-        f78601a.put("47494638", "gif");
-        f78601a.put("474946", "gif");
-        f78601a.put("424D", "bmp");
+        f71539a.put("89504E47", "png");
+        f71539a.put("47494638", "gif");
+        f71539a.put("474946", "gif");
+        f71539a.put("424D", "bmp");
     }
 
     public static long a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            long j2 = 0;
+            long j = 0;
             try {
                 File[] listFiles = file.listFiles();
                 for (int i2 = 0; i2 < listFiles.length; i2++) {
-                    j2 += listFiles[i2].isDirectory() ? a(listFiles[i2]) : listFiles[i2].length();
+                    j += listFiles[i2].isDirectory() ? a(listFiles[i2]) : listFiles[i2].length();
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }

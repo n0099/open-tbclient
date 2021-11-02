@@ -2,7 +2,7 @@ package com.baidu.tieba.write.write.work.topic.model;
 
 import GetSugTopic.TopicList;
 import GetSugTopic.TopicListModule;
-import c.a.r0.d4.u.p.d.a.a;
+import b.a.r0.d4.u.p.d.a.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetRecommendTopic.DataRes;
 import tbclient.GetRecommendTopic.GetRecommendTopicResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implem
         }
     }
 
-    @Override // c.a.r0.d4.u.p.d.a.a
+    @Override // b.a.r0.d4.u.p.d.a.a
     public List<TopicList> getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AdvanceSetting implements Parcelable {
     public static final String ADVANCE_SETTING = "as";
     public static final String CLEAR_NOTIFICATION = "cn";
@@ -56,7 +56,7 @@ public class AdvanceSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                b.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -79,8 +79,8 @@ public class AdvanceSetting implements Parcelable {
                 if (!jSONObject.isNull(CLEAR_NOTIFICATION)) {
                     advanceSetting.setClearNotification(jSONObject.getInt(CLEAR_NOTIFICATION) != 0);
                 }
-                if (!jSONObject.isNull(HEAD_UP_NOTIFICATION)) {
-                    if (jSONObject.getInt(HEAD_UP_NOTIFICATION) == 0) {
+                if (!jSONObject.isNull("hn")) {
+                    if (jSONObject.getInt("hn") == 0) {
                         z = false;
                     }
                     advanceSetting.setHeadUpNotification(z);
@@ -91,7 +91,7 @@ public class AdvanceSetting implements Parcelable {
             return advanceSetting;
         }
         str = "no such tag advance_setting";
-        c.l.a.a.a.b(TAG, str);
+        b.l.a.a.a.b(TAG, str);
         return advanceSetting;
     }
 

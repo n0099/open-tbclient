@@ -11,13 +11,13 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long count;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class RepeatObserver<T> extends AtomicInteger implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
@@ -27,12 +27,12 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
         public final SequentialDisposable sd;
         public final ObservableSource<? extends T> source;
 
-        public RepeatObserver(Observer<? super T> observer, long j2, SequentialDisposable sequentialDisposable, ObservableSource<? extends T> observableSource) {
+        public RepeatObserver(Observer<? super T> observer, long j, SequentialDisposable sequentialDisposable, ObservableSource<? extends T> observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), sequentialDisposable, observableSource};
+                Object[] objArr = {observer, Long.valueOf(j), sequentialDisposable, observableSource};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -45,18 +45,18 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
             this.actual = observer;
             this.sd = sequentialDisposable;
             this.source = observableSource;
-            this.remaining = j2;
+            this.remaining = j;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long j2 = this.remaining;
-                if (j2 != Long.MAX_VALUE) {
-                    this.remaining = j2 - 1;
+                long j = this.remaining;
+                if (j != Long.MAX_VALUE) {
+                    this.remaining = j - 1;
                 }
-                if (j2 != 0) {
+                if (j != 0) {
                     subscribeNext();
                 } else {
                     this.actual.onComplete();
@@ -104,13 +104,13 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableRepeat(Observable<T> observable, long j2) {
+    public ObservableRepeat(Observable<T> observable, long j) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observable, Long.valueOf(j2)};
+            Object[] objArr = {observable, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -121,7 +121,7 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
                 return;
             }
         }
-        this.count = j2;
+        this.count = j;
     }
 
     @Override // io.reactivex.Observable
@@ -130,8 +130,8 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SequentialDisposable sequentialDisposable = new SequentialDisposable();
             observer.onSubscribe(sequentialDisposable);
-            long j2 = this.count;
-            new RepeatObserver(observer, j2 != Long.MAX_VALUE ? j2 - 1 : Long.MAX_VALUE, sequentialDisposable, this.source).subscribeNext();
+            long j = this.count;
+            new RepeatObserver(observer, j != Long.MAX_VALUE ? j - 1 : Long.MAX_VALUE, sequentialDisposable, this.source).subscribeNext();
         }
     }
 }

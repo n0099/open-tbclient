@@ -14,16 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39392i = "BaseActivity";
+    public static final String f37340i = "BaseActivity";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Handler f39393j;
+    public Handler j;
     public BeanActivity mAct;
 
     public BeanActivity() {
@@ -39,17 +37,17 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 return;
             }
         }
-        this.f39393j = null;
+        this.j = null;
     }
 
     private Handler b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f39393j == null) {
-                this.f39393j = new Handler(getMainLooper());
+            if (this.j == null) {
+                this.j = new Handler(getMainLooper());
             }
-            return this.f39393j;
+            return this.j;
         }
         return (Handler) invokeV.objValue;
     }

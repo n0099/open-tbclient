@@ -7,7 +7,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,28 +17,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f56354i = 20;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static int f56355j = 13;
+    public static int f53472i = 20;
+    public static int j = 13;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56356e;
+    public int f53473e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56357f;
+    public int f53474f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f56358g;
+    public Paint f53475g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f56359h;
+    public Path f53476h;
 
     static {
         InterceptResult invokeClinit;
@@ -79,13 +77,13 @@ public class ArrowView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            f56354i = l.g(context, R.dimen.tbds20);
-            f56355j = l.g(context, R.dimen.tbds13);
+            f53472i = l.g(context, R.dimen.tbds20);
+            j = l.g(context, R.dimen.tbds13);
             Paint paint = new Paint();
-            this.f56358g = paint;
+            this.f53475g = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-            this.f56358g.setAntiAlias(true);
-            this.f56359h = new Path();
+            this.f53475g.setAntiAlias(true);
+            this.f53476h = new Path();
         }
     }
 
@@ -94,12 +92,12 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f56359h.reset();
-            this.f56359h.moveTo(this.f56356e / 2, 0.0f);
-            this.f56359h.lineTo(0.0f, this.f56357f);
-            this.f56359h.lineTo(this.f56356e, this.f56357f);
-            this.f56359h.close();
-            canvas.drawPath(this.f56359h, this.f56358g);
+            this.f53476h.reset();
+            this.f53476h.moveTo(this.f53473e / 2, 0.0f);
+            this.f53476h.lineTo(0.0f, this.f53474f);
+            this.f53476h.lineTo(this.f53473e, this.f53474f);
+            this.f53476h.close();
+            canvas.drawPath(this.f53476h, this.f53475g);
         }
     }
 
@@ -113,11 +111,11 @@ public class ArrowView extends View {
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(f56354i, f56355j);
+                setMeasuredDimension(f53472i, j);
             } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(f56354i, size2);
+                setMeasuredDimension(f53472i, size2);
             } else if (mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(size, f56355j);
+                setMeasuredDimension(size, j);
             }
         }
     }
@@ -127,8 +125,8 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f56356e = i2;
-            this.f56357f = i3;
+            this.f53473e = i2;
+            this.f53474f = i3;
         }
     }
 

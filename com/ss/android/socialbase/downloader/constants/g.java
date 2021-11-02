@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f76198a;
+    public static final g f69190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f76199b;
+    public static final g f69191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f76200c;
+    public static final g f69192c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f76201d;
+    public static final g f69193d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ g[] f76202e;
+    public static final /* synthetic */ g[] f69194e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,12 +41,12 @@ public final class g {
                 return;
             }
         }
-        f76198a = new g("DELAY_RETRY_NONE", 0);
-        f76199b = new g("DELAY_RETRY_WAITING", 1);
-        f76200c = new g("DELAY_RETRY_DOWNLOADING", 2);
+        f69190a = new g("DELAY_RETRY_NONE", 0);
+        f69191b = new g("DELAY_RETRY_WAITING", 1);
+        f69192c = new g("DELAY_RETRY_DOWNLOADING", 2);
         g gVar = new g("DELAY_RETRY_DOWNLOADED", 3);
-        f76201d = gVar;
-        f76202e = new g[]{f76198a, f76199b, f76200c, gVar};
+        f69193d = gVar;
+        f69194e = new g[]{f69190a, f69191b, f69192c, gVar};
     }
 
     public g(String str, int i2) {
@@ -77,6 +77,6 @@ public final class g {
     public static g[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f76202e.clone() : (g[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f69194e.clone() : (g[]) invokeV.objValue;
     }
 }

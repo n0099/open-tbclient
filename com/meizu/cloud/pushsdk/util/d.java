@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static int a(Context context) {
         if (MzSystemUtils.isMeizu(context)) {
@@ -45,7 +45,7 @@ public class d {
                 str2 = "the platformExtra parse error";
             }
         }
-        c.l.a.a.a.b("UxIPUtils", str2);
+        b.l.a.a.a.b("UxIPUtils", str2);
         return dVar;
     }
 
@@ -56,7 +56,7 @@ public class d {
                 MPushMessage mPushMessage = (MPushMessage) intent.getSerializableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
                 return mPushMessage != null ? mPushMessage.getTaskId() : stringExtra;
             } catch (Exception e2) {
-                c.l.a.a.a.b("UxIPUtils", "paese MessageV2 error " + e2.getMessage());
+                b.l.a.a.a.b("UxIPUtils", "paese MessageV2 error " + e2.getMessage());
                 return "no push platform task";
             }
         }
@@ -99,7 +99,7 @@ public class d {
 
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         HashMap hashMap = new HashMap();
-        hashMap.put(h.f39560a, str5);
+        hashMap.put(h.f37503a, str5);
         hashMap.put("ti", str3);
         hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, str2);
         if (TextUtils.isEmpty(str6)) {
@@ -119,7 +119,7 @@ public class d {
 
     /* JADX WARN: Type inference failed for: r7v1, types: [com.meizu.cloud.pushsdk.c.c.b$a] */
     public static void a(Context context, boolean z, String str, Map<String, String> map) {
-        c.l.a.a.a.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
+        b.l.a.a.a.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
         if ("notification_service_message".equals(str)) {
             return;
         }
@@ -156,7 +156,7 @@ public class d {
         } else {
             str = null;
         }
-        c.l.a.a.a.d("UxIPUtils", "current process packageName " + str3);
+        b.l.a.a.a.d("UxIPUtils", "current process packageName " + str3);
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -167,10 +167,10 @@ public class d {
             intent.setAction(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION);
             intent.putExtra(PushConstants.EXTRA_PUSH_TRACKER_JSON_DATA, jSONObject);
             context.startService(intent);
-            c.l.a.a.a.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
+            b.l.a.a.a.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
             return true;
         } catch (Exception e2) {
-            c.l.a.a.a.b("UxIPUtils", "start RemoteService error " + e2.getMessage());
+            b.l.a.a.a.b("UxIPUtils", "start RemoteService error " + e2.getMessage());
             return false;
         }
     }

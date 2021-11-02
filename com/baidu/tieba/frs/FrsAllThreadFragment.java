@@ -7,9 +7,10 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.q0.m0.c;
-import c.a.r0.x0.p0;
-import c.a.r0.x0.t;
+import b.a.q0.m0.c;
+import b.a.r0.x0.e1;
+import b.a.r0.x0.p0;
+import b.a.r0.x0.t;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -19,25 +20,24 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f50820e;
+    public View f48188e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f50821f;
+    public RecyclerView f48189f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50822g;
+    public String f48190g;
 
     public FrsAllThreadFragment() {
         Interceptable interceptable = $ic;
@@ -56,25 +56,25 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public final void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f50822g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f48190g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    @Override // c.a.r0.x0.p0
+    @Override // b.a.r0.x0.p0
     public void changeToSpecialFrs(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 
-    @Override // c.a.r0.x0.p0
+    @Override // b.a.r0.x0.p0
     public void forceRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             scrollToTop();
             t tVar = new t();
-            tVar.f28018a = 1;
-            tVar.f28019b = true;
+            tVar.f26328a = 1;
+            tVar.f26329b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
         }
     }
@@ -82,9 +82,9 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public final void g() {
         View view;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view = this.f50820e) != null && (view.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.f50820e.getParent()).removeView(this.f50820e);
-            this.f50820e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view = this.f48188e) != null && (view.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.f48188e.getParent()).removeView(this.f48188e);
+            this.f48188e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
@@ -107,10 +107,10 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f50822g = arguments.getString("forum_id", "");
+                this.f48190g = arguments.getString("forum_id", "");
             }
             g();
-            return this.f50820e;
+            return this.f48188e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -127,11 +127,11 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
         }
     }
 
-    @Override // c.a.r0.x0.p0
+    @Override // b.a.r0.x0.p0
     public void scrollToTop() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (recyclerView = this.f50821f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (recyclerView = this.f48189f) == null) {
             return;
         }
         recyclerView.scrollToPosition(0);
@@ -140,8 +140,8 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public void setView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            this.f50820e = view;
-            this.f50821f = (RecyclerView) view.findViewById(R.id.frs_lv_thread);
+            this.f48188e = view;
+            this.f48189f = (RecyclerView) view.findViewById(e1.frs_lv_thread);
             g();
         }
     }

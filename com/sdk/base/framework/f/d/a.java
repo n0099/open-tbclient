@@ -7,7 +7,6 @@ import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.Util;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,15 +24,15 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.Enumeration;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75930a = "com.sdk.base.framework.f.d.a";
+    public static final String f68231a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f75931b;
+    public static final Boolean f68232b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +48,7 @@ public class a {
                 return;
             }
         }
-        f75931b = Boolean.valueOf(f.f75904b);
+        f68232b = Boolean.valueOf(f.f68206b);
     }
 
     public a() {
@@ -115,7 +114,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
-                for (String str2 : new URL(str).getHost().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) {
+                for (String str2 : new URL(str).getHost().split("\\.")) {
                     for (int i2 = 0; i2 < str2.length(); i2++) {
                         if (!Character.isDigit(str2.charAt(i2))) {
                             return false;
@@ -201,7 +200,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(f75930a, th.getMessage(), f75931b);
+                    c.b(f68231a, th.getMessage(), f68232b);
                 }
             }
             return null;

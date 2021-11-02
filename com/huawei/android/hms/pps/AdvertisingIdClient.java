@@ -16,13 +16,13 @@ import com.huawei.android.hms.pps.a.a;
 import com.huawei.android.hms.pps.a.b;
 import java.io.IOException;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AdvertisingIdClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,12 +98,12 @@ public class AdvertisingIdClient {
                 try {
                     if (bindService) {
                         try {
-                            if (aVar.f71231a) {
+                            if (aVar.f63717a) {
                                 throw new IllegalStateException();
                             }
-                            aVar.f71231a = true;
-                            b.a.C1975a c1975a = new b.a.C1975a(aVar.f71232b.take());
-                            return new Info(c1975a.a(), c1975a.b());
+                            aVar.f63717a = true;
+                            b.a.C1884a c1884a = new b.a.C1884a(aVar.f63718b.take());
+                            return new Info(c1884a.a(), c1884a.b());
                         } catch (RemoteException unused) {
                             getTag();
                             throw new IOException("bind hms service RemoteException");

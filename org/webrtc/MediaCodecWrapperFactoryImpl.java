@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MediaCodecWrapperImpl implements MediaCodecWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,17 +61,17 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public int dequeueInputBuffer(long j2) {
+        public int dequeueInputBuffer(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.mediaCodec.dequeueInputBuffer(j2) : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.mediaCodec.dequeueInputBuffer(j) : invokeJ.intValue;
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public int dequeueOutputBuffer(MediaCodec.BufferInfo bufferInfo, long j2) {
+        public int dequeueOutputBuffer(MediaCodec.BufferInfo bufferInfo, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, bufferInfo, j2)) == null) ? this.mediaCodec.dequeueOutputBuffer(bufferInfo, j2) : invokeLJ.intValue;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, bufferInfo, j)) == null) ? this.mediaCodec.dequeueOutputBuffer(bufferInfo, j) : invokeLJ.intValue;
         }
 
         @Override // org.webrtc.MediaCodecWrapper
@@ -111,10 +111,10 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public void queueInputBuffer(int i2, int i3, int i4, long j2, int i5) {
+        public void queueInputBuffer(int i2, int i3, int i4, long j, int i5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), Integer.valueOf(i5)}) == null) {
-                this.mediaCodec.queueInputBuffer(i2, i3, i4, j2, i5);
+            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5)}) == null) {
+                this.mediaCodec.queueInputBuffer(i2, i3, i4, j, i5);
             }
         }
 

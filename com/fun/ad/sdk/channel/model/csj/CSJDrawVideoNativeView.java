@@ -1,7 +1,5 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.s.b.a.b;
-import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,14 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.R;
-/* loaded from: classes9.dex */
-public final class CSJDrawVideoNativeView extends b {
+import com.fun.ad.sdk.channel.csj.R;
+import com.fun.module.csj.e0;
+/* loaded from: classes11.dex */
+public final class CSJDrawVideoNativeView extends e0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f70295f;
+    public FrameLayout f62746f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJDrawVideoNativeView(Context context) {
@@ -85,28 +84,28 @@ public final class CSJDrawVideoNativeView extends b {
         }
     }
 
-    @Override // a.a.a.a.s.b.a.b
-    public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
+    @Override // com.fun.module.csj.e0
+    public void a(TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, tTNativeAd, adInteractionListener) == null) {
-            super.a(activity, tTNativeAd, adInteractionListener);
+        if (interceptable == null || interceptable.invokeL(1048576, this, tTNativeAd) == null) {
+            super.a(tTNativeAd);
             View adView = tTNativeAd.getAdView();
             if (adView != null && adView.getParent() != null) {
                 ((ViewGroup) adView.getParent()).removeView(adView);
             }
             if (adView != null) {
-                this.f70295f.removeAllViews();
-                this.f70295f.addView(adView);
+                this.f62746f.removeAllViews();
+                this.f62746f.addView(adView);
             }
         }
     }
 
-    @Override // a.a.a.a.s.b.a.b, android.view.View
+    @Override // com.fun.module.csj.e0, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f70295f = (FrameLayout) findViewById(R.id.ad_video);
+            this.f62746f = (FrameLayout) findViewById(R.id.ad_video);
         }
     }
 }

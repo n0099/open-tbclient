@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.logging.Logger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Version {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;

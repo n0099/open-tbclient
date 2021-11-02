@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,21 +37,21 @@ public class a extends com.baidu.platform.base.e {
         if (!(interceptable == null || interceptable.invokeL(65537, this, districtSearchOption) == null) || districtSearchOption == null) {
             return;
         }
-        this.f44279a.a("qt", "con");
-        this.f44279a.a("rp_format", "json");
-        this.f44279a.a("rp_filter", "mobile");
-        this.f44279a.a("area_res", "true");
-        this.f44279a.a("addr_identify", "1");
-        this.f44279a.a("ie", "utf-8");
-        this.f44279a.a("pn", "0");
-        this.f44279a.a("rn", "10");
-        this.f44279a.a("c", districtSearchOption.mCityName);
+        this.f42041a.a("qt", "con");
+        this.f42041a.a("rp_format", "json");
+        this.f42041a.a("rp_filter", "mobile");
+        this.f42041a.a("area_res", "true");
+        this.f42041a.a("addr_identify", "1");
+        this.f42041a.a("ie", "utf-8");
+        this.f42041a.a("pn", "0");
+        this.f42041a.a("rn", "10");
+        this.f42041a.a("c", districtSearchOption.mCityName);
         String str2 = districtSearchOption.mDistrictName;
         if (str2 == null || str2.equals("")) {
-            aVar = this.f44279a;
+            aVar = this.f42041a;
             str = districtSearchOption.mCityName;
         } else {
-            aVar = this.f44279a;
+            aVar = this.f42041a;
             str = districtSearchOption.mDistrictName;
         }
         aVar.a(ActVideoSetting.WIFI_DISPLAY, str);

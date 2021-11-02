@@ -24,7 +24,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.concurrent.atomic.AtomicBoolean;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class KsAdSDK {
     public static /* synthetic */ Interceptable $ic;
     public static String sAppTag;
@@ -35,7 +35,7 @@ public class KsAdSDK {
 
     @Keep
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public @interface KsThemeModeType {
         public static final int NIGHT = 1;
         public static final int NORMAL = 0;
@@ -164,7 +164,7 @@ public class KsAdSDK {
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? "3.3.11" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? "3.3.11.4" : (String) invokeV.objValue;
     }
 
     @KsAdSdkApi
@@ -181,8 +181,8 @@ public class KsAdSDK {
                     IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
                     sSdk = ksAdSDKImpl;
                     if (ksAdSDKImpl != null) {
-                        ksAdSDKImpl.setApiVersion("3.3.11");
-                        sSdk.setApiVersionCode(3031100);
+                        ksAdSDKImpl.setApiVersion("3.3.11.4");
+                        sSdk.setApiVersionCode(3031104);
                         sSdk.setAppTag(sAppTag);
                         sSdk.init(Wrapper.wrapContextIfNeed(a2), sdkConfig);
                     }
@@ -190,7 +190,7 @@ public class KsAdSDK {
                     if (sdkConfig != null) {
                         q.a(a2, "sdkconfig", sdkConfig.toJson());
                     }
-                    if (b.f71415a.booleanValue()) {
+                    if (b.f63895a.booleanValue()) {
                         Loader.get().checkUpdate();
                     }
                     z = sInited.get();

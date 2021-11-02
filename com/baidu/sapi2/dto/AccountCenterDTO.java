@@ -1,5 +1,6 @@
 package com.baidu.sapi2.dto;
 
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AccountCenterDTO extends SapiWebDTO {
     public static /* synthetic */ Interceptable $ic = null;
     public static final PassNameValuePair HIDE_PERSONAL_DATA;
@@ -18,8 +19,10 @@ public class AccountCenterDTO extends SapiWebDTO {
     public static String REFER_ACCOUNT_CHECK = "account_check";
     public transient /* synthetic */ FieldHolder $fh;
     public String accountToolsUrl;
+    public Drawable backBtnDrawable;
     public String bduss;
     public boolean handleLogin;
+    public boolean isBoldTitle;
     public boolean logoutAfterBdussInvalid;
     public List<PassNameValuePair> paramsList;
     public String refer;

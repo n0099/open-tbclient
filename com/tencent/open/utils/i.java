@@ -12,7 +12,6 @@ import android.os.Build;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +24,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -137,8 +136,8 @@ public class i {
             }
             if (str == null || str2 != null) {
                 if (str != null || str2 == null) {
-                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    String[] split = str.split("\\.");
+                    String[] split2 = str2.split("\\.");
                     int i2 = 0;
                     while (i2 < split.length && i2 < split2.length) {
                         try {
@@ -369,15 +368,15 @@ public class i {
             return invokeLL.longValue;
         }
         byte[] bArr = new byte[8192];
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = inputStream.read(bArr, 0, 8192);
             if (read != -1) {
                 outputStream.write(bArr, 0, read);
-                j2 += read;
+                j += read;
             } else {
-                SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j2);
-                return j2;
+                SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j);
+                return j;
             }
         }
     }

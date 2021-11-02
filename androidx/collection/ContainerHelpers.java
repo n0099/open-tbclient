@@ -104,15 +104,15 @@ public class ContainerHelpers {
         return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? idealByteArraySize(i2 * 8) / 8 : invokeI.intValue;
     }
 
-    public static int binarySearch(long[] jArr, int i2, long j2) {
+    public static int binarySearch(long[] jArr, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{jArr, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{jArr, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             int i3 = i2 - 1;
             int i4 = 0;
             while (i4 <= i3) {
                 int i5 = (i4 + i3) >>> 1;
-                int i6 = (jArr[i5] > j2 ? 1 : (jArr[i5] == j2 ? 0 : -1));
+                int i6 = (jArr[i5] > j ? 1 : (jArr[i5] == j ? 0 : -1));
                 if (i6 < 0) {
                     i4 = i5 + 1;
                 } else if (i6 <= 0) {

@@ -16,61 +16,61 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ConstrastLoadingTipsView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f40374a;
+    public TextView f38278a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f40375b;
+    public LinearLayout f38279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f40376c;
+    public b f38280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f40377d;
+    public TextView f38281d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f40378e;
+    public TextView f38282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f40379f;
+    public ImageView f38283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40380g;
+    public TextView f38284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f40381h;
+    public TextView f38285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f40382i;
+    public a f38286i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConstrastLoadingTipsView f40385a;
+        public final /* synthetic */ ConstrastLoadingTipsView f38289a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ConstrastLoadingTipsView constrastLoadingTipsView, long j2, long j3) {
-            super(j2, j3);
+        public b(ConstrastLoadingTipsView constrastLoadingTipsView, long j, long j2) {
+            super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {constrastLoadingTipsView, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {constrastLoadingTipsView, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -82,24 +82,24 @@ public class ConstrastLoadingTipsView extends LinearLayout {
                     return;
                 }
             }
-            this.f40385a = constrastLoadingTipsView;
+            this.f38289a = constrastLoadingTipsView;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f40385a.f40374a.setVisibility(8);
-                this.f40385a.f40375b.setVisibility(0);
+                this.f38289a.f38278a.setVisibility(8);
+                this.f38289a.f38279b.setVisibility(0);
             }
         }
 
         @Override // android.os.CountDownTimer
-        public void onTick(long j2) {
+        public void onTick(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                TextView textView = this.f40385a.f40374a;
-                textView.setText((j2 / 1000) + "");
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                TextView textView = this.f38289a.f38278a;
+                textView.setText((j / 1000) + "");
             }
         }
     }
@@ -133,33 +133,33 @@ public class ConstrastLoadingTipsView extends LinearLayout {
                 confirmBean.tips_sec = 5;
             }
             b bVar = new b(this, (confirmBean.tips_sec * 1000) + 1000, 1000L);
-            this.f40376c = bVar;
+            this.f38280c = bVar;
             bVar.start();
             if (!TextUtils.isEmpty(confirmBean.confirm_msg)) {
-                this.f40377d.setText(confirmBean.confirm_msg);
+                this.f38281d.setText(confirmBean.confirm_msg);
             }
             if (!TextUtils.isEmpty(confirmBean.cancel_msg)) {
-                this.f40378e.setText(confirmBean.cancel_msg);
+                this.f38282e.setText(confirmBean.cancel_msg);
             }
-            TextView textView = this.f40374a;
+            TextView textView = this.f38278a;
             textView.setText(confirmBean.tips_sec + "");
             if (!uploadContrastPortraitModel.isContrastPass()) {
-                this.f40379f.setVisibility(8);
+                this.f38283f.setVisibility(8);
             }
             if (!TextUtils.isEmpty(confirmBean.tip_msg)) {
-                this.f40381h.setText(confirmBean.tip_msg);
+                this.f38285h.setText(confirmBean.tip_msg);
             }
             if (TextUtils.isEmpty(confirmBean.title_tips)) {
                 return;
             }
-            this.f40380g.setText(confirmBean.title_tips);
+            this.f38284g.setText(confirmBean.title_tips);
         }
     }
 
     public void setOnClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f40382i = aVar;
+            this.f38286i = aVar;
         }
     }
 
@@ -169,7 +169,7 @@ public class ConstrastLoadingTipsView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.setVisibility(i2);
             if (i2 == 0) {
-                this.f40376c.start();
+                this.f38280c.start();
             }
         }
     }
@@ -178,21 +178,21 @@ public class ConstrastLoadingTipsView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.rim_face_result_tips_pages, this);
-            this.f40374a = (TextView) findViewById(R.id.rim_face_result_tips_time_tv);
-            this.f40375b = (LinearLayout) findViewById(R.id.rim_face_result_tips_btn_ll);
-            this.f40377d = (TextView) findViewById(R.id.rim_face_result_tips_confirm);
-            this.f40378e = (TextView) findViewById(R.id.rim_face_result_tips_cancel);
-            this.f40379f = (ImageView) findViewById(R.id.rim_face_result_tips_pages_img);
-            this.f40381h = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_msg);
-            this.f40380g = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_title);
-            this.f40374a.setVisibility(0);
-            this.f40375b.setVisibility(8);
-            this.f40377d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.ConstrastLoadingTipsView.1
+            this.f38278a = (TextView) findViewById(R.id.rim_face_result_tips_time_tv);
+            this.f38279b = (LinearLayout) findViewById(R.id.rim_face_result_tips_btn_ll);
+            this.f38281d = (TextView) findViewById(R.id.rim_face_result_tips_confirm);
+            this.f38282e = (TextView) findViewById(R.id.rim_face_result_tips_cancel);
+            this.f38283f = (ImageView) findViewById(R.id.rim_face_result_tips_pages_img);
+            this.f38285h = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_msg);
+            this.f38284g = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_title);
+            this.f38278a.setVisibility(0);
+            this.f38279b.setVisibility(8);
+            this.f38281d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.ConstrastLoadingTipsView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ConstrastLoadingTipsView f40383a;
+                public final /* synthetic */ ConstrastLoadingTipsView f38287a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -209,23 +209,23 @@ public class ConstrastLoadingTipsView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f40383a = this;
+                    this.f38287a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40383a.f40382i.a();
+                        this.f38287a.f38286i.a();
                     }
                 }
             });
-            this.f40378e.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.ConstrastLoadingTipsView.2
+            this.f38282e.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.ConstrastLoadingTipsView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ConstrastLoadingTipsView f40384a;
+                public final /* synthetic */ ConstrastLoadingTipsView f38288a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -242,14 +242,14 @@ public class ConstrastLoadingTipsView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f40384a = this;
+                    this.f38288a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40384a.f40382i.b();
+                        this.f38288a.f38286i.b();
                     }
                 }
             });

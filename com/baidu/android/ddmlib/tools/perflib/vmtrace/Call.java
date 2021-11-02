@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Stack;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Call {
     public static /* synthetic */ Interceptable $ic;
     public static final Formatter METHOD_ID_FORMATTER;
@@ -36,7 +36,7 @@ public class Call {
     public final boolean mIsRecursive;
     public final long mMethodId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,12 +47,12 @@ public class Call {
         public int mExitThreadTime;
         public final long mMethodId;
 
-        public Builder(long j2) {
+        public Builder(long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2)};
+                Object[] objArr = {Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -63,7 +63,7 @@ public class Call {
                 }
             }
             this.mCallees = null;
-            this.mMethodId = j2;
+            this.mMethodId = j;
         }
 
         public void addCallee(Builder builder) {
@@ -137,7 +137,7 @@ public class Call {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class CallHierarchyIterator implements Iterator<Call> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,7 +198,7 @@ public class Call {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface Formatter {
         String format(Call call);
     }
@@ -264,11 +264,11 @@ public class Call {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, list, clockType)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (Call call : list) {
-                j2 += call.getInclusiveTime(clockType, TimeUnit.MICROSECONDS);
+                j += call.getInclusiveTime(clockType, TimeUnit.MICROSECONDS);
             }
-            return j2;
+            return j;
         }
         return invokeLL.longValue;
     }

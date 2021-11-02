@@ -11,6 +11,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetStarOnlineRequest";
@@ -30,7 +31,7 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +69,7 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i2 = jSONObject.getInt("error_code");
-                    str = jSONObject.optString("error_msg", "");
+                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     if (i2 == 0 && jSONObject.has("response_params")) {
                         i3 = jSONObject.getJSONObject("response_params").getInt("online_count");
                     }
@@ -102,12 +103,12 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMGetStarOnlineRequest(Context context, String str, long j2, String str2) {
+    public IMGetStarOnlineRequest(Context context, String str, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), str2};
+            Object[] objArr = {context, str, Long.valueOf(j), str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -118,7 +119,7 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
         this.mGroupId = str2;
     }

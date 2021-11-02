@@ -2,7 +2,7 @@ package com.dxmpay.wallet.base.camera;
 
 import android.graphics.Rect;
 import com.dxmpay.wallet.core.NoProguard;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface IImageProcess extends NoProguard {
     void destroyProcessor();
 

@@ -9,7 +9,6 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.cy;
 import com.xiaomi.push.fa;
@@ -27,7 +26,7 @@ import com.xiaomi.push.iv;
 import com.xiaomi.push.service.av;
 import java.nio.ByteBuffer;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,15 +54,15 @@ public final class y {
             try {
                 fa faVar = new fa();
                 faVar.a(5);
-                faVar.c(lVar.f966a);
+                faVar.c(lVar.f967a);
                 faVar.b(a(ibVar));
                 faVar.a("SECMSG", "message");
-                String str = lVar.f966a;
-                ibVar.f637a.f562a = str.substring(0, str.indexOf(TNCManager.TNC_PROBE_HEADER_SECEPTOR));
-                ibVar.f637a.f566c = str.substring(str.indexOf("/") + 1);
-                faVar.a(ip.a(ibVar), lVar.f78572c);
+                String str = lVar.f967a;
+                ibVar.f638a.f563a = str.substring(0, str.indexOf("@"));
+                ibVar.f638a.f567c = str.substring(str.indexOf("/") + 1);
+                faVar.a(ip.a(ibVar), lVar.f71510c);
                 faVar.a((short) 1);
-                com.xiaomi.channel.commonutils.logger.b.m73a("try send mi push message. packagename:" + ibVar.f642b + " action:" + ibVar.f635a);
+                com.xiaomi.channel.commonutils.logger.b.m73a("try send mi push message. packagename:" + ibVar.f643b + " action:" + ibVar.f636a);
                 return faVar;
             } catch (NullPointerException e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
@@ -82,7 +81,7 @@ public final class y {
             ieVar.c("package uninstalled");
             ieVar.a(gc.i());
             ieVar.a(false);
-            return a(str, str2, ieVar, hf.f78124i);
+            return a(str, str2, ieVar, hf.f71079i);
         }
         return (ib) invokeLL.objValue;
     }
@@ -100,8 +99,8 @@ public final class y {
             byte[] a2 = ip.a(t);
             ib ibVar = new ib();
             hu huVar = new hu();
-            huVar.f561a = 5L;
-            huVar.f562a = "fakeid";
+            huVar.f562a = 5L;
+            huVar.f563a = "fakeid";
             ibVar.a(huVar);
             ibVar.a(ByteBuffer.wrap(a2));
             ibVar.a(hfVar);
@@ -119,14 +118,14 @@ public final class y {
         Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, ibVar)) == null) {
-            hs hsVar = ibVar.f636a;
-            if (hsVar != null && (map = hsVar.f552b) != null) {
+            hs hsVar = ibVar.f637a;
+            if (hsVar != null && (map = hsVar.f553b) != null) {
                 String str = map.get("ext_traffic_source_pkg");
                 if (!TextUtils.isEmpty(str)) {
                     return str;
                 }
             }
-            return ibVar.f642b;
+            return ibVar.f643b;
         }
         return (String) invokeL.objValue;
     }

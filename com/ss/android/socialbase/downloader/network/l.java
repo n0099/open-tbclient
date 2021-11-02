@@ -9,27 +9,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final l f76362a;
+    public static final l f69711a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final l f76363b;
+    public static final l f69712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final l f76364c;
+    public static final l f69713c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final l f76365d;
+    public static final l f69714d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final l f76366e;
+    public static final l f69715e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ l[] f76367f;
+    public static final /* synthetic */ l[] f69716f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,13 +45,13 @@ public final class l {
                 return;
             }
         }
-        f76362a = new l("POOR", 0);
-        f76363b = new l("MODERATE", 1);
-        f76364c = new l("GOOD", 2);
-        f76365d = new l("EXCELLENT", 3);
+        f69711a = new l("POOR", 0);
+        f69712b = new l("MODERATE", 1);
+        f69713c = new l("GOOD", 2);
+        f69714d = new l("EXCELLENT", 3);
         l lVar = new l(RomUtils.UNKNOWN, 4);
-        f76366e = lVar;
-        f76367f = new l[]{f76362a, f76363b, f76364c, f76365d, lVar};
+        f69715e = lVar;
+        f69716f = new l[]{f69711a, f69712b, f69713c, f69714d, lVar};
     }
 
     public l(String str, int i2) {
@@ -82,6 +82,6 @@ public final class l {
     public static l[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (l[]) f76367f.clone() : (l[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (l[]) f69716f.clone() : (l[]) invokeV.objValue;
     }
 }

@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ae {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ae f77623a;
+    public static volatile ae f70586a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f63a;
+    public Context f64a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<w> f64a;
+    public List<w> f65a;
 
     static {
         InterceptResult invokeClinit;
@@ -56,11 +56,11 @@ public class ae {
                 return;
             }
         }
-        this.f64a = new ArrayList();
+        this.f65a = new ArrayList();
         Context applicationContext = context.getApplicationContext();
-        this.f63a = applicationContext;
+        this.f64a = applicationContext;
         if (applicationContext == null) {
-            this.f63a = context;
+            this.f64a = context;
         }
     }
 
@@ -68,14 +68,14 @@ public class ae {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f77623a == null) {
+            if (f70586a == null) {
                 synchronized (ae.class) {
-                    if (f77623a == null) {
-                        f77623a = new ae(context);
+                    if (f70586a == null) {
+                        f70586a = new ae(context);
                     }
                 }
             }
-            return f77623a;
+            return f70586a;
         }
         return (ae) invokeL.objValue;
     }
@@ -84,13 +84,13 @@ public class ae {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.f64a) {
+            synchronized (this.f65a) {
                 w wVar = new w();
-                wVar.f102a = str;
-                if (this.f64a.contains(wVar)) {
-                    for (w wVar2 : this.f64a) {
+                wVar.f103a = str;
+                if (this.f65a.contains(wVar)) {
+                    for (w wVar2 : this.f65a) {
                         if (wVar2.equals(wVar)) {
-                            return wVar2.f77680a;
+                            return wVar2.f70643a;
                         }
                     }
                 }
@@ -106,7 +106,7 @@ public class ae {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, atVar)) == null) {
             synchronized (this) {
-                string = this.f63a.getSharedPreferences("mipush_extra", 0).getString(atVar.name(), "");
+                string = this.f64a.getSharedPreferences("mipush_extra", 0).getString(atVar.name(), "");
             }
             return string;
         }
@@ -117,7 +117,7 @@ public class ae {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, atVar, str) == null) {
             synchronized (this) {
-                SharedPreferences sharedPreferences = this.f63a.getSharedPreferences("mipush_extra", 0);
+                SharedPreferences sharedPreferences = this.f64a.getSharedPreferences("mipush_extra", 0);
                 sharedPreferences.edit().putString(atVar.name(), str).commit();
             }
         }
@@ -127,14 +127,14 @@ public class ae {
     public void m93a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this.f64a) {
+            synchronized (this.f65a) {
                 w wVar = new w();
-                wVar.f77680a = 0;
-                wVar.f102a = str;
-                if (this.f64a.contains(wVar)) {
-                    this.f64a.remove(wVar);
+                wVar.f70643a = 0;
+                wVar.f103a = str;
+                if (this.f65a.contains(wVar)) {
+                    this.f65a.remove(wVar);
                 }
-                this.f64a.add(wVar);
+                this.f65a.add(wVar);
             }
         }
     }
@@ -144,10 +144,10 @@ public class ae {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this.f64a) {
+            synchronized (this.f65a) {
                 w wVar = new w();
-                wVar.f102a = str;
-                return this.f64a.contains(wVar);
+                wVar.f103a = str;
+                return this.f65a.contains(wVar);
             }
         }
         return invokeL.booleanValue;
@@ -156,11 +156,11 @@ public class ae {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this.f64a) {
+            synchronized (this.f65a) {
                 w wVar = new w();
-                wVar.f102a = str;
-                if (this.f64a.contains(wVar)) {
-                    Iterator<w> it = this.f64a.iterator();
+                wVar.f103a = str;
+                if (this.f65a.contains(wVar)) {
+                    Iterator<w> it = this.f65a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
@@ -172,9 +172,9 @@ public class ae {
                         }
                     }
                 }
-                wVar.f77680a++;
-                this.f64a.remove(wVar);
-                this.f64a.add(wVar);
+                wVar.f70643a++;
+                this.f65a.remove(wVar);
+                this.f65a.add(wVar);
             }
         }
     }
@@ -182,11 +182,11 @@ public class ae {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            synchronized (this.f64a) {
+            synchronized (this.f65a) {
                 w wVar = new w();
-                wVar.f102a = str;
-                if (this.f64a.contains(wVar)) {
-                    this.f64a.remove(wVar);
+                wVar.f103a = str;
+                if (this.f65a.contains(wVar)) {
+                    this.f65a.remove(wVar);
                 }
             }
         }

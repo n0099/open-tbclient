@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EnumUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CANNOT_STORE_S_S_VALUES_IN_S_BITS = "Cannot store %s %s values in %s bits";
@@ -67,13 +67,13 @@ public class EnumUtils {
             checkBitVectorable(cls);
             Validate.notNull(iterable);
             Iterator<? extends E> it = iterable.iterator();
-            long j2 = 0;
+            long j = 0;
             while (it.hasNext()) {
                 E next = it.next();
                 Validate.isTrue(next != null, NULL_ELEMENTS_NOT_PERMITTED, new Object[0]);
-                j2 |= 1 << next.ordinal();
+                j |= 1 << next.ordinal();
             }
-            return j2;
+            return j;
         }
         return invokeLL.longValue;
     }
@@ -164,12 +164,12 @@ public class EnumUtils {
         return invokeLL.booleanValue;
     }
 
-    public static <E extends Enum<E>> EnumSet<E> processBitVector(Class<E> cls, long j2) {
+    public static <E extends Enum<E>> EnumSet<E> processBitVector(Class<E> cls, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, cls, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, cls, j)) == null) {
             checkBitVectorable(cls).getEnumConstants();
-            return processBitVectors(cls, j2);
+            return processBitVectors(cls, j);
         }
         return (EnumSet) invokeLJ.objValue;
     }

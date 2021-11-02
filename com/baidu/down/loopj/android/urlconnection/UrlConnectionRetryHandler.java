@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UrlConnectionRetryHandler extends BaseRetryHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,22 +53,22 @@ public class UrlConnectionRetryHandler extends BaseRetryHandler {
                     if ((iOException instanceof HttpResponseException) || ((HttpResponseException) iOException).getStatusCode() != 412) {
                         if (!z) {
                             try {
-                                long j2 = this.retryIntervals[i2 - 1];
-                                if (j2 > 0) {
+                                long j = this.retryIntervals[i2 - 1];
+                                if (j > 0) {
                                     if (NetWorkDetector.getInstance().sNeedDetect && !TextUtils.isEmpty(str) && !NetWorkDetector.getInstance().isHostReachableCached(str, 5000L)) {
                                         while (true) {
-                                            long j3 = j2 - 5000;
-                                            if (j3 <= 0) {
+                                            long j2 = j - 5000;
+                                            if (j2 <= 0) {
                                                 break;
                                             }
                                             Thread.sleep(5000L);
                                             if (NetWorkDetector.getInstance().isHostReachableCached(str, 5000L)) {
                                                 return z;
                                             }
-                                            j2 = j3;
+                                            j = j2;
                                         }
                                     }
-                                    Thread.sleep(j2);
+                                    Thread.sleep(j);
                                 }
                             } catch (InterruptedException unused) {
                             }

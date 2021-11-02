@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LightAppLocationModel implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOC_TYPE_BD = "bd09ll";
@@ -17,7 +17,7 @@ public class LightAppLocationModel implements NoProguard {
     public Coords coords;
     public int result;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Coords implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

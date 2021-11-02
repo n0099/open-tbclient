@@ -21,7 +21,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RoundedCornersDrawable extends ForwardingDrawable implements Rounded {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     public Type mType;
 
     /* renamed from: com.facebook.drawee.drawable.RoundedCornersDrawable$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type;
         public static /* synthetic */ Interceptable $ic;
@@ -82,7 +82,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -186,7 +186,9 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
             RectF rectF = this.mTempRectangle;
             float f2 = this.mPadding;
             rectF.inset(f2, f2);
-            this.mPath.addRect(this.mTempRectangle, Path.Direction.CW);
+            if (this.mType == Type.OVERLAY_COLOR) {
+                this.mPath.addRect(this.mTempRectangle, Path.Direction.CW);
+            }
             if (this.mIsCircle) {
                 this.mPath.addCircle(this.mTempRectangle.centerX(), this.mTempRectangle.centerY(), Math.min(this.mTempRectangle.width(), this.mTempRectangle.height()) / 2.0f, Path.Direction.CW);
             } else {
@@ -226,7 +228,6 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
             int i2 = AnonymousClass1.$SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type[this.mType.ordinal()];
             if (i2 == 1) {
                 int save = canvas.save();
-                this.mPath.setFillType(Path.FillType.EVEN_ODD);
                 canvas.clipPath(this.mPath);
                 super.draw(canvas);
                 canvas.restoreToCount(save);
@@ -459,6 +460,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, type) == null) {
             this.mType = type;
+            updatePath();
             invalidateSelf();
         }
     }

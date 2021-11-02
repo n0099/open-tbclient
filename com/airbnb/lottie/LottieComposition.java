@@ -24,7 +24,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LottieComposition {
     public Rect bounds;
     public SparseArrayCompat<FontCharacter> characters;
@@ -43,10 +43,10 @@ public class LottieComposition {
     public int maskAndMatteCount = 0;
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Factory {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static final class ListenerAdapter implements LottieListener<LottieComposition>, Cancellable {
             public boolean cancelled;
             public final OnCompositionLoadedListener listener;
@@ -266,8 +266,8 @@ public class LottieComposition {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer layerModelForId(long j2) {
-        return this.layerMap.get(j2);
+    public Layer layerModelForId(long j) {
+        return this.layerMap.get(j);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})

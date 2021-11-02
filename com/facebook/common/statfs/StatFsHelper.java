@@ -24,9 +24,12 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class StatFsHelper {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final long DEFAULT_DISK_OLIVE_LEVEL_IN_BYTES = 1048576000;
+    public static final long DEFAULT_DISK_RED_LEVEL_IN_BYTES = 104857600;
+    public static final int DEFAULT_DISK_RED_LEVEL_IN_MB = 100;
     public static final long DEFAULT_DISK_YELLOW_LEVEL_IN_BYTES = 419430400;
     public static final int DEFAULT_DISK_YELLOW_LEVEL_IN_MB = 400;
     public static final long RESTAT_INTERVAL_MS;
@@ -44,7 +47,7 @@ public class StatFsHelper {
     public long mLastRestatTime;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class StorageType {
         public static final /* synthetic */ StorageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -302,9 +305,27 @@ public class StatFsHelper {
         return invokeL.longValue;
     }
 
+    public boolean isHighSpaceCondition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getAvailableStorageSpace(StorageType.INTERNAL) > DEFAULT_DISK_OLIVE_LEVEL_IN_BYTES : invokeV.booleanValue;
+    }
+
+    public boolean isLowSpaceCondition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getAvailableStorageSpace(StorageType.INTERNAL) < DEFAULT_DISK_YELLOW_LEVEL_IN_BYTES : invokeV.booleanValue;
+    }
+
+    public boolean isVeryLowSpaceCondition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getAvailableStorageSpace(StorageType.INTERNAL) < 104857600 : invokeV.booleanValue;
+    }
+
     public void resetStats() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.lock.tryLock()) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.lock.tryLock()) {
             try {
                 ensureInitialized();
                 updateStats();
@@ -314,13 +335,13 @@ public class StatFsHelper {
         }
     }
 
-    public boolean testLowDiskSpace(StorageType storageType, long j2) {
+    public boolean testLowDiskSpace(StorageType storageType, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, storageType, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, storageType, j)) == null) {
             ensureInitialized();
             long availableStorageSpace = getAvailableStorageSpace(storageType);
-            return availableStorageSpace <= 0 || availableStorageSpace < j2;
+            return availableStorageSpace <= 0 || availableStorageSpace < j;
         }
         return invokeLJ.booleanValue;
     }

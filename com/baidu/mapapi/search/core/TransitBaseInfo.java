@@ -11,26 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TransitBaseInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TransitBaseInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41841a;
+    public String f39678a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41842b;
+    public String f39679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41843c;
+    public String f39680c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41844d;
+    public String f39681d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41845e;
+    public String f39682e;
 
     static {
         InterceptResult invokeClinit;
@@ -77,11 +77,11 @@ public class TransitBaseInfo implements Parcelable {
                 return;
             }
         }
-        this.f41841a = parcel.readString();
-        this.f41842b = parcel.readString();
-        this.f41843c = parcel.readString();
-        this.f41844d = parcel.readString();
-        this.f41845e = parcel.readString();
+        this.f39678a = parcel.readString();
+        this.f39679b = parcel.readString();
+        this.f39680c = parcel.readString();
+        this.f39681d = parcel.readString();
+        this.f39682e = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -97,65 +97,65 @@ public class TransitBaseInfo implements Parcelable {
     public String getArriveStation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41843c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39680c : (String) invokeV.objValue;
     }
 
     public String getArriveTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41845e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39682e : (String) invokeV.objValue;
     }
 
     public String getDepartureStation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41842b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39679b : (String) invokeV.objValue;
     }
 
     public String getDepartureTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41844d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39681d : (String) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41841a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f39678a : (String) invokeV.objValue;
     }
 
     public void setArriveStation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f41843c = str;
+            this.f39680c = str;
         }
     }
 
     public void setArriveTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f41845e = str;
+            this.f39682e = str;
         }
     }
 
     public void setDepartureStation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f41842b = str;
+            this.f39679b = str;
         }
     }
 
     public void setDepartureTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f41844d = str;
+            this.f39681d = str;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f41841a = str;
+            this.f39678a = str;
         }
     }
 
@@ -163,11 +163,11 @@ public class TransitBaseInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
-            parcel.writeString(this.f41841a);
-            parcel.writeString(this.f41842b);
-            parcel.writeString(this.f41843c);
-            parcel.writeString(this.f41844d);
-            parcel.writeString(this.f41845e);
+            parcel.writeString(this.f39678a);
+            parcel.writeString(this.f39679b);
+            parcel.writeString(this.f39680c);
+            parcel.writeString(this.f39681d);
+            parcel.writeString(this.f39682e);
         }
     }
 }

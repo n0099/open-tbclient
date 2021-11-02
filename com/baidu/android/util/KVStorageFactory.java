@@ -1,5 +1,6 @@
 package com.baidu.android.util;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -11,9 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class KVStorageFactory {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final boolean DEBUG = false;
     public static final String PREFERENCE_SUFFIX = "preferences";
     public static final String TAG = "KVStorageFactory";
     public static boolean sIsKVInitSuccessfully = true;
@@ -69,20 +71,21 @@ public class KVStorageFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? sIsKVInitSuccessfully : invokeV.booleanValue;
     }
 
+    @SuppressLint({"LogConditional"})
     public static SharedPreferences getSharedPreferences(String str, int i2) {
-        SharedPreferences proxy;
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
             try {
-                if (KVStorageRuntime.getKVStorageControl().getKVStorageType() != 0 && (proxy = KVStorageRuntime.getKVStorageProxy().getProxy(str)) != null) {
-                    String str2 = "use SwanKV " + str;
-                    return proxy;
+                if (KVStorageRuntime.getKVStorageControl().getKVStorageType() != 0) {
+                    SharedPreferences proxy = KVStorageRuntime.getKVStorageProxy().getProxy(str);
+                    if (proxy != null) {
+                        return proxy;
+                    }
                 }
             } catch (UnsatisfiedLinkError unused) {
                 sIsKVInitSuccessfully = false;
             }
-            String str3 = "use default SharedPreferences " + str;
             return AppRuntime.getAppContext().getSharedPreferences(str, i2);
         }
         return (SharedPreferences) invokeLI.objValue;

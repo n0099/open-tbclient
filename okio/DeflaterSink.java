@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.zip.Deflater;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DeflaterSink implements Sink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -138,24 +138,24 @@ public final class DeflaterSink implements Sink {
     }
 
     @Override // okio.Sink
-    public void write(Buffer buffer, long j2) throws IOException {
+    public void write(Buffer buffer, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j2) == null) {
-            Util.checkOffsetAndCount(buffer.size, 0L, j2);
-            while (j2 > 0) {
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j) == null) {
+            Util.checkOffsetAndCount(buffer.size, 0L, j);
+            while (j > 0) {
                 Segment segment = buffer.head;
-                int min = (int) Math.min(j2, segment.limit - segment.pos);
+                int min = (int) Math.min(j, segment.limit - segment.pos);
                 this.deflater.setInput(segment.data, segment.pos, min);
                 deflate(false);
-                long j3 = min;
-                buffer.size -= j3;
+                long j2 = min;
+                buffer.size -= j2;
                 int i2 = segment.pos + min;
                 segment.pos = i2;
                 if (i2 == segment.limit) {
                     buffer.head = segment.pop();
                     SegmentPool.recycle(segment);
                 }
-                j2 -= j3;
+                j -= j2;
             }
         }
     }

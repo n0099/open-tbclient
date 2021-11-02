@@ -17,29 +17,27 @@ import tbclient.BlockPopInfo;
 import tbclient.FrsTabInfo;
 import tbclient.HistoryForumInfo;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VisitedForumData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f48276e;
+    public String f45819e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48277f;
+    public boolean f45820f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48278g;
+    public int f45821g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48279h;
+    public String f45822h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48280i;
+    public String f45823i;
     public boolean isForumBusinessAccount;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f48281j;
+    public String j;
     public ThemeColorInfo k;
     public int l;
     public boolean m;
@@ -63,12 +61,12 @@ public class VisitedForumData extends OrmObject {
                 return;
             }
         }
-        this.f48276e = "";
-        this.f48277f = false;
-        this.f48278g = 0;
-        this.f48279h = "";
-        this.f48280i = "";
-        this.f48281j = "";
+        this.f45819e = "";
+        this.f45820f = false;
+        this.f45821g = 0;
+        this.f45822h = "";
+        this.f45823i = "";
+        this.j = "";
         this.k = null;
         this.l = 0;
         this.m = false;
@@ -86,7 +84,7 @@ public class VisitedForumData extends OrmObject {
     public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48278g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45821g : invokeV.intValue;
     }
 
     public List<FrsTabItemData> C() {
@@ -104,13 +102,13 @@ public class VisitedForumData extends OrmObject {
     public String E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48281j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : (String) invokeV.objValue;
     }
 
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48277f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f45820f : invokeV.booleanValue;
     }
 
     public boolean G() {
@@ -130,12 +128,12 @@ public class VisitedForumData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, historyForumInfo) == null) || historyForumInfo == null) {
             return;
         }
-        this.f48276e = historyForumInfo.avatar;
-        this.f48280i = String.valueOf(historyForumInfo.forum_id);
-        this.f48279h = historyForumInfo.forum_name;
-        this.f48277f = historyForumInfo.is_liveforum.intValue() == 1;
-        this.f48278g = historyForumInfo.unread_num.intValue();
-        this.f48281j = historyForumInfo.visit_time;
+        this.f45819e = historyForumInfo.avatar;
+        this.f45823i = String.valueOf(historyForumInfo.forum_id);
+        this.f45822h = historyForumInfo.forum_name;
+        this.f45820f = historyForumInfo.is_liveforum.intValue() == 1;
+        this.f45821g = historyForumInfo.unread_num.intValue();
+        this.j = historyForumInfo.visit_time;
         this.k = historyForumInfo.theme_color;
         this.l = historyForumInfo.follow_num.intValue();
         this.m = historyForumInfo.need_trans.booleanValue();
@@ -171,13 +169,13 @@ public class VisitedForumData extends OrmObject {
     public String getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f48280i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f45823i : (String) invokeV.objValue;
     }
 
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f48279h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f45822h : (String) invokeV.objValue;
     }
 
     public int getLevel() {
@@ -189,7 +187,7 @@ public class VisitedForumData extends OrmObject {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f48280i = str;
+            this.f45823i = str;
         }
     }
 
@@ -208,7 +206,7 @@ public class VisitedForumData extends OrmObject {
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f48276e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f45819e : (String) invokeV.objValue;
     }
 
     public boolean z() {
@@ -232,12 +230,12 @@ public class VisitedForumData extends OrmObject {
                 return;
             }
         }
-        this.f48276e = str3;
-        this.f48277f = z;
-        this.f48279h = str2;
-        this.f48280i = str;
-        this.f48281j = str4;
-        this.f48278g = 0;
+        this.f45819e = str3;
+        this.f45820f = z;
+        this.f45822h = str2;
+        this.f45823i = str;
+        this.j = str4;
+        this.f45821g = 0;
         this.k = themeColorInfo;
         this.l = i2;
     }

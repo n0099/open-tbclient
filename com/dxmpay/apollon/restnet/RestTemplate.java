@@ -2,10 +2,10 @@ package com.dxmpay.apollon.restnet;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.f.a.g.d.d;
-import c.f.a.g.d.e;
-import c.f.a.g.d.f;
-import c.f.a.g.d.h.c;
+import b.f.a.g.d.d;
+import b.f.a.g.d.e;
+import b.f.a.g.d.f;
+import b.f.a.g.d.h.c;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -26,42 +26,42 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RestTemplate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AbstractHttpMessageConverter<?> f69717a;
+    public AbstractHttpMessageConverter<?> f62155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RestHttpRequestInterceptor> f69718b;
+    public List<RestHttpRequestInterceptor> f62156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f69719c;
+    public Context f62157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f69720d;
+    public String f62158d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f69721e;
+    public String f62159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f69722f;
+    public boolean f62160f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public final class b implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<?> f69723a;
+        public final Class<?> f62161a;
 
         public /* synthetic */ b(RestTemplate restTemplate, Class cls, a aVar) {
             this(restTemplate, cls);
@@ -70,7 +70,7 @@ public class RestTemplate {
         @Override // com.dxmpay.apollon.restnet.rest.RestHttpRequestInterceptor
         public void a(Context context, d dVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) || this.f69723a == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) || this.f62161a == null) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -104,7 +104,7 @@ public class RestTemplate {
                     return;
                 }
             }
-            this.f69723a = cls;
+            this.f62161a = cls;
         }
     }
 
@@ -147,9 +147,9 @@ public class RestTemplate {
                 }
                 LogUtil.d("RestTemplate", sb.toString());
             }
-            d a2 = c.b().a(this.f69719c, this.f69721e, this.f69720d, str, httpDefines$HttpMethod, list, restMultipartEntity, str2, z);
+            d a2 = c.b().a(this.f62157c, this.f62159e, this.f62158d, str, httpDefines$HttpMethod, list, restMultipartEntity, str2, z);
             for (RestHttpRequestInterceptor restHttpRequestInterceptor : f()) {
-                restHttpRequestInterceptor.a(this.f69719c, a2);
+                restHttpRequestInterceptor.a(this.f62157c, a2);
             }
             return a2;
         }
@@ -167,7 +167,7 @@ public class RestTemplate {
                 if (port > 0) {
                     String str = host + ":" + port;
                 }
-                if (this.f69722f) {
+                if (this.f62160f) {
                     ((RestUrlConnectionRequest) dVar).c(RestHttpDNSEnabler.a(url));
                 }
                 dVar.a(url.toString());
@@ -265,7 +265,7 @@ public class RestTemplate {
     public List<RestHttpRequestInterceptor> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69718b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f62156b : (List) invokeV.objValue;
     }
 
     public final void g(HttpDefines$HttpMethod httpDefines$HttpMethod, String str, e eVar) {
@@ -351,7 +351,7 @@ public class RestTemplate {
     public AbstractHttpMessageConverter<?> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f69717a : (AbstractHttpMessageConverter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f62155a : (AbstractHttpMessageConverter) invokeV.objValue;
     }
 
     public <T> T l(String str, List<RestNameValuePair> list, String str2, Class<T> cls) throws RestRuntimeException {
@@ -412,14 +412,14 @@ public class RestTemplate {
     public void setMessageConverter(AbstractHttpMessageConverter<?> abstractHttpMessageConverter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, abstractHttpMessageConverter) == null) {
-            this.f69717a = abstractHttpMessageConverter;
+            this.f62155a = abstractHttpMessageConverter;
         }
     }
 
     public void setRequestInterceptor(List<RestHttpRequestInterceptor> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-            this.f69718b = list;
+            this.f62156b = list;
         }
     }
 
@@ -459,14 +459,14 @@ public class RestTemplate {
                 return;
             }
         }
-        this.f69717a = null;
-        this.f69718b = new ArrayList();
-        this.f69719c = null;
-        this.f69720d = null;
-        this.f69721e = "";
-        this.f69722f = true;
-        this.f69721e = str2;
-        this.f69719c = context.getApplicationContext();
-        this.f69720d = str;
+        this.f62155a = null;
+        this.f62156b = new ArrayList();
+        this.f62157c = null;
+        this.f62158d = null;
+        this.f62159e = "";
+        this.f62160f = true;
+        this.f62159e = str2;
+        this.f62157c = context.getApplicationContext();
+        this.f62158d = str;
     }
 }

@@ -18,12 +18,12 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CardData implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class BondCard implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int UNBIND_CARD_DISABLE_BAIDU_FINANCE = 0;
@@ -78,7 +78,7 @@ public class CardData implements NoProguard {
         public String valid_date;
         public String verify_code;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class ChannelQuota implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3143189382088186302L;

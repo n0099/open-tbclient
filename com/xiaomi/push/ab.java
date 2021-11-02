@@ -6,36 +6,36 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ab {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f77685a;
+    public static int f70648a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f107a;
+    public static final String f108a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final boolean f108a;
+    public static final boolean f109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f77686b;
+    public static final boolean f70649b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f77687c;
+    public static final boolean f70650c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f77688d;
+    public static final boolean f70651d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f77689e;
+    public static boolean f70652e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f77690f;
+    public static final boolean f70653f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f77691g;
+    public static final boolean f70654g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,43 +52,43 @@ public class ab {
                 return;
             }
         }
-        String str = ae.f109a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
-        f107a = str;
+        String str = ae.f110a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
+        f108a = str;
         boolean contains = str.contains("2A2FE0D7");
-        f108a = contains;
+        f109a = contains;
         boolean z = false;
-        f77686b = contains || "DEBUG".equalsIgnoreCase(f107a);
-        f77687c = "LOGABLE".equalsIgnoreCase(f107a);
-        f77688d = f107a.contains("YY");
-        f77689e = f107a.equalsIgnoreCase("TEST");
-        f77690f = "BETA".equalsIgnoreCase(f107a);
-        String str2 = f107a;
+        f70649b = contains || "DEBUG".equalsIgnoreCase(f108a);
+        f70650c = "LOGABLE".equalsIgnoreCase(f108a);
+        f70651d = f108a.contains("YY");
+        f70652e = f108a.equalsIgnoreCase("TEST");
+        f70653f = "BETA".equalsIgnoreCase(f108a);
+        String str2 = f108a;
         if (str2 != null && str2.startsWith("RC")) {
             z = true;
         }
-        f77691g = z;
-        f77685a = 1;
-        if (f107a.equalsIgnoreCase("SANDBOX")) {
+        f70654g = z;
+        f70648a = 1;
+        if (f108a.equalsIgnoreCase("SANDBOX")) {
             i2 = 2;
-        } else if (!f107a.equalsIgnoreCase("ONEBOX")) {
-            f77685a = 1;
+        } else if (!f108a.equalsIgnoreCase("ONEBOX")) {
+            f70648a = 1;
             return;
         } else {
             i2 = 3;
         }
-        f77685a = i2;
+        f70648a = i2;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f77685a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f70648a : invokeV.intValue;
     }
 
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f77685a = i2;
+            f70648a = i2;
         }
     }
 
@@ -96,12 +96,12 @@ public class ab {
     public static boolean m142a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f77685a == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f70648a == 2 : invokeV.booleanValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f77685a == 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f70648a == 3 : invokeV.booleanValue;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MessageUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,21 +118,21 @@ public class MessageUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static int halfSearch(List<LiveMessageBean> list, boolean z, long j2) {
+    public static int halfSearch(List<LiveMessageBean> list, boolean z, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{list, Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{list, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
             int size = list.size() - 1;
             int i2 = 0;
             while (i2 <= size) {
                 int i3 = (i2 + size) / 2;
-                if (j2 < list.get(i3).msgId) {
+                if (j < list.get(i3).msgId) {
                     if (z) {
                         size = i3 - 1;
                     } else {
                         i2 = i3 + 1;
                     }
-                } else if (j2 <= list.get(i3).msgId) {
+                } else if (j <= list.get(i3).msgId) {
                     return i3;
                 } else {
                     if (z) {

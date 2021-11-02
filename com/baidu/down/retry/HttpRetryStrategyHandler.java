@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpRetryStrategyHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -42,7 +42,7 @@ public class HttpRetryStrategyHandler {
     public AbstractTask mtask;
     public boolean requestRetryStrategyData;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnFetchDataResultListener {
         void onResult(boolean z);
     }

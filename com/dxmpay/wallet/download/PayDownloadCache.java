@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.SharedPreferencesUtils;
 import com.dxmpay.wallet.core.NoProguard;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PayDownloadCache implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREF_FILE_NAME_FP = "__PAY_SDK_DOWNLOAD_FP";

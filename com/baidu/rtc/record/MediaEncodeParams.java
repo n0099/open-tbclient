@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MediaEncodeParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AAC_SAMPLES_PER_FRAME = 1024;
@@ -210,10 +210,10 @@ public class MediaEncodeParams {
         }
     }
 
-    public void setOutputTotalMs(long j2) {
+    public void setOutputTotalMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.mOutputTotalMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.mOutputTotalMs = j;
         }
     }
 

@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.utils.AccessibilityUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SwitchButton extends ImageButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f63666a;
+    public boolean f60516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f63667b;
+    public boolean f60517b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(boolean z);
     }
@@ -46,26 +46,26 @@ public class SwitchButton extends ImageButton {
                 return;
             }
         }
-        this.f63667b = false;
+        this.f60517b = false;
         a();
     }
 
     public boolean isChanged() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63666a == this.f63667b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60516a == this.f60517b : invokeV.booleanValue;
     }
 
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63666a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60516a : invokeV.booleanValue;
     }
 
     public void resetChecked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f63667b = this.f63666a;
+            this.f60517b = this.f60516a;
         }
     }
 
@@ -77,7 +77,7 @@ public class SwitchButton extends ImageButton {
             } else {
                 setBackgroundResource(ResUtils.drawable(getContext(), "dxm_wallet_base_btn_default_off"));
             }
-            this.f63666a = z;
+            this.f60516a = z;
             AccessibilityUtils.setContentDescription(this, !z ? "开" : "关");
         }
     }
@@ -90,10 +90,10 @@ public class SwitchButton extends ImageButton {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f63668a;
+                public final /* synthetic */ a f60518a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SwitchButton f63669b;
+                public final /* synthetic */ SwitchButton f60519b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -110,18 +110,18 @@ public class SwitchButton extends ImageButton {
                             return;
                         }
                     }
-                    this.f63669b = this;
-                    this.f63668a = aVar;
+                    this.f60519b = this;
+                    this.f60518a = aVar;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a aVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (aVar2 = this.f63668a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (aVar2 = this.f60518a) == null) {
                         return;
                     }
-                    aVar2.a(!this.f63669b.f63666a);
+                    aVar2.a(!this.f60519b.f60516a);
                 }
             });
         }
@@ -131,7 +131,7 @@ public class SwitchButton extends ImageButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             setBackgroundResource(ResUtils.drawable(getContext(), "dxm_wallet_base_btn_default_off"));
-            AccessibilityUtils.setContentDescription(this, !this.f63666a ? "开" : "关");
+            AccessibilityUtils.setContentDescription(this, !this.f60516a ? "开" : "关");
         }
     }
 
@@ -154,7 +154,7 @@ public class SwitchButton extends ImageButton {
                 return;
             }
         }
-        this.f63667b = false;
+        this.f60517b = false;
         a();
     }
 }

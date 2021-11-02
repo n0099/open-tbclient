@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c implements com.kwai.sodler.lib.a.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f74741a;
+    public final File f67116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f74742b;
+    public final File f67117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f74743c;
+    public final Context f67118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwai.sodler.lib.ext.c f74744d;
+    public final com.kwai.sodler.lib.ext.c f67119d;
 
     public c(Context context, com.kwai.sodler.lib.ext.c cVar) {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class c implements com.kwai.sodler.lib.a.c {
             }
         }
         Context applicationContext = context.getApplicationContext();
-        this.f74743c = applicationContext;
-        this.f74744d = cVar;
-        this.f74741a = applicationContext.getDir(cVar.b(), 0);
-        this.f74742b = this.f74743c.getCacheDir();
+        this.f67118c = applicationContext;
+        this.f67119d = cVar;
+        this.f67116a = applicationContext.getDir(cVar.b(), 0);
+        this.f67117b = this.f67118c.getCacheDir();
     }
 
     @Nullable
@@ -63,7 +63,7 @@ public class c implements com.kwai.sodler.lib.a.c {
     @Override // com.kwai.sodler.lib.a.c
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f74741a.getFreeSpace() < 10000000) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f67116a.getFreeSpace() < 10000000) {
             throw new IOException("No enough capacity.");
         }
     }
@@ -125,7 +125,7 @@ public class c implements com.kwai.sodler.lib.a.c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f74741a.getAbsolutePath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f67116a.getAbsolutePath() : (String) invokeV.objValue;
     }
 
     @Override // com.kwai.sodler.lib.a.c
@@ -153,7 +153,7 @@ public class c implements com.kwai.sodler.lib.a.c {
             a.a("Sodler.installer", "Install path = " + a2);
             File file2 = new File(a2);
             if (file2.exists()) {
-                if (!this.f74744d.g() && a(file2.getAbsolutePath(), true)) {
+                if (!this.f67119d.g() && a(file2.getAbsolutePath(), true)) {
                     str = "Plugin has been already installed.";
                     a.b("Sodler.installer", str);
                     return a2;
@@ -193,7 +193,7 @@ public class c implements com.kwai.sodler.lib.a.c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            return b() + File.separator + str + File.separator + str2 + File.separator + this.f74744d.f();
+            return b() + File.separator + str + File.separator + str2 + File.separator + this.f67119d.f();
         }
         return (String) invokeLL.objValue;
     }
@@ -223,7 +223,7 @@ public class c implements com.kwai.sodler.lib.a.c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (this.f74744d.g()) {
+            if (this.f67119d.g()) {
                 return false;
             }
             return a(str, str2, true);
@@ -236,7 +236,7 @@ public class c implements com.kwai.sodler.lib.a.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            return File.createTempFile(str + System.currentTimeMillis(), this.f74744d.e(), this.f74742b);
+            return File.createTempFile(str + System.currentTimeMillis(), this.f67119d.e(), this.f67117b);
         }
         return (File) invokeL.objValue;
     }

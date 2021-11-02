@@ -1,5 +1,6 @@
 package com.baidu.android.common.others.url;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
@@ -7,7 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
@@ -28,7 +28,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class UrlUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern COARSE_WEB_URL;
@@ -267,7 +267,7 @@ public final class UrlUtils {
                 if (lowerCase.contains(".js")) {
                     return "application/x-javascript";
                 }
-                if (lowerCase.contains(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) {
+                if (lowerCase.contains(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) || lowerCase.contains(".gif") || lowerCase.contains(".png") || lowerCase.contains(".jpeg")) {
                     return BdUploadHandler.IMAGE_MIME_TYPE;
                 }
             }
@@ -282,6 +282,7 @@ public final class UrlUtils {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) ? getParamValue(str, str2, false) : (String) invokeLL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static Map<String, String> getParamsMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

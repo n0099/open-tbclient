@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class faceunity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FU_ADM_FLAG_ENABLE_READBACK = 2;
@@ -38,13 +38,13 @@ public class faceunity {
     public static int[] ret_wh;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class FUImage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f70293h;
+        public int f62711h;
         public byte[] nv21_data;
         public int tex;
         public int w;
@@ -132,7 +132,7 @@ public class faceunity {
 
     public static native void fuDone();
 
-    public static native int fuDualInputToTexture(long j2, int i2, int i3, int i4, int i5, int i6, int[] iArr);
+    public static native int fuDualInputToTexture(long j, int i2, int i3, int i4, int i5, int i6, int[] iArr);
 
     public static native int fuDualInputToTexture(byte[] bArr, int i2, int i3, int i4, int i5, int i6, int[] iArr);
 
@@ -184,7 +184,7 @@ public class faceunity {
 
     public static native int fuRenderNV21ImageToTexture(byte[] bArr, int i2, int i3, int i4, int[] iArr);
 
-    public static native int fuRenderToI420Image(long j2, int i2, int i3, int i4, int[] iArr, int i5);
+    public static native int fuRenderToI420Image(long j, int i2, int i3, int i4, int[] iArr, int i5);
 
     public static native int fuRenderToI420Image(byte[] bArr, int i2, int i3, int i4, int[] iArr);
 
@@ -194,7 +194,7 @@ public class faceunity {
 
     public static native int fuRenderToI420ImageMasked(byte[] bArr, int i2, int i3, int i4, int[] iArr, int[] iArr2);
 
-    public static native int fuRenderToNV21Image(long j2, int i2, int i3, int i4, int[] iArr, int i5);
+    public static native int fuRenderToNV21Image(long j, int i2, int i3, int i4, int[] iArr, int i5);
 
     public static native int fuRenderToNV21Image(byte[] bArr, int i2, int i3, int i4, int[] iArr);
 
@@ -204,7 +204,7 @@ public class faceunity {
 
     public static native int fuRenderToNV21ImageMasked(byte[] bArr, int i2, int i3, int i4, int[] iArr, int[] iArr2);
 
-    public static native int fuRenderToRgbaImage(long j2, int i2, int i3, int i4, int[] iArr, int i5);
+    public static native int fuRenderToRgbaImage(long j, int i2, int i3, int i4, int[] iArr, int i5);
 
     public static native int fuRenderToRgbaImage(byte[] bArr, int i2, int i3, int i4, int[] iArr);
 
@@ -216,7 +216,7 @@ public class faceunity {
 
     public static native int fuRenderToTexture(int i2, int i3, int i4, int i5, int[] iArr, int i6, byte[] bArr, int i7, int i8);
 
-    public static native int fuRenderToYUVImage(long j2, long j3, long j4, int i2, int i3, int i4, int i5, int i6, int i7, int[] iArr);
+    public static native int fuRenderToYUVImage(long j, long j2, long j3, int i2, int i3, int i4, int i5, int i6, int i7, int[] iArr);
 
     public static native int fuRenderToYUVImage(byte[] bArr, byte[] bArr2, byte[] bArr3, int i2, int i3, int i4, int i5, int i6, int i7, int[] iArr);
 

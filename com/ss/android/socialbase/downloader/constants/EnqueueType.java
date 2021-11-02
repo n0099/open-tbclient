@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class EnqueueType {
     public static /* synthetic */ Interceptable $ic;
     public static final EnqueueType ENQUEUE_HEAD;
@@ -16,7 +16,7 @@ public final class EnqueueType {
     public static final EnqueueType ENQUEUE_TAIL;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ EnqueueType[] f76178a;
+    public static final /* synthetic */ EnqueueType[] f69155a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class EnqueueType {
         ENQUEUE_HEAD = new EnqueueType("ENQUEUE_HEAD", 1);
         EnqueueType enqueueType = new EnqueueType("ENQUEUE_TAIL", 2);
         ENQUEUE_TAIL = enqueueType;
-        f76178a = new EnqueueType[]{ENQUEUE_NONE, ENQUEUE_HEAD, enqueueType};
+        f69155a = new EnqueueType[]{ENQUEUE_NONE, ENQUEUE_HEAD, enqueueType};
     }
 
     public EnqueueType(String str, int i2) {
@@ -67,6 +67,6 @@ public final class EnqueueType {
     public static EnqueueType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnqueueType[]) f76178a.clone() : (EnqueueType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnqueueType[]) f69155a.clone() : (EnqueueType[]) invokeV.objValue;
     }
 }

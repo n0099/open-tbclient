@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36093b = "00:00:00:00:00:00";
+    public static final String f34187b = "00:00:00:00:00:00";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f36094c;
+    public static a f34188c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36095a;
+    public String f34189a;
 
     static {
         InterceptResult invokeClinit;
@@ -62,20 +62,20 @@ public class a {
         try {
             try {
                 String macAddress = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-                this.f36095a = macAddress;
+                this.f34189a = macAddress;
                 if (!TextUtils.isEmpty(macAddress)) {
                     return;
                 }
             } catch (Exception e2) {
                 c.a(e2);
-                if (!TextUtils.isEmpty(this.f36095a)) {
+                if (!TextUtils.isEmpty(this.f34189a)) {
                     return;
                 }
             }
-            this.f36095a = f36093b;
+            this.f34189a = f34187b;
         } catch (Throwable th) {
-            if (TextUtils.isEmpty(this.f36095a)) {
-                this.f36095a = f36093b;
+            if (TextUtils.isEmpty(this.f34189a)) {
+                this.f34189a = f34187b;
             }
             throw th;
         }
@@ -85,10 +85,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f36094c == null) {
-                f36094c = new a(context);
+            if (f34188c == null) {
+                f34188c = new a(context);
             }
-            return f36094c;
+            return f34188c;
         }
         return (a) invokeL.objValue;
     }
@@ -138,7 +138,7 @@ public class a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36095a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34189a : (String) invokeV.objValue;
     }
 
     public static e d(Context context) {
@@ -151,7 +151,7 @@ public class a {
                     return e.a(activeNetworkInfo.getSubtype());
                 }
                 if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
-                    return e.f36099c;
+                    return e.f34193c;
                 }
                 return e.r;
             } catch (Exception unused) {

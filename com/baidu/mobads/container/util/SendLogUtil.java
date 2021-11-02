@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import kotlin.text.Typography;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SendLogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static String END_REQUEST_TIME = "";
@@ -35,7 +35,7 @@ public class SendLogUtil {
     public static int TYPE_SEND_COOKIE = 425;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public static HashMap<String, String> mCommon;
@@ -115,7 +115,7 @@ public class SendLogUtil {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && mCommon.isEmpty()) {
                 mCommon.put("cuid", Base64.encode(DeviceUtils.getInstance().getCUID(this.mContext)));
-                mCommon.put(IAdRequestParam.SN, DeviceUtils.getInstance().getEncodedSN(this.mContext));
+                mCommon.put("sn", DeviceUtils.getInstance().getEncodedSN(this.mContext));
                 mCommon.put("os", "android");
                 mCommon.put(IAdRequestParam.OSV, Build.VERSION.RELEASE);
                 mCommon.put("model", Build.MODEL);

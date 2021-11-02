@@ -17,41 +17,39 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Stack;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Stack<HomeApkBannerData> f73407a;
+    public Stack<HomeApkBannerData> f65836a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Stack<HomeApkBannerData> f73408b;
+    public Stack<HomeApkBannerData> f65837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f73409c;
+    public Map<String, Integer> f65838c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f73410d;
+    public String f65839d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f73411e;
+    public File f65840e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f73412f;
+    public File f65841f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f73413g;
+    public File f65842g;
 
     /* renamed from: h  reason: collision with root package name */
-    public File f73414h;
+    public File f65843h;
 
     /* renamed from: i  reason: collision with root package name */
-    public File f73415i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f73416j;
+    public File f65844i;
+    public int j;
     public boolean k;
 
     public a() {
@@ -67,29 +65,29 @@ public class a {
                 return;
             }
         }
-        this.f73407a = new Stack<>();
-        this.f73408b = new Stack<>();
-        this.f73409c = new HashMap();
-        this.f73416j = 0;
+        this.f65836a = new Stack<>();
+        this.f65837b = new Stack<>();
+        this.f65838c = new HashMap();
+        this.j = 0;
         this.k = false;
-        this.f73410d = al.d(KsAdSDKImpl.get().getContext());
-        File file = new File(this.f73410d);
+        this.f65839d = al.d(KsAdSDKImpl.get().getContext());
+        File file = new File(this.f65839d);
         if (!file.exists()) {
             file.mkdir();
         }
-        this.f73411e = new File(this.f73410d + File.separator + "download_uninstall");
-        File file2 = new File(this.f73410d + File.separator + "download_uninstall_apk_data");
-        this.f73413g = file2;
+        this.f65840e = new File(this.f65839d + File.separator + "download_uninstall");
+        File file2 = new File(this.f65839d + File.separator + "download_uninstall_apk_data");
+        this.f65842g = file2;
         if (!file2.exists()) {
-            this.f73413g.mkdir();
+            this.f65842g.mkdir();
         }
-        File file3 = new File(this.f73410d + File.separator + "install_unopen_apk_data");
-        this.f73414h = file3;
+        File file3 = new File(this.f65839d + File.separator + "install_unopen_apk_data");
+        this.f65843h = file3;
         if (!file3.exists()) {
-            this.f73414h.mkdir();
+            this.f65843h.mkdir();
         }
-        this.f73412f = new File(this.f73410d + File.separator + "install_unopen");
-        this.f73415i = new File(this.f73410d + File.separator + "app_has_show_banner_counts");
+        this.f65841f = new File(this.f65839d + File.separator + "install_unopen");
+        this.f65844i = new File(this.f65839d + File.separator + "app_has_show_banner_counts");
     }
 
     public static a a() {
@@ -112,7 +110,7 @@ public class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, this, homeApkBannerData, z)) == null) {
-            String path = (z ? this.f73413g : this.f73414h).getPath();
+            String path = (z ? this.f65842g : this.f65843h).getPath();
             return new File(path + File.separator + homeApkBannerData.mAdTemplateUniqueId);
         }
         return (File) invokeLZ.objValue;
@@ -148,10 +146,10 @@ public class a {
                 if (convertAdTemplateToHomeApkBannerData == null) {
                     return;
                 }
-                this.f73407a.push(convertAdTemplateToHomeApkBannerData);
-                ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f73411e));
+                this.f65836a.push(convertAdTemplateToHomeApkBannerData);
+                ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f65840e));
                 try {
-                    objectOutputStream3.writeObject(this.f73407a);
+                    objectOutputStream3.writeObject(this.f65836a);
                     objectOutputStream = new ObjectOutputStream(new FileOutputStream(a(convertAdTemplateToHomeApkBannerData, true)));
                 } catch (Exception e3) {
                     e = e3;
@@ -257,7 +255,7 @@ public class a {
                     return;
                 }
                 ?? r1 = 0;
-                Iterator<HomeApkBannerData> it = this.f73407a.iterator();
+                Iterator<HomeApkBannerData> it = this.f65836a.iterator();
                 while (it.hasNext()) {
                     if (TextUtils.equals(convertAdTemplateToHomeApkBannerData.appPackageName, it.next().appPackageName)) {
                         it.remove();
@@ -269,9 +267,9 @@ public class a {
                 }
                 try {
                     try {
-                        objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f73411e));
+                        objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f65840e));
                         try {
-                            objectOutputStream.writeObject(this.f73407a);
+                            objectOutputStream.writeObject(this.f65836a);
                             try {
                                 objectOutputStream.close();
                                 r1 = objectOutputStream;
@@ -350,10 +348,10 @@ public class a {
                 if (convertAdTemplateToHomeApkBannerData == null) {
                     return;
                 }
-                this.f73408b.push(convertAdTemplateToHomeApkBannerData);
-                ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f73412f));
+                this.f65837b.push(convertAdTemplateToHomeApkBannerData);
+                ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f65841f));
                 try {
-                    objectOutputStream3.writeObject(this.f73408b);
+                    objectOutputStream3.writeObject(this.f65837b);
                     objectOutputStream = new ObjectOutputStream(new FileOutputStream(a(convertAdTemplateToHomeApkBannerData, false)));
                 } catch (Exception e3) {
                     e = e3;
@@ -432,7 +430,7 @@ public class a {
             synchronized (a.class) {
                 HomeApkBannerData convertAdTemplateToHomeApkBannerData = HomeApkBannerData.convertAdTemplateToHomeApkBannerData(adTemplate);
                 boolean z = false;
-                Iterator<HomeApkBannerData> it = this.f73408b.iterator();
+                Iterator<HomeApkBannerData> it = this.f65837b.iterator();
                 while (it.hasNext()) {
                     if (TextUtils.equals(convertAdTemplateToHomeApkBannerData.appPackageName, it.next().appPackageName)) {
                         it.remove();
@@ -441,10 +439,10 @@ public class a {
                 }
                 if (z) {
                     try {
-                        objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f73412f));
+                        objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f65841f));
                         try {
                             try {
-                                objectOutputStream.writeObject(this.f73408b);
+                                objectOutputStream.writeObject(this.f65837b);
                             } catch (Exception e3) {
                                 e2 = e3;
                                 com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeInstalledData e" + e2);

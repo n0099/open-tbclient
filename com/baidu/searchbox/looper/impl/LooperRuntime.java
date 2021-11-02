@@ -2,10 +2,10 @@ package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.h0.a.b.b;
-import c.a.h0.a.b.c;
-import c.a.h0.a.b.d;
-import c.h.b.a.j.a;
+import b.a.h0.a.b.b;
+import b.a.h0.a.b.c;
+import b.a.h0.a.b.d;
+import b.h.b.a.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.config.AppConfig;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LooperRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT;
@@ -188,7 +188,7 @@ public class LooperRuntime {
     public void initmLooperNeedContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.h0.a.b.a b2 = c.a.h0.a.b.a.b();
+            b.a.h0.a.b.a b2 = b.a.h0.a.b.a.b();
             this.mLooperNeedContext = b2;
             b2.a(new ILooperNeedContext_LooperRuntime_Provider());
         }

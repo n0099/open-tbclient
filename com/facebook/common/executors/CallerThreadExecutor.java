@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CallerThreadExecutor extends AbstractExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public static final CallerThreadExecutor sInstance;
@@ -55,10 +55,10 @@ public class CallerThreadExecutor extends AbstractExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j2, TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
             return true;
         }
         return invokeJL.booleanValue;

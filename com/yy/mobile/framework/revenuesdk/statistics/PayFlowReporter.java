@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.reporter.SDKReporter;
+import com.yy.mobile.framework.revenuesdk.reporter.EventReporter;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.payflow.PayFlowContent;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayFlowReporter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,6 +49,6 @@ public class PayFlowReporter {
             statisContent.put(entry.getKey(), entry.getValue());
         }
         RLog.debug("PayFlowReporter", "reportPayFlow statisContent:" + statisContent.toString());
-        SDKReporter.reportStatisticContent(act, statisContent);
+        EventReporter.reportStatisticContent(act, statisContent);
     }
 }

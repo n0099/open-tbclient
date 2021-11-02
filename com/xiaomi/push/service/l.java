@@ -9,31 +9,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.av;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f78570a;
+    public final int f71508a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f966a;
+    public final String f967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f78571b;
+    public final String f71509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f78572c;
+    public final String f71510c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f78573d;
+    public final String f71511d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f78574e;
+    public final String f71512e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f78575f;
+    public final String f71513f;
 
     public l(String str, String str2, String str3, String str4, String str5, String str6, int i2) {
         Interceptable interceptable = $ic;
@@ -50,13 +50,13 @@ public class l {
                 return;
             }
         }
-        this.f966a = str;
-        this.f78571b = str2;
-        this.f78572c = str3;
-        this.f78573d = str4;
-        this.f78574e = str5;
-        this.f78575f = str6;
-        this.f78570a = i2;
+        this.f967a = str;
+        this.f71509b = str2;
+        this.f71510c = str3;
+        this.f71511d = str4;
+        this.f71512e = str5;
+        this.f71513f = str6;
+        this.f71508a = i2;
     }
 
     public static boolean a() {
@@ -99,19 +99,19 @@ public class l {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, context, eVar, str)) == null) {
-            bVar.f915a = context.getPackageName();
-            bVar.f918b = this.f966a;
-            bVar.f78491h = this.f78572c;
-            bVar.f78486c = this.f78571b;
-            bVar.f78490g = "5";
-            bVar.f78487d = "XMPUSH-PASS";
-            bVar.f917a = false;
-            bVar.f78488e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 43, "cpvn", "3_8_5", "cpvc", 30805, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
-            bVar.f78489f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.f78573d, "locale", Locale.getDefault().toString(), com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
+            bVar.f916a = context.getPackageName();
+            bVar.f919b = this.f967a;
+            bVar.f71430h = this.f71510c;
+            bVar.f71425c = this.f71509b;
+            bVar.f71429g = "5";
+            bVar.f71426d = "XMPUSH-PASS";
+            bVar.f918a = false;
+            bVar.f71427e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 43, "cpvn", "3_8_5", "cpvc", 30805, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
+            bVar.f71428f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.f71511d, "locale", Locale.getDefault().toString(), com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
             if (a(context)) {
-                bVar.f78489f += String.format(",%1$s:%2$s", "ab", str);
+                bVar.f71428f += String.format(",%1$s:%2$s", "ab", str);
             }
-            bVar.f914a = eVar;
+            bVar.f915a = eVar;
             return bVar;
         }
         return (av.b) invokeLLLL.objValue;

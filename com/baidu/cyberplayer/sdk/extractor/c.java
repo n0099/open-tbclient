@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class c extends a.AbstractBinderC1648a {
+/* loaded from: classes7.dex */
+public class c extends a.AbstractBinderC1605a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberExtractor f39131a;
+    public CyberExtractor f37088a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RemotePlayerService f39132b;
+    public RemotePlayerService f37089b;
 
     public c(RemotePlayerService remotePlayerService) {
         Interceptable interceptable = $ic;
@@ -39,21 +39,21 @@ public class c extends a.AbstractBinderC1648a {
                 return;
             }
         }
-        this.f39132b = remotePlayerService;
+        this.f37089b = remotePlayerService;
     }
 
     private CyberExtractor c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f39131a == null) {
+            if (this.f37088a == null) {
                 synchronized (this) {
-                    if (this.f39131a == null) {
-                        this.f39131a = new CyberExtractor(false);
+                    if (this.f37088a == null) {
+                        this.f37088a = new CyberExtractor(false);
                     }
                 }
             }
-            return this.f39131a;
+            return this.f37088a;
         }
         return (CyberExtractor) invokeV.objValue;
     }
@@ -66,10 +66,10 @@ public class c extends a.AbstractBinderC1648a {
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.a
-    public void a(int i2, String str, long j2) {
+    public void a(int i2, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
-            c().setOption(i2, str, j2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}) == null) {
+            c().setOption(i2, str, j);
         }
     }
 
@@ -87,12 +87,12 @@ public class c extends a.AbstractBinderC1648a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             CyberLog.i("RemoteExtractor", "release");
             synchronized (this) {
-                if (this.f39131a != null) {
-                    this.f39131a.release();
-                    this.f39131a = null;
+                if (this.f37088a != null) {
+                    this.f37088a.release();
+                    this.f37088a = null;
                 }
             }
-            this.f39132b = null;
+            this.f37089b = null;
         }
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SupplementaryDIDManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -29,13 +29,13 @@ public class SupplementaryDIDManager {
     public com.asus.msa.sdid.a mListener;
     public ServiceConnection mServiceConnection;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SupplementaryDIDManager f36263e;
+        public final /* synthetic */ SupplementaryDIDManager f34350e;
 
         public a(SupplementaryDIDManager supplementaryDIDManager) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class SupplementaryDIDManager {
                     return;
                 }
             }
-            this.f36263e = supplementaryDIDManager;
+            this.f34350e = supplementaryDIDManager;
         }
 
         @Override // android.content.ServiceConnection
@@ -60,8 +60,8 @@ public class SupplementaryDIDManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 boolean unused = SupplementaryDIDManager.DEBUG;
-                this.f36263e.mDidService = a.AbstractBinderC1574a.a(iBinder);
-                this.f36263e.notifyAllListeners(true);
+                this.f34350e.mDidService = a.AbstractBinderC1528a.a(iBinder);
+                this.f34350e.notifyAllListeners(true);
             }
         }
 
@@ -69,7 +69,7 @@ public class SupplementaryDIDManager {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f36263e.notifyAllListeners(false);
+                this.f34350e.notifyAllListeners(false);
             }
         }
     }

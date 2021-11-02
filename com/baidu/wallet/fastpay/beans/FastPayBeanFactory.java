@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class FastPayBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_BIND_INFO = 45316;
@@ -23,18 +23,18 @@ public final class FastPayBeanFactory implements IBeanFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.fastpay.beans.FastPayBeanFactory$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static FastPayBeanFactory f61207a;
+        public static FastPayBeanFactory f58097a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public final class FastPayBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f61207a = new FastPayBeanFactory(null);
+            f58097a = new FastPayBeanFactory(null);
         }
     }
 
@@ -61,7 +61,7 @@ public final class FastPayBeanFactory implements IBeanFactory {
     public static FastPayBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61207a : (FastPayBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58097a : (FastPayBeanFactory) invokeV.objValue;
     }
 
     public FastPayBeanFactory() {

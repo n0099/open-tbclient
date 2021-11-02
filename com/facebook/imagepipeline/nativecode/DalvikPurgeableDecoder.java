@@ -1,9 +1,12 @@
 package com.facebook.imagepipeline.nativecode;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ColorSpace;
 import android.graphics.Rect;
 import android.os.Build;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,15 +27,48 @@ import com.facebook.imagepipeline.memory.BitmapCounter;
 import com.facebook.imagepipeline.memory.BitmapCounterProvider;
 import com.facebook.imagepipeline.platform.PlatformDecoder;
 import com.facebook.imageutils.BitmapUtil;
+import com.facebook.soloader.DoNotOptimize;
 import java.util.Locale;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EOI;
     public transient /* synthetic */ FieldHolder $fh;
     public final BitmapCounter mUnpooledBitmapsCounter;
+
+    @DoNotOptimize
+    /* loaded from: classes11.dex */
+    public static class OreoUtils {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public OreoUtils() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @TargetApi(26)
+        public static void setColorSpace(BitmapFactory.Options options, @Nullable ColorSpace colorSpace) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, options, colorSpace) == null) {
+                if (colorSpace == null) {
+                    colorSpace = ColorSpace.get(ColorSpace.Named.SRGB);
+                }
+                options.inPreferredColorSpace = colorSpace;
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +84,7 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
             }
         }
         ImagePipelineNativeLoader.load();
-        EOI = new byte[]{-1, -39};
+        EOI = new byte[]{-1, ExifInterface.MARKER_EOI};
     }
 
     public DalvikPurgeableDecoder() {
@@ -106,15 +142,18 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     public CloseableReference<Bitmap> decodeFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, config, rect)) == null) ? decodeFromEncodedImageWithColorSpace(encodedImage, config, rect, false) : (CloseableReference) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, config, rect)) == null) ? decodeFromEncodedImageWithColorSpace(encodedImage, config, rect, null) : (CloseableReference) invokeLLL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, boolean z) {
-        InterceptResult invokeCommon;
+    public CloseableReference<Bitmap> decodeFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, @Nullable ColorSpace colorSpace) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{encodedImage, config, rect, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, encodedImage, config, rect, colorSpace)) == null) {
             BitmapFactory.Options bitmapFactoryOptions = getBitmapFactoryOptions(encodedImage.getSampleSize(), config);
+            if (Build.VERSION.SDK_INT >= 26) {
+                OreoUtils.setColorSpace(bitmapFactoryOptions, colorSpace);
+            }
             CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage.getByteBufferRef();
             Preconditions.checkNotNull(byteBufferRef);
             try {
@@ -123,7 +162,7 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
                 CloseableReference.closeSafely(byteBufferRef);
             }
         }
-        return (CloseableReference) invokeCommon.objValue;
+        return (CloseableReference) invokeLLLL.objValue;
     }
 
     public abstract Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i2, BitmapFactory.Options options);
@@ -132,15 +171,18 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048580, this, encodedImage, config, rect, i2)) == null) ? decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i2, false) : (CloseableReference) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048580, this, encodedImage, config, rect, i2)) == null) ? decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i2, null) : (CloseableReference) invokeLLLI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2, boolean z) {
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2, @Nullable ColorSpace colorSpace) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{encodedImage, config, rect, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{encodedImage, config, rect, Integer.valueOf(i2), colorSpace})) == null) {
             BitmapFactory.Options bitmapFactoryOptions = getBitmapFactoryOptions(encodedImage.getSampleSize(), config);
+            if (Build.VERSION.SDK_INT >= 26) {
+                OreoUtils.setColorSpace(bitmapFactoryOptions, colorSpace);
+            }
             CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage.getByteBufferRef();
             Preconditions.checkNotNull(byteBufferRef);
             try {

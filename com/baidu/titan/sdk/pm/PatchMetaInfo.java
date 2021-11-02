@@ -11,7 +11,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PatchMetaInfo {
     public static final String KEY_BOOT_LOAD_SYNC_POLICY = "bootLoadSyncPolicy";
     public static final String KEY_LOAD_POLICY = "loadPolicy";
@@ -24,7 +24,7 @@ public class PatchMetaInfo {
     public int loadPolicy = 0;
     public int bootLoadSyncPolicy = 0;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class VersionInfo {
         public static final String KEY_HOST_VERSIONCODE = "hostVersionCode";
         public static final String KEY_HOST_VERSIONNAME = "hostVersionName";

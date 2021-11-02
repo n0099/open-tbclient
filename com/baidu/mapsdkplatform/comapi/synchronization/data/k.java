@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.data;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface k {
-    void a(float f2, long j2);
+    void a(float f2, long j);
 
     void b(int i2, String str);
 

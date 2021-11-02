@@ -16,14 +16,14 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import org.apache.commons.lang3.ClassUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class MemberUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCESS_TEST = 7;
     public static final Class<?>[] ORDERED_PRIMITIVE_TYPES;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Executable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,13 +215,13 @@ public abstract class MemberUtils {
             if (isVarArgs) {
                 length--;
             }
-            long j2 = length;
-            if (clsArr.length < j2) {
+            long j = length;
+            if (clsArr.length < j) {
                 return Float.MAX_VALUE;
             }
             boolean z = false;
             float f2 = 0.0f;
-            for (int i2 = 0; i2 < j2; i2++) {
+            for (int i2 = 0; i2 < j; i2++) {
                 f2 += getObjectTransformationCost(clsArr[i2], parameterTypes[i2]);
             }
             if (isVarArgs) {

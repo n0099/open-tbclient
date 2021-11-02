@@ -33,35 +33,36 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class DataExt {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Gson f48538a;
+    public static final Gson f46061a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class GsonWidget {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Type f48539a;
+        public static final Type f46062a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
-        public static class BadNumberFix implements JsonDeserializer<Number> {
+        /* loaded from: classes8.dex */
+        public static final class BadNumberFix implements JsonDeserializer<Number> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             @NonNull
 
             /* renamed from: a  reason: collision with root package name */
-            public final List<String> f48540a;
+            public final List<String> f46063a;
 
             /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-            /* loaded from: classes6.dex */
+            /* loaded from: classes8.dex */
             public static final class NumberType {
                 public static final /* synthetic */ NumberType[] $VALUES;
                 public static /* synthetic */ Interceptable $ic;
@@ -162,10 +163,10 @@ public final class DataExt {
                     }
                 }
                 ArrayList arrayList = new ArrayList();
-                this.f48540a = arrayList;
+                this.f46063a = arrayList;
                 arrayList.add("");
-                this.f48540a.add(StringUtil.NULL_STRING);
-                this.f48540a.add("NULL");
+                this.f46063a.add(StringUtil.NULL_STRING);
+                this.f46063a.add("NULL");
             }
 
             @NonNull
@@ -197,14 +198,14 @@ public final class DataExt {
                         if (b(asNumber.toString()) || (valueOfByType = NumberType.valueOfByType(type)) == null) {
                             return null;
                         }
-                        int i2 = c.f48542a[valueOfByType.ordinal()];
+                        int i2 = b.f46065a[valueOfByType.ordinal()];
                         if (i2 != 1) {
                             if (i2 != 2) {
                                 if (i2 != 3) {
-                                    if (i2 != 4) {
-                                        return null;
+                                    if (i2 == 4) {
+                                        return Double.valueOf(asNumber.doubleValue());
                                     }
-                                    return Double.valueOf(asNumber.doubleValue());
+                                    throw new IllegalStateException("要处理的类型出错");
                                 }
                                 return Float.valueOf(asNumber.floatValue());
                             }
@@ -220,11 +221,11 @@ public final class DataExt {
             public final boolean b(@NonNull String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f48540a.contains(str) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f46063a.contains(str) : invokeL.booleanValue;
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static final class MapDeserializerDoubleAsIntFix implements JsonDeserializer<Map<String, Object>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -297,7 +298,7 @@ public final class DataExt {
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static class a extends TypeToken<Map<String, Object>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -330,17 +331,17 @@ public final class DataExt {
                     return;
                 }
             }
-            f48539a = new a().getType();
+            f46062a = new a().getType();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f48541e;
+        public final /* synthetic */ Class f46064e;
 
         public a(Class cls) {
             Interceptable interceptable = $ic;
@@ -357,7 +358,7 @@ public final class DataExt {
                     return;
                 }
             }
-            this.f48541e = cls;
+            this.f46064e = cls;
         }
 
         @Override // java.lang.reflect.ParameterizedType
@@ -365,7 +366,7 @@ public final class DataExt {
         public Type[] getActualTypeArguments() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Type[]{this.f48541e} : (Type[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Type[]{this.f46064e} : (Type[]) invokeV.objValue;
         }
 
         @Override // java.lang.reflect.ParameterizedType
@@ -388,63 +389,43 @@ public final class DataExt {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b extends TypeToken<Map<String, Object>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class c {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f48542a;
+        public static final /* synthetic */ int[] f46065a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(988613455, "Lcom/baidu/tbadk/util/DataExt$c;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(988613424, "Lcom/baidu/tbadk/util/DataExt$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(988613455, "Lcom/baidu/tbadk/util/DataExt$c;");
+                    classClinitInterceptable.invokePostClinit(988613424, "Lcom/baidu/tbadk/util/DataExt$b;");
                     return;
                 }
             }
             int[] iArr = new int[GsonWidget.BadNumberFix.NumberType.values().length];
-            f48542a = iArr;
+            f46065a = iArr;
             try {
                 iArr[GsonWidget.BadNumberFix.NumberType.INTEGER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f48542a[GsonWidget.BadNumberFix.NumberType.LONG.ordinal()] = 2;
+                f46065a[GsonWidget.BadNumberFix.NumberType.LONG.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f48542a[GsonWidget.BadNumberFix.NumberType.FLOAT.ordinal()] = 3;
+                f46065a[GsonWidget.BadNumberFix.NumberType.FLOAT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f48542a[GsonWidget.BadNumberFix.NumberType.DOUBLE.ordinal()] = 4;
+                f46065a[GsonWidget.BadNumberFix.NumberType.DOUBLE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -465,32 +446,32 @@ public final class DataExt {
         }
         GsonBuilder gsonBuilder = new GsonBuilder();
         GsonWidget.BadNumberFix.c(gsonBuilder);
-        f48538a = gsonBuilder.registerTypeAdapter(GsonWidget.f48539a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).create();
+        f46061a = gsonBuilder.registerTypeAdapter(GsonWidget.f46062a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).create();
     }
 
     @NonNull
-    public static final <T> T a(@NonNull String str, @NonNull Class<T> cls) {
+    public static <T> T a(@NonNull String str, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cls)) == null) ? (T) f48538a.fromJson(str, (Class<Object>) cls) : (T) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cls)) == null) ? (T) f46061a.fromJson(str, (Class<Object>) cls) : (T) invokeLL.objValue;
     }
 
     @NonNull
-    public static final <T> T b(@NonNull Map<String, Object> map, @NonNull Class<T> cls) {
+    public static <T> T b(@NonNull Map<String, Object> map, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, cls)) == null) ? (T) a(f(map), cls) : (T) invokeLL.objValue;
     }
 
     @NonNull
-    public static final <T> List<T> c(@NonNull String str, @NonNull Class<T> cls) {
+    public static <T> List<T> c(@NonNull String str, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, cls)) == null) ? (List) f48538a.fromJson(str, new a(cls)) : (List) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, cls)) == null) ? (List) Objects.requireNonNull(f46061a.fromJson(str, new a(cls))) : (List) invokeLL.objValue;
     }
 
     @NonNull
-    public static final JSONObject d(@NonNull Bundle bundle) {
+    public static JSONObject d(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Object obj;
         Object wrap;
@@ -521,37 +502,37 @@ public final class DataExt {
     }
 
     @NonNull
-    public static final String e(@NonNull Bundle bundle) {
+    public static String e(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bundle)) == null) ? d(bundle).toString() : (String) invokeL.objValue;
     }
 
     @NonNull
-    public static final String f(@NonNull Object obj) {
+    public static String f(@NonNull Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? f48538a.toJson(obj) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? f46061a.toJson(obj) : (String) invokeL.objValue;
     }
 
     @NonNull
-    public static final Map<String, Object> g(@NonNull Bundle bundle) {
+    public static Map<String, Object> g(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bundle)) == null) ? i(e(bundle)) : (Map) invokeL.objValue;
     }
 
     @NonNull
-    public static final Map<String, Object> h(@NonNull Object obj) {
+    public static Map<String, Object> h(@NonNull Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? i(f(obj)) : (Map) invokeL.objValue;
     }
 
     @NonNull
-    public static final Map<String, Object> i(@NonNull String str) {
+    public static Map<String, Object> i(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? (Map) f48538a.fromJson(str, new b().getType()) : (Map) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? (Map) f46061a.fromJson(str, GsonWidget.f46062a) : (Map) invokeL.objValue;
     }
 }

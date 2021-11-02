@@ -12,7 +12,7 @@ import com.baidu.wallet.paysdk.a.b;
 import com.baidu.wallet.paysdk.payresult.datamodel.PayResultContent;
 import com.dxmpay.wallet.core.BaseActivity;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SignContractPayResultAdapter extends BasePayResultAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +50,8 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f62919c;
-            if (payResultContent == null || this.f62918b == null) {
+            PayResultContent payResultContent = this.f59787c;
+            if (payResultContent == null || this.f59786b == null) {
                 return null;
             }
             if (payResultContent.isPaySuccess) {
@@ -62,7 +62,7 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
                 }
                 this.contents.put("statusDrawableName", "wallet_base_result_main_success");
                 this.contents.put("okBtnText", "dxm_ebpay_result_btn_success");
-                this.contents.put("payDetailInfo", this.f62919c.pay_detail_info);
+                this.contents.put("payDetailInfo", this.f59787c.pay_detail_info);
             }
             return this.contents;
         }
@@ -75,14 +75,14 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f62919c;
-            if (payResultContent == null || this.f62918b == null) {
+            PayResultContent payResultContent = this.f59787c;
+            if (payResultContent == null || this.f59786b == null) {
                 return null;
             }
             if (!payResultContent.isPaySuccess) {
                 this.contents.put("statusDrawableName", "dxm_wallet_base_result_paying");
                 this.contents.put("mainTip", b.a() ? "ebpay_sign_paying" : "ebpay_pay_paying");
-                this.contents.put("errorMsg", this.f62919c.mErrorMsg);
+                this.contents.put("errorMsg", this.f59787c.mErrorMsg);
             }
             return this.contents;
         }
@@ -93,7 +93,7 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
     public void handleOKBtnOnclick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            PayCallBackManager.callBackClientSuccess(this.f62917a.get().getActivity(), "");
+            PayCallBackManager.callBackClientSuccess(this.f59785a.get().getActivity(), "");
         }
     }
 
@@ -103,7 +103,7 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            return this.f62919c != null;
+            return this.f59787c != null;
         }
         return invokeL.booleanValue;
     }

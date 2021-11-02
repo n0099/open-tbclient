@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
-import c.i.d.c.s0;
-import c.i.d.c.v0;
+import b.i.d.c.s0;
+import b.i.d.c.v0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableMultiset;
 import com.google.common.primitives.Ints;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final RegularImmutableMultiset<Object> EMPTY;
@@ -22,7 +22,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     public transient ImmutableSet<E> elementSet;
     public final transient int size;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class ElementSet extends IndexedImmutableSet<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -138,7 +138,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,14 +176,14 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
             }
         }
         this.contents = v0Var;
-        long j2 = 0;
+        long j = 0;
         for (int i4 = 0; i4 < v0Var.C(); i4++) {
-            j2 += v0Var.k(i4);
+            j += v0Var.k(i4);
         }
-        this.size = Ints.j(j2);
+        this.size = Ints.j(j);
     }
 
-    @Override // com.google.common.collect.ImmutableMultiset, c.i.d.c.s0
+    @Override // com.google.common.collect.ImmutableMultiset, b.i.d.c.s0
     public int count(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -207,7 +207,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         return invokeV.booleanValue;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, c.i.d.c.s0
+    @Override // java.util.AbstractCollection, java.util.Collection, b.i.d.c.s0
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -222,7 +222,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMultiset, c.i.d.c.s0
+    @Override // com.google.common.collect.ImmutableMultiset, b.i.d.c.s0
     public ImmutableSet<E> elementSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

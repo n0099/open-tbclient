@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdRemoteAPKDownloadExtraInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADID = "adid";
@@ -190,11 +190,11 @@ public class XAdRemoteAPKDownloadExtraInfo implements Serializable {
         }
     }
 
-    public static List<String> getUndownloadedPackagesBefore(Context context, long j2) {
+    public static List<String> getUndownloadedPackagesBefore(Context context, long j) {
         InterceptResult invokeLJ;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, context, j)) == null) {
             ArrayList arrayList = new ArrayList();
             try {
                 for (Map.Entry<String, ?> entry : context.getSharedPreferences(AdDownloadApkUtils.PKGS_PREF_DOWNLOAD, 0).getAll().entrySet()) {
@@ -203,7 +203,7 @@ public class XAdRemoteAPKDownloadExtraInfo implements Serializable {
                         String key = entry.getKey();
                         if (key.contains(KEY_SPLIT + currentProcName)) {
                             JSONObject jSONObject = new JSONObject((String) entry.getValue());
-                            if (jSONObject.getLong(CLICK_TOUCH_TIME) >= j2 && ((i2 = jSONObject.getInt("dl")) == 0 || i2 == 1 || i2 == 4)) {
+                            if (jSONObject.getLong(CLICK_TOUCH_TIME) >= j && ((i2 = jSONObject.getInt("dl")) == 0 || i2 == 1 || i2 == 4)) {
                                 arrayList.add(key.substring(0, key.indexOf(KEY_SPLIT)));
                             }
                         }
@@ -321,17 +321,17 @@ public class XAdRemoteAPKDownloadExtraInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.isTooLarge : invokeV.booleanValue;
     }
 
-    public void setAppSize(long j2) {
+    public void setAppSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.appSize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.appSize = j;
         }
     }
 
-    public void setClickTime(long j2) {
+    public void setClickTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.clickTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.clickTime = j;
         }
     }
 

@@ -18,7 +18,7 @@ import com.dxmpay.apollon.NoProguard;
 import com.dxmpay.wallet.api.BaiduWalletDelegate;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class H5LifeCycleCallback implements Application.ActivityLifecycleCallbacks, Parcelable, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<H5LifeCycleCallback> CREATOR;

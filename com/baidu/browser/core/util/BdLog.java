@@ -2,7 +2,6 @@ package com.baidu.browser.core.util;
 
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.io.PathUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,28 +15,28 @@ import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.io.File;
 import java.io.FileOutputStream;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38591a = true;
+    public static boolean f36579a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static FileOutputStream f38592b;
+    public static FileOutputStream f36580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f38593c;
+    public static boolean f36581c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f38594d;
+    public static String f36582d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f38595e;
+    public static String f36583e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class LogLevel {
         public static final /* synthetic */ LogLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -102,12 +101,12 @@ public final class BdLog {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f38596a;
+        public static final /* synthetic */ int[] f36584a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -124,25 +123,25 @@ public final class BdLog {
                 }
             }
             int[] iArr = new int[LogLevel.values().length];
-            f38596a = iArr;
+            f36584a = iArr;
             try {
                 iArr[LogLevel.DEBUG.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f38596a[LogLevel.ERROR.ordinal()] = 2;
+                f36584a[LogLevel.ERROR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f38596a[LogLevel.INFO.ordinal()] = 3;
+                f36584a[LogLevel.INFO.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f38596a[LogLevel.VERBOSE.ordinal()] = 4;
+                f36584a[LogLevel.VERBOSE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f38596a[LogLevel.WARN.ordinal()] = 5;
+                f36584a[LogLevel.WARN.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -161,13 +160,13 @@ public final class BdLog {
                 return;
             }
         }
-        f38594d = Environment.getExternalStorageDirectory() + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+        f36582d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
         StringBuilder sb = new StringBuilder();
-        sb.append(f38594d);
+        sb.append(f36582d);
         sb.append("baiduliulanqi_log.txt");
-        f38595e = sb.toString();
+        f36583e = sb.toString();
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(f38594d);
+        sb2.append(f36582d);
         sb2.append("baiduliulanqi_lasttime_log.txt");
         sb2.toString();
     }
@@ -184,10 +183,10 @@ public final class BdLog {
             if (str2 == null) {
                 str2 = "";
             }
-            int i2 = a.f38596a[logLevel.ordinal()];
+            int i2 = a.f36584a[logLevel.ordinal()];
             if (i2 == 1 || i2 == 2 || i2 == 3 || i2 != 4) {
             }
-            if (f38593c) {
+            if (f36581c) {
                 d(str, str2);
             }
         }
@@ -204,15 +203,15 @@ public final class BdLog {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(f38594d);
+                File file = new File(f36582d);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (f38592b == null) {
-                    f38592b = new FileOutputStream(f38595e);
+                if (f36580b == null) {
+                    f36580b = new FileOutputStream(f36583e);
                 }
-                f38592b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
-                f38592b.write(StringUtils.LF.getBytes());
+                f36580b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
+                f36580b.write(StringUtils.LF.getBytes());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -222,19 +221,19 @@ public final class BdLog {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f38591a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f36579a : invokeV.booleanValue;
     }
 
     public static void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
-            f38591a = z;
+            f36579a = z;
         }
     }
 
     public static void g(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) && f38591a) {
+        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) && f36579a) {
             b(LogLevel.WARN, str, str2, th);
         }
     }

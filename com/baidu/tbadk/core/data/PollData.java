@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.q.p;
+import b.a.q0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.PollInfo;
 import tbclient.PollOption;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PollData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class PollData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.totalPoll : invokeV.longValue;
     }
 
-    @Override // c.a.q0.s.q.p
+    @Override // b.a.q0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
@@ -218,17 +218,17 @@ public class PollData extends p implements Serializable {
         }
     }
 
-    public void setTotalNum(long j2) {
+    public void setTotalNum(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.totalNum = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.totalNum = j;
         }
     }
 
-    public void setTotalPoll(long j2) {
+    public void setTotalPoll(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.totalPoll = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.totalPoll = j;
         }
     }
 }

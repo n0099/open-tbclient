@@ -1,7 +1,7 @@
 package com.baidu.searchbox.unitedscheme;
 
-import c.a.p0.e.p.b;
-import c.a.p0.e.p.d;
+import b.a.p0.e.p.b;
+import b.a.p0.e.p.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Autowired
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SchemeRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

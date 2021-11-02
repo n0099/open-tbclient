@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_KEY = "action";
@@ -29,7 +29,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, UnitedSchemeBaseAction> schemeActionMap;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface ConfirmDialogCallback {
         void onCancel();
 

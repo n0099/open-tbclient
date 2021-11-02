@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HotSelectActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FROM_PB = 1;
@@ -57,11 +57,11 @@ public class HotSelectActivityConfig extends IntentConfig {
         getIntent().putExtra("from", i3);
     }
 
-    public void setForumExtra(long j2, String str, String str2) {
+    public void setForumExtra(long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
             Intent intent = getIntent();
-            intent.putExtra("forum_id", j2);
+            intent.putExtra("forum_id", j);
             intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
             intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
         }

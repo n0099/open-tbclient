@@ -1,0 +1,38 @@
+package a.a.a.b.c;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public b.a.a.c.c.c f1019a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b.a.a.c.c.b f1020b;
+
+    public a(b.a.a.c.c.c cVar, b.a.a.c.c.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f1019a = cVar;
+        b.a.a.c.c.b bVar = new b.a.a.c.c.b();
+        this.f1020b = bVar;
+        bVar.k(aVar);
+    }
+}

@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DiskLruCache implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ANY_SEQUENCE_NUMBER = -1;
@@ -71,7 +71,7 @@ public final class DiskLruCache implements Closeable {
     public long size;
     public final int valueCount;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public final class DiskLruCache implements Closeable {
         public final /* synthetic */ DiskLruCache this$0;
         public final boolean[] written;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public class FaultHidingOutputStream extends FilterOutputStream {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -296,7 +296,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -379,9 +379,9 @@ public final class DiskLruCache implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                for (long j2 : this.lengths) {
+                for (long j : this.lengths) {
                     sb.append(' ');
-                    sb.append(j2);
+                    sb.append(j);
                 }
                 return sb.toString();
             }
@@ -389,7 +389,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class Snapshot implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -400,12 +400,12 @@ public final class DiskLruCache implements Closeable {
         public final long sequenceNumber;
         public final /* synthetic */ DiskLruCache this$0;
 
-        public Snapshot(DiskLruCache diskLruCache, String str, long j2, File[] fileArr, InputStream[] inputStreamArr, long[] jArr) {
+        public Snapshot(DiskLruCache diskLruCache, String str, long j, File[] fileArr, InputStream[] inputStreamArr, long[] jArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {diskLruCache, str, Long.valueOf(j2), fileArr, inputStreamArr, jArr};
+                Object[] objArr = {diskLruCache, str, Long.valueOf(j), fileArr, inputStreamArr, jArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -417,7 +417,7 @@ public final class DiskLruCache implements Closeable {
             }
             this.this$0 = diskLruCache;
             this.key = str;
-            this.sequenceNumber = j2;
+            this.sequenceNumber = j;
             this.files = fileArr;
             this.ins = inputStreamArr;
             this.lengths = jArr;
@@ -505,12 +505,12 @@ public final class DiskLruCache implements Closeable {
         };
     }
 
-    public DiskLruCache(File file, int i2, int i3, long j2, int i4) {
+    public DiskLruCache(File file, int i2, int i3, long j, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {file, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Integer.valueOf(i4)};
+            Object[] objArr = {file, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -610,7 +610,7 @@ public final class DiskLruCache implements Closeable {
         this.journalFileTmp = new File(file, "journal.tmp");
         this.journalFileBackup = new File(file, "journal.bkp");
         this.valueCount = i3;
-        this.maxSize = j2;
+        this.maxSize = j;
         this.maxFileCount = i4;
     }
 
@@ -648,10 +648,10 @@ public final class DiskLruCache implements Closeable {
                     } else if (dirtyFile.exists()) {
                         File cleanFile = entry.getCleanFile(i3);
                         dirtyFile.renameTo(cleanFile);
-                        long j2 = entry.lengths[i3];
+                        long j = entry.lengths[i3];
                         long length = cleanFile.length();
                         entry.lengths[i3] = length;
-                        this.size = (this.size - j2) + length;
+                        this.size = (this.size - j) + length;
                         this.fileCount++;
                     }
                 }
@@ -661,9 +661,9 @@ public final class DiskLruCache implements Closeable {
                     entry.readable = true;
                     this.journalWriter.write("CLEAN " + entry.key + entry.getLengths() + '\n');
                     if (z) {
-                        long j3 = this.nextSequenceNumber;
-                        this.nextSequenceNumber = 1 + j3;
-                        entry.sequenceNumber = j3;
+                        long j2 = this.nextSequenceNumber;
+                        this.nextSequenceNumber = 1 + j2;
+                        entry.sequenceNumber = j2;
                     }
                 } else {
                     this.lruEntries.remove(entry.key);
@@ -685,15 +685,15 @@ public final class DiskLruCache implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized Editor edit(String str, long j2) {
+    public synchronized Editor edit(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65553, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65553, this, str, j)) == null) {
             synchronized (this) {
                 checkNotClosed();
                 validateKey(str);
                 Entry entry = this.lruEntries.get(str);
-                if (j2 == -1 || (entry != null && entry.sequenceNumber == j2)) {
+                if (j == -1 || (entry != null && entry.sequenceNumber == j)) {
                     if (entry == null) {
                         entry = new Entry(str);
                         this.lruEntries.put(str, entry);
@@ -730,11 +730,11 @@ public final class DiskLruCache implements Closeable {
         return invokeV.booleanValue;
     }
 
-    public static DiskLruCache open(File file, int i2, int i3, long j2, int i4) {
+    public static DiskLruCache open(File file, int i2, int i3, long j, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{file, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Integer.valueOf(i4)})) == null) {
-            if (j2 > 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{file, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Integer.valueOf(i4)})) == null) {
+            if (j > 0) {
                 if (i4 > 0) {
                     if (i3 > 0) {
                         File file2 = new File(file, "journal.bkp");
@@ -746,7 +746,7 @@ public final class DiskLruCache implements Closeable {
                                 renameTo(file2, file3, false);
                             }
                         }
-                        DiskLruCache diskLruCache = new DiskLruCache(file, i2, i3, j2, i4);
+                        DiskLruCache diskLruCache = new DiskLruCache(file, i2, i3, j, i4);
                         if (diskLruCache.journalFile.exists()) {
                             try {
                                 diskLruCache.readJournal();
@@ -760,7 +760,7 @@ public final class DiskLruCache implements Closeable {
                             }
                         }
                         file.mkdirs();
-                        DiskLruCache diskLruCache2 = new DiskLruCache(file, i2, i3, j2, i4);
+                        DiskLruCache diskLruCache2 = new DiskLruCache(file, i2, i3, j, i4);
                         diskLruCache2.rebuildJournal();
                         return diskLruCache2;
                     }
@@ -981,13 +981,13 @@ public final class DiskLruCache implements Closeable {
 
     public synchronized long fileCount() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                j2 = this.fileCount;
+                j = this.fileCount;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -1064,13 +1064,13 @@ public final class DiskLruCache implements Closeable {
 
     public synchronized long getMaxSize() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
-                j2 = this.maxSize;
+                j = this.maxSize;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -1120,11 +1120,11 @@ public final class DiskLruCache implements Closeable {
         return invokeL.booleanValue;
     }
 
-    public synchronized void setMaxSize(long j2) {
+    public synchronized void setMaxSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
             synchronized (this) {
-                this.maxSize = j2;
+                this.maxSize = j;
                 this.executorService.submit(this.cleanupCallable);
             }
         }
@@ -1132,13 +1132,13 @@ public final class DiskLruCache implements Closeable {
 
     public synchronized long size() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             synchronized (this) {
-                j2 = this.size;
+                j = this.size;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

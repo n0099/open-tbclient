@@ -11,10 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractService implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_V3 = "3";
@@ -51,7 +50,7 @@ public abstract class AbstractService implements NoProguard {
                 httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
             }
             httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
-            httpHashMapWrap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3");
+            httpHashMapWrap.put("sdk_version", "3");
             return httpHashMapWrap;
         }
         return (HttpHashMapWrap) invokeL.objValue;

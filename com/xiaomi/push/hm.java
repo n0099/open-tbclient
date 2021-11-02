@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class hm {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hm f78161a;
+    public static final hm f71112a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hm[] f500a;
+    public static final /* synthetic */ hm[] f501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hm f78162b;
+    public static final hm f71113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hm f78163c;
+    public static final hm f71114c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hm f78164d;
+    public static final hm f71115d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f501a;
+    public final int f502a;
 
     static {
         InterceptResult invokeClinit;
@@ -45,12 +45,12 @@ public final class hm {
                 return;
             }
         }
-        f78161a = new hm("INT", 0, 1);
-        f78162b = new hm("LONG", 1, 2);
-        f78163c = new hm("STRING", 2, 3);
+        f71112a = new hm("INT", 0, 1);
+        f71113b = new hm("LONG", 1, 2);
+        f71114c = new hm("STRING", 2, 3);
         hm hmVar = new hm("BOOLEAN", 3, 4);
-        f78164d = hmVar;
-        f500a = new hm[]{f78161a, f78162b, f78163c, hmVar};
+        f71115d = hmVar;
+        f501a = new hm[]{f71112a, f71113b, f71114c, hmVar};
     }
 
     public hm(String str, int i2, int i3) {
@@ -71,7 +71,7 @@ public final class hm {
                 return;
             }
         }
-        this.f501a = i3;
+        this.f502a = i3;
     }
 
     public static hm a(int i2) {
@@ -84,13 +84,13 @@ public final class hm {
                         if (i2 != 4) {
                             return null;
                         }
-                        return f78164d;
+                        return f71115d;
                     }
-                    return f78163c;
+                    return f71114c;
                 }
-                return f78162b;
+                return f71113b;
             }
-            return f78161a;
+            return f71112a;
         }
         return (hm) invokeI.objValue;
     }
@@ -104,6 +104,6 @@ public final class hm {
     public static hm[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hm[]) f500a.clone() : (hm[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hm[]) f501a.clone() : (hm[]) invokeV.objValue;
     }
 }

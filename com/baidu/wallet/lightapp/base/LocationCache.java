@@ -11,28 +11,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.base.datamodel.LocationProvider;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class LocationCache {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static double f61885a;
+    public static double f58767a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static double f61886b;
+    public static double f58768b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Coord f61887c;
+    public static Coord f58769c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f61888d;
+    public static long f58770d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static LocationProvider f61889e;
+    public static LocationProvider f58771e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Coord {
         public static final /* synthetic */ Coord[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -119,43 +119,43 @@ public final class LocationCache {
                 return;
             }
         }
-        f61887c = Coord.UNKNOWN;
-        f61888d = 0L;
-        f61889e = LocationProvider.HOST;
+        f58769c = Coord.UNKNOWN;
+        f58770d = 0L;
+        f58771e = LocationProvider.HOST;
     }
 
     public static void a(double d2, double d3, Coord coord, LocationProvider locationProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), coord, locationProvider}) == null) {
-            f61885a = d2;
-            f61886b = d3;
-            f61887c = coord;
-            f61888d = System.currentTimeMillis();
-            f61889e = locationProvider;
+            f58767a = d2;
+            f58768b = d3;
+            f58769c = coord;
+            f58770d = System.currentTimeMillis();
+            f58771e = locationProvider;
         }
     }
 
     public static double b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f61886b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f58768b : invokeV.doubleValue;
     }
 
     public static Coord c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f61887c : (Coord) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f58769c : (Coord) invokeV.objValue;
     }
 
     public static long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f61888d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f58770d : invokeV.longValue;
     }
 
     public static double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f61885a : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f58767a : invokeV.doubleValue;
     }
 }

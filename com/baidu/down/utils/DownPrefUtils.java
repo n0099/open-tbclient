@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class DownPrefUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -99,10 +99,10 @@ public final class DownPrefUtils {
         return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i2) : invokeLLI.intValue;
     }
 
-    public static long getLong(Context context, String str, long j2) {
+    public static long getLong(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, Long.valueOf(j2)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j) : invokeCommon.longValue;
     }
 
     public static String getString(Context context, String str, String str2) {
@@ -206,14 +206,14 @@ public final class DownPrefUtils {
         edit.commit();
     }
 
-    public static void setLong(Context context, String str, long j2) {
+    public static void setLong(Context context, String str, long j) {
         SharedPreferences sharedPreferences;
         SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Long.valueOf(j2)}) == null) || context == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Long.valueOf(j)}) == null) || context == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
-        edit.putLong(str, j2);
+        edit.putLong(str, j);
         edit.commit();
     }
 
@@ -228,9 +228,9 @@ public final class DownPrefUtils {
         edit.commit();
     }
 
-    public static long testConfigurationGetLong(Context context, String str, long j2) {
+    public static long testConfigurationGetLong(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, Long.valueOf(j2)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j) : invokeCommon.longValue;
     }
 }

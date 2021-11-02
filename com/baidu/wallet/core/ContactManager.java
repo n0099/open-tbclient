@@ -15,13 +15,13 @@ import com.baidu.wallet.core.utils.contacts.ContractInfo;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class ContactManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static IContacts sIContactsImpl;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements IContacts, NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

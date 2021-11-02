@@ -3,10 +3,10 @@ package com.baidu.tieba.homepage.personalize.readProgressBar;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.e.l.e.n;
-import c.a.e.l.e.w;
-import c.a.r0.b0.u;
-import c.a.r0.h1.h.l.b;
+import b.a.e.l.e.n;
+import b.a.e.l.e.w;
+import b.a.r0.b0.u;
+import b.a.r0.h1.h.l.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -20,22 +20,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class ReadProgessDelegetAdapter extends c.a.e.l.e.a<b, ViewHolder> {
+/* loaded from: classes9.dex */
+public class ReadProgessDelegetAdapter extends b.a.e.l.e.a<b, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> m;
     public w n;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.r0.h1.h.l.a mCardView;
+        public b.a.r0.h1.h.l.a mCardView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(c.a.r0.h1.h.l.a aVar) {
-            super(aVar.j());
+        public ViewHolder(b.a.r0.h1.h.l.a aVar) {
+            super(aVar.i());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +55,7 @@ public class ReadProgessDelegetAdapter extends c.a.e.l.e.a<b, ViewHolder> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,10 +76,10 @@ public class ReadProgessDelegetAdapter extends c.a.e.l.e.a<b, ViewHolder> {
             }
         }
 
-        @Override // c.a.e.l.e.w
-        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
+        @Override // b.a.e.l.e.w
+        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                 TiebaStatic.log(new StatisticItem("c11273"));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 0));
             }
@@ -108,27 +108,27 @@ public class ReadProgessDelegetAdapter extends c.a.e.l.e.a<b, ViewHolder> {
         a aVar = new a(this);
         this.n = aVar;
         this.m = tbPageContext;
-        d0(aVar);
+        c0(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.l.e.a
-    /* renamed from: h0 */
-    public ViewHolder U(ViewGroup viewGroup) {
+    @Override // b.a.e.l.e.a
+    /* renamed from: g0 */
+    public ViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ViewHolder(new c.a.r0.h1.h.l.a(this.m, viewGroup)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ViewHolder(new b.a.r0.h1.h.l.a(this.m, viewGroup)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.l.e.a
-    /* renamed from: i0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
+    @Override // b.a.e.l.e.a
+    /* renamed from: h0 */
+    public View Z(int i2, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, viewHolder})) == null) {
             u.b().a(new StatisticItem("c11272"));
-            viewHolder.mCardView.k(bVar);
+            viewHolder.mCardView.j(bVar);
             return viewHolder.getView();
         }
         return (View) invokeCommon.objValue;

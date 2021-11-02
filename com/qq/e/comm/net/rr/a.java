@@ -1,9 +1,9 @@
 package com.qq.e.comm.net.rr;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,36 +17,38 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.Arrays;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
-public final class a {
+/* loaded from: classes2.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f75765a;
+    public static final byte[] f68069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Cipher f75766b;
+    public static Cipher f68070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Cipher f75767c;
+    public static Cipher f68071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f75768d;
+    public static final String f68072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static byte[] f75769e;
+    public static final byte[] f68073e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C2050a extends Exception {
+    /* loaded from: classes2.dex */
+    public static class C1960a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2050a(String str, Throwable th) {
+        public C1960a(String str, Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -67,7 +69,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class b extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,46 +109,74 @@ public final class a {
                 return;
             }
         }
-        f75765a = new byte[]{91, -62};
-        f75766b = null;
-        f75767c = null;
-        f75768d = String.format("AES/%s/PKCS7Padding", "ECB");
-        f75769e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
+        f68069a = new byte[]{91, ExifInterface.MARKER_SOF2};
+        f68072d = String.format("AES/%s/PKCS7Padding", "ECB");
+        f68073e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
     }
 
-    @SuppressLint({"TrulyRandom"})
-    public static synchronized Cipher a() throws C2050a {
-        InterceptResult invokeV;
+    public static byte[] a(byte[] bArr) throws C1960a {
+        InterceptResult invokeL;
+        Cipher cipher;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
             synchronized (a.class) {
-                if (f75766b != null) {
-                    return f75766b;
-                }
-                try {
-                    Cipher cipher = Cipher.getInstance(f75768d);
-                    cipher.init(1, new SecretKeySpec(f75769e, "AES"));
-                    f75766b = cipher;
-                    return cipher;
-                } catch (Exception e2) {
-                    throw new C2050a("Fail To Init Cipher", e2);
+                cipher = f68071c;
+                if (cipher == null) {
+                    try {
+                        cipher = Cipher.getInstance(f68072d);
+                        cipher.init(2, new SecretKeySpec(f68073e, "AES"));
+                        f68071c = cipher;
+                    } catch (Exception e2) {
+                        throw new C1960a("Fail To Init Cipher", e2);
+                    }
                 }
             }
+            try {
+                return cipher.doFinal(bArr);
+            } catch (Exception e3) {
+                throw new C1960a("Exception While dencrypt byte array", e3);
+            }
         }
-        return (Cipher) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] a(byte[] bArr) throws b {
+    public static byte[] b(byte[] bArr) throws C1960a {
         InterceptResult invokeL;
+        Cipher cipher;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            synchronized (a.class) {
+                cipher = f68070b;
+                if (cipher == null) {
+                    try {
+                        cipher = Cipher.getInstance(f68072d);
+                        cipher.init(1, new SecretKeySpec(f68073e, "AES"));
+                        f68070b = cipher;
+                    } catch (Exception e2) {
+                        throw new C1960a("Fail To Init Cipher", e2);
+                    }
+                }
+            }
+            try {
+                return cipher.doFinal(bArr);
+            } catch (Exception e3) {
+                throw new C1960a("Exception While encrypt byte array", e3);
+            }
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] c(byte[] bArr) throws b {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
             try {
-                dataOutputStream.write(f75765a);
+                dataOutputStream.write(f68069a);
                 dataOutputStream.writeByte(1);
                 dataOutputStream.writeByte(2);
-                dataOutputStream.write(c(com.qq.e.comm.a.a(bArr)));
+                dataOutputStream.write(b(f(bArr)));
                 dataOutputStream.close();
                 return byteArrayOutputStream.toByteArray();
             } catch (Exception e2) {
@@ -156,29 +186,8 @@ public final class a {
         return (byte[]) invokeL.objValue;
     }
 
-    public static synchronized Cipher b() throws C2050a {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (a.class) {
-                if (f75767c != null) {
-                    return f75767c;
-                }
-                try {
-                    Cipher cipher = Cipher.getInstance(f75768d);
-                    cipher.init(2, new SecretKeySpec(f75769e, "AES"));
-                    f75767c = cipher;
-                    return cipher;
-                } catch (Exception e2) {
-                    throw new C2050a("Fail To Init Cipher", e2);
-                }
-            }
-        }
-        return (Cipher) invokeV.objValue;
-    }
-
     @TargetApi(9)
-    public static byte[] b(byte[] bArr) throws b {
+    public static byte[] d(byte[] bArr) throws b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
@@ -188,8 +197,8 @@ public final class a {
             try {
                 byte[] bArr2 = new byte[4];
                 new DataInputStream(new ByteArrayInputStream(bArr)).read(bArr2);
-                if (f75765a[0] == bArr2[0] && f75765a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
-                    return com.qq.e.comm.a.b(d(Arrays.copyOfRange(bArr, 4, bArr.length)));
+                if (f68069a[0] == bArr2[0] && f68069a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
+                    return e(a(Arrays.copyOfRange(bArr, 4, bArr.length)));
                 }
                 throw new b("S2SS Package Magic/Version FormatError", null);
             } catch (Exception e2) {
@@ -199,29 +208,178 @@ public final class a {
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] c(byte[] bArr) throws C2050a {
+    /* JADX WARN: Removed duplicated region for block: B:52:0x005d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] e(byte[] bArr) {
         InterceptResult invokeL;
+        GZIPInputStream gZIPInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
-            try {
-                return a().doFinal(bArr);
-            } catch (Exception e2) {
-                throw new C2050a("Exception While encrypt byte array", e2);
+            GZIPInputStream gZIPInputStream2 = null;
+            r0 = null;
+            byte[] bArr2 = null;
+            if (bArr == null || bArr.length == 0) {
+                return bArr;
             }
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr3 = new byte[1024];
+            try {
+                gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
+                while (true) {
+                    try {
+                        try {
+                            int read = gZIPInputStream.read(bArr3);
+                            if (read == -1) {
+                                break;
+                            }
+                            byteArrayOutputStream.write(bArr3, 0, read);
+                        } catch (Exception e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            if (gZIPInputStream != null) {
+                                try {
+                                    gZIPInputStream.close();
+                                } catch (Exception e3) {
+                                    e = e3;
+                                    e.printStackTrace();
+                                    return bArr2;
+                                }
+                            }
+                            byteArrayInputStream.close();
+                            byteArrayOutputStream.close();
+                            return bArr2;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        gZIPInputStream2 = gZIPInputStream;
+                        if (gZIPInputStream2 != null) {
+                            try {
+                                gZIPInputStream2.close();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
+                                throw th;
+                            }
+                        }
+                        byteArrayInputStream.close();
+                        byteArrayOutputStream.close();
+                        throw th;
+                    }
+                }
+                byteArrayOutputStream.flush();
+                bArr2 = byteArrayOutputStream.toByteArray();
+                try {
+                    gZIPInputStream.close();
+                    byteArrayInputStream.close();
+                    byteArrayOutputStream.close();
+                } catch (Exception e5) {
+                    e = e5;
+                    e.printStackTrace();
+                    return bArr2;
+                }
+            } catch (Exception e6) {
+                e = e6;
+                gZIPInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (gZIPInputStream2 != null) {
+                }
+                byteArrayInputStream.close();
+                byteArrayOutputStream.close();
+                throw th;
+            }
+            return bArr2;
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] d(byte[] bArr) throws C2050a {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x002b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x0010 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0047 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    /* JADX WARN: Type inference failed for: r2v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] f(byte[] bArr) {
+        ?? r2;
+        GZIPOutputStream gZIPOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) {
-            try {
-                return b().doFinal(bArr);
-            } catch (Exception e2) {
-                throw new C2050a("Exception While dencrypt byte array", e2);
+        if (interceptable != null) {
+            r2 = 65542;
+            InterceptResult invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr);
+            if (invokeL != null) {
+                return (byte[]) invokeL.objValue;
             }
         }
-        return (byte[]) invokeL.objValue;
+        GZIPOutputStream gZIPOutputStream2 = null;
+        if (bArr != null && bArr.length != 0) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                try {
+                    gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                    try {
+                        gZIPOutputStream.write(bArr);
+                        gZIPOutputStream.finish();
+                        bArr = byteArrayOutputStream.toByteArray();
+                        try {
+                            gZIPOutputStream.close();
+                            byteArrayOutputStream.close();
+                            r2 = gZIPOutputStream;
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            r2 = gZIPOutputStream;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        e.printStackTrace();
+                        if (gZIPOutputStream != null) {
+                            try {
+                                gZIPOutputStream.close();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
+                                bArr = null;
+                                r2 = gZIPOutputStream;
+                                return bArr;
+                            }
+                        }
+                        byteArrayOutputStream.close();
+                        bArr = null;
+                        r2 = gZIPOutputStream;
+                        return bArr;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    gZIPOutputStream2 = r2;
+                    if (gZIPOutputStream2 != null) {
+                        try {
+                            gZIPOutputStream2.close();
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            throw th;
+                        }
+                    }
+                    byteArrayOutputStream.close();
+                    throw th;
+                }
+            } catch (Exception e6) {
+                e = e6;
+                gZIPOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (gZIPOutputStream2 != null) {
+                }
+                byteArrayOutputStream.close();
+                throw th;
+            }
+        }
+        return bArr;
     }
 }

@@ -9,18 +9,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f42740a;
+    public a f40550a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, com.baidu.mobads.cid.cesium.b.a> f42741b;
+    public Map<String, com.baidu.mobads.cid.cesium.b.a> f40551b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         List<com.baidu.mobads.cid.cesium.b.a> a();
     }
@@ -40,16 +40,16 @@ public class b {
                 return;
             }
         }
-        this.f42741b = new HashMap();
-        this.f42740a = aVar;
+        this.f40551b = new HashMap();
+        this.f40550a = aVar;
         for (com.baidu.mobads.cid.cesium.b.a aVar2 : aVar.a()) {
-            this.f42741b.put(aVar2.a(), aVar2);
+            this.f40551b.put(aVar2.a(), aVar2);
         }
     }
 
     public List<com.baidu.mobads.cid.cesium.b.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList(this.f42741b.values()) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList(this.f40551b.values()) : (List) invokeV.objValue;
     }
 }

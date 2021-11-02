@@ -23,7 +23,7 @@ import kotlin.TypeCastException;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\u0018\u0000 !2\u00020\u0001:\u0003!\"#B\u0013\b\u0016\u0012\b\u0010\u0018\u001a\u0004\u0018\u00010\u0017¢\u0006\u0004\b\u0019\u0010\u001aB\u001d\b\u0016\u0012\b\u0010\u0018\u001a\u0004\u0018\u00010\u0017\u0012\b\u0010\u001c\u001a\u0004\u0018\u00010\u001b¢\u0006\u0004\b\u0019\u0010\u001dB%\b\u0016\u0012\b\u0010\u0018\u001a\u0004\u0018\u00010\u0017\u0012\b\u0010\u001c\u001a\u0004\u0018\u00010\u001b\u0012\u0006\u0010\u001f\u001a\u00020\u001e¢\u0006\u0004\b\u0019\u0010 J\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0007\u001a\u00020\u0004¢\u0006\u0004\b\u0007\u0010\bR$\u0010\n\u001a\u0004\u0018\u00010\t8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR$\u0010\u0011\u001a\u0004\u0018\u00010\u00108\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0011\u0010\u0012\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016¨\u0006$"}, d2 = {"Lcom/baidu/tieba/write/view/AssociatedItemContainer;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tbadk/core/data/ItemData;", "itemData", "", "addAssociatedItem", "(Lcom/baidu/tbadk/core/data/ItemData;)V", "onChangeSkin", "()V", "Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnAddedListener;", "onAddedListener", "Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnAddedListener;", "getOnAddedListener", "()Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnAddedListener;", "setOnAddedListener", "(Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnAddedListener;)V", "Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnDeletedListener;", "onDeletedListener", "Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnDeletedListener;", "getOnDeletedListener", "()Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnDeletedListener;", "setOnDeletedListener", "(Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnDeletedListener;)V", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "Companion", "OnAddedListener", "OnDeletedListener", "write_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AssociatedItemContainer extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
@@ -32,12 +32,12 @@ public final class AssociatedItemContainer extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f58937e;
+    public c f55892e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f58938f;
+    public b f55893f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,26 +61,26 @@ public final class AssociatedItemContainer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void a(ItemData itemData);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssociatedItemContainer f58939e;
+        public final /* synthetic */ AssociatedItemContainer f55894e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ItemCardView f58940f;
+        public final /* synthetic */ ItemCardView f55895f;
 
         public d(AssociatedItemContainer associatedItemContainer, ItemCardView itemCardView) {
             Interceptable interceptable = $ic;
@@ -97,32 +97,32 @@ public final class AssociatedItemContainer extends LinearLayout {
                     return;
                 }
             }
-            this.f58939e = associatedItemContainer;
-            this.f58940f = itemCardView;
+            this.f55894e = associatedItemContainer;
+            this.f55895f = itemCardView;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             ViewParent parent;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (parent = this.f58940f.getParent()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (parent = this.f55895f.getParent()) == null) {
                 return;
             }
             if (parent != null) {
-                int indexOfChild = ((ViewGroup) parent).indexOfChild(this.f58940f);
-                AssociatedItemContainer associatedItemContainer = this.f58939e;
+                int indexOfChild = ((ViewGroup) parent).indexOfChild(this.f55895f);
+                AssociatedItemContainer associatedItemContainer = this.f55894e;
                 associatedItemContainer.removeViewsInLayout(indexOfChild, associatedItemContainer.getChildCount() == indexOfChild + 1 ? 1 : 2);
-                if (this.f58939e.getChildCount() > 0) {
-                    AssociatedItemContainer associatedItemContainer2 = this.f58939e;
+                if (this.f55894e.getChildCount() > 0) {
+                    AssociatedItemContainer associatedItemContainer2 = this.f55894e;
                     if (!(associatedItemContainer2.getChildAt(associatedItemContainer2.getChildCount() - 1) instanceof ItemCardView)) {
-                        AssociatedItemContainer associatedItemContainer3 = this.f58939e;
+                        AssociatedItemContainer associatedItemContainer3 = this.f55894e;
                         associatedItemContainer3.removeViewAt(associatedItemContainer3.getChildCount() - 1);
                     }
                 }
-                this.f58939e.requestLayout();
-                c onDeletedListener = this.f58939e.getOnDeletedListener();
+                this.f55894e.requestLayout();
+                c onDeletedListener = this.f55894e.getOnDeletedListener();
                 if (onDeletedListener != null) {
-                    Object tag = this.f58940f.getTag(R.id.key_item_data);
+                    Object tag = this.f55895f.getTag(R.id.key_item_data);
                     if (tag == null) {
                         throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.core.data.ItemData");
                     }
@@ -190,7 +190,7 @@ public final class AssociatedItemContainer extends LinearLayout {
             itemCardView.setOnCloseListener(new d(this, itemCardView));
             itemCardView.setData(itemData, 10, "", false);
             addView(itemCardView);
-            b bVar = this.f58938f;
+            b bVar = this.f55893f;
             if (bVar != null) {
                 bVar.a(z);
             }
@@ -200,13 +200,13 @@ public final class AssociatedItemContainer extends LinearLayout {
     public final b getOnAddedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58938f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55893f : (b) invokeV.objValue;
     }
 
     public final c getOnDeletedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58937e : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55892e : (c) invokeV.objValue;
     }
 
     public final void onChangeSkin() {
@@ -223,14 +223,14 @@ public final class AssociatedItemContainer extends LinearLayout {
     public final void setOnAddedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f58938f = bVar;
+            this.f55893f = bVar;
         }
     }
 
     public final void setOnDeletedListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f58937e = cVar;
+            this.f55892e = cVar;
         }
     }
 

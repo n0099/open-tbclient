@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.network.target;
 
 import com.sina.weibo.sdk.network.base.WbResponse;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface Target<R> {
     void onError();
 

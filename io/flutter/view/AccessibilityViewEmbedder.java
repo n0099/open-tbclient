@@ -29,7 +29,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class AccessibilityViewEmbedder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccessibilityBridge";
@@ -42,13 +42,13 @@ public final class AccessibilityViewEmbedder {
     public final View rootAccessibilityView;
 
     /* renamed from: io.flutter.view.AccessibilityViewEmbedder$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class ReflectionAccessors {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,16 +144,16 @@ public final class AccessibilityViewEmbedder {
             return (Long) invokeL.objValue;
         }
 
-        public static int getVirtualNodeId(long j2) {
+        public static int getVirtualNodeId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j2)) == null) ? (int) (j2 >> 32) : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j)) == null) ? (int) (j >> 32) : invokeJ.intValue;
         }
 
-        public static boolean isBitSet(long j2, int i2) {
+        public static boolean isBitSet(long j, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? (j2 & (1 << i2)) != 0 : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? (j & (1 << i2)) != 0 : invokeCommon.booleanValue;
         }
 
         @Nullable
@@ -257,7 +257,7 @@ public final class AccessibilityViewEmbedder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class ViewAndId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

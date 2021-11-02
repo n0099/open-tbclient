@@ -11,7 +11,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PooledByteBufferInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,12 +93,12 @@ public class PooledByteBufferInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public long skip(long j2) {
+    public long skip(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-            Preconditions.checkArgument(j2 >= 0);
-            int min = Math.min((int) j2, available());
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            Preconditions.checkArgument(j >= 0);
+            int min = Math.min((int) j, available());
             this.mOffset += min;
             return min;
         }

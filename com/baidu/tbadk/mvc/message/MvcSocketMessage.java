@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.message;
 
-import c.a.q0.k0.b.h;
-import c.a.q0.k0.b.i;
+import b.a.q0.k0.b.h;
+import b.a.q0.k0.b.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MvcSocketMessage<T extends i, D extends h> extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class MvcSocketMessage<T extends i, D extends h> extends TbSocketMessage 
     public Object encode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.requestData.c(false) : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.requestData.e(false) : invokeV.objValue;
     }
 
     public T getRequestData() {

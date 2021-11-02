@@ -7,38 +7,38 @@ import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75260a;
+    public int f67618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75261b = String.valueOf(-1);
+    public String f67619b = String.valueOf(-1);
 
     /* renamed from: c  reason: collision with root package name */
-    public String f75262c = "";
+    public String f67620c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f75263d = "";
+    public String f67621d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f75264e = -1;
+    public int f67622e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f75265f = "";
+    public String f67623f = "";
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f75266a;
+        public String f67624a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f75267b;
+        public String f67625b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f75268c;
+        public String f67626c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -57,28 +57,28 @@ public class e {
                 }
                 c(jSONObject.getString("value"));
             } catch (JSONException e2) {
-                c.l.a.a.a.b("SecurityMessage", "covert json error " + e2.getMessage());
+                b.l.a.a.a.b("SecurityMessage", "covert json error " + e2.getMessage());
             }
         }
 
         public String a() {
-            return this.f75268c;
+            return this.f67626c;
         }
 
         public void a(String str) {
-            this.f75266a = str;
+            this.f67624a = str;
         }
 
         public void b(String str) {
-            this.f75267b = str;
+            this.f67625b = str;
         }
 
         public void c(String str) {
-            this.f75268c = str;
+            this.f67626c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.f75266a + ExtendedMessageFormat.QUOTE + ", message='" + this.f75267b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f75268c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PublicKeyStatus{code='" + this.f67624a + ExtendedMessageFormat.QUOTE + ", message='" + this.f67625b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f67626c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
     }
 
@@ -99,7 +99,7 @@ public class e {
                             }
                         }
                     } catch (JSONException e2) {
-                        c.l.a.a.a.b("SecurityMessage", "parse notification message error " + e2.getMessage());
+                        b.l.a.a.a.b("SecurityMessage", "parse notification message error " + e2.getMessage());
                         if (TextUtils.isEmpty(null)) {
                             jSONObject = new JSONObject(notificationMessage);
                         }
@@ -120,14 +120,14 @@ public class e {
             }
         } catch (Exception unused2) {
         }
-        c.l.a.a.a.d("SecurityMessage", "encrypt message " + str);
+        b.l.a.a.a.d("SecurityMessage", "encrypt message " + str);
         return str;
     }
 
     public static boolean a(String str, MessageV3 messageV3) {
         String str2;
         e e2 = e(str);
-        c.l.a.a.a.b("SecurityMessage", "securityMessage " + e2);
+        b.l.a.a.a.b("SecurityMessage", "securityMessage " + e2);
         if (System.currentTimeMillis() / 1000 > e2.a()) {
             str2 = "message expire";
         } else if (!messageV3.getTitle().contains(e2.c())) {
@@ -157,7 +157,7 @@ public class e {
         } else {
             str2 = "invalid click type";
         }
-        c.l.a.a.a.b("SecurityMessage", str2);
+        b.l.a.a.a.b("SecurityMessage", str2);
         return false;
     }
 
@@ -184,60 +184,60 @@ public class e {
                 eVar.d(jSONObject.getString("pm"));
             }
         } catch (Exception e2) {
-            c.l.a.a.a.b("SecurityMessage", "parse decryptSign error " + e2.getMessage());
+            b.l.a.a.a.b("SecurityMessage", "parse decryptSign error " + e2.getMessage());
         }
         return eVar;
     }
 
     public int a() {
-        return this.f75260a;
+        return this.f67618a;
     }
 
     public void a(int i2) {
-        this.f75260a = i2;
+        this.f67618a = i2;
     }
 
     public void a(String str) {
-        this.f75261b = str;
+        this.f67619b = str;
     }
 
     public String b() {
-        return this.f75261b;
+        return this.f67619b;
     }
 
     public void b(int i2) {
-        this.f75264e = i2;
+        this.f67622e = i2;
     }
 
     public void b(String str) {
-        this.f75262c = str;
+        this.f67620c = str;
     }
 
     public String c() {
-        return this.f75262c;
+        return this.f67620c;
     }
 
     public void c(String str) {
-        this.f75263d = str;
+        this.f67621d = str;
     }
 
     public String d() {
-        return this.f75263d;
+        return this.f67621d;
     }
 
     public void d(String str) {
-        this.f75265f = str;
+        this.f67623f = str;
     }
 
     public int e() {
-        return this.f75264e;
+        return this.f67622e;
     }
 
     public String f() {
-        return this.f75265f;
+        return this.f67623f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.f75260a + ", taskId='" + this.f75261b + ExtendedMessageFormat.QUOTE + ", title='" + this.f75262c + ExtendedMessageFormat.QUOTE + ", content='" + this.f75263d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f75264e + ", params='" + this.f75265f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "SecurityMessage{timestamp=" + this.f67618a + ", taskId='" + this.f67619b + ExtendedMessageFormat.QUOTE + ", title='" + this.f67620c + ExtendedMessageFormat.QUOTE + ", content='" + this.f67621d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f67622e + ", params='" + this.f67623f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

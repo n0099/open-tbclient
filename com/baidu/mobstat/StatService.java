@@ -27,20 +27,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43132a;
+    public static boolean f40932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f43133b;
+    public static boolean f40933b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }
@@ -162,10 +162,10 @@ public class StatService {
         }
     }
 
-    public static void onEventDuration(Context context, String str, String str2, long j2, Map<String, String> map) {
+    public static void onEventDuration(Context context, String str, String str2, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{context, str, str2, Long.valueOf(j2), map}) == null) {
-            a(context, str, str2, j2, (ExtraInfo) null, map);
+        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{context, str, str2, Long.valueOf(j), map}) == null) {
+            a(context, str, str2, j, (ExtraInfo) null, map);
         }
     }
 
@@ -319,7 +319,7 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, feedTrackStrategy) == null) {
             av.a(feedTrackStrategy);
-            f43133b = true;
+            f40933b = true;
         }
     }
 
@@ -367,8 +367,8 @@ public class StatService {
 
     public static void setOn(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65586, null, context, i2) == null) && a(context, "setOn(...)") && !f43132a) {
-            f43132a = true;
+        if ((interceptable == null || interceptable.invokeLI(65586, null, context, i2) == null) && a(context, "setOn(...)") && !f40932a) {
+            f40932a = true;
             if ((i2 & 1) != 0) {
                 a(context, false);
             } else if ((i2 & 16) != 0) {
@@ -466,7 +466,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f43133b) {
+            if (!f40933b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);
@@ -488,10 +488,10 @@ public class StatService {
         }
     }
 
-    public static void onEventDuration(Context context, String str, String str2, long j2) {
+    public static void onEventDuration(Context context, String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, str, str2, Long.valueOf(j2)}) == null) {
-            a(context, str, str2, j2, (ExtraInfo) null, (Map<String, String>) null);
+        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, str, str2, Long.valueOf(j)}) == null) {
+            a(context, str, str2, j, (ExtraInfo) null, (Map<String, String>) null);
         }
     }
 
@@ -588,10 +588,10 @@ public class StatService {
         }
     }
 
-    public static void a(Context context, String str, String str2, long j2, ExtraInfo extraInfo, Map<String, String> map) {
+    public static void a(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, Long.valueOf(j2), extraInfo, map}) == null) && a(context, "onEventDuration(...)") && !TextUtils.isEmpty(str)) {
-            if (j2 <= 0) {
+        if ((interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, Long.valueOf(j), extraInfo, map}) == null) && a(context, "onEventDuration(...)") && !TextUtils.isEmpty(str)) {
+            if (j <= 0) {
                 bc.c().b("[WARNING] onEventDuration duration must be greater than zero");
                 return;
             }
@@ -599,7 +599,7 @@ public class StatService {
             if (a2) {
                 bc.c().c("[WARNING] onEventDuration 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
-            BDStatCore.instance().onEventDuration(context.getApplicationContext(), str, str2, j2, extraInfo, bx.a(map), a2);
+            BDStatCore.instance().onEventDuration(context.getApplicationContext(), str, str2, j, extraInfo, bx.a(map), a2);
         }
     }
 

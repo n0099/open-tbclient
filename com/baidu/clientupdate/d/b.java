@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,22 +28,22 @@ public final class b {
 
     /* JADX WARN: Removed duplicated region for block: B:35:0x0122  */
     /* JADX WARN: Removed duplicated region for block: B:42:0x013c  */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x021c  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x021e  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x021e  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0220  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static File a(Context context, long j2, String str) {
+    public static File a(Context context, long j, String str) {
         InterceptResult invokeCommon;
         File file;
         boolean z;
         boolean z2;
         Runnable dVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j), str})) == null) {
             Handler handler = new Handler(context.getMainLooper());
             boolean a2 = a();
-            boolean z3 = a(Environment.getExternalStorageDirectory()) > j2;
+            boolean z3 = a(Environment.getExternalStorageDirectory()) > j;
             if (a2 && z3) {
                 if (TextUtils.isEmpty(str)) {
                     file = new File(Environment.getExternalStorageDirectory().getPath() + "/lcsdk/downloads");
@@ -64,7 +64,7 @@ public final class b {
                         }
                         String a3 = j.a(f2[i2]);
                         LogUtil.logD("Helpers", "invoke path[" + i2 + "]===========" + a3);
-                        if (!j.c(context.getApplicationContext(), a3).equals("mounted") || a(new File(a3)) <= j2) {
+                        if (!j.c(context.getApplicationContext(), a3).equals("mounted") || a(new File(a3)) <= j) {
                             i2++;
                         } else {
                             if (TextUtils.isEmpty(str)) {
@@ -119,12 +119,12 @@ public final class b {
                     sb3.append(i4 < 0);
                     LogUtil.logD("Helpers", sb3.toString());
                     if (z2) {
-                        if (i3 < 0 || a4 < 2 * j2 || i4 < 0) {
+                        if (i3 < 0 || a4 < 2 * j || i4 < 0) {
                             handler.post(new f(context));
                             LogUtil.logD("Helpers", "download aborted - not enough free space on memory");
                             return null;
                         }
-                    } else if (a4 < j2) {
+                    } else if (a4 < j) {
                         LogUtil.logD("Helpers", "download aborted - not enough free space on external storage");
                     }
                     return file;

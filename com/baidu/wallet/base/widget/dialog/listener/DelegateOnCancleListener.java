@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DelegateOnCancleListener implements DialogInterface.OnCancelListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f60896a = "DelegateOnCancleListener";
+    public static final String f57792a = "DelegateOnCancleListener";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Dialog f60897b;
+    public Dialog f57793b;
     public DialogInterface.OnCancelListener mOnCancleListener;
 
     public DelegateOnCancleListener(DialogInterface.OnCancelListener onCancelListener, Dialog dialog) {
@@ -38,14 +38,14 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
             }
         }
         this.mOnCancleListener = onCancelListener;
-        this.f60897b = dialog;
+        this.f57793b = dialog;
         if (Build.VERSION.SDK_INT >= 12) {
             dialog.getWindow().getDecorView().addOnAttachStateChangeListener(new View.OnAttachStateChangeListener(this) { // from class: com.baidu.wallet.base.widget.dialog.listener.DelegateOnCancleListener.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DelegateOnCancleListener f60898a;
+                public final /* synthetic */ DelegateOnCancleListener f57794a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -62,14 +62,14 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
                             return;
                         }
                     }
-                    this.f60898a = this;
+                    this.f57794a = this;
                 }
 
                 @Override // android.view.View.OnAttachStateChangeListener
                 public void onViewAttachedToWindow(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        LogUtil.w(DelegateOnCancleListener.f60896a, "onWindowAttached, dialog=" + this);
+                        LogUtil.w(DelegateOnCancleListener.f57792a, "onWindowAttached, dialog=" + this);
                     }
                 }
 
@@ -77,17 +77,17 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
                 public void onViewDetachedFromWindow(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        LogUtil.d(DelegateOnCancleListener.f60896a, "Dialog.onWindowDetached");
+                        LogUtil.d(DelegateOnCancleListener.f57792a, "Dialog.onWindowDetached");
                     }
                 }
             });
         }
-        this.f60897b.setOnDismissListener(new DialogInterface.OnDismissListener(this) { // from class: com.baidu.wallet.base.widget.dialog.listener.DelegateOnCancleListener.2
+        this.f57793b.setOnDismissListener(new DialogInterface.OnDismissListener(this) { // from class: com.baidu.wallet.base.widget.dialog.listener.DelegateOnCancleListener.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DelegateOnCancleListener f60899a;
+            public final /* synthetic */ DelegateOnCancleListener f57795a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -104,16 +104,16 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
                         return;
                     }
                 }
-                this.f60899a = this;
+                this.f57795a = this;
             }
 
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                    LogUtil.d(DelegateOnCancleListener.f60896a, "Dialog.onDismiss");
-                    this.f60899a.f60897b = null;
-                    this.f60899a.mOnCancleListener = null;
+                    LogUtil.d(DelegateOnCancleListener.f57792a, "Dialog.onDismiss");
+                    this.f57795a.f57793b = null;
+                    this.f57795a.mOnCancleListener = null;
                 }
             }
         });
@@ -123,7 +123,7 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
     public void onCancel(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-            LogUtil.d(f60896a, "Dialog.onDismiss");
+            LogUtil.d(f57792a, "Dialog.onDismiss");
             DialogInterface.OnCancelListener onCancelListener = this.mOnCancleListener;
             if (onCancelListener != null) {
                 onCancelListener.onCancel(dialogInterface);

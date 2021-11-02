@@ -2,14 +2,16 @@ package com.baidu.tieba.pb.video;
 
 import android.view.View;
 import android.widget.TextView;
+import b.a.r0.k2.f;
+import b.a.r0.k2.h;
+import b.a.r0.k2.i;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GodReplyMoreViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,10 +38,10 @@ public class GodReplyMoreViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.skinType = 3;
-        this.moreView = (TextView) view.findViewById(R.id.look_more_view);
-        this.dividerLine = view.findViewById(R.id.divider_line_above_more_god_replays);
-        SkinManager.setViewTextColor(this.moreView, R.color.CAM_X0106);
-        SkinManager.setBackgroundResource(this.moreView, R.drawable.more_all);
-        SkinManager.setBackgroundResource(this.dividerLine, R.color.CAM_X0204);
+        this.moreView = (TextView) view.findViewById(i.look_more_view);
+        this.dividerLine = view.findViewById(i.divider_line_above_more_god_replays);
+        SkinManager.setViewTextColor(this.moreView, f.CAM_X0106);
+        SkinManager.setBackgroundResource(this.moreView, h.more_all);
+        SkinManager.setBackgroundResource(this.dividerLine, f.CAM_X0204);
     }
 }

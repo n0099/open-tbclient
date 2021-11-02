@@ -3,14 +3,14 @@ package com.baidu.tieba.hottopic.holder;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import b.a.r0.j1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MagicPostItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,14 +64,14 @@ public class MagicPostItemHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.topDivilerLine = view.findViewById(R.id.top_divider_line);
-        this.moduleTheme = (TextView) view.findViewById(R.id.magic_item_theme_title);
-        this.authorInfoArea = (RelativeLayout) view.findViewById(R.id.magicpost_item_user_info_view);
-        this.authorPhoto = (HeadImageView) view.findViewById(R.id.magic_item_photo);
-        this.authorName = (TextView) view.findViewById(R.id.magic_item_username);
-        this.postTime = (TextView) view.findViewById(R.id.magic_item_replytime);
-        this.commentText = (TextView) view.findViewById(R.id.magic_item_comment_textview);
-        this.contentText = (TextView) view.findViewById(R.id.magic_item_reply_content);
-        this.contentDividerLine = view.findViewById(R.id.magic_item_divider_line);
+        this.topDivilerLine = view.findViewById(e.top_divider_line);
+        this.moduleTheme = (TextView) view.findViewById(e.magic_item_theme_title);
+        this.authorInfoArea = (RelativeLayout) view.findViewById(e.magicpost_item_user_info_view);
+        this.authorPhoto = (HeadImageView) view.findViewById(e.magic_item_photo);
+        this.authorName = (TextView) view.findViewById(e.magic_item_username);
+        this.postTime = (TextView) view.findViewById(e.magic_item_replytime);
+        this.commentText = (TextView) view.findViewById(e.magic_item_comment_textview);
+        this.contentText = (TextView) view.findViewById(e.magic_item_reply_content);
+        this.contentDividerLine = view.findViewById(e.magic_item_divider_line);
     }
 }

@@ -6,8 +6,10 @@ import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
 import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
 import com.baidu.searchbox.live.interfaces.callback.LiveLoadStatusCallback;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IYYLiveNPSPlugin {
+    public static final String YY_ENV_CREATE_LIVE = "create_live";
+
     void cancelLoad();
 
     void cancelStartYYLiveActivity();
@@ -26,11 +28,15 @@ public interface IYYLiveNPSPlugin {
 
     boolean isAvailable();
 
+    boolean isEnvReady(String str);
+
     boolean isLoaded();
 
     void loadPlugin(@NonNull Context context, LiveLoadStatusCallback liveLoadStatusCallback);
 
-    void onDiskClearCacheChange(long j2, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
+    void onDiskClearCacheChange(long j, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
+
+    void prepareYYEnv(String str, YYEnvResultCallback yYEnvResultCallback);
 
     void startYYActivity(@NonNull Context context);
 

@@ -4,8 +4,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-import c.p.a.e.b.g.e;
-import c.p.a.e.b.g.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,56 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DownloadHandleService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f76325a;
+    public static final String f69508a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes10.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f76326e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadHandleService f76327f;
-
-        public a(DownloadHandleService downloadHandleService, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {downloadHandleService, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76327f = downloadHandleService;
-            this.f76326e = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    f.c().J(this.f76326e);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -78,7 +33,7 @@ public class DownloadHandleService extends Service {
                 return;
             }
         }
-        f76325a = DownloadHandleService.class.getSimpleName();
+        f69508a = DownloadHandleService.class.getSimpleName();
     }
 
     public DownloadHandleService() {
@@ -106,11 +61,51 @@ public class DownloadHandleService extends Service {
             return;
         }
         if (action.equals("com.ss.android.downloader.action.DOWNLOAD_WAKEUP")) {
-            e.A0().execute(new a(this, intExtra));
+            com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this, intExtra) { // from class: com.ss.android.socialbase.downloader.impls.DownloadHandleService.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f69509a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ DownloadHandleService f69510b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(intExtra)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69510b = this;
+                    this.f69509a = intExtra;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            com.ss.android.socialbase.downloader.downloader.d.a().o(this.f69509a);
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+            });
         } else if (action.equals("com.ss.android.downloader.action.PROCESS_NOTIFY")) {
-            f.c().K(intExtra);
+            com.ss.android.socialbase.downloader.downloader.d.a().q(intExtra);
         } else if (action.equals("com.ss.android.downloader.action.MULTI_PROCESS_NOTIFY")) {
-            e.c0();
+            com.ss.android.socialbase.downloader.downloader.c.b();
         }
     }
 
@@ -129,7 +124,7 @@ public class DownloadHandleService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            e.C(this);
+            com.ss.android.socialbase.downloader.downloader.c.a(this);
         }
     }
 

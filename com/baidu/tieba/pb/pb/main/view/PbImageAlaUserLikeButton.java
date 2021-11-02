@@ -3,17 +3,20 @@ package com.baidu.tieba.pb.pb.main.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import c.a.q0.s.f0.t.b;
+import b.a.q0.s.g0.t.b;
+import b.a.r0.k2.f;
+import b.a.r0.k2.g;
+import b.a.r0.k2.h;
+import b.a.r0.k2.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
-import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,19 +47,19 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
-                bVar.s(R.color.CAM_X0109);
+                b.a.q0.s.g0.n.b bVar = new b.a.q0.s.g0.n.b();
+                bVar.s(f.CAM_X0109);
                 setConfig(bVar);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
+                setText(TbadkCoreApplication.getInst().getString(l.relate_forum_is_followed));
             } else {
-                c.a.q0.s.f0.n.b bVar2 = new c.a.q0.s.f0.n.b();
-                bVar2.r(R.color.CAM_X0302);
-                bVar2.i(R.drawable.icon_pure_add10_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-                bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                b.a.q0.s.g0.n.b bVar2 = new b.a.q0.s.g0.n.b();
+                bVar2.r(f.CAM_X0302);
+                bVar2.i(h.icon_pure_add10_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                bVar2.g(UtilHelper.getDimenPixelSize(g.tbds26));
                 setConfig(bVar2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+                setText(TbadkCoreApplication.getInst().getString(l.attention));
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

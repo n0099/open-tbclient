@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ClientConfigManagerImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class c extends com.vivo.push.v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class c extends com.vivo.push.v {
     public final void a(com.vivo.push.y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
-            com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f77081a).isDebug());
+            com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f70428a).isDebug());
         }
     }
 }

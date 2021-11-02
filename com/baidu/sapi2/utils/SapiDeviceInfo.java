@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.pass.common.SecurityUtil;
@@ -14,6 +15,7 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
+import com.baidu.searchbox.ruka.ioc.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +30,7 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SapiDeviceInfo implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY;
@@ -37,7 +39,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static final int VERSION = 11;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class DeviceInfoCookieManager {
         public static /* synthetic */ Interceptable $ic;
         public static Map<String, String> cookiesMap;
@@ -95,7 +97,7 @@ public class SapiDeviceInfo implements NoProguard {
                 arrayList.add("is_root");
                 arrayList.add("wifi");
                 arrayList.add("imei");
-                arrayList.add("emulator");
+                arrayList.add(Constant.KEY_EMULATOR);
                 arrayList.add("mac_address");
                 arrayList.add("cpu_info");
                 arrayList.add("ram");
@@ -146,7 +148,7 @@ public class SapiDeviceInfo implements NoProguard {
             }
         }
         DELIMITER = Character.toString((char) 1);
-        AES_KEY = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", "w", "8", "h", "P"});
+        AES_KEY = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
     }
 
     public SapiDeviceInfo() {
@@ -212,7 +214,7 @@ public class SapiDeviceInfo implements NoProguard {
             if (diExceptIndex.contains(17)) {
                 str6 = "";
             } else if (SapiUtils.isEmulator(context)) {
-                str6 = "emulator";
+                str6 = Constant.KEY_EMULATOR;
             }
             arrayList.add(str6);
             arrayList.add(diExceptIndex.contains(18) ? "" : SapiDeviceUtils.getMac(context));
@@ -263,7 +265,7 @@ public class SapiDeviceInfo implements NoProguard {
             diExceptIndex.contains(35);
             arrayList.add("");
             arrayList.add(diExceptIndex.contains(36) ? "" : SapiUtils.getIccid(context));
-            arrayList.add(diExceptIndex.contains(37) ? "" : "9.4.1");
+            arrayList.add(diExceptIndex.contains(37) ? "" : "9.4.3");
             return arrayList;
         }
         return (List) invokeL.objValue;

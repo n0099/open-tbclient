@@ -2,16 +2,16 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.l.e.n;
-import c.a.q0.s.q.b0;
-import c.a.q0.s.q.d0;
-import c.a.q0.s.q.f2;
-import c.a.q0.s.q.g0;
-import c.a.q0.s.q.g2;
-import c.a.q0.s.q.i2;
-import c.a.q0.s.q.l;
-import c.a.q0.s.q.m0;
-import c.a.q0.s.q.p2;
+import b.a.e.l.e.n;
+import b.a.q0.s.q.b0;
+import b.a.q0.s.q.d0;
+import b.a.q0.s.q.f2;
+import b.a.q0.s.q.g0;
+import b.a.q0.s.q.g2;
+import b.a.q0.s.q.i2;
+import b.a.q0.s.q.l;
+import b.a.q0.s.q.m0;
+import b.a.q0.s.q.p2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -50,7 +50,7 @@ import tbclient.FrsPage.TipInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ForumData implements Serializable, PreLoadImageProvider, n {
     public static /* synthetic */ Interceptable $ic = null;
     public static BdUniqueId FORUM_FLOOR_TYPE = null;
@@ -513,7 +513,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.topic_special_icon_right : (String) invokeV.objValue;
     }
 
-    @Override // c.a.e.l.e.n
+    @Override // b.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -696,7 +696,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
             if (yule != null) {
                 this.yuleData.d(yule);
             }
-            this.mFrsBannerData.i(forumInfo.banner);
+            this.mFrsBannerData.h(forumInfo.banner);
             this.mBannerListData.parserProtobuf(forumInfo.banner_list);
             this.mPrefixData.parserProtobuf(forumInfo.post_prefix);
             this.mPostTopicData.parserProtobuf(forumInfo.post_topic);
@@ -706,7 +706,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 this.canAddPhotoLivePost = anchorPower.can_add_live_post.intValue() == 1;
             }
             this.top_code.j(forumInfo.top_code);
-            this.news_info.H0(forumInfo.news_info);
+            this.news_info.L0(forumInfo.news_info);
             this.mAcrossForumIcon = forumInfo.across_forum_show;
             this.mIsLiveGameForum = forumInfo.is_live_game_forum.intValue();
             this.forumGameLabel = forumInfo.forum_game_label;
@@ -1067,7 +1067,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 }
             }
             try {
-                this.mFrsBannerData.h(jSONObject.getJSONObject("banner"));
+                this.mFrsBannerData.g(jSONObject.getJSONObject("banner"));
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -1097,7 +1097,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 BdLog.e(e7.getMessage());
             }
             try {
-                this.news_info.G0(jSONObject.optJSONObject("news_info"));
+                this.news_info.K0(jSONObject.optJSONObject("news_info"));
             } catch (Exception e8) {
                 BdLog.e(e8.getMessage());
             }

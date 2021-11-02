@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ApiWebView;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class KSApiWebView extends ApiWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f72485a;
+    public boolean f64942a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSApiWebView(Context context) {
@@ -41,7 +41,7 @@ public class KSApiWebView extends ApiWebView {
                 return;
             }
         }
-        this.f72485a = true;
+        this.f64942a = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,7 +63,7 @@ public class KSApiWebView extends ApiWebView {
                 return;
             }
         }
-        this.f72485a = true;
+        this.f64942a = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -85,7 +85,7 @@ public class KSApiWebView extends ApiWebView {
                 return;
             }
         }
-        this.f72485a = true;
+        this.f64942a = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,7 +108,7 @@ public class KSApiWebView extends ApiWebView {
                 return;
             }
         }
-        this.f72485a = true;
+        this.f64942a = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,7 +130,7 @@ public class KSApiWebView extends ApiWebView {
                 return;
             }
         }
-        this.f72485a = true;
+        this.f64942a = true;
     }
 
     public static Context a(Context context) {
@@ -146,7 +146,7 @@ public class KSApiWebView extends ApiWebView {
     @Override // android.webkit.WebView
     public void destroy() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f72485a) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f64942a) {
             super.destroy();
         }
     }
@@ -154,7 +154,7 @@ public class KSApiWebView extends ApiWebView {
     public void setEnableDestroy(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f72485a = z;
+            this.f64942a = z;
         }
     }
 }

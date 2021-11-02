@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
     public final int maxConcurrency;
     public final int prefetch;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ConcatMapEagerDelayErrorSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, InnerQueuedSubscriberSupport<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4255299542215038287L;
@@ -107,7 +107,7 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
         public void drain() {
             InnerQueuedSubscriber<R> innerQueuedSubscriber;
             int i2;
-            long j2;
+            long j;
             boolean z;
             SimpleQueue<R> queue;
             int i3;
@@ -120,7 +120,7 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
             ErrorMode errorMode = this.errorMode;
             int i4 = 1;
             while (true) {
-                long j3 = this.requested.get();
+                long j2 = this.requested.get();
                 if (innerQueuedSubscriber2 != null) {
                     innerQueuedSubscriber = innerQueuedSubscriber2;
                 } else if (errorMode != ErrorMode.END && this.errors.get() != null) {
@@ -145,13 +145,13 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
                 }
                 if (innerQueuedSubscriber == null || (queue = innerQueuedSubscriber.queue()) == null) {
                     i2 = i4;
-                    j2 = 0;
+                    j = 0;
                     z = false;
                 } else {
                     i2 = i4;
-                    j2 = 0;
+                    j = 0;
                     while (true) {
-                        i3 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+                        i3 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
                         if (i3 == 0) {
                             break;
                         } else if (this.cancelled) {
@@ -178,7 +178,7 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
                                     break;
                                 } else {
                                     subscriber.onNext(poll);
-                                    j2++;
+                                    j++;
                                     innerQueuedSubscriber.requestOne();
                                 }
                             } catch (Throwable th) {
@@ -214,8 +214,8 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
                         }
                     }
                 }
-                if (j2 != 0 && j3 != Long.MAX_VALUE) {
-                    this.requested.addAndGet(-j2);
+                if (j != 0 && j2 != Long.MAX_VALUE) {
+                    this.requested.addAndGet(-j);
                 }
                 if (z) {
                     innerQueuedSubscriber2 = innerQueuedSubscriber;
@@ -335,10 +335,10 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }

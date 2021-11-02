@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.ar;
 import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class c extends com.kwad.sdk.core.response.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f72550a;
+    public String f65006a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f72551b;
+    public JSONObject f65007b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public abstract class c extends com.kwad.sdk.core.response.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject json = toJson();
-            if (this.f72551b != null) {
+            if (this.f65007b != null) {
                 json.remove("mMergeJsonData");
-                ar.a(json, this.f72551b);
+                ar.a(json, this.f65007b);
             }
             return json;
         }
@@ -55,7 +55,7 @@ public abstract class c extends com.kwad.sdk.core.response.a.a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             super.afterParseJson(jSONObject);
             if (jSONObject != null) {
-                this.f72551b = jSONObject.optJSONObject("mMergeJsonData");
+                this.f65007b = jSONObject.optJSONObject("mMergeJsonData");
             }
         }
     }
@@ -65,7 +65,7 @@ public abstract class c extends com.kwad.sdk.core.response.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             super.afterToJson(jSONObject);
-            JSONObject jSONObject2 = this.f72551b;
+            JSONObject jSONObject2 = this.f65007b;
             if (jSONObject2 != null) {
                 q.a(jSONObject, "mMergeJsonData", jSONObject2);
             }

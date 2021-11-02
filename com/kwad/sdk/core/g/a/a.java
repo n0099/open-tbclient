@@ -2,6 +2,7 @@ package com.kwad.sdk.core.g.a;
 
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,19 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72112a;
+    public int f64576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72113b;
+    public String f64577b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f72114c;
+    public String f64578c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -50,9 +51,9 @@ public class a implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "level", this.f72112a);
-            q.a(jSONObject, "ssid", this.f72113b);
-            q.a(jSONObject, "bssid", this.f72114c);
+            q.a(jSONObject, ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, this.f64576a);
+            q.a(jSONObject, "ssid", this.f64577b);
+            q.a(jSONObject, "bssid", this.f64578c);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

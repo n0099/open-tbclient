@@ -37,7 +37,7 @@ import java.util.Map;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseApi {
     public static /* synthetic */ Interceptable $ic;
     public static String businessId;
@@ -47,24 +47,24 @@ public abstract class BaseApi {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f76561b;
+    public c f69919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public QQToken f76562c;
+    public QQToken f69920c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class TempRequestListener implements IRequestListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseApi f76563a;
+        public final /* synthetic */ BaseApi f69921a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final IUiListener f76564b;
+        public final IUiListener f69922b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Handler f76565c;
+        public final Handler f69923c;
 
         public TempRequestListener(BaseApi baseApi, IUiListener iUiListener) {
             Interceptable interceptable = $ic;
@@ -81,17 +81,17 @@ public abstract class BaseApi {
                     return;
                 }
             }
-            this.f76563a = baseApi;
-            this.f76564b = iUiListener;
-            this.f76565c = new Handler(this, f.a().getMainLooper(), baseApi) { // from class: com.tencent.connect.common.BaseApi.TempRequestListener.1
+            this.f69921a = baseApi;
+            this.f69922b = iUiListener;
+            this.f69923c = new Handler(this, f.a().getMainLooper(), baseApi) { // from class: com.tencent.connect.common.BaseApi.TempRequestListener.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseApi f76566a;
+                public final /* synthetic */ BaseApi f69924a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ TempRequestListener f76567b;
+                public final /* synthetic */ TempRequestListener f69925b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -111,8 +111,8 @@ public abstract class BaseApi {
                             return;
                         }
                     }
-                    this.f76567b = this;
-                    this.f76566a = baseApi;
+                    this.f69925b = this;
+                    this.f69924a = baseApi;
                 }
 
                 @Override // android.os.Handler
@@ -120,9 +120,9 @@ public abstract class BaseApi {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                         if (message.what == 0) {
-                            this.f76567b.f76564b.onComplete(message.obj);
+                            this.f69925b.f69922b.onComplete(message.obj);
                         } else {
-                            this.f76567b.f76564b.onError(new UiError(message.what, (String) message.obj, null));
+                            this.f69925b.f69922b.onError(new UiError(message.what, (String) message.obj, null));
                         }
                     }
                 }
@@ -133,10 +133,10 @@ public abstract class BaseApi {
         public void onComplete(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                Message obtainMessage = this.f76565c.obtainMessage();
+                Message obtainMessage = this.f69923c.obtainMessage();
                 obtainMessage.obj = jSONObject;
                 obtainMessage.what = 0;
-                this.f76565c.sendMessage(obtainMessage);
+                this.f69923c.sendMessage(obtainMessage);
             }
         }
 
@@ -144,10 +144,10 @@ public abstract class BaseApi {
         public void onConnectTimeoutException(ConnectTimeoutException connectTimeoutException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, connectTimeoutException) == null) {
-                Message obtainMessage = this.f76565c.obtainMessage();
+                Message obtainMessage = this.f69923c.obtainMessage();
                 obtainMessage.obj = connectTimeoutException.getMessage();
                 obtainMessage.what = -7;
-                this.f76565c.sendMessage(obtainMessage);
+                this.f69923c.sendMessage(obtainMessage);
             }
         }
 
@@ -155,10 +155,10 @@ public abstract class BaseApi {
         public void onHttpStatusException(HttpUtils.HttpStatusException httpStatusException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, httpStatusException) == null) {
-                Message obtainMessage = this.f76565c.obtainMessage();
+                Message obtainMessage = this.f69923c.obtainMessage();
                 obtainMessage.obj = httpStatusException.getMessage();
                 obtainMessage.what = -9;
-                this.f76565c.sendMessage(obtainMessage);
+                this.f69923c.sendMessage(obtainMessage);
             }
         }
 
@@ -166,10 +166,10 @@ public abstract class BaseApi {
         public void onIOException(IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, iOException) == null) {
-                Message obtainMessage = this.f76565c.obtainMessage();
+                Message obtainMessage = this.f69923c.obtainMessage();
                 obtainMessage.obj = iOException.getMessage();
                 obtainMessage.what = -2;
-                this.f76565c.sendMessage(obtainMessage);
+                this.f69923c.sendMessage(obtainMessage);
             }
         }
 
@@ -177,10 +177,10 @@ public abstract class BaseApi {
         public void onJSONException(JSONException jSONException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, jSONException) == null) {
-                Message obtainMessage = this.f76565c.obtainMessage();
+                Message obtainMessage = this.f69923c.obtainMessage();
                 obtainMessage.obj = jSONException.getMessage();
                 obtainMessage.what = -4;
-                this.f76565c.sendMessage(obtainMessage);
+                this.f69923c.sendMessage(obtainMessage);
             }
         }
 
@@ -188,10 +188,10 @@ public abstract class BaseApi {
         public void onMalformedURLException(MalformedURLException malformedURLException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, malformedURLException) == null) {
-                Message obtainMessage = this.f76565c.obtainMessage();
+                Message obtainMessage = this.f69923c.obtainMessage();
                 obtainMessage.obj = malformedURLException.getMessage();
                 obtainMessage.what = -3;
-                this.f76565c.sendMessage(obtainMessage);
+                this.f69923c.sendMessage(obtainMessage);
             }
         }
 
@@ -199,10 +199,10 @@ public abstract class BaseApi {
         public void onNetworkUnavailableException(HttpUtils.NetworkUnavailableException networkUnavailableException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, networkUnavailableException) == null) {
-                Message obtainMessage = this.f76565c.obtainMessage();
+                Message obtainMessage = this.f69923c.obtainMessage();
                 obtainMessage.obj = networkUnavailableException.getMessage();
                 obtainMessage.what = -10;
-                this.f76565c.sendMessage(obtainMessage);
+                this.f69923c.sendMessage(obtainMessage);
             }
         }
 
@@ -210,10 +210,10 @@ public abstract class BaseApi {
         public void onSocketTimeoutException(SocketTimeoutException socketTimeoutException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, socketTimeoutException) == null) {
-                Message obtainMessage = this.f76565c.obtainMessage();
+                Message obtainMessage = this.f69923c.obtainMessage();
                 obtainMessage.obj = socketTimeoutException.getMessage();
                 obtainMessage.what = -8;
-                this.f76565c.sendMessage(obtainMessage);
+                this.f69923c.sendMessage(obtainMessage);
             }
         }
 
@@ -221,10 +221,10 @@ public abstract class BaseApi {
         public void onUnknowException(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, exc) == null) {
-                Message obtainMessage = this.f76565c.obtainMessage();
+                Message obtainMessage = this.f69923c.obtainMessage();
                 obtainMessage.obj = exc.getMessage();
                 obtainMessage.what = -6;
-                this.f76565c.sendMessage(obtainMessage);
+                this.f69923c.sendMessage(obtainMessage);
             }
         }
     }
@@ -259,8 +259,8 @@ public abstract class BaseApi {
                 return;
             }
         }
-        this.f76561b = cVar;
-        this.f76562c = qQToken;
+        this.f69919b = cVar;
+        this.f69920c = qQToken;
     }
 
     public Bundle a() {
@@ -274,12 +274,12 @@ public abstract class BaseApi {
             bundle.putString("status_version", Build.VERSION.SDK);
             bundle.putString("sdkv", Constants.SDK_VERSION);
             bundle.putString("sdkp", "a");
-            QQToken qQToken = this.f76562c;
+            QQToken qQToken = this.f69920c;
             if (qQToken != null && qQToken.isSessionValid()) {
-                bundle.putString("access_token", this.f76562c.getAccessToken());
-                bundle.putString("oauth_consumer_key", this.f76562c.getAppId());
-                bundle.putString("openid", this.f76562c.getOpenId());
-                bundle.putString("appid_for_getting_config", this.f76562c.getAppId());
+                bundle.putString("access_token", this.f69920c.getAccessToken());
+                bundle.putString("oauth_consumer_key", this.f69920c.getAppId());
+                bundle.putString("openid", this.f69920c.getOpenId());
+                bundle.putString("appid_for_getting_config", this.f69920c.getAppId());
             }
             SharedPreferences sharedPreferences = f.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
             if (isOEM) {
@@ -297,12 +297,12 @@ public abstract class BaseApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("appid", this.f76562c.getAppId());
-            if (this.f76562c.isSessionValid()) {
-                bundle.putString(Constants.PARAM_KEY_STR, this.f76562c.getAccessToken());
+            bundle.putString("appid", this.f69920c.getAppId());
+            if (this.f69920c.isSessionValid()) {
+                bundle.putString(Constants.PARAM_KEY_STR, this.f69920c.getAccessToken());
                 bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
             }
-            String openId = this.f76562c.getOpenId();
+            String openId = this.f69920c.getOpenId();
             if (openId != null) {
                 bundle.putString("hopenid", openId);
             }
@@ -480,7 +480,7 @@ public abstract class BaseApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, bundle, iUiListener) == null) {
             SLog.i("openSDK_LOG.BaseApi", "--handleDownloadLastestQQ");
-            new TDialog(activity, "", "https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.f76562c).show();
+            new TDialog(activity, "", "https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.f69920c).show();
         }
     }
 }

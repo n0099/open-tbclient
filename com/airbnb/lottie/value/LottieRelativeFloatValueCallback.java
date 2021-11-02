@@ -2,7 +2,7 @@ package com.airbnb.lottie.value;
 
 import androidx.annotation.NonNull;
 import com.airbnb.lottie.utils.MiscUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LottieRelativeFloatValueCallback extends LottieValueCallback<Float> {
     public LottieRelativeFloatValueCallback() {
     }

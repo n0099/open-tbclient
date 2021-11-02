@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.memory;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MemoryPooledByteBuffer implements PooledByteBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,12 +83,20 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         return (ByteBuffer) invokeV.objValue;
     }
 
+    @VisibleForTesting
+    @GuardedBy("this")
+    public CloseableReference<MemoryChunk> getCloseableReference() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBufRef : (CloseableReference) invokeV.objValue;
+    }
+
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized long getNativePtr() throws UnsupportedOperationException {
         InterceptResult invokeV;
         long nativePtr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 ensureValid();
                 nativePtr = this.mBufRef.get().getNativePtr();
@@ -102,7 +111,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 z = !CloseableReference.isValid(this.mBufRef);
             }
@@ -116,7 +125,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         InterceptResult invokeI;
         byte read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             synchronized (this) {
                 ensureValid();
                 boolean z = true;
@@ -137,7 +146,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
                 ensureValid();
                 i2 = this.mSize;
@@ -152,7 +161,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         InterceptResult invokeCommon;
         int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             synchronized (this) {
                 ensureValid();
                 Preconditions.checkArgument(i2 + i4 <= this.mSize);

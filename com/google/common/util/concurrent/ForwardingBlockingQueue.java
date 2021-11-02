@@ -1,7 +1,7 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.c.i0;
+import b.i.d.c.i0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ForwardingBlockingQueue<E> extends i0<E> implements BlockingQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public abstract class ForwardingBlockingQueue<E> extends i0<E> implements Blocki
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.i0, c.i.d.c.y, c.i.d.c.h0
+    @Override // b.i.d.c.i0, b.i.d.c.y, b.i.d.c.h0
     public abstract BlockingQueue<E> delegate();
 
     @Override // java.util.concurrent.BlockingQueue
@@ -41,17 +41,17 @@ public abstract class ForwardingBlockingQueue<E> extends i0<E> implements Blocki
     }
 
     @Override // java.util.concurrent.BlockingQueue
-    public boolean offer(E e2, long j2, TimeUnit timeUnit) throws InterruptedException {
+    public boolean offer(E e2, long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{e2, Long.valueOf(j2), timeUnit})) == null) ? delegate().offer(e2, j2, timeUnit) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{e2, Long.valueOf(j), timeUnit})) == null) ? delegate().offer(e2, j, timeUnit) : invokeCommon.booleanValue;
     }
 
     @Override // java.util.concurrent.BlockingQueue
-    public E poll(long j2, TimeUnit timeUnit) throws InterruptedException {
+    public E poll(long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048583, this, j2, timeUnit)) == null) ? delegate().poll(j2, timeUnit) : (E) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048583, this, j, timeUnit)) == null) ? delegate().poll(j, timeUnit) : (E) invokeJL.objValue;
     }
 
     @Override // java.util.concurrent.BlockingQueue

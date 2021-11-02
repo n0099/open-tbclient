@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class f extends com.baidu.platform.base.a implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetPoiSearchResultListener f44303b;
+    public OnGetPoiSearchResultListener f42065b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -34,16 +34,16 @@ public class f extends com.baidu.platform.base.a implements a {
                 return;
             }
         }
-        this.f44303b = null;
+        this.f42065b = null;
     }
 
     @Override // com.baidu.platform.core.c.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44265a.lock();
-            this.f44303b = null;
-            this.f44265a.unlock();
+            this.f42027a.lock();
+            this.f42065b = null;
+            this.f42027a.unlock();
         }
     }
 
@@ -51,9 +51,9 @@ public class f extends com.baidu.platform.base.a implements a {
     public void a(OnGetPoiSearchResultListener onGetPoiSearchResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetPoiSearchResultListener) == null) {
-            this.f44265a.lock();
-            this.f44303b = onGetPoiSearchResultListener;
-            this.f44265a.unlock();
+            this.f42027a.lock();
+            this.f42065b = onGetPoiSearchResultListener;
+            this.f42027a.unlock();
         }
     }
 
@@ -63,8 +63,8 @@ public class f extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, poiBoundSearchOption)) == null) {
             g gVar = new g(poiBoundSearchOption.mPageNum, poiBoundSearchOption.mPageCapacity);
-            gVar.a(SearchType.f44257c);
-            return a(new i(poiBoundSearchOption), this.f44303b, gVar);
+            gVar.a(SearchType.f42020c);
+            return a(new i(poiBoundSearchOption), this.f42065b, gVar);
         }
         return invokeL.booleanValue;
     }
@@ -75,8 +75,8 @@ public class f extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, poiCitySearchOption)) == null) {
             g gVar = new g(poiCitySearchOption.mPageNum, poiCitySearchOption.mPageCapacity);
-            gVar.a(SearchType.f44256b);
-            return a(new i(poiCitySearchOption), this.f44303b, gVar);
+            gVar.a(SearchType.f42019b);
+            return a(new i(poiCitySearchOption), this.f42065b, gVar);
         }
         return invokeL.booleanValue;
     }
@@ -90,8 +90,8 @@ public class f extends com.baidu.platform.base.a implements a {
             if (poiDetailSearchOption != null) {
                 dVar.a(poiDetailSearchOption.isSearchByUids());
             }
-            dVar.a(SearchType.f44258d);
-            return a(new e(poiDetailSearchOption), this.f44303b, dVar);
+            dVar.a(SearchType.f42021d);
+            return a(new e(poiDetailSearchOption), this.f42065b, dVar);
         }
         return invokeL.booleanValue;
     }
@@ -102,8 +102,8 @@ public class f extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, poiIndoorOption)) == null) {
             b bVar = new b();
-            bVar.a(SearchType.f44259e);
-            return a(new c(poiIndoorOption), this.f44303b, bVar);
+            bVar.a(SearchType.f42022e);
+            return a(new c(poiIndoorOption), this.f42065b, bVar);
         }
         return invokeL.booleanValue;
     }
@@ -114,8 +114,8 @@ public class f extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, poiNearbySearchOption)) == null) {
             g gVar = new g(poiNearbySearchOption.mPageNum, poiNearbySearchOption.mPageCapacity);
-            gVar.a(SearchType.f44255a);
-            return a(new i(poiNearbySearchOption), this.f44303b, gVar);
+            gVar.a(SearchType.f42018a);
+            return a(new i(poiNearbySearchOption), this.f42065b, gVar);
         }
         return invokeL.booleanValue;
     }

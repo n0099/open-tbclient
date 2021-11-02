@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class f extends a<Boolean> {
     public f(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -25,7 +25,7 @@ public class f extends a<Boolean> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        c.l.a.a.a.d("AbstractMessageHandler", "start UnRegisterMessageHandler match");
+        b.l.a.a.a.d("AbstractMessageHandler", "start UnRegisterMessageHandler match");
         return PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction()) || (PushConstants.REQUEST_UNREGISTRATION_INTENT.equals(intent.getAction()) && TextUtils.isEmpty(intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED)));
     }
 
@@ -36,7 +36,7 @@ public class f extends a<Boolean> {
         boolean booleanExtra = intent.getBooleanExtra(PushConstants.EXTRA_APP_IS_UNREGISTER_SUCCESS, false);
         String stringExtra = intent.getStringExtra(PushConstants.EXTRA_REGISTRATION_ERROR);
         String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED);
-        c.l.a.a.a.d("AbstractMessageHandler", "processUnRegisterCallback 5.0:" + booleanExtra + " 4.0:" + stringExtra + " 3.0:" + stringExtra2);
+        b.l.a.a.a.d("AbstractMessageHandler", "processUnRegisterCallback 5.0:" + booleanExtra + " 4.0:" + stringExtra + " 3.0:" + stringExtra2);
         if (TextUtils.isEmpty(stringExtra) || booleanExtra || !TextUtils.isEmpty(stringExtra2)) {
             com.meizu.cloud.pushsdk.util.b.g(c(), "", c().getPackageName());
             return Boolean.TRUE;

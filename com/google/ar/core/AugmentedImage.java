@@ -4,19 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class AugmentedImage extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AugmentedImage(long j2, Session session) {
-        super(j2, session);
+    public AugmentedImage(long j, Session session) {
+        super(j, session);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), session};
+            Object[] objArr = {Long.valueOf(j), session};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -30,13 +30,13 @@ public class AugmentedImage extends TrackableBase {
         }
     }
 
-    private native c.i.c.a.a nativeGetCenterPose(long j2, long j3);
+    private native b.i.c.a.a nativeGetCenterPose(long j, long j2);
 
-    private native float nativeGetExtentX(long j2, long j3);
+    private native float nativeGetExtentX(long j, long j2);
 
-    private native float nativeGetExtentZ(long j2, long j3);
+    private native float nativeGetExtentZ(long j, long j2);
 
-    private native int nativeGetIndex(long j2, long j3);
+    private native int nativeGetIndex(long j, long j2);
 
-    private native String nativeGetName(long j2, long j3);
+    private native String nativeGetName(long j, long j2);
 }

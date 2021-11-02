@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gx;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bf {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f78523d = 300000;
+    public static int f71461d = 300000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f78524a;
+    public int f71462a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f930a;
+    public long f931a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f931a;
+    public XMPushService f932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f78525b;
+    public int f71463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f78526c;
+    public int f71464c;
 
     static {
         InterceptResult invokeClinit;
@@ -63,47 +63,47 @@ public class bf {
                 return;
             }
         }
-        this.f78525b = 0;
-        this.f78526c = 0;
-        this.f931a = xMPushService;
-        this.f78524a = 500;
-        this.f930a = 0L;
+        this.f71463b = 0;
+        this.f71464c = 0;
+        this.f932a = xMPushService;
+        this.f71462a = 500;
+        this.f931a = 0L;
     }
 
     private int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.f78525b > 8) {
+            if (this.f71463b > 8) {
                 return 300000;
             }
             double random = (Math.random() * 2.0d) + 1.0d;
-            int i2 = this.f78525b;
+            int i2 = this.f71463b;
             if (i2 > 4) {
                 return (int) (random * 60000.0d);
             }
             if (i2 > 1) {
                 return (int) (random * 10000.0d);
             }
-            if (this.f930a == 0) {
+            if (this.f931a == 0) {
                 return 0;
             }
-            if (System.currentTimeMillis() - this.f930a >= 310000) {
-                this.f78524a = 1000;
-                this.f78526c = 0;
+            if (System.currentTimeMillis() - this.f931a >= 310000) {
+                this.f71462a = 1000;
+                this.f71464c = 0;
                 return 0;
             }
-            int i3 = this.f78524a;
-            int i4 = f78523d;
+            int i3 = this.f71462a;
+            int i4 = f71461d;
             if (i3 >= i4) {
                 return i3;
             }
-            int i5 = this.f78526c + 1;
-            this.f78526c = i5;
+            int i5 = this.f71464c + 1;
+            this.f71464c = i5;
             if (i5 >= 4) {
                 return i4;
             }
-            this.f78524a = (int) (i3 * 1.5d);
+            this.f71462a = (int) (i3 * 1.5d);
             return i3;
         }
         return invokeV.intValue;
@@ -113,37 +113,37 @@ public class bf {
     public void m614a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f930a = System.currentTimeMillis();
-            this.f931a.a(1);
-            this.f78525b = 0;
+            this.f931a = System.currentTimeMillis();
+            this.f932a.a(1);
+            this.f71463b = 0;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!this.f931a.m566a()) {
+            if (!this.f932a.m566a()) {
                 com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
             } else if (z) {
-                if (!this.f931a.m567a(1)) {
-                    this.f78525b++;
+                if (!this.f932a.m567a(1)) {
+                    this.f71463b++;
                 }
-                this.f931a.a(1);
-                XMPushService xMPushService = this.f931a;
+                this.f932a.a(1);
+                XMPushService xMPushService = this.f932a;
                 xMPushService.getClass();
                 xMPushService.a(new XMPushService.d(xMPushService));
-            } else if (this.f931a.m567a(1)) {
+            } else if (this.f932a.m567a(1)) {
             } else {
                 int a2 = a();
-                this.f78525b++;
+                this.f71463b++;
                 com.xiaomi.channel.commonutils.logger.b.m73a("schedule reconnect in " + a2 + "ms");
-                XMPushService xMPushService2 = this.f931a;
+                XMPushService xMPushService2 = this.f932a;
                 xMPushService2.getClass();
                 xMPushService2.a(new XMPushService.d(xMPushService2), (long) a2);
-                if (this.f78525b == 2 && gx.m366a().m371a()) {
+                if (this.f71463b == 2 && gx.m366a().m371a()) {
                     ag.b();
                 }
-                if (this.f78525b == 3) {
+                if (this.f71463b == 3) {
                     ag.a();
                 }
             }

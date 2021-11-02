@@ -5,6 +5,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import b.q.a.c3;
+import b.q.a.g3;
+import b.q.a.m2;
+import b.q.a.r0;
+import b.q.a.y2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
@@ -12,15 +17,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.N;
-import com.win.opensdk.U1;
-import com.win.opensdk.Y0;
-import com.win.opensdk.Z0;
-import com.win.opensdk.a1;
 import com.win.opensdk.core.Info;
 import java.io.File;
 import org.json.JSONException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class WinDReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,10 +43,12 @@ public class WinDReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, info) == null) {
             try {
-                File file = new File(N.a(context, info.getOpen()));
+                File file = new File(r0.f(context, info.getOpen()));
                 if (file.exists()) {
                     file.delete();
-                    Z0.a(context).a(new a1(info), info.getDl_pkg(), info.getDl_vsc(), 2).a();
+                    y2 a2 = c3.a(context);
+                    a2.j(new g3(info), info.getDl_pkg(), info.getDl_vsc(), 2);
+                    a2.m();
                     ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(232);
                 }
             } catch (Exception e2) {
@@ -64,7 +66,7 @@ public class WinDReceiver extends BroadcastReceiver {
             String dataString = intent.getDataString();
             String str = (TextUtils.isEmpty(dataString) || !dataString.contains(":") || (split = dataString.split(":")) == null || split.length <= 0) ? "" : split[1];
             try {
-                Info info = (Info) U1.b(context, str);
+                Info info = (Info) m2.i(context, str);
                 if (info == null || TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -75,17 +77,17 @@ public class WinDReceiver extends BroadcastReceiver {
                     z = false;
                 }
                 if (z) {
-                    Y0 a2 = Z0.a(context);
+                    y2 a2 = c3.a(context);
                     try {
-                        a2.f77289b = Z0.a("wie", new a1(info));
-                        a2.a("co", 200);
+                        a2.f33579b = c3.d("wie", new g3(info));
+                        a2.k("co", 200);
                     } catch (JSONException unused) {
                     }
-                    a2.a();
+                    a2.m();
                     try {
-                        N.a(info, 302, "");
+                        r0.o(info, 302, "");
                         if (!TextUtils.isEmpty(info.getVv_ins_urls())) {
-                            N.g(info.getVv_ins_urls());
+                            r0.K(info.getVv_ins_urls());
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
@@ -105,18 +107,18 @@ public class WinDReceiver extends BroadcastReceiver {
             try {
                 Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                 if (launchIntentForPackage != null) {
-                    Y0 a2 = Z0.a(context);
-                    a1 a1Var = new a1(info);
+                    y2 a2 = c3.a(context);
+                    g3 g3Var = new g3(info);
                     String open = info.getOpen();
                     try {
-                        a2.f77289b = Z0.a("wiop", a1Var);
-                        a2.a("msg", Z0.a(open));
+                        a2.f33579b = c3.d("wiop", g3Var);
+                        a2.l("msg", c3.b(open));
                     } catch (JSONException unused) {
                     }
-                    a2.a();
+                    a2.m();
                     launchIntentForPackage.setFlags(268435456);
                     context.startActivity(launchIntentForPackage);
-                    U1.a(context, str);
+                    m2.e(context, str);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

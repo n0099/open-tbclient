@@ -3,26 +3,30 @@ package com.facebook.imagepipeline.platform;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.memory.FlexByteArrayPool;
 import com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder;
 import javax.annotation.concurrent.ThreadSafe;
+@DoNotStrip
 @ThreadSafe
 @TargetApi(19)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FlexByteArrayPool mFlexByteArrayPool;
 
+    @DoNotStrip
     public KitKatPurgeableDecoder(FlexByteArrayPool flexByteArrayPool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,7 +49,7 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, null, bArr, i2) == null) {
             bArr[i2] = -1;
-            bArr[i2 + 1] = -39;
+            bArr[i2 + 1] = ExifInterface.MARKER_EOI;
         }
     }
 

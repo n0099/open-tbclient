@@ -20,7 +20,7 @@ import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SubSampleInformationBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "subs";
@@ -31,7 +31,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
     public List<SampleEntry> entries;
     public long entryCount;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class SampleEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
         public int subsampleCount;
         public List<SubsampleEntry> subsampleEntries;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public static class SubsampleEntry {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -93,10 +93,10 @@ public class SubSampleInformationBox extends AbstractFullBox {
                 }
             }
 
-            public void setReserved(long j2) {
+            public void setReserved(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                    this.reserved = j2;
+                if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                    this.reserved = j;
                 }
             }
 
@@ -107,10 +107,10 @@ public class SubSampleInformationBox extends AbstractFullBox {
                 }
             }
 
-            public void setSubsampleSize(long j2) {
+            public void setSubsampleSize(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                    this.subsampleSize = j2;
+                if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+                    this.subsampleSize = j;
                 }
             }
 
@@ -166,10 +166,10 @@ public class SubSampleInformationBox extends AbstractFullBox {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.subsampleEntries : (List) invokeV.objValue;
         }
 
-        public void setSampleDelta(long j2) {
+        public void setSampleDelta(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.sampleDelta = j2;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.sampleDelta = j;
             }
         }
 
@@ -283,12 +283,12 @@ public class SubSampleInformationBox extends AbstractFullBox {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = (this.entryCount * 6) + 8;
+            long j = (this.entryCount * 6) + 8;
             int i2 = 0;
             for (SampleEntry sampleEntry : this.entries) {
                 i2 += sampleEntry.getSubsampleCount() * ((getVersion() == 1 ? 4 : 2) + 1 + 1 + 4);
             }
-            return j2 + i2;
+            return j + i2;
         }
         return invokeV.longValue;
     }

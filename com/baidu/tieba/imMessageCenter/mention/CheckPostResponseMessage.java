@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.CheckPost.CheckPostResIdl;
 import tbclient.CheckPost.ResData;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CheckPostResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,31 +69,31 @@ public class CheckPostResponseMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.repostId : invokeV.longValue;
     }
 
-    public void setForumId(long j2) {
+    public void setForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.forumId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.forumId = j;
         }
     }
 
-    public void setPostState(long j2) {
+    public void setPostState(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.postState = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.postState = j;
         }
     }
 
-    public void setQuoteId(long j2) {
+    public void setQuoteId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.quoteId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.quoteId = j;
         }
     }
 
-    public void setRepostId(long j2) {
+    public void setRepostId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.repostId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.repostId = j;
         }
     }
 

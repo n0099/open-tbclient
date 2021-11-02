@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.e.e.f.a;
-import c.a.q0.s.d0.b;
+import b.a.e.e.f.a;
+import b.a.q0.s.e0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SplashDealyTimeoutSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "ad_screen_delay_switch";
@@ -38,14 +38,14 @@ public class SplashDealyTimeoutSwitch extends a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b.j().k("pref_key_splash_timeout_enable", 1) == 1 : invokeV.booleanValue;
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
         }
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class SplashDealyTimeoutSwitch extends a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class SplashDealyTimeoutSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public class SplashDealyTimeoutSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

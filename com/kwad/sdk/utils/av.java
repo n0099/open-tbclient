@@ -23,41 +23,41 @@ import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import java.lang.reflect.Field;
 import java.util.HashSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class av {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f74281a;
+    public static int f66664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f74282b;
+    public static long f66665b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            int i2 = f74281a;
+            int i2 = f66664a;
             if (i2 <= 0 && context != null) {
                 int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
                 if (identifier > 0) {
-                    f74281a = context.getResources().getDimensionPixelSize(identifier);
+                    f66664a = context.getResources().getDimensionPixelSize(identifier);
                 } else {
                     try {
                         Class<?> cls = Class.forName("com.android.internal.R$dimen");
                         Object newInstance = cls.newInstance();
                         Field field = cls.getField("status_bar_height");
                         field.setAccessible(true);
-                        f74281a = context.getResources().getDimensionPixelSize(Integer.parseInt(field.get(newInstance).toString()));
+                        f66664a = context.getResources().getDimensionPixelSize(Integer.parseInt(field.get(newInstance).toString()));
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
                 }
-                if (f74281a <= 0) {
-                    f74281a = a(context, 25.0f);
+                if (f66664a <= 0) {
+                    f66664a = a(context, 25.0f);
                 }
-                return f74281a;
+                return f66664a;
             }
             return i2;
         }
@@ -140,8 +140,8 @@ public class av {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();
-            int i2 = (Math.abs(uptimeMillis - f74282b) > 500L ? 1 : (Math.abs(uptimeMillis - f74282b) == 500L ? 0 : -1));
-            f74282b = uptimeMillis;
+            int i2 = (Math.abs(uptimeMillis - f66665b) > 500L ? 1 : (Math.abs(uptimeMillis - f66665b) == 500L ? 0 : -1));
+            f66665b = uptimeMillis;
             return i2 < 0;
         }
         return invokeV.booleanValue;

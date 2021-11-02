@@ -1,13 +1,13 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.e.e.f.a;
+import b.a.e.e.f.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UrlNeedCuidSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_CLOSE = 0;
@@ -29,21 +29,21 @@ public class UrlNeedCuidSwitch extends a {
         }
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
         }
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class UrlNeedCuidSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public class UrlNeedCuidSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? URL_NEED_CUID_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // c.a.e.e.f.a
+    @Override // b.a.e.e.f.a
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

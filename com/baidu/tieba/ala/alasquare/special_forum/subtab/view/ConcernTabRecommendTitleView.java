@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.r0.b0.b;
-import c.a.r0.w.f.g.c.g;
+import b.a.r0.b0.b;
+import b.a.r0.w.f.g.c.g;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ConcernTabRecommendTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,45 +73,45 @@ public class ConcernTabRecommendTitleView extends b<g> {
                 return;
             }
         }
-        this.m = new ViewHolder(j());
-        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.m = new ViewHolder(i());
+        k(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.r0.b0.b
-    public int f() {
+    @Override // b.a.r0.b0.b
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.special_bar_concern_recommend_title : invokeV.intValue;
     }
 
-    @Override // c.a.r0.b0.b
-    public void l(TbPageContext<?> tbPageContext, int i2) {
+    @Override // b.a.r0.b0.b
+    public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
             SkinManager.setViewTextColor(this.m.textView, R.color.CAM_X0109);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.b0.b
-    /* renamed from: p */
-    public void k(g gVar) {
+    @Override // b.a.r0.b0.b
+    /* renamed from: o */
+    public void j(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (viewHolder = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || (viewHolder = this.m) == null) {
             return;
         }
-        if (gVar.f25998e) {
+        if (gVar.f24834e) {
             viewHolder.devider.setVisibility(0);
         } else {
             viewHolder.devider.setVisibility(8);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
         }
     }
 }

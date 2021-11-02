@@ -2,13 +2,13 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.widget.TextView;
+import b.a.r0.x0.e1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsGodViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class FrsGodViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.skinType = 3;
-        this.mReplyTime = (TextView) getView().findViewById(R.id.frs_god_lv_reply_time);
-        this.mPraiseNum = (TextView) getView().findViewById(R.id.frs_god_praise_num);
-        this.mReplyNum = (TextView) getView().findViewById(R.id.frs_god_reply_num);
-        this.locationAddress = (TextView) getView().findViewById(R.id.frs_god_item_location_address);
+        this.mReplyTime = (TextView) getView().findViewById(e1.frs_god_lv_reply_time);
+        this.mPraiseNum = (TextView) getView().findViewById(e1.frs_god_praise_num);
+        this.mReplyNum = (TextView) getView().findViewById(e1.frs_god_reply_num);
+        this.locationAddress = (TextView) getView().findViewById(e1.frs_god_item_location_address);
     }
 }

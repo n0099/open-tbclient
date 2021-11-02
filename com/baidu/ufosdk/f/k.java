@@ -3,6 +3,7 @@ package com.baidu.ufosdk.f;
 import android.annotation.SuppressLint;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +27,7 @@ public final class k {
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             Random random = new Random();
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(a("W", false));
+            stringBuffer.append(a(ExifInterface.LONGITUDE_WEST, false));
             stringBuffer.append(a("9", true));
             stringBuffer.append(random.nextInt(1) + 1);
             stringBuffer.append(a("Y", true));

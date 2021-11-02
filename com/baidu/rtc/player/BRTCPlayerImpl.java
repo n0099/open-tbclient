@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.i0;
+import g.c.i0;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -48,7 +48,7 @@ import org.webrtc.SessionDescription;
 import org.webrtc.StatsReport;
 import org.webrtc.VideoTrack;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConnectionEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AUDIO_BUFFER_MAINTAINABLE_MS = 50;
@@ -365,10 +365,10 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         }
     }
 
-    private void prepareSdp(long j2, String str) {
+    private void prepareSdp(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65561, this, j2, str) == null) {
-            RemoteSdpRequest remoteSdpRequest = new RemoteSdpRequest(str, j2, this.mStreamUrl);
+        if (interceptable == null || interceptable.invokeJL(65561, this, j, str) == null) {
+            RemoteSdpRequest remoteSdpRequest = new RemoteSdpRequest(str, j, this.mStreamUrl);
             Logging.d(TAG, "Connecting to signaling server: " + this.mPullUrl + "\n offer sdp:" + str);
             AsyncHttpRequest asyncHttpRequest = new AsyncHttpRequest("POST", this.mPullUrl, remoteSdpRequest.toJSONString(), "application/json", new AsyncHttpRequest.AsyncHttpEvents(this) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.6
                 public static /* synthetic */ Interceptable $ic;

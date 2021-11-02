@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.net.Uri;
-import c.a.e.e.m.b;
+import b.a.e.e.m.b;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MyGiftListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AccountTypeForum = 1;

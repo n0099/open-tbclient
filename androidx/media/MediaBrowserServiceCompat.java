@@ -1891,15 +1891,15 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
 
         @Override // android.os.Handler
-        public boolean sendMessageAtTime(Message message, long j2) {
+        public boolean sendMessageAtTime(Message message, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, message, j2)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, message, j)) == null) {
                 Bundle data = message.getData();
                 data.setClassLoader(MediaBrowserCompat.class.getClassLoader());
                 data.putInt("data_calling_uid", Binder.getCallingUid());
                 data.putInt("data_calling_pid", Binder.getCallingPid());
-                return super.sendMessageAtTime(message, j2);
+                return super.sendMessageAtTime(message, j);
             }
             return invokeLJ.booleanValue;
         }

@@ -366,10 +366,10 @@ public abstract class AbsActionBarView extends ViewGroup {
         super.setVisibility(i2);
     }
 
-    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j2) {
+    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVisibilityAnim;
             if (viewPropertyAnimatorCompat != null) {
                 viewPropertyAnimatorCompat.cancel();
@@ -379,12 +379,12 @@ public abstract class AbsActionBarView extends ViewGroup {
                     setAlpha(0.0f);
                 }
                 ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this).alpha(1.0f);
-                alpha.setDuration(j2);
+                alpha.setDuration(j);
                 alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i2));
                 return alpha;
             }
             ViewPropertyAnimatorCompat alpha2 = ViewCompat.animate(this).alpha(0.0f);
-            alpha2.setDuration(j2);
+            alpha2.setDuration(j);
             alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i2));
             return alpha2;
         }

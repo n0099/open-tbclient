@@ -3,21 +3,41 @@ package com.facebook.imagepipeline.cache;
 import android.app.ActivityManager;
 import android.os.Build;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
-/* loaded from: classes9.dex */
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes11.dex */
 public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCacheParams> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_ENTRIES = 256;
     public static final int MAX_CACHE_ENTRY_SIZE = Integer.MAX_VALUE;
     public static final int MAX_EVICTION_QUEUE_ENTRIES = Integer.MAX_VALUE;
     public static final int MAX_EVICTION_QUEUE_SIZE = Integer.MAX_VALUE;
+    public static final long PARAMS_CHECK_INTERVAL_MS;
     public transient /* synthetic */ FieldHolder $fh;
     public final ActivityManager mActivityManager;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(9579466, "Lcom/facebook/imagepipeline/cache/DefaultBitmapMemoryCacheParamsSupplier;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(9579466, "Lcom/facebook/imagepipeline/cache/DefaultBitmapMemoryCacheParamsSupplier;");
+                return;
+            }
+        }
+        PARAMS_CHECK_INTERVAL_MS = TimeUnit.MINUTES.toMillis(5L);
+    }
 
     public DefaultBitmapMemoryCacheParamsSupplier(ActivityManager activityManager) {
         Interceptable interceptable = $ic;
@@ -25,12 +45,12 @@ public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCa
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {activityManager};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -40,7 +60,7 @@ public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCa
     private int getMaxCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             int min = Math.min(this.mActivityManager.getMemoryClass() * 1048576, Integer.MAX_VALUE);
             if (min < 33554432) {
                 return 4194304;
@@ -62,6 +82,6 @@ public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCa
     public MemoryCacheParams get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MemoryCacheParams(getMaxCacheSize(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE) : (MemoryCacheParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MemoryCacheParams(getMaxCacheSize(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, PARAMS_CHECK_INTERVAL_MS) : (MemoryCacheParams) invokeV.objValue;
     }
 }

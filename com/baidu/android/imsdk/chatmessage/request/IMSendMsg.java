@@ -19,14 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMSendMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSendMsg";
@@ -41,12 +40,12 @@ public class IMSendMsg extends Message {
     public long mToUser;
     public int mType;
 
-    public IMSendMsg(Context context, long j2, int i2, String str, String str2, List<Long> list, List<Long> list2) {
+    public IMSendMsg(Context context, long j, int i2, String str, String str2, List<Long> list, List<Long> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), str, str2, list, list2};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), str, str2, list, list2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -56,10 +55,10 @@ public class IMSendMsg extends Message {
                 return;
             }
         }
-        LogUtils.d(TAG, "IMSendMsg " + j2 + " " + i2 + GlideException.IndentedAppendable.INDENT + str);
+        LogUtils.d(TAG, "IMSendMsg " + j + " " + i2 + GlideException.IndentedAppendable.INDENT + str);
         this.mContext = context;
         initCommonParameter(context);
-        this.mToUser = j2;
+        this.mToUser = j;
         this.mType = i2;
         this.mContent = str;
         this.mMsgKey = str2;
@@ -137,7 +136,7 @@ public class IMSendMsg extends Message {
                     jSONObject.put("type", this.mType);
                     jSONObject.put("content", this.mContent);
                     jSONObject.put("msg_key", this.mMsgKey);
-                    jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                    jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                     this.mBody = jSONObject.toString();
                 }
                 jSONObject.put("method", 55);
@@ -161,7 +160,7 @@ public class IMSendMsg extends Message {
                 jSONObject.put("type", this.mType);
                 jSONObject.put("content", this.mContent);
                 jSONObject.put("msg_key", this.mMsgKey);
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 this.mBody = jSONObject.toString();
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "Exception ", e2);
@@ -182,21 +181,21 @@ public class IMSendMsg extends Message {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, i2, str) == null) {
             String str2 = "";
-            long j2 = -1;
+            long j = -1;
             boolean z = false;
             try {
                 z = jSONObject.has("msgid");
                 if (z) {
                     getChatMsg().setMsgId(jSONObject.getLong("msgid"));
                 }
-                j2 = jSONObject.optLong("time", -1L);
+                j = jSONObject.optLong("time", -1L);
                 if (jSONObject.optBoolean("display_tips")) {
                     str2 = jSONObject.optString("tips");
                 }
             } catch (Exception e2) {
                 LogUtils.e(TAG, "handle IMSendMsg exception :", e2);
             }
-            long j3 = j2;
+            long j2 = j;
             if (i2 != 0 || z) {
                 i3 = i2;
             } else {
@@ -207,7 +206,7 @@ public class IMSendMsg extends Message {
             LogUtils.d(TAG, "errorCode:" + i3 + "  strMsg" + str);
             getChatMsg().setTipsCode(i3);
             getChatMsg().setTips(str2);
-            ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i3, getChatMsg(), j3, getListenerKey());
+            ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i3, getChatMsg(), j2, getListenerKey());
         }
     }
 

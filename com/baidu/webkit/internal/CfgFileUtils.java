@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CfgFileUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ALT_SERVICE = "alt_service";

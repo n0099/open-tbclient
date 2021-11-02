@@ -85,7 +85,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class Completable implements CompletableSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -388,23 +388,23 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    private Completable timeout0(long j2, TimeUnit timeUnit, Scheduler scheduler, CompletableSource completableSource) {
+    private Completable timeout0(long j, TimeUnit timeUnit, Scheduler scheduler, CompletableSource completableSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65566, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, completableSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65566, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, completableSource})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new CompletableTimeout(this, j2, timeUnit, scheduler, completableSource));
+            return RxJavaPlugins.onAssembly(new CompletableTimeout(this, j, timeUnit, scheduler, completableSource));
         }
         return (Completable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public static Completable timer(long j2, TimeUnit timeUnit) {
+    public static Completable timer(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65567, null, j2, timeUnit)) == null) ? timer(j2, timeUnit, Schedulers.computation()) : (Completable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65567, null, j, timeUnit)) == null) ? timer(j, timeUnit, Schedulers.computation()) : (Completable) invokeJL.objValue;
     }
 
     public static NullPointerException toNpe(Throwable th) {
@@ -542,10 +542,10 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Completable delay(long j2, TimeUnit timeUnit) {
+    public final Completable delay(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048590, this, j2, timeUnit)) == null) ? delay(j2, timeUnit, Schedulers.computation(), false) : (Completable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048590, this, j, timeUnit)) == null) ? delay(j, timeUnit, Schedulers.computation(), false) : (Completable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -832,10 +832,10 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Completable timeout(long j2, TimeUnit timeUnit) {
+    public final Completable timeout(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048631, this, j2, timeUnit)) == null) ? timeout0(j2, timeUnit, Schedulers.computation(), null) : (Completable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048631, this, j, timeUnit)) == null) ? timeout0(j, timeUnit, Schedulers.computation(), null) : (Completable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -935,13 +935,13 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public static Completable timer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Completable timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65568, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65568, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new CompletableTimer(j2, timeUnit, scheduler));
+            return RxJavaPlugins.onAssembly(new CompletableTimer(j, timeUnit, scheduler));
         }
         return (Completable) invokeCommon.objValue;
     }
@@ -962,10 +962,10 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Completable delay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Completable delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? delay(j2, timeUnit, scheduler, false) : (Completable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? delay(j, timeUnit, scheduler, false) : (Completable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -982,10 +982,10 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable repeat(long j2) {
+    public final Completable repeat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) ? fromPublisher(toFlowable().repeat(j2)) : (Completable) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j)) == null) ? fromPublisher(toFlowable().repeat(j)) : (Completable) invokeJ.objValue;
     }
 
     @SchedulerSupport("none")
@@ -998,12 +998,12 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Completable timeout(long j2, TimeUnit timeUnit, CompletableSource completableSource) {
+    public final Completable timeout(long j, TimeUnit timeUnit, CompletableSource completableSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048632, this, new Object[]{Long.valueOf(j2), timeUnit, completableSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048632, this, new Object[]{Long.valueOf(j), timeUnit, completableSource})) == null) {
             ObjectHelper.requireNonNull(completableSource, "other is null");
-            return timeout0(j2, timeUnit, Schedulers.computation(), completableSource);
+            return timeout0(j, timeUnit, Schedulers.computation(), completableSource);
         }
         return (Completable) invokeCommon.objValue;
     }
@@ -1062,23 +1062,23 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Completable delay(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public final Completable delay(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new CompletableDelay(this, j2, timeUnit, scheduler, z));
+            return RxJavaPlugins.onAssembly(new CompletableDelay(this, j, timeUnit, scheduler, z));
         }
         return (Completable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable retry(long j2) {
+    public final Completable retry(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048614, this, j2)) == null) ? fromPublisher(toFlowable().retry(j2)) : (Completable) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048614, this, j)) == null) ? fromPublisher(toFlowable().retry(j)) : (Completable) invokeJ.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1161,28 +1161,28 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final boolean blockingAwait(long j2, TimeUnit timeUnit) {
+    public final boolean blockingAwait(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, timeUnit)) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             BlockingMultiObserver blockingMultiObserver = new BlockingMultiObserver();
             subscribe(blockingMultiObserver);
-            return blockingMultiObserver.blockingAwait(j2, timeUnit);
+            return blockingMultiObserver.blockingAwait(j, timeUnit);
         }
         return invokeJL.booleanValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Throwable blockingGet(long j2, TimeUnit timeUnit) {
+    public final Throwable blockingGet(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048586, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048586, this, j, timeUnit)) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             BlockingMultiObserver blockingMultiObserver = new BlockingMultiObserver();
             subscribe(blockingMultiObserver);
-            return blockingMultiObserver.blockingGetError(j2, timeUnit);
+            return blockingMultiObserver.blockingGetError(j, timeUnit);
         }
         return (Throwable) invokeJL.objValue;
     }
@@ -1190,18 +1190,18 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @CheckReturnValue
     @Experimental
-    public final Completable retry(long j2, Predicate<? super Throwable> predicate) {
+    public final Completable retry(long j, Predicate<? super Throwable> predicate) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048615, this, j2, predicate)) == null) ? fromPublisher(toFlowable().retry(j2, predicate)) : (Completable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048615, this, j, predicate)) == null) ? fromPublisher(toFlowable().retry(j, predicate)) : (Completable) invokeJL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Completable timeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Completable timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? timeout0(j2, timeUnit, scheduler, null) : (Completable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? timeout0(j, timeUnit, scheduler, null) : (Completable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1241,12 +1241,12 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Completable timeout(long j2, TimeUnit timeUnit, Scheduler scheduler, CompletableSource completableSource) {
+    public final Completable timeout(long j, TimeUnit timeUnit, Scheduler scheduler, CompletableSource completableSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048634, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, completableSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048634, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, completableSource})) == null) {
             ObjectHelper.requireNonNull(completableSource, "other is null");
-            return timeout0(j2, timeUnit, scheduler, completableSource);
+            return timeout0(j, timeUnit, scheduler, completableSource);
         }
         return (Completable) invokeCommon.objValue;
     }

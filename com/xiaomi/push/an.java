@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class an implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ al.b f77702a;
+    public final /* synthetic */ al.b f70665a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ al f121a;
+    public final /* synthetic */ al f122a;
 
     public an(al alVar, al.b bVar) {
         Interceptable interceptable = $ic;
@@ -31,15 +31,15 @@ public class an implements Runnable {
                 return;
             }
         }
-        this.f121a = alVar;
-        this.f77702a = bVar;
+        this.f122a = alVar;
+        this.f70665a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f121a.a(this.f77702a);
+            this.f122a.a(this.f70665a);
         }
     }
 }

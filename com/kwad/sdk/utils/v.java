@@ -12,33 +12,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f74341a;
+        public int f66724a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f74342b;
+        public int f66725b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f74343c;
+        public int f66726c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f74344d;
+        public int f66727d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f74345e;
+        public int f66728e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f74346f;
+        public int f66729f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -53,12 +53,12 @@ public final class v {
                     return;
                 }
             }
-            this.f74341a = -1;
-            this.f74342b = -1;
-            this.f74343c = -1;
-            this.f74344d = -1;
-            this.f74345e = -1;
-            this.f74346f = -1;
+            this.f66724a = -1;
+            this.f66725b = -1;
+            this.f66726c = -1;
+            this.f66727d = -1;
+            this.f66728e = -1;
+            this.f66729f = -1;
         }
 
         public a(int i2, int i3) {
@@ -76,74 +76,74 @@ public final class v {
                     return;
                 }
             }
-            this.f74341a = -1;
-            this.f74342b = -1;
-            this.f74343c = -1;
-            this.f74344d = -1;
-            this.f74345e = -1;
-            this.f74346f = -1;
-            this.f74341a = i2;
-            this.f74342b = i3;
+            this.f66724a = -1;
+            this.f66725b = -1;
+            this.f66726c = -1;
+            this.f66727d = -1;
+            this.f66728e = -1;
+            this.f66729f = -1;
+            this.f66724a = i2;
+            this.f66725b = i3;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74341a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66724a : invokeV.intValue;
         }
 
         public void a(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f74343c = (int) f2;
-                this.f74344d = (int) f3;
+                this.f66726c = (int) f2;
+                this.f66727d = (int) f3;
             }
         }
 
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-                this.f74341a = i2;
-                this.f74342b = i3;
+                this.f66724a = i2;
+                this.f66725b = i3;
             }
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74342b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66725b : invokeV.intValue;
         }
 
         public void b(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f74345e = (int) f2;
-                this.f74346f = (int) f3;
+                this.f66728e = (int) f2;
+                this.f66729f = (int) f3;
             }
         }
 
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f74343c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f66726c : invokeV.intValue;
         }
 
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f74344d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66727d : invokeV.intValue;
         }
 
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f74345e : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f66728e : invokeV.intValue;
         }
 
         public int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f74346f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f66729f : invokeV.intValue;
         }
 
         @NonNull
@@ -151,7 +151,7 @@ public final class v {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return PreferencesUtil.LEFT_MOUNT + this.f74341a + "," + this.f74342b + "," + this.f74343c + "," + this.f74344d + "," + this.f74345e + "," + this.f74346f + PreferencesUtil.RIGHT_MOUNT;
+                return PreferencesUtil.LEFT_MOUNT + this.f66724a + "," + this.f66725b + "," + this.f66726c + "," + this.f66727d + "," + this.f66728e + "," + this.f66729f + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }
@@ -180,7 +180,7 @@ public final class v {
             if (!TextUtils.isEmpty(d2)) {
                 b2 = b2.replace("__IMEI__", d2).replace("__IMEI2__", w.a(d2)).replace("__IMEI3__", w.b(d2));
             }
-            String a2 = com.kwad.sdk.core.f.b.a();
+            String a2 = com.kwad.sdk.core.f.a.a();
             if (!TextUtils.isEmpty(a2)) {
                 b2 = b2.replace("__OAID__", a2).replace("__OAID2__", w.a(a2));
             }

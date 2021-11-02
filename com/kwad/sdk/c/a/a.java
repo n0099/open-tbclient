@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<b> f71633a;
+    public final List<b> f64109a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a {
                 return;
             }
         }
-        this.f71633a = new ArrayList();
+        this.f64109a = new ArrayList();
     }
 
     public void a(b bVar) {
@@ -37,7 +37,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f71633a.add(bVar);
+        this.f64109a.add(bVar);
     }
 
     public void a(b bVar, int i2) {
@@ -45,14 +45,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, i2) == null) || bVar == null) {
             return;
         }
-        this.f71633a.add(i2, bVar);
+        this.f64109a.add(i2, bVar);
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            for (b bVar : this.f71633a) {
+            for (b bVar : this.f64109a) {
                 if (bVar.a_()) {
                     return true;
                 }
@@ -67,6 +67,6 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f71633a.remove(bVar);
+        this.f64109a.remove(bVar);
     }
 }

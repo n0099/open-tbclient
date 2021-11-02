@@ -6,7 +6,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.Keep;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IProgressRemoteView {
     @KsAdSdkDynamicApi
     @Keep

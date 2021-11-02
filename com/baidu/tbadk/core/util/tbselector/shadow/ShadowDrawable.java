@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ShadowDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALL = 4369;
@@ -50,11 +50,11 @@ public class ShadowDrawable extends Drawable {
     public int mShape;
     public int mShapeRadius;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public @interface ShadowSide {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public @interface Shape {
     }
 

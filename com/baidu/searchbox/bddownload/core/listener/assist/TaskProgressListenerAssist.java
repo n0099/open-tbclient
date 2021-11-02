@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TaskProgressListenerAssist implements ListenerAssist, ListenerModelHandler.ModelCreator<Listener1Model> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TaskProgressListenerCallback callback;
     public final ListenerModelHandler<Listener1Model> modelHandler;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Listener1Model implements ListenerModelHandler.ListenerModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,11 +87,11 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface TaskProgressListenerCallback {
-        void connected(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i2, @IntRange(from = 0) long j2, @IntRange(from = 0) long j3);
+        void connected(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i2, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
 
-        void progress(@NonNull DownloadTask downloadTask, @IntRange(from = 0) long j2, @IntRange(from = 0) long j3);
+        void progress(@NonNull DownloadTask downloadTask, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
 
         void retry(@NonNull DownloadTask downloadTask, @NonNull ResumeFailedCause resumeFailedCause);
 
@@ -166,13 +166,13 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         orRecoverModel.isFirstConnect = bool;
     }
 
-    public void fetchProgress(DownloadTask downloadTask, long j2) {
+    public void fetchProgress(DownloadTask downloadTask, long j) {
         Listener1Model orRecoverModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048581, this, downloadTask, j2) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048581, this, downloadTask, j) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
             return;
         }
-        orRecoverModel.currentOffset.addAndGet(j2);
+        orRecoverModel.currentOffset.addAndGet(j);
         TaskProgressListenerCallback taskProgressListenerCallback = this.callback;
         if (taskProgressListenerCallback != null) {
             taskProgressListenerCallback.progress(downloadTask, orRecoverModel.currentOffset.get(), orRecoverModel.totalLength);

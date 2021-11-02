@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ResultTB implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CMD = "cmd";
@@ -141,10 +141,10 @@ public class ResultTB implements Serializable, Cloneable {
         }
     }
 
-    public void setEndTime(long j2) {
+    public void setEndTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.endTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.endTime = j;
         }
     }
 
@@ -197,10 +197,10 @@ public class ResultTB implements Serializable, Cloneable {
         }
     }
 
-    public void setUpdateTime(long j2) {
+    public void setUpdateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.updateTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.updateTime = j;
         }
     }
 

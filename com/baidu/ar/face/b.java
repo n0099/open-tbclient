@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "b";
@@ -103,29 +103,29 @@ public class b {
         }
     }
 
-    public a.C1636a a(a.b bVar) {
+    public a.C1593a a(a.b bVar) {
         InterceptResult invokeL;
-        a.C1636a c1636a;
+        a.C1593a c1593a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
             int i2 = bVar.qg;
             if (i2 == 0) {
                 this.nL = 1;
-                c1636a = bVar.qd;
+                c1593a = bVar.qd;
             } else if (i2 == 1) {
                 this.nL = 1;
-                c1636a = bVar.qe;
+                c1593a = bVar.qe;
             } else if (i2 != 2) {
                 com.baidu.ar.h.b.b(TAG, "createFaceParams() device not support!!!");
-                c1636a = null;
+                c1593a = null;
             } else {
                 this.nL = 4;
-                c1636a = bVar.qf;
+                c1593a = bVar.qf;
             }
             this.nM = this.nL;
-            return c1636a;
+            return c1593a;
         }
-        return (a.C1636a) invokeL.objValue;
+        return (a.C1593a) invokeL.objValue;
     }
 
     public void b(String str, int i2) {

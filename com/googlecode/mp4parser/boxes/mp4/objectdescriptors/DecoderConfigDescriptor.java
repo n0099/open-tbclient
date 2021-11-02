@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {4})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DecoderConfigDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Logger log;
@@ -216,10 +216,10 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setAvgBitRate(long j2) {
+    public void setAvgBitRate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.avgBitRate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.avgBitRate = j;
         }
     }
 
@@ -230,10 +230,10 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setMaxBitRate(long j2) {
+    public void setMaxBitRate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.maxBitRate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.maxBitRate = j;
         }
     }
 

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Voice;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VoiceData$VoiceModel extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5684687527058675291L;

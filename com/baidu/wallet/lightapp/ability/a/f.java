@@ -17,7 +17,7 @@ import com.baidu.wallet.router.RouterRequest;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,13 +54,13 @@ public class f extends com.baidu.wallet.lightapp.ability.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ILightappInvokerCallback f61734a;
+            public final /* synthetic */ ILightappInvokerCallback f58617a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f61735b;
+            public final /* synthetic */ String f58618b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ f f61736c;
+            public final /* synthetic */ f f58619c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -77,9 +77,9 @@ public class f extends com.baidu.wallet.lightapp.ability.b {
                         return;
                     }
                 }
-                this.f61736c = this;
-                this.f61734a = iLightappInvokerCallback;
-                this.f61735b = str2;
+                this.f58619c = this;
+                this.f58617a = iLightappInvokerCallback;
+                this.f58618b = str2;
             }
 
             @Override // com.baidu.wallet.router.RouterCallback
@@ -96,9 +96,9 @@ public class f extends com.baidu.wallet.lightapp.ability.b {
                         }
                         try {
                             if (((Integer) new JSONObject(str3).get("result")).intValue() == 0) {
-                                this.f61734a.onResult(0, str3);
+                                this.f58617a.onResult(0, str3);
                             } else {
-                                this.f61734a.onResult(1, str3);
+                                this.f58617a.onResult(1, str3);
                             }
                             return;
                         } catch (JSONException e2) {
@@ -107,9 +107,9 @@ public class f extends com.baidu.wallet.lightapp.ability.b {
                         }
                     }
                     String str4 = (String) hashMap.get("errorMsg");
-                    f fVar = this.f61736c;
-                    ILightappInvokerCallback iLightappInvokerCallback2 = this.f61734a;
-                    String str5 = this.f61735b;
+                    f fVar = this.f58619c;
+                    ILightappInvokerCallback iLightappInvokerCallback2 = this.f58617a;
+                    String str5 = this.f58618b;
                     String num = Integer.toString(i2);
                     if (!TextUtils.isEmpty(str4)) {
                         str4 = LightappConstants.ROUTER_INVOKE_FAIL;

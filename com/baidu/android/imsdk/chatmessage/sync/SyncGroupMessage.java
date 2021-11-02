@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SyncGroupMessage extends SyncStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SyncGroupMessage";
@@ -137,15 +137,15 @@ public class SyncGroupMessage extends SyncStrategy {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void updateData(Context context, long j2) {
+    public void updateData(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048585, this, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048585, this, context, j) == null) {
             String str = TAG;
-            LogUtils.i(str, "updateData : " + j2);
-            if (j2 < 0) {
+            LogUtils.i(str, "updateData : " + j);
+            if (j < 0) {
                 return;
             }
-            this.mDialogRecord.setMaxMsgid(j2);
+            this.mDialogRecord.setMaxMsgid(j);
         }
     }
 

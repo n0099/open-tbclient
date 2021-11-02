@@ -8,6 +8,7 @@ import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,14 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcGetTokenRequest";
@@ -49,12 +49,12 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
-    public BIMRtcGetTokenRequest(Context context, String str, String str2, long j2, BIMRtcTokenListener bIMRtcTokenListener) {
+    public BIMRtcGetTokenRequest(Context context, String str, String str2, long j, BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, Long.valueOf(j2), bIMRtcTokenListener};
+            Object[] objArr = {context, str, str2, Long.valueOf(j), bIMRtcTokenListener};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -71,7 +71,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         this.mListener = bIMRtcTokenListener;
         this.mSource = str;
         this.mRtcRoomId = str2;
-        this.mRtcUserId = j2;
+        this.mRtcUserId = j;
     }
 
     public static String byte2Hex(byte[] bArr) {
@@ -157,7 +157,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
                 RtcUtility.setRtcUserId(this.mContext, this.mRtcUserId);
                 jSONObject.put("shoubai_uk", IMJni.transBDUID(Utility.readUid(this.mContext)));
                 jSONObject.put("rtc_device_id", cuid);
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, sDKVersionValue);
+                jSONObject.put("sdk_version", sDKVersionValue);
                 jSONObject.put("signal_sdk_version", 103010L);
                 jSONObject.put("unique_key", "" + currentTimeMillis);
                 jSONObject.put("source", this.mSource);
@@ -206,7 +206,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str5);
                 int optInt = jSONObject.optInt("error_code", -1);
-                str2 = jSONObject.optString("error_msg", "");
+                str2 = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 str3 = jSONObject.optString(RtcUtility.KEY_RTC_ROOM_TOKEN, "");
                 try {
                     RtcUtility.setRtcRoomToken(this.mContext, str3);

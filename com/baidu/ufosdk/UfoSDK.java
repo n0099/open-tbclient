@@ -11,6 +11,8 @@ import androidx.room.RoomMasterTable;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
+import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,12 +33,11 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.tencent.connect.common.Constants;
 import com.yy.hiidostatis.inner.util.log.ActLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class UfoSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static String appid = "";
@@ -144,8 +145,8 @@ public class UfoSDK {
             hashMap.put("13", "正在加载...");
             hashMap.put("14", "分钟以前");
             hashMap.put("15", "个月以前");
-            hashMap.put(Constants.VIA_REPORT_TYPE_START_WAP, "输入超过200字");
-            hashMap.put(Constants.VIA_REPORT_TYPE_START_GROUP, "我的反馈");
+            hashMap.put("16", "输入超过200字");
+            hashMap.put("17", "我的反馈");
             hashMap.put(Constants.VIA_ACT_TYPE_NINETEEN, "网络不给力，请稍后再试");
             hashMap.put("20", "您还没有反馈");
             hashMap.put("21", "图片过大，请调整上传图片大小");
@@ -156,13 +157,13 @@ public class UfoSDK {
             hashMap.put("26", "谢谢支持");
             hashMap.put("27", "字");
             hashMap.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, "确认");
-            hashMap.put(EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, "选填：请留下您的邮箱/手机/QQ号");
-            hashMap.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, "联系方式不能超过30个字符");
-            hashMap.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, "请输入反馈内容");
-            hashMap.put(EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, "原创视频链接未填写");
-            hashMap.put(EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "未上传问题截图");
-            hashMap.put("36", "取消");
-            hashMap.put("37", "提交");
+            hashMap.put("31", "选填：请留下您的邮箱/手机/QQ号");
+            hashMap.put("32", "联系方式不能超过30个字符");
+            hashMap.put("33", "请输入反馈内容");
+            hashMap.put("34", "原创视频链接未填写");
+            hashMap.put("35", "未上传问题截图");
+            hashMap.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "取消");
+            hashMap.put(PayConfig.PAYMENT_POS_KEY_MANGA, "提交");
             hashMap.put("38", "邮箱/手机/QQ");
             hashMap.put("39", "您的反馈将提交我们跟进，请留下您的联系方式。");
             hashMap.put("41", "请留下您的联系方式");
@@ -214,8 +215,8 @@ public class UfoSDK {
             hashMap.put("13", "Loading…");
             hashMap.put("14", " minutes ago");
             hashMap.put("15", " months ago");
-            hashMap.put(Constants.VIA_REPORT_TYPE_START_WAP, "Please don't exceed 200 characters.");
-            hashMap.put(Constants.VIA_REPORT_TYPE_START_GROUP, "My Feedback");
+            hashMap.put("16", "Please don't exceed 200 characters.");
+            hashMap.put("17", "My Feedback");
             hashMap.put(Constants.VIA_ACT_TYPE_NINETEEN, "Network is not avaiable, please try again later.");
             hashMap.put("20", "You have no current feedback");
             hashMap.put("21", "The picture is oversized, please resize the picture you uploaded.");
@@ -226,13 +227,13 @@ public class UfoSDK {
             hashMap.put("26", "Thanks for your feedback");
             hashMap.put("27", " characters");
             hashMap.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, "okay");
-            hashMap.put(EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, "option, Email/Tel/QQ");
-            hashMap.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, "no more than 30 characters");
-            hashMap.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, "Feedback");
-            hashMap.put(EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, "Year");
-            hashMap.put(EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "Month");
-            hashMap.put("36", "Cancel");
-            hashMap.put("37", "Submit");
+            hashMap.put("31", "option, Email/Tel/QQ");
+            hashMap.put("32", "no more than 30 characters");
+            hashMap.put("33", "Feedback");
+            hashMap.put("34", "Year");
+            hashMap.put("35", "Month");
+            hashMap.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "Cancel");
+            hashMap.put(PayConfig.PAYMENT_POS_KEY_MANGA, "Submit");
             hashMap.put("38", "Email/Tel/QQ");
             hashMap.put("39", "Your feedback will be sent to us, please leave your contact information.");
             hashMap.put("41", "Please leave your contact information");
@@ -401,9 +402,9 @@ public class UfoSDK {
                 hashMap.put("clientid", clientid);
                 hashMap.put("appid", appid);
                 hashMap.put("devid", devid);
-                hashMap.put("uid", b.f59717d);
-                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59717d);
-                hashMap.put("username", b.f59715b);
+                hashMap.put("uid", b.f56644d);
+                hashMap.put(DpStatConstants.KEY_USER_ID, b.f56644d);
+                hashMap.put("username", b.f56642b);
                 hashMap.put("output_style", 1);
                 hashMap.put("interval", String.valueOf(b.ai));
                 String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -534,9 +535,9 @@ public class UfoSDK {
                 hashMap.put("clientid", clientid);
                 hashMap.put("appid", appid);
                 hashMap.put("devid", devid);
-                hashMap.put("uid", b.f59717d);
-                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59717d);
-                hashMap.put("username", b.f59715b);
+                hashMap.put("uid", b.f56644d);
+                hashMap.put(DpStatConstants.KEY_USER_ID, b.f56644d);
+                hashMap.put("username", b.f56642b);
                 hashMap.put("interval", String.valueOf(b.ai));
                 String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
                 String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
@@ -592,9 +593,9 @@ public class UfoSDK {
                 hashMap.put("clientid", clientid);
                 hashMap.put("appid", appid);
                 hashMap.put("devid", devid);
-                hashMap.put("uid", b.f59717d);
-                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59717d);
-                hashMap.put("username", b.f59715b);
+                hashMap.put("uid", b.f56644d);
+                hashMap.put(DpStatConstants.KEY_USER_ID, b.f56644d);
+                hashMap.put("username", b.f56642b);
                 hashMap.put("output_style", 1);
                 hashMap.put("interval", String.valueOf(b.ai));
                 String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -763,7 +764,7 @@ public class UfoSDK {
     public static void openLogcatSwitch() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65574, null) == null) {
-            b.f59714a = true;
+            b.f56641a = true;
         }
     }
 
@@ -799,7 +800,7 @@ public class UfoSDK {
     public static void setBackbtnText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65579, null, str) == null) {
-            b.f59722i = str;
+            b.f56649i = str;
         }
     }
 
@@ -813,7 +814,7 @@ public class UfoSDK {
     public static void setBaiduCuid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, str) == null) {
-            b.f59716c = str;
+            b.f56643c = str;
         }
     }
 
@@ -841,14 +842,14 @@ public class UfoSDK {
     public static void setCurrentUserIcon(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65585, null, bitmap) == null) {
-            b.f59720g = bitmap;
+            b.f56647g = bitmap;
         }
     }
 
     public static void setCustomLocation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65586, null, str) == null) {
-            b.f59721h = str;
+            b.f56648h = str;
         }
     }
 
@@ -871,7 +872,7 @@ public class UfoSDK {
     public static void setExtraData(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65589, null, map) == null) {
-            b.f59719f = com.baidu.ufosdk.c.a.a(map);
+            b.f56646f = com.baidu.ufosdk.c.a.a(map);
         }
     }
 
@@ -1158,21 +1159,21 @@ public class UfoSDK {
     public static void setUserId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65630, null, str) == null) {
-            b.f59717d = str;
+            b.f56644d = str;
         }
     }
 
     public static void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65631, null, str) == null) {
-            b.f59715b = str;
+            b.f56642b = str;
         }
     }
 
     public static void setUserStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65632, null, i2) == null) {
-            b.f59718e = i2;
+            b.f56645e = i2;
         }
     }
 }

@@ -12,12 +12,12 @@ import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
 import com.dxmpay.wallet.core.utils.BaiduWalletUtils;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f62600a;
+    public static a f59471a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
@@ -49,7 +49,7 @@ public class b {
     public static void a(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            f62600a = aVar;
+            f59471a = aVar;
             Intent intent = new Intent();
             intent.setClass(context, PayTypeActivity.class);
             if (!BaiduWalletUtils.isActivity(context)) {

@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36554a;
+    public int f34618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36555b;
+    public int f34619b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36556c;
+    public int f34620c;
 
     public GridSpaceItemDecoration(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f36554a = i2;
-        this.f36555b = i3;
-        this.f36556c = i4;
+        this.f34618a = i2;
+        this.f34619b = i3;
+        this.f34620c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -49,12 +49,12 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
             if (layoutParams.getSpanIndex() != -1) {
                 if (layoutParams.getSpanIndex() % 2 == 0) {
-                    rect.left = this.f36554a;
-                    rect.right = this.f36555b;
+                    rect.left = this.f34618a;
+                    rect.right = this.f34619b;
                     return;
                 }
-                rect.left = this.f36555b;
-                rect.right = this.f36556c;
+                rect.left = this.f34619b;
+                rect.right = this.f34620c;
             }
         }
     }

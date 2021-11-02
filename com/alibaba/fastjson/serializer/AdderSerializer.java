@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.concurrent.atomic.DoubleAdder;
 import java.util.concurrent.atomic.LongAdder;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AdderSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static final AdderSerializer instance;

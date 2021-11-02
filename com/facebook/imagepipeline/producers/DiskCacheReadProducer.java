@@ -15,13 +15,13 @@ import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
-import e.d;
-import e.e;
+import d.d;
+import d.e;
 import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class DiskCacheReadProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -56,11 +56,11 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
 
     @VisibleForTesting
     @Nullable
-    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i2) {
+    public static Map<String, String> getExtraMap(ProducerListener2 producerListener2, ProducerContext producerContext, boolean z, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{producerListener, str, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
-            if (producerListener.requiresExtraMap(str)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{producerListener2, producerContext, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+            if (producerListener2.requiresExtraMap(producerContext, PRODUCER_NAME)) {
                 if (z) {
                     return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i2));
                 }
@@ -74,38 +74,38 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
     public static boolean isTaskCancelled(e<?> eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar)) == null) ? eVar.p() || (eVar.r() && (eVar.m() instanceof CancellationException)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar)) == null) ? eVar.n() || (eVar.p() && (eVar.k() instanceof CancellationException)) : invokeL.booleanValue;
     }
 
     private void maybeStartInputProducer(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, consumer, producerContext) == null) {
             if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+                producerContext.putOriginExtra("disk", "nil-result_read");
                 consumer.onNewResult(null, 1);
-            } else {
-                this.mInputProducer.produceResults(consumer, producerContext);
+                return;
             }
+            this.mInputProducer.produceResults(consumer, producerContext);
         }
     }
 
     private d<EncodedImage, Void> onFinishDiskReads(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, consumer, producerContext)) == null) ? new d<EncodedImage, Void>(this, producerContext.getListener(), producerContext.getId(), consumer, producerContext) { // from class: com.facebook.imagepipeline.producers.DiskCacheReadProducer.1
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, consumer, producerContext)) == null) ? new d<EncodedImage, Void>(this, producerContext.getProducerListener(), producerContext, consumer) { // from class: com.facebook.imagepipeline.producers.DiskCacheReadProducer.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DiskCacheReadProducer this$0;
             public final /* synthetic */ Consumer val$consumer;
-            public final /* synthetic */ ProducerListener val$listener;
+            public final /* synthetic */ ProducerListener2 val$listener;
             public final /* synthetic */ ProducerContext val$producerContext;
-            public final /* synthetic */ String val$requestId;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, r7, r8, consumer, producerContext};
+                    Object[] objArr = {this, r7, producerContext, consumer};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -117,37 +117,37 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
                 }
                 this.this$0 = this;
                 this.val$listener = r7;
-                this.val$requestId = r8;
-                this.val$consumer = consumer;
                 this.val$producerContext = producerContext;
+                this.val$consumer = consumer;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // e.d
+            @Override // d.d
             public Void then(e<EncodedImage> eVar) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) {
                     if (DiskCacheReadProducer.isTaskCancelled(eVar)) {
-                        this.val$listener.onProducerFinishWithCancellation(this.val$requestId, "DiskCacheProducer", null);
+                        this.val$listener.onProducerFinishWithCancellation(this.val$producerContext, DiskCacheReadProducer.PRODUCER_NAME, null);
                         this.val$consumer.onCancellation();
-                    } else if (eVar.r()) {
-                        this.val$listener.onProducerFinishWithFailure(this.val$requestId, "DiskCacheProducer", eVar.m(), null);
+                    } else if (eVar.p()) {
+                        this.val$listener.onProducerFinishWithFailure(this.val$producerContext, DiskCacheReadProducer.PRODUCER_NAME, eVar.k(), null);
                         this.this$0.mInputProducer.produceResults(this.val$consumer, this.val$producerContext);
                     } else {
-                        EncodedImage n = eVar.n();
-                        if (n != null) {
-                            ProducerListener producerListener = this.val$listener;
-                            String str = this.val$requestId;
-                            producerListener.onProducerFinishWithSuccess(str, "DiskCacheProducer", DiskCacheReadProducer.getExtraMap(producerListener, str, true, n.getSize()));
-                            this.val$listener.onUltimateProducerReached(this.val$requestId, "DiskCacheProducer", true);
+                        EncodedImage l = eVar.l();
+                        if (l != null) {
+                            ProducerListener2 producerListener2 = this.val$listener;
+                            ProducerContext producerContext2 = this.val$producerContext;
+                            producerListener2.onProducerFinishWithSuccess(producerContext2, DiskCacheReadProducer.PRODUCER_NAME, DiskCacheReadProducer.getExtraMap(producerListener2, producerContext2, true, l.getSize()));
+                            this.val$listener.onUltimateProducerReached(this.val$producerContext, DiskCacheReadProducer.PRODUCER_NAME, true);
+                            this.val$producerContext.putOriginExtra("disk");
                             this.val$consumer.onProgressUpdate(1.0f);
-                            this.val$consumer.onNewResult(n, 1);
-                            n.close();
+                            this.val$consumer.onNewResult(l, 1);
+                            l.close();
                         } else {
-                            ProducerListener producerListener2 = this.val$listener;
-                            String str2 = this.val$requestId;
-                            producerListener2.onProducerFinishWithSuccess(str2, "DiskCacheProducer", DiskCacheReadProducer.getExtraMap(producerListener2, str2, false, 0));
+                            ProducerListener2 producerListener22 = this.val$listener;
+                            ProducerContext producerContext3 = this.val$producerContext;
+                            producerListener22.onProducerFinishWithSuccess(producerContext3, DiskCacheReadProducer.PRODUCER_NAME, DiskCacheReadProducer.getExtraMap(producerListener22, producerContext3, false, 0));
                             this.this$0.mInputProducer.produceResults(this.val$consumer, this.val$producerContext);
                         }
                     }
@@ -206,11 +206,11 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
                 maybeStartInputProducer(consumer, producerContext);
                 return;
             }
-            producerContext.getListener().onProducerStart(producerContext.getId(), "DiskCacheProducer");
+            producerContext.getProducerListener().onProducerStart(producerContext, PRODUCER_NAME);
             CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, producerContext.getCallerContext());
             BufferedDiskCache bufferedDiskCache = imageRequest.getCacheChoice() == ImageRequest.CacheChoice.SMALL ? this.mSmallImageBufferedDiskCache : this.mDefaultBufferedDiskCache;
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bufferedDiskCache.get(encodedCacheKey, atomicBoolean).g(onFinishDiskReads(consumer, producerContext));
+            bufferedDiskCache.get(encodedCacheKey, atomicBoolean).e(onFinishDiskReads(consumer, producerContext));
             subscribeTaskForRequestCancellation(atomicBoolean, producerContext);
         }
     }

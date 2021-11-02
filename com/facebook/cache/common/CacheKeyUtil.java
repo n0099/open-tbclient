@@ -9,7 +9,7 @@ import com.facebook.common.util.SecureHashUtil;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class CacheKeyUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,21 +45,22 @@ public final class CacheKeyUtil {
     }
 
     public static List<String> getResourceIds(CacheKey cacheKey) {
+        ArrayList arrayList;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cacheKey)) == null) {
             try {
                 if (cacheKey instanceof MultiCacheKey) {
                     List<CacheKey> cacheKeys = ((MultiCacheKey) cacheKey).getCacheKeys();
-                    ArrayList arrayList = new ArrayList(cacheKeys.size());
+                    arrayList = new ArrayList(cacheKeys.size());
                     for (int i2 = 0; i2 < cacheKeys.size(); i2++) {
                         arrayList.add(secureHashKey(cacheKeys.get(i2)));
                     }
-                    return arrayList;
+                } else {
+                    arrayList = new ArrayList(1);
+                    arrayList.add(cacheKey.isResourceIdForDebugging() ? cacheKey.getUriString() : secureHashKey(cacheKey));
                 }
-                ArrayList arrayList2 = new ArrayList(1);
-                arrayList2.add(secureHashKey(cacheKey));
-                return arrayList2;
+                return arrayList;
             } catch (UnsupportedEncodingException e2) {
                 throw new RuntimeException(e2);
             }

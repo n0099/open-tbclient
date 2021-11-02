@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBCdnMobileListData mobileCdnData;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class TBCdnMobileListData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53680a;
+        public String f50913a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53681b;
+        public String f50914b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f53682c;
+        public ArrayList<String> f50915c;
 
         public TBCdnMobileListData() {
             Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                     return;
                 }
             }
-            this.f53680a = null;
-            this.f53681b = null;
-            this.f53682c = new ArrayList<>();
+            this.f50913a = null;
+            this.f50914b = null;
+            this.f50915c = new ArrayList<>();
         }
     }
 
@@ -86,15 +86,15 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("vips");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f53682c.size() <= 5; i3++) {
+                    for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f50915c.size() <= 5; i3++) {
                         String string = optJSONArray.getString(i3);
                         if (string != null) {
-                            this.mobileCdnData.f53682c.add(string);
+                            this.mobileCdnData.f50915c.add(string);
                         }
                     }
                 }
-                this.mobileCdnData.f53680a = optJSONObject.optString("testimg_url");
-                this.mobileCdnData.f53681b = optJSONObject.optString("testimg_md5");
+                this.mobileCdnData.f50913a = optJSONObject.optString("testimg_url");
+                this.mobileCdnData.f50914b = optJSONObject.optString("testimg_md5");
             } catch (Exception e2) {
                 BdLog.e(e2);
             }

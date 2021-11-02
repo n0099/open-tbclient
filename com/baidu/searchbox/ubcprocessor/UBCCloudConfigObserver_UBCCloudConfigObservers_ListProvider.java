@@ -1,13 +1,13 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import c.a.h0.a.a;
+import b.a.h0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider impleme
         }
     }
 
-    @Override // c.a.h0.a.a
+    @Override // b.a.h0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

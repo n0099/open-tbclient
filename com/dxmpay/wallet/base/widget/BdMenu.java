@@ -18,7 +18,7 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.BdMenuItem;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class BdMenu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,27 +33,27 @@ public abstract class BdMenu {
     public OnMenuStateChangeListener mStateChangeListener;
     public final View mViewToAttach;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnMenuSetChangedListener {
         void onMenuItemUpdated(BdMenuItem bdMenuItem);
 
         void onMenuSetChanged();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnMenuStateChangeListener {
         void onDismissMenu();
 
         void onShowMenu();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69912e;
+        public final /* synthetic */ BdMenu f62344e;
 
         public a(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69912e = bdMenu;
+            this.f62344e = bdMenu;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -80,9 +80,9 @@ public abstract class BdMenu {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
                 if (keyEvent.getAction() == 1) {
                     if (i2 == 4 || i2 == 82) {
-                        this.f69912e.dismiss();
-                        if (this.f69912e.mKeyClickListener != null) {
-                            this.f69912e.mKeyClickListener.onKey(view, i2, keyEvent);
+                        this.f62344e.dismiss();
+                        if (this.f62344e.mKeyClickListener != null) {
+                            this.f62344e.mKeyClickListener.onKey(view, i2, keyEvent);
                         }
                         return true;
                     }
@@ -94,13 +94,13 @@ public abstract class BdMenu {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements BdMenuItem.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69913a;
+        public final /* synthetic */ BdMenu f62345a;
 
         public b(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -117,28 +117,28 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69913a = bdMenu;
+            this.f62345a = bdMenu;
         }
 
         @Override // com.dxmpay.wallet.base.widget.BdMenuItem.OnItemClickListener
         public void onClick(BdMenuItem bdMenuItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdMenuItem) == null) {
-                this.f69913a.dismiss();
-                if (this.f69913a.mMenuItemClickListener != null) {
-                    this.f69913a.mMenuItemClickListener.onClick(bdMenuItem);
+                this.f62345a.dismiss();
+                if (this.f62345a.mMenuItemClickListener != null) {
+                    this.f62345a.mMenuItemClickListener.onClick(bdMenuItem);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c implements BdMenuItem.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69914a;
+        public final /* synthetic */ BdMenu f62346a;
 
         public c(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -155,28 +155,28 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69914a = bdMenu;
+            this.f62346a = bdMenu;
         }
 
         @Override // com.dxmpay.wallet.base.widget.BdMenuItem.OnItemClickListener
         public void onClick(BdMenuItem bdMenuItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdMenuItem) == null) {
-                this.f69914a.dismiss();
-                if (this.f69914a.mMenuItemClickListener != null) {
-                    this.f69914a.mMenuItemClickListener.onClick(bdMenuItem);
+                this.f62346a.dismiss();
+                if (this.f62346a.mMenuItemClickListener != null) {
+                    this.f62346a.mMenuItemClickListener.onClick(bdMenuItem);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d implements PopupWindow.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69915e;
+        public final /* synthetic */ BdMenu f62347e;
 
         public d(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -193,26 +193,26 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69915e = bdMenu;
+            this.f62347e = bdMenu;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f69915e.mStateChangeListener == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62347e.mStateChangeListener == null) {
                 return;
             }
-            this.f69915e.mStateChangeListener.onDismissMenu();
+            this.f62347e.mStateChangeListener.onDismissMenu();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69916e;
+        public final /* synthetic */ BdMenu f62348e;
 
         public e(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69916e = bdMenu;
+            this.f62348e = bdMenu;
         }
 
         @Override // java.lang.Runnable
@@ -237,7 +237,7 @@ public abstract class BdMenu {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f69916e.showMenu(this.f69916e.mPopupWindow);
+                    this.f62348e.showMenu(this.f62348e.mPopupWindow);
                 } catch (Exception unused) {
                 }
             }

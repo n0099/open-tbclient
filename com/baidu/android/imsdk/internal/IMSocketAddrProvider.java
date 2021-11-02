@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMSocketAddrProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long SMART_DNS_TIME_OUT = 5000;
@@ -33,7 +33,7 @@ public class IMSocketAddrProvider {
     public String mNowConnectAddr;
     public IGetSocketAddrListener mSocketAddrListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IGetSocketAddrListener extends IMListener {
         void onGetSocketAddrResult(String str);
     }

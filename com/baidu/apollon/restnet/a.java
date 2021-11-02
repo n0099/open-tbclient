@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f38077a;
+    public b f36093a;
 
     /* renamed from: com.baidu.apollon.restnet.a$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.apollon.restnet.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C1620a {
+    /* loaded from: classes6.dex */
+    public static class C1577a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f38078a;
+        public static final a f36094a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,10 +46,10 @@ public class a {
                     return;
                 }
             }
-            f38078a = new a(null);
+            f36094a = new a(null);
         }
 
-        public C1620a() {
+        public C1577a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void send(com.baidu.apollon.restnet.b bVar);
 
@@ -78,7 +78,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1620a.f38078a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1577a.f36094a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -98,14 +98,14 @@ public class a {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f38077a = bVar;
+            this.f36093a = bVar;
         }
     }
 
     public void a(com.baidu.apollon.restnet.b bVar) {
         b bVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (bVar2 = this.f38077a) == null || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (bVar2 = this.f36093a) == null || bVar == null) {
             return;
         }
         bVar2.send(bVar);
@@ -114,7 +114,7 @@ public class a {
     public void a(JSONObject jSONObject) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || (bVar = this.f38077a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || (bVar = this.f36093a) == null) {
             return;
         }
         bVar.send(jSONObject);

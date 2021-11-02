@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XVideoAutoPlayOnlyWifiView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUTTON_HEIGHT = 30;
@@ -21,7 +21,7 @@ public class XVideoAutoPlayOnlyWifiView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public OnListener listener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnListener {
         void onClick();
     }

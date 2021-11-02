@@ -19,40 +19,38 @@ import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f73001a;
+    public static final String f65447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static File f73002b;
+    public static File f65448b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f73003c;
+    public e f65449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f73004d;
+    public AtomicInteger f65450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f73005e;
+    public File f65451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f73006f;
+    public File f65452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f73007g;
+    public File f65453g;
 
     /* renamed from: h  reason: collision with root package name */
-    public File f73008h;
+    public File f65454h;
 
     /* renamed from: i  reason: collision with root package name */
-    public File f73009i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public com.kwad.sdk.crash.report.c f73010j;
+    public File f65455i;
+    public com.kwad.sdk.crash.report.c j;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +65,7 @@ public abstract class b {
                 return;
             }
         }
-        f73001a = UUID.randomUUID().toString();
+        f65447a = UUID.randomUUID().toString();
     }
 
     public b() {
@@ -83,41 +81,41 @@ public abstract class b {
                 return;
             }
         }
-        this.f73004d = new AtomicInteger();
+        this.f65450d = new AtomicInteger();
     }
 
     public static void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            f73002b = file;
+            f65448b = file;
             if (file.exists()) {
                 return;
             }
-            f73002b.mkdirs();
+            f65448b.mkdirs();
         }
     }
 
     public final com.kwad.sdk.crash.report.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73010j : (com.kwad.sdk.crash.report.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (com.kwad.sdk.crash.report.c) invokeV.objValue;
     }
 
     public void a(File file, e eVar, com.kwad.sdk.crash.report.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, eVar, cVar) == null) {
-            this.f73005e = file;
+            this.f65451e = file;
             if (!file.exists()) {
-                this.f73005e.mkdirs();
+                this.f65451e.mkdirs();
             }
-            File file2 = this.f73005e;
-            this.f73006f = new File(file2, f73001a + "-" + this.f73004d + ".dump");
-            File file3 = this.f73005e;
-            this.f73007g = new File(file3, f73001a + "-" + this.f73004d + ".log");
-            File file4 = this.f73005e;
-            this.f73008h = new File(file4, f73001a + "-" + this.f73004d + ".jtrace");
-            this.f73003c = eVar;
-            this.f73010j = cVar;
+            File file2 = this.f65451e;
+            this.f65452f = new File(file2, f65447a + "-" + this.f65450d + ".dump");
+            File file3 = this.f65451e;
+            this.f65453g = new File(file3, f65447a + "-" + this.f65450d + ".log");
+            File file4 = this.f65451e;
+            this.f65454h = new File(file4, f65447a + "-" + this.f65450d + ".jtrace");
+            this.f65449c = eVar;
+            this.j = cVar;
         }
     }
 
@@ -126,12 +124,12 @@ public abstract class b {
     public void b() {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (listFiles = this.f73005e.listFiles(new FileFilter(this) { // from class: com.kwad.sdk.crash.c.b.1
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (listFiles = this.f65451e.listFiles(new FileFilter(this) { // from class: com.kwad.sdk.crash.c.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f73011a;
+            public final /* synthetic */ b f65456a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -148,7 +146,7 @@ public abstract class b {
                         return;
                     }
                 }
-                this.f73011a = this;
+                this.f65456a = this;
             }
 
             @Override // java.io.FileFilter
@@ -172,14 +170,14 @@ public abstract class b {
     public void b(File file) {
         File file2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, file) == null) || (file2 = f73002b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, file) == null) || (file2 = f65448b) == null) {
             return;
         }
         if (!file2.exists()) {
-            f73002b.mkdirs();
+            f65448b.mkdirs();
         }
         try {
-            g.a(file.getParentFile().getParentFile(), f73002b);
+            g.a(file.getParentFile().getParentFile(), f65448b);
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }

@@ -8,12 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
 import com.googlecode.mp4parser.h264.BTree;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CAVLCReader extends BitstreamReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +59,7 @@ public class CAVLCReader extends BitstreamReader {
             StringBuilder sb = new StringBuilder();
             String valueOf = String.valueOf(BitstreamReader.bitsRead - this.debugBits.length());
             int length = 8 - valueOf.length();
-            sb.append(TNCManager.TNC_PROBE_HEADER_SECEPTOR + valueOf);
+            sb.append("@" + valueOf);
             for (int i2 = 0; i2 < length; i2++) {
                 sb.append(' ');
             }

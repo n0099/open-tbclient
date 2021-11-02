@@ -8,27 +8,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f78414a;
+    public static final o f71353a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ o[] f824a;
+    public static final /* synthetic */ o[] f825a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final o f78415b;
+    public static final o f71354b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final o f78416c;
+    public static final o f71355c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final o f78417d;
+    public static final o f71356d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final o f78418e;
+    public static final o f71357e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,13 +44,13 @@ public final class o {
                 return;
             }
         }
-        f78414a = new o("China", 0);
-        f78415b = new o("Global", 1);
-        f78416c = new o("Europe", 2);
-        f78417d = new o("Russia", 3);
+        f71353a = new o("China", 0);
+        f71354b = new o("Global", 1);
+        f71355c = new o("Europe", 2);
+        f71356d = new o("Russia", 3);
         o oVar = new o("India", 4);
-        f78418e = oVar;
-        f824a = new o[]{f78414a, f78415b, f78416c, f78417d, oVar};
+        f71357e = oVar;
+        f825a = new o[]{f71353a, f71354b, f71355c, f71356d, oVar};
     }
 
     public o(String str, int i2) {
@@ -81,6 +81,6 @@ public final class o {
     public static o[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (o[]) f824a.clone() : (o[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (o[]) f825a.clone() : (o[]) invokeV.objValue;
     }
 }

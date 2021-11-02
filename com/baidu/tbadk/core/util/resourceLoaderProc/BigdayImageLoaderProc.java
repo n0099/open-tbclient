@@ -3,12 +3,12 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.a.f.c;
-import c.a.e.e.l.b;
-import c.a.e.e.l.d;
-import c.a.e.e.l.e;
-import c.a.e.e.p.j;
-import c.a.e.l.d.a;
+import b.a.e.e.a.f.c;
+import b.a.e.e.l.b;
+import b.a.e.e.l.d;
+import b.a.e.e.l.e;
+import b.a.e.e.p.j;
+import b.a.e.l.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BigdayImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,14 +68,14 @@ public class BigdayImageLoaderProc implements e<a> {
         return (a) invokeLL.objValue;
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ImageLoadSpeedRecorder.sharedInstance().getAsyncTaskParallel() : (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class BigdayImageLoaderProc implements e<a> {
         return invokeV.intValue;
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,20 +101,20 @@ public class BigdayImageLoaderProc implements e<a> {
         }
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && obj != null && (obj instanceof a)) {
             a aVar = (a) obj;
             if (aVar.u()) {
-                c.a.q0.c0.c.k().d(str, aVar);
+                b.a.q0.c0.c.k().d(str, aVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -129,10 +129,10 @@ public class BigdayImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(cVar);
-                bVar.f2382a = diskCancelWorker;
+                bVar.f1859a = diskCancelWorker;
             }
             boolean H = j.H();
-            if (c.a.e.e.a.d.g().a(cVar)) {
+            if (b.a.e.e.a.d.f().a(cVar)) {
                 int i4 = H ? 300 : 2000;
                 synchronized (bArr) {
                     try {
@@ -157,16 +157,16 @@ public class BigdayImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) ? c.a.q0.c0.c.k().m(str) : (a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) ? b.a.q0.c0.c.k().m(str) : (a) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -176,22 +176,22 @@ public class BigdayImageLoaderProc implements e<a> {
             }
             WebClient webClient = new WebClient();
             if (bVar != null) {
-                bVar.f2382a = webClient;
+                bVar.f1859a = webClient;
             }
             byte[] downloadImageBytes = webClient.downloadImageBytes(str, false);
             boolean needCache = webClient.needCache();
-            if ((downloadImageBytes != null || webClient.getResponse().f2327a) && needCache && !webClient.isCrackPic) {
+            if ((downloadImageBytes != null || webClient.getResponse().f1805a) && needCache && !webClient.isCrackPic) {
                 c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setData(downloadImageBytes);
                 cVar.setSdCard(false);
                 cVar.setSavedCache(true);
                 cVar.setGif(false);
-                c.a.e.e.a.d.g().a(cVar);
+                b.a.e.e.a.d.f().a(cVar);
                 if (bVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(cVar);
-                    bVar.f2382a = diskCancelWorker;
+                    bVar.f1859a = diskCancelWorker;
                 }
             }
             return null;

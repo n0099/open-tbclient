@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaSquareRefreshManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class AlaSquareRefreshManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class RefreshRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,12 +142,12 @@ public class AlaSquareRefreshManager {
         public long mInterval;
         public final /* synthetic */ AlaSquareRefreshManager this$0;
 
-        public RefreshRunnable(AlaSquareRefreshManager alaSquareRefreshManager, int i2, long j2) {
+        public RefreshRunnable(AlaSquareRefreshManager alaSquareRefreshManager, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alaSquareRefreshManager, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {alaSquareRefreshManager, Integer.valueOf(i2), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -161,7 +161,7 @@ public class AlaSquareRefreshManager {
             this.mIndex = 0;
             this.mInterval = 0L;
             this.mIndex = i2;
-            this.mInterval = j2;
+            this.mInterval = j;
         }
 
         public void post() {
@@ -192,13 +192,13 @@ public class AlaSquareRefreshManager {
             }
         }
 
-        public void postDelay(long j2) {
+        public void postDelay(long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || this.mInterval <= 0) {
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.mInterval <= 0) {
                 return;
             }
             this.this$0.mHandler.removeCallbacks(this);
-            this.this$0.mHandler.postDelayed(this, j2);
+            this.this$0.mHandler.postDelayed(this, j);
         }
     }
 }

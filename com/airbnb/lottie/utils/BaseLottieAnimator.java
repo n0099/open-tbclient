@@ -6,7 +6,7 @@ import android.animation.ValueAnimator;
 import android.os.Build;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseLottieAnimator extends ValueAnimator {
     public final Set<ValueAnimator.AnimatorUpdateListener> updateListeners = new CopyOnWriteArraySet();
     public final Set<Animator.AnimatorListener> listeners = new CopyOnWriteArraySet();
@@ -90,13 +90,13 @@ public abstract class BaseLottieAnimator extends ValueAnimator {
     }
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
-    public void setStartDelay(long j2) {
+    public void setStartDelay(long j) {
         throw new UnsupportedOperationException("LottieAnimator does not support setStartDelay.");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.ValueAnimator, android.animation.Animator
-    public ValueAnimator setDuration(long j2) {
+    public ValueAnimator setDuration(long j) {
         throw new UnsupportedOperationException("LottieAnimator does not support setDuration.");
     }
 }

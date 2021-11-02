@@ -19,6 +19,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.SurfaceHolder;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.dynamicupdate.SdkConfigOptions;
@@ -63,7 +64,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, SurfaceHolder.Callback, ISecurityCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,36 +96,34 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     public long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f45166a;
+    public boolean f42900a;
     public long aa;
     public RequestInfo ab;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f45167b;
+    public volatile boolean f42901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f45168c;
+    public boolean f42902c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f45169d;
+    public boolean f42903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45170e;
+    public String f42904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f45171f;
+    public boolean f42905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f45172g;
+    public boolean f42906g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f45173h;
+    public boolean f42907h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Rect f45174i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f45175j;
+    public Rect f42908i;
+    public int j;
     public int k;
     public int l;
     public int m;
@@ -143,15 +142,15 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     public int z;
 
     /* renamed from: com.baidu.sofire.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C1717a implements Camera.ErrorCallback, Camera.PreviewCallback {
+    /* loaded from: classes7.dex */
+    public class C1675a implements Camera.ErrorCallback, Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45189a;
+        public final /* synthetic */ a f42922a;
 
-        public C1717a(a aVar) {
+        public C1675a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,16 +165,16 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45189a = aVar;
+            this.f42922a = aVar;
         }
 
         @Override // android.hardware.Camera.ErrorCallback
         public final void onError(int i2, Camera camera) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, camera) == null) {
-                this.f45189a.T = true;
-                this.f45189a.b();
-                this.f45189a.g();
+                this.f42922a.T = true;
+                this.f42922a.b();
+                this.f42922a.g();
             }
         }
 
@@ -184,34 +183,34 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, camera) == null) {
                 try {
-                    int i2 = this.f45189a.n;
+                    int i2 = this.f42922a.n;
                     if (i2 == 1) {
-                        this.f45189a.R = bArr;
+                        this.f42922a.R = bArr;
                     } else if (i2 == 2) {
-                        this.f45189a.S = bArr;
+                        this.f42922a.S = bArr;
                     }
-                    this.f45189a.b();
-                    this.f45189a.g();
+                    this.f42922a.b();
+                    this.f42922a.g();
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
-                    this.f45189a.b();
-                    this.f45189a.g();
+                    this.f42922a.b();
+                    this.f42922a.g();
                 }
             }
         }
 
-        public /* synthetic */ C1717a(a aVar, byte b2) {
+        public /* synthetic */ C1675a(a aVar, byte b2) {
             this(aVar);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements com.baidu.pass.face.platform.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45190a;
+        public final /* synthetic */ a f42923a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -228,7 +227,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45190a = aVar;
+            this.f42923a = aVar;
         }
 
         @Override // com.baidu.pass.face.platform.b
@@ -236,36 +235,36 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048576, this, faceStatusNewEnum, str, hashMap, hashMap2) == null) {
                 try {
-                    if (!this.f45190a.f45169d && !this.f45190a.f45171f) {
+                    if (!this.f42923a.f42903d && !this.f42923a.f42905f) {
                         if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
-                            this.f45190a.f45169d = true;
-                            Pair b2 = this.f45190a.b(hashMap, hashMap2);
+                            this.f42923a.f42903d = true;
+                            Pair b2 = this.f42923a.b(hashMap, hashMap2);
                             if (b2 != null) {
-                                this.f45190a.U = ((Long) b2.first).longValue();
-                                this.f45190a.V = (String) b2.second;
+                                this.f42923a.U = ((Long) b2.first).longValue();
+                                this.f42923a.V = (String) b2.second;
                             } else {
-                                this.f45190a.a(-8);
+                                this.f42923a.a(-8);
                             }
-                            if (this.f45190a.u != null) {
+                            if (this.f42923a.u != null) {
                                 a.a(hashMap, hashMap2);
-                                this.f45190a.u.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, -1);
+                                this.f42923a.u.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, -1);
                             }
-                            if (z.a(this.f45190a.r).b(new e(this.f45190a, (byte) 0)) != 1) {
-                                this.f45190a.a(-7);
+                            if (z.a(this.f42923a.r).b(new e(this.f42923a, (byte) 0)) != 1) {
+                                this.f42923a.a(-7);
                             }
                         } else if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
-                            if (this.f45190a.u != null) {
-                                this.f45190a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, -1);
+                            if (this.f42923a.u != null) {
+                                this.f42923a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, -1);
                             }
-                            this.f45190a.a(-18);
-                        } else if (this.f45190a.u != null) {
-                            this.f45190a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, -1);
+                            this.f42923a.a(-18);
+                        } else if (this.f42923a.u != null) {
+                            this.f42923a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, -1);
                         }
                     }
                 } catch (Throwable th) {
                     com.baidu.sofire.utility.c.a();
-                    x.a(this.f45190a.r, this.f45190a.f45170e, 4, th);
-                    this.f45190a.a(-10);
+                    x.a(this.f42923a.r, this.f42923a.f42904e, 4, th);
+                    this.f42923a.a(-10);
                 }
             }
         }
@@ -275,13 +274,13 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements com.baidu.pass.face.platform.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45191a;
+        public final /* synthetic */ a f42924a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -298,7 +297,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45191a = aVar;
+            this.f42924a = aVar;
         }
 
         @Override // com.baidu.pass.face.platform.d
@@ -306,36 +305,36 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{faceStatusNewEnum, str, hashMap, hashMap2, Integer.valueOf(i2)}) == null) {
                 try {
-                    if (!this.f45191a.f45169d && !this.f45191a.f45171f) {
+                    if (!this.f42924a.f42903d && !this.f42924a.f42905f) {
                         if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
-                            this.f45191a.f45169d = true;
-                            Pair b2 = this.f45191a.b(hashMap, hashMap2);
+                            this.f42924a.f42903d = true;
+                            Pair b2 = this.f42924a.b(hashMap, hashMap2);
                             if (b2 != null) {
-                                this.f45191a.U = ((Long) b2.first).longValue();
-                                this.f45191a.V = (String) b2.second;
+                                this.f42924a.U = ((Long) b2.first).longValue();
+                                this.f42924a.V = (String) b2.second;
                             } else {
-                                this.f45191a.a(-8);
+                                this.f42924a.a(-8);
                             }
-                            if (this.f45191a.u != null) {
+                            if (this.f42924a.u != null) {
                                 a.a(hashMap, hashMap2);
-                                this.f45191a.u.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, i2);
+                                this.f42924a.u.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, i2);
                             }
-                            if (z.a(this.f45191a.r).b(new e(this.f45191a, (byte) 0)) != 1) {
-                                this.f45191a.a(-7);
+                            if (z.a(this.f42924a.r).b(new e(this.f42924a, (byte) 0)) != 1) {
+                                this.f42924a.a(-7);
                             }
                         } else if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
-                            if (this.f45191a.u != null) {
-                                this.f45191a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, i2);
+                            if (this.f42924a.u != null) {
+                                this.f42924a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, i2);
                             }
-                            this.f45191a.a(-18);
-                        } else if (this.f45191a.u != null) {
-                            this.f45191a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, i2);
+                            this.f42924a.a(-18);
+                        } else if (this.f42924a.u != null) {
+                            this.f42924a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, i2);
                         }
                     }
                 } catch (Throwable th) {
                     com.baidu.sofire.utility.c.a();
-                    x.a(this.f45191a.r, this.f45191a.f45170e, 4, th);
-                    this.f45191a.a(-10);
+                    x.a(this.f42924a.r, this.f42924a.f42904e, 4, th);
+                    this.f42924a.a(-10);
                 }
             }
         }
@@ -345,13 +344,13 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements com.baidu.pass.face.platform.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45192a;
+        public final /* synthetic */ a f42925a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -368,7 +367,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45192a = aVar;
+            this.f42925a = aVar;
         }
 
         @Override // com.baidu.pass.face.platform.e
@@ -376,8 +375,8 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, livenessTypeEnum) == null) {
                 try {
-                    if (this.f45192a.u != null) {
-                        this.f45192a.u.setCurrentLiveType(livenessTypeEnum);
+                    if (this.f42925a.u != null) {
+                        this.f42925a.u.setCurrentLiveType(livenessTypeEnum);
                     }
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
@@ -394,8 +393,8 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f45192a.u != null) {
-                        this.f45192a.u.viewReset();
+                    if (this.f42925a.u != null) {
+                        this.f42925a.u.viewReset();
                     }
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
@@ -408,8 +407,8 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faceExtInfo) == null) {
                 try {
-                    if (this.f45192a.u != null) {
-                        this.f45192a.u.setFaceInfo(faceExtInfo);
+                    if (this.f42925a.u != null) {
+                        this.f42925a.u.setFaceInfo(faceExtInfo);
                     }
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
@@ -418,13 +417,13 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45193a;
+        public final /* synthetic */ a f42926a;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -441,7 +440,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45193a = aVar;
+            this.f42926a = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -450,22 +449,22 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f45193a.f45171f) {
+                    if (this.f42926a.f42905f) {
                         return;
                     }
-                    if (this.f45193a.D && !this.f45193a.T) {
-                        this.f45193a.f();
+                    if (this.f42926a.D && !this.f42926a.T) {
+                        this.f42926a.f();
                     }
-                    if (this.f45193a.f45171f) {
+                    if (this.f42926a.f42905f) {
                         return;
                     }
-                    if (this.f45193a.u != null && this.f45193a.s != null) {
-                        this.f45193a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.e.1
+                    if (this.f42926a.u != null && this.f42926a.s != null) {
+                        this.f42926a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.e.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ e f45194a;
+                            public final /* synthetic */ e f42927a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -482,43 +481,43 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                         return;
                                     }
                                 }
-                                this.f45194a = this;
+                                this.f42927a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public final void run() {
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f45194a.f45193a.u == null) {
+                                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f42927a.f42926a.u == null) {
                                     return;
                                 }
-                                this.f45194a.f45193a.u.onBeginBuildData();
+                                this.f42927a.f42926a.u.onBeginBuildData();
                             }
                         });
                     }
                     JSONObject jSONObject = null;
-                    if (this.f45193a.f45173h) {
-                        pair = FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.f45193a.f45170e, Boolean.FALSE, this.f45193a.e());
-                        this.f45193a.f45173h = false;
+                    if (this.f42926a.f42907h) {
+                        pair = FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.f42926a.f42904e, Boolean.FALSE, this.f42926a.e());
+                        this.f42926a.f42907h = false;
                     } else {
                         pair = null;
                     }
-                    if (this.f45193a.f45171f) {
+                    if (this.f42926a.f42905f) {
                         return;
                     }
                     if (pair != null && ((Integer) pair.first).intValue() == 0) {
                         String str = (String) pair.second;
-                        if (!TextUtils.isEmpty(str) && (jSONObject = new JSONObject(str).optJSONObject("s")) != null && this.f45193a.U > 0 && this.f45193a.B.c()) {
-                            jSONObject = this.f45193a.b(jSONObject);
+                        if (!TextUtils.isEmpty(str) && (jSONObject = new JSONObject(str).optJSONObject("s")) != null && this.f42926a.U > 0 && this.f42926a.B.c()) {
+                            jSONObject = this.f42926a.b(jSONObject);
                         }
                     }
-                    if (this.f45193a.f45171f) {
+                    if (this.f42926a.f42905f) {
                         return;
                     }
-                    this.f45193a.a(this.f45193a.a(jSONObject));
+                    this.f42926a.a(this.f42926a.a(jSONObject));
                 } catch (Throwable th) {
                     com.baidu.sofire.utility.c.a();
-                    x.a(this.f45193a.r, this.f45193a.f45170e, 6, th);
-                    this.f45193a.a(-12);
+                    x.a(this.f42926a.r, this.f42926a.f42904e, 6, th);
+                    this.f42926a.a(-12);
                 }
             }
         }
@@ -543,17 +542,17 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                 return;
             }
         }
-        this.f45167b = true;
-        this.f45168c = false;
-        this.f45169d = false;
+        this.f42901b = true;
+        this.f42902c = false;
+        this.f42903d = false;
         this.C = 5;
         this.D = false;
         this.E = false;
-        this.f45172g = false;
-        this.f45173h = false;
+        this.f42906g = false;
+        this.f42907h = false;
         this.F = new Rect();
-        this.f45174i = new Rect();
-        this.f45175j = 0;
+        this.f42908i = new Rect();
+        this.j = 0;
         this.k = 0;
         this.l = 0;
         this.m = 0;
@@ -573,16 +572,16 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         this.C = i2;
         y a2 = y.a(applicationContext);
         this.B = a2;
-        this.Z = a2.f45489a.getLong("lt_sfii", 1000L);
+        this.Z = a2.f43215a.getLong("lt_sfii", 1000L);
         this.A = iFaceProcessInfo;
         this.z = i3;
-        this.f45166a = z;
+        this.f42900a = z;
     }
 
     public static /* synthetic */ void j(a aVar) {
         aVar.o = FaceSDKManager.getInstance().getFaceConfig();
-        aVar.f45167b = ((AudioManager) aVar.r.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(3) > 0 ? aVar.o.isSound() : false;
-        if (aVar.f45166a) {
+        aVar.f42901b = ((AudioManager) aVar.r.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(3) > 0 ? aVar.o.isSound() : false;
+        if (aVar.f42900a) {
             if (aVar.v == null) {
                 aVar.v = new c(aVar, (byte) 0);
             }
@@ -593,8 +592,8 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         aVar.s.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         aVar.l = displayMetrics.widthPixels;
         aVar.m = displayMetrics.heightPixels;
-        aVar.E = aVar.B.f45489a.getBoolean("lt_sfff", false);
-        aVar.D = aVar.B.f45489a.getBoolean("lt_sbff", false);
+        aVar.E = aVar.B.f43215a.getBoolean("lt_sfff", false);
+        aVar.D = aVar.B.f43215a.getBoolean("lt_sbff", false);
     }
 
     @Override // com.baidu.pass.face.platform.listener.ISecurityCallback
@@ -630,12 +629,12 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, bArr, camera) == null) {
             try {
-                if (!this.f45169d && !this.f45171f) {
+                if (!this.f42903d && !this.f42905f) {
                     if (this.E && this.Q == null) {
                         this.Q = bArr;
                     }
-                    if (this.f45166a) {
-                        if (this.p == null && !this.f45169d && !this.f45171f) {
+                    if (this.f42900a) {
+                        if (this.p == null && !this.f42903d && !this.f42905f) {
                             if (this.x == null) {
                                 this.x = new d(this, (byte) 0);
                             }
@@ -643,31 +642,31 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                             this.p = livenessStrategyModule;
                             livenessStrategyModule.setISecurityCallback(this);
                             this.p.setPreviewDegree(this.L);
-                            this.p.setLivenessStrategySoundEnable(this.f45167b);
-                            this.p.setLivenessStrategyConfig(this.o.getLivenessTypeList(), this.F, this.f45174i, this.v);
+                            this.p.setLivenessStrategySoundEnable(this.f42901b);
+                            this.p.setLivenessStrategyConfig(this.o.getLivenessTypeList(), this.F, this.f42908i, this.v);
                         }
-                        if (this.p == null || this.f45169d || this.f45171f) {
+                        if (this.p == null || this.f42903d || this.f42905f) {
                             return;
                         }
                         this.p.livenessStrategy(bArr);
                         return;
                     }
-                    if (this.q == null && !this.f45169d && !this.f45171f) {
+                    if (this.q == null && !this.f42903d && !this.f42905f) {
                         com.baidu.pass.face.platform.a detectStrategyModule = FaceSDKManager.getInstance().getDetectStrategyModule();
                         this.q = detectStrategyModule;
                         detectStrategyModule.setISecurityCallback(this);
                         this.q.setPreviewDegree(this.L);
-                        this.q.setDetectStrategySoundEnable(this.f45167b);
-                        this.q.setDetectStrategyConfig(this.F, this.f45174i, this.w);
+                        this.q.setDetectStrategySoundEnable(this.f42901b);
+                        this.q.setDetectStrategyConfig(this.F, this.f42908i, this.w);
                     }
-                    if (this.q == null || this.f45169d || this.f45171f) {
+                    if (this.q == null || this.f42903d || this.f42905f) {
                         return;
                     }
                     this.q.detectStrategy(bArr);
                 }
             } catch (Throwable th) {
                 com.baidu.sofire.utility.c.a();
-                x.a(this.r, this.f45170e, 3, th);
+                x.a(this.r, this.f42904e, 3, th);
                 a(-11);
             }
         }
@@ -677,9 +676,9 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     public final void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048583, this, surfaceHolder, i2, i3, i4) == null) {
-            this.f45175j = i3;
+            this.j = i3;
             this.k = i4;
-            if (this.f45171f || surfaceHolder.getSurface() == null) {
+            if (this.f42905f || surfaceHolder.getSurface() == null) {
                 return;
             }
             if (this.M) {
@@ -694,7 +693,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     public final void surfaceCreated(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) {
-            this.f45168c = true;
+            this.f42902c = true;
         }
     }
 
@@ -702,7 +701,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     public final void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, surfaceHolder) == null) {
-            this.f45168c = false;
+            this.f42902c = false;
         }
     }
 
@@ -711,7 +710,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65580, this) == null) {
             synchronized (this) {
-                if (!this.T && !this.f45171f) {
+                if (!this.T && !this.f42905f) {
                     this.n++;
                     this.P = true;
                     h();
@@ -751,7 +750,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45187a;
+                    public final /* synthetic */ a f42920a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -768,7 +767,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45187a = this;
+                        this.f42920a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -776,49 +775,49 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                if (this.f45187a.f45171f) {
+                                if (this.f42920a.f42905f) {
                                     return;
                                 }
-                                this.f45187a.T = false;
-                                if (this.f45187a.t != null) {
-                                    this.f45187a.t.addCallback(this.f45187a);
+                                this.f42920a.T = false;
+                                if (this.f42920a.t != null) {
+                                    this.f42920a.t.addCallback(this.f42920a);
                                 }
-                                if (this.f45187a.N == null) {
-                                    this.f45187a.N = a.b(this.f45187a, false);
+                                if (this.f42920a.N == null) {
+                                    this.f42920a.N = a.b(this.f42920a, false);
                                 }
-                                if (this.f45187a.N != null) {
-                                    if (this.f45187a.O == null) {
-                                        this.f45187a.O = this.f45187a.N.getParameters();
+                                if (this.f42920a.N != null) {
+                                    if (this.f42920a.O == null) {
+                                        this.f42920a.O = this.f42920a.N.getParameters();
                                     }
-                                    this.f45187a.N.stopPreview();
-                                    this.f45187a.O.setPictureFormat(256);
-                                    int d2 = this.f45187a.d();
-                                    this.f45187a.N.setDisplayOrientation(d2);
-                                    this.f45187a.O.set("rotation", d2);
-                                    this.f45187a.L = d2;
-                                    Point a2 = com.baidu.sofire.i.a.a(this.f45187a.O, new Point(this.f45187a.l, this.f45187a.m));
-                                    this.f45187a.J = a2.x;
-                                    this.f45187a.K = a2.y;
-                                    this.f45187a.O.setPreviewSize(this.f45187a.J, this.f45187a.K);
-                                    this.f45187a.N.setParameters(this.f45187a.O);
-                                    this.f45187a.N.setPreviewDisplay(this.f45187a.t);
-                                    C1717a c1717a = new C1717a(this.f45187a, (byte) 0);
-                                    this.f45187a.N.setErrorCallback(c1717a);
-                                    this.f45187a.N.setPreviewCallback(c1717a);
-                                    if (this.f45187a.f45171f) {
+                                    this.f42920a.N.stopPreview();
+                                    this.f42920a.O.setPictureFormat(256);
+                                    int d2 = this.f42920a.d();
+                                    this.f42920a.N.setDisplayOrientation(d2);
+                                    this.f42920a.O.set(Key.ROTATION, d2);
+                                    this.f42920a.L = d2;
+                                    Point a2 = com.baidu.sofire.i.a.a(this.f42920a.O, new Point(this.f42920a.l, this.f42920a.m));
+                                    this.f42920a.J = a2.x;
+                                    this.f42920a.K = a2.y;
+                                    this.f42920a.O.setPreviewSize(this.f42920a.J, this.f42920a.K);
+                                    this.f42920a.N.setParameters(this.f42920a.O);
+                                    this.f42920a.N.setPreviewDisplay(this.f42920a.t);
+                                    C1675a c1675a = new C1675a(this.f42920a, (byte) 0);
+                                    this.f42920a.N.setErrorCallback(c1675a);
+                                    this.f42920a.N.setPreviewCallback(c1675a);
+                                    if (this.f42920a.f42905f) {
                                         return;
                                     }
-                                    this.f45187a.N.startPreview();
+                                    this.f42920a.N.startPreview();
                                     return;
                                 }
-                                this.f45187a.T = true;
-                                this.f45187a.g();
+                                this.f42920a.T = true;
+                                this.f42920a.g();
                             } catch (Throwable th) {
                                 com.baidu.sofire.utility.c.a();
-                                this.f45187a.T = true;
-                                this.f45187a.g();
-                                this.f45187a.b();
-                                x.a(this.f45187a.r, this.f45187a.f45170e, 5, th);
+                                this.f42920a.T = true;
+                                this.f42920a.g();
+                                this.f42920a.b();
+                                x.a(this.f42920a.r, this.f42920a.f42904e, 5, th);
                             }
                         }
                     }
@@ -828,7 +827,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                 this.T = true;
                 g();
                 b();
-                x.a(this.r, this.f45170e, 5, th);
+                x.a(this.r, this.f42904e, 5, th);
             }
         }
     }
@@ -914,7 +913,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45182a;
+                    public final /* synthetic */ a f42915a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -931,7 +930,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45182a = this;
+                        this.f42915a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -939,43 +938,43 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                if (this.f45182a.f45171f) {
+                                if (this.f42915a.f42905f) {
                                     return;
                                 }
-                                this.f45182a.M = true;
-                                if (this.f45182a.t != null) {
-                                    this.f45182a.t.addCallback(this.f45182a);
+                                this.f42915a.M = true;
+                                if (this.f42915a.t != null) {
+                                    this.f42915a.t.addCallback(this.f42915a);
                                 }
-                                if (this.f45182a.G == null && !this.f45182a.f45171f) {
-                                    this.f45182a.G = a.b(this.f45182a, true);
+                                if (this.f42915a.G == null && !this.f42915a.f42905f) {
+                                    this.f42915a.G = a.b(this.f42915a, true);
                                 }
-                                if (this.f45182a.G == null) {
+                                if (this.f42915a.G == null) {
                                     return;
                                 }
-                                if (this.f45182a.H == null) {
-                                    this.f45182a.H = this.f45182a.G.getParameters();
+                                if (this.f42915a.H == null) {
+                                    this.f42915a.H = this.f42915a.G.getParameters();
                                 }
-                                this.f45182a.G.stopPreview();
-                                this.f45182a.H.setPictureFormat(256);
-                                int d2 = this.f45182a.d();
-                                this.f45182a.G.setDisplayOrientation(d2);
-                                this.f45182a.H.set("rotation", d2);
-                                this.f45182a.L = d2;
-                                Point a2 = com.baidu.sofire.i.a.a(this.f45182a.H, new Point(this.f45182a.l, this.f45182a.m));
-                                this.f45182a.J = a2.x;
-                                this.f45182a.K = a2.y;
-                                if (this.f45182a.f45166a) {
-                                    if (this.f45182a.p != null) {
-                                        this.f45182a.p.setPreviewDegree(d2);
+                                this.f42915a.G.stopPreview();
+                                this.f42915a.H.setPictureFormat(256);
+                                int d2 = this.f42915a.d();
+                                this.f42915a.G.setDisplayOrientation(d2);
+                                this.f42915a.H.set(Key.ROTATION, d2);
+                                this.f42915a.L = d2;
+                                Point a2 = com.baidu.sofire.i.a.a(this.f42915a.H, new Point(this.f42915a.l, this.f42915a.m));
+                                this.f42915a.J = a2.x;
+                                this.f42915a.K = a2.y;
+                                if (this.f42915a.f42900a) {
+                                    if (this.f42915a.p != null) {
+                                        this.f42915a.p.setPreviewDegree(d2);
                                     }
-                                } else if (this.f45182a.q != null) {
-                                    this.f45182a.q.setPreviewDegree(d2);
+                                } else if (this.f42915a.q != null) {
+                                    this.f42915a.q.setPreviewDegree(d2);
                                 }
-                                this.f45182a.F.set(0, 0, this.f45182a.K, this.f45182a.J);
-                                a aVar = this.f45182a;
-                                int i2 = this.f45182a.l;
-                                int i3 = this.f45182a.K;
-                                int i4 = this.f45182a.J;
+                                this.f42915a.F.set(0, 0, this.f42915a.K, this.f42915a.J);
+                                a aVar = this.f42915a;
+                                int i2 = this.f42915a.l;
+                                int i3 = this.f42915a.K;
+                                int i4 = this.f42915a.J;
                                 float f2 = (i2 / 2) - ((i2 / 2) * 0.33f);
                                 float f3 = i3 / 2;
                                 float f4 = (i4 / 2) - ((i4 / 2) * 0.1f);
@@ -983,35 +982,35 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                     f2 = i3 / 2;
                                 }
                                 float f5 = (0.2f * f2) + f2;
-                                aVar.f45174i.set((int) (f3 - f2), (int) (f4 - f5), (int) (f3 + f2), (int) (f4 + f5));
-                                this.f45182a.H.setPreviewSize(this.f45182a.J, this.f45182a.K);
-                                this.f45182a.G.setParameters(this.f45182a.H);
-                                if (this.f45182a.u != null) {
-                                    this.f45182a.u.onConfigCamera(this.f45182a.G, this.f45182a.F, this.f45182a.f45174i);
+                                aVar.f42908i.set((int) (f3 - f2), (int) (f4 - f5), (int) (f3 + f2), (int) (f4 + f5));
+                                this.f42915a.H.setPreviewSize(this.f42915a.J, this.f42915a.K);
+                                this.f42915a.G.setParameters(this.f42915a.H);
+                                if (this.f42915a.u != null) {
+                                    this.f42915a.u.onConfigCamera(this.f42915a.G, this.f42915a.F, this.f42915a.f42908i);
                                 }
-                                this.f45182a.G.setPreviewDisplay(this.f45182a.t);
-                                this.f45182a.G.setErrorCallback(this.f45182a);
-                                this.f45182a.G.setPreviewCallback(this.f45182a);
-                                if (this.f45182a.f45171f) {
+                                this.f42915a.G.setPreviewDisplay(this.f42915a.t);
+                                this.f42915a.G.setErrorCallback(this.f42915a);
+                                this.f42915a.G.setPreviewCallback(this.f42915a);
+                                if (this.f42915a.f42905f) {
                                     return;
                                 }
-                                this.f45182a.G.startPreview();
-                                Pair<Integer, Object> callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.f45182a.f45170e);
+                                this.f42915a.G.startPreview();
+                                Pair<Integer, Object> callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.f42915a.f42904e);
                                 if (callSync == null || ((Integer) callSync.first).intValue() != 0) {
                                     return;
                                 }
-                                this.f45182a.f45173h = true;
+                                this.f42915a.f42907h = true;
                             } catch (Throwable th) {
                                 com.baidu.sofire.utility.c.a();
-                                x.a(this.f45182a.r, this.f45182a.f45170e, 2, th);
-                                this.f45182a.a(-5);
+                                x.a(this.f42915a.r, this.f42915a.f42904e, 2, th);
+                                this.f42915a.a(-5);
                             }
                         }
                     }
                 });
             } catch (Throwable th) {
                 com.baidu.sofire.utility.c.a();
-                x.a(this.r, this.f45170e, 2, th);
+                x.a(this.r, this.f42904e, 2, th);
                 a(-5);
             }
         }
@@ -1036,7 +1035,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45186a;
+                    public final /* synthetic */ a f42919a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1053,7 +1052,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45186a = this;
+                        this.f42919a = this;
                     }
 
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
@@ -1093,7 +1092,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45176a;
+                    public final /* synthetic */ a f42909a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1110,7 +1109,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45176a = this;
+                        this.f42909a = this;
                     }
 
                     /* JADX WARN: Removed duplicated region for block: B:69:0x01ac A[RETURN] */
@@ -1130,35 +1129,35 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                             return;
                         }
                         try {
-                            if (this.f45176a.f45171f) {
+                            if (this.f42909a.f42905f) {
                                 return;
                             }
-                            if (this.f45176a.z != 1) {
-                                if (this.f45176a.z == 2) {
-                                    this.f45176a.f45170e = j.a("2");
+                            if (this.f42909a.z != 1) {
+                                if (this.f42909a.z == 2) {
+                                    this.f42909a.f42904e = j.a("2");
                                 } else {
-                                    this.f45176a.f45170e = j.a("1");
+                                    this.f42909a.f42904e = j.a("1");
                                 }
                             } else {
-                                this.f45176a.f45170e = j.a("1");
+                                this.f42909a.f42904e = j.a("1");
                             }
-                            Pair<Integer, Object> callSync2 = FH.callSync(1, "sfv", new Class[]{Activity.class, SurfaceHolder.class, Object.class, Integer.TYPE}, this.f45176a.s, this.f45176a.t, this.f45176a.u, Integer.valueOf(this.f45176a.C));
+                            Pair<Integer, Object> callSync2 = FH.callSync(1, "sfv", new Class[]{Activity.class, SurfaceHolder.class, Object.class, Integer.TYPE}, this.f42909a.s, this.f42909a.t, this.f42909a.u, Integer.valueOf(this.f42909a.C));
                             if (callSync2 == null || ((Integer) callSync2.first).intValue() != 0 || ((Integer) callSync2.second).intValue() != 1) {
-                                if (this.f45176a.f45171f) {
+                                if (this.f42909a.f42905f) {
                                     return;
                                 }
-                                if (this.f45176a.z == 2) {
-                                    x.a(this.f45176a.r, this.f45176a.f45170e, 0, 0);
-                                } else if (this.f45176a.z == 1) {
-                                    x.a(this.f45176a.r, this.f45176a.f45170e, 1, 0);
+                                if (this.f42909a.z == 2) {
+                                    x.a(this.f42909a.r, this.f42909a.f42904e, 0, 0);
+                                } else if (this.f42909a.z == 1) {
+                                    x.a(this.f42909a.r, this.f42909a.f42904e, 1, 0);
                                 }
-                                if (this.f45176a.u != null && this.f45176a.s != null) {
-                                    this.f45176a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.1.1
+                                if (this.f42909a.u != null && this.f42909a.s != null) {
+                                    this.f42909a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass1 f45177a;
+                                        public final /* synthetic */ AnonymousClass1 f42910a;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -1175,46 +1174,46 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                                     return;
                                                 }
                                             }
-                                            this.f45177a = this;
+                                            this.f42910a = this;
                                         }
 
                                         @Override // java.lang.Runnable
                                         public final void run() {
                                             Interceptable interceptable3 = $ic;
-                                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45177a.f45176a.u == null) {
+                                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f42910a.f42909a.u == null) {
                                                 return;
                                             }
-                                            this.f45177a.f45176a.u.onBegin();
+                                            this.f42910a.f42909a.u.onBegin();
                                         }
                                     });
                                 }
-                                if (!FH.isInitSuc(1) && this.f45176a.B.d()) {
-                                    this.f45176a.a(-15);
-                                } else if (this.f45176a.f45171f) {
+                                if (!FH.isInitSuc(1) && this.f42909a.B.d()) {
+                                    this.f42909a.a(-15);
+                                } else if (this.f42909a.f42905f) {
                                 } else {
-                                    if (!this.f45176a.B.a() || this.f45176a.C != 0) {
-                                        if (this.f45176a.B.a() && this.f45176a.C > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.f45176a.f45170e, Integer.valueOf(this.f45176a.C))) != null && ((Integer) callSync.first).intValue() == 0) {
+                                    if (!this.f42909a.B.a() || this.f42909a.C != 0) {
+                                        if (this.f42909a.B.a() && this.f42909a.C > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.f42909a.f42904e, Integer.valueOf(this.f42909a.C))) != null && ((Integer) callSync.first).intValue() == 0) {
                                             int intValue = ((Integer) callSync.second).intValue();
                                             if (intValue == 1) {
                                                 c2 = 1;
                                             } else if (intValue == 2) {
                                                 c2 = 65534;
                                             }
-                                            if (!this.f45176a.f45171f) {
+                                            if (!this.f42909a.f42905f) {
                                                 return;
                                             }
-                                            if (c2 != 65534 && (c2 == 1 || !this.f45176a.B.b())) {
+                                            if (c2 != 65534 && (c2 == 1 || !this.f42909a.B.b())) {
                                                 i2 = 1;
-                                                if (this.f45176a.u != null && this.f45176a.s != null) {
-                                                    this.f45176a.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.1.2
+                                                if (this.f42909a.u != null && this.f42909a.s != null) {
+                                                    this.f42909a.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.1.2
                                                         public static /* synthetic */ Interceptable $ic;
                                                         public transient /* synthetic */ FieldHolder $fh;
 
                                                         /* renamed from: a  reason: collision with root package name */
-                                                        public final /* synthetic */ int f45178a;
+                                                        public final /* synthetic */ int f42911a;
 
                                                         /* renamed from: b  reason: collision with root package name */
-                                                        public final /* synthetic */ AnonymousClass1 f45179b;
+                                                        public final /* synthetic */ AnonymousClass1 f42912b;
 
                                                         {
                                                             Interceptable interceptable3 = $ic;
@@ -1231,46 +1230,46 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                                                     return;
                                                                 }
                                                             }
-                                                            this.f45179b = this;
-                                                            this.f45178a = i2;
+                                                            this.f42912b = this;
+                                                            this.f42911a = i2;
                                                         }
 
                                                         @Override // java.lang.Runnable
                                                         public final void run() {
                                                             Interceptable interceptable3 = $ic;
-                                                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45179b.f45176a.u == null) {
+                                                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f42912b.f42909a.u == null) {
                                                                 return;
                                                             }
-                                                            this.f45179b.f45176a.u.onDeviceCheckResult(this.f45178a);
+                                                            this.f42912b.f42909a.u.onDeviceCheckResult(this.f42911a);
                                                         }
                                                     });
                                                 }
                                                 if (c2 != 65534) {
-                                                    this.f45176a.a(-3);
+                                                    this.f42909a.a(-3);
                                                     return;
                                                 } else if (i2 == -1) {
-                                                    this.f45176a.a(-3);
+                                                    this.f42909a.a(-3);
                                                     return;
-                                                } else if (this.f45176a.f45171f) {
+                                                } else if (this.f42909a.f42905f) {
                                                     return;
                                                 } else {
-                                                    a.j(this.f45176a);
-                                                    if (this.f45176a.f45171f) {
+                                                    a.j(this.f42909a);
+                                                    if (this.f42909a.f42905f) {
                                                         return;
                                                     }
-                                                    if (this.f45176a.D && !this.f45176a.T) {
-                                                        this.f45176a.f();
+                                                    if (this.f42909a.D && !this.f42909a.T) {
+                                                        this.f42909a.f();
                                                     }
-                                                    if (this.f45176a.f45171f) {
+                                                    if (this.f42909a.f42905f) {
                                                         return;
                                                     }
-                                                    if (this.f45176a.u != null && this.f45176a.s != null) {
-                                                        this.f45176a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.1.3
+                                                    if (this.f42909a.u != null && this.f42909a.s != null) {
+                                                        this.f42909a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.1.3
                                                             public static /* synthetic */ Interceptable $ic;
                                                             public transient /* synthetic */ FieldHolder $fh;
 
                                                             /* renamed from: a  reason: collision with root package name */
-                                                            public final /* synthetic */ AnonymousClass1 f45180a;
+                                                            public final /* synthetic */ AnonymousClass1 f42913a;
 
                                                             {
                                                                 Interceptable interceptable3 = $ic;
@@ -1287,37 +1286,37 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                                                         return;
                                                                     }
                                                                 }
-                                                                this.f45180a = this;
+                                                                this.f42913a = this;
                                                             }
 
                                                             @Override // java.lang.Runnable
                                                             public final void run() {
                                                                 Interceptable interceptable3 = $ic;
-                                                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45180a.f45176a.u == null) {
+                                                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f42913a.f42909a.u == null) {
                                                                     return;
                                                                 }
-                                                                this.f45180a.f45176a.u.onBeginCollectFaceInfo();
+                                                                this.f42913a.f42909a.u.onBeginCollectFaceInfo();
                                                             }
                                                         });
                                                     }
-                                                    if (this.f45176a.f45171f) {
+                                                    if (this.f42909a.f42905f) {
                                                         return;
                                                     }
-                                                    this.f45176a.c();
+                                                    this.f42909a.c();
                                                     return;
                                                 }
                                             }
                                             i2 = -1;
-                                            if (this.f45176a.u != null) {
-                                                this.f45176a.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.1.2
+                                            if (this.f42909a.u != null) {
+                                                this.f42909a.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.1.2
                                                     public static /* synthetic */ Interceptable $ic;
                                                     public transient /* synthetic */ FieldHolder $fh;
 
                                                     /* renamed from: a  reason: collision with root package name */
-                                                    public final /* synthetic */ int f45178a;
+                                                    public final /* synthetic */ int f42911a;
 
                                                     /* renamed from: b  reason: collision with root package name */
-                                                    public final /* synthetic */ AnonymousClass1 f45179b;
+                                                    public final /* synthetic */ AnonymousClass1 f42912b;
 
                                                     {
                                                         Interceptable interceptable3 = $ic;
@@ -1334,17 +1333,17 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                                                 return;
                                                             }
                                                         }
-                                                        this.f45179b = this;
-                                                        this.f45178a = i2;
+                                                        this.f42912b = this;
+                                                        this.f42911a = i2;
                                                     }
 
                                                     @Override // java.lang.Runnable
                                                     public final void run() {
                                                         Interceptable interceptable3 = $ic;
-                                                        if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45179b.f45176a.u == null) {
+                                                        if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f42912b.f42909a.u == null) {
                                                             return;
                                                         }
-                                                        this.f45179b.f45176a.u.onDeviceCheckResult(this.f45178a);
+                                                        this.f42912b.f42909a.u.onDeviceCheckResult(this.f42911a);
                                                     }
                                                 });
                                             }
@@ -1352,19 +1351,19 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                             }
                                         }
                                     } else {
-                                        FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.f45176a.f45170e, Integer.valueOf(this.f45176a.C));
+                                        FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.f42909a.f42904e, Integer.valueOf(this.f42909a.C));
                                     }
                                     c2 = 65535;
-                                    if (!this.f45176a.f45171f) {
+                                    if (!this.f42909a.f42905f) {
                                     }
                                 }
                             } else {
-                                this.f45176a.f45172g = true;
+                                this.f42909a.f42906g = true;
                             }
                         } catch (Throwable th) {
                             com.baidu.sofire.utility.c.a();
-                            x.a(this.f45176a.r, this.f45176a.f45170e, 1, th);
-                            this.f45176a.a(-9);
+                            x.a(this.f42909a.r, this.f42909a.f42904e, 1, th);
+                            this.f42909a.a(-9);
                         }
                     }
                 }) != 1) {
@@ -1375,7 +1374,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45181a;
+                    public final /* synthetic */ a f42914a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1392,16 +1391,16 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45181a = this;
+                        this.f42914a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            a aVar = this.f45181a;
+                            a aVar = this.f42914a;
                             aVar.X = n.b(aVar.r);
-                            a aVar2 = this.f45181a;
+                            a aVar2 = this.f42914a;
                             aVar2.W = n.a(aVar2.r);
                         }
                     }
@@ -1416,16 +1415,16 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             try {
-                this.f45169d = true;
+                this.f42903d = true;
                 this.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f45183a;
+                    public final /* synthetic */ int f42916a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f45184b;
+                    public final /* synthetic */ a f42917b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1442,22 +1441,22 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45184b = this;
-                        this.f45183a = i2;
+                        this.f42917b = this;
+                        this.f42916a = i2;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f45184b.u == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f42917b.u == null) {
                             return;
                         }
-                        if (this.f45183a == 1) {
-                            this.f45184b.u.onEnd(this.f45183a, this.f45184b.ab);
+                        if (this.f42916a == 1) {
+                            this.f42917b.u.onEnd(this.f42916a, this.f42917b.ab);
                         } else {
-                            this.f45184b.u.onEnd(this.f45183a, null);
+                            this.f42917b.u.onEnd(this.f42916a, null);
                         }
-                        this.f45184b.u = null;
+                        this.f42917b.u = null;
                     }
                 });
                 this.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.5
@@ -1465,7 +1464,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45185a;
+                    public final /* synthetic */ a f42918a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1482,7 +1481,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45185a = this;
+                        this.f42918a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -1490,25 +1489,25 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f45185a.M = false;
-                                if (this.f45185a.G != null) {
-                                    this.f45185a.G.setErrorCallback(null);
-                                    this.f45185a.G.setPreviewCallback(null);
-                                    this.f45185a.G.stopPreview();
-                                    com.baidu.sofire.i.b.a(this.f45185a.G);
-                                    this.f45185a.G = null;
+                                this.f42918a.M = false;
+                                if (this.f42918a.G != null) {
+                                    this.f42918a.G.setErrorCallback(null);
+                                    this.f42918a.G.setPreviewCallback(null);
+                                    this.f42918a.G.stopPreview();
+                                    com.baidu.sofire.i.b.a(this.f42918a.G);
+                                    this.f42918a.G = null;
                                 }
-                                if (this.f45185a.t != null) {
-                                    this.f45185a.t.removeCallback(this.f45185a);
+                                if (this.f42918a.t != null) {
+                                    this.f42918a.t.removeCallback(this.f42918a);
                                 }
-                                if (this.f45185a.f45166a) {
-                                    if (this.f45185a.p != null) {
-                                        this.f45185a.p.reset();
-                                        this.f45185a.p = null;
+                                if (this.f42918a.f42900a) {
+                                    if (this.f42918a.p != null) {
+                                        this.f42918a.p.reset();
+                                        this.f42918a.p = null;
                                     }
-                                } else if (this.f45185a.q != null) {
-                                    this.f45185a.q.reset();
-                                    this.f45185a.q = null;
+                                } else if (this.f42918a.q != null) {
+                                    this.f42918a.q.reset();
+                                    this.f42918a.q = null;
                                 }
                             } catch (Throwable unused) {
                                 com.baidu.sofire.utility.c.a();
@@ -1517,20 +1516,20 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     }
                 });
                 b();
-                if (this.f45173h) {
-                    FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.f45170e, Boolean.TRUE, e());
-                    this.f45173h = false;
+                if (this.f42907h) {
+                    FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.f42904e, Boolean.TRUE, e());
+                    this.f42907h = false;
                 }
                 this.s = null;
                 this.t = null;
                 if (this.y != null) {
                     com.baidu.sofire.b.b bVar = this.y;
-                    if (bVar.f45198b != null && this == bVar.f45198b) {
-                        bVar.f45198b = null;
+                    if (bVar.f42931b != null && this == bVar.f42931b) {
+                        bVar.f42931b = null;
                     }
                     this.y = null;
                 }
-                x.a(this.r, this.f45170e, 2, i2);
+                x.a(this.r, this.f42904e, 2, i2);
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
@@ -1564,7 +1563,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45188a;
+                    public final /* synthetic */ a f42921a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1581,7 +1580,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45188a = this;
+                        this.f42921a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -1589,16 +1588,16 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f45188a.P = false;
-                                if (this.f45188a.N != null) {
-                                    this.f45188a.N.setErrorCallback(null);
-                                    this.f45188a.N.setPreviewCallback(null);
-                                    this.f45188a.N.stopPreview();
-                                    com.baidu.sofire.i.b.a(this.f45188a.N);
-                                    this.f45188a.N = null;
+                                this.f42921a.P = false;
+                                if (this.f42921a.N != null) {
+                                    this.f42921a.N.setErrorCallback(null);
+                                    this.f42921a.N.setPreviewCallback(null);
+                                    this.f42921a.N.stopPreview();
+                                    com.baidu.sofire.i.b.a(this.f42921a.N);
+                                    this.f42921a.N = null;
                                 }
-                                if (this.f45188a.t != null) {
-                                    this.f45188a.t.removeCallback(this.f45188a);
+                                if (this.f42921a.t != null) {
+                                    this.f42921a.t.removeCallback(this.f42921a);
                                 }
                             } catch (Throwable unused) {
                                 com.baidu.sofire.utility.c.a();
@@ -1614,7 +1613,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
 
     public static /* synthetic */ Camera b(a aVar, boolean z) {
         int numberOfCameras;
-        if (aVar.f45171f || (numberOfCameras = Camera.getNumberOfCameras()) == 0) {
+        if (aVar.f42905f || (numberOfCameras = Camera.getNumberOfCameras()) == 0) {
             return null;
         }
         int i2 = 0;
@@ -1747,7 +1746,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("f_i", this.f45170e);
+                jSONObject3.put("f_i", this.f42904e);
                 jSONObject3.put("t_c", this.U);
                 if (this.E && this.Q != null && this.Q.length > 0) {
                     jSONObject3.put("d_f", Base64.encodeToString(a(this.Q), 8).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
@@ -1786,7 +1785,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                 }
                 jSONObject4.put("risk", jSONObject5);
                 jSONObject3.put("e", jSONObject4);
-                String str = com.baidu.sofire.b.b.f45195d;
+                String str = com.baidu.sofire.b.b.f42928d;
                 if (!TextUtils.isEmpty(str)) {
                     String[] split = str.split("-");
                     if (split.length >= 3) {

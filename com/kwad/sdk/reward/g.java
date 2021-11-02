@@ -8,7 +8,7 @@ import com.kwad.sdk.core.diskcache.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.w;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class g {
             if (a4) {
                 com.kwad.sdk.core.report.d.a(adTemplate, 1);
             } else {
-                com.kwad.sdk.core.report.d.a(adTemplate, 1, aVar.f71941a);
+                com.kwad.sdk.core.report.d.a(adTemplate, 1, aVar.f64412a);
             }
             return a4;
         }

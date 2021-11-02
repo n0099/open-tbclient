@@ -17,13 +17,13 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.BackpressureHelper;
 import java.util.Iterator;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableFromIterable<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Iterable<? extends T> source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static abstract class BaseRangeSubscription<T> extends BasicQueueSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2252972430506210021L;
@@ -100,13 +100,13 @@ public final class FlowableFromIterable<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j2) {
+        public final void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2) && BackpressureHelper.add(this, j2) == 0) {
-                if (j2 == Long.MAX_VALUE) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j) && BackpressureHelper.add(this, j) == 0) {
+                if (j == Long.MAX_VALUE) {
                     fastPath();
                 } else {
-                    slowPath(j2);
+                    slowPath(j);
                 }
             }
         }
@@ -118,10 +118,10 @@ public final class FlowableFromIterable<T> extends Flowable<T> {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? i2 & 1 : invokeI.intValue;
         }
 
-        public abstract void slowPath(long j2);
+        public abstract void slowPath(long j);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class IteratorConditionalSubscription<T> extends BaseRangeSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6022804456014692607L;
@@ -192,15 +192,15 @@ public final class FlowableFromIterable<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableFromIterable.BaseRangeSubscription
-        public void slowPath(long j2) {
+        public void slowPath(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 Iterator<? extends T> it = this.it;
                 ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
                 do {
-                    long j3 = 0;
+                    long j2 = 0;
                     while (true) {
-                        if (j3 != j2) {
+                        if (j2 != j) {
                             if (this.cancelled) {
                                 return;
                             }
@@ -225,7 +225,7 @@ public final class FlowableFromIterable<T> extends Flowable<T> {
                                         conditionalSubscriber.onComplete();
                                         return;
                                     } else if (tryOnNext) {
-                                        j3++;
+                                        j2++;
                                     }
                                 } catch (Throwable th) {
                                     Exceptions.throwIfFatal(th);
@@ -238,18 +238,18 @@ public final class FlowableFromIterable<T> extends Flowable<T> {
                                 return;
                             }
                         } else {
-                            j2 = get();
-                            if (j3 == j2) {
-                                j2 = addAndGet(-j3);
+                            j = get();
+                            if (j2 == j) {
+                                j = addAndGet(-j2);
                             }
                         }
                     }
-                } while (j2 != 0);
+                } while (j != 0);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class IteratorSubscription<T> extends BaseRangeSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6022804456014692607L;
@@ -320,15 +320,15 @@ public final class FlowableFromIterable<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableFromIterable.BaseRangeSubscription
-        public void slowPath(long j2) {
+        public void slowPath(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 Iterator<? extends T> it = this.it;
                 Subscriber<? super T> subscriber = this.actual;
                 do {
-                    long j3 = 0;
+                    long j2 = 0;
                     while (true) {
-                        if (j3 != j2) {
+                        if (j2 != j) {
                             if (this.cancelled) {
                                 return;
                             }
@@ -353,7 +353,7 @@ public final class FlowableFromIterable<T> extends Flowable<T> {
                                         subscriber.onComplete();
                                         return;
                                     }
-                                    j3++;
+                                    j2++;
                                 } catch (Throwable th) {
                                     Exceptions.throwIfFatal(th);
                                     subscriber.onError(th);
@@ -365,13 +365,13 @@ public final class FlowableFromIterable<T> extends Flowable<T> {
                                 return;
                             }
                         } else {
-                            j2 = get();
-                            if (j3 == j2) {
-                                j2 = addAndGet(-j3);
+                            j = get();
+                            if (j2 == j) {
+                                j = addAndGet(-j2);
                             }
                         }
                     }
-                } while (j2 != 0);
+                } while (j != 0);
             }
         }
     }

@@ -38,22 +38,22 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayRespManager {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String TAG = "AppPayServiceImpl-RespM";
+    public static final String TAG = "PayRespManager";
     public transient /* synthetic */ FieldHolder $fh;
-    public IPayReporter iPayReporter;
     public String mDefalutFunctionName;
     public String mDefalutServiceName;
-    public IPayInnerLogic payInnerLogic;
+    public IPayReporter mPayReporter;
+    public IPayServiceCallback mPayServiceCallback;
 
-    public PayRespManager(IPayReporter iPayReporter, IPayInnerLogic iPayInnerLogic, String str, String str2) {
+    public PayRespManager(IPayReporter iPayReporter, IPayServiceCallback iPayServiceCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iPayReporter, iPayInnerLogic, str, str2};
+            Object[] objArr = {iPayReporter, iPayServiceCallback, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -65,8 +65,8 @@ public class PayRespManager {
         }
         this.mDefalutServiceName = "";
         this.mDefalutFunctionName = "";
-        this.iPayReporter = iPayReporter;
-        this.payInnerLogic = iPayInnerLogic;
+        this.mPayReporter = iPayReporter;
+        this.mPayServiceCallback = iPayServiceCallback;
         this.mDefalutServiceName = str;
         this.mDefalutFunctionName = str2;
     }
@@ -91,7 +91,7 @@ public class PayRespManager {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.payInnerLogic.onAccountDelayMessage(accountDelayMessage);
+            this.mPayServiceCallback.onAccountDelayMessage(accountDelayMessage);
         } else {
             ThreadPool.getDefault().mainThreadIO().execute(new Runnable(this, accountDelayMessage) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayRespManager.3
                 public static /* synthetic */ Interceptable $ic;
@@ -122,7 +122,7 @@ public class PayRespManager {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.payInnerLogic.onAccountDelayMessage(this.val$result);
+                        this.this$0.mPayServiceCallback.onAccountDelayMessage(this.val$result);
                     }
                 }
             });
@@ -154,7 +154,7 @@ public class PayRespManager {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.payInnerLogic.onConsumeConfirmMessage(consumeConfirmMessage);
+            this.mPayServiceCallback.onConsumeConfirmMessage(consumeConfirmMessage);
         } else {
             ThreadPool.getDefault().mainThreadIO().execute(new Runnable(this, consumeConfirmMessage) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayRespManager.1
                 public static /* synthetic */ Interceptable $ic;
@@ -185,7 +185,7 @@ public class PayRespManager {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.payInnerLogic.onConsumeConfirmMessage(this.val$result);
+                        this.this$0.mPayServiceCallback.onConsumeConfirmMessage(this.val$result);
                     }
                 }
             });
@@ -199,7 +199,7 @@ public class PayRespManager {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.payInnerLogic.onCurrencyChargeMessage(currencyChargeMessage);
+            this.mPayServiceCallback.onCurrencyChargeMessage(currencyChargeMessage);
         } else {
             ThreadPool.getDefault().mainThreadIO().execute(new Runnable(this, currencyChargeMessage) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayRespManager.2
                 public static /* synthetic */ Interceptable $ic;
@@ -230,7 +230,7 @@ public class PayRespManager {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.payInnerLogic.onCurrencyChargeMessage(this.val$result);
+                        this.this$0.mPayServiceCallback.onCurrencyChargeMessage(this.val$result);
                     }
                 }
             });
@@ -296,26 +296,26 @@ public class PayRespManager {
                 if (iResponse.isSuccess() && getChargeOrderStatusResult != null) {
                     onSuccess(requestParams, getChargeOrderStatusResult, null);
                     RLog.info(TAG, "onGetChargeOrderStatus success");
-                    if (this.iPayReporter != null) {
+                    if (this.mPayReporter != null) {
                         cReportResponse.mEventId = EventType.PayEventID.QUERY_CHARGE_ORDER_STATUS_SUCCESS;
                         cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_CHARGE_ORDER_STATUS_SUCCESS;
                         cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                         cReportResponse.mErrMsg = "onQueryChargeOrderStatus success!" + iResponse.getMessage();
                         cReportResponse.mCmd = i2;
-                        this.iPayReporter.onQueryChargeOrderStatus(cReportResponse);
+                        this.mPayReporter.onQueryChargeOrderStatus(cReportResponse);
                         return;
                     }
                     return;
                 }
                 RLog.error(TAG, "onGetChargeOrderStatus fail code = %d, errMsg = %s", Integer.valueOf(iResponse.getResponseCode()), iResponse.getMessage());
                 onFail("", iResponse.getResponseCode(), iResponse.getMessage(), requestParams.getCallback(), null);
-                if (this.iPayReporter != null) {
+                if (this.mPayReporter != null) {
                     cReportResponse.mEventId = EventType.PayEventID.QUERY_CHARGE_ORDER_STATUS_FAIL;
                     cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_CHARGE_ORDER_STATUS_FAIL;
                     cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                     cReportResponse.mErrMsg = "onQueryChargeOrderStatus fail!" + iResponse.getMessage();
                     cReportResponse.mCmd = i2;
-                    this.iPayReporter.onQueryUserYbDetails(cReportResponse);
+                    this.mPayReporter.onQueryUserYbDetails(cReportResponse);
                 }
             }
         }
@@ -368,26 +368,26 @@ public class PayRespManager {
                 if (iResponse.isSuccess() && getUserYbDetailsResult != null) {
                     onSuccess(requestParams, getUserYbDetailsResult, null);
                     RLog.info(TAG, "onGetUserYbDetails success");
-                    if (this.iPayReporter != null) {
+                    if (this.mPayReporter != null) {
                         cReportResponse.mEventId = EventType.PayEventID.QUERY_USER_YB_DETAIL_SUCCESS;
                         cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_USER_YB_DETAIL_SUCCESS;
                         cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                         cReportResponse.mErrMsg = "onQueryUserYbDetails success!" + iResponse.getMessage();
                         cReportResponse.mCmd = i2;
-                        this.iPayReporter.onQueryUserYbDetails(cReportResponse);
+                        this.mPayReporter.onQueryUserYbDetails(cReportResponse);
                         return;
                     }
                     return;
                 }
                 RLog.error(TAG, "onGetChargeOrderStatus fail code = %d, errMsg = %s", Integer.valueOf(iResponse.getResponseCode()), iResponse.getMessage());
                 onFail("", iResponse.getResponseCode(), iResponse.getMessage(), requestParams.getCallback(), null);
-                if (this.iPayReporter != null) {
+                if (this.mPayReporter != null) {
                     cReportResponse.mEventId = EventType.PayEventID.QUERY_USER_YB_DETAIL_FAIL;
                     cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_USER_YB_DETAIL_FAIL;
                     cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                     cReportResponse.mErrMsg = "onQueryUserYbDetails fail!" + iResponse.getMessage();
                     cReportResponse.mCmd = i2;
-                    this.iPayReporter.onQueryUserYbDetails(cReportResponse);
+                    this.mPayReporter.onQueryUserYbDetails(cReportResponse);
                 }
             }
         }
@@ -401,17 +401,17 @@ public class PayRespManager {
             if (request != null) {
                 ChargeCurrencyReqParams chargeCurrencyReqParams = (ChargeCurrencyReqParams) request.getExtParam();
                 HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-                long j2 = 0;
+                long j = 0;
                 if (chargeCurrencyReqParams != null) {
                     cReportResponse.mPaysource = chargeCurrencyReqParams.getFrom();
                     cReportResponse.mUid = chargeCurrencyReqParams.getUid();
-                    j2 = System.currentTimeMillis() - chargeCurrencyReqParams.getRequestTime();
-                    cReportResponse.mDelay = j2 + "";
+                    j = System.currentTimeMillis() - chargeCurrencyReqParams.getRequestTime();
+                    cReportResponse.mDelay = j + "";
                     cReportResponse.mCmd = i2;
                     cReportResponse.mServiceName = this.mDefalutServiceName;
                     cReportResponse.mFunctionName = this.mDefalutFunctionName;
                 }
-                long j3 = j2;
+                long j2 = j;
                 RLog.info("AppPayServiceImpl", "onOrderProduct---mDefalutServiceName:" + this.mDefalutServiceName + "---mDefalutFunctionName:" + this.mDefalutFunctionName + "---mRealFunctionName:" + cReportResponse.mServiceName + "---mRealFunctionName:" + cReportResponse.mFunctionName);
                 if (payOrderResult != null) {
                     cReportResponse.mOrderId = payOrderResult.getOrderId();
@@ -420,14 +420,14 @@ public class PayRespManager {
                     if (payOrderResult != null) {
                         String challengeExtension = JsonDataParerUtil.getChallengeExtension(payOrderResult.getExpand());
                         if (challengeExtension != null && !challengeExtension.equals("")) {
-                            this.payInnerLogic.showVerifyViewWithInfoString(challengeExtension, chargeCurrencyReqParams, iResponse, request);
+                            this.mPayServiceCallback.showVerifyViewWithInfoString(challengeExtension, chargeCurrencyReqParams, iResponse, request);
                             return;
                         } else {
-                            this.payInnerLogic.dealOnOrderInter(iResponse, chargeCurrencyReqParams, payOrderResult, request, cReportResponse, j3);
+                            this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, payOrderResult, request, cReportResponse, j2);
                             return;
                         }
                     }
-                    this.payInnerLogic.dealOnOrderInter(iResponse, chargeCurrencyReqParams, null, request, cReportResponse, j3);
+                    this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, null, request, cReportResponse, j2);
                 }
             }
         }
@@ -444,26 +444,26 @@ public class PayRespManager {
                 if (iResponse.isSuccess() && productListResult != null) {
                     RLog.info(TAG, "onQueryProductList success");
                     onSuccess(requestParams, productListResult, null);
-                    if (this.iPayReporter != null) {
+                    if (this.mPayReporter != null) {
                         cReportResponse.mEventId = EventType.PayEventID.QUERY_PRODUCT_LIST_SUCCESS;
                         cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_PRODUCT_LIST_SUCCESS;
                         cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                         cReportResponse.mErrMsg = "queryProductList success!" + iResponse.getMessage();
                         cReportResponse.mCmd = i2;
-                        this.iPayReporter.onQueryProductList(cReportResponse);
+                        this.mPayReporter.onQueryProductList(cReportResponse);
                         return;
                     }
                     return;
                 }
                 RLog.error(TAG, "onQueryProductList fail code = %d, errMsg = %s", Integer.valueOf(iResponse.getResponseCode()), iResponse.getMessage());
                 onFail(request.getReqSeq(), iResponse.getResponseCode(), iResponse.getMessage(), requestParams.getCallback(), null);
-                if (this.iPayReporter != null) {
+                if (this.mPayReporter != null) {
                     cReportResponse.mEventId = EventType.PayEventID.QUERY_PRODUCT_LIST_FAIL;
                     cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_PRODUCT_LIST_FAIL;
                     cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                     cReportResponse.mErrMsg = "queryProductList fail!" + iResponse.getMessage();
                     cReportResponse.mCmd = i2;
-                    this.iPayReporter.onQueryProductList(cReportResponse);
+                    this.mPayReporter.onQueryProductList(cReportResponse);
                 }
             }
         }
@@ -480,26 +480,26 @@ public class PayRespManager {
                 if (iResponse.isSuccess() && productListResult != null) {
                     RLog.info(TAG, "onQueryProductChannelsList success");
                     onSuccess(requestParams, productListResult, null);
-                    if (this.iPayReporter != null) {
+                    if (this.mPayReporter != null) {
                         cReportResponse.mEventId = EventType.PayEventID.QUERY_PRODUCT_LIST_SUCCESS;
                         cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_PRODUCT_LIST_SUCCESS;
                         cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                         cReportResponse.mErrMsg = "onQueryProductListChannels success!" + iResponse.getMessage();
                         cReportResponse.mCmd = i2;
-                        this.iPayReporter.onQueryProductList(cReportResponse);
+                        this.mPayReporter.onQueryProductList(cReportResponse);
                         return;
                     }
                     return;
                 }
                 RLog.error(TAG, "onQueryProductChannelsList fail code = %d, errMsg = %s", Integer.valueOf(iResponse.getResponseCode()), iResponse.getMessage());
                 onFail(request.getReqSeq(), iResponse.getResponseCode(), iResponse.getMessage(), requestParams.getCallback(), null);
-                if (this.iPayReporter != null) {
+                if (this.mPayReporter != null) {
                     cReportResponse.mEventId = EventType.PayEventID.QUERY_PRODUCT_LIST_FAIL;
                     cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_PRODUCT_LIST_FAIL;
                     cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                     cReportResponse.mErrMsg = "onQueryProductListChannels fail!" + iResponse.getMessage();
                     cReportResponse.mCmd = i2;
-                    this.iPayReporter.onQueryProductList(cReportResponse);
+                    this.mPayReporter.onQueryProductList(cReportResponse);
                 }
             }
         }
@@ -612,7 +612,7 @@ public class PayRespManager {
     public void onRevenueResponse(int i2, IResponse iResponse) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, iResponse) == null) {
-            RLog.debug(TAG, "onRevenueResponse command = %d", Integer.valueOf(i2));
+            RLog.debug(TAG, "onRevenueResponse command = " + i2);
             if (i2 == 1005) {
                 onQueryUserAccount(iResponse);
             } else if (i2 == 1052) {

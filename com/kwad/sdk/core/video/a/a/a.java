@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.report.g;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f72615a;
+    public static a f65069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f72616b;
+    public static volatile boolean f65070b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
                 return;
             }
         }
-        f72615a = new a();
-        f72616b = false;
+        f65069a = new a();
+        f65070b = false;
     }
 
     public a() {
@@ -56,15 +56,15 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            f72615a.a(new g<c>(str, str2) { // from class: com.kwad.sdk.core.video.a.a.a.1
+            f65069a.a(new g<c>(str, str2) { // from class: com.kwad.sdk.core.video.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f72617a;
+                public final /* synthetic */ String f65071a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f72618b;
+                public final /* synthetic */ String f65072b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -81,8 +81,8 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
                             return;
                         }
                     }
-                    this.f72617a = str;
-                    this.f72618b = str2;
+                    this.f65071a = str;
+                    this.f65072b = str2;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -91,7 +91,7 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
                 public c a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this.f72617a, this.f72618b) : (c) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this.f65071a, this.f65072b) : (c) invokeV.objValue;
                 }
             });
         }
@@ -100,17 +100,17 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f72615a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f65069a : (a) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.report.b
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || f72616b) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || f65070b) {
             return;
         }
         super.a(context);
-        f72616b = true;
+        f65070b = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

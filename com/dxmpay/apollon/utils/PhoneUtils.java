@@ -32,7 +32,6 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,32 +61,32 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_API_ARM_V7A = "armeabi-v7a";
     public static final String CPU_API_ARM_V8A = "arm64-v8a";
 
     /* renamed from: a  reason: collision with root package name */
-    public static CPUInfo f69792a;
+    public static CPUInfo f62229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<String> f69793b;
+    public static ArrayList<String> f62230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f69794c;
+    public static final Pattern f62231c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f69795d;
+    public static final Pattern f62232d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f69796e;
+    public static final Pattern f62233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f69797f;
+    public static final Pattern f62234f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -125,7 +124,7 @@ public final class PhoneUtils {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,16 +164,16 @@ public final class PhoneUtils {
                 return;
             }
         }
-        f69793b = new ArrayList<>();
-        f69794c = Pattern.compile("((\\d|[A-F]){32}).*");
-        f69795d = Pattern.compile("((\\d|[a-f]){32}).*");
-        f69796e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f69797f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
-        f69793b.add("card_no");
-        f69793b.add("valid_date");
-        f69793b.add("cvv2");
-        f69793b.add("identity_code");
-        f69793b.add("phone_number");
+        f62230b = new ArrayList<>();
+        f62231c = Pattern.compile("((\\d|[A-F]){32}).*");
+        f62232d = Pattern.compile("((\\d|[a-f]){32}).*");
+        f62233e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f62234f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f62230b.add("card_no");
+        f62230b.add("valid_date");
+        f62230b.add("cvv2");
+        f62230b.add("identity_code");
+        f62230b.add("phone_number");
     }
 
     public PhoneUtils() {
@@ -209,10 +208,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f69794c.matcher(deviceID);
+            Matcher matcher = f62231c.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f69795d.matcher(deviceID);
+                Matcher matcher2 = f62232d.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;
@@ -233,7 +232,7 @@ public final class PhoneUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f69793b.contains(str)) {
+            if (f62230b.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -342,11 +341,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f69796e.matcher(cuid).matches()) {
+            if (f62233e.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f69797f.matcher(cuid).matches()) {
+                if (f62234f.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -613,7 +612,7 @@ public final class PhoneUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            CPUInfo cPUInfo = f69792a;
+            CPUInfo cPUInfo = f62229a;
             if (cPUInfo != null) {
                 return cPUInfo;
             }
@@ -642,7 +641,7 @@ public final class PhoneUtils {
             } catch (IOException e3) {
                 e3.printStackTrace();
             }
-            f69792a = cPUInfo2;
+            f62229a = cPUInfo2;
             return cPUInfo2;
         }
         return (CPUInfo) invokeV.objValue;
@@ -662,18 +661,18 @@ public final class PhoneUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
-            long j2 = 0;
+            long j = 0;
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
                 String[] split = bufferedReader.readLine().split("\\s+");
                 for (String str : split) {
                     String str2 = str + TrackUI.SEPERATOR;
                 }
-                j2 = Long.valueOf(split[1]).longValue() * 1024;
+                j = Long.valueOf(split[1]).longValue() * 1024;
                 bufferedReader.close();
             } catch (IOException unused) {
             }
-            return Formatter.formatFileSize(context, j2);
+            return Formatter.formatFileSize(context, j);
         }
         return (String) invokeL.objValue;
     }
@@ -793,7 +792,7 @@ public final class PhoneUtils {
             if (i2 >= 9) {
                 if (!TextUtils.isEmpty(str)) {
                     intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                    intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, str, null));
+                    intent.setData(Uri.fromParts("package", str, null));
                 } else {
                     intent.setAction("android.settings.MANAGE_APPLICATIONS_SETTINGS");
                 }

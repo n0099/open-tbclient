@@ -95,20 +95,20 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
             this.mDeltaY = 0;
         }
 
-        private float getValueAt(long j2) {
+        private float getValueAt(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j2)) == null) {
-                if (j2 < this.mStartTime) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j)) == null) {
+                if (j < this.mStartTime) {
                     return 0.0f;
                 }
-                long j3 = this.mStopTime;
-                if (j3 >= 0 && j2 >= j3) {
-                    long j4 = j2 - j3;
+                long j2 = this.mStopTime;
+                if (j2 >= 0 && j >= j2) {
+                    long j3 = j - j2;
                     float f2 = this.mStopValue;
-                    return (1.0f - f2) + (f2 * AutoScrollHelper.constrain(((float) j4) / this.mEffectiveRampDown, 0.0f, 1.0f));
+                    return (1.0f - f2) + (f2 * AutoScrollHelper.constrain(((float) j3) / this.mEffectiveRampDown, 0.0f, 1.0f));
                 }
-                return AutoScrollHelper.constrain(((float) (j2 - this.mStartTime)) / this.mRampUpDuration, 0.0f, 1.0f) * 0.5f;
+                return AutoScrollHelper.constrain(((float) (j - this.mStartTime)) / this.mRampUpDuration, 0.0f, 1.0f) * 0.5f;
             }
             return invokeJ.floatValue;
         }

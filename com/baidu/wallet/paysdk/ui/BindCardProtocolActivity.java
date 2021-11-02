@@ -31,7 +31,7 @@ import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.paysdk.storage.HtmlDataCache;
 import com.dxmpay.wallet.paysdk.ui.WebViewActivity;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CARD_NO = "card_no";
@@ -43,28 +43,28 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f63254a;
+    public BindFastRequest f60116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63255b;
+    public String f60117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63256c;
+    public String f60118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63257d;
+    public String f60119d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63258e;
+    public String f60120e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63259f;
+    public String f60121f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63260g;
+    public String f60122g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f63261h;
+    public String f60123h;
 
     public BindCardProtocolActivity() {
         Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
                 if (!TextUtils.isEmpty(str2)) {
                     HtmlDataCache.getInstance().setHtml(str2);
                     Intent intent = new Intent(getActivity(), WebViewActivity.class);
-                    intent.putExtra("webview_title_string", this.f63256c);
+                    intent.putExtra("webview_title_string", this.f60118c);
                     intent.putExtra(WebViewActivity.HTML_DATA_FROM_SCENE, "1");
                     startActivity(intent);
                 } else {
@@ -143,13 +143,13 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f63254a = (BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.getInstance().getBindCategoryByIntent(getIntent()));
-            this.f63255b = getIntent().getStringExtra(PROTOCOL_SNAPSHOT_ID);
-            this.f63257d = getIntent().getStringExtra(TRUE_NAME);
-            this.f63259f = getIntent().getStringExtra("identity_code");
-            this.f63258e = getIntent().getStringExtra(IDENTITY_TYPE);
-            this.f63260g = getIntent().getStringExtra("card_no");
-            this.f63261h = getIntent().getStringExtra("mobile");
+            this.f60116a = (BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.getInstance().getBindCategoryByIntent(getIntent()));
+            this.f60117b = getIntent().getStringExtra(PROTOCOL_SNAPSHOT_ID);
+            this.f60119d = getIntent().getStringExtra(TRUE_NAME);
+            this.f60121f = getIntent().getStringExtra("identity_code");
+            this.f60120e = getIntent().getStringExtra(IDENTITY_TYPE);
+            this.f60122g = getIntent().getStringExtra("card_no");
+            this.f60123h = getIntent().getStringExtra("mobile");
             StatHelper.statServiceEvent(PayStatServiceEvent.ENTER_PROTOCOL_PAGE);
             a();
         }
@@ -160,7 +160,7 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            this.f63254a = null;
+            this.f60116a = null;
             BeanManager.getInstance().removeAllBeans("BindCardProtocolActivity");
         }
     }
@@ -180,11 +180,11 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
             TextView textView2 = (TextView) findViewById(R.id.tv_bindcard_protocol_tip);
             TextView textView3 = (TextView) findViewById(R.id.tv_bindcard_protocol_subtitle);
             ListView listView = (ListView) findViewById(R.id.list_bindcard_protocol);
-            BindFastRequest bindFastRequest = this.f63254a;
-            if (bindFastRequest == null || bindFastRequest.getmBankInfo() == null || this.f63254a.getmBankInfo().protocol_platform_info == null || this.f63254a.getmBankInfo().protocol_platform_info.list == null) {
+            BindFastRequest bindFastRequest = this.f60116a;
+            if (bindFastRequest == null || bindFastRequest.getmBankInfo() == null || this.f60116a.getmBankInfo().protocol_platform_info == null || this.f60116a.getmBankInfo().protocol_platform_info.list == null) {
                 return;
             }
-            GetCardInfoResponse.ProtocolPlatformInfo protocolPlatformInfo = this.f63254a.getmBankInfo().protocol_platform_info;
+            GetCardInfoResponse.ProtocolPlatformInfo protocolPlatformInfo = this.f60116a.getmBankInfo().protocol_platform_info;
             textView.setText(protocolPlatformInfo.main_title);
             textView2.setText(protocolPlatformInfo.prompt);
             textView3.setText(protocolPlatformInfo.sub_title);
@@ -195,10 +195,10 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.baidu.wallet.paysdk.ui.widget.a.b f63262a;
+                public final /* synthetic */ com.baidu.wallet.paysdk.ui.widget.a.b f60124a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BindCardProtocolActivity f63263b;
+                public final /* synthetic */ BindCardProtocolActivity f60125b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -215,20 +215,20 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
                             return;
                         }
                     }
-                    this.f63263b = this;
-                    this.f63262a = bVar;
+                    this.f60125b = this;
+                    this.f60124a = bVar;
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
                     GetCardInfoResponse.ProtocolPlatformItem item;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (item = this.f63262a.getItem(i2)) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (item = this.f60124a.getItem(i2)) == null) {
                         return;
                     }
                     StatHelper.statServiceEvent(PayStatServiceEvent.CLICK_PROTOCOL_ITEM);
-                    this.f63263b.f63256c = item.templateName;
-                    this.f63263b.a(item.protocolType, item.templateCode);
+                    this.f60125b.f60118c = item.templateName;
+                    this.f60125b.a(item.protocolType, item.templateCode);
                 }
             });
         }
@@ -240,13 +240,13 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2) == null) {
             WalletGlobalUtils.showLoadingDialog(this);
             com.baidu.wallet.paysdk.beans.c cVar = (com.baidu.wallet.paysdk.beans.c) PayBeanFactory.getInstance().getBean((Context) this, 605, "BindCardProtocolActivity");
-            cVar.d(this.f63257d);
-            cVar.e(this.f63258e);
-            cVar.f(this.f63259f);
-            cVar.h(this.f63261h);
-            cVar.g(this.f63260g);
+            cVar.d(this.f60119d);
+            cVar.e(this.f60120e);
+            cVar.f(this.f60121f);
+            cVar.h(this.f60123h);
+            cVar.g(this.f60122g);
             cVar.b(str);
-            cVar.a(this.f63255b);
+            cVar.a(this.f60117b);
             cVar.c(str2);
             cVar.setResponseCallback(this);
             cVar.execBean();

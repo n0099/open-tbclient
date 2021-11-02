@@ -120,15 +120,15 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         }
     }
 
-    public static PendingIntent buildMediaButtonPendingIntent(Context context, long j2) {
+    public static PendingIntent buildMediaButtonPendingIntent(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j)) == null) {
             ComponentName mediaButtonReceiverComponent = getMediaButtonReceiverComponent(context);
             if (mediaButtonReceiverComponent == null) {
                 return null;
             }
-            return buildMediaButtonPendingIntent(context, mediaButtonReceiverComponent, j2);
+            return buildMediaButtonPendingIntent(context, mediaButtonReceiverComponent, j);
         }
         return (PendingIntent) invokeLJ.objValue;
     }
@@ -223,16 +223,16 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         }
     }
 
-    public static PendingIntent buildMediaButtonPendingIntent(Context context, ComponentName componentName, long j2) {
+    public static PendingIntent buildMediaButtonPendingIntent(Context context, ComponentName componentName, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, componentName, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, componentName, Long.valueOf(j)})) == null) {
             if (componentName == null) {
                 return null;
             }
-            int keyCode = PlaybackStateCompat.toKeyCode(j2);
+            int keyCode = PlaybackStateCompat.toKeyCode(j);
             if (keyCode == 0) {
-                String str = "Cannot build a media button pending intent with the given action: " + j2;
+                String str = "Cannot build a media button pending intent with the given action: " + j;
                 return null;
             }
             Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CyberVideoDownloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class DMDownloadError {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int Cust01 = 1901;
@@ -36,7 +36,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface DownloadListener {
         void onDataTransfer(String str, VideoDownloadBean videoDownloadBean);
 
@@ -44,14 +44,14 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class DownloadOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final int DELETE = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CyberVideoDownloader f39317a;
+        public final /* synthetic */ CyberVideoDownloader f37267a;
 
         public DownloadOperation(CyberVideoDownloader cyberVideoDownloader) {
             Interceptable interceptable = $ic;
@@ -68,12 +68,12 @@ public class CyberVideoDownloader {
                     return;
                 }
             }
-            this.f39317a = cyberVideoDownloader;
+            this.f37267a = cyberVideoDownloader;
         }
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class DownloadSubStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FILE_EXIST = 1;
@@ -81,7 +81,7 @@ public class CyberVideoDownloader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CyberVideoDownloader f39318a;
+        public final /* synthetic */ CyberVideoDownloader f37268a;
 
         public DownloadSubStatus(CyberVideoDownloader cyberVideoDownloader) {
             Interceptable interceptable = $ic;
@@ -98,12 +98,12 @@ public class CyberVideoDownloader {
                     return;
                 }
             }
-            this.f39318a = cyberVideoDownloader;
+            this.f37268a = cyberVideoDownloader;
         }
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class DownloadTaskStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ABNORMAL_EXIT = 8;
@@ -119,7 +119,7 @@ public class CyberVideoDownloader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CyberVideoDownloader f39319a;
+        public final /* synthetic */ CyberVideoDownloader f37269a;
 
         public DownloadTaskStatus(CyberVideoDownloader cyberVideoDownloader) {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class CyberVideoDownloader {
                     return;
                 }
             }
-            this.f39319a = cyberVideoDownloader;
+            this.f37269a = cyberVideoDownloader;
         }
     }
 

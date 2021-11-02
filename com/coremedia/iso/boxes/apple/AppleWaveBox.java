@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.AbstractContainerBox;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class AppleWaveBox extends AbstractContainerBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "wave";
@@ -13,7 +13,7 @@ public final class AppleWaveBox extends AbstractContainerBox {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AppleWaveBox() {
-        super(TYPE);
+        super("wave");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

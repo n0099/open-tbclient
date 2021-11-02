@@ -1,23 +1,24 @@
 package com.baidu.tieba.h5power;
 
-import c.a.e.e.p.k;
-import c.a.r0.k3.m0.d.a;
-import c.a.r0.k3.m0.d.b;
-import c.a.r0.k3.m0.d.c;
-import c.a.r0.k3.m0.d.e;
+import b.a.e.e.p.k;
+import b.a.r0.l3.n0.d.a;
+import b.a.r0.l3.n0.d.b;
+import b.a.r0.l3.n0.d.c;
+import b.a.r0.l3.n0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.share.QzonePublish;
 import com.vivo.push.PushClientConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +27,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CommonTbJsBridge_Proxy extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,6 +53,7 @@ public class CommonTbJsBridge_Proxy extends a {
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
         hashSet.add("saveImageSuccess");
+        this.mNotificationNameList.add("GetPhotoAlbum");
         this.mNotificationNameList.add("getPageLeaveTime");
         this.mNotificationNameList.add(CommonTbJsBridge.CHANGE_SKIN_TYPE);
         this.mNotificationNameList.add(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION);
@@ -62,7 +64,7 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
     }
 
-    @Override // c.a.r0.k3.m0.d.a
+    @Override // b.a.r0.l3.n0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -142,6 +144,21 @@ public class CommonTbJsBridge_Proxy extends a {
                     if (!cVar2.h()) {
                         cVar2.n(false);
                         addObserver("saveImageSuccess", cVar2, false);
+                    }
+                }
+                cVar2.y(0);
+            } else if (b2.equals("system/goToPhotoAlbum")) {
+                cVar2.r(true);
+                c handleGetPhotoAlbum = this.mJsBridge.handleGetPhotoAlbum();
+                this.mNotificationNameList.add("GetPhotoAlbum");
+                if (handleGetPhotoAlbum != null) {
+                    cVar2.x(handleGetPhotoAlbum.f());
+                    cVar2.t(handleGetPhotoAlbum.b());
+                    cVar2.o(handleGetPhotoAlbum.a());
+                    cVar2.w(handleGetPhotoAlbum.e());
+                    if (!cVar2.h()) {
+                        cVar2.n(false);
+                        addObserver("GetPhotoAlbum", cVar2, false);
                     }
                 }
                 cVar2.y(0);
@@ -255,6 +272,16 @@ public class CommonTbJsBridge_Proxy extends a {
                     cVar2.w(goToEditPost.e());
                 }
                 cVar2.y(0);
+            } else if (b2.equals("router/videoImmersivePage")) {
+                cVar2.r(true);
+                c goToVideoImmersivePage = this.mJsBridge.goToVideoImmersivePage(e2.optString("threadId"), e2.optString("postId"), e2.optString("title"), e2.optString(TbEnum.SystemMessage.KEY_USER_NAME), e2.optString("nickName"), e2.optString("portrait"), e2.optString("thumbnailUrl"), e2.optString("videoUrl"), e2.optString("videoWidth"), e2.optString("videoHeight"), e2.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), e2.optString("postNum"), e2.optString("agreeNum"), e2.optString("shareNum"), e2.optString(TbTitleActivityConfig.FORUM_ID), e2.optString("forumName"), e2.optString("showComment"));
+                if (goToVideoImmersivePage != null) {
+                    cVar2.x(goToVideoImmersivePage.f());
+                    cVar2.t(goToVideoImmersivePage.b());
+                    cVar2.o(goToVideoImmersivePage.a());
+                    cVar2.w(goToVideoImmersivePage.e());
+                }
+                cVar2.y(0);
             } else if (b2.equals("router/jumpToVideo")) {
                 cVar2.r(true);
                 c jumpToVideo = this.mJsBridge.jumpToVideo(e2.optString("videoTopic"), e2.optString("videoTopicID"));
@@ -327,7 +354,7 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar2.y(0);
             } else if (b2.equals("account/startDownloadCss")) {
                 cVar2.r(true);
-                c startDownloadCss = this.mJsBridge.startDownloadCss(e2.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL));
+                c startDownloadCss = this.mJsBridge.startDownloadCss(e2.optString("downloadUrl"));
                 if (startDownloadCss != null) {
                     cVar2.x(startDownloadCss.f());
                     cVar2.t(startDownloadCss.b());
@@ -483,7 +510,7 @@ public class CommonTbJsBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.r0.k3.m0.d.a
+    @Override // b.a.r0.l3.n0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -495,6 +522,8 @@ public class CommonTbJsBridge_Proxy extends a {
             ArrayList arrayList = new ArrayList();
             if (str.equals("saveImageSuccess")) {
                 cVar = this.mJsBridge.saveImageSuccess(hashMap);
+            } else if (str.equals("GetPhotoAlbum")) {
+                cVar = this.mJsBridge.getPhotoAlbumResult(hashMap);
             } else if (str.equals("getPageLeaveTime")) {
                 cVar = this.mJsBridge.springFestivalTimeToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_SKIN_TYPE)) {

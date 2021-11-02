@@ -22,7 +22,7 @@ import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SplashAD extends LiteAbstractAD<NSPVI> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EVENT_TYPE_AD_CLICKED = 4;
@@ -36,49 +36,37 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     public static final int EVENT_TYPE_NO_AD = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public volatile ViewGroup f75620b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public volatile SplashADListener f75621c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile LoadAdParams f75622d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f75623e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f75624f;
-
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f75625g;
+    public volatile ViewGroup f67938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f75626h;
+    public volatile SplashADListener f67939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile byte[] f75627i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public View f75628j;
-    public int k;
-    public View l;
+    public volatile LoadAdParams f67940i;
+    public volatile boolean j;
+    public volatile boolean k;
+    public volatile boolean l;
+    public volatile int m;
+    public volatile byte[] n;
+    public View o;
+    public int p;
+    public View q;
 
     /* renamed from: com.qq.e.ads.splash.SplashAD$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class ADListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public /* synthetic */ SplashAD f75629a;
+        public final /* synthetic */ SplashAD f67941a;
 
         public ADListenerAdapter(SplashAD splashAD) {
             Interceptable interceptable = $ic;
@@ -95,10 +83,10 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
                     return;
                 }
             }
-            this.f75629a = splashAD;
+            this.f67941a = splashAD;
         }
 
-        public /* synthetic */ ADListenerAdapter(SplashAD splashAD, byte b2) {
+        public /* synthetic */ ADListenerAdapter(SplashAD splashAD, AnonymousClass1 anonymousClass1) {
             this(splashAD);
         }
 
@@ -106,57 +94,57 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
         public void onADEvent(ADEvent aDEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) {
-                if (this.f75629a.f75621c == null) {
+                if (this.f67941a.f67939h == null) {
                     GDTLogger.d("SplashADListener == null");
                     return;
                 }
                 Object[] paras = aDEvent.getParas();
                 switch (aDEvent.getType()) {
                     case 1:
-                        this.f75629a.f75621c.onADDismissed();
+                        this.f67941a.f67939h.onADDismissed();
                         return;
                     case 2:
                         if (paras.length <= 0 || !(paras[0] instanceof Integer)) {
                             AbstractAD.a(SplashAD.class, aDEvent);
                             return;
                         } else {
-                            this.f75629a.f75621c.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) paras[0]).intValue()));
+                            this.f67941a.f67939h.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) paras[0]).intValue()));
                             return;
                         }
                     case 3:
-                        this.f75629a.f75621c.onADPresent();
+                        this.f67941a.f67939h.onADPresent();
                         return;
                     case 4:
-                        this.f75629a.f75621c.onADClicked();
+                        this.f67941a.f67939h.onADClicked();
                         return;
                     case 5:
                         if (paras.length == 1 && (paras[0] instanceof Long)) {
-                            this.f75629a.f75621c.onADTick(((Long) paras[0]).longValue());
+                            this.f67941a.f67939h.onADTick(((Long) paras[0]).longValue());
                             return;
                         } else {
                             AbstractAD.a(SplashAD.class, aDEvent);
                             return;
                         }
                     case 6:
-                        this.f75629a.f75621c.onADExposure();
+                        this.f67941a.f67939h.onADExposure();
                         return;
                     case 7:
                         if (paras.length == 1 && (paras[0] instanceof Long)) {
-                            this.f75629a.f75621c.onADLoaded(((Long) paras[0]).longValue());
+                            this.f67941a.f67939h.onADLoaded(((Long) paras[0]).longValue());
                             return;
                         } else {
                             AbstractAD.a(SplashAD.class, aDEvent);
                             return;
                         }
                     case 8:
-                        if (this.f75629a.f75621c instanceof SplashADZoomOutListener) {
-                            ((SplashADZoomOutListener) this.f75629a.f75621c).onZoomOut();
+                        if (this.f67941a.f67939h instanceof SplashADZoomOutListener) {
+                            ((SplashADZoomOutListener) this.f67941a.f67939h).onZoomOut();
                             return;
                         }
                         return;
                     case 9:
-                        if (this.f75629a.f75621c instanceof SplashADZoomOutListener) {
-                            ((SplashADZoomOutListener) this.f75629a.f75621c).onZoomOutPlayFinish();
+                        if (this.f67941a.f67939h instanceof SplashADZoomOutListener) {
+                            ((SplashADZoomOutListener) this.f67941a.f67939h).onZoomOutPlayFinish();
                             return;
                         }
                         return;
@@ -227,11 +215,11 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
                 return;
             }
         }
-        this.f75623e = false;
-        this.f75621c = splashADListener;
-        this.f75628j = view;
-        this.k = i2;
-        this.l = view2;
+        this.j = false;
+        this.f67939h = splashADListener;
+        this.o = view;
+        this.p = i2;
+        this.q = view2;
         a(context, str);
     }
 
@@ -401,10 +389,10 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
                 return;
             }
         }
-        this.f75623e = false;
-        this.f75621c = splashADListener;
-        this.k = i2;
-        this.l = view;
+        this.j = false;
+        this.f67939h = splashADListener;
+        this.p = i2;
+        this.q = view;
         a(context, str, str2);
     }
 
@@ -460,10 +448,10 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
                 a(4001);
                 return;
             }
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t == 0) {
-                this.f75625g = z;
-                this.f75620b = viewGroup;
+                this.l = z;
+                this.f67938g = viewGroup;
                 return;
             }
             NSPVI nspvi = (NSPVI) t;
@@ -477,13 +465,13 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
 
     private void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65551, this, z) == null) && b()) {
-            if (!a()) {
-                this.f75625g = z;
-                this.f75624f = true;
+        if ((interceptable == null || interceptable.invokeZ(65551, this, z) == null) && a()) {
+            if (!b()) {
+                this.l = z;
+                this.k = true;
                 return;
             }
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t == 0) {
                 a("fetchAdInner");
                 return;
@@ -505,9 +493,9 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
                 a(4001);
                 return;
             }
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t == 0) {
-                this.f75620b = viewGroup;
+                this.f67938g = viewGroup;
                 return;
             }
             NSPVI nspvi = (NSPVI) t;
@@ -520,92 +508,54 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     }
 
     @Override // com.qq.e.ads.AbstractAD
-    public final /* synthetic */ Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
-        return pOFactory.getNativeSplashAdView(context, str, str2, str3);
-    }
-
-    @Override // com.qq.e.ads.AbstractAD
-    public final /* synthetic */ void a(Object obj) {
-        NSPVI nspvi = (NSPVI) obj;
-        if (this.f75622d != null) {
-            nspvi.setLoadAdParams(this.f75622d);
-        }
-        if (this.f75626h != 0) {
-            nspvi.setDeveloperLogo(this.f75626h);
-        }
-        if (this.f75627i != null) {
-            nspvi.setDeveloperLogo(this.f75627i);
-        }
-        nspvi.setFetchDelay(this.k);
-        nspvi.setAdListener(new ADListenerAdapter(this, (byte) 0));
-        nspvi.setSkipView(this.f75628j);
-        nspvi.setFloatView(this.l);
-        if ((this.f75621c instanceof SplashADZoomOutListener) && ((SplashADZoomOutListener) this.f75621c).isSupportZoomOut()) {
-            nspvi.setSupportZoomOut(true);
-        }
-        if (this.f75620b != null) {
-            if (this.f75625g) {
-                fetchFullScreenAndShowIn(this.f75620b);
-            } else {
-                fetchAndShowIn(this.f75620b);
-            }
-        }
-        if (this.f75623e) {
-            nspvi.preload();
-            this.f75623e = false;
-        }
-        if (this.f75624f) {
-            if (this.f75625g) {
-                nspvi.fetchFullScreenAdOnly();
-            } else {
-                nspvi.fetchAdOnly();
-            }
-            this.f75624f = false;
-        }
-    }
-
-    @Override // com.qq.e.ads.AbstractAD
-    public final void b(int i2) {
+    public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f75621c == null) {
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeSplashAdView(context, str, str2, str3) : invokeLLLLL.objValue;
+    }
+
+    @Override // com.qq.e.ads.AbstractAD
+    public void b(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f67939h == null) {
             return;
         }
-        this.f75621c.onNoAD(AdErrorConvertor.formatErrorCode(i2));
+        this.f67939h.onNoAD(AdErrorConvertor.formatErrorCode(i2));
     }
 
-    public final void fetchAdOnly() {
+    public void fetchAdOnly() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             a(false);
         }
     }
 
-    public final void fetchAndShowIn(ViewGroup viewGroup) {
+    public void fetchAndShowIn(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) {
             a(viewGroup, false);
         }
     }
 
-    public final void fetchFullScreenAdOnly() {
+    public void fetchFullScreenAdOnly() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             a(true);
         }
     }
 
-    public final void fetchFullScreenAndShowIn(ViewGroup viewGroup) {
+    public void fetchFullScreenAndShowIn(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, viewGroup) == null) {
             a(viewGroup, true);
         }
     }
 
-    public final String getAdNetWorkName() {
+    public String getAdNetWorkName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t != 0) {
                 return ((NSPVI) t).getAdNetWorkName();
             }
@@ -615,11 +565,13 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
         return (String) invokeV.objValue;
     }
 
-    public final Map getExt() {
+    public Map getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f75446a != 0) {
+            T t = this.f67799a;
+            if (t != 0) {
+                NSPVI nspvi = (NSPVI) t;
                 return NSPVI.ext;
             }
             a("getExt");
@@ -628,11 +580,11 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
         return (Map) invokeV.objValue;
     }
 
-    public final Bitmap getZoomOutBitmap() {
+    public Bitmap getZoomOutBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t != 0) {
                 return ((NSPVI) t).getZoomOutBitmap();
             }
@@ -642,14 +594,14 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
         return (Bitmap) invokeV.objValue;
     }
 
-    public final void preLoad() {
+    public void preLoad() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && b()) {
-            if (!a()) {
-                this.f75623e = true;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && a()) {
+            if (!b()) {
+                this.j = true;
                 return;
             }
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t != 0) {
                 ((NSPVI) t).preload();
             } else {
@@ -659,77 +611,120 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     }
 
     @Deprecated
-    public final void setAdLogoMargin(int i2, int i3) {
+    public void setAdLogoMargin(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
         }
     }
 
-    public final void setDeveloperLogo(int i2) {
+    public void setDeveloperLogo(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t == 0) {
-                this.f75626h = i2;
+                this.m = i2;
             } else {
                 ((NSPVI) t).setDeveloperLogo(i2);
             }
         }
     }
 
-    public final void setDeveloperLogo(byte[] bArr) {
+    public void setDeveloperLogo(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bArr) == null) {
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t == 0) {
-                this.f75627i = bArr;
+                this.n = bArr;
             } else {
                 ((NSPVI) t).setDeveloperLogo(bArr);
             }
         }
     }
 
-    public final void setLoadAdParams(LoadAdParams loadAdParams) {
+    public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, loadAdParams) == null) {
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t != 0) {
                 ((NSPVI) t).setLoadAdParams(loadAdParams);
             } else {
-                this.f75622d = loadAdParams;
+                this.f67940i = loadAdParams;
             }
         }
     }
 
     @Deprecated
-    public final void setPreloadView(View view) {
+    public void setPreloadView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, view) == null) {
         }
     }
 
-    public final void showAd(ViewGroup viewGroup) {
+    public void showAd(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, viewGroup) == null) {
             b(viewGroup, false);
         }
     }
 
-    public final void showFullScreenAd(ViewGroup viewGroup) {
+    public void showFullScreenAd(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, viewGroup) == null) {
             b(viewGroup, true);
         }
     }
 
-    public final void zoomOutAnimationFinish() {
+    public void zoomOutAnimationFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            T t = this.f75446a;
+            T t = this.f67799a;
             if (t != 0) {
                 ((NSPVI) t).zoomOutAnimationFinish();
             } else {
                 a("zoomOutAnimationFinish");
+            }
+        }
+    }
+
+    @Override // com.qq.e.ads.AbstractAD
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            NSPVI nspvi = (NSPVI) obj;
+            if (this.f67940i != null) {
+                nspvi.setLoadAdParams(this.f67940i);
+            }
+            if (this.m != 0) {
+                nspvi.setDeveloperLogo(this.m);
+            }
+            if (this.n != null) {
+                nspvi.setDeveloperLogo(this.n);
+            }
+            nspvi.setFetchDelay(this.p);
+            nspvi.setAdListener(new ADListenerAdapter(this, null));
+            nspvi.setSkipView(this.o);
+            nspvi.setFloatView(this.q);
+            if ((this.f67939h instanceof SplashADZoomOutListener) && ((SplashADZoomOutListener) this.f67939h).isSupportZoomOut()) {
+                nspvi.setSupportZoomOut(true);
+            }
+            if (this.f67938g != null) {
+                if (this.l) {
+                    fetchFullScreenAndShowIn(this.f67938g);
+                } else {
+                    fetchAndShowIn(this.f67938g);
+                }
+            }
+            if (this.j) {
+                nspvi.preload();
+                this.j = false;
+            }
+            if (this.k) {
+                if (this.l) {
+                    nspvi.fetchFullScreenAdOnly();
+                } else {
+                    nspvi.fetchAdOnly();
+                }
+                this.k = false;
             }
         }
     }

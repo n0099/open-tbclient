@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.b;
-import c.a.e.e.p.k;
-import c.a.e.e.p.l;
-import c.a.q0.e.a;
-import c.a.q0.p0.d;
-import c.a.q0.p0.e;
-import c.a.q0.p0.f;
+import b.a.e.a.b;
+import b.a.e.e.p.k;
+import b.a.e.e.p.l;
+import b.a.q0.e.a;
+import b.a.q0.p0.d;
+import b.a.q0.p0.e;
+import b.a.q0.p0.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -52,7 +52,7 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.HashMap;
 import java.util.Map;
 import tbclient.UserBfbInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class WalletStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,28 +130,28 @@ public class WalletStatic {
                     Activity activity;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f13665d) == null) {
+                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f12799d) == null) {
                             return null;
                         }
-                        BdUniqueId bdUniqueId = data.f13662a;
-                        String str = data.f13664c;
-                        int i2 = data.f13663b;
+                        BdUniqueId bdUniqueId = data.f12796a;
+                        String str = data.f12798c;
+                        int i2 = data.f12797b;
                         if (i2 == 1) {
-                            WalletPluginManager.getInstance().doBaiduPay(data.f13665d, str, bdUniqueId);
+                            WalletPluginManager.getInstance().doBaiduPay(data.f12799d, str, bdUniqueId);
                         } else if (i2 == 2) {
-                            WalletPluginManager.getInstance().doAliPay(data.f13665d, str, bdUniqueId);
+                            WalletPluginManager.getInstance().doAliPay(data.f12799d, str, bdUniqueId);
                         } else if (i2 == 3) {
-                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f13665d, data.f13666e, data.f13664c, bdUniqueId);
-                        } else if (i2 == 4 && data.f13667f != null) {
+                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f12799d, data.f12800e, data.f12798c, bdUniqueId);
+                        } else if (i2 == 4 && data.f12801f != null) {
                             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(activity, TbConfig.WEIXIN_SHARE_APP_ID);
                             PayReq payReq = new PayReq();
-                            payReq.appId = data.f13667f.get("appid");
-                            payReq.partnerId = data.f13667f.get("partnerid");
-                            payReq.prepayId = data.f13667f.get("prepayid");
-                            payReq.packageValue = data.f13667f.get("packagealias");
-                            payReq.nonceStr = data.f13667f.get("noncestr");
-                            payReq.timeStamp = data.f13667f.get("timestamp");
-                            payReq.sign = data.f13667f.get("sign");
+                            payReq.appId = data.f12801f.get("appid");
+                            payReq.partnerId = data.f12801f.get("partnerid");
+                            payReq.prepayId = data.f12801f.get("prepayid");
+                            payReq.packageValue = data.f12801f.get("packagealias");
+                            payReq.nonceStr = data.f12801f.get("noncestr");
+                            payReq.timeStamp = data.f12801f.get("timestamp");
+                            payReq.sign = data.f12801f.get("sign");
                             createWXAPI.registerApp(payReq.appId);
                             createWXAPI.sendReq(payReq);
                         }
@@ -195,7 +195,7 @@ public class WalletStatic {
                             return null;
                         }
                         WalletPluginManager.getInstance().invokePlugin(null);
-                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().f13046a, customMessage.getData().f13047b, customMessage.getData().f13048c));
+                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().f12203a, customMessage.getData().f12204b, customMessage.getData().f12205c));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
@@ -342,8 +342,8 @@ public class WalletStatic {
     public static void registerHttpAndSocketTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            c.a.r0.k3.e0.a.f(303043, ResponsedGetOrderSocketMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, c.a.r0.k3.e0.a.a(TbConfig.GET_ORDER, 303043));
+            b.a.r0.l3.f0.a.f(303043, ResponsedGetOrderSocketMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, b.a.r0.l3.f0.a.a(TbConfig.GET_ORDER, 303043));
             tbHttpMessageTask.setResponsedClass(ResponsedGetOrderHttpMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -464,7 +464,7 @@ public class WalletStatic {
                             } else {
                                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                                 bdStatisticsManager.newDebug("wallet_debug", 0L, null, "type", "scheme_start_wallet_sub_thread", "link", "" + str);
-                                c.a.e.e.m.e.a().post(new Runnable(this, str) { // from class: com.baidu.tieba.wallet.WalletStatic.6.1
+                                b.a.e.e.m.e.a().post(new Runnable(this, str) { // from class: com.baidu.tieba.wallet.WalletStatic.6.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass6 this$0;

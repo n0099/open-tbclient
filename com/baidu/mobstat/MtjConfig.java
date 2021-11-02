@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.embedapplog.AppLog;
-/* loaded from: classes5.dex */
+import com.ss.android.download.api.constant.BaseConstants;
+/* loaded from: classes7.dex */
 public class MtjConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_MTJ_PUSH_CALL = "Baidu_mtj_push_call";
@@ -18,7 +18,7 @@ public class MtjConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class FeedTrackStrategy {
         public static /* synthetic */ Interceptable $ic;
         public static final FeedTrackStrategy TRACK_ALL;
@@ -26,7 +26,7 @@ public class MtjConfig {
         public static final FeedTrackStrategy TRACK_SINGLE;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ FeedTrackStrategy[] f43096a;
+        public static final /* synthetic */ FeedTrackStrategy[] f40897a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public class MtjConfig {
             TRACK_SINGLE = new FeedTrackStrategy("TRACK_SINGLE", 1);
             FeedTrackStrategy feedTrackStrategy = new FeedTrackStrategy("TRACK_NONE", 2);
             TRACK_NONE = feedTrackStrategy;
-            f43096a = new FeedTrackStrategy[]{TRACK_ALL, TRACK_SINGLE, feedTrackStrategy};
+            f40897a = new FeedTrackStrategy[]{TRACK_ALL, TRACK_SINGLE, feedTrackStrategy};
         }
 
         public FeedTrackStrategy(String str, int i2) {
@@ -77,12 +77,12 @@ public class MtjConfig {
         public static FeedTrackStrategy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FeedTrackStrategy[]) f43096a.clone() : (FeedTrackStrategy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FeedTrackStrategy[]) f40897a.clone() : (FeedTrackStrategy[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class PushPlatform {
         public static /* synthetic */ Interceptable $ic;
         public static final PushPlatform ALIYUN;
@@ -97,14 +97,14 @@ public class MtjConfig {
         public static final PushPlatform XINGE;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ PushPlatform[] f43097c;
+        public static final /* synthetic */ PushPlatform[] f40898c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f43098a;
+        public String f40899a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43099b;
+        public int f40900b;
 
         static {
             InterceptResult invokeClinit;
@@ -124,13 +124,13 @@ public class MtjConfig {
             GETUI = new PushPlatform("GETUI", 2, "getui", 2);
             HUAWEI = new PushPlatform("HUAWEI", 3, RomUtils.MANUFACTURER_HUAWEI, 3);
             XIAOMI = new PushPlatform("XIAOMI", 4, RomUtils.MANUFACTURER_XIAOMI, 4);
-            UMENG = new PushPlatform("UMENG", 5, AppLog.UMENG_CATEGORY, 5);
+            UMENG = new PushPlatform("UMENG", 5, BaseConstants.CATEGORY_UMENG, 5);
             XINGE = new PushPlatform("XINGE", 6, "xinge", 6);
             ALIYUN = new PushPlatform("ALIYUN", 7, "aliyun", 7);
             OPPO = new PushPlatform("OPPO", 8, RomUtils.MANUFACTURER_OPPO, 8);
             PushPlatform pushPlatform = new PushPlatform("MEIZU", 9, "meizu", 9);
             MEIZU = pushPlatform;
-            f43097c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
+            f40898c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
         }
 
         public PushPlatform(String str, int i2, String str2, int i3) {
@@ -151,8 +151,8 @@ public class MtjConfig {
                     return;
                 }
             }
-            this.f43098a = str2;
-            this.f43099b = i3;
+            this.f40899a = str2;
+            this.f40900b = i3;
         }
 
         public static PushPlatform valueOf(String str) {
@@ -164,20 +164,20 @@ public class MtjConfig {
         public static PushPlatform[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) f43097c.clone() : (PushPlatform[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) f40898c.clone() : (PushPlatform[]) invokeV.objValue;
         }
 
         public String showName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43098a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40899a : (String) invokeV.objValue;
         }
 
         public String value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "p" + this.f43099b;
+                return "p" + this.f40900b;
             }
             return (String) invokeV.objValue;
         }

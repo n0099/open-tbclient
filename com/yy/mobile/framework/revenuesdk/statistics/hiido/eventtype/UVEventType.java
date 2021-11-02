@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UVEventType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PAY_AMOUNT_DIALOG_COMFIRM_BTN_CLICK = "2";
@@ -13,6 +13,9 @@ public class UVEventType {
     public static final String PAY_AMOUNT_FULL_PAGE_COMFIRM_BTN_CLICK = "9";
     public static final String PAY_AMOUNT_FULL_PAGE_ITEM_CLICK = "10";
     public static final String PAY_AMOUNT_FULL_PAGE_SHOW = "8";
+    public static final String PAY_CONFIRM_CONTINUE_BTN_CLICK = "16";
+    public static final String PAY_CONFIRM_DIALOG_SHOW = "15";
+    public static final String PAY_GIFT_DIALOG_SHOW = "17";
     public static final String PAY_WAY_DIALOG_CHANNEL_CLICK = "6";
     public static final String PAY_WAY_DIALOG_COMFIRM_BTN_CLICK = "5";
     public static final String PAY_WAY_DIALOG_SHOW = "4";
@@ -23,7 +26,7 @@ public class UVEventType {
     public static final String PAY_WAY_FULL_PAGE_SUCCESS = "14";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class UserType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BAIDU = "2";

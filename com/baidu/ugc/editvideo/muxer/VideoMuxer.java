@@ -4,17 +4,17 @@ import android.media.MediaExtractor;
 import android.media.MediaMetadataRetriever;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.e.b;
-import c.a.x0.h.d;
-import c.a.x0.h.e;
-import c.a.x0.i.b;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
-import c.a.x0.t.l;
-import c.a.x0.t.m;
-import c.a.x0.t.n;
-import c.a.x0.t.u;
-import c.a.x0.t.x;
+import b.a.x0.e.b;
+import b.a.x0.h.d;
+import b.a.x0.h.e;
+import b.a.x0.i.b;
+import b.a.x0.t.c;
+import b.a.x0.t.h;
+import b.a.x0.t.l;
+import b.a.x0.t.m;
+import b.a.x0.t.n;
+import b.a.x0.t.u;
+import b.a.x0.t.x;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
@@ -49,8 +49,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes8.dex */
-public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC1819a {
+/* loaded from: classes10.dex */
+public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC1778a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILTER_TEMP_DIR_PREFIX = "video_addfilter_";
     public static int MAX_RETRY_COUNT = 2;
@@ -68,12 +68,12 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
     public volatile VideoMuxerData mMuxerData;
     public volatile boolean mNeedAbort;
     public int mRetryCount;
-    public c.a.x0.i.g.a mSoundStreamFileWriter;
+    public b.a.x0.i.g.a mSoundStreamFileWriter;
     public long mStartTime;
     public volatile boolean misVideoCombineDone;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public @interface MuxerProgressType {
         public static final int TYPE_AUDIO = 1;
         public static final int TYPE_AUDIO_VIDEO = 2;
@@ -111,7 +111,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         this.mNeedAbort = false;
     }
 
-    private List<c.a.x0.h.a> buildAudioDataList(List<MultiMediaData> list) {
+    private List<b.a.x0.h.a> buildAudioDataList(List<MultiMediaData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, list)) == null) {
@@ -130,7 +130,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                     if (multiMediaDataRealEnd == 0) {
                         multiMediaDataRealEnd = (int) multiMediaData.end;
                     }
-                    arrayList.add(new c.a.x0.h.a(new AudioPlayData("", i4, multiMediaDataRealEnd, multiMediaData.volume, multiMediaData.getCurrentSpeed())));
+                    arrayList.add(new b.a.x0.h.a(new AudioPlayData("", i4, multiMediaDataRealEnd, multiMediaData.volume, multiMediaData.getCurrentSpeed())));
                 } else if (i3 == 1) {
                     if (multiMediaData.volume > 0.0f) {
                         z = false;
@@ -141,7 +141,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                     if (multiMediaDataRealEnd2 == 0) {
                         multiMediaDataRealEnd2 = (int) multiMediaData.end;
                     }
-                    arrayList.add(new c.a.x0.h.a(new AudioPlayData(str, i5, multiMediaDataRealEnd2, multiMediaData.volume, multiMediaData.getCurrentSpeed())));
+                    arrayList.add(new b.a.x0.h.a(new AudioPlayData(str, i5, multiMediaDataRealEnd2, multiMediaData.volume, multiMediaData.getCurrentSpeed())));
                 }
             }
             if (z) {
@@ -162,7 +162,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             }
             VideoMuxerData videoMuxerData = this.mMuxerData;
             if (TextUtils.isEmpty(videoMuxerData.getCachePath())) {
-                videoMuxerData.setCachePath(c.a.x0.b.d().a() + "/tempaudio");
+                videoMuxerData.setCachePath(b.a.x0.b.c().a() + "/tempaudio");
                 c.e("VideoMuxer", "have not set audioCachePath");
             }
             File file = new File(videoMuxerData.getCachePath());
@@ -231,7 +231,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
     public void combineAudio(List<MultiMediaData> list, List<AudioPlayData> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65559, this, list, list2) == null) {
-            c.a.x0.m.b.b("combineAudio", "音频拼接混合处理");
+            b.a.x0.m.b.b("combineAudio", "音频拼接混合处理");
             this.mIsAudioCombineDone = false;
             new Thread(new Runnable(this, list, list2) { // from class: com.baidu.ugc.editvideo.muxer.VideoMuxer.3
                 public static /* synthetic */ Interceptable $ic;
@@ -279,9 +279,9 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                                 } catch (Exception e2) {
                                     c.g(e2);
                                 }
-                                c.a.x0.m.a aVar = new c.a.x0.m.a();
+                                b.a.x0.m.a aVar = new b.a.x0.m.a();
                                 boolean startCombineAudio = this.this$0.startCombineAudio(buildAudioPlayDataList, str2, aVar);
-                                c.a.x0.m.b.b("combineAudio", "音频拼接混合处理-结果" + startCombineAudio);
+                                b.a.x0.m.b.b("combineAudio", "音频拼接混合处理-结果" + startCombineAudio);
                                 if (startCombineAudio) {
                                     videoMuxerData.setFinalAudioPath(str2);
                                     sb = new StringBuilder();
@@ -292,10 +292,10 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                                     sb.append(",isVideoDone:");
                                     sb.append(this.this$0.misVideoCombineDone);
                                 } else {
-                                    c.a.x0.a.a("v_log_audio_mixer_error", aVar.f31063e, null);
+                                    b.a.x0.a.a("v_log_audio_mixer_error", aVar.f29763e, null);
                                     sb = new StringBuilder();
                                     sb.append("mixtureAACFileList fail");
-                                    sb.append(aVar.f31063e);
+                                    sb.append(aVar.f29763e);
                                 }
                                 str = sb.toString();
                             }
@@ -355,7 +355,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             });
             return;
         }
-        c.a.x0.m.b.b("onGenFilterVideoFail", "视频处理-失败重试-combineAudioFinish：retrycount:" + this.mRetryCount + ",mIsAudioCombineDone:" + this.misVideoCombineDone + ",mIsUseNewAudioMixture:" + this.mIsUseNewAudioMixture);
+        b.a.x0.m.b.b("onGenFilterVideoFail", "视频处理-失败重试-combineAudioFinish：retrycount:" + this.mRetryCount + ",mIsAudioCombineDone:" + this.misVideoCombineDone + ",mIsUseNewAudioMixture:" + this.mIsUseNewAudioMixture);
         this.mIsAudioCombineDone = true;
         this.mMuxerData.setRecordConfigEncodeHevcVideo(false);
         themeVideo(buildTracks(this.mMuxerData));
@@ -366,7 +366,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, this, str) == null) {
-            c.a.x0.m.b.b("combineVA", "音视频混合");
+            b.a.x0.m.b.b("combineVA", "音视频混合");
             if (this.mNeedAbort) {
                 onGenFilterVideoAbort();
                 str2 = "muxerMusic:abort";
@@ -447,7 +447,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                             arrayList.add(new AudioPlayData(file.getPath(), (int) multiMediaData.start, (int) multiMediaData.end, multiMediaData.volume, multiMediaData.getCurrentSpeed()));
                         }
                     }
-                    c.a.x0.i.b bVar = new c.a.x0.i.b();
+                    b.a.x0.i.b bVar = new b.a.x0.i.b();
                     bVar.h(arrayList);
                     bVar.g(new b.InterfaceC1423b(this) { // from class: com.baidu.ugc.editvideo.muxer.VideoMuxer.1.1
                         public static /* synthetic */ Interceptable $ic;
@@ -479,12 +479,12 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                             }
                         }
 
-                        @Override // c.a.x0.i.b.InterfaceC1423b
+                        @Override // b.a.x0.i.b.InterfaceC1423b
                         public void onFailed(String str) {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                                c.a.x0.m.a aVar = new c.a.x0.m.a();
-                                aVar.f31063e = "audioeditorerror:" + str;
+                                b.a.x0.m.a aVar = new b.a.x0.m.a();
+                                aVar.f29763e = "audioeditorerror:" + str;
                                 this.this$1.this$0.notifyMuxerFail(aVar);
                             }
                         }
@@ -495,11 +495,11 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                             }
                         }
 
-                        @Override // c.a.x0.i.b.InterfaceC1423b
+                        @Override // b.a.x0.i.b.InterfaceC1423b
                         public void onSuccess(List<AudioPlayData> list2) {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeL(1048579, this, list2) == null) {
-                                if (c.a.x0.i.c.o(this.this$1.this$0.mMuxerData.getFakeVoiceTypes())) {
+                                if (b.a.x0.i.c.o(this.this$1.this$0.mMuxerData.getFakeVoiceTypes())) {
                                     this.this$1.this$0.processFakeVoice(null, list2);
                                 } else {
                                     this.this$1.this$0.combineAudio(null, list2);
@@ -523,7 +523,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             } else if (TextUtils.isEmpty(this.mMuxerData.getVideoPath()) || !new File(this.mMuxerData.getVideoPath()).exists()) {
                 onGenFilterVideoFail(-1, "inputPath invalid or no file");
             } else {
-                ComposeThemeVideoModel composeThemeVideoModel = new ComposeThemeVideoModel(c.a.x0.b.d().b(), this.mMuxerData.getVideoPath(), new File(this.mMuxerData.getVideoPath()).getParent() + File.separator + FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + ".mp4");
+                ComposeThemeVideoModel composeThemeVideoModel = new ComposeThemeVideoModel(b.a.x0.b.c().getContext(), this.mMuxerData.getVideoPath(), new File(this.mMuxerData.getVideoPath()).getParent() + File.separator + FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + ".mp4");
                 this.mComposeThemeVideoModel = composeThemeVideoModel;
                 composeThemeVideoModel.setOnGenerateListener(this);
                 FilterValue filterValue = this.mMuxerData.getFilterValue();
@@ -538,7 +538,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         }
     }
 
-    private c.a.x0.h.c getAudioMixDataFormMuxerData(VideoMuxerData videoMuxerData, List<MultiMediaDataTrack> list) {
+    private b.a.x0.h.c getAudioMixDataFormMuxerData(VideoMuxerData videoMuxerData, List<MultiMediaDataTrack> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, this, videoMuxerData, list)) == null) {
@@ -546,7 +546,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                 return null;
             }
             CheckUtils.syncMusicData(videoMuxerData);
-            List<c.a.x0.h.a> buildAudioDataList = buildAudioDataList(list.get(0).multiMediaDataList);
+            List<b.a.x0.h.a> buildAudioDataList = buildAudioDataList(list.get(0).multiMediaDataList);
             ArrayList arrayList = new ArrayList();
             if (!h.e(buildAudioDataList)) {
                 e eVar = new e(buildAudioDataList);
@@ -556,7 +556,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             if (!h.e(videoMuxerData.getAudioPlayDataList())) {
                 ArrayList arrayList2 = new ArrayList();
                 for (AudioPlayData audioPlayData : videoMuxerData.getAudioPlayDataList()) {
-                    arrayList2.add(new c.a.x0.h.a(audioPlayData));
+                    arrayList2.add(new b.a.x0.h.a(audioPlayData));
                 }
                 arrayList.add(new e(arrayList2));
             }
@@ -566,20 +566,20 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                     if (audioPlayTrackData != null && !h.e(audioPlayTrackData.mAudioPlayDataList)) {
                         ArrayList arrayList3 = new ArrayList();
                         for (AudioPlayData audioPlayData2 : audioPlayTrackData.mAudioPlayDataList) {
-                            arrayList3.add(new c.a.x0.h.a(audioPlayData2));
+                            arrayList3.add(new b.a.x0.h.a(audioPlayData2));
                         }
                         arrayList.add(new e(arrayList3));
                     }
                 }
             }
-            c.a.x0.h.c cVar = new c.a.x0.h.c(arrayList);
+            b.a.x0.h.c cVar = new b.a.x0.h.c(arrayList);
             if (!TextUtils.isEmpty(videoMuxerData.getCachePath())) {
                 cVar.d(videoMuxerData.getCachePath() + "/");
             }
-            cVar.e(new c.a.x0.h.a(videoMuxerData.getMuteAudioData()));
+            cVar.e(new b.a.x0.h.a(videoMuxerData.getMuteAudioData()));
             return cVar;
         }
-        return (c.a.x0.h.c) invokeLL.objValue;
+        return (b.a.x0.h.c) invokeLL.objValue;
     }
 
     private boolean isMute(List<MultiMediaData> list) {
@@ -620,7 +620,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65566, this, str) == null) {
-            c.a.x0.m.b.b("notifyMuxerEnd", "视频合成结束 cost ：" + (System.currentTimeMillis() - this.mStartTime));
+            b.a.x0.m.b.b("notifyMuxerEnd", "视频合成结束 cost ：" + (System.currentTimeMillis() - this.mStartTime));
             if (this.mNeedAbort) {
                 onGenFilterVideoAbort();
                 return;
@@ -646,7 +646,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                             mediaMetadataRetriever.setDataSource(fileInputStream.getFD());
                             i2 = Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
                             fileInputStream2 = "muxer_publish_log";
-                            c.a.x0.m.b.a("muxer_publish_log", "视频合成结束 cost ：" + (System.currentTimeMillis() - this.mStartTime) + ", duration : " + i2 + ", bitrate : " + mediaMetadataRetriever.extractMetadata(20) + ", hevc : " + this.mMuxerData.isCurrentEncodeHevcVideo());
+                            b.a.x0.m.b.a("muxer_publish_log", "视频合成结束 cost ：" + (System.currentTimeMillis() - this.mStartTime) + ", duration : " + i2 + ", bitrate : " + mediaMetadataRetriever.extractMetadata(20) + ", hevc : " + this.mMuxerData.isCurrentEncodeHevcVideo());
                             try {
                                 fileInputStream.close();
                             } catch (IOException e3) {
@@ -688,10 +688,10 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                     mediaMetadataRetriever.release();
                 }
                 if (!FileUtils.checkFile(str) || i2 <= 0) {
-                    c.a.x0.m.a aVar = new c.a.x0.m.a();
-                    aVar.f31060b = true;
-                    aVar.f31059a = 24;
-                    aVar.f31061c = "error_mixtrue";
+                    b.a.x0.m.a aVar = new b.a.x0.m.a();
+                    aVar.f29760b = true;
+                    aVar.f29759a = 24;
+                    aVar.f29761c = "error_mixtrue";
                     StringBuilder sb = new StringBuilder();
                     sb.append("视频预处理合成失败,视频文件丢失 FinalVideoPath=");
                     sb.append(str);
@@ -721,7 +721,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                     sb.append(this.mNeedAbort);
                     sb.append(" , trace=");
                     sb.append(m.g(new RuntimeException()));
-                    aVar.f31063e = sb.toString();
+                    aVar.f29763e = sb.toString();
                     this.mListener.e(aVar.a().toString());
                 } else {
                     onProgress(2, 100);
@@ -733,19 +733,19 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyMuxerFail(c.a.x0.m.a aVar) {
+    public void notifyMuxerFail(b.a.x0.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65567, this, aVar) == null) {
             resetProgress();
             if (this.mListener != null) {
                 String str = null;
                 if (aVar != null) {
-                    if (this.mMuxerData != null && this.mMuxerData.getCurrThemeEffect() != null && !TextUtils.isEmpty(aVar.f31063e)) {
-                        aVar.f31063e += ",themeName : " + this.mMuxerData.getCurrThemeEffect().name;
+                    if (this.mMuxerData != null && this.mMuxerData.getCurrThemeEffect() != null && !TextUtils.isEmpty(aVar.f29763e)) {
+                        aVar.f29763e += ",themeName : " + this.mMuxerData.getCurrThemeEffect().name;
                     }
-                    aVar.f31063e += ",checkAudioDirectNext : " + CheckUtils.checkAudioDirectNext(this.mMuxerData);
-                    aVar.f31063e += ",checkVideoDirectNext : " + CheckUtils.checkVideoDirectNext(this.mMuxerData);
-                    aVar.f31063e += ",needAbort : " + this.mNeedAbort;
+                    aVar.f29763e += ",checkAudioDirectNext : " + CheckUtils.checkAudioDirectNext(this.mMuxerData);
+                    aVar.f29763e += ",checkVideoDirectNext : " + CheckUtils.checkVideoDirectNext(this.mMuxerData);
+                    aVar.f29763e += ",needAbort : " + this.mNeedAbort;
                     str = aVar.a().toString();
                 }
                 this.mListener.e(str);
@@ -754,7 +754,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
     }
 
     private void notifyMuxerMusicEnd() {
-        c.a.x0.e.b bVar;
+        b.a.x0.e.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65568, this) == null) || (bVar = this.mListener) == null) {
             return;
@@ -796,7 +796,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         sb.append(i3);
         sb.append(" progress : ");
         sb.append(i7);
-        c.a.x0.m.b.b("onProgress", sb.toString());
+        b.a.x0.m.b.b("onProgress", sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -883,11 +883,11 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                             StringBuilder sb = new StringBuilder();
                             String str2 = new File(this.val$multiMediaData.path).getParentFile().getAbsoluteFile() + File.separator + System.currentTimeMillis() + "_audio_repair.mp4";
                             c.e("VideoMuxer: ", "K歌修音处理， out_put_path = " + str2);
-                            boolean j2 = x.j(sb, this.val$repairAudioPath, this.val$multiMediaData.path, str2, 0L, -1L);
-                            if (j2) {
+                            boolean j = x.j(sb, this.val$repairAudioPath, this.val$multiMediaData.path, str2, 0L, -1L);
+                            if (j) {
                                 this.val$multiMediaData.path = str2;
                             }
-                            c.e("VideoMuxer: ", "K歌修音处理合成结果：" + j2);
+                            c.e("VideoMuxer: ", "K歌修音处理合成结果：" + j);
                             if (!this.this$0.mNeedAbort || this.this$0.mListener == null) {
                                 u.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.muxer.VideoMuxer.2.1
                                     public static /* synthetic */ Interceptable $ic;
@@ -938,7 +938,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
     public void processFakeVoice(List<MultiMediaData> list, List<AudioPlayData> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65572, this, list, list2) == null) {
-            c.a.x0.m.b.b("processFakeVoice", "变声处理");
+            b.a.x0.m.b.b("processFakeVoice", "变声处理");
             this.mIsAudioCombineDone = false;
             new Thread(new Runnable(this, list, list2) { // from class: com.baidu.ugc.editvideo.muxer.VideoMuxer.5
                 public static /* synthetic */ Interceptable $ic;
@@ -982,7 +982,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                                 return;
                             }
                             if (TextUtils.isEmpty(videoMuxerData.getCachePath())) {
-                                videoMuxerData.setCachePath(c.a.x0.b.d().a() + "/tempaudio");
+                                videoMuxerData.setCachePath(b.a.x0.b.c().a() + "/tempaudio");
                                 c.e("VideoMuxer", "have not set audioCachePath");
                             }
                             File file = new File(videoMuxerData.getCachePath());
@@ -990,7 +990,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                                 file.mkdirs();
                             }
                             String str2 = videoMuxerData.getCachePath() + "/" + l.b(videoMuxerData.toString()) + System.currentTimeMillis() + "_for_fake_voice.aac";
-                            c.a.x0.m.a aVar = new c.a.x0.m.a();
+                            b.a.x0.m.a aVar = new b.a.x0.m.a();
                             if (videoMuxerData.isKSongHuaTongMode()) {
                                 if (buildAudioPlayDataList == null) {
                                     buildAudioPlayDataList = new ArrayList();
@@ -1030,8 +1030,8 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                             }, aVar)) {
                                 String str3 = videoMuxerData.getCachePath() + "/" + l.b(videoMuxerData.toString()) + System.currentTimeMillis() + "_fake_voice.aac";
                                 try {
-                                    this.this$0.mSoundStreamFileWriter = new c.a.x0.i.g.a(str2, str3, videoMuxerData.getFakeVoiceTypes());
-                                    this.this$0.mSoundStreamFileWriter.S(new c.a.x0.l.d.j.c.a(this, videoMuxerData, str3) { // from class: com.baidu.ugc.editvideo.muxer.VideoMuxer.5.2
+                                    this.this$0.mSoundStreamFileWriter = new b.a.x0.i.g.a(str2, str3, videoMuxerData.getFakeVoiceTypes());
+                                    this.this$0.mSoundStreamFileWriter.S(new b.a.x0.l.d.j.c.a(this, videoMuxerData, str3) { // from class: com.baidu.ugc.editvideo.muxer.VideoMuxer.5.2
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass5 this$1;
@@ -1058,7 +1058,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                                             this.val$fakeVoiceOutputPath = str3;
                                         }
 
-                                        @Override // c.a.x0.l.d.j.c.a, c.a.x0.l.d.j.b
+                                        @Override // b.a.x0.l.d.j.c.a, b.a.x0.l.d.j.b
                                         public void onExceptionThrown(String str4) {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeL(1048576, this, str4) == null) {
@@ -1070,7 +1070,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                                             }
                                         }
 
-                                        @Override // c.a.x0.l.d.j.c.a
+                                        @Override // b.a.x0.l.d.j.c.a
                                         public void onFinishedWriting(boolean z) {
                                             String str4;
                                             Interceptable interceptable3 = $ic;
@@ -1087,7 +1087,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                                             } catch (Exception e2) {
                                                 c.g(e2);
                                             }
-                                            c.a.x0.m.a aVar2 = new c.a.x0.m.a();
+                                            b.a.x0.m.a aVar2 = new b.a.x0.m.a();
                                             int b2 = (int) x.b(this.val$fakeVoiceOutputPath);
                                             ArrayList arrayList = new ArrayList();
                                             if (b2 > 0) {
@@ -1098,21 +1098,21 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                                                 this.val$videoMuxerData.setFinalAudioPath(str5);
                                                 str4 = "audiocombineresult:" + startCombineAudio + "audiopath:" + str5 + ",isVideoDone:" + this.this$1.this$0.misVideoCombineDone;
                                             } else {
-                                                c.a.x0.a.a("v_log_audio_mixer_error", aVar2.f31063e, null);
-                                                str4 = "mixtureAACFileList fail" + aVar2.f31063e;
+                                                b.a.x0.a.a("v_log_audio_mixer_error", aVar2.f29763e, null);
+                                                str4 = "mixtureAACFileList fail" + aVar2.f29763e;
                                             }
                                             c.e("VideoMuxer", str4);
                                             this.this$1.this$0.combineAudioFinish();
                                         }
 
-                                        @Override // c.a.x0.l.d.j.c.a, c.a.x0.l.d.j.b
-                                        public void onProgressChanged(int i2, double d2, long j2) {
+                                        @Override // b.a.x0.l.d.j.c.a, b.a.x0.l.d.j.b
+                                        public void onProgressChanged(int i2, double d2, long j) {
                                             Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Double.valueOf(d2), Long.valueOf(j2)}) == null) {
+                                            if (interceptable3 == null || interceptable3.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Double.valueOf(d2), Long.valueOf(j)}) == null) {
                                             }
                                         }
 
-                                        @Override // c.a.x0.l.d.j.c.a, c.a.x0.l.d.j.b
+                                        @Override // b.a.x0.l.d.j.c.a, b.a.x0.l.d.j.b
                                         public void onTrackEnd(int i2) {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeI(1048579, this, i2) == null) {
@@ -1131,8 +1131,8 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                                     c.e("VideoMuxer: ", "onExceptionThrown: " + m.g(e2));
                                 }
                             } else {
-                                c.a.x0.a.a("v_log_audio_mixer_error", aVar.f31063e, null);
-                                str = "mixtureAACFileList fail" + aVar.f31063e;
+                                b.a.x0.a.a("v_log_audio_mixer_error", aVar.f29763e, null);
+                                str = "mixtureAACFileList fail" + aVar.f29763e;
                             }
                         }
                         c.e("VideoMuxer", str);
@@ -1162,7 +1162,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             this.misVideoCombineDone = false;
             List<MultiMediaDataTrack> buildTracks = buildTracks(videoMuxerData);
             if (CheckUtils.checkVideoDirectNext(videoMuxerData)) {
-                c.a.x0.m.b.b("startMuxer", "checkVideoDirectNext");
+                b.a.x0.m.b.b("startMuxer", "checkVideoDirectNext");
                 if (h.b(videoMuxerData.getPhotoDataList()) == 1) {
                     onProgress(0, 100);
                     onGenFilterVideoSuccess(((MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0)).path);
@@ -1176,7 +1176,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                     if (CheckUtils.checkOriginVideoChangeSpeed(this.mMuxerData) && !isMute(buildTracks.get(0).multiMediaDataList)) {
                         doChangeAuidoSpeed(buildTracks.get(0).multiMediaDataList);
                         return;
-                    } else if (!c.a.x0.i.c.o(this.mMuxerData.getFakeVoiceTypes()) || isMute(buildTracks.get(0).multiMediaDataList)) {
+                    } else if (!b.a.x0.i.c.o(this.mMuxerData.getFakeVoiceTypes()) || isMute(buildTracks.get(0).multiMediaDataList)) {
                         combineAudio(buildTracks.get(0).multiMediaDataList, null);
                         return;
                     } else {
@@ -1184,7 +1184,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                         return;
                     }
                 }
-                c.a.x0.h.c audioMixDataFormMuxerData = getAudioMixDataFormMuxerData(this.mMuxerData, buildTracks);
+                b.a.x0.h.c audioMixDataFormMuxerData = getAudioMixDataFormMuxerData(this.mMuxerData, buildTracks);
                 if (audioMixDataFormMuxerData != null && !h.e(audioMixDataFormMuxerData.c())) {
                     d dVar = new d(audioMixDataFormMuxerData);
                     this.mAudioMixtureManager = dVar;
@@ -1213,14 +1213,14 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean startCombineAudio(List<AudioPlayData> list, String str, c.a.x0.m.a aVar) {
+    public boolean startCombineAudio(List<AudioPlayData> list, String str, b.a.x0.m.a aVar) {
         InterceptResult invokeLLL;
         boolean z;
         boolean z2;
         List<AudioPlayData> list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65575, this, list, str, aVar)) == null) {
-            c.a.x0.m.b.b("startCombineAudio", "拼接混合音频");
+            b.a.x0.m.b.b("startCombineAudio", "拼接混合音频");
             VideoMuxerData videoMuxerData = this.mMuxerData;
             if (videoMuxerData == null) {
                 return false;
@@ -1378,13 +1378,13 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
     private void themeVideo(List<MultiMediaDataTrack> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65576, this, list) == null) {
-            c.a.x0.m.b.b("themeVideo", "视频处理开始");
+            b.a.x0.m.b.b("themeVideo", "视频处理开始");
             MediaExtractor mediaExtractor = null;
             if (h.e(this.mMuxerData.getPhotoDataList()) || this.mMuxerData.getCurrThemeEffect() == null) {
                 notifyMuxerEnd(null);
                 return;
             }
-            ComposeThemeVideoModel composeThemeVideoModel = new ComposeThemeVideoModel(c.a.x0.b.d().b(), list, null, c.a.x0.b.d().g() + "/video_" + System.currentTimeMillis() + ".mp4");
+            ComposeThemeVideoModel composeThemeVideoModel = new ComposeThemeVideoModel(b.a.x0.b.c().getContext(), list, null, b.a.x0.b.c().f() + "/video_" + System.currentTimeMillis() + ".mp4");
             this.mComposeThemeVideoModel = composeThemeVideoModel;
             composeThemeVideoModel.setOnGenerateListener(this);
             this.mComposeThemeVideoModel.setMediaTrackConfig(this.mMuxerData.getCurrThemeEffect());
@@ -1455,14 +1455,14 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             if (aVar != null) {
                 aVar.a();
             }
-            c.a.x0.i.g.a aVar2 = this.mSoundStreamFileWriter;
+            b.a.x0.i.g.a aVar2 = this.mSoundStreamFileWriter;
             if (aVar2 != null) {
                 aVar2.J();
             }
         }
     }
 
-    @Override // c.a.x0.h.d.b
+    @Override // b.a.x0.h.d.b
     public void onAudioMixtureCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -1472,7 +1472,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x007f  */
     /* JADX WARN: Removed duplicated region for block: B:23:0x0085  */
-    @Override // c.a.x0.h.d.b
+    @Override // b.a.x0.h.d.b
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1509,11 +1509,11 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             if (h.e(this.mMuxerData.getPhotoDataList())) {
             }
         }
-        c.a.x0.a.a("v_log_audio_mixer_error", "onAudioMixtureFail:" + str + ",inputinfo:" + sb.toString(), null);
+        b.a.x0.a.a("v_log_audio_mixer_error", "onAudioMixtureFail:" + str + ",inputinfo:" + sb.toString(), null);
         combineAudioFinish();
     }
 
-    @Override // c.a.x0.h.d.b
+    @Override // b.a.x0.h.d.b
     public void onAudioMixtureProgress(int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.mNeedAbort) {
@@ -1522,15 +1522,15 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         postAuidoMuxProgress(i2);
     }
 
-    @Override // c.a.x0.h.d.b
-    public void onAudioMixtureSuccess(c.a.x0.h.b bVar) {
+    @Override // b.a.x0.h.d.b
+    public void onAudioMixtureSuccess(b.a.x0.h.b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.mNeedAbort) {
             return;
         }
         if (bVar == null || !FileUtils.checkFile(bVar.h())) {
             c.j("VideoMuxer", "onAudioMixtureSuccess file not exit");
-            c.a.x0.a.a("v_log_audio_mixer_error", "onAudioMixtureSuccess file not exit", null);
+            b.a.x0.a.a("v_log_audio_mixer_error", "onAudioMixtureSuccess file not exit", null);
         } else {
             c.j("VideoMuxer", "onAudioMixtureSuccess path:" + bVar.h() + "audioduration:" + n.c(bVar.h(), 0));
             this.mMuxerData.setFinalAudioPath(bVar.h());
@@ -1538,7 +1538,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         combineAudioFinish();
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1819a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1778a
     public void onAudioVideoMuxerCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -1547,18 +1547,18 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1819a
-    public void onAudioVideoMuxerFail(c.a.x0.m.a aVar) {
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1778a
+    public void onAudioVideoMuxerFail(b.a.x0.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             notifyMuxerFail(aVar);
             if (aVar != null) {
-                c.e("VideoMuxer", "onMuxerMusicFail:" + aVar.f31063e);
+                c.e("VideoMuxer", "onMuxerMusicFail:" + aVar.f29763e);
             }
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1819a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1778a
     public void onAudioVideoMuxerFinish(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
@@ -1575,7 +1575,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
 
     @Override // com.baidu.ugc.editvideo.editvideo.addfilter.OnGenFilterVideoListener
     public void onGenFilterVideoAbort() {
-        c.a.x0.e.b bVar;
+        b.a.x0.e.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (bVar = this.mListener) == null) {
             return;
@@ -1592,12 +1592,12 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             return;
         }
         if (i2 != -100 || (i3 = this.mRetryCount) >= MAX_RETRY_COUNT) {
-            c.a.x0.m.b.b("onGenFilterVideoFail", "视频处理-失败");
-            c.a.x0.m.a aVar = new c.a.x0.m.a();
-            aVar.f31059a = 24;
-            aVar.f31061c = "error_mixtrue";
-            aVar.f31060b = true;
-            aVar.f31063e = "视频预处理合成处理视频特效合成失败 checkAudioDirectNext : " + CheckUtils.checkAudioDirectNext(this.mMuxerData) + " --- " + str;
+            b.a.x0.m.b.b("onGenFilterVideoFail", "视频处理-失败");
+            b.a.x0.m.a aVar = new b.a.x0.m.a();
+            aVar.f29759a = 24;
+            aVar.f29761c = "error_mixtrue";
+            aVar.f29760b = true;
+            aVar.f29763e = "视频预处理合成处理视频特效合成失败 checkAudioDirectNext : " + CheckUtils.checkAudioDirectNext(this.mMuxerData) + " --- " + str;
             d dVar = this.mAudioMixtureManager;
             if (dVar != null) {
                 dVar.i();
@@ -1606,7 +1606,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             return;
         }
         this.mRetryCount = i3 + 1;
-        c.a.x0.m.b.b("onGenFilterVideoFail", "视频处理-失败重试 ：retrycount:" + this.mRetryCount + ",mIsAudioCombineDone:" + this.misVideoCombineDone + ",mIsUseNewAudioMixture:" + this.mIsUseNewAudioMixture);
+        b.a.x0.m.b.b("onGenFilterVideoFail", "视频处理-失败重试 ：retrycount:" + this.mRetryCount + ",mIsAudioCombineDone:" + this.misVideoCombineDone + ",mIsUseNewAudioMixture:" + this.mIsUseNewAudioMixture);
         if (this.mRetryCount == 1 && !this.mIsAudioCombineDone && this.mIsUseNewAudioMixture) {
             return;
         }
@@ -1624,7 +1624,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         this.mMuxerData.setCurrentEncodeHevcVideo(false);
         themeVideo(buildTracks(this.mMuxerData));
         try {
-            c.a.x0.a.a("v_log_retry_inner_multimedia_processor", str + ",视频处理-失败重试 ：" + this.mRetryCount, null);
+            b.a.x0.a.a("v_log_retry_inner_multimedia_processor", str + ",视频处理-失败重试 ：" + this.mRetryCount, null);
         } catch (Exception e3) {
             e3.printStackTrace();
         }
@@ -1650,7 +1650,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
     public void onGenFilterVideoSuccess(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            c.a.x0.m.b.b("onGenFilterVideoSuccess", "视频处理-成功");
+            b.a.x0.m.b.b("onGenFilterVideoSuccess", "视频处理-成功");
             this.misVideoCombineDone = true;
             if (this.mNeedAbort) {
                 onGenFilterVideoAbort();
@@ -1664,7 +1664,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
         }
     }
 
-    public void setListener(c.a.x0.e.b bVar) {
+    public void setListener(b.a.x0.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
             this.mListener = bVar;
@@ -1678,14 +1678,14 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
             StringBuilder sb = new StringBuilder();
             if (videoMuxerData != null && (FileUtils.isExists(videoMuxerData.getVideoPath()) || CheckUtils.checkAllFileExist(videoMuxerData, sb))) {
                 this.mStartTime = System.currentTimeMillis();
-                c.a.x0.e.b bVar = this.mListener;
+                b.a.x0.e.b bVar = this.mListener;
                 if (bVar != null) {
                     bVar.f();
                 }
                 this.mMuxerData = videoMuxerData;
                 this.mIsUseNewAudioMixture = this.mMuxerData.isUserNewAudioMixture();
                 try {
-                    c.a.x0.a.a("v_log_codec_h265_support", m.m("video/hevc") != null ? "yes" : "no", null);
+                    b.a.x0.a.a("v_log_codec_h265_support", m.m("video/hevc") != null ? "yes" : "no", null);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -1700,10 +1700,10 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                     return;
                 }
             }
-            c.a.x0.m.a aVar = new c.a.x0.m.a();
-            aVar.f31059a = 24;
-            aVar.f31061c = "error_mixtrue";
-            aVar.f31060b = true;
+            b.a.x0.m.a aVar = new b.a.x0.m.a();
+            aVar.f29759a = 24;
+            aVar.f29761c = "error_mixtrue";
+            aVar.f29760b = true;
             StringBuilder sb2 = new StringBuilder();
             if (videoMuxerData == null) {
                 str = "开始合成，合成信息丢失:muxerData为空";
@@ -1715,7 +1715,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC18
                 str = ",checkerror:" + sb.toString();
             }
             sb2.append(str);
-            aVar.f31063e = sb2.toString();
+            aVar.f29763e = sb2.toString();
             notifyMuxerFail(aVar);
         }
     }

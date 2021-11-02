@@ -5,8 +5,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.c.f.b;
-import c.a.r0.k3.i0.n;
+import b.a.e.c.f.b;
+import b.a.r0.l3.j0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -37,7 +37,7 @@ import com.idlefish.flutterboost.interfaces.INativeRouter;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FlutterStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +201,7 @@ public class FlutterStatic {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.e.c.f.f
+                @Override // b.a.e.c.f.f
                 public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -232,14 +232,14 @@ public class FlutterStatic {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
                         if (customMessage != null && customMessage.getData() != null) {
-                            Context a2 = customMessage.getData().a();
-                            String b2 = customMessage.getData().b();
-                            HashMap c2 = customMessage.getData().c();
-                            if (c2 == null || c2.isEmpty()) {
-                                c2 = new HashMap();
+                            Context context = customMessage.getData().getContext();
+                            String a2 = customMessage.getData().a();
+                            HashMap b2 = customMessage.getData().b();
+                            if (b2 == null || b2.isEmpty()) {
+                                b2 = new HashMap();
                             }
-                            if (a2 != null && !TextUtils.isEmpty(b2)) {
-                                OpenFlutter.openFlutterPage(a2, b2, c2);
+                            if (context != null && !TextUtils.isEmpty(a2)) {
+                                OpenFlutter.openFlutterPage(context, a2, b2);
                             }
                         }
                         return null;

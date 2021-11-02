@@ -3,7 +3,7 @@ package com.baidu.searchbox.aperf.bosuploader;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n.b.a;
+import b.a.n.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.config.AppConfig;
@@ -31,7 +31,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BOSUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -133,7 +133,7 @@ public class BOSUploader {
             }
             try {
                 String createObjectKey = createObjectKey(str, str2);
-                long j2 = 5242880;
+                long j = 5242880;
                 if (length <= 5242880) {
                     return new BOSResponseEntity(true, createBosClient.putObject(str3, createObjectKey, file).getETag());
                 }
@@ -149,9 +149,9 @@ public class BOSUploader {
                         FileInputStream fileInputStream2 = new FileInputStream(file);
                         int i3 = 0;
                         while (i3 < length2) {
-                            long j3 = i3 * j2;
+                            long j2 = i3 * j;
                             try {
-                                long length3 = j2 < file.length() - j3 ? j2 : file.length() - j3;
+                                long length3 = j < file.length() - j2 ? j : file.length() - j2;
                                 int i4 = (int) length3;
                                 byte[] bArr = new byte[i4];
                                 while (true) {
@@ -180,7 +180,7 @@ public class BOSUploader {
                                     String str4 = "partETags etag " + uploadPart.getPartETag();
                                 }
                                 i2 = 0;
-                                j2 = 5242880;
+                                j = 5242880;
                             } catch (IOException e2) {
                                 e = e2;
                                 fileInputStream = fileInputStream2;

@@ -1,7 +1,7 @@
 package com.google.common.util.concurrent;
 
-import c.i.d.a.n;
-import c.i.d.c.h0;
+import b.i.d.a.n;
+import b.i.d.c.h0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +12,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ForwardingFuture<V> extends h0 implements Future<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class SimpleForwardingFuture<V> extends ForwardingFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public abstract class ForwardingFuture<V> extends h0 implements Future<V> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.util.concurrent.ForwardingFuture, c.i.d.c.h0
+        @Override // com.google.common.util.concurrent.ForwardingFuture, b.i.d.c.h0
         public final Future<V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public abstract class ForwardingFuture<V> extends h0 implements Future<V> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.h0
+    @Override // b.i.d.c.h0
     public abstract Future<? extends V> delegate();
 
     @Override // java.util.concurrent.Future
@@ -96,9 +96,9 @@ public abstract class ForwardingFuture<V> extends h0 implements Future<V> {
     }
 
     @Override // java.util.concurrent.Future
-    public V get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, timeUnit)) == null) ? delegate().get(j2, timeUnit) : (V) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) ? delegate().get(j, timeUnit) : (V) invokeJL.objValue;
     }
 }

@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.q0.s.u.c;
-import c.a.r0.k1.f;
+import b.a.q0.s.u.c;
+import b.a.r0.k1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
@@ -28,39 +28,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class HotNormalViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EMTextView f59342a;
+    public EMTextView f56283a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EMTextView f59343b;
+    public EMTextView f56284b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f59344c;
+    public EMTextView f56285c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f59345d;
+    public RelativeLayout f56286d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoHotTopicSearchAdapter.a f59346e;
+        public final /* synthetic */ VideoHotTopicSearchAdapter.a f56287e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f59347f;
+        public final /* synthetic */ f f56288f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f59348g;
+        public final /* synthetic */ String f56289g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ HotNormalViewHolder f59349h;
+        public final /* synthetic */ HotNormalViewHolder f56290h;
 
         public a(HotNormalViewHolder hotNormalViewHolder, VideoHotTopicSearchAdapter.a aVar, f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -77,22 +77,22 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
                     return;
                 }
             }
-            this.f59349h = hotNormalViewHolder;
-            this.f59346e = aVar;
-            this.f59347f = fVar;
-            this.f59348g = str;
+            this.f56290h = hotNormalViewHolder;
+            this.f56287e = aVar;
+            this.f56288f = fVar;
+            this.f56289g = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             VideoHotTopicSearchAdapter.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f59346e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f56287e) == null) {
                 return;
             }
-            aVar.a(this.f59347f);
-            if (this.f59347f.i() && this.f59349h.b(this.f59348g)) {
-                TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "3").addParam(IntentConfig.IS_VIDEO_TOPIC, "1").addParam("topic_id", this.f59347f.c().topic_id.longValue()));
+            aVar.a(this.f56288f);
+            if (this.f56288f.i() && this.f56290h.b(this.f56289g)) {
+                TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "3").addParam(IntentConfig.IS_VIDEO_TOPIC, "1").addParam("topic_id", this.f56288f.c().topic_id.longValue()));
             }
         }
     }
@@ -115,10 +115,10 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f59342a = (EMTextView) view.findViewById(R.id.topic_title);
-        this.f59343b = (EMTextView) view.findViewById(R.id.topic_extra);
-        this.f59344c = (EMTextView) view.findViewById(R.id.hot_topic_tag);
-        this.f59345d = (RelativeLayout) view.findViewById(R.id.nromal_topic_main);
+        this.f56283a = (EMTextView) view.findViewById(R.id.topic_title);
+        this.f56284b = (EMTextView) view.findViewById(R.id.topic_extra);
+        this.f56285c = (EMTextView) view.findViewById(R.id.hot_topic_tag);
+        this.f56286d = (RelativeLayout) view.findViewById(R.id.nromal_topic_main);
     }
 
     public final boolean b(String str) {
@@ -131,7 +131,7 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{hotNormalViewHolder, Integer.valueOf(i2), fVar, tbPageContext, str, aVar}) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + fVar.d() + HotSelectActivityConfig.HOT_TOPIC_SING);
-            c.d(hotNormalViewHolder.f59342a).v(R.color.CAM_X0106);
+            c.d(hotNormalViewHolder.f56283a).v(R.color.CAM_X0106);
             int indexOf = spannableStringBuilder.toString().indexOf(str);
             if (b(str) && indexOf != -1) {
                 spannableStringBuilder.setSpan(new StyleSpan(1), 1, indexOf, 34);
@@ -146,21 +146,21 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
                 eMRichTextAnyIconSpan.b(VideoHotTopicSearchAdapter.ICON_PADDING);
                 spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 1, 2, 17);
             }
-            hotNormalViewHolder.f59342a.setText(spannableStringBuilder);
+            hotNormalViewHolder.f56283a.setText(spannableStringBuilder);
             if (fVar.c().discuss_num.longValue() > 0 && b(str) && fVar.i()) {
-                hotNormalViewHolder.f59343b.setVisibility(0);
-                hotNormalViewHolder.f59343b.setText(String.format(tbPageContext.getString(R.string.hot_topic_thread_item_number), StringHelper.numberUniformFormatExtra(fVar.c().discuss_num.longValue())));
+                hotNormalViewHolder.f56284b.setVisibility(0);
+                hotNormalViewHolder.f56284b.setText(String.format(tbPageContext.getString(R.string.hot_topic_thread_item_number), StringHelper.numberUniformFormatExtra(fVar.c().discuss_num.longValue())));
             } else if (fVar.c().discuss_num.longValue() == 0 && fVar.c().topic_id.longValue() == 0 && b(str)) {
-                hotNormalViewHolder.f59343b.setVisibility(0);
-                hotNormalViewHolder.f59343b.setText(tbPageContext.getString(R.string.hot_topic_thread_create_new_topic));
+                hotNormalViewHolder.f56284b.setVisibility(0);
+                hotNormalViewHolder.f56284b.setText(tbPageContext.getString(R.string.hot_topic_thread_create_new_topic));
             } else {
-                hotNormalViewHolder.f59343b.setVisibility(8);
+                hotNormalViewHolder.f56284b.setVisibility(8);
             }
-            c(tbPageContext, hotNormalViewHolder.f59344c, fVar.c().tag.intValue());
-            c.d(hotNormalViewHolder.f59343b).v(R.color.CAM_X0110);
-            SkinManager.setBackgroundResource(hotNormalViewHolder.f59344c, R.drawable.hot_select_tag_bg);
-            SkinManager.setViewTextColor(hotNormalViewHolder.f59344c, R.color.CAM_X0302, 1);
-            hotNormalViewHolder.f59345d.setOnClickListener(new a(this, aVar, fVar, str));
+            c(tbPageContext, hotNormalViewHolder.f56285c, fVar.c().tag.intValue());
+            c.d(hotNormalViewHolder.f56284b).v(R.color.CAM_X0110);
+            SkinManager.setBackgroundResource(hotNormalViewHolder.f56285c, R.drawable.hot_select_tag_bg);
+            SkinManager.setViewTextColor(hotNormalViewHolder.f56285c, R.color.CAM_X0302, 1);
+            hotNormalViewHolder.f56286d.setOnClickListener(new a(this, aVar, fVar, str));
         }
     }
 

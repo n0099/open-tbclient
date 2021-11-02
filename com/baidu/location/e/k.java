@@ -33,7 +33,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static float A = 2.2f;
@@ -64,7 +64,7 @@ public class k {
     public static int Z = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f41358a = false;
+    public static boolean f39215a = false;
     public static String aA = "http://loc.map.baidu.com/oqur.php";
     public static String aB = "http://loc.map.baidu.com/tcu.php";
     public static String aC = "http://loc.map.baidu.com/rtbu.php";
@@ -98,31 +98,29 @@ public class k {
     public static String az = "http://loc.map.baidu.com/user_err.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f41359b = false;
+    public static boolean f39216b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f41360c = false;
+    public static boolean f39217c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f41361d = 0;
+    public static int f39218d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f41362e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f39219e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f41363f = "https://loc.map.baidu.com/sdk.php";
+    public static String f39220f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f41364g = "no";
+    public static String f39221g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f41365h = false;
+    public static boolean f39222h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f41366i = false;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static boolean f41367j = false;
+    public static boolean f39223i = false;
+    public static boolean j = false;
     public static boolean k = false;
     public static boolean l = false;
     public static boolean m = false;
@@ -242,7 +240,7 @@ public class k {
                 }
             }
             if (location != null) {
-                String b4 = (f41361d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
+                String b4 = (f39218d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
                 if (b4 != null) {
                     stringBuffer.append(b4);
                 }
@@ -261,7 +259,7 @@ public class k {
             if (location != null && hVar != null) {
                 try {
                     float speed = location.getSpeed();
-                    int i3 = f41361d;
+                    int i3 = f39218d;
                     int h2 = hVar.h();
                     int a4 = hVar.a();
                     boolean i4 = hVar.i();

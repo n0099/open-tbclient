@@ -5,8 +5,8 @@ import android.net.Uri;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.b;
-import c.a.x0.c;
+import b.a.x0.b;
+import b.a.x0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSeekCompleteListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
                 return;
             }
         }
-        c e2 = b.d().e();
-        if (e2 != null) {
-            this.mInnerMediaPlayer = e2.a();
+        c d2 = b.c().d();
+        if (d2 != null) {
+            this.mInnerMediaPlayer = d2.a();
         }
         if (this.mInnerMediaPlayer == null) {
             this.mInnerMediaPlayer = new DefaultAMediaPlayer();
@@ -188,9 +188,9 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
             if (this.mNeedStartAfterSeek) {
                 this.mInnerMediaPlayer.start();
             }
-            long j2 = this.mSeekToEndPosition;
-            if (j2 != 0) {
-                seekToForce(j2);
+            long j = this.mSeekToEndPosition;
+            if (j != 0) {
+                seekToForce(j);
                 this.mSeekToEndPosition = 0L;
             }
         }
@@ -240,17 +240,17 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public void seekTo(long j2) {
+    public void seekTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            if (j2 < 0) {
-                j2 = 0;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            if (j2 > getDuration()) {
-                j2 = getDuration();
+            if (j > getDuration()) {
+                j = getDuration();
             }
             this.mIsSeeking = true;
-            this.mInnerMediaPlayer.seekTo(j2);
+            this.mInnerMediaPlayer.seekTo(j);
         }
     }
 
@@ -270,17 +270,17 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
     }
 
     @Override // com.baidu.ugc.editvideo.player.IPlayer
-    public void seekToForce(long j2) {
+    public void seekToForce(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
-            if (j2 < 0) {
-                j2 = 0;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            if (j2 > getDuration()) {
-                j2 = getDuration();
+            if (j > getDuration()) {
+                j = getDuration();
             }
             this.mIsSeeking = true;
-            this.mInnerMediaPlayer.seekTo(j2);
+            this.mInnerMediaPlayer.seekTo(j);
         }
     }
 

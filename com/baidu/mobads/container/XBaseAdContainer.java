@@ -54,6 +54,7 @@ import com.baidu.mobads.container.util.animation.TransitionController;
 import com.baidu.mobads.container.widget.DisplayInfoView;
 import com.baidu.mobads.sdk.api.IOAdEvent;
 import com.baidu.mobads.sdk.api.IOAdEventListener;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -71,7 +72,7 @@ import java.util.Set;
 import org.apache.http.HttpStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class XBaseAdContainer implements IOAdEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADSERV_URL = "http://mobads.baidu.com/ads/index.htm";
@@ -107,7 +108,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
     public String showRecord;
     public int windowFocusState;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class ApoParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -618,7 +619,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && XAdSDKRemoteVersion.DEBUG.booleanValue() && this.mActivity != null) {
             TextView textView = new TextView(this.mActivity);
-            textView.setTextColor(-16776961);
+            textView.setTextColor(BaseAnimatedElement.DEBUG_PAINT_COLOR);
             textView.setTextSize(15.0f);
             textView.setText("P : " + AppConfigImp.getInstance().getProxyVersion() + "\nR : 9.042");
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -1207,9 +1208,9 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         }
     }
 
-    public void registerState(long j2, String str, IXAdInstanceInfo iXAdInstanceInfo) {
+    public void registerState(long j, String str, IXAdInstanceInfo iXAdInstanceInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Long.valueOf(j2), str, iXAdInstanceInfo}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Long.valueOf(j), str, iXAdInstanceInfo}) == null) {
         }
     }
 

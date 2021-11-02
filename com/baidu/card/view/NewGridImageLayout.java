@@ -12,11 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import c.a.l.p;
-import c.a.q0.s.k;
-import c.a.q0.s.q.d2;
-import c.a.r0.b0.c0;
+import b.a.e.e.p.l;
+import b.a.l.p;
+import b.a.q0.s.k;
+import b.a.q0.s.q.d2;
+import b.a.r0.b0.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
@@ -44,31 +44,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
-public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>, View.OnClickListener {
+/* loaded from: classes7.dex */
+public class NewGridImageLayout extends LinearLayout implements p<b.a.q0.s.q.a>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean canCenterStart;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f38817e;
+    public final int f36790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f38818f;
+    public Context f36791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.q0.s.q.a f38819g;
+    public b.a.q0.s.q.a f36792g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38820h;
+    public String f36793h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f38821i;
+    public boolean f36794i;
     public boolean isUseInCard;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f38822j;
-    public c0<c.a.q0.s.q.a> k;
+    public boolean j;
+    public c0<b.a.q0.s.q.a> k;
     public boolean l;
     public LinkedList<MediaData> m;
     public TextView mAbstract;
@@ -76,18 +74,18 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
     public TextView mTitle;
     public PlayVoiceBntNew mVoiceBtn;
     public VoteView mVoteView;
-    public c.a.q0.f1.m.a n;
+    public b.a.q0.f1.n.a n;
     public View.OnClickListener o;
     public boolean p;
     public int q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewGridImageLayout f38823e;
+        public final /* synthetic */ NewGridImageLayout f36795e;
 
         public a(NewGridImageLayout newGridImageLayout) {
             Interceptable interceptable = $ic;
@@ -104,28 +102,28 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
                     return;
                 }
             }
-            this.f38823e = newGridImageLayout;
+            this.f36795e = newGridImageLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c0<c.a.q0.s.q.a> subClickListener;
+            c0<b.a.q0.s.q.a> subClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (subClickListener = this.f38823e.getSubClickListener()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (subClickListener = this.f36795e.getSubClickListener()) == null) {
                 return;
             }
             view.setTag("2");
-            subClickListener.a(view, this.f38823e.f38819g);
+            subClickListener.a(view, this.f36795e.f36792g);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewGridImageLayout f38824e;
+        public final /* synthetic */ NewGridImageLayout f36796e;
 
         public b(NewGridImageLayout newGridImageLayout) {
             Interceptable interceptable = $ic;
@@ -142,28 +140,28 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
                     return;
                 }
             }
-            this.f38824e = newGridImageLayout;
+            this.f36796e = newGridImageLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c0<c.a.q0.s.q.a> subClickListener;
+            c0<b.a.q0.s.q.a> subClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (subClickListener = this.f38824e.getSubClickListener()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (subClickListener = this.f36796e.getSubClickListener()) == null) {
                 return;
             }
             view.setTag("1");
-            subClickListener.a(view, this.f38824e.f38819g);
+            subClickListener.a(view, this.f36796e.f36792g);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class c implements TbRichTextView.z {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewGridImageLayout f38825a;
+        public final /* synthetic */ NewGridImageLayout f36797a;
 
         public c(NewGridImageLayout newGridImageLayout) {
             Interceptable interceptable = $ic;
@@ -180,30 +178,30 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
                     return;
                 }
             }
-            this.f38825a = newGridImageLayout;
+            this.f36797a = newGridImageLayout;
         }
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.z
         public void a(View view, String str, int i2, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                ThreadCardUtils.startImageViewer(view, this.f38825a.f38821i ? true : this.f38825a.n.r, this.f38825a.m, i2, this.f38825a.f38819g.getThreadData(), this.f38825a.f38820h, this.f38825a.f38822j);
+                ThreadCardUtils.startImageViewer(view, this.f36797a.f36794i ? true : this.f36797a.n.r, this.f36797a.m, i2, this.f36797a.f36792g.getThreadData(), this.f36797a.f36793h, this.f36797a.j);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.q.a f38826e;
+        public final /* synthetic */ b.a.q0.s.q.a f36798e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewGridImageLayout f38827f;
+        public final /* synthetic */ NewGridImageLayout f36799f;
 
-        public d(NewGridImageLayout newGridImageLayout, c.a.q0.s.q.a aVar) {
+        public d(NewGridImageLayout newGridImageLayout, b.a.q0.s.q.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -218,26 +216,26 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
                     return;
                 }
             }
-            this.f38827f = newGridImageLayout;
-            this.f38826e = aVar;
+            this.f36799f = newGridImageLayout;
+            this.f36798e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadCardUtils.jumpToPB(this.f38826e.getThreadData().y1, this.f38827f.f38818f, this.f38827f.q);
+                ThreadCardUtils.jumpToPB(this.f36798e.getThreadData().y1, this.f36799f.f36791f, this.f36799f.q);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class e implements TbRichTextView.z {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewGridImageLayout f38828a;
+        public final /* synthetic */ NewGridImageLayout f36800a;
 
         public e(NewGridImageLayout newGridImageLayout) {
             Interceptable interceptable = $ic;
@@ -254,25 +252,25 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
                     return;
                 }
             }
-            this.f38828a = newGridImageLayout;
+            this.f36800a = newGridImageLayout;
         }
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.z
         public void a(View view, String str, int i2, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                ThreadCardUtils.jumpToPB(this.f38828a.f38819g.getThreadData().y1, this.f38828a.f38818f, 2);
+                ThreadCardUtils.jumpToPB(this.f36800a.f36792g.getThreadData().y1, this.f36800a.f36791f, 2);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class f implements TbRichTextView.z {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewGridImageLayout f38829a;
+        public final /* synthetic */ NewGridImageLayout f36801a;
 
         public f(NewGridImageLayout newGridImageLayout) {
             Interceptable interceptable = $ic;
@@ -289,25 +287,25 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
                     return;
                 }
             }
-            this.f38829a = newGridImageLayout;
+            this.f36801a = newGridImageLayout;
         }
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.z
         public void a(View view, String str, int i2, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                ThreadCardUtils.startImageViewer(view, true, this.f38829a.m, i2, this.f38829a.f38819g.getThreadData().y1.a(), this.f38829a.f38820h, this.f38829a.f38819g.getThreadData().y1.o);
+                ThreadCardUtils.startImageViewer(view, true, this.f36801a.m, i2, this.f36801a.f36792g.getThreadData().y1.a(), this.f36801a.f36793h, this.f36801a.f36792g.getThreadData().y1.o);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewGridImageLayout f38830e;
+        public final /* synthetic */ NewGridImageLayout f36802e;
 
         public g(NewGridImageLayout newGridImageLayout) {
             Interceptable interceptable = $ic;
@@ -324,16 +322,16 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
                     return;
                 }
             }
-            this.f38830e = newGridImageLayout;
+            this.f36802e = newGridImageLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38830e.o == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f36802e.o == null) {
                 return;
             }
-            this.f38830e.o.onClick(view);
+            this.f36802e.o.onClick(view);
         }
     }
 
@@ -404,7 +402,7 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
         this.mVoiceBtn.resetLayoutParams();
     }
 
-    public c0<c.a.q0.s.q.a> getSubClickListener() {
+    public c0<b.a.q0.s.q.a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (c0) invokeV.objValue;
@@ -430,7 +428,7 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
                 this.mGridImageLayout.setVisibility(8);
                 return;
             } else {
-                E0 = originalThreadInfo.f47439h;
+                E0 = originalThreadInfo.f45042h;
                 z = true;
             }
             if (k.c().g() && ListUtils.getCount(E0) != 0) {
@@ -535,8 +533,8 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
             gridImageLayout.setSupportGifPlay(false);
             this.mGridImageLayout.setCornerStyle(1);
             this.mGridImageLayout.setAfterClickListener(new b(this));
-            this.n = new c.a.q0.f1.m.a();
-            int i2 = l.p(this.f38818f)[0];
+            this.n = new b.a.q0.f1.n.a();
+            int i2 = l.p(this.f36791f)[0];
             this.n.G = (i2 - (l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2)) - (l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005) * 2);
             this.n.H = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
             this.mGridImageLayout.setLayoutStrategy(this.n);
@@ -625,18 +623,18 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, d2Var)) == null) {
-            c.a.q0.s.q.a aVar = this.f38819g;
+            b.a.q0.s.q.a aVar = this.f36792g;
             if (aVar == null || aVar.getThreadData() == null) {
                 return true;
             }
-            if (this.f38819g.getThreadData().s1() == null || this.f38819g.getThreadData().s1().equals(d2Var.s1())) {
+            if (this.f36792g.getThreadData().s1() == null || this.f36792g.getThreadData().s1().equals(d2Var.s1())) {
                 if (d2Var.z1 && d2Var.y1 != null) {
-                    if (this.f38819g.getThreadData().y1 == null) {
+                    if (this.f36792g.getThreadData().y1 == null) {
                         return true;
                     }
-                    return !n(d2Var.y1.f47439h, this.f38819g.getThreadData().y1.f47439h);
+                    return !n(d2Var.y1.f45042h, this.f36792g.getThreadData().y1.f45042h);
                 }
-                return !n(d2Var.E0(), this.f38819g.getThreadData().E0());
+                return !n(d2Var.E0(), this.f36792g.getThreadData().E0());
             }
             return true;
         }
@@ -653,21 +651,21 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
     public void setDynamicCard(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f38822j = z;
+            this.j = z;
         }
     }
 
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f38820h = str;
+            this.f36793h = str;
         }
     }
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f38821i = z;
+            this.f36794i = z;
         }
     }
 
@@ -692,7 +690,7 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
         }
     }
 
-    public void setObjectPool(c.a.e.e.k.b<ImageView> bVar, c.a.e.e.k.b<GifView> bVar2) {
+    public void setObjectPool(b.a.e.e.k.b<ImageView> bVar, b.a.e.e.k.b<GifView> bVar2) {
         GridImageLayout gridImageLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048597, this, bVar, bVar2) == null) || (gridImageLayout = this.mGridImageLayout) == null) {
@@ -701,13 +699,13 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
         gridImageLayout.setObjectPool(bVar, bVar2);
     }
 
-    public void setPreloadSizeReadyCallback(c.a.e.l.c.b bVar) {
+    public void setPreloadSizeReadyCallback(b.a.e.l.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bVar) == null) {
         }
     }
 
-    public void setSubClickListener(c0<c.a.q0.s.q.a> c0Var) {
+    public void setSubClickListener(c0<b.a.q0.s.q.a> c0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, c0Var) == null) {
             this.k = c0Var;
@@ -740,20 +738,20 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
                 return;
             }
         }
-        this.f38817e = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
-        this.f38821i = true;
-        this.f38822j = true;
+        this.f36790e = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.f36794i = true;
+        this.j = true;
         this.l = false;
         this.isUseInCard = true;
         this.canCenterStart = false;
         this.p = false;
-        this.f38818f = context;
+        this.f36791f = context;
         m();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.l.p
-    public void onBindDataToView(c.a.q0.s.q.a aVar) {
+    @Override // b.a.l.p
+    public void onBindDataToView(b.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
@@ -762,27 +760,27 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
         OriginalThreadInfo originalThreadInfo = threadData.y1;
         if (originalThreadInfo != null && this.l) {
             p(this.mGridImageLayout, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.mAbstract);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.mAbstract);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X07);
-            c.a.q0.s.u.c.d(this.mTitle).z(R.dimen.T_X07);
+            b.a.q0.s.u.c.d(this.mTitle).z(R.dimen.T_X07);
             this.mTitle.setVisibility(8);
-            if (originalThreadInfo.m) {
-                ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, new SpannableString(originalThreadInfo.f47438g), threadData, this.f38817e, this.l, this.p);
-                SkinManager.setViewTextColor(this.mAbstract, R.color.CAM_X0108);
-            } else {
+            if (!originalThreadInfo.m && !threadData.L4()) {
                 SpannableString b2 = originalThreadInfo.b();
-                ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, b2, threadData, this.f38817e, this.l, this.p);
+                ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, b2, threadData, this.f36790e, this.l, this.p);
                 if (b2 != null) {
                     TiePlusEventController.tryExposeTiePlusLinkEvent(originalThreadInfo.e());
                 }
+            } else {
+                ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, new SpannableString(this.f36791f.getString(R.string.origin_thread_deleted_title)), threadData, this.f36790e, this.l, this.p);
+                SkinManager.setViewTextColor(this.mAbstract, R.color.CAM_X0108);
             }
             if (o(originalThreadInfo.F)) {
                 d dVar = new d(this, aVar);
                 this.mVoteView.setOnClickListener(dVar);
                 this.mVoteView.setOnItemClickListener(dVar);
                 this.mVoteView.setIsTransmit(true);
-                this.mVoteView.setData(originalThreadInfo.F, originalThreadInfo.f47437f, originalThreadInfo.f47436e);
+                this.mVoteView.setData(originalThreadInfo.F, originalThreadInfo.f45040f, originalThreadInfo.f45039e);
                 this.mVoteView.setVisibility(0);
             } else {
                 this.mVoteView.setVisibility(8);
@@ -790,12 +788,12 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
         } else {
             p(this.mGridImageLayout, UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
             this.mVoteView.setVisibility(8);
-            this.mAbstract.setTextSize(0, l.g(this.f38818f, R.dimen.T_X06));
-            this.mAbstract.setLineSpacing(l.g(this.f38818f, R.dimen.M_T_X002), 1.0f);
-            this.mTitle.setTextSize(0, l.g(this.f38818f, R.dimen.T_X06));
+            this.mAbstract.setTextSize(0, l.g(this.f36791f, R.dimen.T_X06));
+            this.mAbstract.setLineSpacing(l.g(this.f36791f, R.dimen.M_T_X002), 1.0f);
+            this.mTitle.setTextSize(0, l.g(this.f36791f, R.dimen.T_X06));
             ThreadCardUtils.setTitle(this.mTitle, threadData, this.p);
             SpannableString p = threadData.p();
-            ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, p, threadData, this.f38817e, this.l, this.p);
+            ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, p, threadData, this.f36790e, this.l, this.p);
             if (p != null) {
                 TiePlusEventController.tryExposeTiePlusLinkEvent(threadData.t1());
             }
@@ -804,23 +802,23 @@ public class NewGridImageLayout extends LinearLayout implements p<c.a.q0.s.q.a>,
             j(threadData);
         }
         setVoiceData(threadData);
-        this.f38819g = aVar;
+        this.f36792g = aVar;
         if (aVar.getThreadData().y1 == null) {
             return;
         }
         if (threadData.z1) {
-            if (this.f38819g.getThreadData().y1 == null) {
+            if (this.f36792g.getThreadData().y1 == null) {
                 return;
             }
-            if (!this.f38819g.getThreadData().y1.m) {
+            if (!this.f36792g.getThreadData().y1.m) {
                 this.mGridImageLayout.setOnImageClickListener(new e(this));
             }
         }
-        if (!this.f38819g.getThreadData().y1.m) {
+        if (!this.f36792g.getThreadData().y1.m) {
             this.mGridImageLayout.setOnImageClickListener(new f(this));
         }
         if (this.l) {
-            if (this.f38819g.getThreadData().y1 != null && !this.f38819g.getThreadData().y1.m) {
+            if (this.f36792g.getThreadData().y1 != null && !this.f36792g.getThreadData().y1.m) {
                 setOnClickListener(this);
             } else {
                 setOnClickListener(null);

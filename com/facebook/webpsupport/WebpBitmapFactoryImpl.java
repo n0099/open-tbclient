@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 20;
@@ -301,7 +301,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static native Bitmap nativeDecodeStream(InputStream inputStream, BitmapFactory.Options options, float f2, byte[] bArr);
 
     @DoNotStrip
-    public static native long nativeSeek(FileDescriptor fileDescriptor, long j2, boolean z);
+    public static native long nativeSeek(FileDescriptor fileDescriptor, long j, boolean z);
 
     @DoNotStrip
     public static Bitmap originalDecodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options) {

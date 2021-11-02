@@ -1,6 +1,5 @@
 package com.baidu.android.util.io;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -33,7 +32,7 @@ import java.text.DecimalFormat;
 import java.util.Locale;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 1024;
@@ -92,7 +91,7 @@ public final class FileUtils {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2)) == null) {
-            long j2 = 0;
+            long j = 0;
             if (file == null || file2 == null || !file.exists()) {
                 return 0L;
             }
@@ -116,7 +115,7 @@ public final class FileUtils {
                 fileOutputStream = null;
             }
             try {
-                j2 = copyStream(fileInputStream, fileOutputStream);
+                j = copyStream(fileInputStream, fileOutputStream);
                 Closeables.closeSafely(fileInputStream);
             } catch (Exception e4) {
                 e = e4;
@@ -125,7 +124,7 @@ public final class FileUtils {
                     e.printStackTrace();
                     Closeables.closeSafely(fileInputStream2);
                     Closeables.closeSafely(fileOutputStream);
-                    return j2;
+                    return j;
                 } catch (Throwable th3) {
                     th = th3;
                     Closeables.closeSafely(fileInputStream2);
@@ -140,7 +139,7 @@ public final class FileUtils {
                 throw th;
             }
             Closeables.closeSafely(fileOutputStream);
-            return j2;
+            return j;
         }
         return invokeLL.longValue;
     }
@@ -241,26 +240,26 @@ public final class FileUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) ? !TextUtils.isEmpty(str) && new File(str).exists() : invokeL.booleanValue;
     }
 
-    public static String generateFileSizeText(long j2) {
+    public static String generateFileSizeText(long j) {
         InterceptResult invokeJ;
         Float valueOf;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
+            if (j <= 0) {
                 return UNKNOW;
             }
-            if (j2 < 1024) {
-                return j2 + "B";
+            if (j < 1024) {
+                return j + "B";
             }
-            if (j2 < 1048576) {
-                valueOf = Float.valueOf(((float) j2) / 1024.0f);
+            if (j < 1048576) {
+                valueOf = Float.valueOf(((float) j) / 1024.0f);
                 str = "KB";
-            } else if (j2 < 1073741824) {
-                valueOf = Float.valueOf(((float) j2) / 1048576.0f);
+            } else if (j < 1073741824) {
+                valueOf = Float.valueOf(((float) j) / 1048576.0f);
                 str = "MB";
             } else {
-                valueOf = Float.valueOf(((float) j2) / 1.0737418E9f);
+                valueOf = Float.valueOf(((float) j) / 1.0737418E9f);
                 str = "GB";
             }
             DecimalFormat decimalFormat = new DecimalFormat("####.##");
@@ -282,8 +281,6 @@ public final class FileUtils {
         return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
-    @TargetApi(8)
     public static String getDeviceCacheDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -313,16 +310,16 @@ public final class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j2 = 0;
+            long j = 0;
             for (int i2 = 0; i2 < length2; i2++) {
                 if (listFiles[i2].isDirectory()) {
                     length = getDirectorySize(listFiles[i2]);
                 } else {
                     length = listFiles[i2].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -979,16 +976,16 @@ public final class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j2 = 0;
+            long j = 0;
             for (int i2 = 0; i2 < length2; i2++) {
                 if (listFiles[i2].isDirectory()) {
                     length = getDirectorySize(listFiles[i2]);
                 } else {
                     length = listFiles[i2].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -1039,15 +1036,15 @@ public final class FileUtils {
             if (inputStream != null && outputStream != null) {
                 try {
                     byte[] bArr = new byte[3072];
-                    long j2 = 0;
+                    long j = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            j2 += read;
+                            j += read;
                         } else {
                             outputStream.flush();
-                            return j2;
+                            return j;
                         }
                     }
                 } catch (IOException e2) {

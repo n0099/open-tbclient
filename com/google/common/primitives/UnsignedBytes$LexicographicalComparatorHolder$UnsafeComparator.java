@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.g.b;
+import b.i.d.g.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +19,7 @@ import java.security.PrivilegedExceptionAction;
 import java.util.Comparator;
 import sun.misc.Unsafe;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator implements Comparator<byte[]> {
     public static final /* synthetic */ UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +29,7 @@ public final class UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparato
     public static final Unsafe theUnsafe;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,15 +159,15 @@ public final class UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparato
             int i2 = min & (-8);
             int i3 = 0;
             while (i3 < i2) {
-                long j2 = i3;
-                long j3 = theUnsafe.getLong(bArr, BYTE_ARRAY_BASE_OFFSET + j2);
-                long j4 = theUnsafe.getLong(bArr2, BYTE_ARRAY_BASE_OFFSET + j2);
-                if (j3 != j4) {
+                long j = i3;
+                long j2 = theUnsafe.getLong(bArr, BYTE_ARRAY_BASE_OFFSET + j);
+                long j3 = theUnsafe.getLong(bArr2, BYTE_ARRAY_BASE_OFFSET + j);
+                if (j2 != j3) {
                     if (BIG_ENDIAN) {
-                        return UnsignedLongs.a(j3, j4);
+                        return UnsignedLongs.a(j2, j3);
                     }
-                    int numberOfTrailingZeros = Long.numberOfTrailingZeros(j3 ^ j4) & (-8);
-                    return ((int) ((j3 >>> numberOfTrailingZeros) & 255)) - ((int) ((j4 >>> numberOfTrailingZeros) & 255));
+                    int numberOfTrailingZeros = Long.numberOfTrailingZeros(j2 ^ j3) & (-8);
+                    return ((int) ((j2 >>> numberOfTrailingZeros) & 255)) - ((int) ((j3 >>> numberOfTrailingZeros) & 255));
                 }
                 i3 += 8;
             }

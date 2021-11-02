@@ -34,12 +34,12 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DeviceUtils implements IDevices {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -112,7 +112,7 @@ public class DeviceUtils implements IDevices {
                         RandomAccessFile randomAccessFile2 = null;
                         try {
                             try {
-                                randomAccessFile = new RandomAccessFile(file, r.f42346a);
+                                randomAccessFile = new RandomAccessFile(file, r.f40168a);
                             } catch (Throwable th) {
                                 th = th;
                             }
@@ -334,7 +334,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class OSInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -522,7 +522,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
@@ -796,5 +796,37 @@ public class DeviceUtils implements IDevices {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public static String getHarmonyVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                return (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "hw_sc.build.os.version");
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean isHarmonyOS(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                int identifier = Resources.getSystem().getIdentifier("config_os_brand", "string", "android");
+                if (identifier != 0) {
+                    return context.getString(identifier).equals("harmony");
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

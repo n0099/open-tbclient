@@ -2,8 +2,8 @@ package com.baidu.tieba.hottopicselect;
 
 import GetSugTopic.DataRes;
 import GetSugTopic.GetSugTopicResIdl;
-import c.a.q0.s.r.a;
-import c.a.r0.k1.c;
+import b.a.q0.s.r.a;
+import b.a.r0.k1.c;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TOPIC_SELECT_KEY = "topic_select_user";
@@ -64,20 +64,20 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
             if (getSugTopicResIdl != null && (dataRes = getSugTopicResIdl.data) != null) {
                 if (dataRes.user_his_topic != null) {
                     c cVar = new c();
-                    cVar.e(getSugTopicResIdl.data.user_his_topic);
-                    cVar.g(0);
+                    cVar.d(getSugTopicResIdl.data.user_his_topic);
+                    cVar.f(0);
                     this.mUserData = cVar;
                 }
                 if (getSugTopicResIdl.data.bang_topic != null) {
                     c cVar2 = new c();
-                    cVar2.e(getSugTopicResIdl.data.bang_topic);
-                    cVar2.g(1);
+                    cVar2.d(getSugTopicResIdl.data.bang_topic);
+                    cVar2.f(1);
                     this.mBangData = cVar2;
                 }
                 if (getSugTopicResIdl.data.video_topic != null) {
                     c cVar3 = new c();
-                    cVar3.e(getSugTopicResIdl.data.video_topic);
-                    cVar3.g(2);
+                    cVar3.d(getSugTopicResIdl.data.video_topic);
+                    cVar3.f(2);
                     this.mVideoHotpicData = cVar3;
                 }
                 this.resultStatus = 2;

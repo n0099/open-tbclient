@@ -1,8 +1,8 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.s0;
-import c.a.r0.q2.n;
+import b.a.q0.d1.s0;
+import b.a.r0.q2.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UtilityVideo implements TiebaUtilityVideoAuto.HostUtilityVideo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class UtilityVideo implements TiebaUtilityVideoAuto.HostUtilityVideo {
     public void videoPositionCacheManagerGetCachePosition(TiebaUtilityVideoAuto.VideoStringParam videoStringParam, TiebaUtilityVideoAuto.Result<TiebaUtilityVideoAuto.CachePosition> result) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, videoStringParam, result) == null) {
-            int c2 = n.d().c(videoStringParam.getResult());
+            int c2 = o.d().c(videoStringParam.getResult());
             TiebaUtilityVideoAuto.CachePosition cachePosition = new TiebaUtilityVideoAuto.CachePosition();
             cachePosition.setResult(Long.valueOf(c2));
             result.success(cachePosition);
@@ -94,7 +94,7 @@ public class UtilityVideo implements TiebaUtilityVideoAuto.HostUtilityVideo {
     public void videoPositionCacheManagerRemove(TiebaUtilityVideoAuto.VideoStringParam videoStringParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, videoStringParam) == null) {
-            n.d().e(videoStringParam.getResult());
+            o.d().e(videoStringParam.getResult());
         }
     }
 
@@ -102,7 +102,7 @@ public class UtilityVideo implements TiebaUtilityVideoAuto.HostUtilityVideo {
     public void videoPositionCacheManagerUpdate(TiebaUtilityVideoAuto.VideoTimeParam videoTimeParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoTimeParam) == null) {
-            n.d().f(videoTimeParam.getVideoUrl(), videoTimeParam.getDurtion() != null ? videoTimeParam.getDurtion().intValue() : 0);
+            o.d().update(videoTimeParam.getVideoUrl(), videoTimeParam.getDurtion() != null ? videoTimeParam.getDurtion().intValue() : 0);
         }
     }
 }

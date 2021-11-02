@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PublicMsg implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PublicMsg> CREATOR;
@@ -227,19 +227,19 @@ public class PublicMsg implements Parcelable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f37722a;
+                public final /* synthetic */ Context f35746a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f37723b;
+                public final /* synthetic */ String f35747b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f37724c;
+                public final /* synthetic */ String f35748c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f37725d;
+                public final /* synthetic */ String f35749d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PublicMsg f37726e;
+                public final /* synthetic */ PublicMsg f35750e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -260,11 +260,11 @@ public class PublicMsg implements Parcelable {
                             return;
                         }
                     }
-                    this.f37726e = this;
-                    this.f37722a = context;
-                    this.f37723b = b2;
-                    this.f37724c = r13;
-                    this.f37725d = a2;
+                    this.f35750e = this;
+                    this.f35746a = context;
+                    this.f35747b = b2;
+                    this.f35748c = r13;
+                    this.f35749d = a2;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
@@ -273,16 +273,16 @@ public class PublicMsg implements Parcelable {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             HashMap hashMap = new HashMap();
-                            com.baidu.android.pushservice.d.b.a(this.f37722a, hashMap);
+                            com.baidu.android.pushservice.d.b.a(this.f35746a, hashMap);
                             hashMap.put("method", "linkhit");
-                            hashMap.put("channel_token", this.f37723b);
-                            hashMap.put("data", this.f37724c);
-                            if (com.baidu.android.pushservice.e.c.a(this.f37722a, com.baidu.android.pushservice.h.e() + this.f37725d, "POST", hashMap).b() == 200) {
-                                com.baidu.android.pushservice.g.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.f37722a.getApplicationContext());
+                            hashMap.put("channel_token", this.f35747b);
+                            hashMap.put("data", this.f35748c);
+                            if (com.baidu.android.pushservice.e.c.a(this.f35746a, com.baidu.android.pushservice.h.e() + this.f35749d, "POST", hashMap).b() == 200) {
+                                com.baidu.android.pushservice.g.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.f35746a.getApplicationContext());
                             }
                         } catch (Exception e3) {
-                            com.baidu.android.pushservice.g.a.b(PublicMsg.TAG, "error : " + e3.getMessage(), this.f37722a.getApplicationContext());
-                            new b.c(this.f37722a).a(Log.getStackTraceString(e3)).a();
+                            com.baidu.android.pushservice.g.a.b(PublicMsg.TAG, "error : " + e3.getMessage(), this.f35746a.getApplicationContext());
+                            new b.c(this.f35746a).a(Log.getStackTraceString(e3)).a();
                         }
                     }
                 }
@@ -339,7 +339,7 @@ public class PublicMsg implements Parcelable {
         return (String) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00ce  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x00cf  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

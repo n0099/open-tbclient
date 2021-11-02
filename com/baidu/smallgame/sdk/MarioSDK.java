@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MarioSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MarioSDK";
@@ -28,28 +28,28 @@ public class MarioSDK {
     public b mMarioInitListener;
     public V8Engine mV8Engine;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SurfaceHolder f45132a;
+        public SurfaceHolder f42866a;
 
         /* renamed from: b  reason: collision with root package name */
-        public GLSurfaceView.Renderer f45133b;
+        public GLSurfaceView.Renderer f42867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArBridge.FirstFrameListener f45134c;
+        public ArBridge.FirstFrameListener f42868c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f45135d;
+        public int f42869d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<DebugConsole> f45136e;
+        public List<DebugConsole> f42870e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f45137f;
+        public Context f42871f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class MarioSDK {
                     return;
                 }
             }
-            this.f45136e = new ArrayList();
+            this.f42870e = new ArrayList();
         }
 
         public void f(DebugConsole debugConsole) {
@@ -72,45 +72,51 @@ public class MarioSDK {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, debugConsole) == null) || debugConsole == null) {
                 return;
             }
-            this.f45136e.add(debugConsole);
+            this.f42870e.add(debugConsole);
         }
 
         public List<DebugConsole> g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45136e : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42870e : (List) invokeV.objValue;
+        }
+
+        public Context getContext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42871f : (Context) invokeV.objValue;
         }
 
         public void h(Context context) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-                this.f45137f = context;
+            if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+                this.f42871f = context;
             }
         }
 
         public void i(ArBridge.FirstFrameListener firstFrameListener) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, firstFrameListener) == null) {
-                this.f45134c = firstFrameListener;
+            if (interceptable == null || interceptable.invokeL(1048580, this, firstFrameListener) == null) {
+                this.f42868c = firstFrameListener;
             }
         }
 
         public void j(GLSurfaceView.Renderer renderer) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, renderer) == null) {
-                this.f45133b = renderer;
+            if (interceptable == null || interceptable.invokeL(1048581, this, renderer) == null) {
+                this.f42867b = renderer;
             }
         }
 
         public void k(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, surfaceHolder) == null) {
-                this.f45132a = surfaceHolder;
+            if (interceptable == null || interceptable.invokeL(1048582, this, surfaceHolder) == null) {
+                this.f42866a = surfaceHolder;
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a();
     }
@@ -141,19 +147,19 @@ public class MarioSDK {
             if (aVar == null) {
                 return null;
             }
-            c.a.k0.a.a aVar2 = new c.a.k0.a.a();
-            if (aVar.f45132a != null) {
-                aVar2.q(aVar.f45132a);
+            b.a.k0.a.a aVar2 = new b.a.k0.a.a();
+            if (aVar.f42866a != null) {
+                aVar2.p(aVar.f42866a);
             }
-            if (aVar.f45134c != null) {
-                aVar2.setFirstFrameListener(aVar.f45134c);
+            if (aVar.f42868c != null) {
+                aVar2.setFirstFrameListener(aVar.f42868c);
             }
-            aVar2.setRenderMode(aVar.f45135d);
-            if (aVar.f45137f != null) {
-                aVar2.p(aVar.f45137f);
+            aVar2.setRenderMode(aVar.f42869d);
+            if (aVar.f42871f != null) {
+                aVar2.o(aVar.f42871f);
             }
-            if (aVar.f45133b != null) {
-                aVar2.setRenderer(aVar.f45133b);
+            if (aVar.f42867b != null) {
+                aVar2.setRenderer(aVar.f42867b);
             }
             if (aVar.g() != null) {
                 for (DebugConsole debugConsole : aVar.g()) {

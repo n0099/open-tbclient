@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
-import c.a.e.e.p.l;
-import c.a.r0.b0.c0;
-import c.a.r0.m2.i.b;
-import c.a.r0.n2.e.h;
+import b.a.e.e.p.l;
+import b.a.r0.b0.c0;
+import b.a.r0.m2.i.b;
+import b.a.r0.n2.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     public c0 mOnCardSubClickListenner;
     public Bundle mUrlBundle;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends c0<h> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f55849b;
+        public final /* synthetic */ PersonCenterMoreActivity f53001b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -59,20 +59,20 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     return;
                 }
             }
-            this.f55849b = personCenterMoreActivity;
+            this.f53001b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.b0.c0
+        @Override // b.a.r0.b0.c0
         /* renamed from: d */
         public void a(View view, h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f55849b.mItemData = hVar;
-                if (this.f55849b.mItemData == null || this.f55849b.requestPermission()) {
+                this.f53001b.mItemData = hVar;
+                if (this.f53001b.mItemData == null || this.f53001b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f55849b;
+                PersonCenterMoreActivity personCenterMoreActivity = this.f53001b;
                 personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.k);
             }
         }
@@ -127,7 +127,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            c.a.q0.m.a.u(getPageContext().getPageActivity(), true, str);
+            b.a.q0.m.a.u(getPageContext().getPageActivity(), true, str);
         }
     }
 

@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.util.httpNet;
 
 import android.net.Proxy;
-import c.a.e.e.p.j;
+import b.a.e.e.p.j;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class NetWorkUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NET_TYPE_NET = "1";

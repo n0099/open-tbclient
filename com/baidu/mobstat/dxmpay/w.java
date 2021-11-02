@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.ext.widget.toast.ToastUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.dxmpay.m;
@@ -35,21 +36,21 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43823a;
+    public static String f41600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43824b;
+    public static String f41601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f43825c;
+    public static String f41602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f43826d;
+    public static final Pattern f41603d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,7 +66,7 @@ public class w {
                 return;
             }
         }
-        f43826d = Pattern.compile("\\s*|\t|\r|\n");
+        f41603d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -215,7 +216,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            String str = f43824b;
+            String str = f41601b;
             if (str == null) {
                 String n = n(context);
                 String b2 = b(context, n);
@@ -223,7 +224,7 @@ public class w {
                     b2 = c(context, n);
                 }
                 str = b2 == null ? "" : b2;
-                f43824b = str;
+                f41601b = str;
             }
             return str;
         }
@@ -234,12 +235,12 @@ public class w {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65566, null, i2, context)) == null) {
-            String j2 = j(context);
-            if (TextUtils.isEmpty(j2)) {
+            String j = j(context);
+            if (TextUtils.isEmpty(j)) {
                 return "";
             }
             try {
-                return m.b.c(i2, j2.getBytes());
+                return m.b.c(i2, j.getBytes());
             } catch (Exception unused) {
                 return "";
             }
@@ -273,7 +274,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
-            String str = f43823a;
+            String str = f41600a;
             if (str == null) {
                 try {
                     List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
@@ -293,7 +294,7 @@ public class w {
                 if (str == null) {
                     str = "";
                 }
-                f43823a = str;
+                f41600a = str;
             }
             return str;
         }
@@ -469,7 +470,7 @@ public class w {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str2 = f43825c;
+            String str2 = f41602c;
             if (str2 != null) {
                 return str2;
             }
@@ -486,11 +487,11 @@ public class w {
             }
             if (TextUtils.isEmpty(str)) {
                 String a2 = a("ro.build.display.id");
-                if (!TextUtils.isEmpty(a2) && a2.contains("Flyme")) {
+                if (!TextUtils.isEmpty(a2) && a2.contains(ToastUtils.MEIZU_ROM)) {
                     str = "flyme";
                 }
             }
-            f43825c = str;
+            f41602c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -499,7 +500,7 @@ public class w {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f43826d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f41603d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static String a(int i2, Context context) {

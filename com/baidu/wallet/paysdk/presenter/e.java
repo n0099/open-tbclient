@@ -1,5 +1,5 @@
 package com.baidu.wallet.paysdk.presenter;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface e {
     void a();
 

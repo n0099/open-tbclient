@@ -30,16 +30,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlgoHandleController cb;
 
     /* renamed from: cn  reason: collision with root package name */
-    public FramePixels f38442cn;
+    public FramePixels f36442cn;
     public byte[] co;
-    public InterfaceC1625b cp;
+    public InterfaceC1582b cp;
     public HandlerThread cq;
     public a cr;
     public boolean cs;
@@ -47,7 +47,7 @@ public class b {
     public ArrayList<String> cu;
     public boolean cv;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,17 +102,17 @@ public class b {
     }
 
     /* renamed from: com.baidu.ar.anime.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1625b {
-        void a(int i2, String str, long j2);
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1582b {
+        void a(int i2, String str, long j);
     }
 
-    public b(InterfaceC1625b interfaceC1625b) {
+    public b(InterfaceC1582b interfaceC1582b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC1625b};
+            Object[] objArr = {interfaceC1582b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -122,14 +122,14 @@ public class b {
                 return;
             }
         }
-        this.f38442cn = null;
+        this.f36442cn = null;
         this.co = null;
         this.cp = null;
         this.cs = true;
         this.cb = null;
         this.cu = new ArrayList<>();
         this.cv = true;
-        this.cp = interfaceC1625b;
+        this.cp = interfaceC1582b;
         if (this.cq == null) {
             HandlerThread handlerThread = new HandlerThread("AnimeHandlerThread");
             this.cq = handlerThread;
@@ -144,7 +144,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, arrayList)) == null) {
-            if (this.f38442cn == null || arrayList == null || arrayList.size() <= 0 || this.cb == null) {
+            if (this.f36442cn == null || arrayList == null || arrayList.size() <= 0 || this.cb == null) {
                 return 0L;
             }
             if (arrayList.size() < 2) {
@@ -152,17 +152,17 @@ public class b {
                 return 0L;
             }
             long createHandle = this.cb.createHandle();
-            this.cb.setHandleInput(createHandle, 21, this.f38442cn.getTimestamp(), 4, this.f38442cn.getWidth(), this.f38442cn.getHeight(), this.f38442cn.isFrontCamera(), this.f38442cn.getSegOrientation().getValue(), false, this.f38442cn.getPixelsAddress());
+            this.cb.setHandleInput(createHandle, 21, this.f36442cn.getTimestamp(), 4, this.f36442cn.getWidth(), this.f36442cn.getHeight(), this.f36442cn.isFrontCamera(), this.f36442cn.getSegOrientation().getValue(), false, this.f36442cn.getPixelsAddress());
             ReserveHandleData reserveHandleData = new ReserveHandleData();
             reserveHandleData.setByteDataSize(arrayList.size());
-            int width = this.f38442cn.getWidth();
-            int height = this.f38442cn.getHeight();
+            int width = this.f36442cn.getWidth();
+            int height = this.f36442cn.getHeight();
             if (this.cv) {
-                height = this.f38442cn.getHeight() / 2;
+                height = this.f36442cn.getHeight() / 2;
             }
             if (this.ct) {
-                width = this.f38442cn.getHeight();
-                height = this.f38442cn.getWidth() / 2;
+                width = this.f36442cn.getHeight();
+                height = this.f36442cn.getWidth() / 2;
             }
             reserveHandleData.setByteWidths(new int[]{width, width});
             reserveHandleData.setByteHeights(new int[]{height, height});
@@ -358,7 +358,7 @@ public class b {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.cy.f38442cn = this.cw;
+                    this.cy.f36442cn = this.cw;
                     FramePixels framePixels2 = this.cw;
                     if (framePixels2 == null || framePixels2.getPixelsAddress() == null) {
                         com.baidu.ar.h.b.aS("framePixels data error!");
@@ -511,16 +511,16 @@ public class b {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (this.co == null || this.f38442cn == null) {
+            if (this.co == null || this.f36442cn == null) {
                 com.baidu.ar.h.b.aS("retryChangeStyle input data error!");
-                InterfaceC1625b interfaceC1625b = this.cp;
-                if (interfaceC1625b != null) {
-                    interfaceC1625b.a(203, "retryChangeStyle input data error", 0L);
+                InterfaceC1582b interfaceC1582b = this.cp;
+                if (interfaceC1582b != null) {
+                    interfaceC1582b.a(203, "retryChangeStyle input data error", 0L);
                     return;
                 }
                 return;
             }
-            String str2 = String.valueOf(this.f38442cn.getTimestamp()) + String.valueOf(System.currentTimeMillis());
+            String str2 = String.valueOf(this.f36442cn.getTimestamp()) + String.valueOf(System.currentTimeMillis());
             ArrayList<String> arrayList = this.cu;
             if (arrayList == null) {
                 return;

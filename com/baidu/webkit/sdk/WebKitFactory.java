@@ -46,7 +46,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class WebKitFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -106,7 +106,7 @@ public final class WebKitFactory {
     public static boolean sZeusSupportedLoaded;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class DelayedInitTask extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,10 +191,10 @@ public final class WebKitFactory {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
                 String sdkVersionName = WebKitFactory.getSdkVersionName();
-                if (sdkVersionName.equalsIgnoreCase(ZeusInitConfigUtils.get(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, ""))) {
+                if (sdkVersionName.equalsIgnoreCase(ZeusInitConfigUtils.get("sdk_version", ""))) {
                     return;
                 }
-                ZeusInitConfigUtils.set(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, sdkVersionName);
+                ZeusInitConfigUtils.set("sdk_version", sdkVersionName);
             }
         }
 
@@ -299,7 +299,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -309,7 +309,7 @@ public final class WebKitFactory {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -370,7 +370,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;
@@ -1376,13 +1376,13 @@ public final class WebKitFactory {
         JsUploadTask.setFirstJumpUrl(str);
     }
 
-    public static void setFirstScreenTimeJs(long j2) {
+    public static void setFirstScreenTimeJs(long j) {
         JsUploadTask jsUploadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65625, null, j2) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65625, null, j) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
             return;
         }
-        jsUploadTask.setFirstScreenTime(j2);
+        jsUploadTask.setFirstScreenTime(j);
     }
 
     public static void setGpuTypeJs(String str) {
@@ -1485,19 +1485,19 @@ public final class WebKitFactory {
         jsUploadTask.setNetcode(i2);
     }
 
-    public static void setPageFinishedTimeJs(long j2) {
+    public static void setPageFinishedTimeJs(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65638, null, j2) == null) || mJavaScriptInterface == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65638, null, j) == null) || mJavaScriptInterface == null) {
             return;
         }
-        JsUploadTask.setPageFinishedTime(j2);
+        JsUploadTask.setPageFinishedTime(j);
     }
 
-    public static void setPageStartTimeStamp(long j2) {
+    public static void setPageStartTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65639, null, j2) == null) {
-            sPageStartTimeStamp = j2;
-            mJavaScriptInterface.setPageStartTime(j2);
+        if (interceptable == null || interceptable.invokeJ(65639, null, j) == null) {
+            sPageStartTimeStamp = j;
+            mJavaScriptInterface.setPageStartTime(j);
         }
     }
 

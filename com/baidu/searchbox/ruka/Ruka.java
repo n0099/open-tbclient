@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
+import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,11 +16,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Ruka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BLOCK_THRESHOLD = 2000;
     public static volatile AtomicBoolean sANRInited;
+    public static volatile AtomicBoolean sBlockInited;
     public static volatile AtomicBoolean sIsStartTrack;
     public static volatile AtomicBoolean sLooperInited;
     public static long sProcessLaunchTime;
@@ -41,6 +43,7 @@ public final class Ruka {
         sProcessLaunchTime = System.currentTimeMillis();
         sANRInited = new AtomicBoolean(false);
         sLooperInited = new AtomicBoolean(false);
+        sBlockInited = new AtomicBoolean(false);
         sIsStartTrack = new AtomicBoolean(false);
     }
 
@@ -70,10 +73,10 @@ public final class Ruka {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? LooperProvider.getLooperMonitor().isMonitorStarted() : invokeV.booleanValue;
     }
 
-    public static void setProcessLaunchTime(long j2) {
+    public static void setProcessLaunchTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2) == null) {
-            sProcessLaunchTime = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
+            sProcessLaunchTime = j;
         }
     }
 
@@ -94,9 +97,26 @@ public final class Ruka {
         }
     }
 
-    public static void startLooperMonitor(Context context, int i2) {
+    public static void startBlockMonitor(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65543, null, context, i2) == null) {
+            if (AppConfig.isDebug()) {
+                IBlockMonitor blockMonitor = BlockProvider.getBlockMonitor();
+                String str = "iBlockMonitor = " + blockMonitor.getClass().getSimpleName();
+            }
+            if (BlockProvider.getBlockMonitor() == BlockProvider.EMPTY) {
+                AppConfig.isDebug();
+            } else if (!sBlockInited.get() && BlockProvider.getBlockMonitor().enableMonitor()) {
+                sBlockInited.set(true);
+                BlockProvider.getBlockMonitor().startBlockMonitor(i2);
+                startTrack(context);
+            }
+        }
+    }
+
+    public static void startLooperMonitor(Context context, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65545, null, context, i2) == null) {
             if (AppConfig.isDebug()) {
                 ILooperMonitor looperMonitor = LooperProvider.getLooperMonitor();
                 String str = "iLooperMonitor = " + looperMonitor.getClass().getSimpleName();
@@ -113,7 +133,7 @@ public final class Ruka {
 
     public static void startTrack(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || sIsStartTrack.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeL(65546, null, context) == null) || sIsStartTrack.getAndSet(true)) {
             return;
         }
         Track.getInstance().startTrack(context);
@@ -121,21 +141,35 @@ public final class Ruka {
 
     public static void stopAnrMonitor() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             ANRProvider.getANRMonitor().stopANRMonitor();
+        }
+    }
+
+    public static void stopBlockMonitor() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            BlockProvider.getBlockMonitor().stopBlockMonitor();
         }
     }
 
     public static void stopLooperMonitor() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
             LooperProvider.getLooperMonitor().stopLooperMonitor();
+        }
+    }
+
+    public static void startBlockMonitor(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+            startBlockMonitor(context, 2000);
         }
     }
 
     public static void startLooperMonitor(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             startLooperMonitor(context, 2000);
         }
     }

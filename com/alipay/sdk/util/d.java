@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36098a;
+    public String f34192a;
 
     public d(String str) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class d implements Serializable {
                 return;
             }
         }
-        this.f36098a = "";
-        this.f36098a = str;
+        this.f34192a = "";
+        this.f34192a = str;
     }
 }

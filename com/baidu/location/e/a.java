@@ -5,39 +5,37 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41303a = "baidu_location_service";
+    public static String f39163a = "baidu_location_service";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f41304b = 12000;
+    public static int f39164b = 12000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f41305c = 20000;
+    public static int f39165c = 20000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f41306d = 1;
+    public static int f39166d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f41307e = 2;
+    public static int f39167e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f41308f = 3;
+    public static int f39168f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f41309g = 4;
+    public static int f39169g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f41310h = 5;
+    public static int f39170h = 5;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f41311i = 5120;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static int f41312j = 0;
+    public static int f39171i = 5120;
+    public static int j = 0;
     public static int k = 1;
     public static int l = 2;
     public static int m = 4;

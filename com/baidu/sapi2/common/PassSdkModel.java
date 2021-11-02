@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PassSdkModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "sapi_pass_sdk_model";
@@ -86,7 +86,7 @@ public class PassSdkModel {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str) || ServiceManager.getInstance().getIsAccountManager().getConfignation() == null) {
+            if (context == null || TextUtils.isEmpty(str) || ServiceManager.getInstance().getIsAccountManager() == null || ServiceManager.getInstance().getIsAccountManager().getConfignation() == null) {
                 return false;
             }
             Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();

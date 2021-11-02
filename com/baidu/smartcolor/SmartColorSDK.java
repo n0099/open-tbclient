@@ -1,6 +1,6 @@
 package com.baidu.smartcolor;
 
-import c.a.l0.a;
+import b.a.l0.a;
 import com.baidu.smartcolor.utils.Tri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SmartColorSDK {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SmartColorSDK f45138a;
+    public static volatile SmartColorSDK f42872a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class SmartColorSDK {
             }
         }
         System.loadLibrary("native-bridge");
-        f45138a = null;
+        f42872a = null;
     }
 
     public SmartColorSDK() {
@@ -64,19 +64,19 @@ public class SmartColorSDK {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f45138a == null) {
+            if (f42872a == null) {
                 synchronized (SmartColorSDK.class) {
-                    if (f45138a == null) {
-                        f45138a = new SmartColorSDK();
+                    if (f42872a == null) {
+                        f42872a = new SmartColorSDK();
                     }
                 }
             }
-            return f45138a;
+            return f42872a;
         }
         return (SmartColorSDK) invokeV.objValue;
     }
 
-    private native String getNativeSmartColor(byte[] bArr, int i2, int i3, int i4, int i5, String str, String str2, int i6, int i7, int i8, int i9, long j2, long j3, long j4, long j5);
+    private native String getNativeSmartColor(byte[] bArr, int i2, int i3, int i4, int i5, String str, String str2, int i6, int i7, int i8, int i9, long j, long j2, long j3, long j4);
 
     public String c(a aVar, byte[] bArr, int i2) {
         InterceptResult invokeLLI;

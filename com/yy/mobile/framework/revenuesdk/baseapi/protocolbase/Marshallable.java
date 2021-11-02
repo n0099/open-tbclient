@@ -14,13 +14,13 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 import kotlin.UShort;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Marshallable extends PacketBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ELenType {
         public static final /* synthetic */ ELenType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -373,10 +373,10 @@ public class Marshallable extends PacketBase {
         }
     }
 
-    public final void pushInt64(long j2) {
+    public final void pushInt64(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.buffer.putLong(j2);
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.buffer.putLong(j);
         }
     }
 

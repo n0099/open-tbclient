@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class EmotionResourceInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JSON_KEY_MAX_HOST_VER = "max_host_ver";
@@ -36,12 +36,12 @@ public final class EmotionResourceInfo {
     public IResourceProvider mProvider;
     public final long mVersion;
 
-    public EmotionResourceInfo(String str, String str2, String str3, long j2, String str4, String str5) {
+    public EmotionResourceInfo(String str, String str2, String str3, long j, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Long.valueOf(j2), str4, str5};
+            Object[] objArr = {str, str2, str3, Long.valueOf(j), str4, str5};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -54,7 +54,7 @@ public final class EmotionResourceInfo {
         this.mPkgName = str;
         this.mDownloadFilePath = str2;
         this.mEmotionResSavePath = str3;
-        this.mVersion = j2;
+        this.mVersion = j;
         this.mMinHostVer = str4;
         this.mMaxHostVer = str5;
         this.mAppContext = AppRuntime.getAppContext();
@@ -82,18 +82,18 @@ public final class EmotionResourceInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            String[] split = str.split(VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = str.split("\\.");
             int i2 = 0;
-            long j2 = 0;
+            long j = 0;
             while (i2 < 4) {
                 try {
-                    j2 = i2 < split.length ? (j2 * 100) + Integer.valueOf(split[i2]).intValue() : j2 * 100;
+                    j = i2 < split.length ? (j * 100) + Integer.valueOf(split[i2]).intValue() : j * 100;
                     i2++;
                 } catch (NumberFormatException unused) {
                     return 0L;
                 }
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -107,7 +107,7 @@ public final class EmotionResourceInfo {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                return new EmotionResourceInfo(jSONObject.optString(JSON_KEY_PKG_NAME), "", jSONObject.optString(JSON_KEY_RES_SAVE_PATH), jSONObject.optLong("version"), jSONObject.optString(JSON_KEY_MIN_HOST_VER), jSONObject.optString(JSON_KEY_MAX_HOST_VER));
+                return new EmotionResourceInfo(jSONObject.optString("pkg_name"), "", jSONObject.optString("res_save_path"), jSONObject.optLong("version"), jSONObject.optString("min_host_ver"), jSONObject.optString("max_host_ver"));
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
@@ -141,8 +141,8 @@ public final class EmotionResourceInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int hashCode = (TextUtils.isEmpty(this.mPkgName) ? 0 : this.mPkgName.hashCode()) * 31;
             int hashCode2 = TextUtils.isEmpty(this.mEmotionResSavePath) ? 0 : this.mEmotionResSavePath.hashCode();
-            long j2 = this.mVersion;
-            return ((((((hashCode + hashCode2) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (TextUtils.isEmpty(this.mMinHostVer) ? 0 : this.mMinHostVer.hashCode())) * 31) + (TextUtils.isEmpty(this.mMaxHostVer) ? 0 : this.mMaxHostVer.hashCode());
+            long j = this.mVersion;
+            return ((((((hashCode + hashCode2) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + (TextUtils.isEmpty(this.mMinHostVer) ? 0 : this.mMinHostVer.hashCode())) * 31) + (TextUtils.isEmpty(this.mMaxHostVer) ? 0 : this.mMaxHostVer.hashCode());
         }
         return invokeV.intValue;
     }
@@ -165,11 +165,11 @@ public final class EmotionResourceInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(JSON_KEY_PKG_NAME, this.mPkgName);
-                jSONObject.put(JSON_KEY_RES_SAVE_PATH, this.mEmotionResSavePath);
+                jSONObject.put("pkg_name", this.mPkgName);
+                jSONObject.put("res_save_path", this.mEmotionResSavePath);
                 jSONObject.put("version", this.mVersion);
-                jSONObject.put(JSON_KEY_MIN_HOST_VER, this.mMinHostVer);
-                jSONObject.put(JSON_KEY_MAX_HOST_VER, this.mMaxHostVer);
+                jSONObject.put("min_host_ver", this.mMinHostVer);
+                jSONObject.put("max_host_ver", this.mMaxHostVer);
                 return jSONObject.toString();
             } catch (JSONException e2) {
                 e2.printStackTrace();

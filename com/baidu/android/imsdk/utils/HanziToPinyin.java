@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HanziToPinyin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Collator COLLATOR;
@@ -27,7 +27,7 @@ public class HanziToPinyin {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LATIN = 1;

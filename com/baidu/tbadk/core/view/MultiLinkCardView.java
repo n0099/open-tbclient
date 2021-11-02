@@ -7,10 +7,10 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.q0.b.d;
-import c.a.q0.d1.o0;
-import c.a.r0.b0.e0.c;
+import b.a.e.e.p.l;
+import b.a.q0.b.d;
+import b.a.q0.d1.o0;
+import b.a.r0.b0.e0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PbGoodsData;
@@ -31,28 +31,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MultiLinkCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f47714e;
+    public TextView f45297e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47715f;
+    public TextView f45298f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47716g;
+    public TextView f45299g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f47717h;
+    public RelativeLayout f45300h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f47718i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f47719j;
+    public RelativeLayout f45301i;
+    public RelativeLayout j;
     public TbImageView k;
     public TbImageView l;
     public TbImageView m;
@@ -111,12 +109,12 @@ public class MultiLinkCardView extends RelativeLayout {
             if (ListUtils.isEmpty(a2)) {
                 return;
             }
-            if (d.k0()) {
+            if (d.l0()) {
                 TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(l.g(getContext(), R.dimen.tbds10)).into(this.n);
             }
-            this.f47717h.setVisibility(8);
-            this.f47718i.setVisibility(8);
-            this.f47719j.setVisibility(8);
+            this.f45300h.setVisibility(8);
+            this.f45301i.setVisibility(8);
+            this.j.setVisibility(8);
             this.n.setVisibility(8);
             int size = a2.size() > 3 ? 3 : a2.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -200,12 +198,12 @@ public class MultiLinkCardView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(R.layout.multi_link_card_layout, this);
-        this.f47717h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
-        this.f47718i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
-        this.f47719j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
-        this.f47714e = (TextView) findViewById(R.id.goods_from_tag_first);
-        this.f47715f = (TextView) findViewById(R.id.goods_from_tag_second);
-        this.f47716g = (TextView) findViewById(R.id.goods_from_tag_third);
+        this.f45300h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
+        this.f45301i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
+        this.j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
+        this.f45297e = (TextView) findViewById(R.id.goods_from_tag_first);
+        this.f45298f = (TextView) findViewById(R.id.goods_from_tag_second);
+        this.f45299g = (TextView) findViewById(R.id.goods_from_tag_third);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_multi_link_first_icon);
         this.k = tbImageView;
         tbImageView.setDrawCorner(true);
@@ -232,22 +230,22 @@ public class MultiLinkCardView extends RelativeLayout {
         this.m.setRadius(l.g(getContext(), R.dimen.tbds10));
         TextView textView = (TextView) findViewById(R.id.tv_multi_link_more_link_count);
         this.n = textView;
-        c.a.q0.s.u.c.d(textView).y(R.array.S_O_X001);
+        b.a.q0.s.u.c.d(textView).y(R.array.S_O_X001);
         this.o = (TextView) findViewById(R.id.tv_multi_link_count);
         this.p = (ImageView) findViewById(R.id.iv_multi_link_right_arrow);
         this.s = new ArrayList();
         this.r = new ArrayList();
         ArrayList arrayList = new ArrayList();
         this.q = arrayList;
-        arrayList.add(this.f47717h);
-        this.q.add(this.f47718i);
-        this.q.add(this.f47719j);
+        arrayList.add(this.f45300h);
+        this.q.add(this.f45301i);
+        this.q.add(this.j);
         this.r.add(this.k);
         this.r.add(this.l);
         this.r.add(this.m);
-        this.s.add(this.f47714e);
-        this.s.add(this.f47715f);
-        this.s.add(this.f47716g);
+        this.s.add(this.f45297e);
+        this.s.add(this.f45298f);
+        this.s.add(this.f45299g);
         onChangeSkinType();
     }
 }

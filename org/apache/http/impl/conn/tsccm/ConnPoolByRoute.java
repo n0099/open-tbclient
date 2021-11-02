@@ -16,7 +16,7 @@ import org.apache.http.conn.ConnectionPoolTimeoutException;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConnPoolByRoute extends AbstractConnPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,9 +103,9 @@ public class ConnPoolByRoute extends AbstractConnPool {
     }
 
     @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
-    public void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j2, TimeUnit timeUnit) {
+    public void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{basicPoolEntry, Boolean.valueOf(z), Long.valueOf(j2), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{basicPoolEntry, Boolean.valueOf(z), Long.valueOf(j), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -119,10 +119,10 @@ public class ConnPoolByRoute extends AbstractConnPool {
         return invokeL.intValue;
     }
 
-    public BasicPoolEntry getEntryBlocking(HttpRoute httpRoute, Object obj, long j2, TimeUnit timeUnit, WaitingThreadAborter waitingThreadAborter) throws ConnectionPoolTimeoutException, InterruptedException {
+    public BasicPoolEntry getEntryBlocking(HttpRoute httpRoute, Object obj, long j, TimeUnit timeUnit, WaitingThreadAborter waitingThreadAborter) throws ConnectionPoolTimeoutException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{httpRoute, obj, Long.valueOf(j2), timeUnit, waitingThreadAborter})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{httpRoute, obj, Long.valueOf(j), timeUnit, waitingThreadAborter})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (BasicPoolEntry) invokeCommon.objValue;

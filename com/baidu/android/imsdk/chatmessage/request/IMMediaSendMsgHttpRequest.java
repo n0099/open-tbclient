@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import c.a.s.a.a;
+import b.a.s.a.a;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaSendMsgHttpRequest";
@@ -35,12 +35,12 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
     public ChatMsg mSendMsg;
     public MessageUbc mUbc;
 
-    public IMMediaSendMsgHttpRequest(Context context, long j2, ChatMsg chatMsg, String str) {
+    public IMMediaSendMsgHttpRequest(Context context, long j, ChatMsg chatMsg, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), chatMsg, str};
+            Object[] objArr = {context, Long.valueOf(j), chatMsg, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -53,7 +53,7 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContactor = j2;
+        this.mContactor = j;
         this.mSendMsg = chatMsg;
         this.mListenerKey = str;
         this.mUbc = new MessageUbc(context, chatMsg, UBCConstants.BCSEND_UBCID);
@@ -178,12 +178,12 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaSendMsgHttpRequest(Context context, long j2, int i2, long j3, String str, ChatMsg chatMsg, String str2) {
+    public IMMediaSendMsgHttpRequest(Context context, long j, int i2, long j2, String str, ChatMsg chatMsg, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, chatMsg, str2};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, chatMsg, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -196,11 +196,11 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContactor = j2;
+        this.mContactor = j;
         this.mSendMsg = chatMsg;
         this.mListenerKey = str2;
         this.mContactorType = i2;
-        this.mContactorPauid = j3;
+        this.mContactorPauid = j2;
         this.mContactorThirdid = str;
         this.mUbc = new MessageUbc(context, chatMsg, UBCConstants.BCSEND_UBCID);
     }

@@ -19,7 +19,7 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class UMHGuideGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LEAST_ITEM = 3;
@@ -77,7 +77,7 @@ public class UMHGuideGroup extends BaseItemLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ UMHGuideGroup f61697a;
+                public final /* synthetic */ UMHGuideGroup f58580a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,14 +94,14 @@ public class UMHGuideGroup extends BaseItemLayout {
                             return;
                         }
                     }
-                    this.f61697a = this;
+                    this.f58580a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f61697a.getWalletInterface().jump(this.f61697a.mConfigData.stat != null ? this.f61697a.mConfigData.stat.getName() : this.f61697a.mConfigData.getGroup_name(), this.f61697a.mConfigData.getGroup_type(), this.f61697a.mConfigData.getGroup_link(), this.f61697a.mConfigData.getGroup_prevlogin());
+                        this.f58580a.getWalletInterface().jump(this.f58580a.mConfigData.stat != null ? this.f58580a.mConfigData.stat.getName() : this.f58580a.mConfigData.getGroup_name(), this.f58580a.mConfigData.getGroup_type(), this.f58580a.mConfigData.getGroup_link(), this.f58580a.mConfigData.getGroup_prevlogin());
                     }
                 }
             });

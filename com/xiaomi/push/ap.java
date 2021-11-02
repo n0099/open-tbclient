@@ -17,42 +17,42 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ap implements ar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f77703a;
+    public static boolean f70666a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f122a;
+    public volatile int f123a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f123a;
+    public Context f124a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ServiceConnection f124a;
+    public ServiceConnection f125a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f125a;
+    public final Object f126a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile String f126a;
+    public volatile String f127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f77704b;
+    public volatile String f70667b;
 
     /* renamed from: b  reason: collision with other field name */
-    public volatile boolean f127b;
+    public volatile boolean f128b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ap f77705a;
+        public final /* synthetic */ ap f70668a;
 
         public a(ap apVar) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class ap implements ar {
                     return;
                 }
             }
-            this.f77705a = apVar;
+            this.f70668a = apVar;
         }
 
         public /* synthetic */ a(ap apVar, aq aqVar) {
@@ -82,31 +82,31 @@ public class ap implements ar {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
-                    this.f77705a.f126a = b.a(iBinder);
-                    this.f77705a.f127b = b.m153a(iBinder);
-                    this.f77705a.b();
-                    this.f77705a.f122a = 2;
-                    synchronized (this.f77705a.f125a) {
+                    this.f70668a.f127a = b.a(iBinder);
+                    this.f70668a.f128b = b.m153a(iBinder);
+                    this.f70668a.b();
+                    this.f70668a.f123a = 2;
+                    synchronized (this.f70668a.f126a) {
                         try {
-                            this.f77705a.f125a.notifyAll();
+                            this.f70668a.f126a.notifyAll();
                         } catch (Exception unused) {
                         }
                     }
                 } catch (Exception unused2) {
-                    this.f77705a.b();
-                    this.f77705a.f122a = 2;
-                    synchronized (this.f77705a.f125a) {
+                    this.f70668a.b();
+                    this.f70668a.f123a = 2;
+                    synchronized (this.f70668a.f126a) {
                         try {
-                            this.f77705a.f125a.notifyAll();
+                            this.f70668a.f126a.notifyAll();
                         } catch (Exception unused3) {
                         }
                     }
                 } catch (Throwable th) {
-                    this.f77705a.b();
-                    this.f77705a.f122a = 2;
-                    synchronized (this.f77705a.f125a) {
+                    this.f70668a.b();
+                    this.f70668a.f123a = 2;
+                    synchronized (this.f70668a.f126a) {
                         try {
-                            this.f77705a.f125a.notifyAll();
+                            this.f70668a.f126a.notifyAll();
                         } catch (Exception unused4) {
                         }
                         throw th;
@@ -123,7 +123,7 @@ public class ap implements ar {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,12 +183,12 @@ public class ap implements ar {
                 return;
             }
         }
-        this.f122a = 0;
-        this.f126a = null;
-        this.f127b = false;
-        this.f77704b = null;
-        this.f125a = new Object();
-        this.f123a = context;
+        this.f123a = 0;
+        this.f127a = null;
+        this.f128b = false;
+        this.f70667b = null;
+        this.f126a = new Object();
+        this.f124a = context;
         a();
     }
 
@@ -232,25 +232,25 @@ public class ap implements ar {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            this.f124a = new a(this, null);
+            this.f125a = new a(this, null);
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
             try {
-                z = this.f123a.bindService(intent, this.f124a, 1);
+                z = this.f124a.bindService(intent, this.f125a, 1);
             } catch (Exception unused) {
                 z = false;
             }
-            this.f122a = z ? 1 : 2;
+            this.f123a = z ? 1 : 2;
         }
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f122a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
-            synchronized (this.f125a) {
+        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f123a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
+            synchronized (this.f126a) {
                 try {
                     com.xiaomi.channel.commonutils.logger.b.m73a("huawei's " + str + " wait...");
-                    this.f125a.wait(3000L);
+                    this.f126a.wait(3000L);
                 } catch (Exception unused) {
                 }
             }
@@ -266,7 +266,7 @@ public class ap implements ar {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
                 z = (packageInfo.applicationInfo.flags & 1) != 0;
-                f77703a = packageInfo.versionCode >= 20602000;
+                f70666a = packageInfo.versionCode >= 20602000;
             } catch (Exception unused) {
             }
             return z;
@@ -278,11 +278,11 @@ public class ap implements ar {
     public void b() {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (serviceConnection = this.f124a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (serviceConnection = this.f125a) == null) {
             return;
         }
         try {
-            this.f123a.unbindService(serviceConnection);
+            this.f124a.unbindService(serviceConnection);
         } catch (Exception unused) {
         }
     }
@@ -301,7 +301,7 @@ public class ap implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f77703a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f70666a : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
@@ -311,7 +311,7 @@ public class ap implements ar {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             a("getOAID");
-            return this.f126a;
+            return this.f127a;
         }
         return (String) invokeV.objValue;
     }
@@ -331,14 +331,14 @@ public class ap implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f77704b == null) {
+            if (this.f70667b == null) {
                 synchronized (this) {
-                    if (this.f77704b == null) {
-                        this.f77704b = a(this.f123a);
+                    if (this.f70667b == null) {
+                        this.f70667b = a(this.f124a);
                     }
                 }
             }
-            return this.f77704b;
+            return this.f70667b;
         }
         return (String) invokeV.objValue;
     }

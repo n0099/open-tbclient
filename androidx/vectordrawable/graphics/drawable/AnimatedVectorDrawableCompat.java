@@ -1022,10 +1022,10 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
             }
 
             @Override // android.graphics.drawable.Drawable.Callback
-            public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
+            public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
-                    this.this$0.scheduleSelf(runnable, j2);
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+                    this.this$0.scheduleSelf(runnable, j);
                 }
             }
 

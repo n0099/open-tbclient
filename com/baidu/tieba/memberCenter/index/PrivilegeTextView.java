@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PrivilegeTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f54304e;
+    public a f51498e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(CharSequence charSequence, int i2, int i3, int i4);
     }
@@ -67,7 +67,7 @@ public class PrivilegeTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
             super.onTextChanged(charSequence, i2, i3, i4);
-            a aVar = this.f54304e;
+            a aVar = this.f51498e;
             if (aVar != null) {
                 aVar.a(charSequence, i2, i3, i4);
             }
@@ -77,7 +77,7 @@ public class PrivilegeTextView extends TextView {
     public void setTextChangeListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f54304e = aVar;
+            this.f51498e = aVar;
         }
     }
 

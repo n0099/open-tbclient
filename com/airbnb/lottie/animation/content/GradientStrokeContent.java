@@ -18,7 +18,7 @@ import com.airbnb.lottie.model.content.GradientStroke;
 import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.value.LottieValueCallback;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GradientStrokeContent extends BaseStrokeContent {
     public static final int CACHE_STEPS_MS = 32;
     public final RectF boundsRect;

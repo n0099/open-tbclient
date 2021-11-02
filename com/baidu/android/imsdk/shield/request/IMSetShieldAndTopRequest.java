@@ -11,16 +11,15 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetShieldAndTopRequest";
@@ -33,12 +32,12 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public long timeStamp;
     public ChatSession user;
 
-    public IMSetShieldAndTopRequest(Context context, String str, long j2, int i2, int i3, int i4) {
+    public IMSetShieldAndTopRequest(Context context, String str, long j, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {context, str, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -49,7 +48,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mContacter = j2;
+        this.mContacter = j;
         this.mSubBusiness = i2;
         this.mKey = str;
         this.mContacterType = getContacterType(i3);
@@ -96,9 +95,9 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 jSONObject.put("appid", appid);
                 jSONObject.put("uk", uk);
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+                jSONObject.put("device_type", 2);
                 jSONObject.put("sub_business", this.mSubBusiness);
                 jSONObject.put("contacter", this.mContacter);
                 jSONObject.put("contacter_type", this.mContacterType);
@@ -158,7 +157,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i3 = jSONObject.getInt("error_code");
-                str = jSONObject.optString("error_msg", "");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "JSONException", e2);
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;

@@ -14,7 +14,7 @@ import tbclient.Error;
 import tbclient.MFollow.DataRes;
 import tbclient.MFollow.MFollowResIdl;
 import tbclient.MFollow.MFollowResult;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MultiAttentionSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

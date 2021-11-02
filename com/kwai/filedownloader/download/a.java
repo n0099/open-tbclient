@@ -5,29 +5,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f74525a;
+    public final long f66903a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f74526b;
+    public final long f66904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f74527c;
+    public final long f66905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f74528d;
+    public final long f66906d;
 
-    public a(long j2, long j3, long j4, long j5) {
+    public a(long j, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -37,15 +37,15 @@ public class a {
                 return;
             }
         }
-        this.f74525a = j2;
-        this.f74526b = j3;
-        this.f74527c = j4;
-        this.f74528d = j5;
+        this.f66903a = j;
+        this.f66904b = j2;
+        this.f66905c = j3;
+        this.f66906d = j4;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.f.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.f74525a), Long.valueOf(this.f74527c), Long.valueOf(this.f74526b)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.f.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.f66903a), Long.valueOf(this.f66905c), Long.valueOf(this.f66904b)) : (String) invokeV.objValue;
     }
 }

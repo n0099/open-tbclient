@@ -1,7 +1,7 @@
 package com.kwad.sdk.crash.report;
 
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface c {
     void a(ExceptionMessage exceptionMessage);
 

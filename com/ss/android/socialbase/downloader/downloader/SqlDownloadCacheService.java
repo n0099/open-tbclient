@@ -6,10 +6,6 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
-import c.p.a.e.b.g.e;
-import c.p.a.e.b.g.k;
-import c.p.a.e.b.g.t;
-import c.p.a.e.b.m.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SqlDownloadCacheService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f76252a;
+    public static final String f69246a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +35,7 @@ public class SqlDownloadCacheService extends Service {
                 return;
             }
         }
-        f76252a = SqlDownloadCacheService.class.getSimpleName();
+        f69246a = SqlDownloadCacheService.class.getSimpleName();
     }
 
     public SqlDownloadCacheService() {
@@ -77,11 +73,11 @@ public class SqlDownloadCacheService extends Service {
         t tVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            k M0 = e.M0();
-            if (M0 instanceof d) {
-                tVar = ((d) M0).k();
+            j x = c.x();
+            if (x instanceof com.ss.android.socialbase.downloader.impls.d) {
+                tVar = ((com.ss.android.socialbase.downloader.impls.d) x).f();
             } else {
-                tVar = M0 instanceof t ? (t) M0 : null;
+                tVar = x instanceof t ? (t) x : null;
             }
             if (tVar instanceof IBinder) {
                 return (IBinder) tVar;
@@ -96,7 +92,7 @@ public class SqlDownloadCacheService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            e.C(getApplicationContext());
+            c.a(getApplicationContext());
         }
     }
 
@@ -106,7 +102,7 @@ public class SqlDownloadCacheService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
             int onStartCommand = super.onStartCommand(intent, i2, i3);
-            if (e.y0()) {
+            if (c.j()) {
                 return 2;
             }
             return onStartCommand;

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ProdAdRequestInfo extends BasicAdRequestInfo implements IAdInterListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_SCHEMA = "bdsdk";
@@ -33,7 +33,7 @@ public class ProdAdRequestInfo extends BasicAdRequestInfo implements IAdInterLis
     public RelativeLayout mRl;
 
     /* renamed from: com.baidu.mobads.container.adrequest.ProdAdRequestInfo$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$mobads$container$adrequest$AdTaskType;
         public static /* synthetic */ Interceptable $ic;

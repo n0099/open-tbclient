@@ -1,7 +1,8 @@
 package com.baidu.adp.framework;
 
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.c.d;
+import b.a.e.c.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,13 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import org.apache.http.HttpVersion;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FrameHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -43,7 +44,7 @@ public class FrameHelper {
             }
             HTTP = new TYPE(HttpVersion.HTTP, 0);
             SOCKET = new TYPE("SOCKET", 1);
-            TYPE type = new TYPE("CUSTOM", 2);
+            TYPE type = new TYPE(Key.CUSTOM, 2);
             CUSTOM = type;
             $VALUES = new TYPE[]{HTTP, SOCKET, type};
         }
@@ -131,17 +132,17 @@ public class FrameHelper {
         return (TYPE) invokeI.objValue;
     }
 
-    public static <T extends d> void f(LinkedList<T> linkedList, T t) {
+    public static void f(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, linkedList, t) == null) || t == null || linkedList.contains(t)) {
+        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2) == null) {
+        }
+    }
+
+    public static <T extends d> void insert(LinkedList<T> linkedList, T t) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, linkedList, t) == null) || t == null || linkedList.contains(t)) {
             return;
         }
         linkedList.add(d(linkedList, t.getPriority()), t);
-    }
-
-    public static void g(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2) == null) {
-        }
     }
 }

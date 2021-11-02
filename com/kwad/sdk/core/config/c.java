@@ -42,46 +42,44 @@ import java.util.List;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SdkConfigData f71832a;
+    public static volatile SdkConfigData f64306a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f71833b;
+    public static volatile SdkConfigData.TemplateConfig f64307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f71834c;
+    public static volatile SdkConfigData.TemplateConfig f64308c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f71835d;
+    public static volatile SdkConfigData.TemplateConfig f64309d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f71836e;
+    public static volatile SdkConfigData.TemplateConfig f64310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f71837f;
+    public static volatile SdkConfigData.TemplateConfig f64311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f71838g;
+    public static volatile SdkConfigData.TemplateConfig f64312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f71839h;
+    public static volatile SdkConfigData.TemplateConfig f64313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f71840i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f71841j;
+    public static volatile SdkConfigData.TemplateConfig f64314i;
+    public static volatile SdkConfigData.TemplateConfig j;
     public static volatile SdkConfigData.TemplateConfig k;
     public static volatile SdkConfigData.TemplateConfig l;
     public static boolean m;
     public static boolean n;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static i A;
@@ -112,7 +110,7 @@ public class c {
         public static i Z;
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f71846a;
+        public static i f64319a;
         public static InstallActivateReminderConfigItem aA;
         public static m aB;
         public static i aC;
@@ -167,7 +165,7 @@ public class c {
         public static AvatarGuiderConfigItem az;
 
         /* renamed from: b  reason: collision with root package name */
-        public static i f71847b;
+        public static i f64320b;
         public static i bA;
         public static i bB;
         public static i bC;
@@ -202,28 +200,26 @@ public class c {
         public static com.kwad.sdk.core.config.item.d bz;
 
         /* renamed from: c  reason: collision with root package name */
-        public static i f71848c;
+        public static i f64321c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static i f71849d;
+        public static i f64322d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static i f71850e;
+        public static i f64323e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static i f71851f;
+        public static i f64324f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static i f71852g;
+        public static i f64325g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static i f71853h;
+        public static i f64326h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static i f71854i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public static i f71855j;
+        public static i f64327i;
+        public static i j;
         public static i k;
         public static i l;
         public static i m;
@@ -255,16 +251,16 @@ public class c {
                     return;
                 }
             }
-            f71846a = new i("fitNavigationBarSwitch", 1);
-            f71847b = new i("toolbarSwitch", 1);
-            f71848c = new i("likeButtonSwitch", 1);
-            f71849d = new i("moreButtonSwitch", 1);
-            f71850e = new i("commentButtonSwitch", 1);
-            f71851f = new i("seekBarSwitch", 59);
-            f71852g = new i("videoCacheSwitch", 0);
-            f71853h = new i("trendDynamicEffect", 0);
-            f71854i = new i("homePlaySpeedTime", 90);
-            f71855j = new i("homePlayCompleteType", 0);
+            f64319a = new i("fitNavigationBarSwitch", 1);
+            f64320b = new i("toolbarSwitch", 1);
+            f64321c = new i("likeButtonSwitch", 1);
+            f64322d = new i("moreButtonSwitch", 1);
+            f64323e = new i("commentButtonSwitch", 1);
+            f64324f = new i("seekBarSwitch", 59);
+            f64325g = new i("videoCacheSwitch", 0);
+            f64326h = new i("trendDynamicEffect", 0);
+            f64327i = new i("homePlaySpeedTime", 90);
+            j = new i("homePlayCompleteType", 0);
             k = new i("replayTubeEpisode", 0);
             l = new i("batchReportCatchLimit", 20);
             m = new i("preloadSwitch", 1);
@@ -563,7 +559,7 @@ public class c {
     public static SdkConfigData.TemplateConfig a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? f71833b : (SdkConfigData.TemplateConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? f64307b : (SdkConfigData.TemplateConfig) invokeV.objValue;
     }
 
     public static SdkConfigData.TemplateConfig a(Context context, String str) {
@@ -590,10 +586,10 @@ public class c {
             com.kwad.sdk.core.d.a.a("SdkConfigManager", "load");
             a.a();
             b.b(context);
-            f71833b = a(context, "ksadsdk_template_config");
-            f71834c = a(context, "ksadsdk_splash_template_config");
-            f71835d = a(context, "ksadsdk_mini_card_template_config");
-            f71838g = a(context, "ksadsdk_interact_page_template_config");
+            f64307b = a(context, "ksadsdk_template_config");
+            f64308c = a(context, "ksadsdk_splash_template_config");
+            f64309d = a(context, "ksadsdk_mini_card_template_config");
+            f64312g = a(context, "ksadsdk_interact_page_template_config");
         }
     }
 
@@ -621,16 +617,16 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SdkConfigData.TemplateConfig f71842a;
+                public final /* synthetic */ SdkConfigData.TemplateConfig f64315a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f71843b;
+                public final /* synthetic */ Context f64316b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f71844c;
+                public final /* synthetic */ String f64317c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f71845d;
+                public final /* synthetic */ String f64318d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -647,46 +643,46 @@ public class c {
                             return;
                         }
                     }
-                    this.f71842a = templateConfig;
-                    this.f71843b = context;
-                    this.f71844c = str2;
-                    this.f71845d = str;
+                    this.f64315a = templateConfig;
+                    this.f64316b = context;
+                    this.f64317c = str2;
+                    this.f64318d = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String str3 = this.f71842a.h5Url;
-                        File file = new File(this.f71843b.getCacheDir(), MediaTrackConfig.AE_IMPORT_TEMPLATE);
+                        String str3 = this.f64315a.h5Url;
+                        File file = new File(this.f64316b.getCacheDir(), MediaTrackConfig.AE_IMPORT_TEMPLATE);
                         if (!file.exists() && !file.mkdir()) {
                             com.kwad.sdk.core.d.a.a("SdkConfigManager", "make template cache dir failed");
                             return;
                         }
-                        File file2 = new File(file, "cache_" + this.f71844c);
+                        File file2 = new File(file, "cache_" + this.f64317c);
                         if (!com.kwad.sdk.core.diskcache.b.c.a(file2, str3)) {
-                            com.kwad.sdk.core.report.d.a(str3, com.ksad.download.d.b.a(this.f71843b) ? "1" : "2");
+                            com.kwad.sdk.core.report.d.a(str3, com.ksad.download.d.b.a(this.f64316b) ? "1" : "2");
                             return;
                         }
                         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_md5_check");
                         boolean booleanValue = a2 != null ? ((Boolean) a2.getValue()).booleanValue() : false;
                         String b2 = com.kwad.sdk.utils.c.b(file2);
                         if (!booleanValue) {
-                            if (TextUtils.isEmpty(this.f71842a.h5Checksum)) {
+                            if (TextUtils.isEmpty(this.f64315a.h5Checksum)) {
                                 return;
                             }
                             if (b2 != null && b2.length() > 10) {
                                 String substring = b2.substring(0, 10);
-                                com.kwad.sdk.core.d.a.a("SdkConfigManager", "file_md5 =  " + substring + "; server_md5 =  " + this.f71842a.h5Checksum);
-                                if (!substring.equalsIgnoreCase(this.f71842a.h5Checksum)) {
+                                com.kwad.sdk.core.d.a.a("SdkConfigManager", "file_md5 =  " + substring + "; server_md5 =  " + this.f64315a.h5Checksum);
+                                if (!substring.equalsIgnoreCase(this.f64315a.h5Checksum)) {
                                     com.kwad.sdk.core.report.d.a(str3, "3");
                                     com.kwad.sdk.core.d.a.a("SdkConfigManager", "loadConfigHtml md5 check failed");
                                     return;
                                 }
                             }
                         }
-                        com.kwad.sdk.core.diskcache.b.c.a(file2, new File(file, this.f71844c));
-                        this.f71843b.getSharedPreferences(this.f71845d, 0).edit().putString("KEY_TEMPLATE_DATA", this.f71842a.toJson().toString()).apply();
+                        com.kwad.sdk.core.diskcache.b.c.a(file2, new File(file, this.f64317c));
+                        this.f64316b.getSharedPreferences(this.f64318d, 0).edit().putString("KEY_TEMPLATE_DATA", this.f64315a.toJson().toString()).apply();
                     }
                 }
             });
@@ -713,7 +709,7 @@ public class c {
     public static void a(SdkConfigData sdkConfigData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65568, null, sdkConfigData) == null) {
-            f71832a = sdkConfigData;
+            f64306a = sdkConfigData;
         }
     }
 
@@ -849,13 +845,13 @@ public class c {
     public static SdkConfigData aq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) ? f71832a : (SdkConfigData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) ? f64306a : (SdkConfigData) invokeV.objValue;
     }
 
     public static SdkConfigData.TemplateConfig b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) ? f71834c : (SdkConfigData.TemplateConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) ? f64308c : (SdkConfigData.TemplateConfig) invokeV.objValue;
     }
 
     public static synchronized File b(Context context) {
@@ -876,18 +872,18 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65590, null, context, templateConfig) == null) {
             if (templateConfig != null) {
-                if (((f71838g != null && i(context).exists() && (TextUtils.isEmpty(templateConfig.h5Checksum) || templateConfig.h5Checksum.equals(f71838g.h5Checksum))) ? false : true) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+                if (((f64312g != null && i(context).exists() && (TextUtils.isEmpty(templateConfig.h5Checksum) || templateConfig.h5Checksum.equals(f64312g.h5Checksum))) ? false : true) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                     a(context, templateConfig, "ksadsdk_interact_page_template_config", "interact_page.html");
                 }
             }
-            f71838g = templateConfig;
+            f64312g = templateConfig;
         }
     }
 
     public static SdkConfigData.TemplateConfig c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65591, null)) == null) ? f71835d != null ? f71835d : new SdkConfigData.TemplateConfig() : (SdkConfigData.TemplateConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65591, null)) == null) ? f64309d != null ? f64309d : new SdkConfigData.TemplateConfig() : (SdkConfigData.TemplateConfig) invokeV.objValue;
     }
 
     public static synchronized File c(Context context) {
@@ -908,18 +904,18 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65593, null, context, templateConfig) == null) {
             if (templateConfig != null) {
-                if (((f71839h != null && j(context).exists() && (TextUtils.isEmpty(templateConfig.h5Checksum) || templateConfig.h5Checksum.equals(f71838g.h5Checksum))) ? false : true) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+                if (((f64313h != null && j(context).exists() && (TextUtils.isEmpty(templateConfig.h5Checksum) || templateConfig.h5Checksum.equals(f64312g.h5Checksum))) ? false : true) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                     a(context, templateConfig, "ksadsdk_interact_page_dialog_tips_template_config", "interact_page_dialog_tips.html");
                 }
             }
-            f71839h = templateConfig;
+            f64313h = templateConfig;
         }
     }
 
     public static SdkConfigData.TemplateConfig d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65594, null)) == null) ? f71836e : (SdkConfigData.TemplateConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65594, null)) == null) ? f64310e : (SdkConfigData.TemplateConfig) invokeV.objValue;
     }
 
     public static synchronized File d(Context context) {
@@ -941,16 +937,16 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLL(65596, null, context, templateConfig) == null) || templateConfig == null) {
             return;
         }
-        if ((f71833b == null || !e(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f71833b.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+        if ((f64307b == null || !e(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f64307b.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
             a(context, templateConfig, "ksadsdk_template_config", "feed.html");
         }
-        f71833b = templateConfig;
+        f64307b = templateConfig;
     }
 
     public static SdkConfigData.TemplateConfig e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? f71840i : (SdkConfigData.TemplateConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? f64314i : (SdkConfigData.TemplateConfig) invokeV.objValue;
     }
 
     public static synchronized File e(Context context) {
@@ -970,10 +966,10 @@ public class c {
     public static void e(Context context, SdkConfigData.TemplateConfig templateConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65599, null, context, templateConfig) == null) {
-            if (templateConfig != null && ((f71834c == null || !f(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f71834c.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
+            if (templateConfig != null && ((f64308c == null || !f(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f64308c.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
                 a(context, templateConfig, "ksadsdk_splash_template_config", "feed_splash.html");
             }
-            f71834c = templateConfig;
+            f64308c = templateConfig;
         }
     }
 
@@ -994,8 +990,8 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65601, null)) == null) {
-            if (f71838g != null) {
-                return f71838g.h5Url;
+            if (f64312g != null) {
+                return f64312g.h5Url;
             }
             return null;
         }
@@ -1006,10 +1002,10 @@ public class c {
     public static void f(Context context, SdkConfigData.TemplateConfig templateConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65602, null, context, templateConfig) == null) {
-            if (templateConfig != null && ((f71835d == null || !g(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f71835d.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
+            if (templateConfig != null && ((f64309d == null || !g(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f64309d.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
                 a(context, templateConfig, "ksadsdk_mini_card_template_config", "mini_card.html");
             }
-            f71835d = templateConfig;
+            f64309d = templateConfig;
         }
     }
 
@@ -1030,8 +1026,8 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65604, null)) == null) {
-            if (f71839h != null) {
-                return f71839h.h5Url;
+            if (f64313h != null) {
+                return f64313h.h5Url;
             }
             return null;
         }
@@ -1044,11 +1040,11 @@ public class c {
         if (interceptable == null || interceptable.invokeLL(65605, null, context, templateConfig) == null) {
             if (templateConfig != null) {
                 boolean exists = b(context).exists();
-                if ((f71836e == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f71836e.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+                if ((f64310e == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f64310e.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                     a(context, templateConfig, "ksadsdk_download_pop_window_config", "pop_wind.html");
                 }
             }
-            f71836e = templateConfig;
+            f64310e = templateConfig;
         }
     }
 
@@ -1071,11 +1067,11 @@ public class c {
         if (interceptable == null || interceptable.invokeLL(65607, null, context, templateConfig) == null) {
             if (templateConfig != null) {
                 boolean exists = c(context).exists();
-                if ((f71837f == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f71837f.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+                if ((f64311f == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f64311f.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                     a(context, templateConfig, "ksadsdk_download_pop_window_config", "insert_screen.html");
                 }
             }
-            f71837f = templateConfig;
+            f64311f = templateConfig;
         }
     }
 
@@ -1083,10 +1079,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65608, null)) == null) {
-            if (f71838g == null) {
+            if (f64312g == null) {
                 return false;
             }
-            return f71838g.notEmpty();
+            return f64312g.notEmpty();
         }
         return invokeV.booleanValue;
     }
@@ -1116,11 +1112,11 @@ public class c {
         if (interceptable == null || interceptable.invokeLL(65611, null, context, templateConfig) == null) {
             if (templateConfig != null) {
                 boolean exists = d(context).exists();
-                if ((f71840i == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f71840i.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+                if ((f64314i == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f64314i.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                     a(context, templateConfig, "ksadsdk_download_pop_window_config", "interstitial_ad.html");
                 }
             }
-            f71840i = templateConfig;
+            f64314i = templateConfig;
         }
     }
 
@@ -1149,11 +1145,11 @@ public class c {
         if (interceptable == null || interceptable.invokeLL(65614, null, context, templateConfig) == null) {
             if (templateConfig != null) {
                 boolean exists = k(context).exists();
-                if ((f71841j == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f71841j.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+                if ((j == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(j.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                     a(context, templateConfig, "ksadsdk_coupon_open_config", "coupon_open.html");
                 }
             }
-            f71841j = templateConfig;
+            j = templateConfig;
         }
     }
 
@@ -1189,7 +1185,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65617, null)) == null) {
-            if (com.kwad.sdk.d.f73077a == 1) {
+            if (com.kwad.sdk.d.f65521a == 1) {
                 return false;
             }
             DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_PLAYER_TYPE");

@@ -5,12 +5,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.p0.a.g2.b;
-import c.a.p0.a.k;
-import c.a.p0.a.s1.g;
-import c.a.p0.a.v1.c.a;
-import c.a.p0.a.v1.c.c;
-import c.a.p0.a.v2.q0;
+import b.a.p0.a.g2.b;
+import b.a.p0.a.k;
+import b.a.p0.a.s1.g;
+import b.a.p0.a.v1.c.a;
+import b.a.p0.a.v1.c.c;
+import b.a.p0.a.v2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -42,7 +42,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 return;
             }
         }
-        DEBUG = k.f7085a;
+        DEBUG = k.f6397a;
     }
 
     public SwanAppBaseActivity() {
@@ -67,7 +67,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSkinDecorator : (b) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, c.a.p0.o.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, b.a.p0.o.a.a.g, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
@@ -108,13 +108,13 @@ public class SwanAppBaseActivity extends FragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onPostCreate(bundle);
-            boolean a2 = c.a.p0.a.c1.a.H().a();
-            c.a.p0.a.f1.c.a.e(Boolean.valueOf(a2));
+            boolean a2 = b.a.p0.a.c1.a.H().a();
+            b.a.p0.a.f1.c.a.e(Boolean.valueOf(a2));
             onNightModeCoverChanged(a2, false);
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, c.a.p0.o.a.a.a.b
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, b.a.p0.o.a.a.a.b
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i2, strArr, iArr) == null) {
@@ -132,7 +132,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeILL(1048581, this, i2, strArr, aVar) == null) {
             g c2 = g.c();
             this.mPermissionHandler = c2;
-            c2.g(this, i2, strArr, aVar);
+            c2.requestPermissions(this, i2, strArr, aVar);
         }
     }
 

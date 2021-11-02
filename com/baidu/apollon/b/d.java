@@ -13,12 +13,12 @@ import java.security.NoSuchAlgorithmException;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509TrustManager f37821a;
+    public static final X509TrustManager f35843a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class d {
                 return;
             }
         }
-        f37821a = b();
+        f35843a = b();
     }
 
     public d() {
@@ -54,7 +54,7 @@ public final class d {
     public static X509TrustManager a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37821a : (X509TrustManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35843a : (X509TrustManager) invokeV.objValue;
     }
 
     public static X509TrustManager b() {

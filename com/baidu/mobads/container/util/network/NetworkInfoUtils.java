@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NetworkInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<String, Integer> CARRIER_MCCMNC;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface a extends IInterface {
     Bundle a(Bundle bundle) throws RemoteException;
 
@@ -21,12 +21,12 @@ public interface a extends IInterface {
     Bundle b(Bundle bundle) throws RemoteException;
 
     /* renamed from: com.baidu.sofire.mutiprocess.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static abstract class AbstractBinderC1724a extends Binder implements a {
+    /* loaded from: classes8.dex */
+    public static abstract class AbstractBinderC1682a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractBinderC1724a() {
+        public AbstractBinderC1682a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public interface a extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                     return (a) queryLocalInterface;
                 }
-                return new C1725a(iBinder);
+                return new C1683a(iBinder);
             }
             return (a) invokeL.objValue;
         }
@@ -117,22 +117,22 @@ public interface a extends IInterface {
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1725a.f45400a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1683a.f43129a : (a) invokeV.objValue;
         }
 
         /* renamed from: com.baidu.sofire.mutiprocess.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C1725a implements a {
+        /* loaded from: classes8.dex */
+        public static class C1683a implements a {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f45400a;
+            public static a f43129a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f45401b;
+            public IBinder f43130b;
 
-            public C1725a(IBinder iBinder) {
+            public C1683a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +147,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f45401b = iBinder;
+                this.f43130b = iBinder;
             }
 
             @Override // com.baidu.sofire.mutiprocess.a
@@ -165,8 +165,8 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f45401b.transact(1, obtain, obtain2, 0) && AbstractBinderC1724a.a() != null) {
-                            return AbstractBinderC1724a.a().a(bundle);
+                        if (!this.f43130b.transact(1, obtain, obtain2, 0) && AbstractBinderC1682a.a() != null) {
+                            return AbstractBinderC1682a.a().a(bundle);
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
@@ -182,7 +182,7 @@ public interface a extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45401b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43130b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.baidu.sofire.mutiprocess.a
@@ -200,8 +200,8 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f45401b.transact(2, obtain, obtain2, 0) && AbstractBinderC1724a.a() != null) {
-                            return AbstractBinderC1724a.a().b(bundle);
+                        if (!this.f43130b.transact(2, obtain, obtain2, 0) && AbstractBinderC1682a.a() != null) {
+                            return AbstractBinderC1682a.a().b(bundle);
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
@@ -223,8 +223,8 @@ public interface a extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.sofire.mutiprocess.IMutiProcessHandler");
                         obtain.writeString(str);
-                        if (!this.f45401b.transact(3, obtain, obtain2, 0) && AbstractBinderC1724a.a() != null) {
-                            return AbstractBinderC1724a.a().a(str);
+                        if (!this.f43130b.transact(3, obtain, obtain2, 0) && AbstractBinderC1682a.a() != null) {
+                            return AbstractBinderC1682a.a().a(str);
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;

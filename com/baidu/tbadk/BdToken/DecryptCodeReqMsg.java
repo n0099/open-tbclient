@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken;
 
-import c.a.q0.d1.z;
+import b.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.DecryptCode.DataReq;
 import tbclient.DecryptCode.DecryptCodeReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DecryptCodeReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

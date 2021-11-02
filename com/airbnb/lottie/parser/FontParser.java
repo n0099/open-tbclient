@@ -3,7 +3,7 @@ package com.airbnb.lottie.parser;
 import com.airbnb.lottie.model.Font;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FontParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of("fFamily", "fName", "fStyle", "ascent");
 

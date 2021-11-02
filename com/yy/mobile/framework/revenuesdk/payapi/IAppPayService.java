@@ -26,7 +26,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyChannelsRe
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryRechargeHistoryReqParams;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IAppPayService {
     void addAlipaySdkProxy(IAlipaySdkServiceProxy iAlipaySdkServiceProxy);
 
@@ -39,6 +39,8 @@ public interface IAppPayService {
     void cancelAllRequest();
 
     void exchangeCurrency(@NonNull ExchangeCurrencyReqParams exchangeCurrencyReqParams, IResult<ExchangeResult> iResult);
+
+    IPayReporter getPayRepoter();
 
     boolean isPayingStatus(@NonNull PayType payType);
 

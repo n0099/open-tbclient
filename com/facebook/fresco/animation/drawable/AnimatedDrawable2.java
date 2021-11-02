@@ -23,7 +23,7 @@ import com.facebook.fresco.animation.backend.AnimationBackend;
 import com.facebook.fresco.animation.frame.DropFramesFrameScheduler;
 import com.facebook.fresco.animation.frame.FrameScheduler;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableWithCaches {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FRAME_SCHEDULING_DELAY_MS = 8;
@@ -48,11 +48,14 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     public volatile boolean mIsRunning;
     public int mLastDrawnFrameNumber;
     public long mLastFrameAnimationTimeMs;
+    public int mPausedLastDrawnFrameNumber;
+    public long mPausedLastFrameAnimationTimeMsDifference;
+    public long mPausedStartTimeMsDifference;
     public long mStartTimeMs;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface DrawListener {
-        void onDraw(AnimatedDrawable2 animatedDrawable2, FrameScheduler frameScheduler, int i2, boolean z, boolean z2, long j2, long j3, long j4, long j5, long j6, long j7, long j8);
+        void onDraw(AnimatedDrawable2 animatedDrawable2, FrameScheduler frameScheduler, int i2, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, long j6, long j7);
     }
 
     static {
@@ -119,21 +122,21 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         }
     }
 
-    private void scheduleNextFrame(long j2) {
+    private void scheduleNextFrame(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, this, j2) == null) {
-            long j3 = this.mStartTimeMs + j2;
-            this.mExpectedRenderTimeMs = j3;
-            scheduleSelf(this.mInvalidateRunnable, j3);
+        if (interceptable == null || interceptable.invokeJ(65543, this, j) == null) {
+            long j2 = this.mStartTimeMs + j;
+            this.mExpectedRenderTimeMs = j2;
+            scheduleSelf(this.mInvalidateRunnable, j2);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
+        long j;
         long j2;
-        long j3;
         AnimatedDrawable2 animatedDrawable2;
-        long j4;
+        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             if (this.mAnimationBackend == null || this.mFrameScheduler == null) {
@@ -162,27 +165,29 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
             if (this.mIsRunning) {
                 long targetRenderTimeForNextFrameMs = this.mFrameScheduler.getTargetRenderTimeForNextFrameMs(now2 - this.mStartTimeMs);
                 if (targetRenderTimeForNextFrameMs != -1) {
-                    long j5 = this.mFrameSchedulingDelayMs + targetRenderTimeForNextFrameMs;
-                    scheduleNextFrame(j5);
-                    j3 = j5;
+                    long j4 = this.mFrameSchedulingDelayMs + targetRenderTimeForNextFrameMs;
+                    scheduleNextFrame(j4);
+                    j2 = j4;
                 } else {
-                    j3 = -1;
+                    this.mAnimationListener.onAnimationStop(this);
+                    this.mIsRunning = false;
+                    j2 = -1;
                 }
-                j2 = targetRenderTimeForNextFrameMs;
+                j = targetRenderTimeForNextFrameMs;
             } else {
+                j = -1;
                 j2 = -1;
-                j3 = -1;
             }
             DrawListener drawListener = this.mDrawListener;
             if (drawListener != null) {
-                drawListener.onDraw(this, this.mFrameScheduler, i2, drawFrame, this.mIsRunning, this.mStartTimeMs, max, this.mLastFrameAnimationTimeMs, now, now2, j2, j3);
+                drawListener.onDraw(this, this.mFrameScheduler, i2, drawFrame, this.mIsRunning, this.mStartTimeMs, max, this.mLastFrameAnimationTimeMs, now, now2, j, j2);
                 animatedDrawable2 = this;
-                j4 = max;
+                j3 = max;
             } else {
                 animatedDrawable2 = this;
-                j4 = max;
+                j3 = max;
             }
-            animatedDrawable2.mLastFrameAnimationTimeMs = j4;
+            animatedDrawable2.mLastFrameAnimationTimeMs = j3;
         }
     }
 
@@ -349,9 +354,9 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
             if (this.mIsRunning) {
                 return false;
             }
-            long j2 = i2;
-            if (this.mLastFrameAnimationTimeMs != j2) {
-                this.mLastFrameAnimationTimeMs = j2;
+            long j = i2;
+            if (this.mLastFrameAnimationTimeMs != j) {
+                this.mLastFrameAnimationTimeMs = j;
                 invalidateSelf();
                 return true;
             }
@@ -424,17 +429,17 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         }
     }
 
-    public void setFrameSchedulingDelayMs(long j2) {
+    public void setFrameSchedulingDelayMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.mFrameSchedulingDelayMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.mFrameSchedulingDelayMs = j;
         }
     }
 
-    public void setFrameSchedulingOffsetMs(long j2) {
+    public void setFrameSchedulingOffsetMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.mFrameSchedulingOffsetMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.mFrameSchedulingOffsetMs = j;
         }
     }
 
@@ -447,10 +452,11 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         }
         this.mIsRunning = true;
         long now = now();
-        this.mStartTimeMs = now;
-        this.mExpectedRenderTimeMs = now;
-        this.mLastFrameAnimationTimeMs = -1L;
-        this.mLastDrawnFrameNumber = -1;
+        long j = now - this.mPausedStartTimeMsDifference;
+        this.mStartTimeMs = j;
+        this.mExpectedRenderTimeMs = j;
+        this.mLastFrameAnimationTimeMs = now - this.mPausedLastFrameAnimationTimeMsDifference;
+        this.mLastDrawnFrameNumber = this.mPausedLastDrawnFrameNumber;
         invalidateSelf();
         this.mAnimationListener.onAnimationStart(this);
     }
@@ -459,6 +465,10 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     public void stop() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.mIsRunning) {
+            long now = now();
+            this.mPausedStartTimeMsDifference = now - this.mStartTimeMs;
+            this.mPausedLastFrameAnimationTimeMsDifference = now - this.mLastFrameAnimationTimeMs;
+            this.mPausedLastDrawnFrameNumber = this.mLastDrawnFrameNumber;
             this.mIsRunning = false;
             this.mStartTimeMs = 0L;
             this.mExpectedRenderTimeMs = 0L;

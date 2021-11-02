@@ -1,5 +1,6 @@
 package kotlinx.coroutines.internal;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -14,8 +15,8 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlinx.coroutines.DebugKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\b\u001a\b\u0000\u0018\u0000 /*\b\b\u0000\u0010\u0002*\u00020\u0001:\u0002/0B\u0017\u0012\u0006\u0010$\u001a\u00020\u0004\u0012\u0006\u0010(\u001a\u00020\r¢\u0006\u0004\b-\u0010.J\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00028\u0000¢\u0006\u0004\b\u0005\u0010\u0006J'\u0010\n\u001a\u0012\u0012\u0004\u0012\u00028\u00000\u0000j\b\u0012\u0004\u0012\u00028\u0000`\t2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\n\u0010\u000bJ'\u0010\f\u001a\u0012\u0012\u0004\u0012\u00028\u00000\u0000j\b\u0012\u0004\u0012\u00028\u0000`\t2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\f\u0010\u000bJ\r\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u000e\u0010\u000fJ3\u0010\u0011\u001a\u0016\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0000j\n\u0012\u0004\u0012\u00028\u0000\u0018\u0001`\t2\u0006\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00028\u0000H\u0002¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0013\u001a\u00020\r¢\u0006\u0004\b\u0013\u0010\u000fJ-\u0010\u0018\u001a\b\u0012\u0004\u0012\u00028\u00010\u0017\"\u0004\b\u0001\u0010\u00142\u0012\u0010\u0016\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\u0015¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ\u0013\u0010\u001c\u001a\b\u0012\u0004\u0012\u00028\u00000\u0000¢\u0006\u0004\b\u001c\u0010\u001dJ\u000f\u0010\u001e\u001a\u0004\u0018\u00010\u0001¢\u0006\u0004\b\u001e\u0010\u001fJ3\u0010\"\u001a\u0016\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0000j\n\u0012\u0004\u0012\u00028\u0000\u0018\u0001`\t2\u0006\u0010 \u001a\u00020\u00042\u0006\u0010!\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\"\u0010#R\u0016\u0010$\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b$\u0010%R\u0013\u0010&\u001a\u00020\r8F@\u0006¢\u0006\u0006\u001a\u0004\b&\u0010\u000fR\u0016\u0010'\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b'\u0010%R\u0016\u0010(\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b(\u0010)R\u0013\u0010,\u001a\u00020\u00048F@\u0006¢\u0006\u0006\u001a\u0004\b*\u0010+¨\u00061"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "", "E", "element", "", "addLast", "(Ljava/lang/Object;)I", "", "state", "Lkotlinx/coroutines/internal/Core;", "allocateNextCopy", "(J)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "allocateOrGetNextCopy", "", IntentConfig.CLOSE, "()Z", "index", "fillPlaceholder", "(ILjava/lang/Object;)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "isClosed", "R", "Lkotlin/Function1;", "transform", "", "map", "(Lkotlin/jvm/functions/Function1;)Ljava/util/List;", "markFrozen", "()J", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "()Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "removeFirstOrNull", "()Ljava/lang/Object;", "oldHead", "newHead", "removeSlowPath", "(II)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "capacity", "I", "isEmpty", "mask", "singleConsumer", "Z", "getSize", "()I", "size", "<init>", "(IZ)V", "Companion", "Placeholder", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\b\u001a\b\u0000\u0018\u0000 /*\b\b\u0000\u0010\u0002*\u00020\u0001:\u0002/0B\u0017\u0012\u0006\u0010$\u001a\u00020\u0004\u0012\u0006\u0010(\u001a\u00020\r¢\u0006\u0004\b-\u0010.J\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00028\u0000¢\u0006\u0004\b\u0005\u0010\u0006J'\u0010\n\u001a\u0012\u0012\u0004\u0012\u00028\u00000\u0000j\b\u0012\u0004\u0012\u00028\u0000`\t2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\n\u0010\u000bJ'\u0010\f\u001a\u0012\u0012\u0004\u0012\u00028\u00000\u0000j\b\u0012\u0004\u0012\u00028\u0000`\t2\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\f\u0010\u000bJ\r\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u000e\u0010\u000fJ3\u0010\u0011\u001a\u0016\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0000j\n\u0012\u0004\u0012\u00028\u0000\u0018\u0001`\t2\u0006\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00028\u0000H\u0002¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0013\u001a\u00020\r¢\u0006\u0004\b\u0013\u0010\u000fJ-\u0010\u0018\u001a\b\u0012\u0004\u0012\u00028\u00010\u0017\"\u0004\b\u0001\u0010\u00142\u0012\u0010\u0016\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\u0015¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ\u0013\u0010\u001c\u001a\b\u0012\u0004\u0012\u00028\u00000\u0000¢\u0006\u0004\b\u001c\u0010\u001dJ\u000f\u0010\u001e\u001a\u0004\u0018\u00010\u0001¢\u0006\u0004\b\u001e\u0010\u001fJ3\u0010\"\u001a\u0016\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0000j\n\u0012\u0004\u0012\u00028\u0000\u0018\u0001`\t2\u0006\u0010 \u001a\u00020\u00042\u0006\u0010!\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\"\u0010#R\u0016\u0010$\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b$\u0010%R\u0013\u0010&\u001a\u00020\r8F@\u0006¢\u0006\u0006\u001a\u0004\b&\u0010\u000fR\u0016\u0010'\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b'\u0010%R\u0016\u0010(\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b(\u0010)R\u0013\u0010,\u001a\u00020\u00048F@\u0006¢\u0006\u0006\u001a\u0004\b*\u0010+¨\u00061"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "", ExifInterface.LONGITUDE_EAST, "element", "", "addLast", "(Ljava/lang/Object;)I", "", "state", "Lkotlinx/coroutines/internal/Core;", "allocateNextCopy", "(J)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "allocateOrGetNextCopy", "", IntentConfig.CLOSE, "()Z", "index", "fillPlaceholder", "(ILjava/lang/Object;)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "isClosed", "R", "Lkotlin/Function1;", "transform", "", "map", "(Lkotlin/jvm/functions/Function1;)Ljava/util/List;", "markFrozen", "()J", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "()Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "removeFirstOrNull", "()Ljava/lang/Object;", "oldHead", "newHead", "removeSlowPath", "(II)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "capacity", "I", "isEmpty", "mask", "singleConsumer", "Z", "getSize", "()I", "size", "<init>", "(IZ)V", "Companion", "Placeholder", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes3.dex */
 public final class LockFreeTaskQueueCore<E> {
     public static final int ADD_CLOSED = 2;
     public static final int ADD_FROZEN = 1;
@@ -44,30 +45,30 @@ public final class LockFreeTaskQueueCore<E> {
     public static final AtomicReferenceFieldUpdater _next$FU = AtomicReferenceFieldUpdater.newUpdater(LockFreeTaskQueueCore.class, Object.class, "_next");
     public static final AtomicLongFieldUpdater _state$FU = AtomicLongFieldUpdater.newUpdater(LockFreeTaskQueueCore.class, "_state");
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0018\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0080\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b*\u0010+J\u0011\u0010\u0003\u001a\u00020\u0002*\u00020\u0001¢\u0006\u0004\b\u0003\u0010\u0004J\u0019\u0010\u0006\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\t\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\b\u001a\u00020\u0002¢\u0006\u0004\b\t\u0010\u0007JR\u0010\u0011\u001a\u00028\u0001\"\u0004\b\u0001\u0010\n*\u00020\u000126\u0010\u0010\u001a2\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\f\u0012\b\b\r\u0012\u0004\b\b(\u000e\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\f\u0012\b\b\r\u0012\u0004\b\b(\u000f\u0012\u0004\u0012\u00028\u00010\u000bH\u0086\b¢\u0006\u0004\b\u0011\u0010\u0012J\u001c\u0010\u0014\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0013\u001a\u00020\u0001H\u0086\u0004¢\u0006\u0004\b\u0014\u0010\u0015R\u0016\u0010\u0016\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0016\u0010\u0017R\u0016\u0010\u0018\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0018\u0010\u0017R\u0016\u0010\u0019\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0019\u0010\u0017R\u0016\u0010\u001a\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001a\u0010\u0017R\u0016\u0010\u001b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001b\u0010\u001cR\u0016\u0010\u001d\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001d\u0010\u0017R\u0016\u0010\u001e\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001e\u0010\u001cR\u0016\u0010\u001f\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001f\u0010\u0017R\u0016\u0010 \u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b \u0010\u001cR\u0016\u0010!\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b!\u0010\u0017R\u0016\u0010\"\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\"\u0010\u0017R\u0016\u0010#\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b#\u0010\u0017R\u0016\u0010$\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b$\u0010\u0017R\u0016\u0010&\u001a\u00020%8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b&\u0010'R\u0016\u0010(\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b(\u0010\u001cR\u0016\u0010)\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b)\u0010\u0017¨\u0006,"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;", "", "", "addFailReason", "(J)I", "newHead", "updateHead", "(JI)J", "newTail", "updateTail", "T", "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", "head", "tail", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "withState", "(JLkotlin/jvm/functions/Function2;)Ljava/lang/Object;", "other", "wo", "(JJ)J", "ADD_CLOSED", "I", "ADD_FROZEN", "ADD_SUCCESS", "CAPACITY_BITS", "CLOSED_MASK", "J", "CLOSED_SHIFT", "FROZEN_MASK", "FROZEN_SHIFT", "HEAD_MASK", "HEAD_SHIFT", "INITIAL_CAPACITY", "MAX_CAPACITY_MASK", "MIN_ADD_SPIN_CAPACITY", "Lkotlinx/coroutines/internal/Symbol;", "REMOVE_FROZEN", "Lkotlinx/coroutines/internal/Symbol;", "TAIL_MASK", "TAIL_SHIFT", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0018\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0080\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b*\u0010+J\u0011\u0010\u0003\u001a\u00020\u0002*\u00020\u0001¢\u0006\u0004\b\u0003\u0010\u0004J\u0019\u0010\u0006\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\t\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\b\u001a\u00020\u0002¢\u0006\u0004\b\t\u0010\u0007JR\u0010\u0011\u001a\u00028\u0001\"\u0004\b\u0001\u0010\n*\u00020\u000126\u0010\u0010\u001a2\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\f\u0012\b\b\r\u0012\u0004\b\b(\u000e\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\f\u0012\b\b\r\u0012\u0004\b\b(\u000f\u0012\u0004\u0012\u00028\u00010\u000bH\u0086\b¢\u0006\u0004\b\u0011\u0010\u0012J\u001c\u0010\u0014\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0013\u001a\u00020\u0001H\u0086\u0004¢\u0006\u0004\b\u0014\u0010\u0015R\u0016\u0010\u0016\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0016\u0010\u0017R\u0016\u0010\u0018\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0018\u0010\u0017R\u0016\u0010\u0019\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0019\u0010\u0017R\u0016\u0010\u001a\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001a\u0010\u0017R\u0016\u0010\u001b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001b\u0010\u001cR\u0016\u0010\u001d\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001d\u0010\u0017R\u0016\u0010\u001e\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001e\u0010\u001cR\u0016\u0010\u001f\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001f\u0010\u0017R\u0016\u0010 \u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b \u0010\u001cR\u0016\u0010!\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b!\u0010\u0017R\u0016\u0010\"\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\"\u0010\u0017R\u0016\u0010#\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b#\u0010\u0017R\u0016\u0010$\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b$\u0010\u0017R\u0016\u0010&\u001a\u00020%8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b&\u0010'R\u0016\u0010(\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b(\u0010\u001cR\u0016\u0010)\u001a\u00020\u00028\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b)\u0010\u0017¨\u0006,"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;", "", "", "addFailReason", "(J)I", "newHead", "updateHead", "(JI)J", "newTail", "updateTail", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", "head", "tail", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "withState", "(JLkotlin/jvm/functions/Function2;)Ljava/lang/Object;", "other", "wo", "(JJ)J", "ADD_CLOSED", "I", "ADD_FROZEN", "ADD_SUCCESS", "CAPACITY_BITS", "CLOSED_MASK", "J", "CLOSED_SHIFT", "FROZEN_MASK", "FROZEN_SHIFT", "HEAD_MASK", "HEAD_SHIFT", "INITIAL_CAPACITY", "MAX_CAPACITY_MASK", "MIN_ADD_SPIN_CAPACITY", "Lkotlinx/coroutines/internal/Symbol;", "REMOVE_FROZEN", "Lkotlinx/coroutines/internal/Symbol;", "TAIL_MASK", "TAIL_SHIFT", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes3.dex */
     public static final class Companion {
         public Companion() {
         }
 
-        public final int addFailReason(long j2) {
-            return (j2 & LockFreeTaskQueueCore.CLOSED_MASK) != 0 ? 2 : 1;
+        public final int addFailReason(long j) {
+            return (j & LockFreeTaskQueueCore.CLOSED_MASK) != 0 ? 2 : 1;
         }
 
-        public final long updateHead(long j2, int i2) {
-            return wo(j2, LockFreeTaskQueueCore.HEAD_MASK) | (i2 << 0);
+        public final long updateHead(long j, int i2) {
+            return wo(j, LockFreeTaskQueueCore.HEAD_MASK) | (i2 << 0);
         }
 
-        public final long updateTail(long j2, int i2) {
-            return wo(j2, LockFreeTaskQueueCore.TAIL_MASK) | (i2 << 30);
+        public final long updateTail(long j, int i2) {
+            return wo(j, LockFreeTaskQueueCore.TAIL_MASK) | (i2 << 30);
         }
 
-        public final <T> T withState(long j2, Function2<? super Integer, ? super Integer, ? extends T> function2) {
-            return function2.invoke(Integer.valueOf((int) ((LockFreeTaskQueueCore.HEAD_MASK & j2) >> 0)), Integer.valueOf((int) ((j2 & LockFreeTaskQueueCore.TAIL_MASK) >> 30)));
+        public final <T> T withState(long j, Function2<? super Integer, ? super Integer, ? extends T> function2) {
+            return function2.invoke(Integer.valueOf((int) ((LockFreeTaskQueueCore.HEAD_MASK & j) >> 0)), Integer.valueOf((int) ((j & LockFreeTaskQueueCore.TAIL_MASK) >> 30)));
         }
 
-        public final long wo(long j2, long j3) {
-            return j2 & (~j3);
+        public final long wo(long j, long j2) {
+            return j & (~j2);
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -76,7 +77,7 @@ public final class LockFreeTaskQueueCore<E> {
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0005\b\u0000\u0018\u0000B\u000f\u0012\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Placeholder;", "", "index", "I", "<init>", "(I)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Placeholder {
         @JvmField
         public final int index;
@@ -102,10 +103,10 @@ public final class LockFreeTaskQueueCore<E> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v2, resolved type: java.util.concurrent.atomic.AtomicReferenceArray */
     /* JADX WARN: Multi-variable type inference failed */
-    private final LockFreeTaskQueueCore<E> allocateNextCopy(long j2) {
+    private final LockFreeTaskQueueCore<E> allocateNextCopy(long j) {
         LockFreeTaskQueueCore<E> lockFreeTaskQueueCore = new LockFreeTaskQueueCore<>(this.capacity * 2, this.singleConsumer);
-        int i2 = (int) ((HEAD_MASK & j2) >> 0);
-        int i3 = (int) ((TAIL_MASK & j2) >> 30);
+        int i2 = (int) ((HEAD_MASK & j) >> 0);
+        int i3 = (int) ((TAIL_MASK & j) >> 30);
         while (true) {
             int i4 = this.mask;
             if ((i2 & i4) != (i3 & i4)) {
@@ -116,19 +117,19 @@ public final class LockFreeTaskQueueCore<E> {
                 lockFreeTaskQueueCore.array.set(lockFreeTaskQueueCore.mask & i2, obj);
                 i2++;
             } else {
-                lockFreeTaskQueueCore._state = Companion.wo(j2, FROZEN_MASK);
+                lockFreeTaskQueueCore._state = Companion.wo(j, FROZEN_MASK);
                 return lockFreeTaskQueueCore;
             }
         }
     }
 
-    private final LockFreeTaskQueueCore<E> allocateOrGetNextCopy(long j2) {
+    private final LockFreeTaskQueueCore<E> allocateOrGetNextCopy(long j) {
         while (true) {
             LockFreeTaskQueueCore<E> lockFreeTaskQueueCore = (LockFreeTaskQueueCore) this._next;
             if (lockFreeTaskQueueCore != null) {
                 return lockFreeTaskQueueCore;
             }
-            _next$FU.compareAndSet(this, null, allocateNextCopy(j2));
+            _next$FU.compareAndSet(this, null, allocateNextCopy(j));
         }
     }
 
@@ -142,33 +143,33 @@ public final class LockFreeTaskQueueCore<E> {
     }
 
     private final long markFrozen() {
+        long j;
         long j2;
-        long j3;
         do {
-            j2 = this._state;
-            if ((j2 & FROZEN_MASK) != 0) {
-                return j2;
+            j = this._state;
+            if ((j & FROZEN_MASK) != 0) {
+                return j;
             }
-            j3 = j2 | FROZEN_MASK;
-        } while (!_state$FU.compareAndSet(this, j2, j3));
-        return j3;
+            j2 = j | FROZEN_MASK;
+        } while (!_state$FU.compareAndSet(this, j, j2));
+        return j2;
     }
 
     private final LockFreeTaskQueueCore<E> removeSlowPath(int i2, int i3) {
-        long j2;
+        long j;
         int i4;
         do {
-            j2 = this._state;
-            i4 = (int) ((HEAD_MASK & j2) >> 0);
+            j = this._state;
+            i4 = (int) ((HEAD_MASK & j) >> 0);
             if (DebugKt.getASSERTIONS_ENABLED()) {
                 if (!(i4 == i2)) {
                     throw new AssertionError();
                 }
             }
-            if ((FROZEN_MASK & j2) != 0) {
+            if ((FROZEN_MASK & j) != 0) {
                 return next();
             }
-        } while (!_state$FU.compareAndSet(this, j2, Companion.updateHead(j2, i3)));
+        } while (!_state$FU.compareAndSet(this, j, Companion.updateHead(j, i3)));
         this.array.set(this.mask & i4, null);
         return null;
     }
@@ -181,12 +182,12 @@ public final class LockFreeTaskQueueCore<E> {
     */
     public final int addLast(E e2) {
         while (true) {
-            long j2 = this._state;
-            if ((3458764513820540928L & j2) != 0) {
-                return Companion.addFailReason(j2);
+            long j = this._state;
+            if ((3458764513820540928L & j) != 0) {
+                return Companion.addFailReason(j);
             }
-            int i2 = (int) ((HEAD_MASK & j2) >> 0);
-            int i3 = (int) ((TAIL_MASK & j2) >> 30);
+            int i2 = (int) ((HEAD_MASK & j) >> 0);
+            int i3 = (int) ((TAIL_MASK & j) >> 30);
             int i4 = this.mask;
             if (((i3 + 2) & i4) == (i2 & i4)) {
                 return 1;
@@ -196,7 +197,7 @@ public final class LockFreeTaskQueueCore<E> {
                 if (i5 < 1024 || ((i3 - i2) & MAX_CAPACITY_MASK) > (i5 >> 1)) {
                     break;
                 }
-            } else if (_state$FU.compareAndSet(this, j2, Companion.updateTail(j2, (i3 + 1) & MAX_CAPACITY_MASK))) {
+            } else if (_state$FU.compareAndSet(this, j, Companion.updateTail(j, (i3 + 1) & MAX_CAPACITY_MASK))) {
                 this.array.set(i3 & i4, e2);
                 LockFreeTaskQueueCore<E> lockFreeTaskQueueCore = this;
                 while ((lockFreeTaskQueueCore._state & FROZEN_MASK) != 0 && (lockFreeTaskQueueCore = lockFreeTaskQueueCore.next().fillPlaceholder(i3, e2)) != null) {
@@ -207,22 +208,22 @@ public final class LockFreeTaskQueueCore<E> {
     }
 
     public final boolean close() {
-        long j2;
+        long j;
         do {
-            j2 = this._state;
-            if ((j2 & CLOSED_MASK) != 0) {
+            j = this._state;
+            if ((j & CLOSED_MASK) != 0) {
                 return true;
             }
-            if ((FROZEN_MASK & j2) != 0) {
+            if ((FROZEN_MASK & j) != 0) {
                 return false;
             }
-        } while (!_state$FU.compareAndSet(this, j2, j2 | CLOSED_MASK));
+        } while (!_state$FU.compareAndSet(this, j, j | CLOSED_MASK));
         return true;
     }
 
     public final int getSize() {
-        long j2 = this._state;
-        return 1073741823 & (((int) ((j2 & TAIL_MASK) >> 30)) - ((int) ((HEAD_MASK & j2) >> 0)));
+        long j = this._state;
+        return 1073741823 & (((int) ((j & TAIL_MASK) >> 30)) - ((int) ((HEAD_MASK & j) >> 0)));
     }
 
     public final boolean isClosed() {
@@ -230,15 +231,15 @@ public final class LockFreeTaskQueueCore<E> {
     }
 
     public final boolean isEmpty() {
-        long j2 = this._state;
-        return ((int) ((HEAD_MASK & j2) >> 0)) == ((int) ((j2 & TAIL_MASK) >> 30));
+        long j = this._state;
+        return ((int) ((HEAD_MASK & j) >> 0)) == ((int) ((j & TAIL_MASK) >> 30));
     }
 
     public final <R> List<R> map(Function1<? super E, ? extends R> function1) {
         ArrayList arrayList = new ArrayList(this.capacity);
-        long j2 = this._state;
-        int i2 = (int) ((HEAD_MASK & j2) >> 0);
-        int i3 = (int) ((j2 & TAIL_MASK) >> 30);
+        long j = this._state;
+        int i2 = (int) ((HEAD_MASK & j) >> 0);
+        int i3 = (int) ((j & TAIL_MASK) >> 30);
         while (true) {
             int i4 = this.mask;
             if ((i2 & i4) == (i3 & i4)) {
@@ -258,12 +259,12 @@ public final class LockFreeTaskQueueCore<E> {
 
     public final Object removeFirstOrNull() {
         while (true) {
-            long j2 = this._state;
-            if ((FROZEN_MASK & j2) != 0) {
+            long j = this._state;
+            if ((FROZEN_MASK & j) != 0) {
                 return REMOVE_FROZEN;
             }
-            int i2 = (int) ((HEAD_MASK & j2) >> 0);
-            int i3 = (int) ((TAIL_MASK & j2) >> 30);
+            int i2 = (int) ((HEAD_MASK & j) >> 0);
+            int i3 = (int) ((TAIL_MASK & j) >> 30);
             int i4 = this.mask;
             if ((i3 & i4) == (i2 & i4)) {
                 return null;
@@ -277,7 +278,7 @@ public final class LockFreeTaskQueueCore<E> {
                 return null;
             } else {
                 int i5 = (i2 + 1) & MAX_CAPACITY_MASK;
-                if (_state$FU.compareAndSet(this, j2, Companion.updateHead(j2, i5))) {
+                if (_state$FU.compareAndSet(this, j, Companion.updateHead(j, i5))) {
                     this.array.set(this.mask & i2, null);
                     return obj;
                 } else if (this.singleConsumer) {

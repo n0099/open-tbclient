@@ -34,31 +34,31 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NativeAbilityInvoker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, com.baidu.wallet.lightapp.ability.a> f61703a;
+    public Map<String, com.baidu.wallet.lightapp.ability.a> f58586a;
 
     /* renamed from: com.baidu.wallet.lightapp.ability.NativeAbilityInvoker$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class NativeAbilityInvokerCallback implements ILightappInvokerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ILightappInvokerCallback f61704a;
+        public ILightappInvokerCallback f58587a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f61705b;
+        public ArrayList<String> f58588b;
 
         public NativeAbilityInvokerCallback(ILightappInvokerCallback iLightappInvokerCallback, ArrayList<String> arrayList) {
             Interceptable interceptable = $ic;
@@ -75,8 +75,8 @@ public class NativeAbilityInvoker {
                     return;
                 }
             }
-            this.f61704a = iLightappInvokerCallback;
-            this.f61705b = arrayList;
+            this.f58587a = iLightappInvokerCallback;
+            this.f58588b = arrayList;
         }
 
         public void addStatics(String str) {
@@ -84,22 +84,22 @@ public class NativeAbilityInvoker {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            if (this.f61705b == null) {
-                this.f61705b = new ArrayList<>();
+            if (this.f58588b == null) {
+                this.f58588b = new ArrayList<>();
             }
-            this.f61705b.add(str);
+            this.f58588b.add(str);
         }
 
         @Override // com.baidu.wallet.api.ILightappInvokerCallback
         public void onResult(int i2, String str) {
             ILightappInvokerCallback iLightappInvokerCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (iLightappInvokerCallback = this.f61704a) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (iLightappInvokerCallback = this.f58587a) == null) {
                 return;
             }
             if (i2 == 0) {
-                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeSuccess", this.f61705b);
-                this.f61704a.onResult(i2, str);
+                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeSuccess", this.f58588b);
+                this.f58587a.onResult(i2, str);
             } else if (i2 != 1) {
                 iLightappInvokerCallback.onResult(i2, str);
             } else {
@@ -107,28 +107,28 @@ public class NativeAbilityInvoker {
                 if (TextUtils.isEmpty(str)) {
                     str = "";
                 }
-                if (this.f61705b.size() >= 2) {
-                    this.f61705b.add(1, str);
+                if (this.f58588b.size() >= 2) {
+                    this.f58588b.add(1, str);
                 } else {
-                    this.f61705b.add(str);
+                    this.f58588b.add(str);
                 }
                 try {
                     str2 = ((NativeAbilityCommonModel) JsonUtils.fromJson(str, NativeAbilityCommonModel.class)).cnt.errCode;
                 } catch (Exception unused) {
                 }
-                this.f61705b.add(str2);
-                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeFail", this.f61705b);
-                this.f61704a.onResult(i2, str);
+                this.f58588b.add(str2);
+                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeFail", this.f58588b);
+                this.f58587a.onResult(i2, str);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static NativeAbilityInvoker f61706a;
+        public static NativeAbilityInvoker f58589a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -144,7 +144,7 @@ public class NativeAbilityInvoker {
                     return;
                 }
             }
-            f61706a = new NativeAbilityInvoker(null);
+            f58589a = new NativeAbilityInvoker(null);
         }
     }
 
@@ -155,7 +155,7 @@ public class NativeAbilityInvoker {
     public static NativeAbilityInvoker a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61706a : (NativeAbilityInvoker) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58589a : (NativeAbilityInvoker) invokeV.objValue;
     }
 
     public NativeAbilityInvoker() {
@@ -171,7 +171,7 @@ public class NativeAbilityInvoker {
                 return;
             }
         }
-        this.f61703a = new HashMap();
+        this.f58586a = new HashMap();
         a(new h());
         a(new e());
         a(new j());
@@ -188,10 +188,10 @@ public class NativeAbilityInvoker {
 
     private void a(com.baidu.wallet.lightapp.ability.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar) == null) || aVar == null || TextUtils.isEmpty(aVar.a()) || this.f61703a.containsKey(aVar.a())) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar) == null) || aVar == null || TextUtils.isEmpty(aVar.a()) || this.f58586a.containsKey(aVar.a())) {
             return;
         }
-        this.f61703a.put(aVar.a(), aVar);
+        this.f58586a.put(aVar.a(), aVar);
     }
 
     public void a(Activity activity, String str, String str2, ILightappInvokerCallback iLightappInvokerCallback) {
@@ -224,7 +224,7 @@ public class NativeAbilityInvoker {
                 arrayList.add(str4);
                 DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNative", arrayList);
                 NativeAbilityInvokerCallback nativeAbilityInvokerCallback = new NativeAbilityInvokerCallback(iLightappInvokerCallback, arrayList);
-                com.baidu.wallet.lightapp.ability.a aVar = this.f61703a.get(str3);
+                com.baidu.wallet.lightapp.ability.a aVar = this.f58586a.get(str3);
                 if (aVar != null) {
                     aVar.a(activity, str2, nativeAbilityInvokerCallback, str);
                     return;

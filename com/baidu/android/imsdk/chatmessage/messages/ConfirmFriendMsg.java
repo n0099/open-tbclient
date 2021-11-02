@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ConfirmFriendMsg> CREATOR;
@@ -113,10 +113,10 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public void setFromUser(long j2) {
+    public void setFromUser(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.fromUser = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.fromUser = j;
         }
     }
 

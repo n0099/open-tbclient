@@ -11,7 +11,7 @@ import com.baidu.wallet.router.RouterCallback;
 import com.dxmpay.apollon.eventbus.EventBus;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class EnterWalletDoPostEventAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

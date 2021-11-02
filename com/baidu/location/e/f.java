@@ -8,13 +8,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f41348a;
+    public final /* synthetic */ e f39205a;
 
     public f(e eVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class f implements Runnable {
                 return;
             }
         }
-        this.f41348a = eVar;
+        this.f39205a = eVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:114:0x0118 A[EDGE_INSN: B:114:0x0118->B:83:0x0118 ?: BREAK  , SYNTHETIC] */
@@ -50,22 +50,22 @@ public class f implements Runnable {
         InputStream inputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41348a.f41345h = k.e();
-            this.f41348a.b();
-            this.f41348a.a();
-            int i2 = this.f41348a.f41346i;
+            this.f39205a.f39203h = k.e();
+            this.f39205a.b();
+            this.f39205a.a();
+            int i2 = this.f39205a.f39204i;
             InputStream inputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f41348a.f41345h).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f39205a.f39203h).openConnection();
                     try {
                         httpURLConnection2.setRequestMethod("GET");
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f41304b);
-                        httpURLConnection2.setReadTimeout(a.f41304b);
+                        httpURLConnection2.setConnectTimeout(a.f39164b);
+                        httpURLConnection2.setReadTimeout(a.f39164b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         if (k.ax != null) {
@@ -86,15 +86,15 @@ public class f implements Runnable {
                                     }
                                     inputStream2.close();
                                     byteArrayOutputStream.close();
-                                    this.f41348a.f41347j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    this.f41348a.a(true);
+                                    this.f39205a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    this.f39205a.a(true);
                                     httpURLConnection2.disconnect();
                                     z = true;
                                 } catch (Exception unused) {
                                     inputStream = inputStream2;
                                     httpURLConnection = httpURLConnection2;
                                     try {
-                                        String str = a.f41303a;
+                                        String str = a.f39163a;
                                         if (httpURLConnection != null) {
                                             httpURLConnection.disconnect();
                                         }
@@ -204,8 +204,8 @@ public class f implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f41348a;
-            eVar.f41347j = null;
+            e eVar = this.f39205a;
+            eVar.j = null;
             eVar.a(false);
         }
     }

@@ -1,7 +1,7 @@
 package com.kwai.filedownloader;
 
 import com.kwai.filedownloader.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface u {
     boolean a(a.b bVar);
 

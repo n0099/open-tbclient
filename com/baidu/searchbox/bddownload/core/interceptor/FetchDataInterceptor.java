@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FetchDataInterceptor implements Interceptor.Fetch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,12 +61,12 @@ public class FetchDataInterceptor implements Interceptor.Fetch {
                     return read;
                 }
                 this.outputStream.write(this.blockIndex, this.readBuffer, read);
-                long j2 = read;
-                downloadChain.increaseCallbackBytes(j2);
+                long j = read;
+                downloadChain.increaseCallbackBytes(j);
                 if (this.dispatcher.isFetchProcessMoment(this.task)) {
                     downloadChain.flushNoCallbackIncreaseBytes();
                 }
-                return j2;
+                return j;
             }
             throw InterruptException.SIGNAL;
         }

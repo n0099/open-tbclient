@@ -24,7 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_BYTES_SIZE = 8192;
@@ -102,7 +102,7 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     FileInputStream fileInputStream = new FileInputStream(this.mFilePath);
                     byte[] bArr = new byte[8192];
-                    long j2 = 0;
+                    long j = 0;
                     long length = file.length();
                     long currentTimeMillis = System.currentTimeMillis();
                     int i3 = -1;
@@ -114,18 +114,18 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                         }
                         dataOutputStream.write(bArr, i2, read);
                         HttpURLConnection httpURLConnection2 = httpURLConnection;
-                        j2 += read;
+                        j += read;
                         String str2 = TAG;
                         StringBuilder sb = new StringBuilder();
                         sb.append("write bytes:");
                         sb.append(read);
                         sb.append("  total:");
-                        sb.append(j2);
+                        sb.append(j);
                         sb.append("  time:");
                         DataOutputStream dataOutputStream2 = dataOutputStream;
                         sb.append(((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f);
                         LogUtils.d(str2, sb.toString());
-                        int i5 = (int) ((100 * j2) / length);
+                        int i5 = (int) ((100 * j) / length);
                         if (i5 != i4) {
                             this.mListener.onProgress(i5);
                             i4 = i5;

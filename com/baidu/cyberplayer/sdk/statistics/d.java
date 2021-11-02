@@ -23,19 +23,19 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39293a;
+    public String f37243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39294b;
+    public String f37244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39295c;
+    public String f37245c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class d {
                 return;
             }
         }
-        this.f39293a = null;
-        this.f39294b = null;
-        this.f39295c = null;
-        this.f39295c = "video_session";
+        this.f37243a = null;
+        this.f37244b = null;
+        this.f37245c = null;
+        this.f37245c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -72,10 +72,10 @@ public class d {
                 return;
             }
         }
-        this.f39293a = null;
-        this.f39294b = null;
-        this.f39295c = null;
-        this.f39295c = str;
+        this.f37243a = null;
+        this.f37244b = null;
+        this.f37245c = null;
+        this.f37245c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -229,15 +229,15 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f39293a) || TextUtils.isEmpty(this.f39294b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f37243a) || TextUtils.isEmpty(this.f37244b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f39293a;
+            String str = this.f37243a;
             if (b(str)) {
-                String str2 = this.f39294b;
+                String str2 = this.f37244b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -260,20 +260,20 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersionInternal = CyberVersion.getCoreVersionInternal();
-        this.f39293a = b2 + File.separator + this.f39295c + "_" + coreVersionInternal + ".bak";
-        this.f39294b = b2 + File.separator + this.f39295c + "_log_" + coreVersionInternal + ".tmp";
+        this.f37243a = b2 + File.separator + this.f37245c + "_" + coreVersionInternal + ".bak";
+        this.f37244b = b2 + File.separator + this.f37245c + "_log_" + coreVersionInternal + ".tmp";
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f39293a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f37243a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                a(this.f39293a, bArr, Part.CRLF);
+                a(this.f37243a, bArr, Part.CRLF);
             } catch (AssertionError unused) {
                 CyberLog.e("DpStatFileWriter", "write data to file fail");
             }
@@ -292,7 +292,7 @@ public class d {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f39295c.equals("live_show_session") ? 24 : 1);
+                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f37245c.equals("live_show_session") ? 24 : 1);
                 if (TextUtils.isEmpty(a2)) {
                     z = true;
                 } else {

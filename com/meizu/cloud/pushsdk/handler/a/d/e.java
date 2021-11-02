@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e extends com.meizu.cloud.pushsdk.handler.a.a<SubTagsStatus> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -26,7 +26,7 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<SubTagsStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        c.l.a.a.a.d("AbstractMessageHandler", "start SubScribeTagsStatusHandler match");
+        b.l.a.a.a.d("AbstractMessageHandler", "start SubScribeTagsStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SUBTAGS_STATUS.equals(i(intent));
     }
 

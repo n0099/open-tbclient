@@ -7,7 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import c.a.j0.a.k.h;
+import b.a.j0.a.k.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView", "DefaultLocale", "NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RectangleCountDownView extends AbsCountDownView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long COUNTDOWN_CHECK_PERIOD = 250;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f45087f;
+    public long f42822f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f45088g;
+    public long f42823g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f45089h;
+    public long f42824h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RectangleCountDownView(Context context) {
@@ -62,7 +62,7 @@ public class RectangleCountDownView extends AbsCountDownView {
             gradientDrawable.setCornerRadius(h.a(context, 15.0f));
             gradientDrawable.setColor(Color.parseColor("#33000000"));
             setBackground(gradientDrawable);
-            setText(String.format("跳过 %02d", Long.valueOf(this.f45088g / 1000)));
+            setText(String.format("跳过 %02d", Long.valueOf(this.f42823g / 1000)));
         }
     }
 
@@ -71,16 +71,16 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            setText(String.format("跳过 %02d", Integer.valueOf(Math.round(((float) this.f45089h) / 1000.0f))));
+            setText(String.format("跳过 %02d", Integer.valueOf(Math.round(((float) this.f42824h) / 1000.0f))));
         }
     }
 
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void setTimeMillis(long j2) {
+    public void setTimeMillis(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f45088g = j2;
-            this.f45089h = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.f42823g = j;
+            this.f42824h = j;
         }
     }
 
@@ -89,8 +89,8 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setTaskPeriod(250L);
-            this.f45087f = System.currentTimeMillis();
-            setText(String.format("跳过 %02d", Long.valueOf(this.f45088g / 1000)));
+            this.f42822f = System.currentTimeMillis();
+            setText(String.format("跳过 %02d", Long.valueOf(this.f42823g / 1000)));
             super.start();
         }
     }
@@ -107,8 +107,8 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void updateProTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            long currentTimeMillis = this.f45088g - (System.currentTimeMillis() - this.f45087f);
-            this.f45089h = currentTimeMillis;
+            long currentTimeMillis = this.f42823g - (System.currentTimeMillis() - this.f42822f);
+            this.f42824h = currentTimeMillis;
             if (currentTimeMillis > 0) {
                 postInvalidate();
                 return;
@@ -125,7 +125,7 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void updateProgres(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.f45089h = i3;
+            this.f42824h = i3;
             postInvalidate();
         }
     }
@@ -170,7 +170,7 @@ public class RectangleCountDownView extends AbsCountDownView {
                 return;
             }
         }
-        this.f45087f = 0L;
+        this.f42822f = 0L;
         initialize(context, attributeSet);
     }
 }

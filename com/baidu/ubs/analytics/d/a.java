@@ -1,34 +1,33 @@
 package com.baidu.ubs.analytics.d;
 
 import android.os.Environment;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f59697a;
+    public static final String f56624a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f59698b;
+    public static final String f56625b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f59699c;
+    public static final String f56626c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f59700d;
+    public static int f56627d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class EnumC1817a {
+    /* loaded from: classes10.dex */
+    public static final class EnumC1776a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
         public static final int aW = 2;
@@ -65,17 +64,17 @@ public final class a {
                 return;
             }
         }
-        f59697a = Environment.getExternalStorageDirectory().getPath();
-        f59698b = f59697a + "/baidu/ab/crash/";
-        f59699c = f59697a + "/baidu/ab/sdklog/";
-        String str = f59697a + "/baidu/ab/sdkupdata/" + b() + "/";
-        f59700d = EnumC1817a.aV;
+        f56624a = Environment.getExternalStorageDirectory().getPath();
+        f56625b = f56624a + "/baidu/ab/crash/";
+        f56626c = f56624a + "/baidu/ab/sdklog/";
+        String str = f56624a + "/baidu/ab/sdkupdata/" + b() + "/";
+        f56627d = EnumC1776a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f59700d == EnumC1817a.aV : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f56627d == EnumC1776a.aV : invokeV.booleanValue;
     }
 
     public static int b() {
@@ -83,7 +82,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                String[] split = "0.4.0".split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = "0.4.0".split("\\.");
                 if (split.length > 2) {
                     return (Integer.parseInt(split[0]) * 100) + (Integer.parseInt(split[1]) * 10);
                 }

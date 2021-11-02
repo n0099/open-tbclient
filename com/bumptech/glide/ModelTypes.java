@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface ModelTypes<T> {
     @NonNull
     @CheckResult

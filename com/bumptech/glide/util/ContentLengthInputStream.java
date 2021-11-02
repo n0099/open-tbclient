@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class ContentLengthInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ContentLengthStream";
@@ -24,13 +24,13 @@ public final class ContentLengthInputStream extends FilterInputStream {
     public int readSoFar;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContentLengthInputStream(@NonNull InputStream inputStream, long j2) {
+    public ContentLengthInputStream(@NonNull InputStream inputStream, long j) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Long.valueOf(j2)};
+            Object[] objArr = {inputStream, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -41,7 +41,7 @@ public final class ContentLengthInputStream extends FilterInputStream {
                 return;
             }
         }
-        this.contentLength = j2;
+        this.contentLength = j;
     }
 
     private int checkReadSoFarOrThrow(int i2) throws IOException {
@@ -113,10 +113,10 @@ public final class ContentLengthInputStream extends FilterInputStream {
     }
 
     @NonNull
-    public static InputStream obtain(@NonNull InputStream inputStream, long j2) {
+    public static InputStream obtain(@NonNull InputStream inputStream, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, inputStream, j2)) == null) ? new ContentLengthInputStream(inputStream, j2) : (InputStream) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, inputStream, j)) == null) ? new ContentLengthInputStream(inputStream, j) : (InputStream) invokeLJ.objValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream

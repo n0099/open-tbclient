@@ -22,7 +22,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class LightappUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -148,12 +148,12 @@ public final class LightappUtils {
         }
     }
 
-    public static void runOnUiThread(Runnable runnable, long j2) {
+    public static void runOnUiThread(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65546, null, runnable, j2) == null) || runnable == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(65546, null, runnable, j) == null) || runnable == null) {
             return;
         }
-        new Handler(Looper.getMainLooper()).postDelayed(runnable, j2);
+        new Handler(Looper.getMainLooper()).postDelayed(runnable, j);
     }
 
     public static void onError(ILightappInvokerCallback iLightappInvokerCallback, String str, String str2, String str3, Collection<String> collection) {

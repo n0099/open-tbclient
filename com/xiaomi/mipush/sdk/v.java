@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class v implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f77679a;
+    public final /* synthetic */ Context f70642a;
 
     public v(Context context) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class v implements Runnable {
                 return;
             }
         }
-        this.f77679a = context;
+        this.f70642a = context;
     }
 
     @Override // java.lang.Runnable
@@ -37,10 +37,10 @@ public final class v implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                PackageInfo packageInfo = this.f77679a.getPackageManager().getPackageInfo(this.f77679a.getPackageName(), 4612);
-                u.c(this.f77679a);
-                u.d(this.f77679a, packageInfo);
-                u.c(this.f77679a, packageInfo);
+                PackageInfo packageInfo = this.f70642a.getPackageManager().getPackageInfo(this.f70642a.getPackageName(), 4612);
+                u.c(this.f70642a);
+                u.d(this.f70642a, packageInfo);
+                u.c(this.f70642a, packageInfo);
             } catch (Throwable unused) {
             }
         }

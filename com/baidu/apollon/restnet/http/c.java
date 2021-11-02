@@ -2,7 +2,7 @@ package com.baidu.apollon.restnet.http;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface c<K, V> extends Map<K, List<V>> {
     void a(K k, V v);
 

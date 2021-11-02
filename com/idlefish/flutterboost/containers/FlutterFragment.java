@@ -38,7 +38,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FlutterFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
@@ -128,6 +128,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
     public void doSpeedLoad() {
         FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate;
+        LinearLayout linearLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (flutterActivityAndFragmentDelegate = this.delegate) == null) {
             return;
@@ -135,15 +136,13 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         if (!this.isAttach) {
             this.isAttach = true;
             flutterActivityAndFragmentDelegate.onAttach(getContext());
-        }
-        if (this.flutterView == null) {
             this.flutterView = this.delegate.onCreateView(null, null, null);
         }
-        if (this.isAddFlutterView) {
+        if (this.isAddFlutterView || (linearLayout = this.linearLayout) == null) {
             return;
         }
         this.isAddFlutterView = true;
-        this.linearLayout.addView(this.flutterView);
+        linearLayout.addView(this.flutterView);
     }
 
     @Override // androidx.fragment.app.Fragment, com.baidu.wallet.lightapp.multipage.a
@@ -331,7 +330,10 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
             }
             this.delegate.release();
             this.linearLayout = null;
+            this.flutterView = null;
             this.delegate = null;
+            this.isAttach = false;
+            this.isAddFlutterView = false;
         }
     }
 
@@ -542,7 +544,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class NewEngineFragmentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -568,7 +570,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
                 }
             }
             this.shellArgs = null;
-            this.renderMode = FlutterView.RenderMode.surface;
+            this.renderMode = FlutterView.RenderMode.texture;
             this.transparencyMode = FlutterView.TransparencyMode.opaque;
             this.url = "";
             this.params = new HashMap();
@@ -672,7 +674,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
                 }
             }
             this.shellArgs = null;
-            this.renderMode = FlutterView.RenderMode.surface;
+            this.renderMode = FlutterView.RenderMode.texture;
             this.transparencyMode = FlutterView.TransparencyMode.opaque;
             this.url = "";
             this.params = new HashMap();

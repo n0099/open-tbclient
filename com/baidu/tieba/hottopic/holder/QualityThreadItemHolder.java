@@ -3,14 +3,14 @@ package com.baidu.tieba.hottopic.holder;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import b.a.r0.j1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,15 +61,15 @@ public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.topDivilerLine = view.findViewById(R.id.top_divider_line);
-        this.moduleTheme = (TextView) view.findViewById(R.id.quality_item_theme_title);
-        this.contentDividerLine = view.findViewById(R.id.divider_line);
-        this.threadView = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
-        this.threadImg = (TbImageView) view.findViewById(R.id.img);
-        this.titleView = (TextView) view.findViewById(R.id.title);
-        this.descView = (TextView) view.findViewById(R.id.desc);
-        this.frsNameView = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
-        this.zanTextView = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
-        this.replyTextView = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);
+        this.topDivilerLine = view.findViewById(e.top_divider_line);
+        this.moduleTheme = (TextView) view.findViewById(e.quality_item_theme_title);
+        this.contentDividerLine = view.findViewById(e.divider_line);
+        this.threadView = (RelativeLayout) view.findViewById(e.quality_thread_view);
+        this.threadImg = (TbImageView) view.findViewById(e.img);
+        this.titleView = (TextView) view.findViewById(e.title);
+        this.descView = (TextView) view.findViewById(e.desc);
+        this.frsNameView = (TextView) view.findViewById(e.hot_thread_comment).findViewById(e.hot_thread_line_tag);
+        this.zanTextView = (TextView) view.findViewById(e.hot_thread_comment).findViewById(e.hot_thread_line_praise);
+        this.replyTextView = (TextView) view.findViewById(e.hot_thread_comment).findViewById(e.hot_thread_line_comment);
     }
 }

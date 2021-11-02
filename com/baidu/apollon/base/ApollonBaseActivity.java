@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ApollonBaseActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37822a = "ApollonBaseActivity";
+    public static final String f35844a = "ApollonBaseActivity";
     public static LinkedList<ApollonBaseActivity> mActivityStack;
     public static int mLiveActivityNum;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, apollonBaseActivity) == null) {
             synchronized (ApollonBaseActivity.class) {
-                LogUtil.d(f37822a, "clearTasksTopOf. stack size = " + mActivityStack.size());
+                LogUtil.d(f35844a, "clearTasksTopOf. stack size = " + mActivityStack.size());
                 for (int size = mActivityStack.size() + (-1); size > 0; size--) {
                     ApollonBaseActivity apollonBaseActivity2 = mActivityStack.get(size);
                     if (apollonBaseActivity2 == apollonBaseActivity) {
@@ -124,7 +124,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i2) == null) {
             synchronized (ApollonBaseActivity.class) {
-                LogUtil.d(f37822a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
+                LogUtil.d(f35844a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
                 Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
                     ApollonBaseActivity next = it.next();

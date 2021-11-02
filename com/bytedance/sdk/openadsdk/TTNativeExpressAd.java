@@ -2,19 +2,17 @@ package com.bytedance.sdk.openadsdk;
 
 import android.app.Activity;
 import android.view.View;
-import androidx.annotation.MainThread;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
-import com.bytedance.sdk.openadsdk.multipro.b.a;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface TTNativeExpressAd {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface AdInteractionListener extends ExpressAdInteractionListener {
         void onAdDismiss();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface ExpressAdInteractionListener {
         void onAdClicked(View view, int i2);
 
@@ -25,11 +23,11 @@ public interface TTNativeExpressAd {
         void onRenderSuccess(View view, float f2, float f3);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface ExpressVideoAdListener {
         void onClickRetry();
 
-        void onProgressUpdate(long j2, long j3);
+        void onProgressUpdate(long j, long j2);
 
         void onVideoAdComplete();
 
@@ -58,8 +56,6 @@ public interface TTNativeExpressAd {
 
     Map<String, Object> getMediaExtraInfo();
 
-    a getVideoModel();
-
     void render();
 
     void setCanInterruptVideoPlay(boolean z);
@@ -78,6 +74,5 @@ public interface TTNativeExpressAd {
 
     void setVideoAdListener(ExpressVideoAdListener expressVideoAdListener);
 
-    @MainThread
     void showInteractionExpressAd(Activity activity);
 }

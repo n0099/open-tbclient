@@ -33,41 +33,39 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class a implements Closeable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f71895a;
+    public static final Pattern f64367a;
     public static final OutputStream p;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ExecutorService f71896b;
+    public final ExecutorService f64368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final File f71897c;
+    public final File f64369c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final File f71898d;
+    public final File f64370d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final File f71899e;
+    public final File f64371e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final File f71900f;
+    public final File f64372f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f71901g;
+    public final int f64373g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f71902h;
+    public long f64374h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f71903i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f71904j;
+    public final int f64375i;
+    public long j;
     public Writer k;
     public final LinkedHashMap<String, b> l;
     public int m;
@@ -75,43 +73,43 @@ public final class a implements Closeable {
     public final Callable<Void> o;
 
     /* renamed from: com.kwad.sdk.core.diskcache.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public final class C1990a {
+    /* loaded from: classes2.dex */
+    public final class C1899a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f71906a;
+        public final /* synthetic */ a f64377a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f71907b;
+        public final b f64378b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean[] f71908c;
+        public final boolean[] f64379c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f71909d;
+        public boolean f64380d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f71910e;
+        public boolean f64381e;
 
         /* renamed from: com.kwad.sdk.core.diskcache.a.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C1991a extends FilterOutputStream {
+        /* loaded from: classes2.dex */
+        public class C1900a extends FilterOutputStream {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ C1990a f71911a;
+            public final /* synthetic */ C1899a f64382a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C1991a(C1990a c1990a, OutputStream outputStream) {
+            public C1900a(C1899a c1899a, OutputStream outputStream) {
                 super(outputStream);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1990a, outputStream};
+                    Object[] objArr = {c1899a, outputStream};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -122,7 +120,7 @@ public final class a implements Closeable {
                         return;
                     }
                 }
-                this.f71911a = c1990a;
+                this.f64382a = c1899a;
             }
 
             @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -132,7 +130,7 @@ public final class a implements Closeable {
                     try {
                         ((FilterOutputStream) this).out.close();
                     } catch (IOException unused) {
-                        this.f71911a.f71909d = true;
+                        this.f64382a.f64380d = true;
                     }
                 }
             }
@@ -144,7 +142,7 @@ public final class a implements Closeable {
                     try {
                         ((FilterOutputStream) this).out.flush();
                     } catch (IOException unused) {
-                        this.f71911a.f71909d = true;
+                        this.f64382a.f64380d = true;
                     }
                 }
             }
@@ -156,7 +154,7 @@ public final class a implements Closeable {
                     try {
                         ((FilterOutputStream) this).out.write(i2);
                     } catch (IOException unused) {
-                        this.f71911a.f71909d = true;
+                        this.f64382a.f64380d = true;
                     }
                 }
             }
@@ -168,13 +166,13 @@ public final class a implements Closeable {
                     try {
                         ((FilterOutputStream) this).out.write(bArr, i2, i3);
                     } catch (IOException unused) {
-                        this.f71911a.f71909d = true;
+                        this.f64382a.f64380d = true;
                     }
                 }
             }
         }
 
-        public C1990a(a aVar, b bVar) {
+        public C1899a(a aVar, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,41 +187,41 @@ public final class a implements Closeable {
                     return;
                 }
             }
-            this.f71906a = aVar;
-            this.f71907b = bVar;
-            this.f71908c = bVar.f71915d ? null : new boolean[aVar.f71903i];
+            this.f64377a = aVar;
+            this.f64378b = bVar;
+            this.f64379c = bVar.f64386d ? null : new boolean[aVar.f64375i];
         }
 
         public OutputStream a(int i2) {
             InterceptResult invokeI;
             FileOutputStream fileOutputStream;
-            C1991a c1991a;
+            C1900a c1900a;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (i2 < 0 || i2 >= this.f71906a.f71903i) {
-                    throw new IllegalArgumentException("Expected index " + i2 + " to be greater than 0 and less than the maximum value count of " + this.f71906a.f71903i);
+                if (i2 < 0 || i2 >= this.f64377a.f64375i) {
+                    throw new IllegalArgumentException("Expected index " + i2 + " to be greater than 0 and less than the maximum value count of " + this.f64377a.f64375i);
                 }
-                synchronized (this.f71906a) {
-                    if (this.f71907b.f71916e != this) {
+                synchronized (this.f64377a) {
+                    if (this.f64378b.f64387e != this) {
                         throw new IllegalStateException();
                     }
-                    if (!this.f71907b.f71915d) {
-                        this.f71908c[i2] = true;
+                    if (!this.f64378b.f64386d) {
+                        this.f64379c[i2] = true;
                     }
-                    File b2 = this.f71907b.b(i2);
+                    File b2 = this.f64378b.b(i2);
                     try {
                         fileOutputStream = new FileOutputStream(b2);
                     } catch (FileNotFoundException unused) {
-                        this.f71906a.f71897c.mkdirs();
+                        this.f64377a.f64369c.mkdirs();
                         try {
                             fileOutputStream = new FileOutputStream(b2);
                         } catch (FileNotFoundException unused2) {
                             return a.p;
                         }
                     }
-                    c1991a = new C1991a(fileOutputStream);
+                    c1900a = new C1900a(fileOutputStream);
                 }
-                return c1991a;
+                return c1900a;
             }
             return (OutputStream) invokeI.objValue;
         }
@@ -231,46 +229,46 @@ public final class a implements Closeable {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f71909d) {
-                    this.f71906a.a(this, false);
-                    this.f71906a.b(this.f71907b.f71913b);
+                if (this.f64380d) {
+                    this.f64377a.a(this, false);
+                    this.f64377a.b(this.f64378b.f64384b);
                 } else {
-                    this.f71906a.a(this, true);
+                    this.f64377a.a(this, true);
                 }
-                this.f71910e = true;
+                this.f64381e = true;
             }
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f71906a.a(this, false);
+                this.f64377a.a(this, false);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f71912a;
+        public final /* synthetic */ a f64383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f71913b;
+        public final String f64384b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long[] f71914c;
+        public final long[] f64385c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f71915d;
+        public boolean f64386d;
 
         /* renamed from: e  reason: collision with root package name */
-        public C1990a f71916e;
+        public C1899a f64387e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f71917f;
+        public long f64388f;
 
         public b(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -287,21 +285,21 @@ public final class a implements Closeable {
                     return;
                 }
             }
-            this.f71912a = aVar;
-            this.f71913b = str;
-            this.f71914c = new long[aVar.f71903i];
+            this.f64383a = aVar;
+            this.f64384b = str;
+            this.f64385c = new long[aVar.f64375i];
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, strArr) == null) {
-                if (strArr.length != this.f71912a.f71903i) {
+                if (strArr.length != this.f64383a.f64375i) {
                     throw b(strArr);
                 }
                 for (int i2 = 0; i2 < strArr.length; i2++) {
                     try {
-                        this.f71914c[i2] = Long.parseLong(strArr[i2]);
+                        this.f64385c[i2] = Long.parseLong(strArr[i2]);
                     } catch (NumberFormatException unused) {
                         throw b(strArr);
                     }
@@ -321,7 +319,7 @@ public final class a implements Closeable {
         public File a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new File(this.f71912a.f71897c, this.f71913b) : (File) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new File(this.f64383a.f64369c, this.f64384b) : (File) invokeI.objValue;
         }
 
         public String a() {
@@ -330,9 +328,9 @@ public final class a implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                for (long j2 : this.f71914c) {
+                for (long j : this.f64385c) {
                     sb.append(' ');
-                    sb.append(j2);
+                    sb.append(j);
                 }
                 return sb.toString();
             }
@@ -343,8 +341,8 @@ public final class a implements Closeable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                File file = this.f71912a.f71897c;
-                return new File(file, this.f71913b + ".tmp");
+                File file = this.f64383a.f64369c;
+                return new File(file, this.f64384b + ".tmp");
             }
             return (File) invokeI.objValue;
         }
@@ -363,7 +361,7 @@ public final class a implements Closeable {
                 return;
             }
         }
-        f71895a = Pattern.compile("[a-z0-9_-]{1,120}");
+        f64367a = Pattern.compile("[a-z0-9_-]{1,120}");
         p = new OutputStream() { // from class: com.kwad.sdk.core.diskcache.a.a.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -391,12 +389,12 @@ public final class a implements Closeable {
         };
     }
 
-    public a(File file, int i2, int i3, long j2) {
+    public a(File file, int i2, int i3, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)};
+            Object[] objArr = {file, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -406,16 +404,16 @@ public final class a implements Closeable {
                 return;
             }
         }
-        this.f71904j = 0L;
+        this.j = 0L;
         this.l = new LinkedHashMap<>(0, 0.75f, true);
         this.n = 0L;
-        this.f71896b = com.kwad.sdk.core.i.b.a();
+        this.f64368b = com.kwad.sdk.core.i.b.a();
         this.o = new Callable<Void>(this) { // from class: com.kwad.sdk.core.diskcache.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f71905a;
+            public final /* synthetic */ a f64376a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -432,7 +430,7 @@ public final class a implements Closeable {
                         return;
                     }
                 }
-                this.f71905a = this;
+                this.f64376a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -442,14 +440,14 @@ public final class a implements Closeable {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    synchronized (this.f71905a) {
-                        if (this.f71905a.k == null) {
+                    synchronized (this.f64376a) {
+                        if (this.f64376a.k == null) {
                             return null;
                         }
-                        this.f71905a.j();
-                        if (this.f71905a.h()) {
-                            this.f71905a.g();
-                            this.f71905a.m = 0;
+                        this.f64376a.j();
+                        if (this.f64376a.h()) {
+                            this.f64376a.g();
+                            this.f64376a.m = 0;
                         }
                         return null;
                     }
@@ -457,48 +455,48 @@ public final class a implements Closeable {
                 return (Void) invokeV.objValue;
             }
         };
-        this.f71897c = file;
-        this.f71901g = i2;
-        this.f71898d = new File(file, "journal");
-        this.f71899e = new File(file, "journal.tmp");
-        this.f71900f = new File(file, "journal.bkp");
-        this.f71903i = i3;
-        this.f71902h = j2;
+        this.f64369c = file;
+        this.f64373g = i2;
+        this.f64370d = new File(file, "journal");
+        this.f64371e = new File(file, "journal.tmp");
+        this.f64372f = new File(file, "journal.bkp");
+        this.f64375i = i3;
+        this.f64374h = j;
     }
 
-    private synchronized C1990a a(String str, long j2) {
+    private synchronized C1899a a(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, this, str, j)) == null) {
             synchronized (this) {
                 i();
                 d(str);
                 b bVar = this.l.get(str);
-                if (j2 == -1 || (bVar != null && bVar.f71917f == j2)) {
+                if (j == -1 || (bVar != null && bVar.f64388f == j)) {
                     if (bVar == null) {
                         bVar = new b(str);
                         this.l.put(str, bVar);
-                    } else if (bVar.f71916e != null) {
+                    } else if (bVar.f64387e != null) {
                         return null;
                     }
-                    C1990a c1990a = new C1990a(bVar);
-                    bVar.f71916e = c1990a;
+                    C1899a c1899a = new C1899a(bVar);
+                    bVar.f64387e = c1899a;
                     Writer writer = this.k;
                     writer.write("DIRTY " + str + '\n');
                     this.k.flush();
-                    return c1990a;
+                    return c1899a;
                 }
                 return null;
             }
         }
-        return (C1990a) invokeLJ.objValue;
+        return (C1899a) invokeLJ.objValue;
     }
 
-    public static a a(File file, int i2, int i3, long j2) {
+    public static a a(File file, int i2, int i3, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{file, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
-            if (j2 > 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{file, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
+            if (j > 0) {
                 if (i3 > 0) {
                     File file2 = new File(file, "journal.bkp");
                     if (file2.exists()) {
@@ -509,8 +507,8 @@ public final class a implements Closeable {
                             a(file2, file3, false);
                         }
                     }
-                    a aVar = new a(file, i2, i3, j2);
-                    if (aVar.f71898d.exists()) {
+                    a aVar = new a(file, i2, i3, j);
+                    if (aVar.f64370d.exists()) {
                         try {
                             aVar.e();
                             aVar.f();
@@ -522,7 +520,7 @@ public final class a implements Closeable {
                         }
                     }
                     file.mkdirs();
-                    a aVar2 = new a(file, i2, i3, j2);
+                    a aVar2 = new a(file, i2, i3, j);
                     aVar2.g();
                     return aVar2;
                 }
@@ -534,55 +532,55 @@ public final class a implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(C1990a c1990a, boolean z) {
+    public synchronized void a(C1899a c1899a, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, this, c1990a, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, this, c1899a, z) == null) {
             synchronized (this) {
-                b bVar = c1990a.f71907b;
-                if (bVar.f71916e != c1990a) {
+                b bVar = c1899a.f64378b;
+                if (bVar.f64387e != c1899a) {
                     throw new IllegalStateException();
                 }
-                if (z && !bVar.f71915d) {
-                    for (int i2 = 0; i2 < this.f71903i; i2++) {
-                        if (!c1990a.f71908c[i2]) {
-                            c1990a.b();
+                if (z && !bVar.f64386d) {
+                    for (int i2 = 0; i2 < this.f64375i; i2++) {
+                        if (!c1899a.f64379c[i2]) {
+                            c1899a.b();
                             throw new IllegalStateException("Newly created entry didn't create value for index " + i2);
                         } else if (!bVar.b(i2).exists()) {
-                            c1990a.b();
+                            c1899a.b();
                             return;
                         }
                     }
                 }
-                for (int i3 = 0; i3 < this.f71903i; i3++) {
+                for (int i3 = 0; i3 < this.f64375i; i3++) {
                     File b2 = bVar.b(i3);
                     if (!z) {
                         a(b2);
                     } else if (b2.exists()) {
                         File a2 = bVar.a(i3);
                         b2.renameTo(a2);
-                        long j2 = bVar.f71914c[i3];
+                        long j = bVar.f64385c[i3];
                         long length = a2.length();
-                        bVar.f71914c[i3] = length;
-                        this.f71904j = (this.f71904j - j2) + length;
+                        bVar.f64385c[i3] = length;
+                        this.j = (this.j - j) + length;
                     }
                 }
                 this.m++;
-                bVar.f71916e = null;
-                if (bVar.f71915d || z) {
-                    bVar.f71915d = true;
-                    this.k.write("CLEAN " + bVar.f71913b + bVar.a() + '\n');
+                bVar.f64387e = null;
+                if (bVar.f64386d || z) {
+                    bVar.f64386d = true;
+                    this.k.write("CLEAN " + bVar.f64384b + bVar.a() + '\n');
                     if (z) {
-                        long j3 = this.n;
-                        this.n = 1 + j3;
-                        bVar.f71917f = j3;
+                        long j2 = this.n;
+                        this.n = 1 + j2;
+                        bVar.f64388f = j2;
                     }
                 } else {
-                    this.l.remove(bVar.f71913b);
-                    this.k.write("REMOVE " + bVar.f71913b + '\n');
+                    this.l.remove(bVar.f64384b);
+                    this.k.write("REMOVE " + bVar.f64384b + '\n');
                 }
                 this.k.flush();
-                if (this.f71904j > this.f71902h || h()) {
-                    this.f71896b.submit(this.o);
+                if (this.j > this.f64374h || h()) {
+                    this.f64368b.submit(this.o);
                 }
             }
         }
@@ -633,11 +631,11 @@ public final class a implements Closeable {
             }
             if (indexOf2 != -1 && indexOf == 5 && str.startsWith("CLEAN")) {
                 String[] split = str.substring(indexOf2 + 1).split(" ");
-                bVar.f71915d = true;
-                bVar.f71916e = null;
+                bVar.f64386d = true;
+                bVar.f64387e = null;
                 bVar.a(split);
             } else if (indexOf2 == -1 && indexOf == 5 && str.startsWith("DIRTY")) {
-                bVar.f71916e = new C1990a(bVar);
+                bVar.f64387e = new C1899a(bVar);
             } else if (indexOf2 == -1 && indexOf == 4 && str.startsWith("READ")) {
             } else {
                 throw new IOException("unexpected journal line: " + str);
@@ -647,7 +645,7 @@ public final class a implements Closeable {
 
     private void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, this, str) == null) || f71895a.matcher(str).matches()) {
+        if (!(interceptable == null || interceptable.invokeL(65551, this, str) == null) || f64367a.matcher(str).matches()) {
             return;
         }
         throw new IllegalArgumentException("keys must match regex [a-z0-9_-]{1,120}: \"" + str + "\"");
@@ -658,14 +656,14 @@ public final class a implements Closeable {
         if (interceptable != null && interceptable.invokeV(65553, this) != null) {
             return;
         }
-        com.kwad.sdk.core.diskcache.a.b bVar = new com.kwad.sdk.core.diskcache.a.b(new FileInputStream(this.f71898d), c.f71924a);
+        com.kwad.sdk.core.diskcache.a.b bVar = new com.kwad.sdk.core.diskcache.a.b(new FileInputStream(this.f64370d), c.f64395a);
         try {
             String a2 = bVar.a();
             String a3 = bVar.a();
             String a4 = bVar.a();
             String a5 = bVar.a();
             String a6 = bVar.a();
-            if (!"libcore.io.DiskLruCache".equals(a2) || !"1".equals(a3) || !Integer.toString(this.f71901g).equals(a4) || !Integer.toString(this.f71903i).equals(a5) || !"".equals(a6)) {
+            if (!"libcore.io.DiskLruCache".equals(a2) || !"1".equals(a3) || !Integer.toString(this.f64373g).equals(a4) || !Integer.toString(this.f64375i).equals(a5) || !"".equals(a6)) {
                 throw new IOException("unexpected journal header: [" + a2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + a3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + a5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + a6 + PreferencesUtil.RIGHT_MOUNT);
             }
             int i2 = 0;
@@ -678,7 +676,7 @@ public final class a implements Closeable {
                     if (bVar.b()) {
                         g();
                     } else {
-                        this.k = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f71898d, true), c.f71924a));
+                        this.k = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f64370d, true), c.f64395a));
                     }
                     c.a(bVar);
                     return;
@@ -693,19 +691,19 @@ public final class a implements Closeable {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            a(this.f71899e);
+            a(this.f64371e);
             Iterator<b> it = this.l.values().iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 int i2 = 0;
-                if (next.f71916e == null) {
-                    while (i2 < this.f71903i) {
-                        this.f71904j += next.f71914c[i2];
+                if (next.f64387e == null) {
+                    while (i2 < this.f64375i) {
+                        this.j += next.f64385c[i2];
                         i2++;
                     }
                 } else {
-                    next.f71916e = null;
-                    while (i2 < this.f71903i) {
+                    next.f64387e = null;
+                    while (i2 < this.f64375i) {
                         a(next.a(i2));
                         a(next.b(i2));
                         i2++;
@@ -724,26 +722,26 @@ public final class a implements Closeable {
                 if (this.k != null) {
                     this.k.close();
                 }
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f71899e), c.f71924a));
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f64371e), c.f64395a));
                 bufferedWriter.write("libcore.io.DiskLruCache");
                 bufferedWriter.write(StringUtils.LF);
                 bufferedWriter.write("1");
                 bufferedWriter.write(StringUtils.LF);
-                bufferedWriter.write(Integer.toString(this.f71901g));
+                bufferedWriter.write(Integer.toString(this.f64373g));
                 bufferedWriter.write(StringUtils.LF);
-                bufferedWriter.write(Integer.toString(this.f71903i));
+                bufferedWriter.write(Integer.toString(this.f64375i));
                 bufferedWriter.write(StringUtils.LF);
                 bufferedWriter.write(StringUtils.LF);
                 for (b bVar : this.l.values()) {
-                    bufferedWriter.write(bVar.f71916e != null ? "DIRTY " + bVar.f71913b + '\n' : "CLEAN " + bVar.f71913b + bVar.a() + '\n');
+                    bufferedWriter.write(bVar.f64387e != null ? "DIRTY " + bVar.f64384b + '\n' : "CLEAN " + bVar.f64384b + bVar.a() + '\n');
                 }
                 bufferedWriter.close();
-                if (this.f71898d.exists()) {
-                    a(this.f71898d, this.f71900f, true);
+                if (this.f64370d.exists()) {
+                    a(this.f64370d, this.f64372f, true);
                 }
-                a(this.f71899e, this.f71898d, false);
-                this.f71900f.delete();
-                this.k = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f71898d, true), c.f71924a));
+                a(this.f64371e, this.f64370d, false);
+                this.f64372f.delete();
+                this.k = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f64370d, true), c.f64395a));
             }
         }
     }
@@ -770,22 +768,22 @@ public final class a implements Closeable {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            while (this.f71904j > this.f71902h) {
+            while (this.j > this.f64374h) {
                 b(this.l.entrySet().iterator().next().getKey());
             }
         }
     }
 
-    public C1990a a(String str) {
+    public C1899a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? a(str, -1L) : (C1990a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? a(str, -1L) : (C1899a) invokeL.objValue;
     }
 
     public File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71897c : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64369c : (File) invokeV.objValue;
     }
 
     public synchronized void b() {
@@ -807,20 +805,20 @@ public final class a implements Closeable {
                 i();
                 d(str);
                 b bVar = this.l.get(str);
-                if (bVar != null && bVar.f71916e == null) {
-                    for (int i2 = 0; i2 < this.f71903i; i2++) {
+                if (bVar != null && bVar.f64387e == null) {
+                    for (int i2 = 0; i2 < this.f64375i; i2++) {
                         File a2 = bVar.a(i2);
                         if (a2.exists() && !a2.delete()) {
                             throw new IOException("failed to delete " + a2);
                         }
-                        this.f71904j -= bVar.f71914c[i2];
-                        bVar.f71914c[i2] = 0;
+                        this.j -= bVar.f64385c[i2];
+                        bVar.f64385c[i2] = 0;
                     }
                     this.m++;
                     this.k.append((CharSequence) ("REMOVE " + str + '\n'));
                     this.l.remove(str);
                     if (h()) {
-                        this.f71896b.submit(this.o);
+                        this.f64368b.submit(this.o);
                     }
                     return true;
                 }
@@ -834,7 +832,7 @@ public final class a implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             close();
-            c.a(this.f71897c);
+            c.a(this.f64369c);
         }
     }
 
@@ -849,8 +847,8 @@ public final class a implements Closeable {
                 Iterator it = new ArrayList(this.l.values()).iterator();
                 while (it.hasNext()) {
                     b bVar = (b) it.next();
-                    if (bVar.f71916e != null) {
-                        bVar.f71916e.b();
+                    if (bVar.f64387e != null) {
+                        bVar.f64387e.b();
                     }
                 }
                 j();

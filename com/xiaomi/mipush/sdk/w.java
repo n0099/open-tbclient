@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77680a;
+    public int f70643a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f102a;
+    public String f103a;
 
     public w() {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public class w {
                 return;
             }
         }
-        this.f77680a = 0;
-        this.f102a = "";
+        this.f70643a = 0;
+        this.f103a = "";
     }
 
     public boolean equals(Object obj) {
@@ -42,7 +42,7 @@ public class w {
                 return false;
             }
             w wVar = (w) obj;
-            return !TextUtils.isEmpty(wVar.f102a) && wVar.f102a.equals(this.f102a);
+            return !TextUtils.isEmpty(wVar.f103a) && wVar.f103a.equals(this.f103a);
         }
         return invokeL.booleanValue;
     }

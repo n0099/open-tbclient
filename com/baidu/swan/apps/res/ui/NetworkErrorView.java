@@ -8,9 +8,9 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.c;
-import c.a.p0.a.e;
-import c.a.p0.a.h;
+import b.a.p0.a.c;
+import b.a.p0.a.e;
+import b.a.p0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class NetworkErrorView extends CommonEmptyView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int THEME_CLASIC = 0;
@@ -26,15 +26,15 @@ public class NetworkErrorView extends CommonEmptyView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46302e;
+    public int f43986e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f46303a;
+        public Object f43987a;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class NetworkErrorView extends CommonEmptyView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, view) == null) {
             a aVar = new a(1);
-            aVar.f46303a = view;
+            aVar.f43987a = view;
             BdEventBus.Companion.getDefault().post(aVar);
         }
     }
@@ -94,7 +94,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public boolean isNight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46302e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43986e == 2 : invokeV.booleanValue;
     }
 
     public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
@@ -155,7 +155,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public void updateUI(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f46302e = i2;
+            this.f43986e = i2;
             if (i2 == 2) {
                 setBackgroundColor(-16777216);
                 this.mIcon.setAlpha(0.5f);

@@ -8,27 +8,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.e;
-import i.j;
-import i.t.d;
+import h.d;
+import h.e;
+import h.j;
+import h.t.d;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BufferUntilSubscriber<T> extends d<T, T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final e f79726h;
+    public static final e f72591h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final State<T> f79727f;
+    public final State<T> f72592f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f79728g;
+    public boolean f72593g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class State<T> extends AtomicReference<e<? super T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8026705089538090368L;
@@ -61,7 +61,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,21 +80,21 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
             }
         }
 
-        @Override // i.e
+        @Override // h.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // i.e
+        @Override // h.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             }
         }
 
-        @Override // i.e
+        @Override // h.e
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -102,21 +102,21 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b<T> implements d.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final State<T> f79729e;
+        public final State<T> f72594e;
 
-        /* loaded from: classes2.dex */
-        public class a implements i.n.a {
+        /* loaded from: classes3.dex */
+        public class a implements h.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f79730e;
+            public final /* synthetic */ b f72595e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -133,14 +133,14 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                         return;
                     }
                 }
-                this.f79730e = bVar;
+                this.f72595e = bVar;
             }
 
-            @Override // i.n.a
+            @Override // h.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f79730e.f79729e.set(BufferUntilSubscriber.f79726h);
+                    this.f72595e.f72594e.set(BufferUntilSubscriber.f72591h);
                 }
             }
         }
@@ -160,39 +160,41 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                     return;
                 }
             }
-            this.f79729e = state;
+            this.f72594e = state;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // i.n.b
-        /* renamed from: a */
+        @Override // h.d.a, h.n.b
+        public /* bridge */ /* synthetic */ void call(Object obj) {
+            call((j) ((j) obj));
+        }
+
         public void call(j<? super T> jVar) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, jVar) != null) {
                 return;
             }
-            if (this.f79729e.casObserverRef(null, jVar)) {
-                jVar.add(i.u.e.a(new a(this)));
-                synchronized (this.f79729e.guard) {
+            if (this.f72594e.casObserverRef(null, jVar)) {
+                jVar.b(h.u.e.a(new a(this)));
+                synchronized (this.f72594e.guard) {
                     z = true;
-                    if (this.f79729e.emitting) {
+                    if (this.f72594e.emitting) {
                         z = false;
                     } else {
-                        this.f79729e.emitting = true;
+                        this.f72594e.emitting = true;
                     }
                 }
                 if (!z) {
                     return;
                 }
                 while (true) {
-                    Object poll = this.f79729e.buffer.poll();
+                    Object poll = this.f72594e.buffer.poll();
                     if (poll != null) {
-                        NotificationLite.a(this.f79729e.get(), poll);
+                        NotificationLite.a(this.f72594e.get(), poll);
                     } else {
-                        synchronized (this.f79729e.guard) {
-                            if (this.f79729e.buffer.isEmpty()) {
-                                this.f79729e.emitting = false;
+                        synchronized (this.f72594e.guard) {
+                            if (this.f72594e.buffer.isEmpty()) {
+                                this.f72594e.emitting = false;
                                 return;
                             }
                         }
@@ -217,7 +219,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                 return;
             }
         }
-        f79726h = new a();
+        f72591h = new a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -238,71 +240,71 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                 return;
             }
         }
-        this.f79727f = state;
+        this.f72592f = state;
     }
 
-    public static <T> BufferUntilSubscriber<T> K() {
+    public static <T> BufferUntilSubscriber<T> F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new BufferUntilSubscriber<>(new State()) : (BufferUntilSubscriber) invokeV.objValue;
     }
 
-    public final void L(Object obj) {
+    public final void G(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(1048576, this, obj) != null) {
             return;
         }
-        synchronized (this.f79727f.guard) {
-            this.f79727f.buffer.add(obj);
-            if (this.f79727f.get() != null && !this.f79727f.emitting) {
-                this.f79728g = true;
-                this.f79727f.emitting = true;
+        synchronized (this.f72592f.guard) {
+            this.f72592f.buffer.add(obj);
+            if (this.f72592f.get() != null && !this.f72592f.emitting) {
+                this.f72593g = true;
+                this.f72592f.emitting = true;
             }
         }
-        if (!this.f79728g) {
+        if (!this.f72593g) {
             return;
         }
         while (true) {
-            Object poll = this.f79727f.buffer.poll();
+            Object poll = this.f72592f.buffer.poll();
             if (poll == null) {
                 return;
             }
-            NotificationLite.a(this.f79727f.get(), poll);
+            NotificationLite.a(this.f72592f.get(), poll);
         }
     }
 
-    @Override // i.e
+    @Override // h.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f79728g) {
-                this.f79727f.get().onCompleted();
+            if (this.f72593g) {
+                this.f72592f.get().onCompleted();
             } else {
-                L(NotificationLite.b());
+                G(NotificationLite.b());
             }
         }
     }
 
-    @Override // i.e
+    @Override // h.e
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.f79728g) {
-                this.f79727f.get().onError(th);
+            if (this.f72593g) {
+                this.f72592f.get().onError(th);
             } else {
-                L(NotificationLite.c(th));
+                G(NotificationLite.c(th));
             }
         }
     }
 
-    @Override // i.e
+    @Override // h.e
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            if (this.f79728g) {
-                this.f79727f.get().onNext(t);
+            if (this.f72593g) {
+                this.f72592f.get().onNext(t);
             } else {
-                L(NotificationLite.h(t));
+                G(NotificationLite.h(t));
             }
         }
     }

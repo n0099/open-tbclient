@@ -12,14 +12,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public File f75241a;
+    public File f67599a;
 
     public b(String str) {
-        this.f75241a = new File(str);
+        this.f67599a = new File(str);
     }
 
     private void a(File file, ZipOutputStream zipOutputStream, String str) throws Exception {
@@ -34,7 +34,7 @@ public class b {
             }
             return;
         }
-        c.l.a.a.a.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
+        b.l.a.a.a.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
         if (file.length() >= 10485760) {
             return;
         }
@@ -62,8 +62,8 @@ public class b {
     }
 
     public boolean a(List<String> list) throws Exception {
-        if (!this.f75241a.exists()) {
-            this.f75241a.getParentFile().mkdirs();
+        if (!this.f67599a.exists()) {
+            this.f67599a.getParentFile().mkdirs();
         }
         ArrayList arrayList = new ArrayList();
         String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -74,7 +74,7 @@ public class b {
                 arrayList.add(file);
             }
         }
-        a(arrayList, this.f75241a);
+        a(arrayList, this.f67599a);
         return true;
     }
 }

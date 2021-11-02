@@ -20,7 +20,7 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SdkAnalyzeController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PACKAGE_NAME = "%PACKAGE_NAME%";
@@ -108,17 +108,17 @@ public class SdkAnalyzeController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void reportSdkList(Context context, long j2, JSONArray jSONArray) {
+    public void reportSdkList(Context context, long j, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{context, Long.valueOf(j2), jSONArray}) == null) {
-            this.statisAPI.reportSdkList(j2, getSdkList(context, jSONArray));
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{context, Long.valueOf(j), jSONArray}) == null) {
+            this.statisAPI.reportSdkList(j, getSdkList(context, jSONArray));
         }
     }
 
-    private void startSdkAnalyzeReport(Context context, long j2) {
+    private void startSdkAnalyzeReport(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, this, context, j2) == null) {
-            ThreadPool.getPool().execute(new Runnable(this, context, j2) { // from class: com.yy.hiidostatis.defs.controller.SdkAnalyzeController.1
+        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, this, context, j) == null) {
+            ThreadPool.getPool().execute(new Runnable(this, context, j) { // from class: com.yy.hiidostatis.defs.controller.SdkAnalyzeController.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SdkAnalyzeController this$0;
@@ -130,7 +130,7 @@ public class SdkAnalyzeController {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, Long.valueOf(j2)};
+                        Object[] objArr = {this, context, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -142,7 +142,7 @@ public class SdkAnalyzeController {
                     }
                     this.this$0 = this;
                     this.val$context = context;
-                    this.val$uid = j2;
+                    this.val$uid = j;
                 }
 
                 /* JADX WARN: Removed duplicated region for block: B:20:0x007d  */
@@ -198,10 +198,10 @@ public class SdkAnalyzeController {
         }
     }
 
-    public void reportSdkAnalyze(Context context, long j2) {
+    public void reportSdkAnalyze(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j2) == null) {
-            startSdkAnalyzeReport(context, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
+            startSdkAnalyzeReport(context, j);
         }
     }
 }

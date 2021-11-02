@@ -10,11 +10,12 @@ import com.facebook.common.internal.ImmutableList;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.internal.Suppliers;
+import com.facebook.drawee.backends.pipeline.info.ImagePerfDataListener;
 import com.facebook.imagepipeline.drawable.DrawableFactory;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class DraweeConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,21 +23,25 @@ public class DraweeConfig {
     public final ImmutableList<DrawableFactory> mCustomDrawableFactories;
     public final Supplier<Boolean> mDebugOverlayEnabledSupplier;
     @Nullable
+    public final ImagePerfDataListener mImagePerfDataListener;
+    @Nullable
     public final PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
 
     /* renamed from: com.facebook.drawee.backends.pipeline.DraweeConfig$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<DrawableFactory> mCustomDrawableFactories;
         public Supplier<Boolean> mDebugOverlayEnabledSupplier;
+        @Nullable
+        public ImagePerfDataListener mImagePerfDataListener;
         public PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
 
         public Builder() {
@@ -89,10 +94,20 @@ public class DraweeConfig {
             return (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) ? setDebugOverlayEnabledSupplier(Suppliers.of(Boolean.valueOf(z))) : (Builder) invokeZ.objValue;
         }
 
+        public Builder setImagePerfDataListener(@Nullable ImagePerfDataListener imagePerfDataListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imagePerfDataListener)) == null) {
+                this.mImagePerfDataListener = imagePerfDataListener;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
         public Builder setPipelineDraweeControllerFactory(PipelineDraweeControllerFactory pipelineDraweeControllerFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pipelineDraweeControllerFactory)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pipelineDraweeControllerFactory)) == null) {
                 this.mPipelineDraweeControllerFactory = pipelineDraweeControllerFactory;
                 return this;
             }
@@ -124,10 +139,17 @@ public class DraweeConfig {
     }
 
     @Nullable
+    public ImagePerfDataListener getImagePerfDataListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImagePerfDataListener : (ImagePerfDataListener) invokeV.objValue;
+    }
+
+    @Nullable
     public PipelineDraweeControllerFactory getPipelineDraweeControllerFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPipelineDraweeControllerFactory : (PipelineDraweeControllerFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPipelineDraweeControllerFactory : (PipelineDraweeControllerFactory) invokeV.objValue;
     }
 
     public DraweeConfig(Builder builder) {
@@ -154,5 +176,6 @@ public class DraweeConfig {
         }
         this.mDebugOverlayEnabledSupplier = of;
         this.mPipelineDraweeControllerFactory = builder.mPipelineDraweeControllerFactory;
+        this.mImagePerfDataListener = builder.mImagePerfDataListener;
     }
 }

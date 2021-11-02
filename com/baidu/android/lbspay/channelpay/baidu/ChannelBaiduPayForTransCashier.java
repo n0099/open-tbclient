@@ -21,17 +21,17 @@ import com.dxmpay.wallet.api.WalletLoginHelper;
 import com.dxmpay.wallet.base.statistics.StatServiceEvent;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ChannelBaiduPayForTransCashier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelBaiduPayForTransCashier f36845a;
+        public static ChannelBaiduPayForTransCashier f34896a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,14 +47,14 @@ public class ChannelBaiduPayForTransCashier {
                     return;
                 }
             }
-            f36845a = new ChannelBaiduPayForTransCashier();
+            f34896a = new ChannelBaiduPayForTransCashier();
         }
     }
 
     public static ChannelBaiduPayForTransCashier getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f36845a : (ChannelBaiduPayForTransCashier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f34896a : (ChannelBaiduPayForTransCashier) invokeV.objValue;
     }
 
     private String getNotify(String str) {
@@ -129,10 +129,10 @@ public class ChannelBaiduPayForTransCashier {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f36843a;
+            public final /* synthetic */ Context f34894a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ChannelBaiduPayForTransCashier f36844b;
+            public final /* synthetic */ ChannelBaiduPayForTransCashier f34895b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -149,8 +149,8 @@ public class ChannelBaiduPayForTransCashier {
                         return;
                     }
                 }
-                this.f36844b = this;
-                this.f36843a = context;
+                this.f34895b = this;
+                this.f34894a = context;
             }
 
             @Override // com.baidu.android.pay.PayCallBack
@@ -167,7 +167,7 @@ public class ChannelBaiduPayForTransCashier {
             public void onPayResult(int i2, String str3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                    this.f36844b.handlepayResult(this.f36843a, i2, str3);
+                    this.f34895b.handlepayResult(this.f34894a, i2, str3);
                 }
             }
         }, new HashMap(), precashierCreateOrderResponse, null);

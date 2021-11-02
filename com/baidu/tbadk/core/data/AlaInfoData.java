@@ -3,9 +3,8 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
-import androidx.core.app.NotificationCompatJellybean;
-import c.a.e.e.p.k;
-import c.a.q0.s.q.g;
+import b.a.e.e.p.k;
+import b.a.q0.s.q.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
@@ -23,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AlaInfoData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AlaInfoData> CREATOR;
@@ -78,7 +77,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public long thread_id;
     public transient AlaUserInfoData user_info;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<AlaInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -319,7 +318,7 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.distance = jSONObject.optDouble("distance");
             this.appId = jSONObject.optString("third_app_id");
             this.thread_id = jSONObject.optLong("thread_id");
-            JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompatJellybean.KEY_LABEL);
+            JSONObject optJSONObject = jSONObject.optJSONObject("label");
             if (optJSONObject != null) {
                 g gVar = new g();
                 this.label = gVar;

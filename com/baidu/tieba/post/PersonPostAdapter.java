@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PAGE_COUNT = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f56236a;
+    public int[] f53361a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonThreadFragment f56237b;
+    public PersonThreadFragment f53362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PersonReplyFragment f56238c;
+    public PersonReplyFragment f53363c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
@@ -49,15 +49,15 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString(PersonPostActivity.KEY_EMPTYVIEW_TXT, personPostActivity.getEmptyViewText());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
-        this.f56238c = personReplyFragment;
+        this.f53363c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.f56238c.setNoNetRefreshListener(personPostActivity);
+        this.f53363c.setNoNetRefreshListener(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
-        this.f56237b = personThreadFragment;
+        this.f53362b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.f56237b.setNoNetRefreshListener(personPostActivity);
-        this.f56237b.setNavigationBarRedTipListener(personPostActivity);
-        this.f56236a = new int[]{0, 1};
+        this.f53362b.setNoNetRefreshListener(personPostActivity);
+        this.f53362b.setNavigationBarRedTipListener(personPostActivity);
+        this.f53361a = new int[]{0, 1};
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -79,9 +79,9 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
                 if (i2 != 1) {
                     return null;
                 }
-                return this.f56238c;
+                return this.f53363c;
             }
-            return this.f56237b;
+            return this.f53362b;
         }
         return (Fragment) invokeI.objValue;
     }
@@ -89,12 +89,12 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public int getItemPageType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f56236a[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f53361a[i2] : invokeI.intValue;
     }
 
     public PersonThreadFragment getPersonThreadFragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56237b : (PersonThreadFragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53362b : (PersonThreadFragment) invokeV.objValue;
     }
 }

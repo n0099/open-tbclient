@@ -18,13 +18,13 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NHFinanceGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f61627a;
+    public List<BaseItemView> f58512a;
     public GridLayout mGrid;
     public NHTitleView mTitle;
 
@@ -46,14 +46,14 @@ public class NHFinanceGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61627a = new ArrayList();
+        this.f58512a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61627a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58512a : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -98,7 +98,7 @@ public class NHFinanceGroup extends BaseItemLayout {
                 NHFinanceItem nHFinanceItem = new NHFinanceItem(getContext());
                 nHFinanceItem.setData(dataItemArr[i3], getWalletInterface());
                 this.mGrid.addView(nHFinanceItem);
-                this.f61627a.add(nHFinanceItem);
+                this.f58512a.add(nHFinanceItem);
             }
         }
     }
@@ -122,6 +122,6 @@ public class NHFinanceGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61627a = new ArrayList();
+        this.f58512a = new ArrayList();
     }
 }

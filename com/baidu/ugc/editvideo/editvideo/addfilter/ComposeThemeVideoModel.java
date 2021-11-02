@@ -5,15 +5,15 @@ import android.content.Context;
 import android.media.MediaMetadataRetriever;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.a.f.a;
-import c.a.a0.b.a.j;
-import c.a.x0.b;
-import c.a.x0.t.c;
-import c.a.x0.t.d;
-import c.a.x0.t.h;
-import c.a.x0.t.m;
-import c.a.x0.t.n;
-import c.a.x0.t.u;
+import b.a.a0.a.f.a;
+import b.a.a0.b.a.j;
+import b.a.x0.b;
+import b.a.x0.t.c;
+import b.a.x0.t.d;
+import b.a.x0.t.h;
+import b.a.x0.t.m;
+import b.a.x0.t.n;
+import b.a.x0.t.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -49,7 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @TargetApi(18)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ComposeThemeVideoModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +155,7 @@ public class ComposeThemeVideoModel {
                 return;
             }
             j jVar = new j();
-            jVar.j(b.d().b());
+            jVar.j(b.c().getContext());
             multiMediaOutputSurface.setVlogCore(jVar);
             MediaTrackConfig mediaTrackConfig2 = this.editTrackConfig;
             jVar.e(mediaTrackConfig2.mediaTracks, mediaTrackConfig2.shaderConfigMapDebug);
@@ -855,11 +855,11 @@ public class ComposeThemeVideoModel {
         }
     }
 
-    public void setClipRange(long j2, long j3) {
+    public void setClipRange(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.mClipPoint = j2;
-            this.mClipDuration = j3;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.mClipPoint = j;
+            this.mClipDuration = j2;
         }
     }
 

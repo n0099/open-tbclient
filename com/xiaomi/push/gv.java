@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.UnknownHostException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class gv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ew f78098a;
+        public ew f71053a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f459a;
+        public String f460a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -60,13 +60,13 @@ public final class gv {
             String str = exc2.getClass().getSimpleName() + ":" + message;
             int a2 = fn.a(exc2);
             if (a2 != 0) {
-                aVar.f78098a = ew.a(ew.l.a() + a2);
+                aVar.f71053a = ew.a(ew.l.a() + a2);
             }
-            if (aVar.f78098a == null) {
-                aVar.f78098a = ew.t;
+            if (aVar.f71053a == null) {
+                aVar.f71053a = ew.t;
             }
-            if (aVar.f78098a == ew.t) {
-                aVar.f459a = str;
+            if (aVar.f71053a == ew.t) {
+                aVar.f460a = str;
             }
             return aVar;
         }
@@ -107,22 +107,22 @@ public final class gv {
             String str = exc2.getClass().getSimpleName() + ":" + message;
             if (a2 != 0) {
                 ew a3 = ew.a(ew.v.a() + a2);
-                aVar.f78098a = a3;
+                aVar.f71053a = a3;
                 if (a3 == ew.G && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
                     ewVar = ew.F;
                 }
-                ewVar2 = aVar.f78098a;
+                ewVar2 = aVar.f71053a;
                 if (ewVar2 != ew.D || ewVar2 == ew.E || ewVar2 == ew.G) {
-                    aVar.f459a = str;
+                    aVar.f460a = str;
                 }
                 return aVar;
             }
             ewVar = ew.E;
-            aVar.f78098a = ewVar;
-            ewVar2 = aVar.f78098a;
+            aVar.f71053a = ewVar;
+            ewVar2 = aVar.f71053a;
             if (ewVar2 != ew.D) {
             }
-            aVar.f459a = str;
+            aVar.f460a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -156,23 +156,23 @@ public final class gv {
             } else if (a2 == 199) {
                 ewVar = ew.O;
             } else if (a2 == 499) {
-                aVar.f78098a = ew.R;
+                aVar.f71053a = ew.R;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                     ewVar = ew.Q;
                 }
-                ewVar2 = aVar.f78098a;
+                ewVar2 = aVar.f71053a;
                 if (ewVar2 != ew.O || ewVar2 == ew.P || ewVar2 == ew.R) {
-                    aVar.f459a = str;
+                    aVar.f460a = str;
                 }
                 return aVar;
             } else {
                 ewVar = a2 != 109 ? a2 != 110 ? ew.P : ew.N : ew.M;
             }
-            aVar.f78098a = ewVar;
-            ewVar2 = aVar.f78098a;
+            aVar.f71053a = ewVar;
+            ewVar2 = aVar.f71053a;
             if (ewVar2 != ew.O) {
             }
-            aVar.f459a = str;
+            aVar.f460a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -203,23 +203,23 @@ public final class gv {
             } else if (a2 == 199) {
                 ewVar = ew.aa;
             } else if (a2 == 499) {
-                aVar.f78098a = ew.ad;
+                aVar.f71053a = ew.ad;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                     ewVar = ew.ac;
                 }
-                ewVar2 = aVar.f78098a;
+                ewVar2 = aVar.f71053a;
                 if (ewVar2 != ew.aa || ewVar2 == ew.ab || ewVar2 == ew.ad) {
-                    aVar.f459a = str;
+                    aVar.f460a = str;
                 }
                 return aVar;
             } else {
                 ewVar = a2 != 109 ? a2 != 110 ? ew.ab : ew.Z : ew.Y;
             }
-            aVar.f78098a = ewVar;
-            ewVar2 = aVar.f78098a;
+            aVar.f71053a = ewVar;
+            ewVar2 = aVar.f71053a;
             if (ewVar2 != ew.aa) {
             }
-            aVar.f459a = str;
+            aVar.f460a = str;
             return aVar;
         }
         return (a) invokeL.objValue;

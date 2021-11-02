@@ -26,37 +26,35 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class j extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40216b;
+    public String f38132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40217c;
+    public String f38133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40218d;
+    public String f38134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40219e;
+    public String f38135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40220f;
+    public String f38136f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40221g;
+    public String f38137g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f40222h;
+    public String f38138h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f40223i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f40224j;
+    public String f38139i;
+    public String j;
     public LivenessRecogDTO k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,46 +75,46 @@ public class j extends l {
                 return;
             }
         }
-        this.f40219e = "1";
+        this.f38135e = "1";
         String zid2 = RimGlobalUtils.getZid2();
-        this.f40218d = zid2;
+        this.f38134d = zid2;
         if (TextUtils.isEmpty(zid2)) {
-            this.f40217c = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.f38133c = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40222h = str;
+            this.f38138h = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f40223i = str;
+            this.f38139i = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f40224j = str;
+            this.j = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f40221g = str;
+            this.f38137g = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f40216b = str;
+            this.f38132b = str;
         }
     }
 
@@ -131,7 +129,7 @@ public class j extends l {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f40220f = str;
+            this.f38136f = str;
         }
     }
 
@@ -170,29 +168,29 @@ public class j extends l {
                 }
                 arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.k.serviceType));
                 arrayList.add(new RestNameValuePair("app", "android"));
-                arrayList.add(new RestNameValuePair("skey", this.f40222h));
-                arrayList.add(new RestNameValuePair("data", this.f40223i));
-                arrayList.add(new RestNameValuePair("deviceId", this.f40224j));
+                arrayList.add(new RestNameValuePair("skey", this.f38138h));
+                arrayList.add(new RestNameValuePair("data", this.f38139i));
+                arrayList.add(new RestNameValuePair("deviceId", this.j));
             }
             String randomString = RandomUtils.getRandomString(4096);
-            arrayList.add(new RestNameValuePair("imgdigests", this.f40216b));
+            arrayList.add(new RestNameValuePair("imgdigests", this.f38132b));
             try {
-                arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f40231a, randomString).getBytes("UTF-8"))));
+                arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f38146a, randomString).getBytes("UTF-8"))));
             } catch (UnsupportedEncodingException e3) {
                 e3.printStackTrace();
             }
             arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-            if (!TextUtils.isEmpty(this.f40218d)) {
-                arrayList.add(new RestNameValuePair("zid2", this.f40218d));
-            } else if (!TextUtils.isEmpty(this.f40217c)) {
-                arrayList.add(new RestNameValuePair("zid", this.f40217c));
+            if (!TextUtils.isEmpty(this.f38134d)) {
+                arrayList.add(new RestNameValuePair("zid2", this.f38134d));
+            } else if (!TextUtils.isEmpty(this.f38133c)) {
+                arrayList.add(new RestNameValuePair("zid", this.f38133c));
             }
-            arrayList.add(new RestNameValuePair("last", this.f40219e));
-            if (!TextUtils.isEmpty(this.f40220f)) {
-                arrayList.add(new RestNameValuePair("callbackkey", this.f40220f));
+            arrayList.add(new RestNameValuePair("last", this.f38135e));
+            if (!TextUtils.isEmpty(this.f38136f)) {
+                arrayList.add(new RestNameValuePair("callbackkey", this.f38136f));
             }
-            if (!TextUtils.isEmpty(this.f40221g)) {
-                arrayList.add(new RestNameValuePair("need_confirm", this.f40221g));
+            if (!TextUtils.isEmpty(this.f38137g)) {
+                arrayList.add(new RestNameValuePair("need_confirm", this.f38137g));
             }
             return arrayList;
         }
@@ -246,7 +244,7 @@ public class j extends l {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f40219e = z ? "1" : "0";
+            this.f38135e = z ? "1" : "0";
         }
     }
 

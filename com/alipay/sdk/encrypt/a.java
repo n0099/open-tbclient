@@ -11,39 +11,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f36019a = 128;
+    public static final int f34117a = 128;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f36020b = 64;
+    public static final int f34118b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f36021c = 24;
+    public static final int f34119c = 24;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f36022d = 8;
+    public static final int f34120d = 8;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f36023e = 16;
+    public static final int f34121e = 16;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f36024f = 4;
+    public static final int f34122f = 4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f36025g = -128;
+    public static final int f34123g = -128;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final char f36026h = '=';
+    public static final char f34124h = '=';
 
     /* renamed from: i  reason: collision with root package name */
-    public static final byte[] f36027i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final char[] f36028j;
+    public static final byte[] f34125i;
+    public static final char[] j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,14 +59,14 @@ public final class a {
                 return;
             }
         }
-        f36027i = new byte[128];
-        f36028j = new char[64];
+        f34125i = new byte[128];
+        j = new char[64];
         int i4 = 0;
         for (int i5 = 0; i5 < 128; i5++) {
-            f36027i[i5] = -1;
+            f34125i[i5] = -1;
         }
         for (int i6 = 90; i6 >= 65; i6--) {
-            f36027i[i6] = (byte) (i6 - 65);
+            f34125i[i6] = (byte) (i6 - 65);
         }
         int i7 = 122;
         while (true) {
@@ -76,7 +74,7 @@ public final class a {
             if (i7 < 97) {
                 break;
             }
-            f36027i[i7] = (byte) ((i7 - 97) + 26);
+            f34125i[i7] = (byte) ((i7 - 97) + 26);
             i7--;
         }
         int i8 = 57;
@@ -85,27 +83,27 @@ public final class a {
             if (i8 < 48) {
                 break;
             }
-            f36027i[i8] = (byte) ((i8 - 48) + 52);
+            f34125i[i8] = (byte) ((i8 - 48) + 52);
             i8--;
         }
-        byte[] bArr = f36027i;
+        byte[] bArr = f34125i;
         bArr[43] = 62;
         bArr[47] = 63;
         for (int i9 = 0; i9 <= 25; i9++) {
-            f36028j[i9] = (char) (i9 + 65);
+            j[i9] = (char) (i9 + 65);
         }
         int i10 = 0;
         while (i2 <= 51) {
-            f36028j[i2] = (char) (i10 + 97);
+            j[i2] = (char) (i10 + 97);
             i2++;
             i10++;
         }
         while (i3 <= 61) {
-            f36028j[i3] = (char) (i4 + 48);
+            j[i3] = (char) (i4 + 48);
             i3++;
             i4++;
         }
-        char[] cArr = f36028j;
+        char[] cArr = j;
         cArr[62] = '+';
         cArr[63] = '/';
     }
@@ -127,7 +125,7 @@ public final class a {
     public static boolean a(char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 < 128 && f36027i[c2] != -1 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 < 128 && f34125i[c2] != -1 : invokeCommon.booleanValue;
     }
 
     public static boolean b(char c2) {
@@ -182,7 +180,7 @@ public final class a {
                 byte b8 = (byte) i13;
                 int i14 = (b4 & ByteCompanionObject.MIN_VALUE) == 0 ? b4 >> 6 : (b4 >> 6) ^ GDiffPatcher.COPY_INT_UBYTE;
                 int i15 = i6 + 1;
-                char[] cArr2 = f36028j;
+                char[] cArr2 = j;
                 cArr[i6] = cArr2[b7];
                 int i16 = i15 + 1;
                 cArr[i15] = cArr2[(b6 << 4) | b8];
@@ -202,12 +200,12 @@ public final class a {
                     i19 ^= 192;
                 }
                 int i20 = i6 + 1;
-                char[] cArr3 = f36028j;
+                char[] cArr3 = j;
                 cArr[i6] = cArr3[(byte) i19];
                 int i21 = i20 + 1;
                 cArr[i20] = cArr3[b10 << 4];
-                cArr[i21] = f36026h;
-                cArr[i21 + 1] = f36026h;
+                cArr[i21] = f34124h;
+                cArr[i21 + 1] = f34124h;
             } else if (i2 == 16) {
                 byte b11 = bArr[i5];
                 byte b12 = bArr[i5 + 1];
@@ -225,12 +223,12 @@ public final class a {
                     i25 ^= 240;
                 }
                 int i26 = i6 + 1;
-                char[] cArr4 = f36028j;
+                char[] cArr4 = j;
                 cArr[i6] = cArr4[b15];
                 int i27 = i26 + 1;
                 cArr[i26] = cArr4[((byte) i25) | (b14 << 4)];
                 cArr[i27] = cArr4[b13 << 2];
-                cArr[i27 + 1] = f36026h;
+                cArr[i27 + 1] = f34124h;
             }
             return new String(cArr);
         }
@@ -270,7 +268,7 @@ public final class a {
                             int i9 = i8 + 1;
                             char c5 = charArray[i8];
                             if (a(c5)) {
-                                byte[] bArr2 = f36027i;
+                                byte[] bArr2 = f34125i;
                                 byte b2 = bArr2[c2];
                                 byte b3 = bArr2[c3];
                                 byte b4 = bArr2[c4];
@@ -295,14 +293,14 @@ public final class a {
                 int i13 = i12 + 1;
                 char c7 = charArray[i12];
                 if (a(c7)) {
-                    byte[] bArr3 = f36027i;
+                    byte[] bArr3 = f34125i;
                     byte b6 = bArr3[c6];
                     byte b7 = bArr3[c7];
                     int i14 = i13 + 1;
                     char c8 = charArray[i13];
                     char c9 = charArray[i14];
                     if (a(c8) && a(c9)) {
-                        byte[] bArr4 = f36027i;
+                        byte[] bArr4 = f34125i;
                         byte b8 = bArr4[c8];
                         byte b9 = bArr4[c9];
                         int i15 = i5 + 1;
@@ -322,7 +320,7 @@ public final class a {
                     } else if (b(c8) || !b(c9)) {
                         return null;
                     } else {
-                        byte b10 = f36027i[c8];
+                        byte b10 = f34125i[c8];
                         if ((b10 & 3) != 0) {
                             return null;
                         }

@@ -18,23 +18,24 @@ import com.cmic.sso.sdk.b.c.d;
 import com.cmic.sso.sdk.d.h;
 import com.cmic.sso.sdk.d.k;
 import com.cmic.sso.sdk.d.l;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f69429c;
+    public static a f61875c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.cmic.sso.sdk.b.c.a f69430a;
+    public final com.cmic.sso.sdk.b.c.a f61876a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f69431b;
+    public final Context f61877b;
 
     static {
         InterceptResult invokeClinit;
@@ -66,8 +67,8 @@ public class a {
                 return;
             }
         }
-        this.f69431b = context.getApplicationContext();
-        this.f69430a = com.cmic.sso.sdk.b.c.a.a();
+        this.f61877b = context.getApplicationContext();
+        this.f61876a = com.cmic.sso.sdk.b.c.a.a();
     }
 
     private void b(com.cmic.sso.sdk.a aVar, b bVar) {
@@ -79,22 +80,22 @@ public class a {
                 b(aVar);
             }
             if (aVar.c("logintype") == 1) {
-                aVar.a("userCapaid", "200");
+                aVar.a("userCapaid", BasicPushStatus.SUCCESS_CODE);
             } else if (aVar.c("logintype") == 0) {
                 aVar.a("userCapaid", "50");
             }
-            this.f69430a.a(aVar, new d(this, aVar, bVar) { // from class: com.cmic.sso.sdk.auth.a.1
+            this.f61876a.a(aVar, new d(this, aVar, bVar) { // from class: com.cmic.sso.sdk.auth.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.cmic.sso.sdk.a f69432a;
+                public final /* synthetic */ com.cmic.sso.sdk.a f61878a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f69433b;
+                public final /* synthetic */ b f61879b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f69434c;
+                public final /* synthetic */ a f61880c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -111,16 +112,16 @@ public class a {
                             return;
                         }
                     }
-                    this.f69434c = this;
-                    this.f69432a = aVar;
-                    this.f69433b = bVar;
+                    this.f61880c = this;
+                    this.f61878a = aVar;
+                    this.f61879b = bVar;
                 }
 
                 @Override // com.cmic.sso.sdk.b.c.d
                 public void a(String str, String str2, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                        this.f69434c.a(this.f69432a, this.f69433b, str, str2, jSONObject);
+                        this.f61880c.a(this.f61878a, this.f61879b, str, str2, jSONObject);
                     }
                 }
             });
@@ -131,14 +132,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f69429c == null) {
+            if (f61875c == null) {
                 synchronized (a.class) {
-                    if (f69429c == null) {
-                        f69429c = new a(context);
+                    if (f61875c == null) {
+                        f61875c = new a(context);
                     }
                 }
             }
-            return f69429c;
+            return f61875c;
         }
         return (a) invokeL.objValue;
     }
@@ -177,7 +178,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            aVar.a(b.a.f69435a, bArr);
+            aVar.a(b.a.f61881a, bArr);
             aVar.a("authType", "3");
         }
     }
@@ -185,8 +186,8 @@ public class a {
     private void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
-            String packageName = this.f69431b.getPackageName();
-            String a2 = com.cmic.sso.sdk.d.d.a(l.a(this.f69431b, packageName));
+            String packageName = this.f61877b.getPackageName();
+            String a2 = com.cmic.sso.sdk.d.d.a(l.a(this.f61877b, packageName));
             aVar.a("apppackage", packageName);
             aVar.a("appsign", a2);
         }
@@ -214,7 +215,7 @@ public class a {
                 if (TextUtils.isEmpty(optString2)) {
                     b2 = jSONObject.toString();
                 } else {
-                    b2 = com.cmic.sso.sdk.d.a.b(aVar.a(b.a.f69435a), optString2);
+                    b2 = com.cmic.sso.sdk.d.a.b(aVar.a(b.a.f61881a), optString2);
                 }
                 String str7 = null;
                 try {
@@ -283,7 +284,7 @@ public class a {
                 aVar.a("phonescrip", str6);
                 aVar.a("securityphone", str5);
                 if (jSONObject3 != null) {
-                    h.a(this.f69431b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
+                    h.a(this.f61877b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
                     if (aVar.c("logintype") == 3) {
                         bVar.a(str, "true", aVar, c.a(str5));
                         return;

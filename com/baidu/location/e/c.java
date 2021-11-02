@@ -9,37 +9,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f41323c;
+    public static c f39181c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41324a;
+    public String f39182a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41325b;
+    public int f39183b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f41326d;
+    public int f39184d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41327e;
+    public int f39185e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41328f;
+    public int f39186f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41329g;
+    public int f39187g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41330h;
+    public int f39188h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41331i;
+    public int f39189i;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -54,14 +54,14 @@ public class c {
                 return;
             }
         }
-        this.f41324a = "firll.dat";
-        this.f41325b = 3164;
-        this.f41326d = 0;
-        this.f41327e = 20;
-        this.f41328f = 40;
-        this.f41329g = 60;
-        this.f41330h = 80;
-        this.f41331i = 100;
+        this.f39182a = "firll.dat";
+        this.f39183b = 3164;
+        this.f39184d = 0;
+        this.f39185e = 20;
+        this.f39186f = 40;
+        this.f39187g = 60;
+        this.f39188h = 80;
+        this.f39189i = 100;
     }
 
     private long a(int i2) {
@@ -71,14 +71,14 @@ public class c {
         long readLong;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            String j2 = k.j();
-            if (j2 == null) {
+            String j = k.j();
+            if (j == null) {
                 return -1L;
             }
             RandomAccessFile randomAccessFile2 = null;
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(j2 + File.separator + this.f41324a, "rw");
+                    randomAccessFile = new RandomAccessFile(j + File.separator + this.f39182a, "rw");
                 } catch (IOException unused) {
                 }
                 try {
@@ -123,41 +123,41 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f41323c == null) {
-                f41323c = new c();
+            if (f39181c == null) {
+                f39181c = new c();
             }
-            return f41323c;
+            return f39181c;
         }
         return (c) invokeV.objValue;
     }
 
-    private void a(int i2, long j2) {
-        String j3;
+    private void a(int i2, long j) {
+        String j2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (j3 = k.j()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (j2 = k.j()) == null) {
             return;
         }
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(j3 + File.separator + this.f41324a, "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(j2 + File.separator + this.f39182a, "rw");
             randomAccessFile.seek(i2);
-            randomAccessFile.writeInt(this.f41325b);
-            randomAccessFile.writeLong(j2);
-            randomAccessFile.writeInt(this.f41325b);
+            randomAccessFile.writeInt(this.f39183b);
+            randomAccessFile.writeLong(j);
+            randomAccessFile.writeInt(this.f39183b);
             randomAccessFile.close();
         } catch (Exception unused) {
         }
     }
 
-    public void a(long j2) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            a(this.f41326d, j2);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            a(this.f39184d, j);
         }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f41326d) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f39184d) : invokeV.longValue;
     }
 }

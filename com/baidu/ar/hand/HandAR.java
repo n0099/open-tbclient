@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HandAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HandAR";
@@ -56,30 +56,30 @@ public class HandAR extends c {
         this.cb = null;
     }
 
-    private void b(long j2) {
+    private void b(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j2) == null) || (algoHandleController = this.cb) == null || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) || (algoHandleController = this.cb) == null || j <= 0) {
             return;
         }
-        long handleType = algoHandleController.getHandleType(j2);
+        long handleType = algoHandleController.getHandleType(j);
         HandDetector handDetector = this.qu;
         if (handDetector == null || handleType != 19) {
             return;
         }
-        handDetector.b(j2);
+        handDetector.b(j);
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j2) {
+    public void a(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            super.a(j2);
-            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != 19) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            super.a(j);
+            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != 19) {
                 return;
             }
-            b(j2);
+            b(j);
         }
     }
 

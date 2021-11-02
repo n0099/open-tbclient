@@ -175,11 +175,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), drawable, Boolean.valueOf(z)})) == null) {
                 int addChild = super.addChild(drawable);
                 long generateTransitionKey = generateTransitionKey(i2, i3);
-                long j2 = z ? REVERSIBLE_FLAG_BIT : 0L;
-                long j3 = addChild;
-                this.mTransitions.append(generateTransitionKey, Long.valueOf(j3 | j2));
+                long j = z ? REVERSIBLE_FLAG_BIT : 0L;
+                long j2 = addChild;
+                this.mTransitions.append(generateTransitionKey, Long.valueOf(j2 | j));
                 if (z) {
-                    this.mTransitions.append(generateTransitionKey(i3, i2), Long.valueOf(4294967296L | j3 | j2));
+                    this.mTransitions.append(generateTransitionKey(i3, i2), Long.valueOf(4294967296L | j2 | j));
                 }
                 return addChild;
             }
@@ -918,8 +918,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable.Callback
-    public /* bridge */ /* synthetic */ void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
-        super.scheduleDrawable(drawable, runnable, j2);
+    public /* bridge */ /* synthetic */ void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
+        super.scheduleDrawable(drawable, runnable, j);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable

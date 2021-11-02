@@ -1,5 +1,5 @@
 package com.baidu.ufosdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface GetNoticeFlagCallBack {
     void getNoticeFlagResult(String str);
 }

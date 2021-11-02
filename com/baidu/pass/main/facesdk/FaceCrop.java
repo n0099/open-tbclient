@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FaceCrop {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceCrop";
@@ -59,26 +59,26 @@ public class FaceCrop {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native BDFaceImageInstance nativeCropFaceByBox(long j2, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f2, int[] iArr);
+    private native BDFaceImageInstance nativeCropFaceByBox(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f2, int[] iArr);
 
-    private native BDFaceIsOutBoundary nativeCropFaceByBoxIsOutofBoundary(long j2, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
+    private native BDFaceIsOutBoundary nativeCropFaceByBoxIsOutofBoundary(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
 
-    private native BDFaceImageInstance nativeCropFaceByBoxParam(long j2, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
+    private native BDFaceImageInstance nativeCropFaceByBoxParam(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
 
-    private native BDFaceImageInstance nativeCropFaceByLandmark(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, float f2, boolean z, int[] iArr);
+    private native BDFaceImageInstance nativeCropFaceByLandmark(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, float f2, boolean z, int[] iArr);
 
-    private native BDFaceIsOutBoundary nativeCropFaceByLandmarkIsOutofBoundary(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
+    private native BDFaceIsOutBoundary nativeCropFaceByLandmarkIsOutofBoundary(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
 
-    private native BDFaceImageInstance nativeCropFaceByLandmarkParam(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
+    private native BDFaceImageInstance nativeCropFaceByLandmarkParam(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
 
-    private native long nativeCropFaceByLandmarkParamInstance(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
+    private native long nativeCropFaceByLandmarkParamInstance(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeCropImageInit(long j2);
+    public native int nativeCropImageInit(long j);
 
     private native BDFaceImageInstance nativeResizeImage(BDFaceImageInstance bDFaceImageInstance, int i2, BDFaceSDKCommon.BDFaceImageType bDFaceImageType);
 
-    private native int nativeUnInitCropImage(long j2);
+    private native int nativeUnInitCropImage(long j);
 
     public BDFaceImageInstance cropFaceByBox(BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f2, AtomicInteger atomicInteger) {
         InterceptResult invokeCommon;

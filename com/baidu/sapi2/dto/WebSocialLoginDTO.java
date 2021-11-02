@@ -6,12 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class WebSocialLoginDTO extends SapiWebDTO {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
     public boolean finishActivityAfterSuc;
+    public Boolean isReleaseAllCallback;
     public SocialType socialType;
     public String statExtra;
 
@@ -29,5 +30,6 @@ public class WebSocialLoginDTO extends SapiWebDTO {
             }
         }
         this.finishActivityAfterSuc = true;
+        this.isReleaseAllCallback = Boolean.TRUE;
     }
 }

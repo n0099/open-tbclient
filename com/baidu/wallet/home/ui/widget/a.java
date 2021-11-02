@@ -37,25 +37,25 @@ import com.baidu.wallet.home.ui.widget.umoneyhome.UMHBigCreditCardGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHGuideGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHHeadGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHNoticeBarGroup;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C1832a {
+    /* loaded from: classes10.dex */
+    public static class C1791a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f61497a;
+        public static a f58384a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -71,7 +71,7 @@ public class a {
                     return;
                 }
             }
-            f61497a = new a(null);
+            f58384a = new a(null);
         }
     }
 
@@ -82,7 +82,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1832a.f61497a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1791a.f58384a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -130,10 +130,10 @@ public class a {
             if (configData.group_layout.equals("201")) {
                 return new NHAssetGroup(context);
             }
-            if (configData.group_layout.equals("202")) {
+            if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202)) {
                 return new NHToolGroup(context);
             }
-            if (configData.group_layout.equals("203")) {
+            if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE203)) {
                 return new NHBannerGroup(context);
             }
             if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE204)) {

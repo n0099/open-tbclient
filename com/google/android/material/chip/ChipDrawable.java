@@ -37,7 +37,6 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.graphics.drawable.TintAwareDrawable;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.text.BidiFormatter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -49,6 +48,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.google.android.material.R;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.canvas.CanvasCompat;
@@ -62,7 +62,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDrawable, Drawable.Callback, TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -164,7 +164,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     public TextUtils.TruncateAt truncateAt;
     public boolean useCompatRipple;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface Delegate {
         void onChipDrawableSizeChange();
     }
@@ -528,10 +528,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
             calculateCloseIconBounds(rect, this.rectF);
             canvas.drawRect(this.rectF, this.debugPaint);
         }
-        this.debugPaint.setColor(ColorUtils.setAlphaComponent(SupportMenu.CATEGORY_MASK, 127));
+        this.debugPaint.setColor(ColorUtils.setAlphaComponent(-65536, 127));
         calculateChipTouchBounds(rect, this.rectF);
         canvas.drawRect(this.rectF, this.debugPaint);
-        this.debugPaint.setColor(ColorUtils.setAlphaComponent(-16711936, 127));
+        this.debugPaint.setColor(ColorUtils.setAlphaComponent(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 127));
         calculateCloseIconTouchBounds(rect, this.rectF);
         canvas.drawRect(this.rectF, this.debugPaint);
     }
@@ -1227,13 +1227,13 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
         Drawable.Callback callback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) || (callback = getCallback()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) || (callback = getCallback()) == null) {
             return;
         }
-        callback.scheduleDrawable(this, runnable, j2);
+        callback.scheduleDrawable(this, runnable, j);
     }
 
     @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable

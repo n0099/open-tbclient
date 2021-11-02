@@ -14,7 +14,7 @@ import com.xiaomi.push.ic;
 import com.xiaomi.push.id;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class ar {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, aqVar, hlVar)) == null) {
-            return aqVar.f902a.getInt(a(hlVar), as.f78479a[hlVar.ordinal()] != 1 ? 0 : 1);
+            return aqVar.f903a.getInt(a(hlVar), as.f71418a[hlVar.ordinal()] != 1 ? 0 : 1);
         }
         return invokeLL.intValue;
     }
@@ -49,10 +49,10 @@ public class ar {
                 int a2 = hqVar.a();
                 hm a3 = hm.a(hqVar.b());
                 if (a3 != null) {
-                    if (z && hqVar.f519a) {
+                    if (z && hqVar.f520a) {
                         arrayList.add(new Pair(Integer.valueOf(a2), null));
                     } else {
-                        int i2 = as.f78480b[a3.ordinal()];
+                        int i2 = as.f71419b[a3.ordinal()];
                         arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m396a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m395a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
                     }
                 }
@@ -65,7 +65,7 @@ public class ar {
     public static void a(aq aqVar, hl hlVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, null, aqVar, hlVar, i2) == null) {
-            aqVar.f902a.edit().putInt(a(hlVar), i2).commit();
+            aqVar.f903a.edit().putInt(a(hlVar), i2).commit();
         }
     }
 
@@ -83,7 +83,7 @@ public class ar {
             for (ho hoVar : idVar.a()) {
                 if (hoVar.a() > a(aqVar, hoVar.m391a())) {
                     a(aqVar, hoVar.m391a(), hoVar.a());
-                    aqVar.a(a(hoVar.f511a, false));
+                    aqVar.a(a(hoVar.f512a, false));
                 }
             }
             aqVar.b();

@@ -14,21 +14,21 @@ import com.baidu.wallet.base.widget.SDKJumpManager;
 import com.baidu.wallet.home.beans.HomeCfgBean;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61393a;
+    public String f58280a;
 
     /* renamed from: com.baidu.wallet.home.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C1831a {
+    /* loaded from: classes10.dex */
+    public static class C1790a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f61396a;
+        public static a f58283a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,14 +44,14 @@ public class a {
                     return;
                 }
             }
-            f61396a = new a();
+            f58283a = new a();
         }
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1831a.f61396a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1790a.f58283a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -67,7 +67,7 @@ public class a {
                 return;
             }
         }
-        this.f61393a = "";
+        this.f58280a = "";
     }
 
     public void a(String str) {
@@ -76,7 +76,7 @@ public class a {
             if (str == null) {
                 str = "";
             }
-            this.f61393a = str;
+            this.f58280a = str;
         }
     }
 
@@ -94,10 +94,10 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f61394a;
+                public final /* synthetic */ String f58281a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f61395b;
+                public final /* synthetic */ a f58282b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -114,15 +114,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f61395b = this;
-                    this.f61394a = str5;
+                    this.f58282b = this;
+                    this.f58281a = str5;
                 }
 
                 @Override // com.baidu.wallet.base.widget.SDKJumpManager.OnJumpListener
                 public void beforeJump(Context context2, String str6, String str7, String str8, boolean z2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{context2, str6, str7, str8, Boolean.valueOf(z2)}) == null) {
-                        DXMSdkSAUtils.onEventWithValues(this.f61394a, Arrays.asList(str6, str7, str8, HomeCfgResponse.getUserStatus()));
+                        DXMSdkSAUtils.onEventWithValues(this.f58281a, Arrays.asList(str6, str7, str8, HomeCfgResponse.getUserStatus()));
                     }
                 }
             });

@@ -20,7 +20,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class EC3SpecificBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "dec3";
@@ -38,7 +38,7 @@ public class EC3SpecificBox extends AbstractBox {
     public List<Entry> entries;
     public int numIndSub;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,11 +190,11 @@ public class EC3SpecificBox extends AbstractBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            long j2 = 2;
+            long j = 2;
             for (Entry entry : this.entries) {
-                j2 += entry.num_dep_sub > 0 ? 4L : 3L;
+                j += entry.num_dep_sub > 0 ? 4L : 3L;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

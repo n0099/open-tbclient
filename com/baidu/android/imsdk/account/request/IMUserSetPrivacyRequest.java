@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,12 +27,12 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
     public String mKey;
     public int mPrivacy;
 
-    public IMUserSetPrivacyRequest(Context context, String str, long j2, int i2) {
+    public IMUserSetPrivacyRequest(Context context, String str, long j, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Long.valueOf(j), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -45,7 +46,7 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
         this.mContext = context;
         this.mPrivacy = i2;
         this.mKey = str;
-        this.mAppid = j2;
+        this.mAppid = j;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -88,10 +89,10 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
                 JSONObject jSONObject = new JSONObject(str2);
                 if (jSONObject.has("response_params")) {
                     i3 = jSONObject.getJSONObject("response_params").getInt("error_code");
-                    str = jSONObject.optString("error_msg", Constants.ERROR_MSG_SUCCESS);
+                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, Constants.ERROR_MSG_SUCCESS);
                 } else {
                     i3 = jSONObject.getInt("error_code");
-                    str = jSONObject.optString("error_msg", "");
+                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
             } catch (JSONException e2) {
                 LogUtils.e("IMUserSetPrivacyRequest", "JSONException", e2);

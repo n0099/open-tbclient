@@ -38,7 +38,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Http2Connection implements Closeable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -66,7 +66,7 @@ public final class Http2Connection implements Closeable {
     public final Http2Writer writer;
     public final ScheduledExecutorService writerExecutor;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Listener {
         public static /* synthetic */ Interceptable $ic;
         public static final Listener REFUSE_INCOMING_STREAMS;
@@ -136,7 +136,7 @@ public final class Http2Connection implements Closeable {
         public abstract void onStream(Http2Stream http2Stream) throws IOException;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class PingRunnable extends NamedRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +179,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ReaderRunnable extends NamedRunnable implements Http2Reader.Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,9 +267,9 @@ public final class Http2Connection implements Closeable {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void alternateService(int i2, String str, ByteString byteString, String str2, int i3, long j2) {
+        public void alternateService(int i2, String str, ByteString byteString, String str2, int i3, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, byteString, str2, Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, byteString, str2, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
             }
         }
 
@@ -284,9 +284,9 @@ public final class Http2Connection implements Closeable {
                 Http2Stream stream = this.this$0.getStream(i2);
                 if (stream == null) {
                     this.this$0.writeSynResetLater(i2, ErrorCode.PROTOCOL_ERROR);
-                    long j2 = i3;
-                    this.this$0.updateConnectionFlowControl(j2);
-                    bufferedSource.skip(j2);
+                    long j = i3;
+                    this.this$0.updateConnectionFlowControl(j);
+                    bufferedSource.skip(j);
                     return;
                 }
                 stream.receiveData(bufferedSource, i3);
@@ -494,7 +494,7 @@ public final class Http2Connection implements Closeable {
         @Override // okhttp3.internal.http2.Http2Reader.Handler
         public void settings(boolean z, Settings settings) {
             Http2Stream[] http2StreamArr;
-            long j2;
+            long j;
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048586, this, z, settings) == null) {
@@ -508,9 +508,9 @@ public final class Http2Connection implements Closeable {
                     int initialWindowSize2 = this.this$0.peerSettings.getInitialWindowSize();
                     http2StreamArr = null;
                     if (initialWindowSize2 == -1 || initialWindowSize2 == initialWindowSize) {
-                        j2 = 0;
+                        j = 0;
                     } else {
-                        j2 = initialWindowSize2 - initialWindowSize;
+                        j = initialWindowSize2 - initialWindowSize;
                         if (!this.this$0.receivedInitialPeerSettings) {
                             this.this$0.receivedInitialPeerSettings = true;
                         }
@@ -555,24 +555,24 @@ public final class Http2Connection implements Closeable {
                         }
                     });
                 }
-                if (http2StreamArr == null || j2 == 0) {
+                if (http2StreamArr == null || j == 0) {
                     return;
                 }
                 for (Http2Stream http2Stream : http2StreamArr) {
                     synchronized (http2Stream) {
-                        http2Stream.addBytesToWriteWindow(j2);
+                        http2Stream.addBytesToWriteWindow(j);
                     }
                 }
             }
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void windowUpdate(int i2, long j2) {
+        public void windowUpdate(int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                 if (i2 == 0) {
                     synchronized (this.this$0) {
-                        this.this$0.bytesLeftInWriteWindow += j2;
+                        this.this$0.bytesLeftInWriteWindow += j;
                         this.this$0.notifyAll();
                     }
                     return;
@@ -580,7 +580,7 @@ public final class Http2Connection implements Closeable {
                 Http2Stream stream = this.this$0.getStream(i2);
                 if (stream != null) {
                     synchronized (stream) {
-                        stream.addBytesToWriteWindow(j2);
+                        stream.addBytesToWriteWindow(j);
                     }
                 }
             }
@@ -769,10 +769,10 @@ public final class Http2Connection implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), bufferedSource, Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
             Buffer buffer = new Buffer();
-            long j2 = i3;
-            bufferedSource.require(j2);
-            bufferedSource.read(buffer, j2);
-            if (buffer.size() == j2) {
+            long j = i3;
+            bufferedSource.require(j);
+            bufferedSource.read(buffer, j);
+            if (buffer.size() == j) {
                 pushExecutorExecute(new NamedRunnable(this, "OkHttp %s Push Data[%s]", new Object[]{this.hostname, Integer.valueOf(i2)}, i2, buffer, i3, z) { // from class: okhttp3.internal.http2.Http2Connection.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -1074,13 +1074,13 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    public synchronized void updateConnectionFlowControl(long j2) {
+    public synchronized void updateConnectionFlowControl(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             synchronized (this) {
-                long j3 = this.unacknowledgedBytesRead + j2;
-                this.unacknowledgedBytesRead = j3;
-                if (j3 >= this.okHttpSettings.getInitialWindowSize() / 2) {
+                long j2 = this.unacknowledgedBytesRead + j;
+                this.unacknowledgedBytesRead = j2;
+                if (j2 >= this.okHttpSettings.getInitialWindowSize() / 2) {
                     writeWindowUpdateLater(0, this.unacknowledgedBytesRead);
                     this.unacknowledgedBytesRead = 0L;
                 }
@@ -1088,16 +1088,16 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    public void writeData(int i2, boolean z, Buffer buffer, long j2) throws IOException {
+    public void writeData(int i2, boolean z, Buffer buffer, long j) throws IOException {
         int min;
-        long j3;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), buffer, Long.valueOf(j2)}) == null) {
-            if (j2 == 0) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), buffer, Long.valueOf(j)}) == null) {
+            if (j == 0) {
                 this.writer.data(z, i2, buffer, 0);
                 return;
             }
-            while (j2 > 0) {
+            while (j > 0) {
                 synchronized (this) {
                     while (this.bytesLeftInWriteWindow <= 0) {
                         try {
@@ -1111,12 +1111,12 @@ public final class Http2Connection implements Closeable {
                             throw new InterruptedIOException();
                         }
                     }
-                    min = Math.min((int) Math.min(j2, this.bytesLeftInWriteWindow), this.writer.maxDataLength());
-                    j3 = min;
-                    this.bytesLeftInWriteWindow -= j3;
+                    min = Math.min((int) Math.min(j, this.bytesLeftInWriteWindow), this.writer.maxDataLength());
+                    j2 = min;
+                    this.bytesLeftInWriteWindow -= j2;
                 }
-                j2 -= j3;
-                this.writer.data(z && j2 == 0, i2, buffer, min);
+                j -= j2;
+                this.writer.data(z && j == 0, i2, buffer, min);
             }
         }
     }
@@ -1217,11 +1217,11 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    public void writeWindowUpdateLater(int i2, long j2) {
+    public void writeWindowUpdateLater(int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             try {
-                this.writerExecutor.execute(new NamedRunnable(this, "OkHttp Window Update %s stream %d", new Object[]{this.hostname, Integer.valueOf(i2)}, i2, j2) { // from class: okhttp3.internal.http2.Http2Connection.2
+                this.writerExecutor.execute(new NamedRunnable(this, "OkHttp Window Update %s stream %d", new Object[]{this.hostname, Integer.valueOf(i2)}, i2, j) { // from class: okhttp3.internal.http2.Http2Connection.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Http2Connection this$0;
@@ -1235,7 +1235,7 @@ public final class Http2Connection implements Closeable {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, r9, r10, Integer.valueOf(i2), Long.valueOf(j2)};
+                            Object[] objArr = {this, r9, r10, Integer.valueOf(i2), Long.valueOf(j)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i3 = newInitContext.flag;
                             if ((i3 & 1) != 0) {
@@ -1249,7 +1249,7 @@ public final class Http2Connection implements Closeable {
                         }
                         this.this$0 = this;
                         this.val$streamId = i2;
-                        this.val$unacknowledgedBytesRead = j2;
+                        this.val$unacknowledgedBytesRead = j;
                     }
 
                     @Override // okhttp3.internal.NamedRunnable
@@ -1381,7 +1381,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

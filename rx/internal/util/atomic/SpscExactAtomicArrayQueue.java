@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.o.d.j.i;
+import h.o.d.j.i;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> implements Queue<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6210984603741293445L;
@@ -134,13 +134,13 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t)) == null) {
             if (t != null) {
-                long j2 = this.producerIndex.get();
+                long j = this.producerIndex.get();
                 int i2 = this.mask;
-                if (get(((int) (this.capacitySkip + j2)) & i2) != null) {
+                if (get(((int) (this.capacitySkip + j)) & i2) != null) {
                     return false;
                 }
-                this.producerIndex.lazySet(j2 + 1);
-                lazySet(i2 & ((int) j2), t);
+                this.producerIndex.lazySet(j + 1);
+                lazySet(i2 & ((int) j), t);
                 return true;
             }
             throw null;
@@ -160,13 +160,13 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            long j2 = this.consumerIndex.get();
-            int i2 = ((int) j2) & this.mask;
+            long j = this.consumerIndex.get();
+            int i2 = ((int) j) & this.mask;
             T t = get(i2);
             if (t == null) {
                 return null;
             }
-            this.consumerIndex.lazySet(j2 + 1);
+            this.consumerIndex.lazySet(j + 1);
             lazySet(i2, null);
             return t;
         }
@@ -210,14 +210,14 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         if (interceptable != null && (invokeV = interceptable.invokeV(1048591, this)) != null) {
             return invokeV.intValue;
         }
-        long j2 = this.consumerIndex.get();
+        long j = this.consumerIndex.get();
         while (true) {
-            long j3 = this.producerIndex.get();
-            long j4 = this.consumerIndex.get();
-            if (j2 == j4) {
-                return (int) (j3 - j4);
+            long j2 = this.producerIndex.get();
+            long j3 = this.consumerIndex.get();
+            if (j == j3) {
+                return (int) (j2 - j3);
             }
-            j2 = j4;
+            j = j3;
         }
     }
 

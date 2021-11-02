@@ -270,9 +270,9 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
     }
 
     public void show(boolean z) {
-        long j2;
+        long j;
         int longPressTimeout;
-        long j3;
+        long j2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && ViewCompat.isAttachedToWindow(this.mAnchor)) {
             setPendingHandler(null);
@@ -287,19 +287,19 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
             tooltipPopup.show(this.mAnchor, this.mAnchorX, this.mAnchorY, this.mFromTouch, this.mTooltipText);
             this.mAnchor.addOnAttachStateChangeListener(this);
             if (this.mFromTouch) {
-                j3 = LONG_CLICK_HIDE_TIMEOUT_MS;
+                j2 = LONG_CLICK_HIDE_TIMEOUT_MS;
             } else {
                 if ((ViewCompat.getWindowSystemUiVisibility(this.mAnchor) & 1) == 1) {
-                    j2 = 3000;
+                    j = 3000;
                     longPressTimeout = ViewConfiguration.getLongPressTimeout();
                 } else {
-                    j2 = 15000;
+                    j = 15000;
                     longPressTimeout = ViewConfiguration.getLongPressTimeout();
                 }
-                j3 = j2 - longPressTimeout;
+                j2 = j - longPressTimeout;
             }
             this.mAnchor.removeCallbacks(this.mHideRunnable);
-            this.mAnchor.postDelayed(this.mHideRunnable, j3);
+            this.mAnchor.postDelayed(this.mHideRunnable, j2);
         }
     }
 }

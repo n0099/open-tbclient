@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class f implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f77031a;
+    public final /* synthetic */ String f70379a;
 
     public f(String str) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class f implements ThreadFactory {
                 return;
             }
         }
-        this.f77031a = str;
+        this.f70379a = str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -38,7 +38,7 @@ public final class f implements ThreadFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
             Thread thread = new Thread(runnable);
-            thread.setName(this.f77031a);
+            thread.setName(this.f70379a);
             thread.setDaemon(true);
             return thread;
         }

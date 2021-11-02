@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
-import c.a.e.e.m.b;
-import c.a.r0.b0.e0.n;
-import c.a.r0.z2.y;
+import b.a.e.e.m.b;
+import b.a.r0.b0.e0.n;
+import b.a.r0.z2.y;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.BannerList;
 import tbclient.FeedForumInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BannerListData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1630193525564805923L;
@@ -31,7 +31,7 @@ public class BannerListData implements Serializable {
     public ArrayList<FeedForumData> feedForumList;
     public n recomTopicData;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements Comparator<AdvertAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +149,7 @@ public class BannerListData implements Serializable {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     if (list.get(i2) != null) {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                        advertAppInfo.U4(list.get(i2));
+                        advertAppInfo.W4(list.get(i2));
                         this.advertAppList.add(advertAppInfo);
                         if (h2 != null) {
                             h2.add(advertAppInfo);

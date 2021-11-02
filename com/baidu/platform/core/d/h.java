@@ -28,14 +28,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class h extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -404,7 +403,7 @@ public class h extends com.baidu.platform.base.d {
                     if (optJSONObject != null) {
                         if (optInt2 != 1) {
                             if (optInt2 == 2) {
-                                TransitResultNode a2 = a(optInt2, optJSONObject.optJSONObject(FilterValue.DEFAULT_FILTER_VALUE));
+                                TransitResultNode a2 = a(optInt2, optJSONObject.optJSONObject("origin"));
                                 massTransitRouteResult.setOrigin(a2);
                                 TransitResultNode a3 = a(optInt2, optJSONObject.optJSONObject("destination"));
                                 massTransitRouteResult.setDestination(a3);

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RTCBitrateTracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,22 +77,22 @@ public class RTCBitrateTracker {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBytesDelta : invokeV.longValue;
     }
 
-    public void updataBitrateWidhCurrentByteCount(long j2) {
+    public void updataBitrateWidhCurrentByteCount(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j3 = this.mPreTimeMs;
-            long j4 = currentTimeMillis - j3;
-            long j5 = this.mPreByteCount;
-            long j6 = j2 - j5;
-            this.mBytesDelta = j6;
-            if (j4 <= 0) {
+            long j2 = this.mPreTimeMs;
+            long j3 = currentTimeMillis - j2;
+            long j4 = this.mPreByteCount;
+            long j5 = j - j4;
+            this.mBytesDelta = j5;
+            if (j3 <= 0) {
                 return;
             }
-            if (j3 != 0 && j2 > j5) {
-                this.mBitrate = ((j6 * 8) * 1000) / j4;
+            if (j2 != 0 && j > j4) {
+                this.mBitrate = ((j5 * 8) * 1000) / j3;
             }
-            this.mPreByteCount = j2;
+            this.mPreByteCount = j;
             this.mPreTimeMs = currentTimeMillis;
         }
     }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ViewUtilsLollipop {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] STATE_LIST_ANIM_ATTRS;
@@ -69,10 +70,10 @@ public class ViewUtilsLollipop {
         if (interceptable == null || interceptable.invokeLF(65539, null, view, f2) == null) {
             int integer = view.getResources().getInteger(R.integer.app_bar_elevation_anim_duration);
             StateListAnimator stateListAnimator = new StateListAnimator();
-            long j2 = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.state_liftable, -R.attr.state_lifted}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(j2));
-            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view, "elevation", f2).setDuration(j2));
-            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(0L));
+            long j = integer;
+            stateListAnimator.addState(new int[]{16842766, R.attr.state_liftable, -R.attr.state_lifted}, ObjectAnimator.ofFloat(view, Key.ELEVATION, 0.0f).setDuration(j));
+            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view, Key.ELEVATION, f2).setDuration(j));
+            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view, Key.ELEVATION, 0.0f).setDuration(0L));
             view.setStateListAnimator(stateListAnimator);
         }
     }

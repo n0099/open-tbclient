@@ -20,8 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
-import h.c.j0;
+import g.c.j0;
 import java.io.File;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -65,7 +64,7 @@ import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.JavaAudioDeviceModule;
 import org.webrtc.voiceengine.WebRtcAudioManager;
 import org.webrtc.voiceengine.WebRtcAudioUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PeerConnectionClient implements DataChannel.Observer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_AUTO_GAIN_CONTROL_CONSTRAINT = "googAutoGainControl";
@@ -141,7 +140,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     public int videoWidth;
     public int videokbps;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class PCObserver implements PeerConnection.Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -470,7 +469,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface PeerConnectionEvents {
         void onIceCandidate(IceCandidate iceCandidate, BigInteger bigInteger);
 
@@ -503,7 +502,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         void onSEIRecv(ByteBuffer byteBuffer);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class PeerConnectionParameters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -592,7 +591,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class SDPObserver implements SdpObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -755,7 +754,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class StatsEventsType {
         public static final /* synthetic */ StatsEventsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -818,7 +817,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class VideoDecoderObserver implements MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -909,7 +908,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(65575, this, i2, i3, i4) == null) {
             if (!this.isError && this.videoCapturer != null) {
-                String str = "changeCaptureFormat: " + i2 + "x" + i3 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + i4;
+                String str = "changeCaptureFormat: " + i2 + "x" + i3 + "@" + i4;
                 this.videoSource.adaptOutputFormat(i2, i3, i4);
                 return;
             }
@@ -1005,7 +1004,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.videoFps == 0) {
                 this.videoFps = 30;
             }
-            Logging.d(TAG, "Capturing format: " + this.videoWidth + "x" + this.videoHeight + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.videoFps);
+            Logging.d(TAG, "Capturing format: " + this.videoWidth + "x" + this.videoHeight + "@" + this.videoFps);
             this.audioConstraints = new MediaConstraints();
             if (this.peerConnectionParameters.noAudioProcessing) {
                 this.audioConstraints.mandatory.add(new MediaConstraints.KeyValuePair(AUDIO_ECHO_CANCELLATION_CONSTRAINT, "false"));
@@ -1837,9 +1836,9 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     @Override // org.webrtc.DataChannel.Observer
-    public void onBufferedAmountChange(long j2) {
+    public void onBufferedAmountChange(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
         }
     }
 
@@ -2312,7 +2311,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         if (!(interceptable == null || interceptable.invokeL(1048612, this, num) == null) || this.executor.isShutdown()) {
             return;
         }
-        this.executor.execute(new Runnable() { // from class: c.a.i0.a
+        this.executor.execute(new Runnable() { // from class: b.a.i0.a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

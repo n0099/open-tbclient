@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedList<AbsFragment> f49801a;
+    public LinkedList<AbsFragment> f47230a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaPrivilegeFragmentAdapter(FragmentManager fragmentManager, LinkedList<AbsFragment> linkedList) {
@@ -38,28 +38,28 @@ public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        this.f49801a = new LinkedList<>();
+        this.f47230a = new LinkedList<>();
         if (ListUtils.isEmpty(linkedList)) {
             return;
         }
-        if (!ListUtils.isEmpty(this.f49801a)) {
-            this.f49801a.clear();
+        if (!ListUtils.isEmpty(this.f47230a)) {
+            this.f47230a.clear();
         }
-        this.f49801a.addAll(linkedList);
+        this.f47230a.addAll(linkedList);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f49801a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f47230a) : invokeV.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (AbsFragment) ListUtils.getItem(this.f49801a, i2) : (Fragment) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (AbsFragment) ListUtils.getItem(this.f47230a, i2) : (Fragment) invokeI.objValue;
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
@@ -73,6 +73,6 @@ public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
     public String getTabTitle(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (i2 < 0 || i2 >= this.f49801a.size()) ? "" : this.f49801a.get(i2).getTabTitle() : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (i2 < 0 || i2 >= this.f47230a.size()) ? "" : this.f47230a.get(i2).getTabTitle() : (String) invokeI.objValue;
     }
 }

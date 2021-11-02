@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class RenderScriptBlurFilter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLUR_MAX_RADIUS = 25;
@@ -52,6 +52,9 @@ public abstract class RenderScriptBlurFilter {
                 create.setInput(createFromBitmap);
                 create.forEach(createFromBitmap2);
                 createFromBitmap2.copyTo(bitmap);
+                create.destroy();
+                createFromBitmap.destroy();
+                createFromBitmap2.destroy();
             } finally {
                 if (renderScript != null) {
                     renderScript.destroy();

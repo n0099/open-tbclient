@@ -6,7 +6,7 @@ import com.kwad.sdk.api.core.RemoteViewBuilder;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class f implements Parcelable {
     public static final Parcelable.Creator<f> CREATOR = new Parcelable.Creator<f>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.f.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,31 +25,31 @@ public class f implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public String f75269a;
+    public String f67627a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75270b;
+    public String f67628b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f75271c;
+    public boolean f67629c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f75272d;
+    public String f67630d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f75273e;
+    public String f67631e;
 
     public f() {
-        this.f75271c = false;
+        this.f67629c = false;
     }
 
     public f(Parcel parcel) {
-        this.f75271c = false;
-        this.f75269a = parcel.readString();
-        this.f75270b = parcel.readString();
-        this.f75271c = parcel.readByte() != 0;
-        this.f75272d = parcel.readString();
-        this.f75273e = parcel.readString();
+        this.f67629c = false;
+        this.f67627a = parcel.readString();
+        this.f67628b = parcel.readString();
+        this.f67629c = parcel.readByte() != 0;
+        this.f67630d = parcel.readString();
+        this.f67631e = parcel.readString();
     }
 
     public static f a(JSONObject jSONObject) {
@@ -72,44 +72,44 @@ public class f implements Parcelable {
             return fVar;
         }
         str = "no control statics can parse ";
-        c.l.a.a.a.b("statics", str);
+        b.l.a.a.a.b("statics", str);
         return fVar;
     }
 
     public String a() {
-        return this.f75269a;
+        return this.f67627a;
     }
 
     public void a(String str) {
-        this.f75269a = str;
+        this.f67627a = str;
     }
 
     public void a(boolean z) {
-        this.f75271c = z;
+        this.f67629c = z;
     }
 
     public String b() {
-        return this.f75270b;
+        return this.f67628b;
     }
 
     public void b(String str) {
-        this.f75270b = str;
+        this.f67628b = str;
     }
 
     public void c(String str) {
-        this.f75272d = str;
+        this.f67630d = str;
     }
 
     public boolean c() {
-        return this.f75271c;
+        return this.f67629c;
     }
 
     public String d() {
-        return this.f75272d;
+        return this.f67630d;
     }
 
     public void d(String str) {
-        this.f75273e = str;
+        this.f67631e = str;
     }
 
     @Override // android.os.Parcelable
@@ -118,19 +118,19 @@ public class f implements Parcelable {
     }
 
     public String e() {
-        return this.f75273e;
+        return this.f67631e;
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.f75269a + ExtendedMessageFormat.QUOTE + ", time='" + this.f75270b + ExtendedMessageFormat.QUOTE + ", pushExtra=" + this.f75271c + ", deviceId='" + this.f75272d + ExtendedMessageFormat.QUOTE + ", seqId='" + this.f75273e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "Statics{taskId='" + this.f67627a + ExtendedMessageFormat.QUOTE + ", time='" + this.f67628b + ExtendedMessageFormat.QUOTE + ", pushExtra=" + this.f67629c + ", deviceId='" + this.f67630d + ExtendedMessageFormat.QUOTE + ", seqId='" + this.f67631e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f75269a);
-        parcel.writeString(this.f75270b);
-        parcel.writeByte(this.f75271c ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f75272d);
-        parcel.writeString(this.f75273e);
+        parcel.writeString(this.f67627a);
+        parcel.writeString(this.f67628b);
+        parcel.writeByte(this.f67629c ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f67630d);
+        parcel.writeString(this.f67631e);
     }
 }

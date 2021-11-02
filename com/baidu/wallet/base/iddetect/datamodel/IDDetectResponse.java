@@ -8,8 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.iddetect.IdCardActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IDDetectResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +54,7 @@ public class IDDetectResponse implements IBeanResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "name:" + this.name + IdCardActivity.KEY_NUMBER + this.id_card;
+            return "name:" + this.name + "number" + this.id_card;
         }
         return (String) invokeV.objValue;
     }

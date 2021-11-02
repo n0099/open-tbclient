@@ -26,7 +26,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TTIStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -43,19 +43,19 @@ public class TTIStats {
     public transient /* synthetic */ FieldHolder $fh;
     public UBCManager mUbcManager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class TTIData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long duration;
         public long startTs;
 
-        public TTIData(long j2, long j3) {
+        public TTIData(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -65,8 +65,8 @@ public class TTIStats {
                     return;
                 }
             }
-            this.duration = j2;
-            this.startTs = j3;
+            this.duration = j;
+            this.startTs = j2;
         }
     }
 
@@ -197,9 +197,9 @@ public class TTIStats {
         }
     }
 
-    public static void record(String str, long j2) {
+    public static void record(String str, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j2) == null) || SmartLaunchStats.getIdleTaskStartTime() > 0) {
+        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) || SmartLaunchStats.getIdleTaskStartTime() > 0) {
             return;
         }
         if (sAppCreateTimeStamp < 0) {
@@ -210,13 +210,13 @@ public class TTIStats {
         }
         TTIData tTIData = mRecordMap.get(str);
         if (tTIData != null) {
-            tTIData.duration += j2;
+            tTIData.duration += j;
         } else {
-            tTIData = new TTIData(j2, (System.currentTimeMillis() - j2) - sAppCreateTimeStamp);
+            tTIData = new TTIData(j, (System.currentTimeMillis() - j) - sAppCreateTimeStamp);
             mRecordMap.put(str, tTIData);
         }
         if (DEBUG) {
-            String str2 = "name:" + str + " time:" + j2 + " startTs:" + tTIData.startTs;
+            String str2 = "name:" + str + " time:" + j + " startTs:" + tTIData.startTs;
         }
     }
 

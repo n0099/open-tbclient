@@ -1,13 +1,12 @@
 package com.bytedance.sdk.openadsdk;
 
 import android.app.Activity;
-import androidx.annotation.MainThread;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface TTInteractionAd {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface AdInteractionListener {
         void onAdClicked();
 
@@ -26,6 +25,5 @@ public interface TTInteractionAd {
 
     void setShowDislikeIcon(TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback);
 
-    @MainThread
     void showInteractionAd(Activity activity);
 }

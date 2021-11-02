@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HostTB implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HOST = "host";
@@ -78,10 +78,10 @@ public class HostTB implements Serializable {
         }
     }
 
-    public void setInsertTime(long j2) {
+    public void setInsertTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.insertTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.insertTime = j;
         }
     }
 

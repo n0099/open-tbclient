@@ -1,13 +1,13 @@
 package com.baidu.nps.interfa;
 
-import c.a.e.g.f.d;
-import c.a.h0.a.a;
+import b.a.e.g.f.d;
+import b.a.h0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider i
         }
     }
 
-    @Override // c.a.h0.a.a
+    @Override // b.a.h0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

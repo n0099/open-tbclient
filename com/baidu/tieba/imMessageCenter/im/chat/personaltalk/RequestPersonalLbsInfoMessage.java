@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.SetLocation.DataReq;
 import protobuf.SetLocation.SetLocationReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RequestPersonalLbsInfoMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,13 +17,13 @@ public class RequestPersonalLbsInfoMessage extends TbSocketMessage {
     public long touid;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestPersonalLbsInfoMessage(int i2, long j2, String str, String str2) {
+    public RequestPersonalLbsInfoMessage(int i2, long j, String str, String str2) {
         super(i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), str, str2};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -34,7 +34,7 @@ public class RequestPersonalLbsInfoMessage extends TbSocketMessage {
                 return;
             }
         }
-        this.touid = j2;
+        this.touid = j;
         this.lat = str;
         this.lng = str2;
     }

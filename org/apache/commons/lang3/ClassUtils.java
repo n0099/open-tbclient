@@ -1,6 +1,7 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.apache.commons.lang3.mutable.MutableObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClassUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INNER_CLASS_SEPARATOR;
@@ -39,7 +40,7 @@ public class ClassUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Interfaces {
         public static final /* synthetic */ Interfaces[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -150,7 +151,7 @@ public class ClassUtils {
         hashMap3.put("boolean", "Z");
         hashMap3.put(ShaderParams.VALUE_TYPE_FLOAT, "F");
         hashMap3.put("long", "J");
-        hashMap3.put("short", "S");
+        hashMap3.put("short", ExifInterface.LATITUDE_SOUTH);
         hashMap3.put("byte", "B");
         hashMap3.put("double", "D");
         hashMap3.put("char", "C");

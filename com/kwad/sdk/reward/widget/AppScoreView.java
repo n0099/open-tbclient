@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AppScoreView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f73954a;
+    public ImageView f66353a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f73955b;
+    public ImageView f66354b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppScoreView(Context context) {
@@ -89,8 +89,8 @@ public class AppScoreView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.ksad_app_score, this);
-            this.f73954a = (ImageView) findViewById(R.id.ksad_score_fourth);
-            this.f73955b = (ImageView) findViewById(R.id.ksad_score_fifth);
+            this.f66353a = (ImageView) findViewById(R.id.ksad_score_fourth);
+            this.f66354b = (ImageView) findViewById(R.id.ksad_score_fifth);
         }
     }
 
@@ -103,31 +103,31 @@ public class AppScoreView extends LinearLayout {
         if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
             double d2 = f2;
             if (d2 > 4.5d) {
-                this.f73954a.setImageResource(R.drawable.ksad_app_score_yellow);
-                imageView2 = this.f73955b;
+                this.f66353a.setImageResource(R.drawable.ksad_app_score_yellow);
+                imageView2 = this.f66354b;
                 i3 = R.drawable.ksad_app_score_yellow;
             } else if (d2 > 4.0d) {
-                this.f73954a.setImageResource(R.drawable.ksad_app_score_yellow);
-                imageView2 = this.f73955b;
+                this.f66353a.setImageResource(R.drawable.ksad_app_score_yellow);
+                imageView2 = this.f66354b;
                 i3 = R.drawable.ksad_app_score_half;
             } else {
                 if (d2 > 3.5d) {
-                    imageView = this.f73954a;
+                    imageView = this.f66353a;
                     i2 = R.drawable.ksad_app_score_yellow;
                 } else {
                     int i4 = (d2 > 3.0d ? 1 : (d2 == 3.0d ? 0 : -1));
                     if (i4 > 0) {
-                        imageView = this.f73954a;
+                        imageView = this.f66353a;
                         i2 = R.drawable.ksad_app_score_half;
                     } else if (i4 != 0) {
                         return;
                     } else {
-                        imageView = this.f73954a;
+                        imageView = this.f66353a;
                         i2 = R.drawable.ksad_app_score_gray;
                     }
                 }
                 imageView.setImageResource(i2);
-                imageView2 = this.f73955b;
+                imageView2 = this.f66354b;
                 i3 = R.drawable.ksad_app_score_gray;
             }
             imageView2.setImageResource(i3);

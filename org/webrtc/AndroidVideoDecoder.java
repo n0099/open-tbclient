@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.k0;
+import g.c.k0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.BlockingDeque;
@@ -24,7 +24,7 @@ import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoFrame;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_INPUT_TIMEOUT_US = 500000;
@@ -71,19 +71,19 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public SurfaceTextureHelper surfaceTextureHelper;
     public int width;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DecodedTextureMetadata {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Integer decodeTimeMs;
         public final long presentationTimestampUs;
 
-        public DecodedTextureMetadata(long j2, Integer num) {
+        public DecodedTextureMetadata(long j, Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), num};
+                Object[] objArr = {Long.valueOf(j), num};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -93,24 +93,24 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                     return;
                 }
             }
-            this.presentationTimestampUs = j2;
+            this.presentationTimestampUs = j;
             this.decodeTimeMs = num;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FrameInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long decodeStartTimeMs;
         public final int rotation;
 
-        public FrameInfo(long j2, int i2) {
+        public FrameInfo(long j, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -120,7 +120,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                     return;
                 }
             }
-            this.decodeStartTimeMs = j2;
+            this.decodeStartTimeMs = j;
             this.rotation = i2;
         }
     }
@@ -654,20 +654,20 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
 
     @Override // org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
-        long j2;
+        long j;
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, videoFrame) == null) {
             synchronized (this.renderedTextureMetadataLock) {
                 if (this.renderedTextureMetadata != null) {
-                    j2 = this.renderedTextureMetadata.presentationTimestampUs * 1000;
+                    j = this.renderedTextureMetadata.presentationTimestampUs * 1000;
                     intValue = this.renderedTextureMetadata.decodeTimeMs.intValue();
                     this.renderedTextureMetadata = null;
                 } else {
                     throw new IllegalStateException("Rendered texture metadata was null in onTextureFrameAvailable.");
                 }
             }
-            this.callback.onDecodedFrame(new VideoFrame(videoFrame.getBuffer(), videoFrame.getRotation(), j2), Integer.valueOf(intValue), null);
+            this.callback.onDecodedFrame(new VideoFrame(videoFrame.getBuffer(), videoFrame.getRotation(), j), Integer.valueOf(intValue), null);
         }
     }
 

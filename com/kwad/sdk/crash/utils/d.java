@@ -6,12 +6,12 @@ import androidx.annotation.WorkerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f73053a;
+    public static Context f65498a;
     public transient /* synthetic */ FieldHolder $fh;
 
     @WorkerThread
@@ -19,8 +19,8 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long b2 = b(f73053a);
-            a(f73053a, 1 + b2);
+            long b2 = b(f65498a);
+            a(f65498a, 1 + b2);
             return b2;
         }
         return invokeV.longValue;
@@ -29,18 +29,18 @@ public class d {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            f73053a = context;
+            f65498a = context;
         }
     }
 
     @WorkerThread
-    public static boolean a(Context context, long j2) {
+    public static boolean a(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) {
             if (context != null) {
                 SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_crashseq", 0).edit();
-                edit.putLong("crashseq", j2);
+                edit.putLong("crashseq", j);
                 return edit.commit();
             }
             return false;

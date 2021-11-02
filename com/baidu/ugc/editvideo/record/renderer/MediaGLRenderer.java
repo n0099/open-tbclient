@@ -5,10 +5,10 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.e;
-import c.a.x0.r.a;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
+import b.a.a0.b.a.e;
+import b.a.x0.r.a;
+import b.a.x0.t.c;
+import b.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle, EffectChangeObserver, MediaTrackChangeObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,17 +66,17 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
     public e mVlogEdit;
     public boolean mWaitingDrawFrame;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnDrawFrameFrequencyListener {
         void onDrawFrameFrequency(GLViewPortLocation gLViewPortLocation);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnEditStickerListener {
         boolean canDoProcessor();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMediaGLRendererStatusListener {
         void onError(int i2, String str);
     }
@@ -106,10 +106,10 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         this.mProcessorCostTimeList = new CopyOnWriteArrayList();
     }
 
-    private void debugProcessorCostTime(long j2) {
+    private void debugProcessorCostTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, this, j2) == null) {
-            this.mProcessorCostTimeList.add(Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
+            this.mProcessorCostTimeList.add(Long.valueOf(j));
         }
     }
 
@@ -162,13 +162,13 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             if (h.e(this.mProcessorCostTimeList)) {
                 return 0.0d;
             }
-            long j2 = 0;
+            long j = 0;
             int size = this.mProcessorCostTimeList.size();
             for (Long l : this.mProcessorCostTimeList) {
-                j2 += l.longValue();
+                j += l.longValue();
             }
             this.mProcessorCostTimeList.clear();
-            return j2 / size;
+            return j / size;
         }
         return invokeV.doubleValue;
     }
@@ -209,13 +209,13 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         }
     }
 
-    public void onDrawFrame(int i2, long j2) {
+    public void onDrawFrame(int i2, long j) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (eVar = this.mVlogEdit) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (eVar = this.mVlogEdit) == null) {
             return;
         }
-        eVar.g(i2, j2);
+        eVar.g(i2, j);
         e eVar2 = this.mVlogEdit;
         GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
         eVar2.b(gLViewPortLocation.width, gLViewPortLocation.height);

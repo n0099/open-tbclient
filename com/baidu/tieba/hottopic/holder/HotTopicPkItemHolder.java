@@ -2,14 +2,14 @@ package com.baidu.tieba.hottopic.holder;
 
 import android.view.View;
 import android.widget.TextView;
+import b.a.r0.j1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.view.HotTopicPkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HotTopicPkItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,10 +47,10 @@ public class HotTopicPkItemHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.moduleName = (TextView) view.findViewById(R.id.pk_item_theme_title);
-        this.pkQuesDesc = (TextView) view.findViewById(R.id.pk_topic_title);
-        this.pkView = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
-        this.pkPositive = (TextView) view.findViewById(R.id.pk_topic_positive);
-        this.pkOpposing = (TextView) view.findViewById(R.id.pk_topic_opposing);
+        this.moduleName = (TextView) view.findViewById(e.pk_item_theme_title);
+        this.pkQuesDesc = (TextView) view.findViewById(e.pk_topic_title);
+        this.pkView = (HotTopicPkView) view.findViewById(e.pk_topic_view);
+        this.pkPositive = (TextView) view.findViewById(e.pk_topic_positive);
+        this.pkOpposing = (TextView) view.findViewById(e.pk_topic_opposing);
     }
 }

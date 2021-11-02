@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class o implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f72943a;
+    public com.kwad.sdk.core.webview.a.c f65391a;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class o implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f72943a = cVar;
+            this.f65391a = cVar;
         }
     }
 
@@ -49,14 +49,14 @@ public class o implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f72943a = null;
+            this.f65391a = null;
         }
     }
 
     public void c() {
         com.kwad.sdk.core.webview.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cVar = this.f72943a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cVar = this.f65391a) == null) {
             return;
         }
         cVar.a(null);
@@ -65,7 +65,7 @@ public class o implements com.kwad.sdk.core.webview.a.a {
     public void d() {
         com.kwad.sdk.core.webview.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f72943a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f65391a) == null) {
             return;
         }
         cVar.a(-1, "deep link error");

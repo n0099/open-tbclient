@@ -4,30 +4,30 @@ import android.content.Context;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.j0.a.i.b;
-import c.a.j0.a.i.c;
+import b.a.j0.a.i.b;
+import b.a.j0.a.i.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45046e;
+    public int f42784e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45047f;
+    public int f42785f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45048g;
+    public int f42786g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f45049h;
+    public b f42787h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseSurfaceView(Context context, b bVar) {
@@ -47,8 +47,8 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                 return;
             }
         }
-        this.f45046e = 1;
-        this.f45049h = bVar;
+        this.f42784e = 1;
+        this.f42787h = bVar;
         getHolder().addCallback(this);
     }
 
@@ -63,7 +63,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     public int getDisplayMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45046e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42784e : invokeV.intValue;
     }
 
     @Override // android.view.SurfaceView, android.view.View
@@ -71,11 +71,11 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            int defaultSize = SurfaceView.getDefaultSize(this.f45047f, i2);
-            int defaultSize2 = SurfaceView.getDefaultSize(this.f45048g, i3);
-            int i5 = this.f45047f;
-            if (i5 > 0 && (i4 = this.f45048g) > 0) {
-                int i6 = this.f45046e;
+            int defaultSize = SurfaceView.getDefaultSize(this.f42785f, i2);
+            int defaultSize2 = SurfaceView.getDefaultSize(this.f42786g, i3);
+            int i5 = this.f42785f;
+            if (i5 > 0 && (i4 = this.f42786g) > 0) {
+                int i6 = this.f42784e;
                 if (i6 != 0) {
                     if (i6 != 1) {
                         if (i6 == 3) {
@@ -115,17 +115,17 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                     defaultSize2 = (i4 * defaultSize) / i5;
                 }
             }
-            String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f45047f), Integer.valueOf(this.f45048g));
+            String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f42785f), Integer.valueOf(this.f42786g));
             setMeasuredDimension(defaultSize, defaultSize2);
         }
     }
 
-    @Override // c.a.j0.a.i.c
+    @Override // b.a.j0.a.i.c
     public void onVideoSizeChanged(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.f45047f = i2;
-            this.f45048g = i3;
+            this.f42785f = i2;
+            this.f42786g = i3;
             if (i2 == 0 || i3 == 0) {
                 return;
             }
@@ -133,11 +133,11 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
-    @Override // c.a.j0.a.i.c
+    @Override // b.a.j0.a.i.c
     public void setDisplayMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f45046e = i2;
+            this.f42784e = i2;
         }
     }
 
@@ -158,7 +158,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) || (bVar = this.f45049h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) || (bVar = this.f42787h) == null) {
             return;
         }
         bVar.surfaceCreated(surfaceHolder);
@@ -168,7 +168,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) || (bVar = this.f45049h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) || (bVar = this.f42787h) == null) {
             return;
         }
         bVar.surfaceDestroy();

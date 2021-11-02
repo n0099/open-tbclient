@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f41271a;
+    public final /* synthetic */ e f39132a;
 
     public g(e eVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class g extends Handler {
                 return;
             }
         }
-        this.f41271a = eVar;
+        this.f39132a = eVar;
     }
 
     @Override // android.os.Handler
@@ -42,17 +42,17 @@ public class g extends Handler {
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && com.baidu.location.f.isServing) {
             int i2 = message.what;
             if (i2 == 1) {
-                this.f41271a.e((Location) message.obj);
+                this.f39132a.e((Location) message.obj);
                 return;
             }
             if (i2 == 3) {
-                eVar = this.f41271a;
+                eVar = this.f39132a;
                 location = (Location) message.obj;
                 str = "&og=1";
             } else if (i2 != 4) {
                 return;
             } else {
-                eVar = this.f41271a;
+                eVar = this.f39132a;
                 location = (Location) message.obj;
                 str = "&og=2";
             }

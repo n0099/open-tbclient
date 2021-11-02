@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class u extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76885a;
+    public String f70234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f76886b;
+    public int f70235b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(int i2) {
@@ -36,16 +36,16 @@ public class u extends com.vivo.push.y {
                 return;
             }
         }
-        this.f76885a = null;
-        this.f76886b = 0;
+        this.f70234a = null;
+        this.f70235b = 0;
     }
 
     @Override // com.vivo.push.y
     public void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.a(IAdRequestParam.REQ_ID, this.f76885a);
-            aVar.a("status_msg_code", this.f76886b);
+            aVar.a(IAdRequestParam.REQ_ID, this.f70234a);
+            aVar.a("status_msg_code", this.f70235b);
         }
     }
 
@@ -53,21 +53,21 @@ public class u extends com.vivo.push.y {
     public void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f76885a = aVar.a(IAdRequestParam.REQ_ID);
-            this.f76886b = aVar.b("status_msg_code", this.f76886b);
+            this.f70234a = aVar.a(IAdRequestParam.REQ_ID);
+            this.f70235b = aVar.b("status_msg_code", this.f70235b);
         }
     }
 
     public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f76885a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70234a : (String) invokeV.objValue;
     }
 
     public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76886b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70235b : invokeV.intValue;
     }
 
     @Override // com.vivo.push.y

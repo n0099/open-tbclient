@@ -9,9 +9,9 @@ import com.airbnb.lottie.model.content.PolystarShape;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PolystarShapeParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", "pt", "p", r.f42346a, "or", "os", "ir", "is", "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", "pt", "p", r.f40168a, "or", "os", "ir", "is", "hd");
 
     public static PolystarShape parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         String str = null;

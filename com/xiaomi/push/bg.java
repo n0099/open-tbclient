@@ -38,27 +38,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bg {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f77749a;
+    public static final Pattern f70712a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f77750b;
+    public static final Pattern f70713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f77751c;
+    public static final Pattern f70714c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f77752a;
+        public boolean f70715a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(InputStream inputStream) {
@@ -86,8 +86,8 @@ public class bg {
             int read;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-                if (this.f77752a || (read = super.read(bArr, i2, i3)) == -1) {
-                    this.f77752a = true;
+                if (this.f70715a || (read = super.read(bArr, i2, i3)) == -1) {
+                    this.f70715a = true;
                     return -1;
                 }
                 return read;
@@ -96,21 +96,21 @@ public class bg {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77753a;
+        public int f70716a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map<String, String> f155a;
+        public Map<String, String> f156a;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f77753a), this.f155a.toString()) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f70716a), this.f156a.toString()) : (String) invokeV.objValue;
         }
     }
 
@@ -127,9 +127,9 @@ public class bg {
                 return;
             }
         }
-        f77749a = Pattern.compile("([^\\s;]+)(.*)");
-        f77750b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
-        f77751c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+        f70712a = Pattern.compile("([^\\s;]+)(.*)");
+        f70713b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+        f70714c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
     }
 
     public static int a(Context context) {
@@ -212,8 +212,8 @@ public class bg {
                                 throw new IOException(th.getMessage());
                             }
                         }
-                        beVar.f77748a = m176a.getResponseCode();
-                        String str6 = "Http POST Response Code: " + beVar.f77748a;
+                        beVar.f70711a = m176a.getResponseCode();
+                        String str6 = "Http POST Response Code: " + beVar.f70711a;
                         while (true) {
                             String headerFieldKey = m176a.getHeaderFieldKey(i2);
                             String headerField = m176a.getHeaderField(i2);
@@ -224,7 +224,7 @@ public class bg {
                                     bufferedReader = new BufferedReader(new InputStreamReader(new a(m176a.getErrorStream())));
                                 }
                             } else {
-                                beVar.f154a.put(headerFieldKey, headerField);
+                                beVar.f155a.put(headerFieldKey, headerField);
                                 i2 = i2 + 1 + 1;
                             }
                         }
@@ -247,7 +247,7 @@ public class bg {
                     stringBuffer.append(readLine);
                     stringBuffer.append(property);
                 }
-                beVar.f153a = stringBuffer.toString();
+                beVar.f154a = stringBuffer.toString();
                 bufferedReader.close();
                 y.a((Closeable) null);
                 y.a((Closeable) null);
@@ -299,9 +299,9 @@ public class bg {
                             }
                         }
                         if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
-                            bVar.f77753a = m176a.getResponseCode();
-                            if (bVar.f155a == null) {
-                                bVar.f155a = new HashMap();
+                            bVar.f70716a = m176a.getResponseCode();
+                            if (bVar.f156a == null) {
+                                bVar.f156a = new HashMap();
                             }
                             int i2 = 0;
                             while (true) {
@@ -311,7 +311,7 @@ public class bg {
                                     break;
                                 }
                                 if (!TextUtils.isEmpty(headerFieldKey) && !TextUtils.isEmpty(headerField)) {
-                                    bVar.f155a.put(headerFieldKey, headerField);
+                                    bVar.f156a.put(headerFieldKey, headerField);
                                 }
                                 i2++;
                             }

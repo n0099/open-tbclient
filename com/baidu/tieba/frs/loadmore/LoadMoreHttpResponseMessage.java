@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.loadmore;
 
 import android.text.TextUtils;
-import c.a.e.l.e.n;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.q.p0;
-import c.a.r0.z2.l0.b;
+import b.a.e.l.e.n;
+import b.a.q0.s.q.d2;
+import b.a.q0.s.q.p0;
+import b.a.r0.z2.l0.b;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,7 +27,7 @@ import tbclient.ThreadInfo;
 import tbclient.ThreadList.DataRes;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         }
                     }
                 }
-                long j2 = 0;
+                long j = 0;
                 Message<?> orginalMessage2 = getOrginalMessage();
                 if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
                     z = false;
@@ -106,7 +106,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                     boolean isBrandForum = loadMoreRequestMessage.isBrandForum();
                     long forumId = loadMoreRequestMessage.getForumId();
                     z = isBrandForum;
-                    j2 = forumId;
+                    j = forumId;
                 }
                 if (ListUtils.getCount(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
@@ -116,8 +116,8 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         for (int i4 = 0; i4 < list2.size(); i4++) {
                             ThreadInfo threadInfo = list2.get(i4);
                             d2 d2Var = new d2();
-                            SpecHotTopicHelper.setSpecTopicIcon(j2, d2Var);
-                            d2Var.D4(this.userMap);
+                            SpecHotTopicHelper.setSpecTopicIcon(j, d2Var);
+                            d2Var.E4(this.userMap);
                             d2Var.Y2(threadInfo);
                             d2Var.c3();
                             d2Var.K1 = z;

@@ -17,7 +17,7 @@ import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BceServiceResponseBody<T extends AbstractBceRequest> extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,11 +107,11 @@ public class BceServiceResponseBody<T extends AbstractBceRequest> extends Respon
             /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.baidubce.callback.BceProgressCallback */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // okio.ForwardingSource, okio.Source
-            public long read(Buffer buffer, long j2) throws IOException {
+            public long read(Buffer buffer, long j) throws IOException {
                 InterceptResult invokeLJ;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, buffer, j2)) == null) {
-                    long read = super.read(buffer, j2);
+                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, buffer, j)) == null) {
+                    long read = super.read(buffer, j);
                     this.totalBytesRead += read != -1 ? read : 0L;
                     if (this.this$0.bceProgressCallback != null && this.totalBytesRead > 0) {
                         this.this$0.bceProgressCallback.onProgress(this.this$0.request, this.totalBytesRead, this.this$0.bceResponseBody.contentLength());

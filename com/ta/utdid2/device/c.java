@@ -5,6 +5,7 @@ import android.os.Binder;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,38 +25,36 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f76425a;
+    public static c f69787a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f76426e;
+    public static final Object f69788e;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.ta.utdid2.b.a.c f24a;
+    public com.ta.utdid2.b.a.c f25a;
 
     /* renamed from: a  reason: collision with other field name */
-    public d f25a;
+    public d f26a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ta.utdid2.b.a.c f76427b;
+    public com.ta.utdid2.b.a.c f69789b;
 
     /* renamed from: b  reason: collision with other field name */
-    public Pattern f26b;
+    public Pattern f27b;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f76428h;
+    public String f69790h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f76429i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f76430j;
+    public String f69791i;
+    public String j;
     public Context mContext;
 
     static {
@@ -71,7 +70,7 @@ public class c {
                 return;
             }
         }
-        f76426e = new Object();
+        f69788e = new Object();
         k = ".UTSystemConfig" + File.separator + "Global";
     }
 
@@ -91,35 +90,35 @@ public class c {
             }
         }
         this.mContext = null;
-        this.f76428h = null;
+        this.f69790h = null;
+        this.f26a = null;
+        this.f69791i = "xx_utdid_key";
+        this.j = "xx_utdid_domain";
         this.f25a = null;
-        this.f76429i = "xx_utdid_key";
-        this.f76430j = "xx_utdid_domain";
-        this.f24a = null;
-        this.f76427b = null;
-        this.f26b = Pattern.compile("[^0-9a-zA-Z=/+]+");
+        this.f69789b = null;
+        this.f27b = Pattern.compile("[^0-9a-zA-Z=/+]+");
         this.mContext = context;
-        this.f76427b = new com.ta.utdid2.b.a.c(context, k, "Alvin2", false, true);
-        this.f24a = new com.ta.utdid2.b.a.c(context, ".DataStorage", "ContextData", false, true);
-        this.f25a = new d();
-        this.f76429i = String.format("K_%d", Integer.valueOf(g.a(this.f76429i)));
-        this.f76430j = String.format("D_%d", Integer.valueOf(g.a(this.f76430j)));
+        this.f69789b = new com.ta.utdid2.b.a.c(context, k, "Alvin2", false, true);
+        this.f25a = new com.ta.utdid2.b.a.c(context, ".DataStorage", "ContextData", false, true);
+        this.f26a = new d();
+        this.f69791i = String.format("K_%d", Integer.valueOf(g.a(this.f69791i)));
+        this.j = String.format("D_%d", Integer.valueOf(g.a(this.j)));
     }
 
     public static c a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context != null && f76425a == null) {
-                synchronized (f76426e) {
-                    if (f76425a == null) {
+            if (context != null && f69787a == null) {
+                synchronized (f69788e) {
+                    if (f69787a == null) {
                         c cVar = new c(context);
-                        f76425a = cVar;
+                        f69787a = cVar;
                         cVar.c();
                     }
                 }
             }
-            return f76425a;
+            return f69787a;
         }
         return (c) invokeL.objValue;
     }
@@ -132,7 +131,7 @@ public class c {
                 if (str.endsWith(StringUtils.LF)) {
                     str = str.substring(0, str.length() - 1);
                 }
-                if (24 == str.length() && !this.f26b.matcher(str).find()) {
+                if (24 == str.length() && !this.f27b.matcher(str).find()) {
                     return true;
                 }
             }
@@ -144,32 +143,32 @@ public class c {
     private void c() {
         com.ta.utdid2.b.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (cVar = this.f76427b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (cVar = this.f69789b) == null) {
             return;
         }
         if (g.m63a(cVar.getString("UTDID2"))) {
-            String string = this.f76427b.getString("UTDID");
+            String string = this.f69789b.getString("UTDID");
             if (!g.m63a(string)) {
                 f(string);
             }
         }
         boolean z = false;
         boolean z2 = true;
-        if (!g.m63a(this.f76427b.getString("DID"))) {
-            this.f76427b.remove("DID");
+        if (!g.m63a(this.f69789b.getString("DID"))) {
+            this.f69789b.remove("DID");
             z = true;
         }
-        if (!g.m63a(this.f76427b.getString("EI"))) {
-            this.f76427b.remove("EI");
+        if (!g.m63a(this.f69789b.getString("EI"))) {
+            this.f69789b.remove("EI");
             z = true;
         }
-        if (g.m63a(this.f76427b.getString("SI"))) {
+        if (g.m63a(this.f69789b.getString("SI"))) {
             z2 = z;
         } else {
-            this.f76427b.remove("SI");
+            this.f69789b.remove("SI");
         }
         if (z2) {
-            this.f76427b.commit();
+            this.f69789b.commit();
         }
     }
 
@@ -180,22 +179,22 @@ public class c {
             if (str.endsWith(StringUtils.LF)) {
                 str = str.substring(0, str.length() - 1);
             }
-            if (str.length() != 24 || (cVar = this.f76427b) == null) {
+            if (str.length() != 24 || (cVar = this.f69789b) == null) {
                 return;
             }
             cVar.putString("UTDID2", str);
-            this.f76427b.commit();
+            this.f69789b.commit();
         }
     }
 
     private void g(String str) {
         com.ta.utdid2.b.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, str) == null) || str == null || (cVar = this.f24a) == null || str.equals(cVar.getString(this.f76429i))) {
+        if (!(interceptable == null || interceptable.invokeL(65546, this, str) == null) || str == null || (cVar = this.f25a) == null || str.equals(cVar.getString(this.f69791i))) {
             return;
         }
-        this.f24a.putString(this.f76429i, str);
-        this.f24a.commit();
+        this.f25a.putString(this.f69791i, str);
+        this.f25a.commit();
     }
 
     private void h(String str) {
@@ -252,7 +251,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                String str = this.f76428h;
+                String str = this.f69790h;
                 return str != null ? str : h();
             }
         }
@@ -290,7 +289,7 @@ public class c {
                     }
                     String d2 = eVar.d(str);
                     if (b(d2)) {
-                        String c2 = this.f25a.c(d2);
+                        String c2 = this.f26a.c(d2);
                         if (!g.m63a(c2)) {
                             j(c2);
                             try {
@@ -299,41 +298,41 @@ public class c {
                             }
                         }
                     }
-                    String d3 = this.f25a.d(str);
+                    String d3 = this.f26a.d(str);
                     if (b(d3)) {
-                        this.f76428h = d3;
+                        this.f69790h = d3;
                         f(d3);
                         g(str);
-                        h(this.f76428h);
-                        return this.f76428h;
+                        h(this.f69790h);
+                        return this.f69790h;
                     }
                 }
                 String g2 = g();
                 if (b(g2)) {
-                    String c3 = this.f25a.c(g2);
+                    String c3 = this.f26a.c(g2);
                     if (z) {
                         j(c3);
                     }
                     h(g2);
                     g(c3);
-                    this.f76428h = g2;
+                    this.f69790h = g2;
                     return g2;
                 }
-                String string2 = this.f24a.getString(this.f76429i);
+                String string2 = this.f25a.getString(this.f69791i);
                 if (!g.m63a(string2)) {
                     String d4 = eVar.d(string2);
                     if (!b(d4)) {
-                        d4 = this.f25a.d(string2);
+                        d4 = this.f26a.d(string2);
                     }
                     if (b(d4)) {
-                        String c4 = this.f25a.c(d4);
+                        String c4 = this.f26a.c(d4);
                         if (!g.m63a(d4)) {
-                            this.f76428h = d4;
+                            this.f69790h = d4;
                             if (z) {
                                 j(c4);
                             }
-                            f(this.f76428h);
-                            return this.f76428h;
+                            f(this.f69790h);
+                            return this.f69790h;
                         }
                     }
                 }
@@ -347,7 +346,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            byte[] bArr2 = {69, 114, 116, -33, 125, -54, -31, 86, -11, 11, -78, -96, -17, -99, 64, 23, -95, -126, -82, -64, 113, 116, -16, -103, 49, -30, 9, -39, PublicSuffixDatabase.EXCEPTION_MARKER, -80, -68, -78, -117, 53, 30, -122, 64, -104, 74, -49, 106, 85, -38, -93};
+            byte[] bArr2 = {69, 114, 116, -33, 125, ExifInterface.MARKER_SOF10, ExifInterface.MARKER_APP1, 86, -11, 11, -78, -96, -17, -99, 64, 23, -95, -126, -82, ExifInterface.MARKER_SOF0, 113, 116, -16, -103, 49, -30, 9, ExifInterface.MARKER_EOI, PublicSuffixDatabase.EXCEPTION_MARKER, -80, -68, -78, -117, 53, 30, -122, 64, -104, 74, ExifInterface.MARKER_SOF15, 106, 85, ExifInterface.MARKER_SOS, -93};
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(new SecretKeySpec(f.a(bArr2), mac.getAlgorithm()));
             return com.ta.utdid2.a.a.b.encodeToString(mac.doFinal(bArr), 2);
@@ -359,10 +358,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            com.ta.utdid2.b.a.c cVar = this.f76427b;
+            com.ta.utdid2.b.a.c cVar = this.f69789b;
             if (cVar != null) {
                 String string = cVar.getString("UTDID2");
-                if (g.m63a(string) || this.f25a.c(string) == null) {
+                if (g.m63a(string) || this.f26a.c(string) == null) {
                     return null;
                 }
                 return string;
@@ -384,22 +383,22 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
                 String i2 = i();
-                this.f76428h = i2;
+                this.f69790h = i2;
                 if (!TextUtils.isEmpty(i2)) {
-                    return this.f76428h;
+                    return this.f69790h;
                 }
                 try {
                     byte[] m70c = m70c();
                     if (m70c != null) {
                         String encodeToString = com.ta.utdid2.a.a.b.encodeToString(m70c, 2);
-                        this.f76428h = encodeToString;
+                        this.f69790h = encodeToString;
                         f(encodeToString);
-                        String c2 = this.f25a.c(m70c);
+                        String c2 = this.f26a.c(m70c);
                         if (c2 != null) {
                             j(c2);
                             g(c2);
                         }
-                        return this.f76428h;
+                        return this.f69790h;
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();

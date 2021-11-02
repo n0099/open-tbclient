@@ -2,7 +2,7 @@ package com.baidu.ugc.bean;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.j.b;
+import b.a.x0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable<LocalAlbumInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FACE_SCORE_BASE = 20;
@@ -215,10 +215,10 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mIsShowSpeedChanger : invokeV.booleanValue;
     }
 
-    public void setDuration(long j2) {
+    public void setDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.duration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.duration = j;
         }
     }
 
@@ -243,10 +243,10 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
         }
     }
 
-    public void setSize(long j2) {
+    public void setSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.size = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.size = j;
         }
     }
 
@@ -297,12 +297,12 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
             if (localAlbumInfo == null) {
                 return -1;
             }
-            long j2 = this.date;
-            long j3 = localAlbumInfo.date;
-            if (j2 > j3) {
+            long j = this.date;
+            long j2 = localAlbumInfo.date;
+            if (j > j2) {
                 return -1;
             }
-            return j2 < j3 ? 1 : 0;
+            return j < j2 ? 1 : 0;
         }
         return invokeL.intValue;
     }

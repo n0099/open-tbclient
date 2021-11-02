@@ -16,7 +16,7 @@ import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MessageV3 implements Parcelable {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV3.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,7 +98,7 @@ public class MessageV3 implements Parcelable {
     }
 
     public static MessageV3 parse(String str, String str2, String str3, MPushMessage mPushMessage) {
-        c.l.a.a.a.b(TAG, "V2 message " + mPushMessage);
+        b.l.a.a.a.b(TAG, "V2 message " + mPushMessage);
         MessageV3 messageV3 = new MessageV3();
         messageV3.setPackageName(str);
         messageV3.setUploadDataPackageName(str);
@@ -135,11 +135,11 @@ public class MessageV3 implements Parcelable {
         }
         messageV3.setParamsMap(mPushMessage.getParams());
         String jSONObject = e.a((Map) mPushMessage.getExtra()).toString();
-        c.l.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
+        b.l.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
         if (!TextUtils.isEmpty(jSONObject)) {
             messageV3.setNotificationMessage(jSONObject);
         }
-        c.l.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
+        b.l.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
         return messageV3;
     }
 
@@ -184,7 +184,7 @@ public class MessageV3 implements Parcelable {
                     messageV3.setWebUrl(jSONObject2.getString("url"));
                 }
                 if (!jSONObject2.isNull("task_id") && TextUtils.isEmpty(str3)) {
-                    c.l.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
+                    b.l.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
                     messageV3.setTaskId(jSONObject2.getString("task_id"));
                 }
                 if (!jSONObject2.isNull("pk")) {
@@ -195,7 +195,7 @@ public class MessageV3 implements Parcelable {
                 }
             }
         } catch (JSONException e2) {
-            c.l.a.a.a.b(TAG, "parse message error " + e2.getMessage());
+            b.l.a.a.a.b(TAG, "parse message error " + e2.getMessage());
         }
         return messageV3;
     }

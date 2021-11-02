@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ConstantsAPI {
     public static final String ACTION_HANDLE_APP_REGISTER = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
     public static final String ACTION_HANDLE_APP_UNREGISTER = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
@@ -46,7 +46,7 @@ public interface ConstantsAPI {
     public static final String SDK_VERSION = "_mmessage_sdkVersion";
     public static final String TOKEN = "_message_token";
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class AppSupportContentFlag {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long MMAPP_SUPPORT_AUDIO = 16;
@@ -79,7 +79,7 @@ public interface ConstantsAPI {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class LaunchWX {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LAUNCH_PENDING_INTENT_REQUEST_CODE = 1;
@@ -101,7 +101,7 @@ public interface ConstantsAPI {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface OpenWebviewType {
         public static final int TYPE_INVOICE_AUTH_INSERT = 2;
         public static final int TYPE_NONTAX_PAY = 3;
@@ -110,7 +110,7 @@ public interface ConstantsAPI {
         public static final int TYPE_SUBSCRIBE_MINI_PROGRAM_MSG = 5;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String WX_LAUNCH_PARAM_KEY = "launchParam";
@@ -135,7 +135,7 @@ public interface ConstantsAPI {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class WXApp {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String WXAPP_BROADCAST_PERMISSION = "com.tencent.mm.permission.MM_MESSAGE";

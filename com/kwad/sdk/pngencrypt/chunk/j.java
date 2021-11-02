@@ -4,19 +4,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class j extends s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f73516h;
+    public int f65937h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f73517i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f73518j;
+    public int f65938i;
+    public int j;
     public int k;
     public int l;
     public int m;
@@ -49,14 +47,14 @@ public class j extends s {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f73516h = com.kwad.sdk.pngencrypt.n.c(dVar.f73497d, 0);
-            this.f73517i = com.kwad.sdk.pngencrypt.n.c(dVar.f73497d, 4);
-            this.f73518j = com.kwad.sdk.pngencrypt.n.c(dVar.f73497d, 8);
-            this.k = com.kwad.sdk.pngencrypt.n.c(dVar.f73497d, 12);
-            this.l = com.kwad.sdk.pngencrypt.n.c(dVar.f73497d, 16);
-            this.m = com.kwad.sdk.pngencrypt.n.b(dVar.f73497d, 20);
-            this.n = com.kwad.sdk.pngencrypt.n.b(dVar.f73497d, 22);
-            byte[] bArr = dVar.f73497d;
+            this.f65937h = com.kwad.sdk.pngencrypt.n.c(dVar.f65920d, 0);
+            this.f65938i = com.kwad.sdk.pngencrypt.n.c(dVar.f65920d, 4);
+            this.j = com.kwad.sdk.pngencrypt.n.c(dVar.f65920d, 8);
+            this.k = com.kwad.sdk.pngencrypt.n.c(dVar.f65920d, 12);
+            this.l = com.kwad.sdk.pngencrypt.n.c(dVar.f65920d, 16);
+            this.m = com.kwad.sdk.pngencrypt.n.b(dVar.f65920d, 20);
+            this.n = com.kwad.sdk.pngencrypt.n.b(dVar.f65920d, 22);
+            byte[] bArr = dVar.f65920d;
             this.o = bArr[24];
             this.p = bArr[25];
         }

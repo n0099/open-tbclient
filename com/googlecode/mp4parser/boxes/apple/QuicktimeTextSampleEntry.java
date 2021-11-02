@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "text";
@@ -206,10 +206,10 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j2));
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
             dataSource.read(allocate);
             allocate.position(6);
             this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
@@ -266,10 +266,10 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setDefaultTextBox(long j2) {
+    public void setDefaultTextBox(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.defaultTextBox = j2;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            this.defaultTextBox = j;
         }
     }
 
@@ -322,10 +322,10 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setReserved1(long j2) {
+    public void setReserved1(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
-            this.reserved1 = j2;
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+            this.reserved1 = j;
         }
     }
 

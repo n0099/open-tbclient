@@ -15,7 +15,7 @@ import com.baidubce.model.AbstractBceRequest;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class InternalRequest<T extends AbstractBceRequest> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NightPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_IMPL_CLASS = "com.baidu.tieba.plugin.night.NightPluginImpl";
@@ -25,16 +25,16 @@ public class NightPluginManager {
     public transient /* synthetic */ FieldHolder $fh;
     public INightPlugin mINightPlugin;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements IInvokeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f56202a;
+        public final /* synthetic */ int f53328a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NightPluginManager f56203b;
+        public final /* synthetic */ NightPluginManager f53329b;
 
         public a(NightPluginManager nightPluginManager, int i2) {
             Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class NightPluginManager {
                     return;
                 }
             }
-            this.f56203b = nightPluginManager;
-            this.f56202a = i2;
+            this.f53329b = nightPluginManager;
+            this.f53328a = i2;
         }
 
         @Override // com.baidu.nps.main.invoke.IInvokeCallback
@@ -60,11 +60,11 @@ public class NightPluginManager {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
                 try {
-                    if (this.f56203b.mINightPlugin == null) {
-                        this.f56203b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
+                    if (this.f53329b.mINightPlugin == null) {
+                        this.f53329b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
                     }
-                    SkinManager.setPackageName(this.f56203b.mINightPlugin.getNightPluginPackageName());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.f56202a)));
+                    SkinManager.setPackageName(this.f53329b.mINightPlugin.getNightPluginPackageName());
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.f53328a)));
                 } catch (IllegalAccessException e2) {
                     e2.printStackTrace();
                 } catch (InstantiationException e3) {
@@ -74,13 +74,13 @@ public class NightPluginManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements IInstallCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IInvokeCallback f56204a;
+        public final /* synthetic */ IInvokeCallback f53330a;
 
         public b(NightPluginManager nightPluginManager, IInvokeCallback iInvokeCallback) {
             Interceptable interceptable = $ic;
@@ -97,13 +97,13 @@ public class NightPluginManager {
                     return;
                 }
             }
-            this.f56204a = iInvokeCallback;
+            this.f53330a = iInvokeCallback;
         }
 
         @Override // com.baidu.nps.main.install.IInstallCallback
-        public void onProgress(long j2, long j3) {
+        public void onProgress(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             }
         }
 
@@ -111,17 +111,17 @@ public class NightPluginManager {
         public void onResult(int i2, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && i2 == 13) {
-                NPSManager.getInstance().loadClazz(NightPluginManager.PLUGIN_PKG_NAME, NightPluginManager.PLUGIN_IMPL_CLASS, INightPlugin.class, this.f56204a);
+                NPSManager.getInstance().loadClazz(NightPluginManager.PLUGIN_PKG_NAME, NightPluginManager.PLUGIN_IMPL_CLASS, INightPlugin.class, this.f53330a);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final NightPluginManager f56205a;
+        public static final NightPluginManager f53331a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -137,7 +137,7 @@ public class NightPluginManager {
                     return;
                 }
             }
-            f56205a = new NightPluginManager(null);
+            f53331a = new NightPluginManager(null);
         }
     }
 
@@ -148,7 +148,7 @@ public class NightPluginManager {
     public static NightPluginManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.f56205a : (NightPluginManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.f53331a : (NightPluginManager) invokeV.objValue;
     }
 
     private void invokePlugin(IInvokeCallback iInvokeCallback) {

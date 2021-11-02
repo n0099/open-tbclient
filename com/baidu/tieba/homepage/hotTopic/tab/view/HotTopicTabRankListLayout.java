@@ -14,10 +14,10 @@ import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.e.e.p.l;
-import c.a.q0.n.f;
-import c.a.r0.h1.f.a.e.c;
-import c.a.r0.h1.f.a.e.d;
+import b.a.e.e.p.l;
+import b.a.q0.n.f;
+import b.a.r0.h1.f.a.e.c;
+import b.a.r0.h1.f.a.e.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -34,27 +34,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HotTopicTabRankListLayout extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52286e;
+    public int f49587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f52287f;
+    public a f49588f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends RecyclerView.Adapter<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<c> f52288a;
+        public List<c> f49589a;
 
         /* renamed from: b  reason: collision with root package name */
-        public f<c> f52289b;
+        public f<c> f49590b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -76,13 +76,13 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         public void onBindViewHolder(@NonNull b bVar, int i2) {
             List<c> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, bVar, i2) == null) || (list = this.f52288a) == null || list.size() <= i2) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, bVar, i2) == null) || (list = this.f49589a) == null || list.size() <= i2) {
                 return;
             }
             c cVar = list.get(i2);
             bVar.b(cVar);
             bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            f<c> fVar = this.f52289b;
+            f<c> fVar = this.f49590b;
             if (fVar != null) {
                 fVar.c(bVar.itemView, cVar, i2, i2);
             }
@@ -97,7 +97,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) {
                 b bVar = new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hot_topic_tab_rank_list_item, viewGroup, false));
-                bVar.c(this.f52289b);
+                bVar.c(this.f49590b);
                 bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return bVar;
             }
@@ -107,7 +107,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         public void d(@NonNull List<c> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                this.f52288a = list;
+                this.f49589a = list;
                 notifyDataSetChanged();
             }
         }
@@ -117,7 +117,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                List<c> list = this.f52288a;
+                List<c> list = this.f49589a;
                 if (list == null) {
                     return 0;
                 }
@@ -129,53 +129,53 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         public void setOnItemCoverListener(f<c> fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
-                this.f52289b = fVar;
+                this.f49590b = fVar;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52290a;
+        public int f49591a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f52291b;
+        public View f49592b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f52292c;
+        public TextView f49593c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f52293d;
+        public TextView f49594d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f52294e;
+        public TextView f49595e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f52295f;
+        public View f49596f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f52296g;
+        public TextView f49597g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f52297h;
+        public ImageView f49598h;
 
         /* renamed from: i  reason: collision with root package name */
-        public f<c> f52298i;
+        public f<c> f49599i;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f52299e;
+            public final /* synthetic */ c f49600e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f52300f;
+            public final /* synthetic */ b f49601f;
 
             public a(b bVar, c cVar) {
                 Interceptable interceptable = $ic;
@@ -192,8 +192,8 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                         return;
                     }
                 }
-                this.f52300f = bVar;
-                this.f52299e = cVar;
+                this.f49601f = bVar;
+                this.f49600e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -201,27 +201,27 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                     new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hotforum", "all").start();
-                    if (this.f52300f.f52298i != null) {
-                        int adapterPosition = this.f52300f.getAdapterPosition();
-                        this.f52300f.f52298i.a(view, this.f52299e, adapterPosition, adapterPosition);
+                    if (this.f49601f.f49599i != null) {
+                        int adapterPosition = this.f49601f.getAdapterPosition();
+                        this.f49601f.f49599i.a(view, this.f49600e, adapterPosition, adapterPosition);
                     }
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class View$OnClickListenerC1766b implements View.OnClickListener {
+        /* loaded from: classes9.dex */
+        public class View$OnClickListenerC1724b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f52301e;
+            public final /* synthetic */ c f49602e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f52302f;
+            public final /* synthetic */ b f49603f;
 
-            public View$OnClickListenerC1766b(b bVar, c cVar) {
+            public View$OnClickListenerC1724b(b bVar, c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -236,24 +236,24 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                         return;
                     }
                 }
-                this.f52302f = bVar;
-                this.f52301e = cVar;
+                this.f49603f = bVar;
+                this.f49602e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    String tryFixDefaultValue = StringUtils.tryFixDefaultValue(String.valueOf(this.f52301e.f18275a));
-                    String tryFixDefaultValue2 = StringUtils.tryFixDefaultValue(this.f52301e.f18276b);
+                    String tryFixDefaultValue = StringUtils.tryFixDefaultValue(String.valueOf(this.f49602e.f17214a));
+                    String tryFixDefaultValue2 = StringUtils.tryFixDefaultValue(this.f49602e.f17215b);
                     HotTopicStat.Locate locate = HotTopicStat.Locate.HOT_RANK;
-                    if (this.f52301e.b()) {
+                    if (this.f49602e.b()) {
                         HotTopicStat.a(tryFixDefaultValue, tryFixDefaultValue2, locate, null, null);
                     }
-                    new HotTopicActivityConfig(view.getContext()).createNormalConfig(tryFixDefaultValue, null, String.valueOf(this.f52301e.a()), "3", locate).start();
-                    if (this.f52302f.f52298i != null) {
-                        int adapterPosition = this.f52302f.getAdapterPosition();
-                        this.f52302f.f52298i.a(view, this.f52301e, adapterPosition, adapterPosition);
+                    new HotTopicActivityConfig(view.getContext()).createNormalConfig(tryFixDefaultValue, null, String.valueOf(this.f49602e.a()), "3", locate).start();
+                    if (this.f49603f.f49599i != null) {
+                        int adapterPosition = this.f49603f.getAdapterPosition();
+                        this.f49603f.f49599i.a(view, this.f49602e, adapterPosition, adapterPosition);
                     }
                 }
             }
@@ -277,14 +277,14 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                     return;
                 }
             }
-            this.f52290a = 3;
-            this.f52291b = view.findViewById(R.id.itemLayout);
-            this.f52292c = (TextView) view.findViewById(R.id.indexView);
-            this.f52293d = (TextView) view.findViewById(R.id.titleView);
-            this.f52294e = (TextView) view.findViewById(R.id.tagView);
-            this.f52295f = view.findViewById(R.id.moreLayout);
-            this.f52296g = (TextView) view.findViewById(R.id.moreText);
-            this.f52297h = (ImageView) view.findViewById(R.id.moreIcon);
+            this.f49591a = 3;
+            this.f49592b = view.findViewById(R.id.itemLayout);
+            this.f49593c = (TextView) view.findViewById(R.id.indexView);
+            this.f49594d = (TextView) view.findViewById(R.id.titleView);
+            this.f49595e = (TextView) view.findViewById(R.id.tagView);
+            this.f49596f = view.findViewById(R.id.moreLayout);
+            this.f49597g = (TextView) view.findViewById(R.id.moreText);
+            this.f49598h = (ImageView) view.findViewById(R.id.moreIcon);
         }
 
         public void b(c cVar) {
@@ -292,41 +292,41 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null) {
                 return;
             }
-            if (cVar.f18279e) {
-                this.f52291b.setVisibility(8);
-                this.f52295f.setVisibility(0);
-                this.f52295f.setOnClickListener(new a(this, cVar));
+            if (cVar.f17218e) {
+                this.f49592b.setVisibility(8);
+                this.f49596f.setVisibility(0);
+                this.f49596f.setOnClickListener(new a(this, cVar));
                 return;
             }
-            this.f52291b.setVisibility(0);
-            this.f52291b.setOnClickListener(new View$OnClickListenerC1766b(this, cVar));
-            this.f52295f.setVisibility(8);
-            int i2 = cVar.f18278d;
+            this.f49592b.setVisibility(0);
+            this.f49592b.setOnClickListener(new View$OnClickListenerC1724b(this, cVar));
+            this.f49596f.setVisibility(8);
+            int i2 = cVar.f17217d;
             if (i2 > 0) {
-                this.f52292c.setText(String.valueOf(i2));
-                this.f52292c.setVisibility(0);
+                this.f49593c.setText(String.valueOf(i2));
+                this.f49593c.setVisibility(0);
             } else {
-                this.f52292c.setVisibility(8);
+                this.f49593c.setVisibility(8);
             }
-            this.f52293d.setText(cVar.f18276b);
-            String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.f52294e.getContext(), cVar.f18277c);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f52293d.getLayoutParams();
+            this.f49594d.setText(cVar.f17215b);
+            String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.f49595e.getContext(), cVar.f17216c);
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f49594d.getLayoutParams();
             if (TextUtils.isEmpty(hotTopicTagStr)) {
-                this.f52294e.setVisibility(8);
-                marginLayoutParams.rightMargin = l.g(this.f52294e.getContext(), R.dimen.tbds22);
-                this.f52293d.setLayoutParams(marginLayoutParams);
+                this.f49595e.setVisibility(8);
+                marginLayoutParams.rightMargin = l.g(this.f49595e.getContext(), R.dimen.tbds22);
+                this.f49594d.setLayoutParams(marginLayoutParams);
             } else {
-                marginLayoutParams.rightMargin = l.g(this.f52294e.getContext(), R.dimen.tbds74);
-                this.f52293d.setLayoutParams(marginLayoutParams);
-                this.f52294e.setVisibility(0);
-                this.f52294e.setText(hotTopicTagStr);
+                marginLayoutParams.rightMargin = l.g(this.f49595e.getContext(), R.dimen.tbds74);
+                this.f49594d.setLayoutParams(marginLayoutParams);
+                this.f49595e.setVisibility(0);
+                this.f49595e.setText(hotTopicTagStr);
             }
-            int indexTextColorRes = TagTextHelper.getIndexTextColorRes(cVar.f18278d);
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f52292c);
+            int indexTextColorRes = TagTextHelper.getIndexTextColorRes(cVar.f17217d);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f49593c);
             d2.n(R.string.J_X04);
             d2.f(indexTextColorRes);
-            int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(cVar.f18277c);
-            c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(this.f52294e);
+            int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(cVar.f17216c);
+            b.a.q0.s.u.c d3 = b.a.q0.s.u.c.d(this.f49595e);
             d3.n(R.string.J_X04);
             d3.e(R.string.A_X12);
             d3.f(hotTopicTagColorRes);
@@ -335,29 +335,29 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         public void c(f<c> fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                this.f52298i = fVar;
+                this.f49599i = fVar;
             }
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f52290a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f49591a == i2) {
                 return;
             }
             int i3 = R.color.CAM_X0204;
-            TBSelector.setViewBackgroundColorWithPressedState(this.f52291b, R.color.CAM_X0205, i3);
-            TBSelector.setViewBackgroundColorWithPressedState(this.f52295f, R.color.CAM_X0205, i3);
-            SkinManager.setViewTextColor(this.f52293d, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f52294e, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f52292c, R.color.CAM_X0101);
-            if (this.f52295f.getVisibility() == 0) {
-                SkinManager.setViewTextColor(this.f52296g, R.color.CAM_X0304);
+            TBSelector.setViewBackgroundColorWithPressedState(this.f49592b, R.color.CAM_X0205, i3);
+            TBSelector.setViewBackgroundColorWithPressedState(this.f49596f, R.color.CAM_X0205, i3);
+            SkinManager.setViewTextColor(this.f49594d, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f49595e, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f49593c, R.color.CAM_X0101);
+            if (this.f49596f.getVisibility() == 0) {
+                SkinManager.setViewTextColor(this.f49597g, R.color.CAM_X0304);
                 int color = SkinManager.getColor(R.color.CAM_X0304);
-                Drawable drawable = this.f52297h.getDrawable();
+                Drawable drawable = this.f49598h.getDrawable();
                 DrawableCompat.setTint(drawable, color);
-                this.f52297h.setImageDrawable(drawable);
+                this.f49598h.setImageDrawable(drawable);
             }
-            this.f52290a = i2;
+            this.f49591a = i2;
         }
     }
 
@@ -379,7 +379,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                 return;
             }
         }
-        this.f52286e = 3;
+        this.f49587e = 3;
         c();
     }
 
@@ -388,7 +388,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || dVar == null || dVar.g() == null) {
             return;
         }
-        this.f52287f.d(dVar.g());
+        this.f49588f.d(dVar.g());
     }
 
     public final void c() {
@@ -397,24 +397,24 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             setLayoutManager(new GridLayoutManager(getContext(), 2));
             setOverScrollMode(2);
             a aVar = new a();
-            this.f52287f = aVar;
+            this.f49588f = aVar;
             setAdapter(aVar);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f52286e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f49587e == i2) {
             return;
         }
-        this.f52287f.notifyDataSetChanged();
-        this.f52286e = i2;
+        this.f49588f.notifyDataSetChanged();
+        this.f49587e = i2;
     }
 
     public void setOnItemCoverListener(f<c> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f52287f.setOnItemCoverListener(fVar);
+            this.f49588f.setOnItemCoverListener(fVar);
         }
     }
 
@@ -437,7 +437,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                 return;
             }
         }
-        this.f52286e = 3;
+        this.f49587e = 3;
         c();
     }
 
@@ -460,7 +460,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                 return;
             }
         }
-        this.f52286e = 3;
+        this.f49587e = 3;
         c();
     }
 }

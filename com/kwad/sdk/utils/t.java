@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.Observable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class t extends Observable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile t f74338a;
+    public static volatile t f66721a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f74339b;
+    public WeakReference<Activity> f66722b;
 
     public t() {
         Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class t extends Observable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f74338a == null) {
+            if (f66721a == null) {
                 synchronized (t.class) {
-                    if (f74338a == null) {
-                        f74338a = new t();
+                    if (f66721a == null) {
+                        f66721a = new t();
                     }
                 }
             }
-            return f74338a;
+            return f66721a;
         }
         return (t) invokeV.objValue;
     }
@@ -98,7 +98,7 @@ public class t extends Observable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ t f74340a;
+                public final /* synthetic */ t f66723a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -115,7 +115,7 @@ public class t extends Observable {
                             return;
                         }
                     }
-                    this.f74340a = this;
+                    this.f66723a = this;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -135,20 +135,20 @@ public class t extends Observable {
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityPaused(@NonNull Activity activity) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.f74340a.f74339b == null || this.f74340a.f74339b.get() == null || !((Activity) this.f74340a.f74339b.get()).equals(activity)) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.f66723a.f66722b == null || this.f66723a.f66722b.get() == null || !((Activity) this.f66723a.f66722b.get()).equals(activity)) {
                         return;
                     }
-                    this.f74340a.f74339b = null;
+                    this.f66723a.f66722b = null;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityResumed(@NonNull Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
-                        if (!this.f74340a.b()) {
-                            this.f74340a.d();
+                        if (!this.f66723a.b()) {
+                            this.f66723a.d();
                         }
-                        this.f74340a.f74339b = new WeakReference(activity);
+                        this.f66723a.f66722b = new WeakReference(activity);
                     }
                 }
 
@@ -187,7 +187,7 @@ public class t extends Observable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WeakReference<Activity> weakReference = this.f74339b;
+            WeakReference<Activity> weakReference = this.f66722b;
             if (weakReference == null) {
                 return null;
             }

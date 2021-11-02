@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ViewTarget";
@@ -44,7 +44,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public final T view;
 
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class SizeDeterminer {
         public static /* synthetic */ Interceptable $ic;
         public static final int PENDING_SIZE = 0;
@@ -58,7 +58,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         public final View view;
         public boolean waitForLayout;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

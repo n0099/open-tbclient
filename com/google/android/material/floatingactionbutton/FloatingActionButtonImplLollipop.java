@@ -16,6 +16,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.content.ContextCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
@@ -32,12 +33,12 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class AlwaysStatefulMaterialShapeDrawable extends MaterialShapeDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +101,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(ObjectAnimator.ofFloat(this.view, "elevation", f2).setDuration(0L)).with(ObjectAnimator.ofFloat(this.view, View.TRANSLATION_Z, f3).setDuration(100L));
+            animatorSet.play(ObjectAnimator.ofFloat(this.view, Key.ELEVATION, f2).setDuration(0L)).with(ObjectAnimator.ofFloat(this.view, View.TRANSLATION_Z, f3).setDuration(100L));
             animatorSet.setInterpolator(FloatingActionButtonImpl.ELEVATION_ANIM_INTERPOLATOR);
             return animatorSet;
         }
@@ -228,7 +229,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
                 stateListAnimator.addState(FloatingActionButtonImpl.HOVERED_ENABLED_STATE_SET, createElevationAnimator(f2, f3));
                 AnimatorSet animatorSet = new AnimatorSet();
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(ObjectAnimator.ofFloat(this.view, "elevation", f2).setDuration(0L));
+                arrayList.add(ObjectAnimator.ofFloat(this.view, Key.ELEVATION, f2).setDuration(0L));
                 int i2 = Build.VERSION.SDK_INT;
                 if (i2 >= 22 && i2 <= 24) {
                     FloatingActionButton floatingActionButton = this.view;

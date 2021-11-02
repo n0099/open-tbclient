@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class DefaultExecutorSupplier implements ExecutorSupplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUM_IO_BOUND_THREADS = 2;
@@ -73,5 +73,12 @@ public class DefaultExecutorSupplier implements ExecutorSupplier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIoBoundExecutor : (Executor) invokeV.objValue;
+    }
+
+    @Override // com.facebook.imagepipeline.core.ExecutorSupplier
+    public Executor forThumbnailProducer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIoBoundExecutor : (Executor) invokeV.objValue;
     }
 }

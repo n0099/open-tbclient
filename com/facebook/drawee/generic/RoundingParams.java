@@ -14,12 +14,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RoundingParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mBorderColor;
     public float mBorderWidth;
+    @Nullable
     public float[] mCornersRadii;
     public int mOverlayColor;
     public float mPadding;
@@ -29,7 +30,7 @@ public class RoundingParams {
     public boolean mScaleDownInsideBorders;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class RoundingMethod {
         public static final /* synthetic */ RoundingMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -173,6 +174,7 @@ public class RoundingParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBorderWidth : invokeV.floatValue;
     }
 
+    @Nullable
     public float[] getCornersRadii() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

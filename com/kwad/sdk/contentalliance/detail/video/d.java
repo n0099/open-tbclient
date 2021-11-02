@@ -1,11 +1,11 @@
 package com.kwad.sdk.contentalliance.detail.video;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface d {
     void a();
 
     void a(int i2, int i3);
 
-    void a(long j2, long j3);
+    void a(long j, long j2);
 
     void b();
 

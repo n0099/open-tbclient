@@ -13,11 +13,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.g;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
-import c.a.x0.t.m;
-import c.a.x0.t.u;
+import b.a.a0.b.a.g;
+import b.a.x0.t.c;
+import b.a.x0.t.h;
+import b.a.x0.t.m;
+import b.a.x0.t.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -50,7 +50,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(18)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMultiMediaDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerMultiMediaProcessor";
@@ -178,15 +178,15 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
     private void doExtractDecode(MediaExtractor mediaExtractor, MediaCodec mediaCodec, MultiMediaData multiMediaData, MediaSegment mediaSegment, MediaFormat mediaFormat) {
         boolean z;
         int i2;
+        long j;
         long j2;
-        long j3;
         int dequeueInputBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, this, mediaExtractor, mediaCodec, multiMediaData, mediaSegment, mediaFormat) == null) {
             ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
             ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            long j4 = multiMediaData.offset * 1000;
+            long j3 = multiMediaData.offset * 1000;
             if (multiMediaData.videoExtractorDone || !((mediaFormat == null || this.mMuxer.isStarted()) && isUnInterrupted() && (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) != -1)) {
                 z = true;
                 i2 = -1;
@@ -224,39 +224,39 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                             mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z3);
                             c.e(TAG, "videoDecoderRender:" + z3);
                             if (z3) {
-                                long j5 = bufferInfo.presentationTimeUs;
-                                long j6 = j5 > 0 ? 1000L : 1000L;
+                                long j4 = bufferInfo.presentationTimeUs;
+                                long j5 = j4 > 0 ? 1000L : 1000L;
                                 if (bufferInfo.presentationTimeUs > 0) {
-                                    j4 += (((float) (j3 - (multiMediaData.start * j6))) * 1.0f) / multiMediaData.getCurrentSpeed();
+                                    j3 += (((float) (j2 - (multiMediaData.start * j5))) * 1.0f) / multiMediaData.getCurrentSpeed();
                                 }
                                 this.mFrameSkip = false;
-                                multiMediaData.currentPts = j4;
+                                multiMediaData.currentPts = j3;
                                 if (multiMediaData.loop) {
-                                    j4 += multiMediaData.basePts;
+                                    j3 += multiMediaData.basePts;
                                 }
-                                log(TAG, "decode 2: -------------------refreshcurrentPts ----- " + j4 + " flags ：" + bufferInfo.flags + " mPlayTime : " + this.mPlayTime + " pts : " + bufferInfo.presentationTimeUs + " basePts : " + multiMediaData.basePts + "------------");
+                                log(TAG, "decode 2: -------------------refreshcurrentPts ----- " + j3 + " flags ：" + bufferInfo.flags + " mPlayTime : " + this.mPlayTime + " pts : " + bufferInfo.presentationTimeUs + " basePts : " + multiMediaData.basePts + "------------");
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("refreshcurrentPts:");
-                                sb.append(j4);
+                                sb.append(j3);
                                 sb.append(" mPlayTime ：");
                                 sb.append(this.mPlayTime);
                                 c.e(TAG, sb.toString());
-                                if (j4 >= this.mPlayTime * 1000) {
+                                if (j3 >= this.mPlayTime * 1000) {
                                     notifyFrameAvailable();
-                                    j2 = 1000;
-                                } else if (mediaSegment.start * 1000 == j4 && bufferInfo.flags == z) {
+                                    j = 1000;
+                                } else if (mediaSegment.start * 1000 == j3 && bufferInfo.flags == z) {
                                     notifyFrameAvailable();
                                 } else {
                                     notifyFrameSkip();
                                     StringBuilder sb2 = new StringBuilder();
                                     sb2.append("当前帧率过高，正在丢帧，");
-                                    sb2.append(j4);
+                                    sb2.append(j3);
                                     sb2.append(",");
-                                    j2 = 1000;
+                                    j = 1000;
                                     sb2.append(this.mPlayTime * 1000);
                                     c.e(TAG, sb2.toString());
                                 }
-                                if (bufferInfo.presentationTimeUs >= multiMediaData.end * j2) {
+                                if (bufferInfo.presentationTimeUs >= multiMediaData.end * j) {
                                     notifyFrameAvailable();
                                     multiMediaData.videoDecoderDone = z;
                                 }
@@ -265,8 +265,8 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                                     multiMediaData.videoDecoderDone = z;
                                 }
                             }
-                            j2 = 1000;
-                            if (bufferInfo.presentationTimeUs >= multiMediaData.end * j2) {
+                            j = 1000;
+                            if (bufferInfo.presentationTimeUs >= multiMediaData.end * j) {
                             }
                             if ((bufferInfo.flags & 4) != 0) {
                             }
@@ -323,9 +323,9 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                             i2 = i3;
                         } else {
                             i2 = i3;
-                            long j2 = mediaSegment3.start;
-                            multiMediaData.offset = j2;
-                            multiMediaData.currentPts = j2 * 1000;
+                            long j = mediaSegment3.start;
+                            multiMediaData.offset = j;
+                            multiMediaData.currentPts = j * 1000;
                         }
                         i4++;
                         i3 = i2;
@@ -334,15 +334,15 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 int i5 = i3;
                 MultiMediaData multiMediaData2 = multiMediaDataTrack.multiMediaDataSuperpositionHeader;
                 if (multiMediaData2 != null && (mediaSegment2 = mediaTrack.superpositionHeader) != null) {
-                    long j3 = mediaSegment2.start;
-                    multiMediaData2.offset = j3;
-                    multiMediaData2.currentPts = j3 * 1000;
+                    long j2 = mediaSegment2.start;
+                    multiMediaData2.offset = j2;
+                    multiMediaData2.currentPts = j2 * 1000;
                 }
                 MultiMediaData multiMediaData3 = multiMediaDataTrack.multiMediaDataSuperpositionFooter;
                 if (multiMediaData3 != null && (mediaSegment = mediaTrack.superpositionFooter) != null) {
-                    long j4 = mediaSegment.start;
-                    multiMediaData3.offset = j4;
-                    multiMediaData3.currentPts = j4 * 1000;
+                    long j3 = mediaSegment.start;
+                    multiMediaData3.offset = j3;
+                    multiMediaData3.currentPts = j3 * 1000;
                 }
                 i3 = i5 + 1;
             }
@@ -351,7 +351,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
             boolean z3 = false;
             boolean z4 = false;
             int i7 = -1;
-            long j5 = 0;
+            long j4 = 0;
             while (true) {
                 if (z4 || !isUnInterrupted()) {
                     break;
@@ -373,13 +373,13 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                                 int i9 = 0;
                                 while (i9 < mediaTrack2.mediaSegments.size()) {
                                     MultiMediaData multiMediaData4 = (MultiMediaData) h.c(multiMediaDataTrack2.multiMediaDataList, i9);
-                                    long j6 = currentTimeMillis;
+                                    long j5 = currentTimeMillis;
                                     MediaSegment mediaSegment4 = (MediaSegment) h.c(mediaTrack2.mediaSegments, i9);
                                     if (multiMediaData4 != null && mediaSegment4 != null) {
                                         extractDecode(multiMediaData4, mediaSegment4, mediaFormat, baseOutputSurface);
                                     }
                                     i9++;
-                                    currentTimeMillis = j6;
+                                    currentTimeMillis = j5;
                                 }
                             }
                             extractDecode(multiMediaDataTrack2.multiMediaDataSuperpositionHeader, mediaTrack2.superpositionHeader, mediaFormat, baseOutputSurface);
@@ -388,7 +388,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                             currentTimeMillis = currentTimeMillis;
                         }
                     }
-                    long j7 = currentTimeMillis;
+                    long j6 = currentTimeMillis;
                     if (this.mFrameAvailable) {
                         System.currentTimeMillis();
                         baseOutputSurface.awaitNewImage();
@@ -400,9 +400,9 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                             z3 = true;
                         }
                         boolean z5 = this.mPlayTime < getDuration();
-                        long j8 = (long) (this.mPlayTime + ((1.0d / this.mFrameRate) * 1000.0d));
-                        this.mPlayTime = j8;
-                        if (j8 >= getDuration() && z5) {
+                        long j7 = (long) (this.mPlayTime + ((1.0d / this.mFrameRate) * 1000.0d));
+                        this.mPlayTime = j7;
+                        if (j7 >= getDuration() && z5) {
                             this.mPlayTime = getDuration();
                         }
                     }
@@ -417,10 +417,10 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                                     mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
                                 } else {
                                     if (bufferInfo.size != 0) {
-                                        if (j5 == 0) {
-                                            j5 = bufferInfo.presentationTimeUs;
+                                        if (j4 == 0) {
+                                            j4 = bufferInfo.presentationTimeUs;
                                         }
-                                        int duration = (int) ((bufferInfo.presentationTimeUs - j5) / (getDuration() * 10));
+                                        int duration = (int) ((bufferInfo.presentationTimeUs - j4) / (getDuration() * 10));
                                         if (duration > 0 && duration < 100) {
                                             onProgress(duration);
                                         }
@@ -458,7 +458,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                         checkMuxerStart(z2);
                         currentTimeMillis = currentTimeMillis2;
                     } else {
-                        currentTimeMillis = j7;
+                        currentTimeMillis = j6;
                     }
                     this.mFrameAvailable = false;
                     i6 = -1;
@@ -516,11 +516,11 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (mediaSegment.start != 0 || mediaSegment.end != 0 || this.mPlayTime > getDuration()) {
-            long j2 = mediaSegment.start;
-            long j3 = mediaSegment.end;
-            if (j2 != j3) {
-                long j4 = this.mPlayTime;
-                if (j4 >= j2) {
+            long j = mediaSegment.start;
+            long j2 = mediaSegment.end;
+            if (j != j2) {
+                long j3 = this.mPlayTime;
+                if (j3 >= j) {
                 }
             }
             if (multiMediaData.type == 1) {
@@ -534,17 +534,17 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
         initMultiMedia(multiMediaData, mediaSegment.start);
         if (multiMediaData.type == 1) {
             if (FileUtils.isExists(multiMediaData.path)) {
-                long j5 = this.mPlayTime;
-                if (multiMediaData.currentPts / 1000 <= j5) {
+                long j4 = this.mPlayTime;
+                if (multiMediaData.currentPts / 1000 <= j4) {
                     c.e(TAG, multiMediaData.currentPts + "," + (this.mPlayTime * 1000) + "," + multiMediaData.path);
                     createDecoder(multiMediaData, baseOutputSurface);
                     if (multiMediaData.videoDecoderDone && multiMediaData.loop) {
                         multiMediaData.videoDecoderDone = false;
                         multiMediaData.videoExtractorDone = false;
                         multiMediaData.basePts += multiMediaData.currentPts;
-                        long j6 = mediaSegment.start;
-                        multiMediaData.offset = j6;
-                        multiMediaData.currentPts = j6 * 1000;
+                        long j5 = mediaSegment.start;
+                        multiMediaData.offset = j5;
+                        multiMediaData.currentPts = j5 * 1000;
                         multiMediaData.videoDecoder.flush();
                         multiMediaData.videoExtractor.seekTo(multiMediaData.start * 1000, 0);
                     }
@@ -556,7 +556,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                     if (!multiMediaData.videoDecoderDone) {
                         return;
                     }
-                } else if (j5 <= 0) {
+                } else if (j4 <= 0) {
                     return;
                 } else {
                     c.e(TAG, "当前帧率不够，正在追帧");
@@ -566,9 +566,9 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                             multiMediaData.videoDecoderDone = false;
                             multiMediaData.videoExtractorDone = false;
                             multiMediaData.basePts += multiMediaData.currentPts;
-                            long j7 = mediaSegment.start;
-                            multiMediaData.offset = j7;
-                            multiMediaData.currentPts = j7 * 1000;
+                            long j6 = mediaSegment.start;
+                            multiMediaData.offset = j6;
+                            multiMediaData.currentPts = j6 * 1000;
                             multiMediaData.videoDecoder.flush();
                             multiMediaData.videoExtractor.seekTo(multiMediaData.start * 1000, 0);
                         }
@@ -598,7 +598,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 }
                 mediaSegment.effectStart = subTitle.startTime;
                 mediaSegment.effectEnd = subTitle.endTime;
-                mediaSegment.mediaAEffect = c.a.a0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
+                mediaSegment.mediaAEffect = b.a.a0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
                 multiMediaData.width = 0;
                 multiMediaData.height = 0;
                 multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, subTitle.textBitmap.copy(Bitmap.Config.ARGB_8888, false));
@@ -650,9 +650,9 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
         return invokeV.longValue;
     }
 
-    private void initMultiMedia(MultiMediaData multiMediaData, long j2) {
+    private void initMultiMedia(MultiMediaData multiMediaData, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65546, this, multiMediaData, j2) == null) || multiMediaData == null || TextUtils.isEmpty(multiMediaData.path)) {
+        if (!(interceptable == null || interceptable.invokeLJ(65546, this, multiMediaData, j) == null) || multiMediaData == null || TextUtils.isEmpty(multiMediaData.path)) {
             return;
         }
         if (multiMediaData.textureId == 0 || multiMediaData.isFrameSequential()) {
@@ -666,7 +666,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
             }
             String str = multiMediaData.path;
             if (multiMediaData.isFrameSequential()) {
-                int i2 = (int) (((float) (this.mPlayTime - j2)) / (1000.0f / multiMediaData.frameFps));
+                int i2 = (int) (((float) (this.mPlayTime - j)) / (1000.0f / multiMediaData.frameFps));
                 if (i2 < 0) {
                     return;
                 }
@@ -692,7 +692,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
     private void log() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            c.a.a0.b.a.k.c.l();
+            b.a.a0.b.a.k.c.l();
         }
     }
 

@@ -3,7 +3,7 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.object;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.b.b.a.a.a;
+import b.a.e.e.b.b.a.a.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OrmObject extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class OrmObject extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bundle, cls)) == null) {
-            OrmObject ormObject = (OrmObject) c.a.e.e.b.a.a.f(cls);
+            OrmObject ormObject = (OrmObject) b.a.e.e.b.a.a.f(cls);
             if (ormObject == null || !ormObject.fillByBundle(bundle)) {
                 return null;
             }
@@ -114,7 +114,7 @@ public class OrmObject extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, intent, cls)) == null) {
-            OrmObject ormObject = (OrmObject) c.a.e.e.b.a.a.f(cls);
+            OrmObject ormObject = (OrmObject) b.a.e.e.b.a.a.f(cls);
             if (ormObject == null || !ormObject.fillByIntent(intent)) {
                 return null;
             }
@@ -127,7 +127,7 @@ public class OrmObject extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, jSONObject, cls)) == null) {
-            OrmObject ormObject = (OrmObject) c.a.e.e.b.a.a.f(cls);
+            OrmObject ormObject = (OrmObject) b.a.e.e.b.a.a.f(cls);
             if (ormObject == null || !ormObject.fillByJsonObject(jSONObject)) {
                 return null;
             }
@@ -157,7 +157,7 @@ public class OrmObject extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, map, cls)) == null) {
-            OrmObject ormObject = (OrmObject) c.a.e.e.b.a.a.f(cls);
+            OrmObject ormObject = (OrmObject) b.a.e.e.b.a.a.f(cls);
             if (ormObject == null || !ormObject.fillByMap(map)) {
                 return null;
             }

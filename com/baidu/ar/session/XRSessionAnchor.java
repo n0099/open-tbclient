@@ -5,7 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.view.OrientationEventListener;
 import android.view.WindowManager;
-import c.a.k0.a.a;
+import b.a.k0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.plugin.PluginManager;
 import com.baidu.searchbox.v8engine.NotProguard;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
 import java.io.File;
 @NotProguard
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class XRSessionAnchor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XRSessionAnchor";
@@ -109,16 +109,16 @@ public class XRSessionAnchor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionCreateFail(long j2, int i2);
+    public native void xRSessionCreateFail(long j, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionCreateSuccess(long j2, int i2);
+    public native void xRSessionCreateSuccess(long j, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionOrientationChange(long j2, int i2);
+    public native void xRSessionOrientationChange(long j, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionPermissionChange(long j2, int i2);
+    public native void xRSessionPermissionChange(long j, int i2);
 
     public void requestCameraPermission() {
         PermissionProxy permissionProxy;

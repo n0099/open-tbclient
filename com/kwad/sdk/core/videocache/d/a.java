@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.videocache.j;
 import com.kwad.sdk.core.videocache.n;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends SQLiteOpenHelper implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f72700a;
+    public static final String[] f65151a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class a extends SQLiteOpenHelper implements b {
                 return;
             }
         }
-        f72700a = new String[]{"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
+        f65151a = new String[]{"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,9 +67,9 @@ public class a extends SQLiteOpenHelper implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, nVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("url", nVar.f72746a);
-            contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f72747b));
-            contentValues.put("mime", nVar.f72748c);
+            contentValues.put("url", nVar.f65197a);
+            contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f65198b));
+            contentValues.put("mime", nVar.f65199c);
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -93,7 +93,7 @@ public class a extends SQLiteOpenHelper implements b {
         j.a(str);
         n nVar = null;
         try {
-            cursor = getReadableDatabase().query("SourceInfo", f72700a, "url=?", new String[]{str}, null, null, null);
+            cursor = getReadableDatabase().query("SourceInfo", f65151a, "url=?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {

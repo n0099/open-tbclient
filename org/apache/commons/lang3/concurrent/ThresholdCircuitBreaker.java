@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThresholdCircuitBreaker extends AbstractCircuitBreaker<Long> {
     public static /* synthetic */ Interceptable $ic;
     public static final long INITIAL_COUNT = 0;
@@ -15,12 +15,12 @@ public class ThresholdCircuitBreaker extends AbstractCircuitBreaker<Long> {
     public final long threshold;
     public final AtomicLong used;
 
-    public ThresholdCircuitBreaker(long j2) {
+    public ThresholdCircuitBreaker(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,7 +31,7 @@ public class ThresholdCircuitBreaker extends AbstractCircuitBreaker<Long> {
             }
         }
         this.used = new AtomicLong(0L);
-        this.threshold = j2;
+        this.threshold = j;
     }
 
     @Override // org.apache.commons.lang3.concurrent.AbstractCircuitBreaker, org.apache.commons.lang3.concurrent.CircuitBreaker

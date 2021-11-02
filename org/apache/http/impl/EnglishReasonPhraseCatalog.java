@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 import org.apache.http.ReasonPhraseCatalog;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EnglishReasonPhraseCatalog implements ReasonPhraseCatalog {
     public static /* synthetic */ Interceptable $ic;
     public static final EnglishReasonPhraseCatalog INSTANCE = null;

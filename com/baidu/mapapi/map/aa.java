@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class aa extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f41728a;
+    public final /* synthetic */ View f39566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f41729b;
+    public final /* synthetic */ WearMapView f39567b;
 
     public aa(WearMapView wearMapView, View view) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public class aa extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f41729b = wearMapView;
-        this.f41728a = view;
+        this.f39567b = wearMapView;
+        this.f39566a = view;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.f41728a.setVisibility(4);
+            this.f39566a.setVisibility(4);
             super.onAnimationEnd(animator);
         }
     }

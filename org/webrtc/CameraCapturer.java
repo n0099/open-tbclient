@@ -12,13 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
-import h.c.h0;
+import g.c.h0;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class CameraCapturer implements CameraVideoCapturer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_OPEN_CAMERA_ATTEMPTS = 3;
@@ -58,7 +57,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     public int width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -584,7 +583,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     public void changeCaptureFormat(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4) == null) {
-            Logging.d(TAG, "changeCaptureFormat: " + i2 + "x" + i3 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + i4);
+            Logging.d(TAG, "changeCaptureFormat: " + i2 + "x" + i3 + "@" + i4);
             synchronized (this.stateLock) {
                 stopCapture();
                 startCapture(i2, i3, i4);
@@ -664,7 +663,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     public void startCapture(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048585, this, i2, i3, i4) == null) {
-            Logging.d(TAG, "startCapture: " + i2 + "x" + i3 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + i4);
+            Logging.d(TAG, "startCapture: " + i2 + "x" + i3 + "@" + i4);
             if (this.applicationContext != null) {
                 synchronized (this.stateLock) {
                     if (!this.sessionOpening && this.currentSession == null) {

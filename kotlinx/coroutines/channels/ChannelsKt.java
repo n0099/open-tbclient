@@ -21,7 +21,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi;
 import kotlinx.coroutines.ObsoleteCoroutinesApi;
 import kotlinx.coroutines.selects.SelectClause1;
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlinx/coroutines/channels/ChannelsKt__ChannelsKt", "kotlinx/coroutines/channels/ChannelsKt__Channels_commonKt"}, d2 = {}, k = 4, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ChannelsKt {
     public static final String DEFAULT_CLOSE_MESSAGE = "Channel was closed";
 

@@ -25,7 +25,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RsaUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static String privateKey;

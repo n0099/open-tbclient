@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.c.ab;
 import com.vivo.push.c.ai;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class o implements IPushClientFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ai f76980a;
+    public ai f70329a;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class o implements IPushClientFactory {
                 return;
             }
         }
-        this.f76980a = new ai();
+        this.f70329a = new ai();
     }
 
     @Override // com.vivo.push.IPushClientFactory

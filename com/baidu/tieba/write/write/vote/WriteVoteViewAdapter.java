@@ -14,8 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.e.e.p.l;
-import c.a.q0.d1.m0;
+import b.a.e.e.p.l;
+import b.a.q0.d1.m0;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
@@ -30,27 +30,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f59217a;
+    public TbPageContext f56161a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WriteVoteItemData> f59218b;
+    public List<WriteVoteItemData> f56162b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59219c;
+    public boolean f56163c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f59220d;
+    public f f56164d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView.OnEditorActionListener f59221e;
+    public TextView.OnEditorActionListener f56165e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,16 +87,16 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f59222e;
+        public final /* synthetic */ int f56166e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WriteVoteViewAdapter f59223f;
+        public final /* synthetic */ WriteVoteViewAdapter f56167f;
 
         public b(WriteVoteViewAdapter writeVoteViewAdapter, int i2) {
             Interceptable interceptable = $ic;
@@ -113,27 +113,27 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.f59223f = writeVoteViewAdapter;
-            this.f59222e = i2;
+            this.f56167f = writeVoteViewAdapter;
+            this.f56166e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f59223f.f59220d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f56167f.f56164d == null) {
                 return;
             }
-            this.f59223f.f59220d.a(this.f59222e);
+            this.f56167f.f56164d.a(this.f56166e);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteVoteViewAdapter f59224e;
+        public final /* synthetic */ WriteVoteViewAdapter f56168e;
 
         public c(WriteVoteViewAdapter writeVoteViewAdapter) {
             Interceptable interceptable = $ic;
@@ -150,33 +150,33 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.f59224e = writeVoteViewAdapter;
+            this.f56168e = writeVoteViewAdapter;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f59224e.f59220d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f56168e.f56164d == null) {
                 return;
             }
-            this.f59224e.f59220d.b();
-            this.f59224e.f59219c = true;
+            this.f56168e.f56164d.b();
+            this.f56168e.f56163c = true;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f59225a;
+        public TextView f56169a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f59226b;
+        public ImageView f56170b;
 
         /* renamed from: c  reason: collision with root package name */
-        public RelativeLayout f59227c;
+        public RelativeLayout f56171c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(WriteVoteViewAdapter writeVoteViewAdapter, View view) {
@@ -196,33 +196,33 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.f59225a = (TextView) view.findViewById(R.id.vote_add_item);
-            this.f59226b = (ImageView) view.findViewById(R.id.vote_add_item_icon);
-            this.f59227c = (RelativeLayout) view.findViewById(R.id.vote_add_item_back);
+            this.f56169a = (TextView) view.findViewById(R.id.vote_add_item);
+            this.f56170b = (ImageView) view.findViewById(R.id.vote_add_item_icon);
+            this.f56171c = (RelativeLayout) view.findViewById(R.id.vote_add_item_back);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class e extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public EditText f59228a;
+        public EditText f56172a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f59229b;
+        public ImageView f56173b;
 
         /* renamed from: c  reason: collision with root package name */
-        public g f59230c;
+        public g f56174c;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public class a implements View.OnFocusChangeListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f59231e;
+            public final /* synthetic */ e f56175e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -239,7 +239,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                         return;
                     }
                 }
-                this.f59231e = eVar;
+                this.f56175e = eVar;
             }
 
             @Override // android.view.View.OnFocusChangeListener
@@ -247,12 +247,12 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                     if (z) {
-                        e eVar = this.f59231e;
-                        eVar.f59228a.addTextChangedListener(eVar.f59230c);
+                        e eVar = this.f56175e;
+                        eVar.f56172a.addTextChangedListener(eVar.f56174c);
                         return;
                     }
-                    e eVar2 = this.f59231e;
-                    eVar2.f59228a.removeTextChangedListener(eVar2.f59230c);
+                    e eVar2 = this.f56175e;
+                    eVar2.f56172a.removeTextChangedListener(eVar2.f56174c);
                 }
             }
         }
@@ -275,22 +275,22 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.f59228a = (EditText) view.findViewById(R.id.vote_item);
-            this.f59229b = (ImageView) view.findViewById(R.id.img_delete);
-            this.f59230c = new g(writeVoteViewAdapter, this);
-            this.f59228a.setOnEditorActionListener(writeVoteViewAdapter.f59221e);
+            this.f56172a = (EditText) view.findViewById(R.id.vote_item);
+            this.f56173b = (ImageView) view.findViewById(R.id.img_delete);
+            this.f56174c = new g(writeVoteViewAdapter, this);
+            this.f56172a.setOnEditorActionListener(writeVoteViewAdapter.f56165e);
         }
 
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f59230c.a(i2);
-                this.f59228a.setOnFocusChangeListener(new a(this));
+                this.f56174c.a(i2);
+                this.f56172a.setOnFocusChangeListener(new a(this));
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface f {
         void a(int i2);
 
@@ -299,19 +299,19 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         void c(WriteVoteItemData writeVoteItemData, int i2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class g implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final e f59232e;
+        public final e f56176e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f59233f;
+        public int f56177f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ WriteVoteViewAdapter f59234g;
+        public final /* synthetic */ WriteVoteViewAdapter f56178g;
 
         public g(WriteVoteViewAdapter writeVoteViewAdapter, e eVar) {
             Interceptable interceptable = $ic;
@@ -328,14 +328,14 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.f59234g = writeVoteViewAdapter;
-            this.f59232e = eVar;
+            this.f56178g = writeVoteViewAdapter;
+            this.f56176e = eVar;
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f59233f = i2;
+                this.f56177f = i2;
             }
         }
 
@@ -351,17 +351,17 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             }
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
-            writeVoteItemData.setId(this.f59233f + 1);
+            writeVoteItemData.setId(this.f56177f + 1);
             if (m0.d(replace) > 28) {
-                this.f59234g.f59217a.showToast(String.format(this.f59234g.f59217a.getString(R.string.write_vote_toast), 14));
+                this.f56178g.f56161a.showToast(String.format(this.f56178g.f56161a.getString(R.string.write_vote_toast), 14));
             }
             String m = m0.m(replace, 28);
             if (!m.equals(editable.toString())) {
-                this.f59232e.f59228a.setText(m);
-                this.f59232e.f59228a.setSelection(m.length());
+                this.f56176e.f56172a.setText(m);
+                this.f56176e.f56172a.setSelection(m.length());
             }
             writeVoteItemData.setText(m);
-            this.f59234g.f59220d.c(writeVoteItemData, this.f59233f);
+            this.f56178g.f56164d.c(writeVoteItemData, this.f56177f);
         }
 
         @Override // android.text.TextWatcher
@@ -394,17 +394,17 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 return;
             }
         }
-        this.f59219c = false;
-        this.f59221e = new a(this);
-        this.f59217a = tbPageContext;
+        this.f56163c = false;
+        this.f56165e = new a(this);
+        this.f56161a = tbPageContext;
     }
 
     public final boolean d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<WriteVoteItemData> list = this.f59218b;
-            return list != null && list.size() < 20 && i2 == this.f59218b.size();
+            List<WriteVoteItemData> list = this.f56162b;
+            return list != null && list.size() < 20 && i2 == this.f56162b.size();
         }
         return invokeI.booleanValue;
     }
@@ -412,7 +412,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public List<WriteVoteItemData> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59218b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56162b : (List) invokeV.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -420,12 +420,12 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<WriteVoteItemData> list = this.f59218b;
+            List<WriteVoteItemData> list = this.f56162b;
             if (list == null) {
                 return 0;
             }
             if (list.size() < 20) {
-                return this.f59218b.size() + 1;
+                return this.f56162b.size() + 1;
             }
             return 20;
         }
@@ -455,16 +455,16 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         if (interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) {
             if (viewHolder instanceof e) {
                 e eVar = (e) viewHolder;
-                String text = this.f59218b.get(i2).getText();
-                eVar.f59228a.setHint(String.format(this.f59217a.getString(R.string.write_vote_item), Integer.valueOf(i2 + 1)));
-                eVar.f59228a.setGravity(19);
-                if (i2 < this.f59218b.size() - 1) {
-                    eVar.f59228a.setImeOptions(5);
+                String text = this.f56162b.get(i2).getText();
+                eVar.f56172a.setHint(String.format(this.f56161a.getString(R.string.write_vote_item), Integer.valueOf(i2 + 1)));
+                eVar.f56172a.setGravity(19);
+                if (i2 < this.f56162b.size() - 1) {
+                    eVar.f56172a.setImeOptions(5);
                 } else {
-                    eVar.f59228a.setImeOptions(1);
+                    eVar.f56172a.setImeOptions(1);
                 }
-                ImageView imageView = eVar.f59229b;
-                if (this.f59218b.size() > 2) {
+                ImageView imageView = eVar.f56173b;
+                if (this.f56162b.size() > 2) {
                     imageView.setVisibility(0);
                 } else {
                     imageView.setVisibility(8);
@@ -472,18 +472,18 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 imageView.setOnClickListener(new b(this, i2));
                 eVar.b(i2);
                 if (!StringUtils.isNull(text)) {
-                    eVar.f59228a.setText(text);
+                    eVar.f56172a.setText(text);
                 } else {
-                    eVar.f59228a.setText("");
+                    eVar.f56172a.setText("");
                 }
-                if (this.f59219c && i2 == this.f59218b.size() - 1) {
-                    eVar.f59228a.requestFocus();
-                    this.f59219c = false;
+                if (this.f56163c && i2 == this.f56162b.size() - 1) {
+                    eVar.f56172a.requestFocus();
+                    this.f56163c = false;
                 }
             } else if (viewHolder instanceof d) {
                 d dVar = (d) viewHolder;
-                dVar.f59225a.setText(String.format(this.f59217a.getString(R.string.write_add_vote_item), Integer.valueOf(20 - this.f59218b.size())));
-                dVar.f59227c.setOnClickListener(new c(this));
+                dVar.f56169a.setText(String.format(this.f56161a.getString(R.string.write_add_vote_item), Integer.valueOf(20 - this.f56162b.size())));
+                dVar.f56171c.setOnClickListener(new c(this));
             }
             onChangeSkinType(viewHolder);
         }
@@ -495,20 +495,20 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             return;
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(this.f59217a.getResources().getDimension(R.dimen.tbds10));
+        gradientDrawable.setCornerRadius(this.f56161a.getResources().getDimension(R.dimen.tbds10));
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0209));
-        gradientDrawable.setStroke(l.g(this.f59217a.getPageActivity(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0603));
+        gradientDrawable.setStroke(l.g(this.f56161a.getPageActivity(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0603));
         if (viewHolder instanceof e) {
             e eVar = (e) viewHolder;
-            eVar.f59228a.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            eVar.f59228a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            eVar.f59228a.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.f59229b, R.drawable.ic_icon_mask_select_delete24_svg, SvgManager.SvgResourceStateType.NORMAL);
+            eVar.f56172a.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            eVar.f56172a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            eVar.f56172a.setBackgroundDrawable(gradientDrawable);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.f56173b, R.drawable.ic_icon_mask_select_delete24_svg, SvgManager.SvgResourceStateType.NORMAL);
         } else if (viewHolder instanceof d) {
             d dVar = (d) viewHolder;
-            SkinManager.setViewTextColor(dVar.f59225a, R.color.CAM_X0302);
-            dVar.f59227c.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.f59226b, R.drawable.ic_icon_pure_post_addvote12_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(dVar.f56169a, R.color.CAM_X0302);
+            dVar.f56171c.setBackgroundDrawable(gradientDrawable);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.f56170b, R.drawable.ic_icon_pure_post_addvote12_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
@@ -519,9 +519,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i2)) == null) {
             if (i2 == 1) {
-                return new e(this, LayoutInflater.from(this.f59217a.getPageActivity()).inflate(R.layout.view_vote_item, viewGroup, false));
+                return new e(this, LayoutInflater.from(this.f56161a.getPageActivity()).inflate(R.layout.view_vote_item, viewGroup, false));
             }
-            return new d(this, LayoutInflater.from(this.f59217a.getPageActivity()).inflate(R.layout.view_vote_add_item, viewGroup, false));
+            return new d(this, LayoutInflater.from(this.f56161a.getPageActivity()).inflate(R.layout.view_vote_add_item, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
@@ -529,7 +529,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public void setData(List<WriteVoteItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f59218b = list;
+            this.f56162b = list;
             notifyDataSetChanged();
         }
     }
@@ -537,7 +537,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public void setOnVoteItemListener(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fVar) == null) {
-            this.f59220d = fVar;
+            this.f56164d = fVar;
         }
     }
 }

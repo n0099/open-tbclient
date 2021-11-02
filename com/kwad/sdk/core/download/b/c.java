@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsAppDownloadListener;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class c implements KsAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f72028a;
+    public String f64497a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,13 +44,13 @@ public abstract class c implements KsAppDownloadListener {
                 return;
             }
         }
-        this.f72028a = str;
+        this.f64497a = str;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72028a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64497a : (String) invokeV.objValue;
     }
 
     public void a(int i2) {

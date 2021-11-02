@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CommonStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRIEND_ROOM_CARD_CLICK = "c14008";
@@ -58,6 +58,10 @@ public class CommonStatisticKey {
     public static final String KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5 = "c14196";
     public static final String KEY_FRS_ADVANCED_AD_COMPLETE_SHOW = "c14195";
     public static final String KEY_FRS_FORUM_FLOAT_CLICK = "c13881";
+    public static final String KEY_FRS_ITEM_GAME_CODE_CLICK = "c14422";
+    public static final String KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_CLICK = "c14424";
+    public static final String KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_SHOW = "c14423";
+    public static final String KEY_FRS_ITEM_GAME_CODE_SHOW = "c14421";
     public static final String KEY_FRS_ITEM_TAB_ALBUM_CLICK = "c14187";
     public static final String KEY_FRS_ITEM_TAB_COMMENT_CLICK = "c14190";
     public static final String KEY_FRS_ITEM_TAB_RANKING = "c14189";
@@ -107,6 +111,12 @@ public class CommonStatisticKey {
     public static final String KEY_LOGIN_DIALOG_INVOKE = "c14059";
     public static final String KEY_LOGIN_DIALOG_SUCCESS = "c14060";
     public static final String KEY_NEW_SCHEME_PULL_UP = "c13321";
+    public static final String KEY_PB_FOLD_FLOOR_COMPLAINT = "c14439";
+    public static final String KEY_PB_FOLD_FLOOR_COMPLAINT_CLICK = "c14438";
+    public static final String KEY_PB_FOLD_FLOOR_COMPLAINT_SHOW = "c14437";
+    public static final String KEY_PB_FOLD_ICON_CLICK = "c14435";
+    public static final String KEY_PB_FOLD_ICON_SHOW = "c14434";
+    public static final String KEY_PB_HAS_FOLD_ICON_SHOW = "c14436";
     public static final String KEY_PB_MORE_DIALOG_MUSK_CLICK = "c14338";
     public static final String KEY_PERSON_LIVE_TAB_CLICK = "c14123";
     public static final String KEY_POST_THREAD_AT_USE_CONDITION = "c14380";
@@ -127,6 +137,7 @@ public class CommonStatisticKey {
     public static final String KEY_STATISTICS_MOBADS_SHOW = "c13042";
     public static final String KEY_SYSTEM_SERVICE = "c14052";
     public static final String KEY_TIE_PLUS_DIALOG_EXPOSE = "c14298";
+    public static final String KEY_TIE_PLUS_DOWNLOAD_FINISHED = "c14395";
     public static final String KEY_TIE_PLUS_RICH_TEXT_CLICK = "c14297";
     public static final String KEY_TIE_PLUS_RICH_TEXT_EXPOSE = "c14296";
     public static final String KEY_TOAST_DOWNLOAD_MANAGER_CLICK = "c14362";
@@ -172,7 +183,7 @@ public class CommonStatisticKey {
     public static final String kEY_TIE_PLUS_DIAGLO_CLICK = "c14299";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class Transmitthread {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";

@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DefaultConfig implements IIMConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TOKEN_SEPARATOR = ".";
@@ -43,7 +42,7 @@ public class DefaultConfig implements IIMConfig {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i2)) == null) {
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = str.split("\\.");
             return (split == null || split.length != i2) ? new String[0] : split;
         }
         return (String[]) invokeLI.objValue;
@@ -77,10 +76,10 @@ public class DefaultConfig implements IIMConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public String getPaidCondition(String str, String str2, long j2) {
+    public String getPaidCondition(String str, String str2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j2)})) == null) ? str : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)})) == null) ? str : (String) invokeCommon.objValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig

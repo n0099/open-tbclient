@@ -16,12 +16,12 @@ import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.utils.n;
 import java.io.File;
 import java.nio.charset.Charset;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f72338a;
+    public static volatile e f64800a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,10 +59,10 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (e.class) {
-                if (f72338a == null) {
-                    f72338a = new e();
+                if (f64800a == null) {
+                    f64800a = new e();
                 }
-                eVar = f72338a;
+                eVar = f64800a;
             }
             return eVar;
         }

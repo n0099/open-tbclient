@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.services.bos.callback.BosProgressCallback;
 import com.baidubce.util.CheckUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class GetObjectRequest extends GenericObjectRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +59,12 @@ public class GetObjectRequest extends GenericObjectRequest {
         }
     }
 
-    public void setRange(long j2, long j3) {
+    public void setRange(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            CheckUtils.checkArgument(j2 >= 0, "start should be non-negative.");
-            CheckUtils.checkArgument(j2 <= j3, "start should not be greater than end");
-            this.range = new long[]{j2, j3};
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            CheckUtils.checkArgument(j >= 0, "start should be non-negative.");
+            CheckUtils.checkArgument(j <= j2, "start should not be greater than end");
+            this.range = new long[]{j, j2};
         }
     }
 
@@ -78,11 +78,11 @@ public class GetObjectRequest extends GenericObjectRequest {
         return (GetObjectRequest) invokeL.objValue;
     }
 
-    public GetObjectRequest withRange(long j2, long j3) {
+    public GetObjectRequest withRange(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            setRange(j2, j3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            setRange(j, j2);
             return this;
         }
         return (GetObjectRequest) invokeCommon.objValue;

@@ -3,10 +3,10 @@ package com.baidu.tbadk.widget.tiejia;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d.a;
-import c.a.q0.d1.c0;
-import c.a.q0.d1.e0;
-import c.a.q0.s.q.d2;
+import b.a.q0.d.a;
+import b.a.q0.d1.c0;
+import b.a.q0.d1.e0;
+import b.a.q0.s.q.d2;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -20,19 +20,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e0<Integer> f48996a;
+    public static final e0<Integer> f46481a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e0<Integer> f48997b;
+    public static final e0<Integer> f46482b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class CardBtnType {
         public static final /* synthetic */ CardBtnType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -98,7 +98,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class LandingType {
         public static final /* synthetic */ LandingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -189,7 +189,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class Locate {
         public static final /* synthetic */ Locate[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -261,7 +261,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class RichTextType {
         public static final /* synthetic */ RichTextType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -327,13 +327,14 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class StatType {
         public static final /* synthetic */ StatType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final StatType CLICK;
         public static final StatType DIALOG_CLICK;
         public static final StatType DIALOG_EXPOSE;
+        public static final StatType DOWNLOAD_FINISHED;
         public static final StatType EXPOSE;
         public transient /* synthetic */ FieldHolder $fh;
         public int billingTypeValue;
@@ -353,12 +354,13 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12834h, "曝光");
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12835i, "点击");
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f11998h, "曝光");
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f11999i, "点击");
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1, "弹窗曝光");
-            StatType statType = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1, "弹窗下载点击");
-            DIALOG_CLICK = statType;
-            $VALUES = new StatType[]{EXPOSE, CLICK, DIALOG_EXPOSE, statType};
+            DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1, "弹窗下载点击");
+            StatType statType = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1, "应用下载成功");
+            DOWNLOAD_FINISHED = statType;
+            $VALUES = new StatType[]{EXPOSE, CLICK, DIALOG_EXPOSE, DIALOG_CLICK, statType};
         }
 
         public StatType(@NonNull String str, int i2, @NonNull String str2, int i3, String str3) {
@@ -398,7 +400,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class ThreadType {
         public static final /* synthetic */ ThreadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -493,8 +495,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        f48996a = new e0<>(3000, TimeUnit.MILLISECONDS);
-        f48997b = new e0<>(3000, TimeUnit.MILLISECONDS);
+        f46481a = new e0<>(3000, TimeUnit.MILLISECONDS);
+        f46482b = new e0<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -527,7 +529,7 @@ public final class TiePlusStat {
     public static void b(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, int i3, @NonNull LandingType landingType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @Nullable CardBtnType cardBtnType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), statType, locate, threadType, richTextType, Integer.valueOf(i3), landingType, str, str2, str3, str4, cardBtnType}) == null) {
-            if (statType != StatType.EXPOSE || f48996a.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f46481a.a(Integer.valueOf(i2))) {
                 StatisticItem addParam = new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("t_obj", i3).addParam(LandingType.STAT_KEY, landingType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4);
                 if (cardBtnType != null) {
                     addParam.addParam(CardBtnType.STAT_KEY, cardBtnType.statValue);
@@ -540,7 +542,7 @@ public final class TiePlusStat {
     public static void c(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), statType, locate, str, str2, str3, Integer.valueOf(i3)}) == null) {
-            if (statType != StatType.EXPOSE || f48997b.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f46482b.a(Integer.valueOf(i2))) {
                 a.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i3);
             }
         }
@@ -550,6 +552,13 @@ public final class TiePlusStat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{statType, locate, threadType, richTextType, str, str2, str3, str4}) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4));
+        }
+    }
+
+    public static void e(@NonNull StatType statType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, statType, richTextType, str, str2) == null) {
+            TiebaStatic.log(new StatisticItem(statType.urlKey).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam("order_id", str2));
         }
     }
 }

@@ -11,6 +11,7 @@ public class Cache {
     public transient /* synthetic */ FieldHolder $fh;
     public Pools.Pool<ArrayRow> arrayRowPool;
     public SolverVariable[] mIndexedVariables;
+    public Pools.Pool<ArrayRow> optimizedArrayRowPool;
     public Pools.Pool<SolverVariable> solverVariablePool;
 
     public Cache() {
@@ -26,6 +27,7 @@ public class Cache {
                 return;
             }
         }
+        this.optimizedArrayRowPool = new Pools.SimplePool(256);
         this.arrayRowPool = new Pools.SimplePool(256);
         this.solverVariablePool = new Pools.SimplePool(256);
         this.mIndexedVariables = new SolverVariable[32];

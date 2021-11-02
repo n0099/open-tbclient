@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.e.a.f;
-import c.a.q0.s.s.a;
+import b.a.e.a.f;
+import b.a.q0.s.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PermissionRequestDialog extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class PermissionRequestDialog extends a {
     public ViewGroup mRootView;
     public TextView mTitleView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface OnClickCallback {
         void onClickClose(Activity activity, String str);
 
@@ -79,7 +79,7 @@ public class PermissionRequestDialog extends a {
         }
     }
 
-    @Override // c.a.q0.s.s.a
+    @Override // b.a.q0.s.s.a
     public a create(f<?> fVar) {
         InterceptResult invokeL;
         char c2;

@@ -38,19 +38,19 @@ import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.lightapp.ability.b.b$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(int i2);
 
@@ -58,36 +58,36 @@ public final class b {
     }
 
     /* renamed from: com.baidu.wallet.lightapp.ability.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C1840b {
+    /* loaded from: classes10.dex */
+    public class C1799b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f61783a;
+        public final /* synthetic */ b f58666a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ExecutorService f61784b;
+        public ExecutorService f58667b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f61785c;
+        public a f58668c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Map<String, String> f61786d;
+        public Map<String, String> f58669d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f61787e;
+        public boolean f58670e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f61788f;
+        public Context f58671f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f61789g;
+        public long f58672g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Map<String, String> f61790h;
+        public Map<String, String> f58673h;
 
-        public C1840b(b bVar, a aVar, Context context) {
+        public C1799b(b bVar, a aVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,22 +102,22 @@ public final class b {
                     return;
                 }
             }
-            this.f61783a = bVar;
-            this.f61787e = false;
-            this.f61789g = 0L;
-            this.f61785c = aVar;
-            this.f61788f = context;
+            this.f58666a = bVar;
+            this.f58670e = false;
+            this.f58672g = 0L;
+            this.f58668c = aVar;
+            this.f58671f = context;
         }
 
         private void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-                this.f61784b.execute(new Runnable(this) { // from class: com.baidu.wallet.lightapp.ability.b.b.b.3
+                this.f58667b.execute(new Runnable(this) { // from class: com.baidu.wallet.lightapp.ability.b.b.b.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ C1840b f61795a;
+                    public final /* synthetic */ C1799b f58678a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -134,19 +134,19 @@ public final class b {
                                 return;
                             }
                         }
-                        this.f61795a = this;
+                        this.f58678a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f61795a.f61787e) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f58678a.f58670e) {
                             return;
                         }
-                        Tracker.send("NetworkTomography", this.f61795a.f61786d, this.f61795a.f61790h, DomainConfig.getInstance().getNetcheckhost(new Boolean[]{Boolean.FALSE}) + "/cloan/open/log", this.f61795a.f61788f);
-                        this.f61795a.a(100);
-                        if (this.f61795a.f61785c != null) {
-                            long uptimeMillis = 400 - (SystemClock.uptimeMillis() - this.f61795a.f61789g);
+                        Tracker.send("NetworkTomography", this.f58678a.f58669d, this.f58678a.f58673h, DomainConfig.getInstance().getNetcheckhost(new Boolean[]{Boolean.FALSE}) + "/cloan/open/log", this.f58678a.f58671f);
+                        this.f58678a.a(100);
+                        if (this.f58678a.f58668c != null) {
+                            long uptimeMillis = 400 - (SystemClock.uptimeMillis() - this.f58678a.f58672g);
                             if (uptimeMillis < 0) {
                                 uptimeMillis = 0;
                             }
@@ -155,7 +155,7 @@ public final class b {
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass3 f61796a;
+                                public final /* synthetic */ AnonymousClass3 f58679a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -172,15 +172,15 @@ public final class b {
                                             return;
                                         }
                                     }
-                                    this.f61796a = this;
+                                    this.f58679a = this;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61796a.f61795a.f61785c.a(new JSONObject(this.f61796a.f61795a.f61786d).toString());
-                                        this.f61796a.f61795a.a();
+                                        this.f58679a.f58678a.f58668c.a(new JSONObject(this.f58679a.f58678a.f58669d).toString());
+                                        this.f58679a.f58678a.a();
                                     }
                                 }
                             }, uptimeMillis);
@@ -193,12 +193,12 @@ public final class b {
         private void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-                this.f61784b.execute(new Runnable(this) { // from class: com.baidu.wallet.lightapp.ability.b.b.b.5
+                this.f58667b.execute(new Runnable(this) { // from class: com.baidu.wallet.lightapp.ability.b.b.b.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ C1840b f61799a;
+                    public final /* synthetic */ C1799b f58682a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -215,7 +215,7 @@ public final class b {
                                 return;
                             }
                         }
-                        this.f61799a = this;
+                        this.f58682a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -223,9 +223,9 @@ public final class b {
                         boolean z;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            C1840b c1840b = this.f61799a;
-                            if (c1840b.f61783a.a(c1840b.f61788f)) {
-                                this.f61799a.a(30);
+                            C1799b c1799b = this.f58682a;
+                            if (c1799b.f58666a.a(c1799b.f58671f)) {
+                                this.f58682a.a(30);
                                 try {
                                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://www.baidu.com/").openConnection();
                                     httpURLConnection.setConnectTimeout(1500);
@@ -243,10 +243,10 @@ public final class b {
                                 if (z) {
                                     return;
                                 }
-                                this.f61799a.a(true, false);
+                                this.f58682a.a(true, false);
                                 return;
                             }
-                            this.f61799a.a(false, false);
+                            this.f58682a.a(false, false);
                         }
                     }
                 });
@@ -256,17 +256,17 @@ public final class b {
         public void a(String str, Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) {
-                this.f61784b = Executors.newSingleThreadExecutor();
+                this.f58667b = Executors.newSingleThreadExecutor();
                 HashMap hashMap = new HashMap(map);
-                this.f61786d = hashMap;
+                this.f58669d = hashMap;
                 hashMap.put("url", str);
                 c();
                 a(str);
                 HashMap hashMap2 = new HashMap(3);
-                this.f61790h = hashMap2;
+                this.f58673h = hashMap2;
                 hashMap2.put("location", String.valueOf(LocationCache.b()) + ',' + LocationCache.a());
-                this.f61790h.put("locationType", String.valueOf(LocationCache.c().type()));
-                this.f61790h.put("locationTime", String.valueOf(LocationCache.d()));
+                this.f58673h.put("locationType", String.valueOf(LocationCache.c().type()));
+                this.f58673h.put("locationTime", String.valueOf(LocationCache.d()));
                 b();
             }
         }
@@ -274,9 +274,9 @@ public final class b {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f61787e = true;
-                this.f61789g = 0L;
-                ExecutorService executorService = this.f61784b;
+                this.f58670e = true;
+                this.f58672g = 0L;
+                ExecutorService executorService = this.f58667b;
                 if (executorService != null) {
                     executorService.shutdownNow();
                 }
@@ -286,7 +286,7 @@ public final class b {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(65539, this, i2) == null) || this.f61785c == null) {
+            if (!(interceptable == null || interceptable.invokeI(65539, this, i2) == null) || this.f58668c == null) {
                 return;
             }
             LightappUtils.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.wallet.lightapp.ability.b.b.b.1
@@ -294,10 +294,10 @@ public final class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f61791a;
+                public final /* synthetic */ int f58674a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ C1840b f61792b;
+                public final /* synthetic */ C1799b f58675b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -314,18 +314,18 @@ public final class b {
                             return;
                         }
                     }
-                    this.f61792b = this;
-                    this.f61791a = i2;
+                    this.f58675b = this;
+                    this.f58674a = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f61792b.f61789g == 0) {
-                            this.f61792b.f61789g = SystemClock.uptimeMillis();
+                        if (this.f58675b.f58672g == 0) {
+                            this.f58675b.f58672g = SystemClock.uptimeMillis();
                         }
-                        this.f61792b.f61785c.a(this.f61791a);
+                        this.f58675b.f58668c.a(this.f58674a);
                     }
                 }
             });
@@ -334,22 +334,22 @@ public final class b {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(boolean z, boolean z2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f61785c == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f58668c == null) {
                 return;
             }
             if (z && z2) {
                 return;
             }
-            this.f61787e = true;
+            this.f58670e = true;
             LightappUtils.runOnUiThread(new Runnable(this, z) { // from class: com.baidu.wallet.lightapp.ability.b.b.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f61793a;
+                public final /* synthetic */ boolean f58676a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ C1840b f61794b;
+                public final /* synthetic */ C1799b f58677b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -366,8 +366,8 @@ public final class b {
                             return;
                         }
                     }
-                    this.f61794b = this;
-                    this.f61793a = z;
+                    this.f58677b = this;
+                    this.f58676a = z;
                 }
 
                 @Override // java.lang.Runnable
@@ -376,13 +376,13 @@ public final class b {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            if (!this.f61793a) {
+                            if (!this.f58676a) {
                                 jSONObject.put("isOnline", false);
                             } else {
                                 jSONObject.put("isInternetConnected", false);
                             }
-                            this.f61794b.f61785c.a(jSONObject.toString());
-                            this.f61794b.a();
+                            this.f58677b.f58668c.a(jSONObject.toString());
+                            this.f58677b.a();
                         } catch (JSONException unused) {
                         }
                     }
@@ -393,15 +393,15 @@ public final class b {
         private void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
-                this.f61784b.execute(new Runnable(this, str) { // from class: com.baidu.wallet.lightapp.ability.b.b.b.4
+                this.f58667b.execute(new Runnable(this, str) { // from class: com.baidu.wallet.lightapp.ability.b.b.b.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f61797a;
+                    public final /* synthetic */ String f58680a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ C1840b f61798b;
+                    public final /* synthetic */ C1799b f58681b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -418,40 +418,40 @@ public final class b {
                                 return;
                             }
                         }
-                        this.f61798b = this;
-                        this.f61797a = str;
+                        this.f58681b = this;
+                        this.f58680a = str;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f61798b.f61787e) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f58681b.f58670e) {
                             return;
                         }
-                        this.f61798b.a(80);
+                        this.f58681b.a(80);
                         InetAddress[] inetAddressArr = new InetAddress[0];
                         JSONArray jSONArray = new JSONArray();
                         try {
-                            inetAddressArr = InetAddress.getAllByName(Uri.parse(this.f61797a).getHost());
+                            inetAddressArr = InetAddress.getAllByName(Uri.parse(this.f58680a).getHost());
                         } catch (UnknownHostException e2) {
                             jSONArray.put(e2.getMessage());
                         }
                         for (InetAddress inetAddress : inetAddressArr) {
                             jSONArray.put(inetAddress.getHostAddress());
                         }
-                        this.f61798b.f61786d.put("hostAddress", jSONArray.toString());
+                        this.f58681b.f58669d.put("hostAddress", jSONArray.toString());
                     }
                 });
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f61800a;
+        public static final b f58683a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -467,17 +467,17 @@ public final class b {
                     return;
                 }
             }
-            f61800a = new b(null);
+            f58683a = new b(null);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class d extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final HttpURLConnection f61801a;
+        public final HttpURLConnection f58684a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(HttpURLConnection httpURLConnection) {
@@ -497,7 +497,7 @@ public final class b {
                     return;
                 }
             }
-            this.f61801a = httpURLConnection;
+            this.f58684a = httpURLConnection;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -505,7 +505,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.close();
-                this.f61801a.disconnect();
+                this.f58684a.disconnect();
             }
         }
     }
@@ -546,7 +546,7 @@ public final class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f61800a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f58683a : (b) invokeV.objValue;
     }
 
     public void a(String str, a aVar, Context context, Map<String, String> map) {
@@ -554,7 +554,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, str, aVar, context, map) == null) || TextUtils.isEmpty(str) || context == null) {
             return;
         }
-        new C1840b(this, aVar, DxmApplicationContextImpl.getApplicationContext(context)).a(str, map);
+        new C1799b(this, aVar, DxmApplicationContextImpl.getApplicationContext(context)).a(str, map);
     }
 
     public boolean a(Context context) {

@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36030a = "DESede/CBC/PKCS5Padding";
+    public static String f34127a = "DESede/CBC/PKCS5Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, bArr, str2)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
-                Cipher cipher = Cipher.getInstance(f36030a);
+                Cipher cipher = Cipher.getInstance(f34127a);
                 cipher.init(2, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {
@@ -71,7 +71,7 @@ public class e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, bArr, str2)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
-                Cipher cipher = Cipher.getInstance(f36030a);
+                Cipher cipher = Cipher.getInstance(f34127a);
                 cipher.init(1, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DBInitMgr extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBInitMgr";

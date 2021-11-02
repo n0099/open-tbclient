@@ -2,30 +2,33 @@ package com.baidu.tieba.frs.forumRule.adapter;
 
 import android.content.Context;
 import android.view.View;
-import c.a.q0.f1.m.a;
-import c.a.q0.s.u.c;
+import b.a.q0.f1.n.a;
+import b.a.q0.s.u.c;
+import b.a.r0.x0.b1;
+import b.a.r0.x0.c1;
+import b.a.r0.x0.e1;
+import b.a.r0.x0.h1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f51167a;
+    public Context f48510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f51168b;
+    public View f48511b;
     public TbRichTextView mContent;
     public boolean mCurrentStatus;
     public EMTextView mTitle;
@@ -48,8 +51,8 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51167a = context;
-        this.f51168b = view;
+        this.f48510a = context;
+        this.f48511b = view;
         initView(view);
     }
 
@@ -62,12 +65,12 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public final void initView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.mTitle = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
-            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
+            this.mTitle = (EMTextView) view.findViewById(e1.forum_rule_item_title);
+            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewById(e1.forum_rule_item_content);
             this.mContent = tbRichTextView;
-            tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
+            tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(c1.T_X07));
             a layoutStrategy = this.mContent.getLayoutStrategy();
-            layoutStrategy.o(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
+            layoutStrategy.o(TbadkApplication.getInst().getResources().getDimension(c1.tbds28), 1.0f);
             this.mContent.setLayoutStrategy(layoutStrategy);
             onChangeSkinType();
         }
@@ -78,15 +81,15 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mCurrentStatus) {
                 c d2 = c.d(this.mTitle);
-                d2.A(R.string.F_X02);
-                d2.v(R.color.CAM_X0301);
-                this.mContent.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                d2.A(h1.F_X02);
+                d2.v(b1.CAM_X0301);
+                this.mContent.setTextColor(SkinManager.getColor(b1.CAM_X0301));
                 return;
             }
             c d3 = c.d(this.mTitle);
-            d3.A(R.string.F_X02);
-            d3.v(R.color.CAM_X0105);
-            this.mContent.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            d3.A(h1.F_X02);
+            d3.v(b1.CAM_X0105);
+            this.mContent.setTextColor(SkinManager.getColor(b1.CAM_X0105));
         }
     }
 

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UPSNotificationMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CUSTOM = 3;
@@ -162,10 +162,10 @@ public class UPSNotificationMessage {
         }
     }
 
-    public void setMsgId(long j2) {
+    public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.mMsgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.mMsgId = j;
         }
     }
 

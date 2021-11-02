@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LoginType {
     public static /* synthetic */ Interceptable $ic;
     public static final LoginType QQ;
@@ -16,11 +16,11 @@ public final class LoginType {
     public static final LoginType WeiXin;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ LoginType[] f75660b;
+    public static final /* synthetic */ LoginType[] f67967b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75661a;
+    public int f67968a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public final class LoginType {
         WeiXin = new LoginType("WeiXin", 1, 1);
         LoginType loginType = new LoginType(com.tencent.connect.common.Constants.SOURCE_QQ, 2, 2);
         QQ = loginType;
-        f75660b = new LoginType[]{Unknow, WeiXin, loginType};
+        f67967b = new LoginType[]{Unknow, WeiXin, loginType};
     }
 
     public LoginType(String str, int i2, int i3) {
@@ -60,7 +60,7 @@ public final class LoginType {
                 return;
             }
         }
-        this.f75661a = i3;
+        this.f67968a = i3;
         ordinal();
     }
 
@@ -73,12 +73,12 @@ public final class LoginType {
     public static LoginType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f75660b.clone() : (LoginType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f67967b.clone() : (LoginType[]) invokeV.objValue;
     }
 
-    public final int getValue() {
+    public int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75661a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67968a : invokeV.intValue;
     }
 }

@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.StatefulRunnable;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Consumer<T> mConsumer;
-    public final ProducerListener mProducerListener;
+    public final ProducerContext mProducerContext;
+    public final ProducerListener2 mProducerListener;
     public final String mProducerName;
-    public final String mRequestId;
 
-    public StatefulProducerRunnable(Consumer<T> consumer, ProducerListener producerListener, String str, String str2) {
+    public StatefulProducerRunnable(Consumer<T> consumer, ProducerListener2 producerListener2, ProducerContext producerContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {consumer, producerListener, str, str2};
+            Object[] objArr = {consumer, producerListener2, producerContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -34,10 +34,10 @@ public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
             }
         }
         this.mConsumer = consumer;
-        this.mProducerListener = producerListener;
+        this.mProducerListener = producerListener2;
         this.mProducerName = str;
-        this.mRequestId = str2;
-        producerListener.onProducerStart(str2, str);
+        this.mProducerContext = producerContext;
+        producerListener2.onProducerStart(producerContext, str);
     }
 
     @Override // com.facebook.common.executors.StatefulRunnable
@@ -77,9 +77,10 @@ public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
     public void onCancellation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ProducerListener producerListener = this.mProducerListener;
-            String str = this.mRequestId;
-            producerListener.onProducerFinishWithCancellation(str, this.mProducerName, producerListener.requiresExtraMap(str) ? getExtraMapOnCancellation() : null);
+            ProducerListener2 producerListener2 = this.mProducerListener;
+            ProducerContext producerContext = this.mProducerContext;
+            String str = this.mProducerName;
+            producerListener2.onProducerFinishWithCancellation(producerContext, str, producerListener2.requiresExtraMap(producerContext, str) ? getExtraMapOnCancellation() : null);
             this.mConsumer.onCancellation();
         }
     }
@@ -88,9 +89,10 @@ public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
     public void onFailure(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, exc) == null) {
-            ProducerListener producerListener = this.mProducerListener;
-            String str = this.mRequestId;
-            producerListener.onProducerFinishWithFailure(str, this.mProducerName, exc, producerListener.requiresExtraMap(str) ? getExtraMapOnFailure(exc) : null);
+            ProducerListener2 producerListener2 = this.mProducerListener;
+            ProducerContext producerContext = this.mProducerContext;
+            String str = this.mProducerName;
+            producerListener2.onProducerFinishWithFailure(producerContext, str, exc, producerListener2.requiresExtraMap(producerContext, str) ? getExtraMapOnFailure(exc) : null);
             this.mConsumer.onFailure(exc);
         }
     }
@@ -99,9 +101,10 @@ public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
     public void onSuccess(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-            ProducerListener producerListener = this.mProducerListener;
-            String str = this.mRequestId;
-            producerListener.onProducerFinishWithSuccess(str, this.mProducerName, producerListener.requiresExtraMap(str) ? getExtraMapOnSuccess(t) : null);
+            ProducerListener2 producerListener2 = this.mProducerListener;
+            ProducerContext producerContext = this.mProducerContext;
+            String str = this.mProducerName;
+            producerListener2.onProducerFinishWithSuccess(producerContext, str, producerListener2.requiresExtraMap(producerContext, str) ? getExtraMapOnSuccess(t) : null);
             this.mConsumer.onNewResult(t, 1);
         }
     }

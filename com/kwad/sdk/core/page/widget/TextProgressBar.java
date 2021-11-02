@@ -28,41 +28,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TextProgressBar extends ProgressBar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f72463a;
+    public static final boolean f64921a;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72464b;
+    public String f64922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f72465c;
+    public Paint f64923c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearGradient f72466d;
+    public LinearGradient f64924d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f72467e;
+    public Matrix f64925e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f72468f;
+    public boolean f64926f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f72469g;
+    public boolean f64927g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f72470h;
+    public boolean f64928h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f72471i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f72472j;
+    public int f64929i;
+    public int j;
     public Drawable k;
     public int l;
     public Rect m;
@@ -85,7 +83,7 @@ public class TextProgressBar extends ProgressBar {
                 return;
             }
         }
-        f72463a = KsAdSDKImpl.get().isDebugLogEnable();
+        f64921a = KsAdSDKImpl.get().isDebugLogEnable();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,8 +104,8 @@ public class TextProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f72469g = false;
-        this.f72470h = true;
+        this.f64927g = false;
+        this.f64928h = true;
         this.m = new Rect();
         a();
     }
@@ -131,8 +129,8 @@ public class TextProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f72469g = false;
-        this.f72470h = true;
+        this.f64927g = false;
+        this.f64928h = true;
         this.m = new Rect();
         a();
     }
@@ -141,10 +139,10 @@ public class TextProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             Paint paint = new Paint();
-            this.f72465c = paint;
+            this.f64923c = paint;
             paint.setAntiAlias(true);
-            this.f72465c.setColor(-1);
-            this.f72465c.setTextSize(av.a(getContext(), 12.0f));
+            this.f64923c.setColor(-1);
+            this.f64923c.setTextSize(av.a(getContext(), 12.0f));
             this.l = av.a(getContext(), 2.0f);
             this.q = new RectF();
             this.o = -1;
@@ -155,7 +153,7 @@ public class TextProgressBar extends ProgressBar {
     private void setProgressText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            this.f72464b = String.valueOf((int) (((i2 * 1.0f) / getMax()) * 100.0f)) + "%";
+            this.f64922b = String.valueOf((int) (((i2 * 1.0f) / getMax()) * 100.0f)) + "%";
         }
     }
 
@@ -172,8 +170,8 @@ public class TextProgressBar extends ProgressBar {
     public void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
-            this.f72464b = str;
-            this.f72468f = true;
+            this.f64922b = str;
+            this.f64926f = true;
             setProgress(i2);
             invalidate();
         }
@@ -185,7 +183,7 @@ public class TextProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             synchronized (this) {
-                if (this.f72469g) {
+                if (this.f64927g) {
                     canvas.save();
                     canvas.rotate(90.0f);
                     canvas.translate(0.0f, -getWidth());
@@ -194,8 +192,8 @@ public class TextProgressBar extends ProgressBar {
                 } else {
                     super.onDraw(canvas);
                 }
-                if (!TextUtils.isEmpty(this.f72464b)) {
-                    this.f72465c.getTextBounds(this.f72464b, 0, this.f72464b.length(), this.m);
+                if (!TextUtils.isEmpty(this.f64922b)) {
+                    this.f64923c.getTextBounds(this.f64922b, 0, this.f64922b.length(), this.m);
                 }
                 int height = (getHeight() / 2) - this.m.centerY();
                 if (this.k != null) {
@@ -213,41 +211,41 @@ public class TextProgressBar extends ProgressBar {
                     float progress = ((getProgress() * 1.0f) / getMax()) * getWidth();
                     float f2 = width;
                     if (progress >= f2) {
-                        if (this.f72466d == null) {
-                            this.f72466d = new LinearGradient(f2, 0.0f, width + this.m.width(), 0.0f, this.n, (float[]) null, Shader.TileMode.CLAMP);
+                        if (this.f64924d == null) {
+                            this.f64924d = new LinearGradient(f2, 0.0f, width + this.m.width(), 0.0f, this.n, (float[]) null, Shader.TileMode.CLAMP);
                             Matrix matrix = new Matrix();
-                            this.f72467e = matrix;
-                            this.f72466d.setLocalMatrix(matrix);
+                            this.f64925e = matrix;
+                            this.f64924d.setLocalMatrix(matrix);
                         }
-                        this.f72465c.setShader(this.f72466d);
-                        this.f72467e.setScale(((progress - f2) * 1.0f) / this.m.width(), 1.0f, f2, 0.0f);
-                        this.f72466d.setLocalMatrix(this.f72467e);
+                        this.f64923c.setShader(this.f64924d);
+                        this.f64925e.setScale(((progress - f2) * 1.0f) / this.m.width(), 1.0f, f2, 0.0f);
+                        this.f64924d.setLocalMatrix(this.f64925e);
                     } else {
-                        this.f72465c.setShader(null);
+                        this.f64923c.setShader(null);
                     }
-                    canvas.drawText(this.f72464b, f2, height, this.f72465c);
+                    canvas.drawText(this.f64922b, f2, height, this.f64923c);
                 } else {
                     if (!isIndeterminate() && !this.r) {
-                        this.f72465c.setColor(this.o);
-                        if (this.f72464b != null) {
-                            canvas.drawText(this.f72464b, width, height, this.f72465c);
+                        this.f64923c.setColor(this.o);
+                        if (this.f64922b != null) {
+                            canvas.drawText(this.f64922b, width, height, this.f64923c);
                         }
                     }
                     float width3 = (getWidth() * getProgress()) / getMax();
                     int save = canvas.save();
                     this.q.set(width3, 0.0f, getWidth(), getHeight());
                     canvas.clipRect(this.q);
-                    this.f72465c.setColor(this.p);
-                    if (this.f72464b != null) {
-                        canvas.drawText(this.f72464b, width, height, this.f72465c);
+                    this.f64923c.setColor(this.p);
+                    if (this.f64922b != null) {
+                        canvas.drawText(this.f64922b, width, height, this.f64923c);
                     }
                     canvas.restoreToCount(save);
                     int save2 = canvas.save();
                     this.q.set(0.0f, 0.0f, width3, getHeight());
                     canvas.clipRect(this.q);
-                    this.f72465c.setColor(this.o);
-                    if (this.f72464b != null) {
-                        canvas.drawText(this.f72464b, width, height, this.f72465c);
+                    this.f64923c.setColor(this.o);
+                    if (this.f64922b != null) {
+                        canvas.drawText(this.f64922b, width, height, this.f64923c);
                     }
                     canvas.restoreToCount(save2);
                 }
@@ -261,11 +259,11 @@ public class TextProgressBar extends ProgressBar {
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             synchronized (this) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                if (layoutParams != null && !TextUtils.isEmpty(this.f72464b)) {
+                if (layoutParams != null && !TextUtils.isEmpty(this.f64922b)) {
                     Rect rect = new Rect();
-                    this.f72465c.getTextBounds(this.f72464b, 0, this.f72464b.length(), rect);
+                    this.f64923c.getTextBounds(this.f64922b, 0, this.f64922b.length(), rect);
                     if (layoutParams.width == -2) {
-                        int width = rect.width() + this.f72471i + this.f72472j;
+                        int width = rect.width() + this.f64929i + this.j;
                         layoutParams.width = width;
                         i2 = View.MeasureSpec.makeMeasureSpec(width, 1073741824);
                     }
@@ -275,7 +273,7 @@ public class TextProgressBar extends ProgressBar {
                         i3 = View.MeasureSpec.makeMeasureSpec(height, 1073741824);
                     }
                 }
-                if (this.f72469g) {
+                if (this.f64927g) {
                     super.onMeasure(i3, i2);
                     setMeasuredDimension(getMeasuredHeight(), getMeasuredWidth());
                 } else {
@@ -289,7 +287,7 @@ public class TextProgressBar extends ProgressBar {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
-            if (this.f72469g) {
+            if (this.f64927g) {
                 super.onSizeChanged(i3, i2, i4, i5);
             } else {
                 super.onSizeChanged(i2, i3, i4, i5);
@@ -314,7 +312,7 @@ public class TextProgressBar extends ProgressBar {
     public void setHasProgress(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f72470h = z;
+            this.f64928h = z;
         }
     }
 
@@ -322,8 +320,8 @@ public class TextProgressBar extends ProgressBar {
     public void setPadding(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4, i5) == null) {
-            this.f72471i = i2;
-            this.f72472j = i4;
+            this.f64929i = i2;
+            this.j = i4;
         }
     }
 
@@ -331,7 +329,7 @@ public class TextProgressBar extends ProgressBar {
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            if (!this.f72470h) {
+            if (!this.f64928h) {
                 i2 = 0;
             }
             super.setProgress(i2);
@@ -350,21 +348,21 @@ public class TextProgressBar extends ProgressBar {
     public void setTextDimen(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            this.f72465c.setTextSize(f2);
+            this.f64923c.setTextSize(f2);
         }
     }
 
     public void setTextDimenSp(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f72465c.setTextSize(TypedValue.applyDimension(2, i2, getResources().getDisplayMetrics()));
+            this.f64923c.setTextSize(TypedValue.applyDimension(2, i2, getResources().getDisplayMetrics()));
         }
     }
 
     public void setVertical(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f72469g = z;
+            this.f64927g = z;
         }
     }
 }

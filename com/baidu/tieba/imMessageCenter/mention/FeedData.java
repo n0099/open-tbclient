@@ -1,8 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.k;
-import c.a.q0.k0.b.a;
+import b.a.e.e.p.k;
+import b.a.q0.k0.b.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FeedData implements Serializable, a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
@@ -411,7 +411,7 @@ public class FeedData implements Serializable, a {
                 jSONObject.put(VideoPlayActivityConfig.IS_SHARE_THREAD, i2);
                 if (this.mOriginalThreadInfo != null) {
                     JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("title", this.mOriginalThreadInfo.f47438g);
+                    jSONObject5.put("title", this.mOriginalThreadInfo.f45041g);
                     jSONObject.put("origin_thread_info", jSONObject5);
                 }
                 jSONArray.put(jSONObject);

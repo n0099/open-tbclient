@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.util.Queue;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ModelCache<A, B> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 250;
@@ -22,7 +22,7 @@ public class ModelCache<A, B> {
     public final LruCache<ModelKey<A>, B> cache;
 
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class ModelKey<A> {
         public static /* synthetic */ Interceptable $ic;
         public static final Queue<ModelKey<?>> KEY_QUEUE;
@@ -161,12 +161,12 @@ public class ModelCache<A, B> {
         }
     }
 
-    public ModelCache(long j2) {
+    public ModelCache(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -176,19 +176,19 @@ public class ModelCache<A, B> {
                 return;
             }
         }
-        this.cache = new LruCache<ModelKey<A>, B>(this, j2) { // from class: com.bumptech.glide.load.model.ModelCache.1
+        this.cache = new LruCache<ModelKey<A>, B>(this, j) { // from class: com.bumptech.glide.load.model.ModelCache.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ModelCache this$0;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
-                super(j2);
+                super(j);
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext2 = TitanRuntime.newInitContext();
                     newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this, Long.valueOf(j2)};
+                    Object[] objArr2 = {this, Long.valueOf(j)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
                     int i4 = newInitContext2.flag;
                     if ((i4 & 1) != 0) {

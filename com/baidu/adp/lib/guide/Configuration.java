@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Configuration implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static Parcelable.Creator<Configuration> CREATOR;
@@ -28,7 +28,7 @@ public class Configuration implements Parcelable {
     public View mTargetView;
     public int mTargetViewId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<Configuration> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

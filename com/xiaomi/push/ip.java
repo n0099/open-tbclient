@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.ix;
 import com.xiaomi.push.jh;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ip {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +15,7 @@ public class ip {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, ibVar)) == null) {
-            return (short) (g.a(context, ibVar.f642b, false).a() + 0 + (ah.b(context) ? 4 : 0) + (ah.a(context) ? 8 : 0));
+            return (short) (g.a(context, ibVar.f643b, false).a() + 0 + (ah.b(context) ? 4 : 0) + (ah.a(context) ? 8 : 0));
         }
         return invokeLL.shortValue;
     }

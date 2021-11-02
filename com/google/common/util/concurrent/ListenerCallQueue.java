@@ -1,8 +1,7 @@
 package com.google.common.util.concurrent;
 
-import androidx.core.app.NotificationCompatJellybean;
-import c.i.d.a.n;
-import c.i.d.c.z0;
+import b.i.d.a.n;
+import b.i.d.c.z0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,19 +17,19 @@ import java.util.Queue;
 import java.util.concurrent.Executor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ListenerCallQueue<L> {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<PerListenerQueue<L>> listeners;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface Event<L> {
         void call(L l);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class PerListenerQueue<L> implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +211,7 @@ public final class ListenerCallQueue<L> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, event, obj) == null) {
             n.q(event, "event");
-            n.q(obj, NotificationCompatJellybean.KEY_LABEL);
+            n.q(obj, "label");
             synchronized (this.listeners) {
                 for (PerListenerQueue<L> perListenerQueue : this.listeners) {
                     perListenerQueue.add(event, obj);

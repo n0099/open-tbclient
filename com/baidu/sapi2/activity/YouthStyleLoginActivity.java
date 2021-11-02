@@ -3,9 +3,9 @@ package com.baidu.sapi2.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import c.a.c0.a.c;
-import c.a.c0.a.e;
-import c.a.c0.a.f;
+import b.a.c0.a.c;
+import b.a.c0.a.e;
+import b.a.c0.a.f;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.swipeback.SwipeBackLayout;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class YouthStyleLoginActivity extends LoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class YouthStyleLoginActivity extends LoginActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ YouthStyleLoginActivity f44777a;
+                public final /* synthetic */ YouthStyleLoginActivity f42528a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -71,14 +71,14 @@ public class YouthStyleLoginActivity extends LoginActivity {
                             return;
                         }
                     }
-                    this.f44777a = this;
+                    this.f42528a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f44777a.onClose();
+                        this.f42528a.onClose();
                     }
                 }
             });

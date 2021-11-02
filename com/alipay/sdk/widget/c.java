@@ -13,22 +13,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class c extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36164c = "v1";
+    public static final String f34255c = "v1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36165d = "v2";
+    public static final String f34256d = "v2";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f36166a;
+    public Activity f34257a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f36167b;
+    public final String f34258b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Activity activity, String str) {
@@ -48,8 +48,8 @@ public abstract class c extends FrameLayout {
                 return;
             }
         }
-        this.f36166a = activity;
-        this.f36167b = str;
+        this.f34257a = activity;
+        this.f34258b = str;
     }
 
     public abstract void a(String str);
@@ -59,7 +59,7 @@ public abstract class c extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        CookieSyncManager.createInstance(this.f36166a.getApplicationContext()).sync();
+        CookieSyncManager.createInstance(this.f34257a.getApplicationContext()).sync();
         CookieManager.getInstance().setCookie(str, str2);
         CookieSyncManager.getInstance().sync();
     }
@@ -71,7 +71,7 @@ public abstract class c extends FrameLayout {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "v1".equals(this.f36167b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "v1".equals(this.f34258b) : invokeV.booleanValue;
     }
 
     public static void a(WebView webView) {

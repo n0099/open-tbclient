@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GameShareData implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<GameShareData> CREATOR;
@@ -28,7 +28,7 @@ public class GameShareData implements Parcelable {
     public String userPortrait;
     public float userScore;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<GameShareData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

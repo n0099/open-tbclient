@@ -12,28 +12,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AdVideoProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f45023e;
+    public float f42764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45024f;
+    public int f42765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45025g;
+    public int f42766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45026h;
+    public int f42767h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f45027i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final Rect f45028j;
+    public Paint f42768i;
+    public final Rect j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdVideoProgressBar(Context context) {
@@ -53,17 +51,17 @@ public class AdVideoProgressBar extends View {
                 return;
             }
         }
-        this.f45024f = -7829368;
-        this.f45025g = -16777216;
-        this.f45026h = 4;
-        this.f45027i = new Paint();
-        this.f45028j = new Rect();
+        this.f42765f = -7829368;
+        this.f42766g = -16777216;
+        this.f42767h = 4;
+        this.f42768i = new Paint();
+        this.j = new Rect();
     }
 
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45023e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42764e : invokeV.floatValue;
     }
 
     @Override // android.view.View
@@ -71,26 +69,26 @@ public class AdVideoProgressBar extends View {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            getDrawingRect(this.f45028j);
-            Rect rect = this.f45028j;
-            this.f45027i.setStyle(Paint.Style.STROKE);
-            this.f45027i.setStrokeWidth(this.f45026h);
-            this.f45027i.setStrokeCap(Paint.Cap.SQUARE);
-            this.f45027i.setAlpha(204);
-            this.f45027i.setAntiAlias(true);
-            this.f45027i.setColor(this.f45025g);
-            Rect rect2 = this.f45028j;
+            getDrawingRect(this.j);
+            Rect rect = this.j;
+            this.f42768i.setStyle(Paint.Style.STROKE);
+            this.f42768i.setStrokeWidth(this.f42767h);
+            this.f42768i.setStrokeCap(Paint.Cap.SQUARE);
+            this.f42768i.setAlpha(204);
+            this.f42768i.setAntiAlias(true);
+            this.f42768i.setColor(this.f42766g);
+            Rect rect2 = this.j;
             float f2 = (rect.top + rect.bottom) / 2;
-            canvas.drawLine(rect2.left, f2, rect2.right, f2, this.f45027i);
-            this.f45027i.setColor(this.f45024f);
-            canvas.drawLine(this.f45028j.left, f2, i2 + ((int) (((rect.right - rect.left) * this.f45023e) / 100.0f)), f2, this.f45027i);
+            canvas.drawLine(rect2.left, f2, rect2.right, f2, this.f42768i);
+            this.f42768i.setColor(this.f42765f);
+            canvas.drawLine(this.j.left, f2, i2 + ((int) (((rect.right - rect.left) * this.f42764e) / 100.0f)), f2, this.f42768i);
         }
     }
 
     public void setProgress(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f45023e = f2 * 100.0f;
+            this.f42764e = f2 * 100.0f;
             invalidate();
         }
     }
@@ -98,21 +96,21 @@ public class AdVideoProgressBar extends View {
     public void setProgressBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f45025g = i2;
+            this.f42766g = i2;
         }
     }
 
     public void setProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f45024f = i2;
+            this.f42765f = i2;
         }
     }
 
     public void setProgressHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f45026h = i2;
+            this.f42767h = i2;
         }
     }
 
@@ -135,11 +133,11 @@ public class AdVideoProgressBar extends View {
                 return;
             }
         }
-        this.f45024f = -7829368;
-        this.f45025g = -16777216;
-        this.f45026h = 4;
-        this.f45027i = new Paint();
-        this.f45028j = new Rect();
+        this.f42765f = -7829368;
+        this.f42766g = -16777216;
+        this.f42767h = 4;
+        this.f42768i = new Paint();
+        this.j = new Rect();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -161,10 +159,10 @@ public class AdVideoProgressBar extends View {
                 return;
             }
         }
-        this.f45024f = -7829368;
-        this.f45025g = -16777216;
-        this.f45026h = 4;
-        this.f45027i = new Paint();
-        this.f45028j = new Rect();
+        this.f42765f = -7829368;
+        this.f42766g = -16777216;
+        this.f42767h = 4;
+        this.f42768i = new Paint();
+        this.j = new Rect();
     }
 }

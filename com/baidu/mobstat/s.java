@@ -28,19 +28,19 @@ import java.util.Comparator;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43856a;
+    public static String f41632a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static s f43857b;
+    public static s f41633b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f43858c;
+    public Handler f41634c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class s {
                 return;
             }
         }
-        f43856a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        f41632a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     public s() {
@@ -71,9 +71,9 @@ public class s {
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.n.f39595a);
+        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.n.f37536a);
         handlerThread.start();
-        this.f43858c = new Handler(handlerThread.getLooper());
+        this.f41634c = new Handler(handlerThread.getLooper());
     }
 
     private boolean b(Context context, String str) {
@@ -85,7 +85,7 @@ public class s {
                     return true;
                 }
                 try {
-                    a(context, f43856a, str);
+                    a(context, f41632a, str);
                     return true;
                 } catch (Exception e2) {
                     bb.c().c(e2);
@@ -100,14 +100,14 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f43857b == null) {
+            if (f41633b == null) {
                 synchronized (s.class) {
-                    if (f43857b == null) {
-                        f43857b = new s();
+                    if (f41633b == null) {
+                        f41633b = new s();
                     }
                 }
             }
-            return f43857b;
+            return f41633b;
         }
         return (s) invokeV.objValue;
     }
@@ -120,18 +120,18 @@ public class s {
             if (str == null || "".equals(str)) {
                 return;
             }
-            this.f43858c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
+            this.f41634c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f43859a;
+                public final /* synthetic */ String f41635a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f43860b;
+                public final /* synthetic */ Context f41636b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ s f43861c;
+                public final /* synthetic */ s f41637c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,9 +148,9 @@ public class s {
                             return;
                         }
                     }
-                    this.f43861c = this;
-                    this.f43859a = str;
-                    this.f43860b = context;
+                    this.f41637c = this;
+                    this.f41635a = str;
+                    this.f41636b = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -158,11 +158,11 @@ public class s {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f43861c.a(this.f43859a);
-                            if (this.f43860b == null) {
+                            this.f41637c.a(this.f41635a);
+                            if (this.f41636b == null) {
                                 return;
                             }
-                            this.f43861c.a(this.f43860b.getApplicationContext());
+                            this.f41637c.a(this.f41636b.getApplicationContext());
                         } catch (Throwable th) {
                             bb.c().b(th);
                         }
@@ -195,7 +195,7 @@ public class s {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ s f43862a;
+                    public final /* synthetic */ s f41638a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -212,7 +212,7 @@ public class s {
                                 return;
                             }
                         }
-                        this.f43862a = this;
+                        this.f41638a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -346,14 +346,14 @@ public class s {
         }
     }
 
-    public static byte[] a(long j2, int i2) {
+    public static byte[] a(long j, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
             byte[] bArr = new byte[i2];
             for (int i3 = 0; i3 < i2; i3++) {
-                bArr[(i2 - i3) - 1] = (byte) (255 & j2);
-                j2 >>= 8;
+                bArr[(i2 - i3) - 1] = (byte) (255 & j);
+                j >>= 8;
             }
             return bArr;
         }

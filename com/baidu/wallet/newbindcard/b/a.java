@@ -30,16 +30,16 @@ import com.dxmpay.wallet.core.beans.BeanConstants;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f62406a;
+    public Handler f59282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NewBindCardMainActivity f62407b;
+    public NewBindCardMainActivity f59283b;
 
     public a(NewBindCardMainActivity newBindCardMainActivity) {
         Interceptable interceptable = $ic;
@@ -56,17 +56,17 @@ public abstract class a implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f62407b = newBindCardMainActivity;
+        this.f59283b = newBindCardMainActivity;
     }
 
     private Handler l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f62406a == null) {
-                this.f62406a = new Handler(this.f62407b.getMainLooper());
+            if (this.f59282a == null) {
+                this.f59282a = new Handler(this.f59283b.getMainLooper());
             }
-            return this.f62406a;
+            return this.f59282a;
         }
         return (Handler) invokeV.objValue;
     }
@@ -104,14 +104,14 @@ public abstract class a implements IBeanResponseCallback {
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (i2 == 1) {
-            color = ResUtils.getColor(this.f62407b, "wallet_cashdesk_new_bind_card_2222");
-            dimension = ResUtils.getDimension(this.f62407b, "wallet_cashdesk_new_bind_card_hasfocus_line_size");
+            color = ResUtils.getColor(this.f59283b, "wallet_cashdesk_new_bind_card_2222");
+            dimension = ResUtils.getDimension(this.f59283b, "wallet_cashdesk_new_bind_card_hasfocus_line_size");
         } else if (i2 == 2) {
-            color = ResUtils.getColor(this.f62407b, "wallet_cashdesk_new_bind_card_5050");
-            dimension = ResUtils.getDimension(this.f62407b, "wallet_cashdesk_new_bind_card_line_error_size");
+            color = ResUtils.getColor(this.f59283b, "wallet_cashdesk_new_bind_card_5050");
+            dimension = ResUtils.getDimension(this.f59283b, "wallet_cashdesk_new_bind_card_line_error_size");
         } else {
-            color = ResUtils.getColor(this.f62407b, "wallet_cashdesk_new_bind_card_E0EA");
-            dimension = ResUtils.getDimension(this.f62407b, "wallet_cashdesk_new_bind_card_line_size");
+            color = ResUtils.getColor(this.f59283b, "wallet_cashdesk_new_bind_card_E0EA");
+            dimension = ResUtils.getDimension(this.f59283b, "wallet_cashdesk_new_bind_card_line_size");
         }
         int i3 = (int) dimension;
         view.setBackgroundColor(color);
@@ -146,7 +146,7 @@ public abstract class a implements IBeanResponseCallback {
             return;
         }
         imageView.setImageResource(R.drawable.wallet_cashdesk_new_bind_card_tip_icon);
-        imageView.setOnClickListener(this.f62407b);
+        imageView.setOnClickListener(this.f59283b);
     }
 
     public abstract void d();
@@ -164,12 +164,12 @@ public abstract class a implements IBeanResponseCallback {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            Handler handler = this.f62406a;
+            Handler handler = this.f59282a;
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
-                this.f62406a = null;
+                this.f59282a = null;
             }
-            this.f62407b = null;
+            this.f59283b = null;
         }
     }
 
@@ -188,16 +188,16 @@ public abstract class a implements IBeanResponseCallback {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f62412a;
+                public final /* synthetic */ int f59288a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f62413b;
+                public final /* synthetic */ int f59289b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f62414c;
+                public final /* synthetic */ String f59290c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f62415d;
+                public final /* synthetic */ a f59291d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -214,17 +214,17 @@ public abstract class a implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f62415d = this;
-                    this.f62412a = i2;
-                    this.f62413b = i3;
-                    this.f62414c = str;
+                    this.f59291d = this;
+                    this.f59288a = i2;
+                    this.f59289b = i3;
+                    this.f59290c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62415d.a(this.f62412a, this.f62413b, this.f62414c);
+                        this.f59291d.a(this.f59288a, this.f59289b, this.f59290c);
                     }
                 }
             });
@@ -240,16 +240,16 @@ public abstract class a implements IBeanResponseCallback {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f62408a;
+                public final /* synthetic */ int f59284a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f62409b;
+                public final /* synthetic */ Object f59285b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f62410c;
+                public final /* synthetic */ String f59286c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f62411d;
+                public final /* synthetic */ a f59287d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -266,17 +266,17 @@ public abstract class a implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f62411d = this;
-                    this.f62408a = i2;
-                    this.f62409b = obj;
-                    this.f62410c = str;
+                    this.f59287d = this;
+                    this.f59284a = i2;
+                    this.f59285b = obj;
+                    this.f59286c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62411d.a(this.f62408a, this.f62409b, this.f62410c);
+                        this.f59287d.a(this.f59284a, this.f59285b, this.f59286c);
                     }
                 }
             });
@@ -294,10 +294,10 @@ public abstract class a implements IBeanResponseCallback {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SafeKeyBoardEditText f62416a;
+            public final /* synthetic */ SafeKeyBoardEditText f59292a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f62417b;
+            public final /* synthetic */ a f59293b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -314,15 +314,15 @@ public abstract class a implements IBeanResponseCallback {
                         return;
                     }
                 }
-                this.f62417b = this;
-                this.f62416a = safeKeyBoardEditText;
+                this.f59293b = this;
+                this.f59292a = safeKeyBoardEditText;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f62416a.setText("");
+                    this.f59292a.setText("");
                 }
             }
         });

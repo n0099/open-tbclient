@@ -1,5 +1,7 @@
 package com.baidu.sapi2.ecommerce.dto;
 
+import android.graphics.drawable.Drawable;
+import android.view.View;
 import com.baidu.pass.permissions.PermissionsDTO;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.dto.SapiWebDTO;
@@ -10,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AddressManageDTO extends SapiWebDTO implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDRESS_EDIT = "1";
@@ -19,10 +21,15 @@ public class AddressManageDTO extends SapiWebDTO implements NoProguard {
     public static final String TYPE_SELECT = "1";
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<PassAddrColorLocation, String> addrListColorMap;
+    public HashMap<PassAddrColorLocation, Boolean> addrListTextStyle;
+    public Drawable backBtnDrawable;
+    public Drawable itemAddEditBtnDrawable;
+    public View loadingView;
     public MapStatusAndLocateCallback mapStatusAndLocateCallback;
     public String openPageName;
     public PermissionsDTO permissionsDTO;
     public boolean selectAddedAddress;
+    public boolean showBottomBack;
     public String tplse;
     public String tplt;
     public String type;
@@ -42,5 +49,6 @@ public class AddressManageDTO extends SapiWebDTO implements NoProguard {
         }
         this.type = "0";
         this.openPageName = "0";
+        this.showBottomBack = true;
     }
 }

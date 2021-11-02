@@ -12,7 +12,7 @@ import java.util.HashMap;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BoxAccount {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class BoxAccount {
     public String uk;
     public int vip;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class ErrorBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -430,10 +430,10 @@ public class BoxAccount {
         }
     }
 
-    public void setDeadline(long j2) {
+    public void setDeadline(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
-            this.deadline = j2;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            this.deadline = j;
         }
     }
 

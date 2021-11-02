@@ -16,13 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +69,7 @@ public abstract class Message {
         try {
             JSONObject jSONObject = new JSONObject(this.mBody);
             if (this.context != null) {
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.context));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.context));
             }
             if (TextUtils.isEmpty(jSONObject.optString("rpc"))) {
                 JSONObject jSONObject2 = new JSONObject();
@@ -266,10 +265,10 @@ public abstract class Message {
         }
     }
 
-    public void setAppid(long j2) {
+    public void setAppid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.mAppid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.mAppid = j;
         }
     }
 
@@ -287,10 +286,10 @@ public abstract class Message {
         }
     }
 
-    public void setMsgId(long j2) {
+    public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.msgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.msgId = j;
         }
     }
 
@@ -329,10 +328,10 @@ public abstract class Message {
         }
     }
 
-    public void setUk(long j2) {
+    public void setUk(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
-            this.mUk = j2;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            this.mUk = j;
         }
     }
 

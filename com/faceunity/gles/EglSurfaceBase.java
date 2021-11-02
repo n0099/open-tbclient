@@ -17,7 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class EglSurfaceBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Grafika";
@@ -156,10 +156,10 @@ public class EglSurfaceBase {
         }
     }
 
-    public void setPresentationTime(long j2) {
+    public void setPresentationTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.mEglCore.setPresentationTime(this.mEGLSurface, j2);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.mEglCore.setPresentationTime(this.mEGLSurface, j);
         }
     }
 

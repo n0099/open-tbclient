@@ -11,46 +11,44 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiPushClient;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ev {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ev f77937a;
+    public static final ev f70897a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ev[] f343a;
+    public static final /* synthetic */ ev[] f344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ev f77938b;
+    public static final ev f70898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ev f77939c;
+    public static final ev f70899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ev f77940d;
+    public static final ev f70900d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ev f77941e;
+    public static final ev f70901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ev f77942f;
+    public static final ev f70902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ev f77943g;
+    public static final ev f70903g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ev f77944h;
+    public static final ev f70904h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ev f77945i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final ev f77946j;
+    public static final ev f70905i;
+    public static final ev j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f344a;
+    public final String f345a;
 
     static {
         InterceptResult invokeClinit;
@@ -65,18 +63,18 @@ public final class ev {
                 return;
             }
         }
-        f77937a = new ev("COMMAND_REGISTER", 0, "register");
-        f77938b = new ev("COMMAND_UNREGISTER", 1, "unregister");
-        f77939c = new ev("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
-        f77940d = new ev("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
-        f77941e = new ev("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
-        f77942f = new ev("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
-        f77943g = new ev("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
-        f77944h = new ev("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
-        f77945i = new ev("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
+        f70897a = new ev("COMMAND_REGISTER", 0, "register");
+        f70898b = new ev("COMMAND_UNREGISTER", 1, "unregister");
+        f70899c = new ev("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
+        f70900d = new ev("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
+        f70901e = new ev("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
+        f70902f = new ev("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
+        f70903g = new ev("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
+        f70904h = new ev("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
+        f70905i = new ev("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
         ev evVar = new ev("COMMAND_CHK_VDEVID", 9, "check-vdeviceid");
-        f77946j = evVar;
-        f343a = new ev[]{f77937a, f77938b, f77939c, f77940d, f77941e, f77942f, f77943g, f77944h, f77945i, evVar};
+        j = evVar;
+        f344a = new ev[]{f70897a, f70898b, f70899c, f70900d, f70901e, f70902f, f70903g, f70904h, f70905i, evVar};
     }
 
     public ev(String str, int i2, String str2) {
@@ -97,7 +95,7 @@ public final class ev {
                 return;
             }
         }
-        this.f344a = str2;
+        this.f345a = str2;
     }
 
     public static int a(String str) {
@@ -110,7 +108,7 @@ public final class ev {
                 return -1;
             }
             for (ev evVar : values()) {
-                if (evVar.f344a.equals(str)) {
+                if (evVar.f345a.equals(str)) {
                     i2 = ek.a(evVar);
                 }
             }
@@ -128,6 +126,6 @@ public final class ev {
     public static ev[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ev[]) f343a.clone() : (ev[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ev[]) f344a.clone() : (ev[]) invokeV.objValue;
     }
 }

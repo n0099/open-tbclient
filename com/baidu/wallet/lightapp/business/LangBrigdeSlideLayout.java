@@ -15,16 +15,16 @@ import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
 import com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase;
 import com.baidu.wallet.lightapp.base.LightappWebView;
 import com.baidu.wallet.lightapp.base.LightappWebViewCenter;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappBrowserWebView f61917a;
+    public LightappBrowserWebView f58798a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61918b;
+    public boolean f58799b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LangBrigdeSlideLayout(Context context) {
@@ -44,7 +44,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                 return;
             }
         }
-        this.f61918b = true;
+        this.f58799b = true;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -66,7 +66,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LangBrigdeSlideLayout f61919a;
+            public final /* synthetic */ LangBrigdeSlideLayout f58800a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -86,7 +86,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                         return;
                     }
                 }
-                this.f61919a = this;
+                this.f58800a = this;
             }
 
             @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
@@ -114,7 +114,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public boolean isReadyForPullDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61917a.isTop && this.f61918b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58798a.isTop && this.f58799b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -130,7 +130,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public void setSupportPullDown(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f61918b = z;
+            this.f58799b = z;
             if (z) {
                 return;
             }
@@ -152,11 +152,11 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, attributeSet)) == null) {
             LightappBrowserWebView lightappWebView = LightappWebViewCenter.getInstance().getLightappWebView(context);
-            this.f61917a = lightappWebView;
+            this.f58798a = lightappWebView;
             if (lightappWebView != null) {
                 lightappWebView.setId(ResUtils.id(context, "cust_webview"));
             }
-            return this.f61917a;
+            return this.f58798a;
         }
         return (LightappWebView) invokeLL.objValue;
     }
@@ -180,6 +180,6 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                 return;
             }
         }
-        this.f61918b = true;
+        this.f58799b = true;
     }
 }

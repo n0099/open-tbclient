@@ -3,7 +3,7 @@ package com.baidu.wallet.paysdk.sms.controller;
 import android.app.Dialog;
 import android.os.Bundle;
 import com.baidu.wallet.paysdk.ui.PayBaseActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface ISmsController {
     public static final String BEAN_TAG = "WalletSmsActivity";
     public static final int DIALOG_CANNOT_DISCOUNT = 65315;

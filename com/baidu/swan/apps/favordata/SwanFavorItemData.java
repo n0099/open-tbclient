@@ -3,7 +3,7 @@ package com.baidu.swan.apps.favordata;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.f1.e.c;
+import b.a.p0.a.f1.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IS_NEW_FAVOR = 1;
@@ -138,7 +138,7 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
     public String getSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : c.e1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : c.d1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
     }
 
     public void setAppFrameType(int i2) {
@@ -169,10 +169,10 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         }
     }
 
-    public void setCreateTime(long j2) {
+    public void setCreateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.mCreateTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.mCreateTime = j;
         }
     }
 

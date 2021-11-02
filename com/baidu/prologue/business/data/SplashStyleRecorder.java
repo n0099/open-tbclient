@@ -2,9 +2,8 @@ package com.baidu.prologue.business.data;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompatJellybean;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.c.j;
+import b.a.f0.a.c.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,13 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SplashStyleRecorder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SplashElements {
         public static final /* synthetic */ SplashElements[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -49,7 +48,7 @@ public class SplashStyleRecorder {
             }
             LOGO = new SplashElements("LOGO", 0, "logo");
             SKIP = new SplashElements("SKIP", 1, FreeSpaceBox.TYPE);
-            LABEL = new SplashElements("LABEL", 2, NotificationCompatJellybean.KEY_LABEL);
+            LABEL = new SplashElements("LABEL", 2, "label");
             VOICE = new SplashElements("VOICE", 3, "voice");
             SplashElements splashElements = new SplashElements("WIFI_TIP", 4, "wifi_tip");
             WIFI_TIP = splashElements;

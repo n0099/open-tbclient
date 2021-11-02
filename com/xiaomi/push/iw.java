@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ix;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class iw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public jb f78379a;
+    public jb f71318a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ji f805a;
+    public final ji f806a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ByteArrayOutputStream f806a;
+    public final ByteArrayOutputStream f807a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public iw() {
@@ -55,19 +55,19 @@ public class iw {
             }
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        this.f806a = byteArrayOutputStream;
+        this.f807a = byteArrayOutputStream;
         ji jiVar = new ji(byteArrayOutputStream);
-        this.f805a = jiVar;
-        this.f78379a = jdVar.a(jiVar);
+        this.f806a = jiVar;
+        this.f71318a = jdVar.a(jiVar);
     }
 
     public byte[] a(iq iqVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iqVar)) == null) {
-            this.f806a.reset();
-            iqVar.b(this.f78379a);
-            return this.f806a.toByteArray();
+            this.f807a.reset();
+            iqVar.b(this.f71318a);
+            return this.f807a.toByteArray();
         }
         return (byte[]) invokeL.objValue;
     }

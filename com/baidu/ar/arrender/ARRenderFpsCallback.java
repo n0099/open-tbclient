@@ -1,5 +1,5 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ARRenderFpsCallback {
     public static final int LISTEN_RENDER_END = 2;
     public static final int LISTEN_RENDER_FPS = 4;

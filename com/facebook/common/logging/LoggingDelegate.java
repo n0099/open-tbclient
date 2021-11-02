@@ -1,5 +1,8 @@
 package com.facebook.common.logging;
-/* loaded from: classes9.dex */
+
+import com.facebook.infer.annotation.NullsafeStrict;
+@NullsafeStrict
+/* loaded from: classes11.dex */
 public interface LoggingDelegate {
     void d(String str, String str2);
 

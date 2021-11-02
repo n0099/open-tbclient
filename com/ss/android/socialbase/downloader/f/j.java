@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.exception.BaseException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class j extends BaseException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f76263a;
+    public int f69347a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(int i2, String str) {
@@ -33,6 +33,6 @@ public class j extends BaseException {
                 return;
             }
         }
-        this.f76263a = i2;
+        this.f69347a = i2;
     }
 }

@@ -15,7 +15,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UnvarnishedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UnvarnishedMessage";
@@ -99,10 +99,10 @@ public class UnvarnishedMessage {
         }
     }
 
-    public void setMsgId(long j2) {
+    public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.mMsgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mMsgId = j;
         }
     }
 

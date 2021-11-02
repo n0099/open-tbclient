@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.OutputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class TracingController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

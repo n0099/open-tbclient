@@ -1,6 +1,7 @@
 package com.alibaba.fastjson.util;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSONException;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.video.VideoItemModel;
@@ -29,7 +30,7 @@ import java.util.Properties;
 import org.apache.commons.codec.digest4util.Sha2Crypt;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IOUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ASCII_CHARS;
@@ -335,7 +336,7 @@ public class IOUtils {
                             byte b3 = bArr[i6];
                             int i8 = i7 + 1;
                             byte b4 = bArr[i7];
-                            if ((b2 != -32 || (b3 & 224) != 128) && (b3 & 192) == 128 && (b4 & 192) == 128) {
+                            if ((b2 != -32 || (b3 & 224) != 128) && (b3 & ExifInterface.MARKER_SOF0) == 128 && (b4 & ExifInterface.MARKER_SOF0) == 128) {
                                 char c2 = (char) (((b2 << StandardMessageCodec.LIST) ^ (b3 << 6)) ^ ((-123008) ^ b4));
                                 if (c2 >= 55296 && c2 < 57344) {
                                     return -1;
@@ -355,7 +356,7 @@ public class IOUtils {
                         int i11 = i10 + 1;
                         byte b7 = bArr[i10];
                         int i12 = (((b2 << 18) ^ (b5 << StandardMessageCodec.LIST)) ^ (b6 << 6)) ^ (3678080 ^ b7);
-                        if ((b5 & 192) == 128 && (b6 & 192) == 128 && (b7 & 192) == 128 && i12 >= 65536 && i12 < 1114112) {
+                        if ((b5 & ExifInterface.MARKER_SOF0) == 128 && (b6 & ExifInterface.MARKER_SOF0) == 128 && (b7 & ExifInterface.MARKER_SOF0) == 128 && i12 >= 65536 && i12 < 1114112) {
                             int i13 = i5 + 1;
                             cArr[i5] = (char) ((i12 >>> 10) + 55232);
                             i5 = i13 + 1;
@@ -369,7 +370,7 @@ public class IOUtils {
                 } else {
                     int i14 = i6 + 1;
                     byte b8 = bArr[i6];
-                    if ((b8 & 192) != 128) {
+                    if ((b8 & ExifInterface.MARKER_SOF0) != 128) {
                         return -1;
                     }
                     cArr[i5] = (char) (((b2 << 6) ^ b8) ^ 3968);
@@ -486,26 +487,26 @@ public class IOUtils {
         return invokeCommon.booleanValue;
     }
 
-    public static void getChars(long j2, int i2, char[] cArr) {
+    public static void getChars(long j, int i2, char[] cArr) {
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), cArr}) == null) {
-            if (j2 < 0) {
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), cArr}) == null) {
+            if (j < 0) {
                 c2 = SignatureImpl.SEP;
-                j2 = -j2;
+                j = -j;
             } else {
                 c2 = 0;
             }
-            while (j2 > 2147483647L) {
-                long j3 = j2 / 100;
-                int i3 = (int) (j2 - (((j3 << 6) + (j3 << 5)) + (j3 << 2)));
+            while (j > 2147483647L) {
+                long j2 = j / 100;
+                int i3 = (int) (j - (((j2 << 6) + (j2 << 5)) + (j2 << 2)));
                 int i4 = i2 - 1;
                 cArr[i4] = DigitOnes[i3];
                 i2 = i4 - 1;
                 cArr[i2] = DigitTens[i3];
-                j2 = j3;
+                j = j2;
             }
-            int i5 = (int) j2;
+            int i5 = (int) j;
             while (i5 >= 65536) {
                 int i6 = i5 / 100;
                 int i7 = i5 - (((i6 << 6) + (i6 << 5)) + (i6 << 2));
@@ -654,16 +655,16 @@ public class IOUtils {
         return invokeI.intValue;
     }
 
-    public static int stringSize(long j2) {
+    public static int stringSize(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65555, null, j2)) == null) {
-            long j3 = 10;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65555, null, j)) == null) {
+            long j2 = 10;
             for (int i2 = 1; i2 < 19; i2++) {
-                if (j2 < j3) {
+                if (j < j2) {
                     return i2;
                 }
-                j3 *= 10;
+                j2 *= 10;
             }
             return 19;
         }

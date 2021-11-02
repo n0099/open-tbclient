@@ -1,15 +1,15 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.t.m;
-import c.a.x0.t.u;
+import b.a.x0.t.m;
+import b.a.x0.t.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class InnerMediaProcessor extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -213,11 +213,11 @@ public class InnerMediaProcessor extends Thread {
         }
     }
 
-    public void setClipRange(long j2, long j3) {
+    public void setClipRange(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.mClipPoint = j2;
-            this.mClipDuration = j3;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.mClipPoint = j;
+            this.mClipDuration = j2;
         }
     }
 

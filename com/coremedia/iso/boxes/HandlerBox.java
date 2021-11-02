@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class HandlerBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "hdlr";
@@ -37,13 +37,13 @@ public class HandlerBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f69561a;
+    public long f62004a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f69562b;
+    public long f62005b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f69563c;
+    public long f62006c;
     public String handlerType;
     public String name;
     public long shouldBeZeroButAppleWritesHereSomeValue;
@@ -119,9 +119,9 @@ public class HandlerBox extends AbstractFullBox {
             parseVersionAndFlags(byteBuffer);
             this.shouldBeZeroButAppleWritesHereSomeValue = IsoTypeReader.readUInt32(byteBuffer);
             this.handlerType = IsoTypeReader.read4cc(byteBuffer);
-            this.f69561a = IsoTypeReader.readUInt32(byteBuffer);
-            this.f69562b = IsoTypeReader.readUInt32(byteBuffer);
-            this.f69563c = IsoTypeReader.readUInt32(byteBuffer);
+            this.f62004a = IsoTypeReader.readUInt32(byteBuffer);
+            this.f62005b = IsoTypeReader.readUInt32(byteBuffer);
+            this.f62006c = IsoTypeReader.readUInt32(byteBuffer);
             if (byteBuffer.remaining() > 0) {
                 String readString = IsoTypeReader.readString(byteBuffer, byteBuffer.remaining());
                 this.name = readString;
@@ -145,9 +145,9 @@ public class HandlerBox extends AbstractFullBox {
             writeVersionAndFlags(byteBuffer);
             IsoTypeWriter.writeUInt32(byteBuffer, this.shouldBeZeroButAppleWritesHereSomeValue);
             byteBuffer.put(IsoFile.fourCCtoBytes(this.handlerType));
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f69561a);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f69562b);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f69563c);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f62004a);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f62005b);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f62006c);
             String str = this.name;
             if (str != null) {
                 byteBuffer.put(Utf8.convert(str));

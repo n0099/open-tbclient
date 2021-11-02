@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class v implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f78599a;
+    public Context f71537a;
 
     /* renamed from: a  reason: collision with other field name */
-    public File f994a;
+    public File f995a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Runnable f995a;
+    public Runnable f996a;
 
     public v(Context context, File file) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public abstract class v implements Runnable {
                 return;
             }
         }
-        this.f78599a = context;
-        this.f994a = file;
+        this.f71537a = context;
+        this.f995a = file;
     }
 
     public /* synthetic */ v(Context context, File file, w wVar) {
@@ -62,14 +62,14 @@ public abstract class v implements Runnable {
             u uVar = null;
             try {
                 try {
-                    if (this.f994a == null) {
-                        this.f994a = new File(this.f78599a.getFilesDir(), "default_locker");
+                    if (this.f995a == null) {
+                        this.f995a = new File(this.f71537a.getFilesDir(), "default_locker");
                     }
-                    uVar = u.a(this.f78599a, this.f994a);
-                    if (this.f995a != null) {
-                        this.f995a.run();
+                    uVar = u.a(this.f71537a, this.f995a);
+                    if (this.f996a != null) {
+                        this.f996a.run();
                     }
-                    a(this.f78599a);
+                    a(this.f71537a);
                     if (uVar == null) {
                         return;
                     }

@@ -1,7 +1,7 @@
 package com.baidu.wallet.home.ui.a;
 
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void hideRightZone();
 

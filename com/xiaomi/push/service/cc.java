@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fm;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class cc extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f78550a;
+    public final /* synthetic */ XMPushService f71488a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f951a;
+    public final /* synthetic */ String f952a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ byte[] f952a;
+    public final /* synthetic */ byte[] f953a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f78551b;
+    public final /* synthetic */ int f71489b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cc(XMPushService xMPushService, int i2, int i3, byte[] bArr, String str) {
@@ -44,10 +44,10 @@ public class cc extends XMPushService.i {
                 return;
             }
         }
-        this.f78550a = xMPushService;
-        this.f78551b = i3;
-        this.f952a = bArr;
-        this.f951a = str;
+        this.f71488a = xMPushService;
+        this.f71489b = i3;
+        this.f953a = bArr;
+        this.f952a = str;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -62,12 +62,12 @@ public class cc extends XMPushService.i {
         fm fmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m.m634a((Context) this.f78550a);
+            m.m634a((Context) this.f71488a);
             av.a().m607a("5");
-            com.xiaomi.push.ab.a(this.f78551b);
-            fmVar = this.f78550a.f848a;
+            com.xiaomi.push.ab.a(this.f71489b);
+            fmVar = this.f71488a.f849a;
             fmVar.c(fm.a());
-            this.f78550a.a(this.f952a, this.f951a);
+            this.f71488a.a(this.f953a, this.f952a);
         }
     }
 }

@@ -15,9 +15,9 @@ import com.airbnb.lottie.value.ScaleXY;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AnimatableTransformParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f42346a, "o", "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
+    public static JsonReader.Options NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f40168a, "o", "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
     public static JsonReader.Options ANIMATABLE_NAMES = JsonReader.Options.of("k");
 
     public static boolean isAnchorPointIdentity(AnimatablePathValue animatablePathValue) {

@@ -2,15 +2,16 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import android.os.Build;
 import android.text.TextUtils;
-import c.a.e.e.p.j;
-import c.a.q0.j0.f;
-import c.a.q0.s.d0.b;
-import c.a.q0.s.l.c;
-import c.a.q0.s.l.e;
-import c.a.q0.t.b.a;
+import b.a.e.e.p.j;
+import b.a.q0.j0.f;
+import b.a.q0.s.e0.b;
+import b.a.q0.s.l.c;
+import b.a.q0.s.l.e;
+import b.a.q0.t.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BDUSS = "BDUSS";
@@ -150,8 +151,8 @@ public class HttpRequest {
                 }
                 z = false;
             }
-            c.a.e.e.j.b.a.s(z);
-            c.a.e.e.j.b.a.n(a2);
+            b.a.e.e.j.b.a.s(z);
+            b.a.e.e.j.b.a.n(a2);
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
                     iNetWorkCore.addPostData(TBS, f.f());
@@ -172,8 +173,8 @@ public class HttpRequest {
             iNetWorkCore.addPostData("first_install_time", String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime()));
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
-            iNetWorkCore.addPostData("cmode", PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            iNetWorkCore.addPostData("is_teenager", c.a.q0.g1.b.c.d() ? "1" : "0");
+            iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
+            iNetWorkCore.addPostData("is_teenager", b.a.q0.g1.b.c.d() ? "1" : "0");
         }
     }
 

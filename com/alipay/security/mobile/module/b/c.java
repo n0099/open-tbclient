@@ -9,13 +9,13 @@ import com.bumptech.glide.load.engine.executor.RuntimeCompat;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class c implements FileFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f36216a;
+    public final /* synthetic */ b f34305a;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class c implements FileFilter {
                 return;
             }
         }
-        this.f36216a = bVar;
+        this.f34305a = bVar;
     }
 
     @Override // java.io.FileFilter

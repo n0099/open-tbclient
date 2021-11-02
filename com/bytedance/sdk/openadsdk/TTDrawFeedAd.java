@@ -1,10 +1,10 @@
 package com.bytedance.sdk.openadsdk;
 
 import android.graphics.Bitmap;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface TTDrawFeedAd extends TTFeedAd {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface DrawVideoListener {
         void onClick();
 

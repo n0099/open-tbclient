@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CrashUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CRASH_TAG = null;
     public static final String SEPERATOR = "#";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class CrashpadConstant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FULL_BDMP_PERFIX = "fullbdmp-";
@@ -83,19 +83,19 @@ public class CrashUtil {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class CrashTAG {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCrashProcessUUID;
         public long mTimeStamp;
 
-        public CrashTAG(@NonNull String str, long j2) {
+        public CrashTAG(@NonNull String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j2)};
+                Object[] objArr = {str, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -106,28 +106,28 @@ public class CrashUtil {
                 }
             }
             this.mCrashProcessUUID = str;
-            this.mTimeStamp = j2;
+            this.mTimeStamp = j;
         }
 
         public static CrashTAG getCrashTAG(@NonNull String str) {
             InterceptResult invokeL;
             String[] split;
-            long j2;
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
                 if (str == null || TextUtils.isEmpty(str) || (split = str.split("#")) == null || split.length != 2 || TextUtils.isEmpty(split[0])) {
                     return null;
                 }
                 try {
-                    j2 = Long.valueOf(split[1]).longValue();
+                    j = Long.valueOf(split[1]).longValue();
                 } catch (NumberFormatException e2) {
                     e2.printStackTrace();
-                    j2 = 0;
+                    j = 0;
                 }
-                if (j2 <= 0) {
+                if (j <= 0) {
                     return null;
                 }
-                return new CrashTAG(split[0], j2);
+                return new CrashTAG(split[0], j);
             }
             return (CrashTAG) invokeL.objValue;
         }

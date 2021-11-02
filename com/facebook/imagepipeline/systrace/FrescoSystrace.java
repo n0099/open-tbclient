@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FrescoSystrace {
     public static /* synthetic */ Interceptable $ic;
     public static final ArgsBuilder NO_OP_ARGS_BUILDER;
@@ -20,26 +20,26 @@ public class FrescoSystrace {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.systrace.FrescoSystrace$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface ArgsBuilder {
         ArgsBuilder arg(String str, double d2);
 
         ArgsBuilder arg(String str, int i2);
 
-        ArgsBuilder arg(String str, long j2);
+        ArgsBuilder arg(String str, long j);
 
         ArgsBuilder arg(String str, Object obj);
 
         void flush();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class NoOpArgsBuilder implements ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,10 +73,10 @@ public class FrescoSystrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public ArgsBuilder arg(String str, long j2) {
+        public ArgsBuilder arg(String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) ? this : (ArgsBuilder) invokeLJ.objValue;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (ArgsBuilder) invokeLJ.objValue;
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
@@ -98,7 +98,7 @@ public class FrescoSystrace {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface Systrace {
         void beginSection(String str);
 

@@ -1,0 +1,109 @@
+package b.g.a0.a;
+
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+/* loaded from: classes6.dex */
+public class z implements TTNativeExpressAd.AdInteractionListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f30894a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f30895b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ TTNativeExpressAd f30896c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ y f30897d;
+
+    public z(y yVar, TTNativeExpressAd tTNativeExpressAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yVar, tTNativeExpressAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f30897d = yVar;
+        this.f30896c = tTNativeExpressAd;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view, int i2) {
+        AdReporter adReporter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
+            LogPrinter.d();
+            adReporter = this.f30897d.mReporter;
+            adReporter.recordOnClicked(this.f30895b);
+            this.f30895b = true;
+            this.f30897d.onAdClicked();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.AdInteractionListener
+    public void onAdDismiss() {
+        AdReporter adReporter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            adReporter = this.f30897d.mReporter;
+            adReporter.recordOnClosed();
+            this.f30897d.onAdClose();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view, int i2) {
+        AdReporter adReporter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
+            LogPrinter.d();
+            adReporter = this.f30897d.mReporter;
+            adReporter.recordShowSucceed(this.f30894a);
+            this.f30894a = true;
+            this.f30897d.onAdShow(this.f30896c);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view, String str, int i2) {
+        AdReporter adReporter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, view, str, i2) == null) {
+            LogPrinter.e("onRenderFail message: " + str + ", code: " + i2, new Object[0]);
+            adReporter = this.f30897d.mReporter;
+            adReporter.recordRenderFailed(i2);
+            this.f30897d.onError(i2, str);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view, float f2, float f3) {
+        AdReporter adReporter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            LogPrinter.d();
+            adReporter = this.f30897d.mReporter;
+            adReporter.recordRenderSucceed();
+            this.f30897d.onAdLoaded((y) this.f30896c);
+        }
+    }
+}

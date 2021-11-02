@@ -21,14 +21,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BiFunction<R, ? super T, R> accumulator;
     public final Callable<R> seedSupplier;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1776795561228106469L;
@@ -135,10 +135,10 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
                 int i3 = this.consumed;
                 int i4 = 1;
                 do {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
+                    long j = this.requested.get();
+                    long j2 = 0;
                     while (true) {
-                        int i5 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
+                        int i5 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                         if (i5 == 0) {
                             break;
                         } else if (this.cancelled) {
@@ -160,7 +160,7 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
                                 break;
                             } else {
                                 subscriber.onNext(obj);
-                                j3++;
+                                j2++;
                                 i3++;
                                 if (i3 == i2) {
                                     this.s.request(i2);
@@ -226,10 +226,10 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }

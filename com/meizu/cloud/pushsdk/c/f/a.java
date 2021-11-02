@@ -6,36 +6,36 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75229a = "a";
+    public static final String f67587a = "a";
 
     public static Map a(String str, Context context) {
         try {
-            c.b(f75229a, "Attempting to retrieve map from: %s", str);
+            c.b(f67587a, "Attempting to retrieve map from: %s", str);
             ObjectInputStream objectInputStream = new ObjectInputStream(context.openFileInput(str));
             HashMap hashMap = (HashMap) objectInputStream.readObject();
             objectInputStream.close();
-            c.b(f75229a, " + Retrieved map from file: %s", hashMap);
+            c.b(f67587a, " + Retrieved map from file: %s", hashMap);
             return hashMap;
         } catch (IOException | ClassNotFoundException e2) {
-            c.a(f75229a, " + Exception getting vars map: %s", e2.getMessage());
+            c.a(f67587a, " + Exception getting vars map: %s", e2.getMessage());
             return null;
         }
     }
 
     public static boolean a(String str, Map map, Context context) {
         try {
-            c.b(f75229a, "Attempting to save: %s", map);
+            c.b(f67587a, "Attempting to save: %s", map);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(context.openFileOutput(str, 0));
             objectOutputStream.writeObject(map);
             objectOutputStream.close();
-            c.b(f75229a, " + Successfully saved KV Pairs to: %s", str);
+            c.b(f67587a, " + Successfully saved KV Pairs to: %s", str);
             return true;
         } catch (IOException e2) {
-            c.a(f75229a, " + Exception saving vars map: %s", e2.getMessage());
+            c.a(f67587a, " + Exception saving vars map: %s", e2.getMessage());
             return false;
         }
     }

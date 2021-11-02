@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ClipImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f68872a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Path f68873b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RectF f68874c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Paint f68875d;
+
     /* renamed from: e  reason: collision with root package name */
-    public boolean f76071e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Path f76072f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public RectF f76073g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Paint f76074h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public float[] f76075i;
+    public float[] f68876e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ClipImageView(Context context) {
@@ -51,15 +51,15 @@ public class ClipImageView extends ImageView {
                 return;
             }
         }
-        this.f76071e = true;
+        this.f68872a = true;
         a(context);
     }
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f76072f = new Path();
-            this.f76073g = new RectF();
+            this.f68873b = new Path();
+            this.f68874c = new RectF();
         }
     }
 
@@ -67,18 +67,18 @@ public class ClipImageView extends ImageView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            if (this.f76071e) {
-                this.f76072f.reset();
-                this.f76073g.set(0.0f, 0.0f, getWidth(), getHeight());
-                float[] fArr = this.f76075i;
+            if (this.f68872a) {
+                this.f68873b.reset();
+                this.f68874c.set(0.0f, 0.0f, getWidth(), getHeight());
+                float[] fArr = this.f68876e;
                 if (fArr != null) {
-                    this.f76072f.addRoundRect(this.f76073g, fArr, Path.Direction.CW);
+                    this.f68873b.addRoundRect(this.f68874c, fArr, Path.Direction.CW);
                 }
                 canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
-                canvas.clipPath(this.f76072f);
-                Paint paint = this.f76074h;
+                canvas.clipPath(this.f68873b);
+                Paint paint = this.f68875d;
                 if (paint != null) {
-                    canvas.drawPath(this.f76072f, paint);
+                    canvas.drawPath(this.f68873b, paint);
                 }
             }
             super.onDraw(canvas);
@@ -90,23 +90,23 @@ public class ClipImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             Paint paint = new Paint(1);
-            this.f76074h = paint;
+            this.f68875d = paint;
             paint.setStyle(Paint.Style.FILL);
-            this.f76074h.setColor(i2);
+            this.f68875d.setColor(i2);
         }
     }
 
     public void setClip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f76071e = z;
+            this.f68872a = z;
         }
     }
 
     public void setRadius(float[] fArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, fArr) == null) && fArr != null && fArr.length == 8) {
-            this.f76075i = fArr;
+            this.f68876e = fArr;
         }
     }
 
@@ -138,7 +138,7 @@ public class ClipImageView extends ImageView {
                 return;
             }
         }
-        this.f76071e = true;
+        this.f68872a = true;
         a(context);
     }
 
@@ -161,7 +161,7 @@ public class ClipImageView extends ImageView {
                 return;
             }
         }
-        this.f76071e = true;
+        this.f68872a = true;
         a(context);
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.boxes.piff.ProtectionSpecificHeader;
 import java.nio.ByteBuffer;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class GenericHeader extends ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
     public static UUID PROTECTION_SYSTEM_ID;

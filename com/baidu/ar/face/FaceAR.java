@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FaceAR extends com.baidu.ar.c implements IFace {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceAR";
@@ -58,7 +58,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public int nw;
     public b nx;
     public a.b ny;
-    public a.C1636a nz;
+    public a.C1593a nz;
 
     static {
         InterceptResult invokeClinit;
@@ -299,7 +299,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str3 = bVar2.pZ;
             String str4 = TAG;
             com.baidu.ar.h.b.c(str4, "classification result：" + this.ny.qg);
-            a.C1636a a2 = this.nx.a(this.ny);
+            a.C1593a a2 = this.nx.a(this.ny);
             if (a2 != null) {
                 this.nz = a2;
                 this.nw = c.a(a2.pO, str, str2, str3);
@@ -347,36 +347,36 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o(long j2) {
+    public void o(long j) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65560, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65560, this, j) == null) {
             l r = r();
-            if (j2 <= 0 || r == null || q() == null) {
+            if (j <= 0 || r == null || q() == null) {
                 return;
             }
             try {
                 if (q().size() > 0) {
-                    r.a(j2, q().get(0));
+                    r.a(j, q().get(0));
                 }
             } catch (IndexOutOfBoundsException unused) {
                 str = TAG;
                 str2 = "updateRenderFaceHandle IndexOutOfBoundsException!!!!";
                 com.baidu.ar.h.b.b(str, str2);
-                a(j2);
+                a(j);
             } catch (NullPointerException unused2) {
                 str = TAG;
                 str2 = "updateRenderFaceHandle NullPointerException!!!!";
                 com.baidu.ar.h.b.b(str, str2);
-                a(j2);
+                a(j);
             }
-            a(j2);
+            a(j);
         }
     }
 
     /* JADX WARN: Type inference failed for: r5v1 */
-    /* JADX WARN: Type inference failed for: r5v2, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r5v2, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r5v8 */
     private void w(boolean z) {
         com.baidu.ar.filter.a s;
@@ -391,26 +391,26 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j2) {
+    public void a(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            super.a(j2);
-            if (j2 <= 0 || (algoHandleController = this.cb) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            super.a(j);
+            if (j <= 0 || (algoHandleController = this.cb) == null) {
                 return;
             }
             try {
-                if (algoHandleController.getHandleType(j2) != 10 || this.np == null) {
+                if (algoHandleController.getHandleType(j) != 10 || this.np == null) {
                     return;
                 }
-                long handleFaceHandle = AlgoHandleAdapter.getHandleFaceHandle(j2);
+                long handleFaceHandle = AlgoHandleAdapter.getHandleFaceHandle(j);
                 if (handleFaceHandle > 0) {
-                    AlgoHandleAdapter.setHandleFaceHandle(j2, 0L);
+                    AlgoHandleAdapter.setHandleFaceHandle(j, 0L);
                     if (this.np != null) {
                         this.np.b(handleFaceHandle);
                     }
                 }
-                this.np.q(j2);
+                this.np.q(j);
             } catch (Exception e2) {
                 String str = "Destory algoHandle failed.  " + e2.getMessage();
             }

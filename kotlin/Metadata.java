@@ -13,7 +13,7 @@ import kotlin.jvm.JvmName;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.CLASS})
 @Retention(RetentionPolicy.RUNTIME)
 @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public @interface Metadata {
     @JvmName(name = "bv")
     int[] bv() default {};

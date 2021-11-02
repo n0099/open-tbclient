@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DateHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,10 +25,10 @@ public class DateHelper {
         }
     }
 
-    public static Date convert(long j2) {
+    public static Date convert(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? new Date((j2 - 2082844800) * 1000) : (Date) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new Date((j - 2082844800) * 1000) : (Date) invokeJ.objValue;
     }
 
     public static long convert(Date date) {

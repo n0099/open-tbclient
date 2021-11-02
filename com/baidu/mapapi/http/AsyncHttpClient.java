@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AsyncHttpClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41401a;
+    public int f39257a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41402b;
+    public int f39258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f41403c;
+    public ExecutorService f39259c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,9 +92,9 @@ public class AsyncHttpClient {
                 return;
             }
         }
-        this.f41401a = 10000;
-        this.f41402b = 10000;
-        this.f41403c = Executors.newCachedThreadPool();
+        this.f39257a = 10000;
+        this.f39258b = 10000;
+        this.f39259c = Executors.newCachedThreadPool();
     }
 
     public void get(String str, HttpClient.ProtoResultCallback protoResultCallback) {
@@ -103,7 +103,7 @@ public class AsyncHttpClient {
             if (str == null) {
                 throw new IllegalArgumentException("URI cannot be null");
             }
-            this.f41403c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
+            this.f39259c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
         }
     }
 

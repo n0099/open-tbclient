@@ -26,7 +26,7 @@ import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FlutterSplashView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "FlutterSplashView";
@@ -163,10 +163,10 @@ public class FlutterSplashView extends FrameLayout {
         }
     }
 
-    public void removeSplashDelay(long j2) {
+    public void removeSplashDelay(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.removeDelay = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.removeDelay = j;
         }
     }
 

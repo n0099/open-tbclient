@@ -22,9 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TraceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TO_BACKGROUND = "To background";
@@ -187,7 +186,7 @@ public class TraceManager {
             }
             long currentTimeMillis = System.currentTimeMillis();
             String name = activity.getClass().getName();
-            StringBuilder sb2 = new StringBuilder(TNCManager.TNC_PROBE_HEADER_SECEPTOR + Integer.toHexString(hashCode()));
+            StringBuilder sb2 = new StringBuilder("@" + Integer.toHexString(hashCode()));
             String activityToken = getActivityToken(activity);
             if (!TextUtils.isEmpty(activityToken)) {
                 sb2.append("[token:");
@@ -207,7 +206,7 @@ public class TraceManager {
             }
             if (obj != null) {
                 String name2 = obj.getClass().getName();
-                StringBuilder sb3 = new StringBuilder(TNCManager.TNC_PROBE_HEADER_SECEPTOR + Integer.toHexString(obj.hashCode()));
+                StringBuilder sb3 = new StringBuilder("@" + Integer.toHexString(obj.hashCode()));
                 OnFragmentTraceListener onFragmentTraceListener = this.mOnFragmentListener;
                 if (onFragmentTraceListener != null) {
                     String onTrace = onFragmentTraceListener.onTrace(obj);

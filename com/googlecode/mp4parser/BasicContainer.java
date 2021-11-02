@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BasicContainer implements Container, Iterator<Box> {
     public static /* synthetic */ Interceptable $ic;
     public static final Box EOF;
@@ -143,13 +143,13 @@ public class BasicContainer implements Container, Iterator<Box> {
     }
 
     @Override // com.coremedia.iso.boxes.Container
-    public ByteBuffer getByteBuffer(long j2, long j3) throws IOException {
+    public ByteBuffer getByteBuffer(long j, long j2) throws IOException {
         InterceptResult invokeCommon;
         ByteBuffer map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             synchronized (this.dataSource) {
-                map = this.dataSource.map(this.startPosition + j2, j3);
+                map = this.dataSource.map(this.startPosition + j, j2);
             }
             return map;
         }
@@ -160,11 +160,11 @@ public class BasicContainer implements Container, Iterator<Box> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (int i2 = 0; i2 < getBoxes().size(); i2++) {
-                j2 += this.boxes.get(i2).getSize();
+                j += this.boxes.get(i2).getSize();
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -192,14 +192,14 @@ public class BasicContainer implements Container, Iterator<Box> {
         return invokeV.booleanValue;
     }
 
-    public void parseContainer(DataSource dataSource, long j2, BoxParser boxParser) throws IOException {
+    public void parseContainer(DataSource dataSource, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, Long.valueOf(j), boxParser}) == null) {
             this.dataSource = dataSource;
             long position = dataSource.position();
             this.startPosition = position;
             this.parsePosition = position;
-            dataSource.position(dataSource.position() + j2);
+            dataSource.position(dataSource.position() + j);
             this.endPosition = dataSource.position();
             this.boxParser = boxParser;
         }

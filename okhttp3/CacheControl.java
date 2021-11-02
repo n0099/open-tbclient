@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpHeaders;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CacheControl {
     public static /* synthetic */ Interceptable $ic;
     public static final CacheControl FORCE_CACHE;
@@ -36,7 +36,7 @@ public final class CacheControl {
     public final boolean onlyIfCached;
     public final int sMaxAgeSeconds;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

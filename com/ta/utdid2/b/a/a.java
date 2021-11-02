@@ -23,34 +23,34 @@ import java.nio.charset.IllegalCharsetNameException;
 import java.nio.charset.UnsupportedCharsetException;
 import kotlin.text.Typography;
 import org.xmlpull.v1.XmlSerializer;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a implements XmlSerializer {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f76400a = "xmlpull.org/v1/doc/features.html#indent-output";
+    public static String f69763a = "xmlpull.org/v1/doc/features.html#indent-output";
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f9a;
+    public static final String[] f10a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public OutputStream f10a;
+    public OutputStream f11a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Writer f11a;
+    public Writer f12a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ByteBuffer f12a;
+    public ByteBuffer f13a;
 
     /* renamed from: a  reason: collision with other field name */
-    public CharsetEncoder f13a;
+    public CharsetEncoder f14a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final char[] f14a;
+    public final char[] f15a;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f76401e;
+    public boolean f69764e;
     public int mPos;
 
     static {
@@ -66,7 +66,7 @@ public class a implements XmlSerializer {
                 return;
             }
         }
-        f9a = new String[]{null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&quot;", null, null, null, "&amp;", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&lt;", null, "&gt;", null};
+        f10a = new String[]{null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&quot;", null, null, null, "&amp;", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&lt;", null, "&gt;", null};
     }
 
     public a() {
@@ -82,8 +82,8 @@ public class a implements XmlSerializer {
                 return;
             }
         }
-        this.f14a = new char[8192];
-        this.f12a = ByteBuffer.allocate(8192);
+        this.f15a = new char[8192];
+        this.f13a = ByteBuffer.allocate(8192);
     }
 
     private void a(String str, int i2, int i3) throws IOException {
@@ -103,7 +103,7 @@ public class a implements XmlSerializer {
                 flush();
                 i6 = this.mPos;
             }
-            str.getChars(i2, i2 + i3, this.f14a, i6);
+            str.getChars(i2, i2 + i3, this.f15a, i6);
             this.mPos = i6 + i3;
         }
     }
@@ -116,7 +116,7 @@ public class a implements XmlSerializer {
                 flush();
                 i2 = this.mPos;
             }
-            this.f14a[i2] = c2;
+            this.f15a[i2] = c2;
             this.mPos = i2 + 1;
         }
     }
@@ -125,7 +125,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return "http://" + f76400a;
+            return "http://" + f69763a;
         }
         return (String) invokeV.objValue;
     }
@@ -186,7 +186,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (this.f76401e) {
+            if (this.f69764e) {
                 append(" />\n");
             } else {
                 append("</");
@@ -197,7 +197,7 @@ public class a implements XmlSerializer {
                 append(str2);
                 append(">\n");
             }
-            this.f76401e = false;
+            this.f69764e = false;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -218,22 +218,22 @@ public class a implements XmlSerializer {
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (i2 = this.mPos) <= 0) {
             return;
         }
-        if (this.f10a != null) {
-            CharBuffer wrap = CharBuffer.wrap(this.f14a, 0, i2);
-            CoderResult encode = this.f13a.encode(wrap, this.f12a, true);
+        if (this.f11a != null) {
+            CharBuffer wrap = CharBuffer.wrap(this.f15a, 0, i2);
+            CoderResult encode = this.f14a.encode(wrap, this.f13a, true);
             while (!encode.isError()) {
                 if (encode.isOverflow()) {
                     a();
-                    encode = this.f13a.encode(wrap, this.f12a, true);
+                    encode = this.f14a.encode(wrap, this.f13a, true);
                 } else {
                     a();
-                    this.f10a.flush();
+                    this.f11a.flush();
                 }
             }
             throw new IOException(encode.toString());
         }
-        this.f11a.write(this.f14a, 0, i2);
-        this.f11a.flush();
+        this.f12a.write(this.f15a, 0, i2);
+        this.f12a.flush();
         this.mPos = 0;
     }
 
@@ -327,8 +327,8 @@ public class a implements XmlSerializer {
         if (interceptable == null || interceptable.invokeLL(1048593, this, outputStream, str) == null) {
             if (outputStream != null) {
                 try {
-                    this.f13a = Charset.forName(str).newEncoder();
-                    this.f10a = outputStream;
+                    this.f14a = Charset.forName(str).newEncoder();
+                    this.f11a = outputStream;
                     return;
                 } catch (IllegalCharsetNameException e2) {
                     throw ((UnsupportedEncodingException) new UnsupportedEncodingException(str).initCause(e2));
@@ -373,7 +373,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, str2)) == null) {
-            if (this.f76401e) {
+            if (this.f69764e) {
                 append(">\n");
             }
             append(Typography.less);
@@ -382,7 +382,7 @@ public class a implements XmlSerializer {
                 append(':');
             }
             append(str2);
-            this.f76401e = true;
+            this.f69764e = true;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -393,9 +393,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048600, this, cArr, i2, i3)) == null) {
-            if (this.f76401e) {
+            if (this.f69764e) {
                 append(">");
-                this.f76401e = false;
+                this.f69764e = false;
             }
             a(cArr, i2, i3);
             return this;
@@ -408,9 +408,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            if (this.f76401e) {
+            if (this.f69764e) {
                 append(">");
-                this.f76401e = false;
+                this.f69764e = false;
             }
             a(str);
             return this;
@@ -435,7 +435,7 @@ public class a implements XmlSerializer {
                 flush();
                 i6 = this.mPos;
             }
-            System.arraycopy(cArr, i2, this.f14a, i6, i3);
+            System.arraycopy(cArr, i2, this.f15a, i6, i3);
             this.mPos = i6 + i3;
         }
     }
@@ -445,7 +445,7 @@ public class a implements XmlSerializer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             int length = str.length();
-            String[] strArr = f9a;
+            String[] strArr = f10a;
             char length2 = (char) strArr.length;
             int i2 = 0;
             int i3 = 0;
@@ -470,7 +470,7 @@ public class a implements XmlSerializer {
     public void setOutput(Writer writer) throws IOException, IllegalArgumentException, IllegalStateException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, writer) == null) {
-            this.f11a = writer;
+            this.f12a = writer;
         }
     }
 
@@ -485,7 +485,7 @@ public class a implements XmlSerializer {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, this, cArr, i2, i3) == null) {
-            String[] strArr = f9a;
+            String[] strArr = f10a;
             char length = (char) strArr.length;
             int i4 = i3 + i2;
             int i5 = i2;
@@ -509,11 +509,11 @@ public class a implements XmlSerializer {
     private void a() throws IOException {
         int position;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (position = this.f12a.position()) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (position = this.f13a.position()) <= 0) {
             return;
         }
-        this.f12a.flip();
-        this.f10a.write(this.f12a.array(), 0, position);
-        this.f12a.clear();
+        this.f13a.flip();
+        this.f11a.write(this.f13a.array(), 0, position);
+        this.f13a.clear();
     }
 }

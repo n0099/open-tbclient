@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.c.m;
+import b.i.d.a.n;
+import b.i.d.c.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,13 +17,13 @@ import java.io.Serializable;
 import java.lang.Comparable;
 import java.math.BigInteger;
 import java.util.NoSuchElementException;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class DiscreteDomain<C extends Comparable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean supportsFastOffset;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class BigIntegerDomain extends DiscreteDomain<BigInteger> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final BigIntegerDomain INSTANCE;
@@ -99,12 +99,12 @@ public abstract class DiscreteDomain<C extends Comparable> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.DiscreteDomain
-        public BigInteger offset(BigInteger bigInteger, long j2) {
+        public BigInteger offset(BigInteger bigInteger, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, bigInteger, j2)) == null) {
-                m.c(j2, "distance");
-                return bigInteger.add(BigInteger.valueOf(j2));
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, bigInteger, j)) == null) {
+                m.c(j, "distance");
+                return bigInteger.add(BigInteger.valueOf(j));
             }
             return (BigInteger) invokeLJ.objValue;
         }
@@ -118,7 +118,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class IntegerDomain extends DiscreteDomain<Integer> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final IntegerDomain INSTANCE;
@@ -219,12 +219,12 @@ public abstract class DiscreteDomain<C extends Comparable> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.DiscreteDomain
-        public Integer offset(Integer num, long j2) {
+        public Integer offset(Integer num, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, num, j2)) == null) {
-                m.c(j2, "distance");
-                return Integer.valueOf(Ints.c(num.longValue() + j2));
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, num, j)) == null) {
+                m.c(j, "distance");
+                return Integer.valueOf(Ints.c(num.longValue() + j));
             }
             return (Integer) invokeLJ.objValue;
         }
@@ -245,7 +245,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class LongDomain extends DiscreteDomain<Long> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final LongDomain INSTANCE;
@@ -356,12 +356,12 @@ public abstract class DiscreteDomain<C extends Comparable> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.DiscreteDomain
-        public Long offset(Long l, long j2) {
+        public Long offset(Long l, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, l, j2)) == null) {
-                m.c(j2, "distance");
-                long longValue = l.longValue() + j2;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, l, j)) == null) {
+                m.c(j, "distance");
+                long longValue = l.longValue() + j;
                 if (longValue < 0) {
                     n.e(l.longValue() < 0, "overflow");
                 }
@@ -386,7 +386,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -436,7 +436,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
 
     public abstract C next(C c2);
 
-    public abstract C offset(C c2, long j2);
+    public abstract C offset(C c2, long j);
 
     public abstract C previous(C c2);
 

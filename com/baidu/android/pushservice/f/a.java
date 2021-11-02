@@ -6,13 +6,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +45,7 @@ public class a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, componentName, i2) == null) {
             Bundle bundle = new Bundle();
-            bundle.putString(AsInstallService.SCHEME_PACKAGE_ADDED, context.getPackageName());
+            bundle.putString("package", context.getPackageName());
             bundle.putString(DealIntentService.KEY_CLASS, componentName.getClassName());
             bundle.putInt("badgenumber", i2);
             try {

@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ap {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f78477a;
+    public static String f71416a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f901a;
+    public static final String[] f902a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class ap {
                 return;
             }
         }
-        f901a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
+        f902a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
     }
 
     public static int a(ContentResolver contentResolver) {
@@ -103,7 +103,7 @@ public class ap {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, intent) == null) {
             int i2 = -1;
             while (true) {
-                str = i2 < 0 ? f78477a : f901a[i2];
+                str = i2 < 0 ? f71416a : f902a[i2];
                 if (!TextUtils.isEmpty(str)) {
                     intent.setPackage(str);
                     try {
@@ -115,13 +115,13 @@ public class ap {
                     }
                 }
                 i2++;
-                if (i2 >= f901a.length) {
+                if (i2 >= f902a.length) {
                     str = null;
                     break;
                 }
             }
             intent.setPackage(str);
-            f78477a = str;
+            f71416a = str;
         }
     }
 

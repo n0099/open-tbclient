@@ -16,18 +16,18 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class bg {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f43369a;
+    public static volatile boolean f41160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f43370b;
+    public static volatile boolean f41161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f43371c;
+    public static volatile boolean f41162c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -45,11 +45,11 @@ public class bg {
                     if (i2 != 2) {
                         return false;
                     }
-                    return f43371c;
+                    return f41162c;
                 }
-                return f43370b;
+                return f41161b;
             }
-            return f43369a;
+            return f41160a;
         }
         return invokeI.booleanValue;
     }
@@ -64,12 +64,12 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 0) {
-                f43369a = z;
+                f41160a = z;
             } else if (i2 == 1) {
-                f43370b = z;
+                f41161b = z;
             } else if (i2 != 2) {
             } else {
-                f43371c = z;
+                f41162c = z;
             }
         }
     }
@@ -123,10 +123,10 @@ public class bg {
             try {
                 httpURLConnection = bo.d(context, a2);
                 httpURLConnection.connect();
-                long j2 = 0;
+                long j = 0;
                 if (i2 == 1) {
                     try {
-                        j2 = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
+                        j = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
                     } catch (Exception unused) {
                     }
                 }
@@ -143,7 +143,7 @@ public class bg {
                 if (responseCode == 200) {
                     if (i2 == 1) {
                         bq.a().a(context, System.currentTimeMillis());
-                        bq.a().b(context, j2);
+                        bq.a().b(context, j);
                     } else if (i2 == 2) {
                         bq.a().c(context, System.currentTimeMillis());
                     }

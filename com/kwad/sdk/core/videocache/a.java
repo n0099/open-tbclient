@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.videocache;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    int a(byte[] bArr, long j2, int i2);
+    int a(byte[] bArr, long j, int i2);
 
     long a();
 

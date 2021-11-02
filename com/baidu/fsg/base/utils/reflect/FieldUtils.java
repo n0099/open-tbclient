@@ -16,12 +16,12 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Field> f39681a;
+    public static Map<String, Field> f37620a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class FieldUtils {
                 return;
             }
         }
-        f39681a = new HashMap();
+        f37620a = new HashMap();
     }
 
     public FieldUtils() {
@@ -72,8 +72,8 @@ public class FieldUtils {
             Validate.a(cls != null, "The class must not be null", new Object[0]);
             Validate.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             String a2 = a(cls, str);
-            synchronized (f39681a) {
-                field = f39681a.get(a2);
+            synchronized (f37620a) {
+                field = f37620a.get(a2);
             }
             if (field != null) {
                 if (z && !field.isAccessible()) {
@@ -93,8 +93,8 @@ public class FieldUtils {
                         continue;
                     }
                 }
-                synchronized (f39681a) {
-                    f39681a.put(a2, declaredField);
+                synchronized (f37620a) {
+                    f37620a.put(a2, declaredField);
                 }
                 return declaredField;
             }
@@ -107,8 +107,8 @@ public class FieldUtils {
                 } catch (NoSuchFieldException unused2) {
                 }
             }
-            synchronized (f39681a) {
-                f39681a.put(a2, field2);
+            synchronized (f37620a) {
+                f37620a.put(a2, field2);
             }
             return field2;
         }

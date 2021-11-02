@@ -26,6 +26,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
@@ -35,8 +36,6 @@ import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +43,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -68,39 +66,37 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f45434a = false;
+    public static boolean f43162a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f45435b = null;
+    public static String f43163b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f45436c = null;
+    public static String f43164c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f45437d = 0;
+    public static int f43165d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f45438e = "3";
+    public static String f43166e = "3";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f45439f = "925fc15df8a49bed0b3eca8d2b44cb7b";
+    public static String f43167f = "925fc15df8a49bed0b3eca8d2b44cb7b";
 
     /* renamed from: g  reason: collision with root package name */
-    public static MyReceiver f45440g = null;
+    public static MyReceiver f43168g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HashMap<Integer, ApkInfo> f45441h = null;
+    public static HashMap<Integer, ApkInfo> f43169h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static JSONObject f45442i = null;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static long f45443j = 0;
+    public static JSONObject f43170i = null;
+    public static long j = 0;
     public static int k = -1;
     public static String l = "";
     public static String m = "";
@@ -226,8 +222,8 @@ public final class c {
         String[] split2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, context)) == null) {
-            String str = f45435b;
-            String str2 = f45436c;
+            String str = f43163b;
+            String str2 = f43164c;
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     String a2 = com.baidu.sofire.h.a.a(context).a();
@@ -236,14 +232,14 @@ public final class c {
                     }
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    String string = com.baidu.sofire.h.a.a(context).f45340a.getString("svi", "");
+                    String string = com.baidu.sofire.h.a.a(context).f43070a.getString("svi", "");
                     if (!TextUtils.isEmpty(string) && (split2 = string.split("-")) != null && split2.length == 2) {
                         return split2;
                     }
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    str = f45438e;
-                    str2 = f45439f;
+                    str = f43166e;
+                    str2 = f43167f;
                 }
                 return new String[]{str, str2};
             }
@@ -257,7 +253,7 @@ public final class c {
         if (interceptable == null || interceptable.invokeL(65592, null, context) == null) {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = a2.f45340a.getLong("se_ae_fd", 0L);
+            long j2 = a2.f43070a.getLong("se_ae_fd", 0L);
             if (j2 == 0) {
                 j2 = System.currentTimeMillis();
                 a2.g();
@@ -439,7 +435,7 @@ public final class c {
                 jSONObject.put("12", e2);
                 jSONObject.put("13", e.c(context));
                 jSONObject.put("14", "");
-                jSONObject.put(Constants.VIA_REPORT_TYPE_START_GROUP, u.k(context));
+                jSONObject.put("17", u.k(context));
                 jSONObject.put("18", u.l(context));
                 jSONObject.put("20", Build.VERSION.SDK_INT);
                 TimeZone timeZone = TimeZone.getDefault();
@@ -496,22 +492,22 @@ public final class c {
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(34:22|23|24|25|(3:227|(3:229|(1:234)|235)(1:237)|236)(1:29)|30|(1:226)(1:39)|(2:44|(4:48|50|51|(29:61|62|63|64|65|(1:67)|68|(1:70)|71|(1:73)|74|(1:76)|77|(1:79)|80|(1:82)|83|(1:85)|86|(1:88)|89|(1:91)|92|93|94|(1:96)|98|(1:100)(14:103|(2:105|(1:107)(1:213))(1:214)|108|(1:110)(1:212)|111|(1:113)(1:211)|114|(1:116)(1:210)|117|(1:122)|123|(1:125)|126|(2:129|(41:131|132|133|134|(1:136)(1:207)|137|139|140|(1:142)(1:205)|143|144|145|(1:147)(1:202)|148|149|150|151|(1:153)(1:199)|154|155|156|157|(1:159)(1:196)|160|162|163|(1:165)(1:194)|166|168|169|170|171|(1:173)(1:190)|174|175|176|177|179|180|(1:182)(1:185)|183)))|101)))|225|65|(0)|68|(0)|71|(0)|74|(0)|77|(0)|80|(0)|83|(0)|86|(0)|89|(0)|92|93|94|(0)|98|(0)(0)|101) */
-    /* JADX WARN: Code restructure failed: missing block: B:118:0x02f2, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(34:22|23|24|25|(3:227|(3:229|(1:234)|235)(1:237)|236)(1:29)|30|(1:226)(1:39)|(2:44|(4:48|50|51|(29:61|62|63|64|65|(1:67)|68|(1:70)|71|(1:73)|74|(1:76)|77|(1:79)|80|(1:82)|83|(1:85)|86|(1:88)|89|(1:91)|92|93|94|(1:96)|98|(1:100)(14:103|(2:105|(1:107)(1:213))(1:214)|108|(1:110)(1:212)|111|(1:113)(1:211)|114|(1:116)(1:210)|117|(1:122)|123|(1:125)|126|(2:129|(41:131|132|133|134|(1:136)(1:207)|137|139|140|(1:142)(1:205)|143|145|146|(1:148)(1:203)|149|150|151|152|(1:154)(1:200)|155|156|157|158|(1:160)(1:197)|161|163|164|(1:166)(1:195)|167|169|170|171|172|(1:174)(1:191)|175|176|177|178|179|180|(1:182)(1:185)|183)))|101)))|225|65|(0)|68|(0)|71|(0)|74|(0)|77|(0)|80|(0)|83|(0)|86|(0)|89|(0)|92|93|94|(0)|98|(0)(0)|101) */
+    /* JADX WARN: Code restructure failed: missing block: B:118:0x02f0, code lost:
         com.baidu.sofire.b.c();
      */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x026d A[Catch: all -> 0x02b8, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:104:0x0281 A[Catch: all -> 0x02b8, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:107:0x0295 A[Catch: all -> 0x02b8, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x02aa A[Catch: all -> 0x02b8, TRY_LEAVE, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x02c9 A[Catch: all -> 0x02f2, TRY_LEAVE, TryCatch #13 {all -> 0x02f2, blocks: (B:114:0x02bf, B:116:0x02c9), top: B:256:0x02bf }] */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x02fd  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x02ff A[Catch: all -> 0x04dd, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x0204 A[Catch: all -> 0x02b8, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x0218 A[Catch: all -> 0x02b8, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x022c A[Catch: all -> 0x02b8, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0241 A[Catch: all -> 0x02b8, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0255 A[Catch: all -> 0x02b8, TryCatch #4 {all -> 0x04e8, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e3, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a2, B:110:0x02aa, B:113:0x02bb, B:119:0x02f5, B:122:0x02ff, B:124:0x0353, B:126:0x0360, B:129:0x036a, B:131:0x0372, B:133:0x0379, B:135:0x0380, B:137:0x0389, B:139:0x0390, B:141:0x03a0, B:146:0x03b9, B:147:0x03c5, B:149:0x03cd, B:150:0x03d0, B:153:0x03da, B:222:0x04d9, B:140:0x039c, B:136:0x0385, B:132:0x0376, B:127:0x0364, B:118:0x02f2), top: B:241:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x026d A[Catch: all -> 0x02b6, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x0281 A[Catch: all -> 0x02b6, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0295 A[Catch: all -> 0x02b6, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x02a9 A[Catch: all -> 0x02b6, TRY_LEAVE, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x02c7 A[Catch: all -> 0x02f0, TRY_LEAVE, TryCatch #9 {all -> 0x02f0, blocks: (B:114:0x02bd, B:116:0x02c7), top: B:250:0x02bd }] */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x02fb  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x02fd A[Catch: all -> 0x04db, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x0204 A[Catch: all -> 0x02b6, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0218 A[Catch: all -> 0x02b6, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x022c A[Catch: all -> 0x02b6, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x0241 A[Catch: all -> 0x02b6, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x0255 A[Catch: all -> 0x02b6, TryCatch #3 {all -> 0x04e6, blocks: (B:5:0x001a, B:8:0x003c, B:9:0x003f, B:15:0x0077, B:18:0x009b, B:21:0x00a3, B:24:0x00c9, B:26:0x0106, B:83:0x01eb, B:22:0x00c1, B:228:0x04e1, B:11:0x006c, B:84:0x01ee, B:86:0x0204, B:87:0x0210, B:89:0x0218, B:90:0x0224, B:92:0x022c, B:93:0x0238, B:95:0x0241, B:96:0x024d, B:98:0x0255, B:99:0x0265, B:101:0x026d, B:102:0x0279, B:104:0x0281, B:105:0x028d, B:107:0x0295, B:108:0x02a1, B:110:0x02a9, B:113:0x02b9, B:119:0x02f3, B:122:0x02fd, B:124:0x0351, B:126:0x035e, B:129:0x0368, B:131:0x0370, B:133:0x0377, B:135:0x037e, B:137:0x0387, B:139:0x038e, B:141:0x039e, B:146:0x03b7, B:147:0x03c3, B:149:0x03cb, B:150:0x03ce, B:153:0x03d8, B:222:0x04d7, B:140:0x039a, B:136:0x0383, B:132:0x0374, B:127:0x0362, B:118:0x02f0), top: B:239:0x001a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -572,7 +568,7 @@ public final class c {
                         str = "5";
                     }
                     jSONObject3.put("8", packageInfo.versionName);
-                    jSONObject3.put("9", String.valueOf(com.baidu.sofire.h.a.a(context).f45340a.getInt("opi", 0)));
+                    jSONObject3.put("9", String.valueOf(com.baidu.sofire.h.a.a(context).f43070a.getInt("opi", 0)));
                     jSONObject3.put("14", u.i(context));
                     jSONObject3.put("15", u.j(context));
                     jSONObject2.put("1", jSONObject3);
@@ -583,26 +579,26 @@ public final class c {
                     JSONObject jSONObject4 = new JSONObject(a4);
                     try {
                         a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f45435b) || TextUtils.isEmpty(f45436c)) {
+                        if (TextUtils.isEmpty(f43163b) || TextUtils.isEmpty(f43164c)) {
                             String a5 = com.baidu.sofire.h.a.a(context).a();
                             if (TextUtils.isEmpty(a5)) {
                                 strArr = new String[0];
                             } else {
                                 strArr2 = a5.split("-");
                                 if (strArr2 != null && strArr2.length == 2) {
-                                    f45435b = strArr2[0];
-                                    f45436c = strArr2[1];
+                                    f43163b = strArr2[0];
+                                    f43164c = strArr2[1];
                                 }
                                 strArr = new String[0];
                             }
                             strArr2 = strArr;
                         } else {
-                            strArr2 = new String[]{f45435b, f45436c};
+                            strArr2 = new String[]{f43163b, f43164c};
                         }
                     } catch (Throwable unused) {
                         str2 = "9";
                     }
-                    if ((a2.f45340a.getInt("appinv_ky", 1) == 1 && (strArr2 == null || strArr2.length != 2 || TextUtils.isEmpty(strArr2[0]) || TextUtils.isEmpty(strArr2[1]))) && (optJSONObject2 = jSONObject4.optJSONObject("2")) != null) {
+                    if ((a2.f43070a.getInt("appinv_ky", 1) == 1 && (strArr2 == null || strArr2.length != 2 || TextUtils.isEmpty(strArr2[0]) || TextUtils.isEmpty(strArr2[1]))) && (optJSONObject2 = jSONObject4.optJSONObject("2")) != null) {
                         String optString2 = optJSONObject2.optString("0");
                         String optString3 = optJSONObject2.optString("1");
                         if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
@@ -611,14 +607,14 @@ public final class c {
                             } catch (Throwable unused2) {
                                 str2 = "9";
                             }
-                            if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && (!f45438e.equals(optString2) || !f45439f.equals(optString3))) {
-                                f45435b = optString2;
-                                f45436c = optString3;
-                                com.baidu.sofire.h.a aVar = a6.f45257a;
+                            if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && (!f43166e.equals(optString2) || !f43167f.equals(optString3))) {
+                                f43163b = optString2;
+                                f43164c = optString3;
+                                com.baidu.sofire.h.a aVar = a6.f42988a;
                                 str2 = "9";
                                 try {
-                                    aVar.f45341b.putString("svi_n", optString2 + "-" + optString3);
-                                    aVar.f45341b.commit();
+                                    aVar.f43071b.putString("svi_n", optString2 + "-" + optString3);
+                                    aVar.f43071b.commit();
                                 } catch (Throwable unused3) {
                                     try {
                                         com.baidu.sofire.b.c();
@@ -702,64 +698,64 @@ public final class c {
                                 com.baidu.sofire.h.a a722 = com.baidu.sofire.h.a.a(context);
                                 optInt = jSONObject.optInt("n");
                                 if (optInt > 0) {
-                                    a722.f45345f.putInt("re_net_ty", optInt);
-                                    a722.f45345f.commit();
+                                    a722.f43075f.putInt("re_net_ty", optInt);
+                                    a722.f43075f.commit();
                                 }
                                 optInt2 = jSONObject.optInt("i");
                                 if (optInt2 > 0) {
-                                    a722.f45345f.putInt("re_net_hr", optInt2);
-                                    a722.f45345f.commit();
+                                    a722.f43075f.putInt("re_net_hr", optInt2);
+                                    a722.f43075f.commit();
                                 }
                                 optInt3 = jSONObject.optInt("i2");
                                 if (optInt3 > 0) {
-                                    a722.f45345f.putInt("re_net_hr_bc", optInt3);
-                                    a722.f45345f.commit();
+                                    a722.f43075f.putInt("re_net_hr_bc", optInt3);
+                                    a722.f43075f.commit();
                                 }
                                 optInt4 = jSONObject.optInt("w");
                                 if (optInt4 > 0) {
-                                    a722.f45345f.putInt("re_net_wt", optInt4);
-                                    a722.f45345f.commit();
+                                    a722.f43075f.putInt("re_net_wt", optInt4);
+                                    a722.f43075f.commit();
                                 }
                                 if (jSONObject.optInt("s1") > 0) {
-                                    a722.f45345f.putInt("re_net_one_lt", jSONObject.optInt("s1"));
-                                    a722.f45345f.commit();
+                                    a722.f43075f.putInt("re_net_one_lt", jSONObject.optInt("s1"));
+                                    a722.f43075f.commit();
                                 }
                                 optInt5 = jSONObject.optInt("s2");
                                 if (optInt5 > 0) {
-                                    a722.f45345f.putInt("re_net_dy_lt", optInt5);
-                                    a722.f45345f.commit();
+                                    a722.f43075f.putInt("re_net_dy_lt", optInt5);
+                                    a722.f43075f.commit();
                                 }
                                 optInt6 = jSONObject.optInt("t");
                                 if (optInt6 > 0) {
-                                    a722.f45345f.putInt("re_net_over", optInt6);
-                                    a722.f45345f.commit();
+                                    a722.f43075f.putInt("re_net_over", optInt6);
+                                    a722.f43075f.commit();
                                 }
                                 optInt7 = jSONObject.optInt("l1");
                                 if (optInt7 > 0) {
-                                    a722.f45345f.putInt("up_nu_co", optInt7);
-                                    a722.f45345f.commit();
+                                    a722.f43075f.putInt("up_nu_co", optInt7);
+                                    a722.f43075f.commit();
                                 }
                                 optInt8 = jSONObject.optInt("l2");
                                 if (optInt8 > 0) {
-                                    a722.f45345f.putInt("up_nu_li", optInt8);
-                                    a722.f45345f.commit();
+                                    a722.f43075f.putInt("up_nu_li", optInt8);
+                                    a722.f43075f.commit();
                                 }
                                 com.baidu.sofire.h.a a822 = com.baidu.sofire.h.a.a(context);
                                 optString = jSONObject4.optString("0");
                                 if (!TextUtils.isEmpty(optString)) {
-                                    a822.f45343d.putString("gli", new String(Base64.encode(h.a("30212102dicudiab".getBytes(), optString.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                    a822.f45343d.commit();
+                                    a822.f43073d.putString("gli", new String(Base64.encode(h.a("30212102dicudiab".getBytes(), optString.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                    a822.f43073d.commit();
                                 }
                                 optJSONObject = jSONObject4.optJSONObject("4");
                                 if (optJSONObject == null) {
-                                    a822.f45341b.putInt("appinv_t", optJSONObject.optInt("app"));
-                                    a822.f45341b.commit();
-                                    a822.f45341b.putInt("appinv_js", optJSONObject.optInt("js"));
-                                    a822.f45341b.commit();
-                                    a822.f45341b.putInt("appinv_ky", optJSONObject.optInt("a", 1));
-                                    a822.f45341b.commit();
-                                    a822.f45341b.putInt("appplg_te", optJSONObject.optInt("pi", 360));
-                                    a822.f45341b.commit();
+                                    a822.f43071b.putInt("appinv_t", optJSONObject.optInt("app"));
+                                    a822.f43071b.commit();
+                                    a822.f43071b.putInt("appinv_js", optJSONObject.optInt("js"));
+                                    a822.f43071b.commit();
+                                    a822.f43071b.putInt("appinv_ky", optJSONObject.optInt("a", 1));
+                                    a822.f43071b.commit();
+                                    a822.f43071b.putInt("appplg_te", optJSONObject.optInt("pi", 360));
+                                    a822.f43071b.commit();
                                     int optInt9 = optJSONObject.optInt("ti", 1);
                                     if (optInt9 > 0) {
                                         str3 = "4";
@@ -787,7 +783,7 @@ public final class c {
                                     }
                                     if (optJSONObject.optInt("1", -1) == z) {
                                         i2 = 0;
-                                        a822.f45340a.getBoolean("se_fg_s", false);
+                                        a822.f43070a.getBoolean("se_fg_s", false);
                                         a822.b(z);
                                     } else {
                                         i2 = 0;
@@ -796,8 +792,8 @@ public final class c {
                                     a(context, "ampf", optJSONObject.optInt("mp", i2));
                                     int optInt11 = optJSONObject.optInt("tc", -1);
                                     if (optInt11 > 0 && optInt11 <= 20 && optInt11 <= 20) {
-                                        a822.f45341b.putInt("s_t_p_c_s", optInt11);
-                                        a822.f45341b.commit();
+                                        a822.f43071b.putInt("s_t_p_c_s", optInt11);
+                                        a822.f43071b.commit();
                                     }
                                     JSONObject optJSONObject3 = optJSONObject.optJSONObject("pc");
                                     if (optJSONObject3 != null) {
@@ -808,28 +804,28 @@ public final class c {
                                         com.baidu.sofire.b.b a9 = com.baidu.sofire.b.b.a(context);
                                         if (optJSONObject4 != null) {
                                             try {
-                                                y a10 = y.a(a9.f45197a);
+                                                y a10 = y.a(a9.f42930a);
                                                 try {
-                                                    a10.f45490b.putBoolean("lt_sdcf", optJSONObject4.getInt("1") == 1);
-                                                    a10.f45490b.commit();
+                                                    a10.f43216b.putBoolean("lt_sdcf", optJSONObject4.getInt("1") == 1);
+                                                    a10.f43216b.commit();
                                                 } catch (JSONException unused5) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45490b.putBoolean("lt_sucf", optJSONObject4.getInt("2") == 1);
-                                                    a10.f45490b.commit();
+                                                    a10.f43216b.putBoolean("lt_sucf", optJSONObject4.getInt("2") == 1);
+                                                    a10.f43216b.commit();
                                                 } catch (JSONException unused6) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45490b.putBoolean("lt_sbff", optJSONObject4.getInt("3") == 1);
-                                                    a10.f45490b.commit();
+                                                    a10.f43216b.putBoolean("lt_sbff", optJSONObject4.getInt("3") == 1);
+                                                    a10.f43216b.commit();
                                                 } catch (JSONException unused7) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45490b.putBoolean("lt_sppf", optJSONObject4.getInt(str3) == 1);
-                                                    a10.f45490b.commit();
+                                                    a10.f43216b.putBoolean("lt_sppf", optJSONObject4.getInt(str3) == 1);
+                                                    a10.f43216b.commit();
                                                 } catch (JSONException unused8) {
                                                     com.baidu.sofire.b.c();
                                                 }
@@ -845,26 +841,26 @@ public final class c {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45490b.putLong("lt_sfii", optJSONObject4.getLong("7"));
-                                                    a10.f45490b.commit();
+                                                    a10.f43216b.putLong("lt_sfii", optJSONObject4.getLong("7"));
+                                                    a10.f43216b.commit();
                                                 } catch (JSONException unused11) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45490b.putBoolean("lt_sfff", optJSONObject4.getInt("8") == 1);
-                                                    a10.f45490b.commit();
+                                                    a10.f43216b.putBoolean("lt_sfff", optJSONObject4.getInt("8") == 1);
+                                                    a10.f43216b.commit();
                                                 } catch (JSONException unused12) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45490b.putString("lt_sha", optJSONObject4.getJSONArray(str2).toString());
-                                                    a10.f45490b.commit();
+                                                    a10.f43216b.putString("lt_sha", optJSONObject4.getJSONArray(str2).toString());
+                                                    a10.f43216b.commit();
                                                 } catch (JSONException unused13) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45490b.putBoolean("lt_sbwnp", optJSONObject4.getInt("10") == 1);
-                                                    a10.f45490b.commit();
+                                                    a10.f43216b.putBoolean("lt_sbwnp", optJSONObject4.getInt("10") == 1);
+                                                    a10.f43216b.commit();
                                                 } catch (JSONException unused14) {
                                                     com.baidu.sofire.b.c();
                                                 }
@@ -916,7 +912,7 @@ public final class c {
                     }
                     return jSONObject4;
                 }
-                f45437d = 6;
+                f43165d = 6;
                 return null;
             } catch (Throwable unused16) {
                 com.baidu.sofire.b.c();
@@ -1018,10 +1014,10 @@ public final class c {
                         return null;
                     }
                     JSONArray jSONArray = new JSONArray(b2);
-                    if (f45441h == null) {
-                        f45441h = new HashMap<>();
+                    if (f43169h == null) {
+                        f43169h = new HashMap<>();
                     } else {
-                        f45441h.clear();
+                        f43169h.clear();
                     }
                     ArrayList<ApkInfo> arrayList = new ArrayList();
                     ArrayList arrayList2 = new ArrayList();
@@ -1035,7 +1031,7 @@ public final class c {
                         }
                         String optString3 = optJSONObject.optString(PackageTable.MD5);
                         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && optInt > 0) {
-                            SharedPreferences sharedPreferences = a3.f45340a;
+                            SharedPreferences sharedPreferences = a3.f43070a;
                             String string = sharedPreferences.getString("g_l_l_p_v_" + optInt, "");
                             boolean z = true;
                             boolean z2 = (TextUtils.isEmpty(string) || b(optString2, string)) ? false : true;
@@ -1051,14 +1047,14 @@ public final class c {
                             if (z) {
                                 arrayList.add(apkInfo);
                             } else {
-                                f45441h.put(Integer.valueOf(optInt), apkInfo);
+                                f43169h.put(Integer.valueOf(optInt), apkInfo);
                             }
                         }
                     }
                     a3.a(arrayList2);
-                    if (f45441h.size() > 0 || arrayList.size() > 0) {
+                    if (f43169h.size() > 0 || arrayList.size() > 0) {
                         JSONArray jSONArray2 = new JSONArray();
-                        for (ApkInfo apkInfo2 : f45441h.values()) {
+                        for (ApkInfo apkInfo2 : f43169h.values()) {
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("pk", apkInfo2.packageName);
                             jSONObject.put("m", apkInfo2.apkMD5);
@@ -1117,7 +1113,7 @@ public final class c {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
             String m2 = a2.m();
             if (TextUtils.isEmpty(m2)) {
-                String string = a2.f45342c.getString("xygls", "");
+                String string = a2.f43072c.getString("xygls", "");
                 if (TextUtils.isEmpty(string)) {
                     try {
                         str = l.a(context);
@@ -1145,11 +1141,11 @@ public final class c {
                 }
                 try {
                     if (!TextUtils.isEmpty(string)) {
-                        a2.f45343d.putString("xyglsn", "");
-                        a2.f45343d.commit();
+                        a2.f43073d.putString("xyglsn", "");
+                        a2.f43073d.commit();
                     } else {
-                        a2.f45343d.putString("xyglsn", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), string.getBytes("UTF-8"), true), 10), "UTF-8"));
-                        a2.f45343d.commit();
+                        a2.f43073d.putString("xyglsn", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), string.getBytes("UTF-8"), true), 10), "UTF-8"));
+                        a2.f43073d.commit();
                     }
                     return string;
                 } catch (Throwable unused4) {
@@ -1355,7 +1351,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
             try {
-                return new String(F.getInstance().ad(Base64.decode(p.f45469a, 0), "30212102dicudiab".getBytes()));
+                return new String(F.getInstance().ad(Base64.decode(p.f43196a, 0), "30212102dicudiab".getBytes()));
             } catch (Throwable unused) {
                 return "";
             }
@@ -1369,8 +1365,8 @@ public final class c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65584, null, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    String[] split = str.split("\\.");
+                    String[] split2 = str2.split("\\.");
                     for (int i2 = 0; i2 < split.length && i2 < split2.length; i2++) {
                         int intValue = Integer.valueOf(split[i2]).intValue() - Integer.valueOf(split2[i2]).intValue();
                         if (intValue != 0) {
@@ -1585,11 +1581,11 @@ public final class c {
                 return true;
             }
             IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-            if (f45440g == null) {
-                f45440g = new MyReceiver().a();
+            if (f43168g == null) {
+                f43168g = new MyReceiver().a();
             }
-            a(context, f45440g, intentFilter);
-            f45434a = true;
+            a(context, f43168g, intentFilter);
+            f43162a = true;
             return false;
         }
         return invokeLI.booleanValue;
@@ -1750,13 +1746,13 @@ public final class c {
                 }
                 byte[] a2 = h.a("30212102dicudiab".getBytes(), (r(context) + hexString).toString().getBytes(), false);
                 com.baidu.sofire.h.a a3 = com.baidu.sofire.h.a.a(context);
-                int i3 = a3.f45340a.getInt("tk_sa_pu_cl", 0) + 1;
-                a3.f45341b.putInt("tk_sa_pu_cl", i3);
-                a3.f45341b.commit();
+                int i3 = a3.f43070a.getInt("tk_sa_pu_cl", 0) + 1;
+                a3.f43071b.putInt("tk_sa_pu_cl", i3);
+                a3.f43071b.commit();
                 String a4 = a(a2, i3);
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(a4);
-                sb2.insert(sb2.length() - 2, "A");
+                sb2.insert(sb2.length() - 2, ExifInterface.GPS_MEASUREMENT_IN_PROGRESS);
                 return sb2.toString().replace(StringUtils.LF, "");
             } catch (Throwable unused) {
                 com.baidu.sofire.b.c();
@@ -1894,7 +1890,7 @@ public final class c {
                             break;
                         }
                     } while (next != 1);
-                    if (next == 2 && openXmlResourceParser.getName().equals("manifest") && (attributeValue = openXmlResourceParser.getAttributeValue(null, AsInstallService.SCHEME_PACKAGE_ADDED)) != null && attributeValue.length() != 0) {
+                    if (next == 2 && openXmlResourceParser.getName().equals("manifest") && (attributeValue = openXmlResourceParser.getAttributeValue(null, "package")) != null && attributeValue.length() != 0) {
                         int length = attributeValue.length();
                         int i2 = 0;
                         boolean z = false;
@@ -2137,7 +2133,7 @@ public final class c {
     public static void a(Context context, String str, Map<String, Object> map, boolean z) {
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, str, map, Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && com.baidu.sofire.core.c.f45253c) {
+        if ((interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, str, map, Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && com.baidu.sofire.core.c.f42984c) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
@@ -2148,7 +2144,7 @@ public final class c {
                 if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
                     str2 = g2[0];
                 } else {
-                    str2 = f45438e;
+                    str2 = f43166e;
                 }
                 jSONObject2.put("3", str2);
                 jSONObject2.put("4", 0);
@@ -2187,7 +2183,7 @@ public final class c {
             if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
                 str2 = g2[0];
             } else {
-                str2 = f45438e;
+                str2 = f43166e;
             }
             jSONObject2.put("3", str2);
             jSONObject2.put("4", 0);
@@ -2232,7 +2228,7 @@ public final class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, aVar, str, Boolean.valueOf(z)})) == null) {
-            return a(context, aVar.f45230a, aVar.f45232c, z ? aVar.f45233d : aVar.f45234e, str);
+            return a(context, aVar.f42962a, aVar.f42964c, z ? aVar.f42965d : aVar.f42966e, str);
         }
         return (JSONObject) invokeCommon.objValue;
     }
@@ -2308,8 +2304,8 @@ public final class c {
                 jSONObject3.put("9", str5);
                 jSONObject3.put("10", str3);
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                jSONObject3.put("11", a2.f45344e.getString("re_a_cv", ""));
-                jSONObject3.put("12", a2.f45344e.getString("re_a_lc", ""));
+                jSONObject3.put("11", a2.f43074e.getString("re_a_cv", ""));
+                jSONObject3.put("12", a2.f43074e.getString("re_a_lc", ""));
                 jSONObject3.put("13", 1);
                 if (k(context) == 4) {
                     jSONObject3.put("14", 1);
@@ -2319,7 +2315,7 @@ public final class c {
                 jSONObject3.put("20", u.g(context));
                 jSONObject3.put("21", u.f(context));
                 jSONObject3.put(Constants.VIA_REPORT_TYPE_DATALINE, e.c(context));
-                jSONObject3.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, u(context));
+                jSONObject3.put("32", u(context));
                 jSONObject3.put("25", com.baidu.sofire.rp.a.a(context));
                 jSONObject3.put("26", com.baidu.sofire.rp.a.b(context));
                 jSONObject3.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, r.a(context));
@@ -2328,7 +2324,7 @@ public final class c {
                 if (!TextUtils.isEmpty(j3)) {
                     str6 = j3;
                 }
-                jSONObject3.put(EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, str6);
+                jSONObject3.put("34", str6);
                 Object obj = jSONObject.get("Module_section");
                 if (obj instanceof JSONArray) {
                     jSONObject3.put("module_section", obj);
@@ -2352,13 +2348,13 @@ public final class c {
             d a2 = d.a(context);
             Message message = new Message();
             message.what = 8;
-            a2.f45446b.a(message);
+            a2.f43173b.a(message);
             com.baidu.sofire.c.a aVar2 = new com.baidu.sofire.c.a();
-            aVar2.f45230a = str;
-            aVar2.f45231b = str2;
-            aVar2.f45232c = str3;
-            aVar2.f45233d = str4;
-            aVar2.f45234e = str5;
+            aVar2.f42962a = str;
+            aVar2.f42963b = str2;
+            aVar2.f42964c = str3;
+            aVar2.f42965d = str4;
+            aVar2.f42966e = str5;
             if (TextUtils.isEmpty(str4) || TextUtils.isEmpty(str5)) {
                 return;
             }
@@ -2370,32 +2366,32 @@ public final class c {
                 a3.a(aVar2);
             } else {
                 if (t != null && (indexOf = t.indexOf(aVar2)) != -1 && (aVar = t.get(indexOf)) != null) {
-                    a3.f45345f.putString("re_con", a3.f45344e.getString("re_con", "").replace(com.baidu.sofire.c.a.a(aVar), com.baidu.sofire.c.a.a(aVar2)));
-                    a3.f45345f.commit();
+                    a3.f43075f.putString("re_con", a3.f43074e.getString("re_con", "").replace(com.baidu.sofire.c.a.a(aVar), com.baidu.sofire.c.a.a(aVar2)));
+                    a3.f43075f.commit();
                 }
                 d.a(context).b();
                 return;
             }
-            String str6 = aVar2.f45234e;
-            SharedPreferences sharedPreferences = a3.f45344e;
+            String str6 = aVar2.f42966e;
+            SharedPreferences sharedPreferences = a3.f43074e;
             if (!sharedPreferences.getBoolean("re_net_ins_" + str6, false)) {
                 d a4 = d.a(context);
-                com.baidu.sofire.g.a aVar3 = a4.f45446b;
-                String e2 = aVar3.f45332a.e(aVar2.f45234e);
+                com.baidu.sofire.g.a aVar3 = a4.f43173b;
+                String e2 = aVar3.f43062a.e(aVar2.f42966e);
                 com.baidu.sofire.e.a aVar4 = new com.baidu.sofire.e.a();
-                aVar4.f45318b = aVar2.f45234e;
-                aVar4.f45323g = 0;
-                aVar4.f45319c = 1;
-                aVar4.f45321e = System.currentTimeMillis();
-                aVar4.f45322f = 1;
-                aVar4.f45320d = a(aVar3.f45333b, aVar2, e2, false).toString();
-                com.baidu.sofire.d.a.a(aVar3.f45333b).a(aVar4);
-                com.baidu.sofire.h.a aVar5 = aVar3.f45332a;
-                String str7 = aVar2.f45234e;
-                SharedPreferences.Editor editor = aVar5.f45345f;
+                aVar4.f43049b = aVar2.f42966e;
+                aVar4.f43054g = 0;
+                aVar4.f43050c = 1;
+                aVar4.f43052e = System.currentTimeMillis();
+                aVar4.f43053f = 1;
+                aVar4.f43051d = a(aVar3.f43063b, aVar2, e2, false).toString();
+                com.baidu.sofire.d.a.a(aVar3.f43063b).a(aVar4);
+                com.baidu.sofire.h.a aVar5 = aVar3.f43062a;
+                String str7 = aVar2.f42966e;
+                SharedPreferences.Editor editor = aVar5.f43075f;
                 editor.putBoolean("re_net_ins_" + str7, true);
-                aVar5.f45345f.commit();
-                a4.f45446b.a(aVar2);
+                aVar5.f43075f.commit();
+                a4.f43173b.a(aVar2);
             }
             d.a(context).b();
             d.a(context).c();
@@ -2409,7 +2405,7 @@ public final class c {
                 JSONObject jSONObject = new JSONObject(str);
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 System.currentTimeMillis();
-                a2.f45344e.getInt("re_net_ty", 2);
+                a2.f43074e.getInt("re_net_ty", 2);
                 JSONObject optJSONObject = jSONObject.optJSONObject("Common_section");
                 long optLong = optJSONObject.optLong("0");
                 String optString = optJSONObject.optString("10");
@@ -2421,25 +2417,25 @@ public final class c {
                     optInt2 = 1;
                 }
                 com.baidu.sofire.e.a aVar = new com.baidu.sofire.e.a();
-                aVar.f45320d = str;
-                aVar.f45318b = optString;
-                aVar.f45323g = optInt;
-                aVar.f45319c = 3;
-                aVar.f45321e = optLong;
-                aVar.f45322f = optInt2;
-                aVar.f45324h = optInt3;
-                aVar.f45325i = optInt4;
-                aVar.f45326j = "";
+                aVar.f43051d = str;
+                aVar.f43049b = optString;
+                aVar.f43054g = optInt;
+                aVar.f43050c = 3;
+                aVar.f43052e = optLong;
+                aVar.f43053f = optInt2;
+                aVar.f43055h = optInt3;
+                aVar.f43056i = optInt4;
+                aVar.j = "";
                 d a3 = d.a(context);
                 Message message = new Message();
                 if (!z && !e()) {
-                    com.baidu.sofire.d.a.a(a3.f45445a).a(aVar);
+                    com.baidu.sofire.d.a.a(a3.f43172a).a(aVar);
                     message.what = 10;
-                    a3.f45446b.a(message);
+                    a3.f43173b.a(message);
                 }
                 message.what = 1;
                 message.obj = aVar;
-                a3.f45446b.a(message);
+                a3.f43173b.a(message);
             } catch (Throwable unused) {
                 com.baidu.sofire.b.c();
             }
@@ -2465,9 +2461,9 @@ public final class c {
                         }
                         if (!TextUtils.isEmpty(str3)) {
                             String optString = optJSONObject.optString(str3);
-                            SharedPreferences.Editor editor = a2.f45345f;
+                            SharedPreferences.Editor editor = a2.f43075f;
                             editor.putString("al_da" + str3, optString);
-                            a2.f45345f.commit();
+                            a2.f43075f.commit();
                         }
                     }
                 } catch (Throwable unused) {
@@ -2484,9 +2480,9 @@ public final class c {
                         }
                         if (!TextUtils.isEmpty(str2)) {
                             String optString2 = optJSONObject2.optString(str2);
-                            SharedPreferences.Editor editor2 = a2.f45345f;
+                            SharedPreferences.Editor editor2 = a2.f43075f;
                             editor2.putString("in_da" + str2, optString2);
-                            a2.f45345f.commit();
+                            a2.f43075f.commit();
                         }
                     }
                 } catch (Throwable unused2) {
@@ -2495,8 +2491,8 @@ public final class c {
                 try {
                     JSONArray optJSONArray = jSONObject.optJSONArray("2");
                     if (optJSONArray != null) {
-                        a2.f45345f.putString("li_pk_s", optJSONArray.toString());
-                        a2.f45345f.commit();
+                        a2.f43075f.putString("li_pk_s", optJSONArray.toString());
+                        a2.f43075f.commit();
                     }
                 } catch (Throwable unused3) {
                     com.baidu.sofire.b.c();
@@ -2521,7 +2517,7 @@ public final class c {
                 if (g2 != null && g2.length == 2) {
                     jSONObject2.put("3", g2[0]);
                 } else {
-                    jSONObject2.put("3", f45438e);
+                    jSONObject2.put("3", f43166e);
                 }
                 jSONObject2.put("4", 0);
                 jSONObject2.put("5", 0);
@@ -2670,7 +2666,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i2)) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f45156d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f42890d;
                 if (aVar == null || (a2 = aVar.a(i2)) == null || a2.initStatus != 1 || (a3 = com.baidu.sofire.core.f.a()) == null) {
                     return false;
                 }

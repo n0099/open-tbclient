@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TextDelegate {
     @Nullable
     public final LottieAnimationView animationView;

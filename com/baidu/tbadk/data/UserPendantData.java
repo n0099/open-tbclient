@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.Pendant;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UserPendantData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,10 +57,10 @@ public class UserPendantData implements Serializable {
         }
     }
 
-    public void setPropsId(long j2) {
+    public void setPropsId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.propsId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.propsId = j;
         }
     }
 }

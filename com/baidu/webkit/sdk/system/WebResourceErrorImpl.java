@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebResourceError;
 @TargetApi(23)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class WebResourceErrorImpl extends WebResourceError {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.unitedscheme.security;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface ISchemeHeadIoc {
     String getSchemeHead();
 }

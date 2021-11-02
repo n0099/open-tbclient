@@ -5,19 +5,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ac extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f73478h;
+    public int f65903h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f73479i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f73480j;
+    public int f65904i;
+    public int j;
     public int k;
     public int l;
     public int m;
@@ -47,15 +45,15 @@ public class ac extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f73494a != 7) {
+            if (dVar.f65917a != 7) {
                 throw new PngjException("bad chunk " + dVar);
             }
-            this.f73478h = com.kwad.sdk.pngencrypt.n.b(dVar.f73497d, 0);
-            this.f73479i = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 2);
-            this.f73480j = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 3);
-            this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 4);
-            this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 5);
-            this.m = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 6);
+            this.f65903h = com.kwad.sdk.pngencrypt.n.b(dVar.f65920d, 0);
+            this.f65904i = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 2);
+            this.j = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 3);
+            this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 4);
+            this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 5);
+            this.m = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 6);
         }
     }
 }

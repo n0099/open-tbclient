@@ -11,7 +11,7 @@ import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.ui.BindCardBaseActivity;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,11 +36,11 @@ public class f extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BindFastRequest bindFastRequest = this.f62654e;
-            if (bindFastRequest == null || bindFastRequest.getmBankInfo() == null || this.f62654e.getmBankInfo().channel_info == null) {
+            BindFastRequest bindFastRequest = this.f59525e;
+            if (bindFastRequest == null || bindFastRequest.getmBankInfo() == null || this.f59525e.getmBankInfo().channel_info == null) {
                 return true;
             }
-            return this.f62654e.getmBankInfo().channel_info.isNeedSendSms();
+            return this.f59525e.getmBankInfo().channel_info.isNeedSendSms();
         }
         return invokeV.booleanValue;
     }
@@ -50,10 +50,10 @@ public class f extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr) == null) {
             if (this.r == null) {
-                this.r = (com.baidu.wallet.paysdk.beans.f) PayBeanFactory.getInstance().getBean((Context) this.f62653d, 17, BindCardBaseActivity.BEAN_TAG);
+                this.r = (com.baidu.wallet.paysdk.beans.f) PayBeanFactory.getInstance().getBean((Context) this.f59524d, 17, BindCardBaseActivity.BEAN_TAG);
             }
-            this.r.a(this.f62654e);
-            this.r.setResponseCallback(this.f62653d);
+            this.r.a(this.f59525e);
+            this.r.setResponseCallback(this.f59524d);
             StatisticManager.onEvent("callCardCheck");
             b(strArr);
             this.r.execBean();

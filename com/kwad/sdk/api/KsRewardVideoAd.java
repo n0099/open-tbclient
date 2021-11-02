@@ -5,12 +5,12 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface KsRewardVideoAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface RewardAdInteractionListener {
         @KsAdSdkApi
         @Keep

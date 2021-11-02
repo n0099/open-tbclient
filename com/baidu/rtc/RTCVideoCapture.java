@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.CapturerObserver;
 import org.webrtc.SurfaceTextureHelper;
 import org.webrtc.VideoCapturer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class RTCVideoCapture implements VideoCapturer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CapturerObserver innnerCapturerObserver;
     public RTCCapturerObserver outterCapturerObserver;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface RTCCapturerObserver {
         void onCapturerStarted(boolean z);
 

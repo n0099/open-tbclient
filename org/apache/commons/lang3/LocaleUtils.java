@@ -18,14 +18,14 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LocaleUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final ConcurrentMap<String, List<Locale>> cCountriesByLanguage;
     public static final ConcurrentMap<String, List<Locale>> cLanguagesByCountry;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SyncAvoid {
         public static /* synthetic */ Interceptable $ic;
         public static final List<Locale> AVAILABLE_LOCALE_LIST;

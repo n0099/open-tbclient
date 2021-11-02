@@ -1,7 +1,7 @@
 package com.google.common.hash;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.d.h;
+import b.i.d.d.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Longs;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class LittleEndianByteArray$JavaLittleEndianBytes {
     public static final /* synthetic */ LittleEndianByteArray$JavaLittleEndianBytes[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -65,13 +65,13 @@ public abstract class LittleEndianByteArray$JavaLittleEndianBytes {
             }
 
             @Override // com.google.common.hash.LittleEndianByteArray$JavaLittleEndianBytes
-            public void putLongLittleEndian(byte[] bArr, int i2, long j2) {
+            public void putLongLittleEndian(byte[] bArr, int i2, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                    long j3 = 255;
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                    long j2 = 255;
                     for (int i3 = 0; i3 < 8; i3++) {
-                        bArr[i2 + i3] = (byte) ((j2 & j3) >> (i3 * 8));
-                        j3 <<= 8;
+                        bArr[i2 + i3] = (byte) ((j & j2) >> (i3 * 8));
+                        j2 <<= 8;
                     }
                 }
             }
@@ -113,7 +113,7 @@ public abstract class LittleEndianByteArray$JavaLittleEndianBytes {
 
     public abstract /* synthetic */ long getLongLittleEndian(byte[] bArr, int i2);
 
-    public abstract /* synthetic */ void putLongLittleEndian(byte[] bArr, int i2, long j2);
+    public abstract /* synthetic */ void putLongLittleEndian(byte[] bArr, int i2, long j);
 
     public /* synthetic */ LittleEndianByteArray$JavaLittleEndianBytes(String str, int i2, h hVar) {
         this(str, i2);

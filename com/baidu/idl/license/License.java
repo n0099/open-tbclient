@@ -29,7 +29,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class License {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LICENSE_AG_ID = -1;

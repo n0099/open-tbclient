@@ -17,7 +17,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFuture<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,10 +101,10 @@ public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFutur
     }
 
     @Override // java.util.concurrent.Future
-    public V get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, timeUnit)) == null) ? this.mListenableFuture.get(j2, timeUnit) : (V) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) ? this.mListenableFuture.get(j, timeUnit) : (V) invokeJL.objValue;
     }
 
     public ScheduledFutureImpl(Handler handler, Runnable runnable, @Nullable V v) {

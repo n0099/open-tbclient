@@ -23,7 +23,7 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PUBLIC_SUCCESS_TEMP_DIR = "public_succes_temp";
@@ -146,16 +146,16 @@ public class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j2 = 0;
+            long j = 0;
             for (int i2 = 0; i2 < length2; i2++) {
                 if (listFiles[i2].isDirectory()) {
                     length = getDirectorySize(listFiles[i2]);
                 } else {
                     length = listFiles[i2].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -321,16 +321,16 @@ public class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j2 = 0;
+            long j = 0;
             for (int i2 = 0; i2 < length2; i2++) {
                 if (listFiles[i2].isDirectory()) {
                     length = getDirectorySize(listFiles[i2]);
                 } else {
                     length = listFiles[i2].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }

@@ -4,39 +4,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35981a = "status";
+    public static final String f34081a = "status";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35982b = "msg";
+    public static final String f34082b = "msg";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35983c = "form";
+    public static final String f34083c = "form";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35984d = "onload";
+    public static final String f34084d = "onload";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35985e = "name";
+    public static final String f34085e = "name";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35986f = "host";
+    public static final String f34086f = "host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35987g = "params";
+    public static final String f34087g = "params";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35988h = "enctype";
+    public static final String f34088h = "enctype";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f35989i = "request_param";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f35990j = "validate";
+    public static final String f34089i = "request_param";
+    public static final String j = "validate";
     public static final String k = "formSubmit";
     public static final String l = "namespace";
     public static final String m = "apiVersion";

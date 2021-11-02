@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class c implements com.sdk.base.framework.b.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ a f75986a;
+    public /* synthetic */ a f68287a;
 
     public c(a aVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public final class c implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f75986a = aVar;
+        this.f68287a = aVar;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            this.f75986a.a(i2, i3, str);
+            this.f68287a.a(i2, i3, str);
         }
     }
 
@@ -43,7 +43,7 @@ public final class c implements com.sdk.base.framework.b.a<T> {
     public final void a(int i2, String str, int i3, T t, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
-            this.f75986a.a(i2, str, i3, t, str2);
+            this.f68287a.a(i2, str, i3, t, str2);
         }
     }
 }

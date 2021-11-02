@@ -18,7 +18,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.ZipInputStream;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NetworkFetcher {
     public final Context appContext;
     @Nullable

@@ -28,31 +28,31 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class df implements LoggerInterface {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f77832a;
+    public static String f70794a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final SimpleDateFormat f235a;
+    public static final SimpleDateFormat f236a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<Pair<String, Throwable>> f236a;
+    public static List<Pair<String, Throwable>> f237a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f237a;
+    public Context f238a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f238a;
+    public Handler f239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77833b;
+    public String f70795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f77834c;
+    public String f70796c;
 
     static {
         InterceptResult invokeClinit;
@@ -67,9 +67,9 @@ public class df implements LoggerInterface {
                 return;
             }
         }
-        f235a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
-        f77832a = "/MiPushLog";
-        f236a = Collections.synchronizedList(new ArrayList());
+        f236a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+        f70794a = "/MiPushLog";
+        f237a = Collections.synchronizedList(new ArrayList());
     }
 
     public df(Context context) {
@@ -87,15 +87,15 @@ public class df implements LoggerInterface {
                 return;
             }
         }
-        this.f77834c = "";
-        this.f237a = context;
+        this.f70796c = "";
+        this.f238a = context;
         if (context.getApplicationContext() != null) {
-            this.f237a = context.getApplicationContext();
+            this.f238a = context.getApplicationContext();
         }
-        this.f77833b = this.f237a.getPackageName();
+        this.f70795b = this.f238a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
-        this.f238a = new Handler(handlerThread.getLooper());
+        this.f239a = new Handler(handlerThread.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,10 +111,10 @@ public class df implements LoggerInterface {
         }
         BufferedWriter bufferedWriter = null;
         try {
-            if (TextUtils.isEmpty(this.f77834c) && (externalFilesDir = this.f237a.getExternalFilesDir(null)) != null) {
-                this.f77834c = externalFilesDir.getAbsolutePath() + "";
+            if (TextUtils.isEmpty(this.f70796c) && (externalFilesDir = this.f238a.getExternalFilesDir(null)) != null) {
+                this.f70796c = externalFilesDir.getAbsolutePath() + "";
             }
-            file = new File(this.f77834c + f77832a);
+            file = new File(this.f70796c + f70794a);
         } catch (Exception unused) {
             fileLock = null;
             randomAccessFile = null;
@@ -135,9 +135,9 @@ public class df implements LoggerInterface {
             fileLock = randomAccessFile.getChannel().lock();
             try {
                 BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                while (!f236a.isEmpty()) {
+                while (!f237a.isEmpty()) {
                     try {
-                        Pair<String, Throwable> remove = f236a.remove(0);
+                        Pair<String, Throwable> remove = f237a.remove(0);
                         String str = (String) remove.first;
                         if (remove.second != null) {
                             str = (str + StringUtils.LF) + Log.getStackTraceString((Throwable) remove.second);
@@ -235,7 +235,7 @@ public class df implements LoggerInterface {
     public final void log(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
-            this.f238a.post(new dg(this, str, th));
+            this.f239a.post(new dg(this, str, th));
         }
     }
 
@@ -243,7 +243,7 @@ public class df implements LoggerInterface {
     public final void setTag(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f77833b = str;
+            this.f70795b = str;
         }
     }
 }

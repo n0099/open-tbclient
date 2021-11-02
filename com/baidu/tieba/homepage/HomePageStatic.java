@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage;
 
-import c.a.q0.z0.b;
+import b.a.q0.z0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbConfig;
@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HomePageStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f52050a;
+    public static boolean f49368a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

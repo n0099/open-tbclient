@@ -14,14 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RetrieveReportRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_NAME = "imsdk";
@@ -150,7 +149,7 @@ public class RetrieveReportRequest extends BaseHttpRequest {
                 jSONObject.put("version", String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext)));
                 jSONObject.put("status", this.mStatus);
                 if (!TextUtils.isEmpty(this.mOrigin)) {
-                    jSONObject.put(FilterValue.DEFAULT_FILTER_VALUE, this.mOrigin);
+                    jSONObject.put("origin", this.mOrigin);
                 }
                 if (!TextUtils.isEmpty(this.mFileMeta)) {
                     jSONObject.put("filemeta", this.mFileMeta);

@@ -19,32 +19,32 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class l extends AsyncTask<String, Void, List<Bitmap>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77048a;
+    public Context f70395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InsideNotificationItem f77049b;
+    public InsideNotificationItem f70396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f77050c;
+    public long f70397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f77051d;
+    public boolean f70398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f77052e;
+    public int f70399e;
 
-    public l(Context context, InsideNotificationItem insideNotificationItem, long j2, boolean z) {
+    public l(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, insideNotificationItem, Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {context, insideNotificationItem, Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -54,11 +54,11 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
                 return;
             }
         }
-        this.f77052e = 0;
-        this.f77048a = context;
-        this.f77049b = insideNotificationItem;
-        this.f77050c = j2;
-        this.f77051d = z;
+        this.f70399e = 0;
+        this.f70395a = context;
+        this.f70396b = insideNotificationItem;
+        this.f70397c = j;
+        this.f70398d = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,9 +86,9 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, strArr)) == null) {
-            this.f77052e = ClientConfigManagerImpl.getInstance(this.f77048a).getNotifyStyle();
+            this.f70399e = ClientConfigManagerImpl.getInstance(this.f70395a).getNotifyStyle();
             InputStream inputStream2 = null;
-            if (!this.f77051d) {
+            if (!this.f70398d) {
                 p.d("ImageDownTask", "bitmap is not display by forbid net");
                 return null;
             }
@@ -159,9 +159,9 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         List<Bitmap> list2 = list;
         super.onPostExecute(list2);
         p.c("ImageDownTask", "onPostExecute");
-        if (this.f77049b != null) {
-            w.b().a("com.vivo.push.notify_key", this.f77050c);
-            NotifyAdapterUtil.pushNotification(this.f77048a, list2, this.f77049b, this.f77050c, this.f77052e);
+        if (this.f70396b != null) {
+            w.b().a("com.vivo.push.notify_key", this.f70397c);
+            NotifyAdapterUtil.pushNotification(this.f70395a, list2, this.f70396b, this.f70397c, this.f70399e);
         }
     }
 }

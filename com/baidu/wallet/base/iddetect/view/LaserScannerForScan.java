@@ -20,7 +20,7 @@ import com.baidu.wallet.base.iddetect.CameraSizeInfo;
 import com.baidu.wallet.base.iddetect.IdCardActivity;
 import com.baidu.wallet.base.iddetect.utils.CameraUtilsForScan;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LaserScannerForScan extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

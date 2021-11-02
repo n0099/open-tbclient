@@ -1,5 +1,5 @@
 package com.baidu.ar.imu;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface g {
     void onImuUpdate(f fVar);
 }

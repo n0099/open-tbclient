@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import c.a.t.a;
+import b.a.t.a;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,11 +24,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public static int sRetrytimes;
@@ -125,7 +124,7 @@ public class IMUserLoginByTokenMsg extends Message {
                 jSONObject.put("account_type", this.mAccountType);
                 jSONObject.put("token", this.mToken);
                 jSONObject.put("version", 4);
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
                 jSONObject.put("app_open_type", AccountManagerImpl.getInstance(this.mContext).getAppOpenType());
                 jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
@@ -201,7 +200,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!a.f29970e) {
+                    if (!a.f28673e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                 } catch (Exception e2) {
@@ -219,17 +218,17 @@ public class IMUserLoginByTokenMsg extends Message {
         }
     }
 
-    public void setTail(long j2) {
+    public void setTail(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.mTail = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.mTail = j;
         }
     }
 
-    public void setTimeout(long j2) {
+    public void setTimeout(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.mTimeout = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mTimeout = j;
         }
     }
 }

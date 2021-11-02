@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_SECRET = "";
@@ -47,7 +47,7 @@ public final class PayUtils {
     public static ArrayList<String> keys;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ParamComparator implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,7 +221,7 @@ public final class PayUtils {
                         }
                         StringBuilder sb = new StringBuilder();
                         sb.append(name);
-                        sb.append(a.f36026h);
+                        sb.append(a.f34124h);
                         sb.append(value);
                         if (i2 != arrayList.size() - 1) {
                             sb.append(Typography.amp);
@@ -299,7 +299,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(a.f36026h);
+                    sb.append(a.f34124h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

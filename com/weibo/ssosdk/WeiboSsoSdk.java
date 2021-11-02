@@ -23,36 +23,36 @@ import java.net.URLEncoder;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class WeiboSsoSdk {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static WeiboSsoSdk f77093e;
+    public static WeiboSsoSdk f70440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c.q.a.c f77094f;
+    public static b.p.a.c f70441f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile ReentrantLock f77095a;
+    public volatile ReentrantLock f70442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f77096b;
+    public boolean f70443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f77097c;
+    public d f70444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f77098d;
+    public int f70445d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WeiboSsoSdk f77099e;
+        public final /* synthetic */ WeiboSsoSdk f70446e;
 
         public a(WeiboSsoSdk weiboSsoSdk) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class WeiboSsoSdk {
                     return;
                 }
             }
-            this.f77099e = weiboSsoSdk;
+            this.f70446e = weiboSsoSdk;
         }
 
         @Override // java.lang.Runnable
@@ -81,20 +81,20 @@ public class WeiboSsoSdk {
             while (true) {
                 try {
                     Thread.sleep(86400000L);
-                    WeiboSsoSdk.i().l((this.f77099e.f77097c == null || TextUtils.isEmpty(this.f77099e.f77097c.a())) ? this.f77099e.k() : this.f77099e.f77097c.a(), 2);
+                    WeiboSsoSdk.i().l((this.f70446e.f70444c == null || TextUtils.isEmpty(this.f70446e.f70444c.a())) ? this.f70446e.k() : this.f70446e.f70444c.a(), 2);
                 } catch (Exception unused) {
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WeiboSsoSdk f77100e;
+        public final /* synthetic */ WeiboSsoSdk f70447e;
 
         public b(WeiboSsoSdk weiboSsoSdk) {
             Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class WeiboSsoSdk {
                     return;
                 }
             }
-            this.f77100e = weiboSsoSdk;
+            this.f70447e = weiboSsoSdk;
         }
 
         @Override // java.lang.Runnable
@@ -120,8 +120,8 @@ public class WeiboSsoSdk {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     Thread.sleep(60000L);
-                    if (this.f77100e.f77096b) {
-                        this.f77100e.l((this.f77100e.f77097c == null || TextUtils.isEmpty(this.f77100e.f77097c.a())) ? this.f77100e.k() : this.f77100e.f77097c.a(), 2);
+                    if (this.f70447e.f70443b) {
+                        this.f70447e.l((this.f70447e.f70444c == null || TextUtils.isEmpty(this.f70447e.f70444c.a())) ? this.f70447e.k() : this.f70447e.f70444c.a(), 2);
                     }
                 } catch (Exception unused) {
                 }
@@ -129,18 +129,18 @@ public class WeiboSsoSdk {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.q.a.b f77101e;
+        public final /* synthetic */ b.p.a.b f70448e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WeiboSsoSdk f77102f;
+        public final /* synthetic */ WeiboSsoSdk f70449f;
 
-        public c(WeiboSsoSdk weiboSsoSdk, c.q.a.b bVar) {
+        public c(WeiboSsoSdk weiboSsoSdk, b.p.a.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,8 +155,8 @@ public class WeiboSsoSdk {
                     return;
                 }
             }
-            this.f77102f = weiboSsoSdk;
-            this.f77101e = bVar;
+            this.f70449f = weiboSsoSdk;
+            this.f70448e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -164,27 +164,27 @@ public class WeiboSsoSdk {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f77102f.l("", 1);
+                    this.f70449f.l("", 1);
                 } catch (Exception unused) {
                 }
-                if (this.f77102f.f77097c == null) {
-                    this.f77102f.f77097c = new d();
+                if (this.f70449f.f70444c == null) {
+                    this.f70449f.f70444c = new d();
                 }
-                this.f77101e.handler(this.f77102f.f77097c);
+                this.f70448e.handler(this.f70449f.f70444c);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f77103a;
+        public String f70450a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f77104b;
+        public String f70451b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -199,8 +199,8 @@ public class WeiboSsoSdk {
                     return;
                 }
             }
-            this.f77103a = "";
-            this.f77104b = "";
+            this.f70450a = "";
+            this.f70451b = "";
         }
 
         public static d c(String str) throws Exception {
@@ -213,8 +213,8 @@ public class WeiboSsoSdk {
                     String optString = jSONObject.optString("retcode", "");
                     JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                     if (optString.equals("20000000") && jSONObject2 != null) {
-                        dVar.f77103a = jSONObject2.optString("aid", "");
-                        dVar.f77104b = jSONObject2.optString("sub", "");
+                        dVar.f70450a = jSONObject2.optString("aid", "");
+                        dVar.f70451b = jSONObject2.optString("sub", "");
                         return dVar;
                     }
                     throw new Exception("error： " + optString + " msg:" + jSONObject.optString("msg", ""));
@@ -228,13 +228,13 @@ public class WeiboSsoSdk {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77103a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70450a : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77104b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70451b : (String) invokeV.objValue;
         }
     }
 
@@ -267,11 +267,11 @@ public class WeiboSsoSdk {
                 return;
             }
         }
-        this.f77095a = new ReentrantLock(true);
-        this.f77096b = true;
-        c.q.a.c cVar = f77094f;
-        if (cVar != null && cVar.p()) {
-            this.f77098d = 0;
+        this.f70442a = new ReentrantLock(true);
+        this.f70443b = true;
+        b.p.a.c cVar = f70441f;
+        if (cVar != null && cVar.o()) {
+            this.f70445d = 0;
             new Thread(new a(this)).start();
             new Thread(new b(this)).start();
             return;
@@ -285,17 +285,17 @@ public class WeiboSsoSdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (WeiboSsoSdk.class) {
-                if (f77093e == null) {
-                    f77093e = new WeiboSsoSdk();
+                if (f70440e == null) {
+                    f70440e = new WeiboSsoSdk();
                 }
-                weiboSsoSdk = f77093e;
+                weiboSsoSdk = f70440e;
             }
             return weiboSsoSdk;
         }
         return (WeiboSsoSdk) invokeV.objValue;
     }
 
-    public static synchronized boolean j(c.q.a.c cVar) {
+    public static synchronized boolean j(b.p.a.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, cVar)) == null) {
@@ -303,11 +303,11 @@ public class WeiboSsoSdk {
                 if (cVar == null) {
                     return false;
                 }
-                if (cVar.p()) {
-                    if (f77094f == null) {
-                        c.q.a.c cVar2 = (c.q.a.c) cVar.clone();
-                        f77094f = cVar2;
-                        c.q.a.a.w(cVar2.d());
+                if (cVar.o()) {
+                    if (f70441f == null) {
+                        b.p.a.c cVar2 = (b.p.a.c) cVar.clone();
+                        f70441f = cVar2;
+                        b.p.a.a.w(cVar2.b());
                         return true;
                     }
                     return false;
@@ -403,7 +403,7 @@ public class WeiboSsoSdk {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            File filesDir = f77094f.d().getFilesDir();
+            File filesDir = f70441f.b().getFilesDir();
             return new File(filesDir, "weibo_sso_sdk_aid" + i2);
         }
         return (File) invokeI.objValue;
@@ -458,23 +458,23 @@ public class WeiboSsoSdk {
     public final void l(String str, int i2) throws Exception {
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, str, i2) == null) || TextUtils.isEmpty(f77094f.a(false))) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, str, i2) == null) || TextUtils.isEmpty(f70441f.a(false))) {
             return;
         }
-        if (!this.f77095a.tryLock()) {
-            this.f77095a.lock();
-            this.f77095a.unlock();
+        if (!this.f70442a.tryLock()) {
+            this.f70442a.lock();
+            this.f70442a.unlock();
             return;
         }
-        this.f77096b = false;
-        String n = c.q.a.a.n(f77094f.d());
+        this.f70443b = false;
+        String n = b.p.a.a.n(f70441f.b());
         try {
             str2 = URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException unused) {
             str2 = "";
         }
-        String g2 = g(riseWind(f77094f.a(true), f77094f.d().getPackageName(), str2, n, f77094f.f(true), f77094f.g(true), f77094f.j(true), f77094f.i(true), f77094f.h(true), f77094f.e(true), i2, this.f77098d));
-        this.f77098d++;
+        String g2 = g(riseWind(f70441f.a(true), f70441f.b().getPackageName(), str2, n, f70441f.e(true), f70441f.f(true), f70441f.i(true), f70441f.h(true), f70441f.g(true), f70441f.c(true), i2, this.f70445d));
+        this.f70445d++;
         if (g2 != null) {
             try {
                 d c2 = d.c(g2);
@@ -482,25 +482,25 @@ public class WeiboSsoSdk {
                     f(c2.a());
                 }
                 if (i2 == 1) {
-                    this.f77097c = c2;
+                    this.f70444c = c2;
                 }
-                this.f77095a.unlock();
+                this.f70442a.unlock();
                 return;
             } catch (Exception e2) {
-                this.f77095a.unlock();
+                this.f70442a.unlock();
                 throw e2;
             }
         }
-        this.f77095a.unlock();
+        this.f70442a.unlock();
         throw new Exception("network error.");
     }
 
-    public void m(c.q.a.b bVar) {
+    public void m(b.p.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            d dVar = this.f77097c;
-            if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.f77097c.b())) {
-                bVar.handler(this.f77097c);
+            d dVar = this.f70444c;
+            if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.f70444c.b())) {
+                bVar.handler(this.f70444c);
             } else {
                 Executors.newSingleThreadExecutor().execute(new c(this, bVar));
             }

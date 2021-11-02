@@ -20,40 +20,38 @@ import java.nio.ByteOrder;
 import java.nio.LongBuffer;
 import java.util.Arrays;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f40595a;
+    public static final /* synthetic */ boolean f38490a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f40596b = 6;
+    public static final int f38491b = 6;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f40597c = 64;
+    public static final int f38492c = 64;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f40598d = 63;
+    public static final int f38493d = 63;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f40599e = -1;
+    public static final long f38494e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ObjectStreamField[] f40600f;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final long f40601j = 7997698588986878753L;
+    public static final ObjectStreamField[] f38495f;
+    public static final long j = 7997698588986878753L;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public long[] f40602g;
+    public long[] f38496g;
 
     /* renamed from: h  reason: collision with root package name */
-    public transient int f40603h;
+    public transient int f38497h;
 
     /* renamed from: i  reason: collision with root package name */
-    public transient boolean f40604i;
+    public transient boolean f38498i;
 
     static {
         InterceptResult invokeClinit;
@@ -68,8 +66,8 @@ public class a implements Serializable, Cloneable {
                 return;
             }
         }
-        f40595a = !a.class.desiredAssertionStatus();
-        f40600f = new ObjectStreamField[]{new ObjectStreamField("bits", long[].class)};
+        f38490a = !a.class.desiredAssertionStatus();
+        f38495f = new ObjectStreamField[]{new ObjectStreamField("bits", long[].class)};
     }
 
     public a() {
@@ -85,10 +83,10 @@ public class a implements Serializable, Cloneable {
                 return;
             }
         }
-        this.f40603h = 0;
-        this.f40604i = false;
+        this.f38497h = 0;
+        this.f38498i = false;
         j(64);
-        this.f40604i = false;
+        this.f38498i = false;
     }
 
     public a(int i2) {
@@ -106,11 +104,11 @@ public class a implements Serializable, Cloneable {
                 return;
             }
         }
-        this.f40603h = 0;
-        this.f40604i = false;
+        this.f38497h = 0;
+        this.f38498i = false;
         if (i2 >= 0) {
             j(i2);
-            this.f40604i = true;
+            this.f38498i = true;
             return;
         }
         throw new NegativeArraySizeException("nbits < 0: " + i2);
@@ -131,10 +129,10 @@ public class a implements Serializable, Cloneable {
                 return;
             }
         }
-        this.f40603h = 0;
-        this.f40604i = false;
-        this.f40602g = jArr;
-        this.f40603h = jArr.length;
+        this.f38497h = 0;
+        this.f38498i = false;
+        this.f38496g = jArr;
+        this.f38497h = jArr.length;
         h();
     }
 
@@ -202,12 +200,12 @@ public class a implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, objectInputStream) == null) {
             long[] jArr = (long[]) objectInputStream.readFields().get("bits", (Object) null);
-            this.f40602g = jArr;
-            this.f40603h = jArr.length;
+            this.f38496g = jArr;
+            this.f38497h = jArr.length;
             i();
-            long[] jArr2 = this.f40602g;
+            long[] jArr2 = this.f38496g;
             boolean z = true;
-            this.f40604i = (jArr2.length <= 0 || jArr2[jArr2.length - 1] != 0) ? false : false;
+            this.f38498i = (jArr2.length <= 0 || jArr2[jArr2.length - 1] != 0) ? false : false;
             h();
         }
     }
@@ -216,10 +214,10 @@ public class a implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, objectOutputStream) == null) {
             h();
-            if (!this.f40604i) {
+            if (!this.f38498i) {
                 j();
             }
-            objectOutputStream.putFields().put("bits", this.f40602g);
+            objectOutputStream.putFields().put("bits", this.f38496g);
             objectOutputStream.writeFields();
         }
     }
@@ -243,17 +241,17 @@ public class a implements Serializable, Cloneable {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            if (!f40595a && (i3 = this.f40603h) != 0 && this.f40602g[i3 - 1] == 0) {
+            if (!f38490a && (i3 = this.f38497h) != 0 && this.f38496g[i3 - 1] == 0) {
                 throw new AssertionError();
             }
-            if (!f40595a && ((i2 = this.f40603h) < 0 || i2 > this.f40602g.length)) {
+            if (!f38490a && ((i2 = this.f38497h) < 0 || i2 > this.f38496g.length)) {
                 throw new AssertionError();
             }
-            if (f40595a) {
+            if (f38490a) {
                 return;
             }
-            int i4 = this.f40603h;
-            long[] jArr = this.f40602g;
+            int i4 = this.f38497h;
+            long[] jArr = this.f38496g;
             if (i4 != jArr.length && jArr[i4] != 0) {
                 throw new AssertionError();
             }
@@ -269,21 +267,21 @@ public class a implements Serializable, Cloneable {
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            int i2 = this.f40603h - 1;
-            while (i2 >= 0 && this.f40602g[i2] == 0) {
+            int i2 = this.f38497h - 1;
+            while (i2 >= 0 && this.f38496g[i2] == 0) {
                 i2--;
             }
-            this.f40603h = i2 + 1;
+            this.f38497h = i2 + 1;
         }
     }
 
     private void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            int i2 = this.f40603h;
-            long[] jArr = this.f40602g;
+            int i2 = this.f38497h;
+            long[] jArr = this.f38496g;
             if (i2 != jArr.length) {
-                this.f40602g = Arrays.copyOf(jArr, i2);
+                this.f38496g = Arrays.copyOf(jArr, i2);
                 h();
             }
         }
@@ -292,17 +290,17 @@ public class a implements Serializable, Cloneable {
     private void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65551, this, i2) == null) {
-            this.f40602g = new long[i(i2 - 1) + 1];
+            this.f38496g = new long[i(i2 - 1) + 1];
         }
     }
 
     private void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65552, this, i2) == null) {
-            long[] jArr = this.f40602g;
+            long[] jArr = this.f38496g;
             if (jArr.length < i2) {
-                this.f40602g = Arrays.copyOf(this.f40602g, Math.max(jArr.length * 2, i2));
-                this.f40604i = false;
+                this.f38496g = Arrays.copyOf(this.f38496g, Math.max(jArr.length * 2, i2));
+                this.f38498i = false;
             }
         }
     }
@@ -310,11 +308,11 @@ public class a implements Serializable, Cloneable {
     private void l(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65553, this, i2) == null) || this.f40603h >= (i3 = i2 + 1)) {
+        if (!(interceptable == null || interceptable.invokeI(65553, this, i2) == null) || this.f38497h >= (i3 = i2 + 1)) {
             return;
         }
         k(i3);
-        this.f40603h = i3;
+        this.f38497h = i3;
     }
 
     public void a(int i2) {
@@ -325,7 +323,7 @@ public class a implements Serializable, Cloneable {
             }
             int i3 = i(i2);
             l(i3);
-            long[] jArr = this.f40602g;
+            long[] jArr = this.f38496g;
             jArr[i3] = jArr[i3] ^ (1 << i2);
             i();
             h();
@@ -345,20 +343,20 @@ public class a implements Serializable, Cloneable {
             long j2 = (-1) << i2;
             long j3 = (-1) >>> (-i3);
             if (i4 == i5) {
-                long[] jArr = this.f40602g;
+                long[] jArr = this.f38496g;
                 jArr[i4] = (j3 & j2) ^ jArr[i4];
             } else {
-                long[] jArr2 = this.f40602g;
+                long[] jArr2 = this.f38496g;
                 jArr2[i4] = jArr2[i4] ^ j2;
                 while (true) {
                     i4++;
                     if (i4 >= i5) {
                         break;
                     }
-                    long[] jArr3 = this.f40602g;
+                    long[] jArr3 = this.f38496g;
                     jArr3[i4] = ~jArr3[i4];
                 }
-                long[] jArr4 = this.f40602g;
+                long[] jArr4 = this.f38496g;
                 jArr4[i5] = j3 ^ jArr4[i5];
             }
             i();
@@ -392,8 +390,8 @@ public class a implements Serializable, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            for (int min = Math.min(this.f40603h, aVar.f40603h) - 1; min >= 0; min--) {
-                if ((this.f40602g[min] & aVar.f40602g[min]) != 0) {
+            for (int min = Math.min(this.f38497h, aVar.f38497h) - 1; min >= 0; min--) {
+                if ((this.f38496g[min] & aVar.f38496g[min]) != 0) {
                     return true;
                 }
             }
@@ -406,21 +404,21 @@ public class a implements Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.f40603h;
+            int i2 = this.f38497h;
             if (i2 == 0) {
                 return new byte[0];
             }
             int i3 = i2 - 1;
             int i4 = i3 * 8;
-            for (long j2 = this.f40602g[i3]; j2 != 0; j2 >>>= 8) {
+            for (long j2 = this.f38496g[i3]; j2 != 0; j2 >>>= 8) {
                 i4++;
             }
             byte[] bArr = new byte[i4];
             ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN);
             for (int i5 = 0; i5 < i3; i5++) {
-                order.putLong(this.f40602g[i5]);
+                order.putLong(this.f38496g[i5]);
             }
-            for (long j3 = this.f40602g[i3]; j3 != 0; j3 >>>= 8) {
+            for (long j3 = this.f38496g[i3]; j3 != 0; j3 >>>= 8) {
                 order.put((byte) (255 & j3));
             }
             return bArr;
@@ -436,7 +434,7 @@ public class a implements Serializable, Cloneable {
             }
             int i3 = i(i2);
             l(i3);
-            long[] jArr = this.f40602g;
+            long[] jArr = this.f38496g;
             jArr[i3] = jArr[i3] | (1 << i2);
             h();
         }
@@ -455,19 +453,19 @@ public class a implements Serializable, Cloneable {
             long j2 = (-1) << i2;
             long j3 = (-1) >>> (-i3);
             if (i4 == i5) {
-                long[] jArr = this.f40602g;
+                long[] jArr = this.f38496g;
                 jArr[i4] = (j3 & j2) | jArr[i4];
             } else {
-                long[] jArr2 = this.f40602g;
+                long[] jArr2 = this.f38496g;
                 jArr2[i4] = j2 | jArr2[i4];
                 while (true) {
                     i4++;
                     if (i4 >= i5) {
                         break;
                     }
-                    this.f40602g[i4] = -1;
+                    this.f38496g[i4] = -1;
                 }
-                long[] jArr3 = this.f40602g;
+                long[] jArr3 = this.f38496g;
                 jArr3[i5] = j3 | jArr3[i5];
             }
             h();
@@ -480,18 +478,18 @@ public class a implements Serializable, Cloneable {
             return;
         }
         while (true) {
-            int i2 = this.f40603h;
-            if (i2 <= aVar.f40603h) {
+            int i2 = this.f38497h;
+            if (i2 <= aVar.f38497h) {
                 break;
             }
-            long[] jArr = this.f40602g;
+            long[] jArr = this.f38496g;
             int i3 = i2 - 1;
-            this.f40603h = i3;
+            this.f38497h = i3;
             jArr[i3] = 0;
         }
-        for (int i4 = 0; i4 < this.f40603h; i4++) {
-            long[] jArr2 = this.f40602g;
-            jArr2[i4] = jArr2[i4] & aVar.f40602g[i4];
+        for (int i4 = 0; i4 < this.f38497h; i4++) {
+            long[] jArr2 = this.f38496g;
+            jArr2[i4] = jArr2[i4] & aVar.f38496g[i4];
         }
         i();
         h();
@@ -500,7 +498,7 @@ public class a implements Serializable, Cloneable {
     public long[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Arrays.copyOf(this.f40602g, this.f40603h) : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Arrays.copyOf(this.f38496g, this.f38497h) : (long[]) invokeV.objValue;
     }
 
     public void c() {
@@ -509,13 +507,13 @@ public class a implements Serializable, Cloneable {
             return;
         }
         while (true) {
-            int i2 = this.f40603h;
+            int i2 = this.f38497h;
             if (i2 <= 0) {
                 return;
             }
-            long[] jArr = this.f40602g;
+            long[] jArr = this.f38496g;
             int i3 = i2 - 1;
-            this.f40603h = i3;
+            this.f38497h = i3;
             jArr[i3] = 0;
         }
     }
@@ -527,10 +525,10 @@ public class a implements Serializable, Cloneable {
                 throw new IndexOutOfBoundsException("bitIndex < 0: " + i2);
             }
             int i3 = i(i2);
-            if (i3 >= this.f40603h) {
+            if (i3 >= this.f38497h) {
                 return;
             }
-            long[] jArr = this.f40602g;
+            long[] jArr = this.f38496g;
             jArr[i3] = jArr[i3] & (~(1 << i2));
             i();
             h();
@@ -542,28 +540,28 @@ public class a implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
             e(i2, i3);
-            if (i2 != i3 && (i4 = i(i2)) < this.f40603h) {
+            if (i2 != i3 && (i4 = i(i2)) < this.f38497h) {
                 int i5 = i(i3 - 1);
-                if (i5 >= this.f40603h) {
+                if (i5 >= this.f38497h) {
                     i3 = d();
-                    i5 = this.f40603h - 1;
+                    i5 = this.f38497h - 1;
                 }
                 long j2 = (-1) << i2;
                 long j3 = (-1) >>> (-i3);
                 if (i4 == i5) {
-                    long[] jArr = this.f40602g;
+                    long[] jArr = this.f38496g;
                     jArr[i4] = (~(j3 & j2)) & jArr[i4];
                 } else {
-                    long[] jArr2 = this.f40602g;
+                    long[] jArr2 = this.f38496g;
                     jArr2[i4] = (~j2) & jArr2[i4];
                     while (true) {
                         i4++;
                         if (i4 >= i5) {
                             break;
                         }
-                        this.f40602g[i4] = 0;
+                        this.f38496g[i4] = 0;
                     }
-                    long[] jArr3 = this.f40602g;
+                    long[] jArr3 = this.f38496g;
                     jArr3[i5] = (~j3) & jArr3[i5];
                 }
                 i();
@@ -577,19 +575,19 @@ public class a implements Serializable, Cloneable {
         if (!(interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) || this == aVar) {
             return;
         }
-        int min = Math.min(this.f40603h, aVar.f40603h);
-        int i2 = this.f40603h;
-        int i3 = aVar.f40603h;
+        int min = Math.min(this.f38497h, aVar.f38497h);
+        int i2 = this.f38497h;
+        int i3 = aVar.f38497h;
         if (i2 < i3) {
             k(i3);
-            this.f40603h = aVar.f40603h;
+            this.f38497h = aVar.f38497h;
         }
         for (int i4 = 0; i4 < min; i4++) {
-            long[] jArr = this.f40602g;
-            jArr[i4] = jArr[i4] | aVar.f40602g[i4];
+            long[] jArr = this.f38496g;
+            jArr[i4] = jArr[i4] | aVar.f38496g[i4];
         }
-        if (min < aVar.f40603h) {
-            System.arraycopy(aVar.f40602g, min, this.f40602g, min, this.f40603h - min);
+        if (min < aVar.f38497h) {
+            System.arraycopy(aVar.f38496g, min, this.f38496g, min, this.f38497h - min);
         }
         h();
     }
@@ -598,12 +596,12 @@ public class a implements Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (!this.f40604i) {
+            if (!this.f38498i) {
                 j();
             }
             try {
                 a aVar = (a) super.clone();
-                aVar.f40602g = (long[]) this.f40602g.clone();
+                aVar.f38496g = (long[]) this.f38496g.clone();
                 aVar.h();
                 return aVar;
             } catch (CloneNotSupportedException unused) {
@@ -617,11 +615,11 @@ public class a implements Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            int i2 = this.f40603h;
+            int i2 = this.f38497h;
             if (i2 == 0) {
                 return 0;
             }
-            return ((i2 - 1) * 64) + (64 - Long.numberOfLeadingZeros(this.f40602g[i2 - 1]));
+            return ((i2 - 1) * 64) + (64 - Long.numberOfLeadingZeros(this.f38496g[i2 - 1]));
         }
         return invokeV.intValue;
     }
@@ -653,22 +651,22 @@ public class a implements Serializable, Cloneable {
                 if (i5 >= i4) {
                     break;
                 }
-                long[] jArr = aVar.f40602g;
-                long[] jArr2 = this.f40602g;
+                long[] jArr = aVar.f38496g;
+                long[] jArr2 = this.f38496g;
                 jArr[i5] = z ? jArr2[i8] : (jArr2[i8] >>> i2) | (jArr2[i8 + 1] << (-i2));
                 i5++;
                 i8++;
             }
             long j3 = (-1) >>> (-i3);
-            long[] jArr3 = aVar.f40602g;
+            long[] jArr3 = aVar.f38496g;
             if (((i3 - 1) & 63) < i9) {
-                long[] jArr4 = this.f40602g;
+                long[] jArr4 = this.f38496g;
                 j2 = ((jArr4[i8 + 1] & j3) << (-i2)) | (jArr4[i8] >>> i2);
             } else {
-                j2 = (this.f40602g[i8] & j3) >>> i2;
+                j2 = (this.f38496g[i8] & j3) >>> i2;
             }
             jArr3[i4] = j2;
-            aVar.f40603h = i7;
+            aVar.f38497h = i7;
             aVar.i();
             aVar.h();
             return aVar;
@@ -679,20 +677,20 @@ public class a implements Serializable, Cloneable {
     public void d(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, aVar) == null) {
-            int min = Math.min(this.f40603h, aVar.f40603h);
-            int i2 = this.f40603h;
-            int i3 = aVar.f40603h;
+            int min = Math.min(this.f38497h, aVar.f38497h);
+            int i2 = this.f38497h;
+            int i3 = aVar.f38497h;
             if (i2 < i3) {
                 k(i3);
-                this.f40603h = aVar.f40603h;
+                this.f38497h = aVar.f38497h;
             }
             for (int i4 = 0; i4 < min; i4++) {
-                long[] jArr = this.f40602g;
-                jArr[i4] = jArr[i4] ^ aVar.f40602g[i4];
+                long[] jArr = this.f38496g;
+                jArr[i4] = jArr[i4] ^ aVar.f38496g[i4];
             }
-            int i5 = aVar.f40603h;
+            int i5 = aVar.f38497h;
             if (min < i5) {
-                System.arraycopy(aVar.f40602g, min, this.f40602g, min, i5 - min);
+                System.arraycopy(aVar.f38496g, min, this.f38496g, min, i5 - min);
             }
             i();
             h();
@@ -706,7 +704,7 @@ public class a implements Serializable, Cloneable {
             if (i2 >= 0) {
                 h();
                 int i3 = i(i2);
-                return i3 < this.f40603h && (this.f40602g[i3] & (1 << i2)) != 0;
+                return i3 < this.f38497h && (this.f38496g[i3] & (1 << i2)) != 0;
             }
             throw new IndexOutOfBoundsException("bitIndex < 0: " + i2);
         }
@@ -722,16 +720,16 @@ public class a implements Serializable, Cloneable {
             }
             h();
             int i3 = i(i2);
-            if (i3 >= this.f40603h) {
+            if (i3 >= this.f38497h) {
                 return -1;
             }
-            long j2 = this.f40602g[i3] & ((-1) << i2);
+            long j2 = this.f38496g[i3] & ((-1) << i2);
             while (j2 == 0) {
                 i3++;
-                if (i3 == this.f40603h) {
+                if (i3 == this.f38497h) {
                     return -1;
                 }
-                j2 = this.f40602g[i3];
+                j2 = this.f38496g[i3];
             }
             return (i3 * 64) + Long.numberOfTrailingZeros(j2);
         }
@@ -741,9 +739,9 @@ public class a implements Serializable, Cloneable {
     public void e(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
-            for (int min = Math.min(this.f40603h, aVar.f40603h) - 1; min >= 0; min--) {
-                long[] jArr = this.f40602g;
-                jArr[min] = jArr[min] & (~aVar.f40602g[min]);
+            for (int min = Math.min(this.f38497h, aVar.f38497h) - 1; min >= 0; min--) {
+                long[] jArr = this.f38496g;
+                jArr[min] = jArr[min] & (~aVar.f38496g[min]);
             }
             i();
             h();
@@ -753,7 +751,7 @@ public class a implements Serializable, Cloneable {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f40603h == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f38497h == 0 : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -767,11 +765,11 @@ public class a implements Serializable, Cloneable {
                 a aVar = (a) obj;
                 h();
                 aVar.h();
-                if (this.f40603h != aVar.f40603h) {
+                if (this.f38497h != aVar.f38497h) {
                     return false;
                 }
-                for (int i2 = 0; i2 < this.f40603h; i2++) {
-                    if (this.f40602g[i2] != aVar.f40602g[i2]) {
+                for (int i2 = 0; i2 < this.f38497h; i2++) {
+                    if (this.f38496g[i2] != aVar.f38496g[i2]) {
                         return false;
                     }
                 }
@@ -787,8 +785,8 @@ public class a implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             int i2 = 0;
-            for (int i3 = 0; i3 < this.f40603h; i3++) {
-                i2 += Long.bitCount(this.f40602g[i3]);
+            for (int i3 = 0; i3 < this.f38497h; i3++) {
+                i2 += Long.bitCount(this.f38496g[i3]);
             }
             return i2;
         }
@@ -804,17 +802,17 @@ public class a implements Serializable, Cloneable {
             }
             h();
             int i3 = i(i2);
-            if (i3 >= this.f40603h) {
+            if (i3 >= this.f38497h) {
                 return i2;
             }
-            long j2 = (~this.f40602g[i3]) & ((-1) << i2);
+            long j2 = (~this.f38496g[i3]) & ((-1) << i2);
             while (j2 == 0) {
                 i3++;
-                int i4 = this.f40603h;
+                int i4 = this.f38497h;
                 if (i3 == i4) {
                     return i4 * 64;
                 }
-                j2 = ~this.f40602g[i3];
+                j2 = ~this.f38496g[i3];
             }
             return (i3 * 64) + Long.numberOfTrailingZeros(j2);
         }
@@ -824,7 +822,7 @@ public class a implements Serializable, Cloneable {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f40602g.length * 64 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f38496g.length * 64 : invokeV.intValue;
     }
 
     public int g(int i2) {
@@ -839,16 +837,16 @@ public class a implements Serializable, Cloneable {
             }
             h();
             int i3 = i(i2);
-            if (i3 >= this.f40603h) {
+            if (i3 >= this.f38497h) {
                 return d() - 1;
             }
-            long j2 = this.f40602g[i3] & ((-1) >>> (-(i2 + 1)));
+            long j2 = this.f38496g[i3] & ((-1) >>> (-(i2 + 1)));
             while (j2 == 0) {
                 int i4 = i3 - 1;
                 if (i3 == 0) {
                     return -1;
                 }
-                j2 = this.f40602g[i4];
+                j2 = this.f38496g[i4];
                 i3 = i4;
             }
             return (((i3 + 1) * 64) - 1) - Long.numberOfLeadingZeros(j2);
@@ -868,16 +866,16 @@ public class a implements Serializable, Cloneable {
             }
             h();
             int i3 = i(i2);
-            if (i3 >= this.f40603h) {
+            if (i3 >= this.f38497h) {
                 return i2;
             }
-            long j2 = (~this.f40602g[i3]) & ((-1) >>> (-(i2 + 1)));
+            long j2 = (~this.f38496g[i3]) & ((-1) >>> (-(i2 + 1)));
             while (j2 == 0) {
                 int i4 = i3 - 1;
                 if (i3 == 0) {
                     return -1;
                 }
-                j2 = ~this.f40602g[i4];
+                j2 = ~this.f38496g[i4];
                 i3 = i4;
             }
             return (((i3 + 1) * 64) - 1) - Long.numberOfLeadingZeros(j2);
@@ -891,14 +889,14 @@ public class a implements Serializable, Cloneable {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048604, this)) != null) {
             return invokeV.intValue;
         }
-        int i2 = this.f40603h;
+        int i2 = this.f38497h;
         long j2 = 1234;
         while (true) {
             i2--;
             if (i2 < 0) {
                 return (int) ((j2 >> 32) ^ j2);
             }
-            j2 ^= this.f40602g[i2] * (i2 + 1);
+            j2 ^= this.f38496g[i2] * (i2 + 1);
         }
     }
 
@@ -907,7 +905,7 @@ public class a implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             h();
-            int i2 = this.f40603h;
+            int i2 = this.f38497h;
             StringBuilder sb = new StringBuilder(((i2 > 128 ? f() : i2 * 64) * 6) + 2);
             sb.append(ExtendedMessageFormat.START_FE);
             int e2 = e(0);

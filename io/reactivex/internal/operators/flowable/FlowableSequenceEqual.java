@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
     public final int prefetch;
     public final Publisher<? extends T> second;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class EqualCoordinator<T> extends DeferredScalarSubscription<Boolean> implements EqualCoordinatorHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6178010334400373240L;
@@ -203,14 +203,14 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface EqualCoordinatorHelper {
         void drain();
 
         void innerError(Throwable th);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class EqualSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4804128302091633067L;
@@ -318,13 +318,13 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
             if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.sourceMode == 1) {
                 return;
             }
-            long j2 = this.produced + 1;
-            if (j2 >= this.limit) {
+            long j = this.produced + 1;
+            if (j >= this.limit) {
                 this.produced = 0L;
-                get().request(j2);
+                get().request(j);
                 return;
             }
-            this.produced = j2;
+            this.produced = j;
         }
     }
 

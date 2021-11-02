@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HashCodeBuilder implements Builder<Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_INITIAL_VALUE = 17;
@@ -404,11 +404,11 @@ public class HashCodeBuilder implements Builder<Integer> {
         return (HashCodeBuilder) invokeL.objValue;
     }
 
-    public HashCodeBuilder append(long j2) {
+    public HashCodeBuilder append(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            this.iTotal = (this.iTotal * this.iConstant) + ((int) (j2 ^ (j2 >> 32)));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            this.iTotal = (this.iTotal * this.iConstant) + ((int) (j ^ (j >> 32)));
             return this;
         }
         return (HashCodeBuilder) invokeJ.objValue;
@@ -421,8 +421,8 @@ public class HashCodeBuilder implements Builder<Integer> {
             if (jArr == null) {
                 this.iTotal *= this.iConstant;
             } else {
-                for (long j2 : jArr) {
-                    append(j2);
+                for (long j : jArr) {
+                    append(j);
                 }
             }
             return this;

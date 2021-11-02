@@ -2,7 +2,6 @@ package com.yy.hiidostatis.inner.util.http;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.SecureRandom;
-import java.security.cert.CertificateException;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -28,10 +26,8 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 import okhttp3.CertificatePinner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SSLSocketClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALT_DNS_NAME = 2;
@@ -71,7 +67,7 @@ public class SSLSocketClient {
     public static HostnameVerifier getHostnameVerifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new HostnameVerifier() { // from class: com.yy.hiidostatis.inner.util.http.SSLSocketClient.3
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new HostnameVerifier() { // from class: com.yy.hiidostatis.inner.util.http.SSLSocketClient.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +106,7 @@ public class SSLSocketClient {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-                sSLContext.init(null, getTrustManager(), new SecureRandom());
+                sSLContext.init(null, null, new SecureRandom());
                 return sSLContext.getSocketFactory();
             } catch (Exception e2) {
                 throw new RuntimeException(e2);
@@ -144,104 +140,16 @@ public class SSLSocketClient {
         return (List) invokeLI.objValue;
     }
 
-    public static TrustManager[] getTrustManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? new TrustManager[]{new X509TrustManager() { // from class: com.yy.hiidostatis.inner.util.http.SSLSocketClient.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // javax.net.ssl.X509TrustManager
-            public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-                }
-            }
-
-            @Override // javax.net.ssl.X509TrustManager
-            public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
-                }
-            }
-
-            @Override // javax.net.ssl.X509TrustManager
-            public X509Certificate[] getAcceptedIssuers() {
-                InterceptResult invokeV2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new X509Certificate[0] : (X509Certificate[]) invokeV2.objValue;
-            }
-        }} : (TrustManager[]) invokeV.objValue;
-    }
-
-    public static X509TrustManager getX509TrustManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new X509TrustManager() { // from class: com.yy.hiidostatis.inner.util.http.SSLSocketClient.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // javax.net.ssl.X509TrustManager
-            public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-                }
-            }
-
-            @Override // javax.net.ssl.X509TrustManager
-            public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
-                }
-            }
-
-            @Override // javax.net.ssl.X509TrustManager
-            public X509Certificate[] getAcceptedIssuers() {
-                InterceptResult invokeV2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new X509Certificate[0] : (X509Certificate[]) invokeV2.objValue;
-            }
-        } : (X509TrustManager) invokeV.objValue;
-    }
-
     public static boolean verifyAsIpAddress(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? VERIFY_AS_IP_ADDRESS.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? VERIFY_AS_IP_ADDRESS.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static boolean verifyHostname(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
             if (str != null && str.length() != 0 && !str.startsWith(".") && !str.endsWith(IStringUtil.TOP_PATH) && str2 != null && str2.length() != 0 && !str2.startsWith(".") && !str2.endsWith(IStringUtil.TOP_PATH)) {
                 if (!str.endsWith(".")) {
                     str = str + '.';
@@ -275,7 +183,7 @@ public class SSLSocketClient {
     public static boolean verifyIp(SSLSession sSLSession) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, sSLSession)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, sSLSession)) == null) {
             try {
                 for (String str : getSubjectAltNames((X509Certificate) sSLSession.getPeerCertificates()[0], 2)) {
                     if (verifyHostname("mlog.bigda.com", str) || verifyHostname("mlog.hiido.com", str)) {

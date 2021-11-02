@@ -1,0 +1,86 @@
+package com.bytedance.pangle.f;
+
+import android.content.pm.Signature;
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.bytedance.pangle.f.c;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.security.cert.Certificate;
+@RequiresApi(api = 21)
+/* loaded from: classes11.dex */
+public final class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static Signature[] a(Certificate[][] certificateArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, certificateArr)) == null) {
+            Signature[] signatureArr = new Signature[certificateArr.length];
+            for (int i2 = 0; i2 < certificateArr.length; i2++) {
+                int i3 = Build.VERSION.SDK_INT;
+                if (i3 >= 21 && i3 <= 28) {
+                    Constructor a2 = com.bytedance.pangle.a.b.a.a(Signature.class, Certificate[].class);
+                    if (a2 != null) {
+                        a2.setAccessible(true);
+                    }
+                    if (a2 != null && a2.isAccessible()) {
+                        try {
+                            signatureArr[i2] = (Signature) a2.newInstance(certificateArr[i2]);
+                        } catch (IllegalAccessException e2) {
+                            e2.printStackTrace();
+                        } catch (InstantiationException e3) {
+                            e3.printStackTrace();
+                        } catch (InvocationTargetException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                } else {
+                    signatureArr[i2] = new Signature(certificateArr[i2][0].getEncoded());
+                }
+            }
+            return signatureArr;
+        }
+        return (Signature[]) invokeL.objValue;
+    }
+
+    public static o a(String str) {
+        InterceptResult invokeL;
+        int[] iArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                try {
+                    c.C1844c a2 = c.a(str);
+                    Signature[] a3 = a(new Certificate[][]{a2.f61389a});
+                    Signature[] signatureArr = null;
+                    if (a2.f61390b != null) {
+                        int size = a2.f61390b.f61387a.size();
+                        signatureArr = new Signature[size];
+                        iArr = new int[a2.f61390b.f61388b.size()];
+                        for (int i2 = 0; i2 < size; i2++) {
+                            signatureArr[i2] = new Signature(a2.f61390b.f61387a.get(i2).getEncoded());
+                            iArr[i2] = a2.f61390b.f61388b.get(i2).intValue();
+                        }
+                    } else {
+                        iArr = null;
+                    }
+                    return new o(a3, 3, signatureArr, iArr);
+                } catch (n unused) {
+                    return a.a(str);
+                } catch (Exception e2) {
+                    throw new q(4, "Failed to collect certificates from " + str + " using APK Signature Scheme v2", e2);
+                }
+            } catch (n unused2) {
+                return new o(a(b.a(str).f61385a));
+            } catch (Exception e3) {
+                throw new q(4, "Failed to collect certificates from " + str + " using APK Signature Scheme v3", e3);
+            }
+        }
+        return (o) invokeL.objValue;
+    }
+}

@@ -251,13 +251,13 @@ public final class MultiDexExtractor implements Closeable {
         return invokeL.longValue;
     }
 
-    public static boolean isModified(Context context, File file, long j2, String str) {
+    public static boolean isModified(Context context, File file, long j, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, file, Long.valueOf(j2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, file, Long.valueOf(j), str})) == null) {
             SharedPreferences multiDexPreferences = getMultiDexPreferences(context);
             if (multiDexPreferences.getLong(str + "timestamp", -1L) == getTimeStamp(file)) {
-                if (multiDexPreferences.getLong(str + KEY_CRC, -1L) == j2) {
+                if (multiDexPreferences.getLong(str + KEY_CRC, -1L) == j) {
                     return false;
                 }
             }
@@ -279,20 +279,20 @@ public final class MultiDexExtractor implements Closeable {
                 ExtractedDex extractedDex = new ExtractedDex(this.dexDir, str2 + i3 + ".zip");
                 if (extractedDex.isFile()) {
                     extractedDex.crc = getZipCrc(extractedDex);
-                    long j2 = multiDexPreferences.getLong(str + KEY_DEX_CRC + i3, -1L);
-                    long j3 = multiDexPreferences.getLong(str + KEY_DEX_TIME + i3, -1L);
+                    long j = multiDexPreferences.getLong(str + KEY_DEX_CRC + i3, -1L);
+                    long j2 = multiDexPreferences.getLong(str + KEY_DEX_TIME + i3, -1L);
                     long lastModified = extractedDex.lastModified();
-                    if (j3 == lastModified) {
+                    if (j2 == lastModified) {
                         String str3 = str2;
                         SharedPreferences sharedPreferences = multiDexPreferences;
-                        if (j2 == extractedDex.crc) {
+                        if (j == extractedDex.crc) {
                             arrayList.add(extractedDex);
                             i3++;
                             multiDexPreferences = sharedPreferences;
                             str2 = str3;
                         }
                     }
-                    throw new IOException("Invalid extracted dex: " + extractedDex + " (key \"" + str + "\"), expected modification time: " + j3 + ", modification time: " + lastModified + ", expected crc: " + j2 + ", file crc: " + extractedDex.crc);
+                    throw new IOException("Invalid extracted dex: " + extractedDex + " (key \"" + str + "\"), expected modification time: " + j2 + ", modification time: " + lastModified + ", expected crc: " + j + ", file crc: " + extractedDex.crc);
                 }
                 throw new IOException("Missing extracted secondary dex file '" + extractedDex.getPath() + "'");
             }
@@ -331,7 +331,7 @@ public final class MultiDexExtractor implements Closeable {
                         }
                         StringBuilder sb = new StringBuilder();
                         sb.append("Extraction ");
-                        sb.append(z ? "succeeded" : f.f36109j);
+                        sb.append(z ? "succeeded" : f.j);
                         sb.append(" '");
                         sb.append(extractedDex.getAbsolutePath());
                         sb.append("': length ");
@@ -364,12 +364,12 @@ public final class MultiDexExtractor implements Closeable {
         return (List) invokeV.objValue;
     }
 
-    public static void putStoredApkInfo(Context context, String str, long j2, long j3, List<ExtractedDex> list) {
+    public static void putStoredApkInfo(Context context, String str, long j, long j2, List<ExtractedDex> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, Long.valueOf(j2), Long.valueOf(j3), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, Long.valueOf(j), Long.valueOf(j2), list}) == null) {
             SharedPreferences.Editor edit = getMultiDexPreferences(context).edit();
-            edit.putLong(str + "timestamp", j2);
-            edit.putLong(str + KEY_CRC, j3);
+            edit.putLong(str + "timestamp", j);
+            edit.putLong(str + KEY_CRC, j2);
             edit.putInt(str + "dex.number", list.size() + 1);
             int i2 = 2;
             for (ExtractedDex extractedDex : list) {

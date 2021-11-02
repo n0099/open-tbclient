@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bh implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,8 +33,8 @@ public class bh implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.g> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, gVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        gVar.f72139a = jSONObject.optString("feedAdH5Version");
-        gVar.f72140b = jSONObject.optString("feedAdH5Url");
+        gVar.f64602a = jSONObject.optString("feedAdH5Version");
+        gVar.f64603b = jSONObject.optString("feedAdH5Url");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,8 +46,8 @@ public class bh implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.g> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "feedAdH5Version", gVar.f72139a);
-            com.kwad.sdk.utils.q.a(jSONObject, "feedAdH5Url", gVar.f72140b);
+            com.kwad.sdk.utils.q.a(jSONObject, "feedAdH5Version", gVar.f64602a);
+            com.kwad.sdk.utils.q.a(jSONObject, "feedAdH5Url", gVar.f64603b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

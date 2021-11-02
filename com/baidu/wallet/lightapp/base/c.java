@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.base.utils.LightappUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,10 +22,10 @@ public final class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Activity f61901a;
+            public final /* synthetic */ Activity f58783a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ float f61902b;
+            public final /* synthetic */ float f58784b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -42,17 +42,17 @@ public final class c {
                         return;
                     }
                 }
-                this.f61901a = activity;
-                this.f61902b = f2;
+                this.f58783a = activity;
+                this.f58784b = f2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    WindowManager.LayoutParams attributes = this.f61901a.getWindow().getAttributes();
+                    WindowManager.LayoutParams attributes = this.f58783a.getWindow().getAttributes();
                     float f3 = attributes.screenBrightness;
-                    float f4 = this.f61902b;
+                    float f4 = this.f58784b;
                     if (f3 == f4) {
                         return;
                     }
@@ -61,7 +61,7 @@ public final class c {
                     } else {
                         attributes.screenBrightness = -1.0f;
                     }
-                    this.f61901a.getWindow().setAttributes(attributes);
+                    this.f58783a.getWindow().setAttributes(attributes);
                 }
             }
         });

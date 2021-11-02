@@ -204,13 +204,13 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class Observable<T> implements ObservableSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: io.reactivex.Observable$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$BackpressureStrategy;
         public static /* synthetic */ Interceptable $ic;
@@ -531,18 +531,18 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public static Observable<Long> interval(long j2, long j3, TimeUnit timeUnit) {
+    public static Observable<Long> interval(long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65594, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) ? interval(j2, j3, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65594, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? interval(j, j2, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public static Observable<Long> intervalRange(long j2, long j3, long j4, long j5, TimeUnit timeUnit) {
+    public static Observable<Long> intervalRange(long j, long j2, long j3, long j4, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65598, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), timeUnit})) == null) ? intervalRange(j2, j3, j4, j5, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65598, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), timeUnit})) == null) ? intervalRange(j, j2, j3, j4, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -622,24 +622,24 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Observable<Long> rangeLong(long j2, long j3) {
+    public static Observable<Long> rangeLong(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65632, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65632, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
-                throw new IllegalArgumentException("count >= 0 required but it was " + j3);
+                throw new IllegalArgumentException("count >= 0 required but it was " + j2);
             } else if (i2 == 0) {
                 return empty();
             } else {
-                if (j3 == 1) {
-                    return just(Long.valueOf(j2));
+                if (j2 == 1) {
+                    return just(Long.valueOf(j));
                 }
-                long j4 = (j3 - 1) + j2;
-                if (j2 > 0 && j4 < 0) {
+                long j3 = (j2 - 1) + j;
+                if (j > 0 && j3 < 0) {
                     throw new IllegalArgumentException("Overflow! start + count is bigger than Long.MAX_VALUE");
                 }
-                return RxJavaPlugins.onAssembly(new ObservableRangeLong(j2, j3));
+                return RxJavaPlugins.onAssembly(new ObservableRangeLong(j, j2));
             }
         }
         return (Observable) invokeCommon.objValue;
@@ -674,23 +674,23 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeL = interceptable.invokeL(65639, null, observableSource)) == null) ? switchOnNextDelayError(observableSource, bufferSize()) : (Observable) invokeL.objValue;
     }
 
-    private Observable<T> timeout0(long j2, TimeUnit timeUnit, ObservableSource<? extends T> observableSource, Scheduler scheduler) {
+    private Observable<T> timeout0(long j, TimeUnit timeUnit, ObservableSource<? extends T> observableSource, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65641, this, new Object[]{Long.valueOf(j2), timeUnit, observableSource, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65641, this, new Object[]{Long.valueOf(j), timeUnit, observableSource, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "timeUnit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new ObservableTimeoutTimed(this, j2, timeUnit, scheduler, observableSource));
+            return RxJavaPlugins.onAssembly(new ObservableTimeoutTimed(this, j, timeUnit, scheduler, observableSource));
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public static Observable<Long> timer(long j2, TimeUnit timeUnit) {
+    public static Observable<Long> timer(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65643, null, j2, timeUnit)) == null) ? timer(j2, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65643, null, j, timeUnit)) == null) ? timer(j, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1310,28 +1310,28 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe<T> elementAt(long j2) {
+    public final Maybe<T> elementAt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048685, this, j2)) == null) {
-            if (j2 >= 0) {
-                return RxJavaPlugins.onAssembly(new ObservableElementAtMaybe(this, j2));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048685, this, j)) == null) {
+            if (j >= 0) {
+                return RxJavaPlugins.onAssembly(new ObservableElementAtMaybe(this, j));
             }
-            throw new IndexOutOfBoundsException("index >= 0 required but it was " + j2);
+            throw new IndexOutOfBoundsException("index >= 0 required but it was " + j);
         }
         return (Maybe) invokeJ.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single<T> elementAtOrError(long j2) {
+    public final Single<T> elementAtOrError(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048687, this, j2)) == null) {
-            if (j2 >= 0) {
-                return RxJavaPlugins.onAssembly(new ObservableElementAtSingle(this, j2, null));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048687, this, j)) == null) {
+            if (j >= 0) {
+                return RxJavaPlugins.onAssembly(new ObservableElementAtSingle(this, j, null));
             }
-            throw new IndexOutOfBoundsException("index >= 0 required but it was " + j2);
+            throw new IndexOutOfBoundsException("index >= 0 required but it was " + j);
         }
         return (Single) invokeJ.objValue;
     }
@@ -1762,10 +1762,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> sample(long j2, TimeUnit timeUnit) {
+    public final Observable<T> sample(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048779, this, j2, timeUnit)) == null) ? sample(j2, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048779, this, j, timeUnit)) == null) ? sample(j, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1839,14 +1839,14 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable<T> skip(long j2) {
+    public final Observable<T> skip(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048793, this, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048793, this, j)) == null) {
+            if (j <= 0) {
                 return RxJavaPlugins.onAssembly(this);
             }
-            return RxJavaPlugins.onAssembly(new ObservableSkip(this, j2));
+            return RxJavaPlugins.onAssembly(new ObservableSkip(this, j));
         }
         return (Observable) invokeJ.objValue;
     }
@@ -2066,14 +2066,14 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable<T> take(long j2) {
+    public final Observable<T> take(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048830, this, j2)) == null) {
-            if (j2 >= 0) {
-                return RxJavaPlugins.onAssembly(new ObservableTake(this, j2));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048830, this, j)) == null) {
+            if (j >= 0) {
+                return RxJavaPlugins.onAssembly(new ObservableTake(this, j));
             }
-            throw new IllegalArgumentException("count >= 0 required but it was " + j2);
+            throw new IllegalArgumentException("count >= 0 required but it was " + j);
         }
         return (Observable) invokeJ.objValue;
     }
@@ -2137,26 +2137,26 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> throttleFirst(long j2, TimeUnit timeUnit) {
+    public final Observable<T> throttleFirst(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048847, this, j2, timeUnit)) == null) ? throttleFirst(j2, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048847, this, j, timeUnit)) == null) ? throttleFirst(j, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> throttleLast(long j2, TimeUnit timeUnit) {
+    public final Observable<T> throttleLast(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048849, this, j2, timeUnit)) == null) ? sample(j2, timeUnit) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048849, this, j, timeUnit)) == null) ? sample(j, timeUnit) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> throttleWithTimeout(long j2, TimeUnit timeUnit) {
+    public final Observable<T> throttleWithTimeout(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048851, this, j2, timeUnit)) == null) ? debounce(j2, timeUnit) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048851, this, j, timeUnit)) == null) ? debounce(j, timeUnit) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -2283,10 +2283,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2) {
+    public final Observable<Observable<T>> window(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048887, this, j2)) == null) ? window(j2, j2, bufferSize()) : (Observable) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048887, this, j)) == null) ? window(j, j, bufferSize()) : (Observable) invokeJ.objValue;
     }
 
     @SchedulerSupport("none")
@@ -2354,36 +2354,36 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public static Observable<Long> interval(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Observable<Long> interval(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65595, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65595, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new ObservableInterval(Math.max(0L, j2), Math.max(0L, j3), timeUnit, scheduler));
+            return RxJavaPlugins.onAssembly(new ObservableInterval(Math.max(0L, j), Math.max(0L, j2), timeUnit, scheduler));
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public static Observable<Long> intervalRange(long j2, long j3, long j4, long j5, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Observable<Long> intervalRange(long j, long j2, long j3, long j4, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65599, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), timeUnit, scheduler})) == null) {
-            int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65599, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), timeUnit, scheduler})) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
-                throw new IllegalArgumentException("count >= 0 required but it was " + j3);
+                throw new IllegalArgumentException("count >= 0 required but it was " + j2);
             } else if (i2 == 0) {
-                return empty().delay(j4, timeUnit, scheduler);
+                return empty().delay(j3, timeUnit, scheduler);
             } else {
-                long j6 = j2 + (j3 - 1);
-                if (j2 > 0 && j6 < 0) {
+                long j5 = j + (j2 - 1);
+                if (j > 0 && j5 < 0) {
                     throw new IllegalArgumentException("Overflow! start + count is bigger than Long.MAX_VALUE");
                 }
                 ObjectHelper.requireNonNull(timeUnit, "unit is null");
                 ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-                return RxJavaPlugins.onAssembly(new ObservableIntervalRange(j2, j6, Math.max(0L, j4), Math.max(0L, j5), timeUnit, scheduler));
+                return RxJavaPlugins.onAssembly(new ObservableIntervalRange(j, j5, Math.max(0L, j3), Math.max(0L, j4), timeUnit, scheduler));
             }
         }
         return (Observable) invokeCommon.objValue;
@@ -2444,13 +2444,13 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public static Observable<Long> timer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Observable<Long> timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65644, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65644, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new ObservableTimer(Math.max(j2, 0L), timeUnit, scheduler));
+            return RxJavaPlugins.onAssembly(new ObservableTimer(Math.max(j, 0L), timeUnit, scheduler));
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -2736,18 +2736,18 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable<T> repeat(long j2) {
+    public final Observable<T> repeat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048752, this, j2)) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048752, this, j)) == null) {
+            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i2 >= 0) {
                 if (i2 == 0) {
                     return empty();
                 }
-                return RxJavaPlugins.onAssembly(new ObservableRepeat(this, j2));
+                return RxJavaPlugins.onAssembly(new ObservableRepeat(this, j));
             }
-            throw new IllegalArgumentException("times >= 0 required but it was " + j2);
+            throw new IllegalArgumentException("times >= 0 required but it was " + j);
         }
         return (Observable) invokeJ.objValue;
     }
@@ -2778,10 +2778,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> sample(long j2, TimeUnit timeUnit, boolean z) {
+    public final Observable<T> sample(long j, TimeUnit timeUnit, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048782, this, new Object[]{Long.valueOf(j2), timeUnit, Boolean.valueOf(z)})) == null) ? sample(j2, timeUnit, Schedulers.computation(), z) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048782, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) ? sample(j, timeUnit, Schedulers.computation(), z) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -2858,31 +2858,31 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> throttleFirst(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> throttleFirst(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048848, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048848, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new ObservableThrottleFirstTimed(this, j2, timeUnit, scheduler));
+            return RxJavaPlugins.onAssembly(new ObservableThrottleFirstTimed(this, j, timeUnit, scheduler));
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> throttleLast(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> throttleLast(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048850, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? sample(j2, timeUnit, scheduler) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048850, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? sample(j, timeUnit, scheduler) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> throttleWithTimeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> throttleWithTimeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048852, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? debounce(j2, timeUnit, scheduler) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048852, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? debounce(j, timeUnit, scheduler) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -2939,10 +2939,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, long j3) {
+    public final Observable<Observable<T>> window(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048888, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? window(j2, j3, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048888, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? window(j, j2, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3005,13 +3005,13 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static <T> Observable<T> fromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit) {
+    public static <T> Observable<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65584, null, new Object[]{future, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65584, null, new Object[]{future, Long.valueOf(j), timeUnit})) == null) {
             ObjectHelper.requireNonNull(future, "future is null");
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            return RxJavaPlugins.onAssembly(new ObservableFromFuture(future, j2, timeUnit));
+            return RxJavaPlugins.onAssembly(new ObservableFromFuture(future, j, timeUnit));
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -3160,26 +3160,26 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> debounce(long j2, TimeUnit timeUnit) {
+    public final Observable<T> debounce(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048653, this, j2, timeUnit)) == null) ? debounce(j2, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048653, this, j, timeUnit)) == null) ? debounce(j, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> delay(long j2, TimeUnit timeUnit) {
+    public final Observable<T> delay(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048657, this, j2, timeUnit)) == null) ? delay(j2, timeUnit, Schedulers.computation(), false) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048657, this, j, timeUnit)) == null) ? delay(j, timeUnit, Schedulers.computation(), false) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> delaySubscription(long j2, TimeUnit timeUnit) {
+    public final Observable<T> delaySubscription(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048663, this, j2, timeUnit)) == null) ? delaySubscription(j2, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048663, this, j, timeUnit)) == null) ? delaySubscription(j, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3197,15 +3197,15 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single<T> elementAt(long j2, T t) {
+    public final Single<T> elementAt(long j, T t) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048686, this, j2, t)) == null) {
-            if (j2 >= 0) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048686, this, j, t)) == null) {
+            if (j >= 0) {
                 ObjectHelper.requireNonNull(t, "defaultItem is null");
-                return RxJavaPlugins.onAssembly(new ObservableElementAtSingle(this, j2, t));
+                return RxJavaPlugins.onAssembly(new ObservableElementAtSingle(this, j, t));
             }
-            throw new IndexOutOfBoundsException("index >= 0 required but it was " + j2);
+            throw new IndexOutOfBoundsException("index >= 0 required but it was " + j);
         }
         return (Single) invokeJL.objValue;
     }
@@ -3310,13 +3310,13 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> sample(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> sample(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048780, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048780, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new ObservableSampleTimed(this, j2, timeUnit, scheduler, false));
+            return RxJavaPlugins.onAssembly(new ObservableSampleTimed(this, j, timeUnit, scheduler, false));
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -3335,10 +3335,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> skip(long j2, TimeUnit timeUnit) {
+    public final Observable<T> skip(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048794, this, j2, timeUnit)) == null) ? skipUntil(timer(j2, timeUnit)) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048794, this, j, timeUnit)) == null) ? skipUntil(timer(j, timeUnit)) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3351,10 +3351,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable<T> take(long j2, TimeUnit timeUnit) {
+    public final Observable<T> take(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048831, this, j2, timeUnit)) == null) ? takeUntil(timer(j2, timeUnit)) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048831, this, j, timeUnit)) == null) ? takeUntil(timer(j, timeUnit)) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3416,14 +3416,14 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, long j3, int i2) {
+    public final Observable<Observable<T>> window(long j, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048889, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) {
-            ObjectHelper.verifyPositive(j2, "count");
-            ObjectHelper.verifyPositive(j3, FreeSpaceBox.TYPE);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048889, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+            ObjectHelper.verifyPositive(j, "count");
+            ObjectHelper.verifyPositive(j2, FreeSpaceBox.TYPE);
             ObjectHelper.verifyPositive(i2, "bufferSize");
-            return RxJavaPlugins.onAssembly(new ObservableWindow(this, j2, j3, i2));
+            return RxJavaPlugins.onAssembly(new ObservableWindow(this, j, j2, i2));
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -3519,31 +3519,31 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> debounce(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> debounce(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new ObservableDebounceTimed(this, j2, timeUnit, scheduler));
+            return RxJavaPlugins.onAssembly(new ObservableDebounceTimed(this, j, timeUnit, scheduler));
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> delay(long j2, TimeUnit timeUnit, boolean z) {
+    public final Observable<T> delay(long j, TimeUnit timeUnit, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j2), timeUnit, Boolean.valueOf(z)})) == null) ? delay(j2, timeUnit, Schedulers.computation(), z) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) ? delay(j, timeUnit, Schedulers.computation(), z) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> delaySubscription(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> delaySubscription(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048664, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? delaySubscription(timer(j2, timeUnit, scheduler)) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048664, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? delaySubscription(timer(j, timeUnit, scheduler)) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3602,26 +3602,26 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable<T> retry(long j2) {
+    public final Observable<T> retry(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048772, this, j2)) == null) ? retry(j2, Functions.alwaysTrue()) : (Observable) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048772, this, j)) == null) ? retry(j, Functions.alwaysTrue()) : (Observable) invokeJ.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> skip(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> skip(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048795, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? skipUntil(timer(j2, timeUnit, scheduler)) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048795, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? skipUntil(timer(j, timeUnit, scheduler)) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.TRAMPOLINE)
     @CheckReturnValue
-    public final Observable<T> skipLast(long j2, TimeUnit timeUnit) {
+    public final Observable<T> skipLast(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048797, this, j2, timeUnit)) == null) ? skipLast(j2, timeUnit, Schedulers.trampoline(), false, bufferSize()) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048797, this, j, timeUnit)) == null) ? skipLast(j, timeUnit, Schedulers.trampoline(), false, bufferSize()) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3646,10 +3646,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> take(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> take(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048832, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? takeUntil(timer(j2, timeUnit, scheduler)) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048832, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? takeUntil(timer(j, timeUnit, scheduler)) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3667,10 +3667,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> timeout(long j2, TimeUnit timeUnit) {
+    public final Observable<T> timeout(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048857, this, j2, timeUnit)) == null) ? timeout0(j2, timeUnit, null, Schedulers.computation()) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048857, this, j, timeUnit)) == null) ? timeout0(j, timeUnit, null, Schedulers.computation()) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3760,10 +3760,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public static Observable<Long> interval(long j2, TimeUnit timeUnit) {
+    public static Observable<Long> interval(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65596, null, j2, timeUnit)) == null) ? interval(j2, j2, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65596, null, j, timeUnit)) == null) ? interval(j, j, timeUnit, Schedulers.computation()) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3817,10 +3817,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? delay(j2, timeUnit, scheduler, false) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? delay(j, timeUnit, scheduler, false) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3852,25 +3852,25 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable<T> retry(long j2, Predicate<? super Throwable> predicate) {
+    public final Observable<T> retry(long j, Predicate<? super Throwable> predicate) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048773, this, j2, predicate)) == null) {
-            if (j2 >= 0) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048773, this, j, predicate)) == null) {
+            if (j >= 0) {
                 ObjectHelper.requireNonNull(predicate, "predicate is null");
-                return RxJavaPlugins.onAssembly(new ObservableRetryPredicate(this, j2, predicate));
+                return RxJavaPlugins.onAssembly(new ObservableRetryPredicate(this, j, predicate));
             }
-            throw new IllegalArgumentException("times >= 0 required but it was " + j2);
+            throw new IllegalArgumentException("times >= 0 required but it was " + j);
         }
         return (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.TRAMPOLINE)
     @CheckReturnValue
-    public final Observable<T> skipLast(long j2, TimeUnit timeUnit, boolean z) {
+    public final Observable<T> skipLast(long j, TimeUnit timeUnit, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048801, this, new Object[]{Long.valueOf(j2), timeUnit, Boolean.valueOf(z)})) == null) ? skipLast(j2, timeUnit, Schedulers.trampoline(), z, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048801, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) ? skipLast(j, timeUnit, Schedulers.trampoline(), z, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3892,20 +3892,20 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.TRAMPOLINE)
     @CheckReturnValue
-    public final Observable<T> takeLast(long j2, long j3, TimeUnit timeUnit) {
+    public final Observable<T> takeLast(long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048834, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) ? takeLast(j2, j3, timeUnit, Schedulers.trampoline(), false, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048834, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? takeLast(j, j2, timeUnit, Schedulers.trampoline(), false, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<T> timeout(long j2, TimeUnit timeUnit, ObservableSource<? extends T> observableSource) {
+    public final Observable<T> timeout(long j, TimeUnit timeUnit, ObservableSource<? extends T> observableSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048858, this, new Object[]{Long.valueOf(j2), timeUnit, observableSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048858, this, new Object[]{Long.valueOf(j), timeUnit, observableSource})) == null) {
             ObjectHelper.requireNonNull(observableSource, "other is null");
-            return timeout0(j2, timeUnit, observableSource, Schedulers.computation());
+            return timeout0(j, timeUnit, observableSource, Schedulers.computation());
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -3933,22 +3933,22 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public static <T> Observable<T> fromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> Observable<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, null, new Object[]{future, Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, null, new Object[]{future, Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return fromFuture(future, j2, timeUnit).subscribeOn(scheduler);
+            return fromFuture(future, j, timeUnit).subscribeOn(scheduler);
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public static Observable<Long> interval(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Observable<Long> interval(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65597, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? interval(j2, j2, timeUnit, scheduler) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65597, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? interval(j, j, timeUnit, scheduler) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -3993,13 +3993,13 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public final Observable<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048659, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048659, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new ObservableDelay(this, j2, timeUnit, scheduler, z));
+            return RxJavaPlugins.onAssembly(new ObservableDelay(this, j, timeUnit, scheduler, z));
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -4018,31 +4018,31 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> sample(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public final Observable<T> sample(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048781, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048781, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new ObservableSampleTimed(this, j2, timeUnit, scheduler, z));
+            return RxJavaPlugins.onAssembly(new ObservableSampleTimed(this, j, timeUnit, scheduler, z));
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> skipLast(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> skipLast(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048798, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? skipLast(j2, timeUnit, scheduler, false, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048798, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? skipLast(j, timeUnit, scheduler, false, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> takeLast(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> takeLast(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048835, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler})) == null) ? takeLast(j2, j3, timeUnit, scheduler, false, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048835, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) ? takeLast(j, j2, timeUnit, scheduler, false, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: java.util.concurrent.Callable<? extends java.util.Map<K, V>> */
@@ -4146,55 +4146,55 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, int i2, long j2, TimeUnit timeUnit) {
+    public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, int i2, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048757, this, new Object[]{function, Integer.valueOf(i2), Long.valueOf(j2), timeUnit})) == null) ? replay(function, i2, j2, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048757, this, new Object[]{function, Integer.valueOf(i2), Long.valueOf(j), timeUnit})) == null) ? replay(function, i2, j, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> skipLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public final Observable<T> skipLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048799, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)})) == null) ? skipLast(j2, timeUnit, scheduler, z, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048799, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) ? skipLast(j, timeUnit, scheduler, z, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> takeLast(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
+    public final Observable<T> takeLast(long j, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048836, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048836, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             ObjectHelper.verifyPositive(i2, "bufferSize");
-            if (j2 >= 0) {
-                return RxJavaPlugins.onAssembly(new ObservableTakeLastTimed(this, j2, j3, timeUnit, scheduler, i2, z));
+            if (j >= 0) {
+                return RxJavaPlugins.onAssembly(new ObservableTakeLastTimed(this, j, j2, timeUnit, scheduler, i2, z));
             }
-            throw new IndexOutOfBoundsException("count >= 0 required but it was " + j2);
+            throw new IndexOutOfBoundsException("count >= 0 required but it was " + j);
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler, ObservableSource<? extends T> observableSource) {
+    public final Observable<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler, ObservableSource<? extends T> observableSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048860, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, observableSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048860, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, observableSource})) == null) {
             ObjectHelper.requireNonNull(observableSource, "other is null");
-            return timeout0(j2, timeUnit, observableSource, scheduler);
+            return timeout0(j, timeUnit, observableSource, scheduler);
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, long j3, TimeUnit timeUnit) {
+    public final Observable<Observable<T>> window(long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048890, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) ? window(j2, j3, timeUnit, Schedulers.computation(), bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048890, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? window(j, j2, timeUnit, Schedulers.computation(), bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4240,23 +4240,23 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<List<T>> buffer(long j2, long j3, TimeUnit timeUnit) {
+    public final Observable<List<T>> buffer(long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) ? (Observable<List<T>>) buffer(j2, j3, timeUnit, Schedulers.computation(), ArrayListSupplier.asCallable()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? (Observable<List<T>>) buffer(j, j2, timeUnit, Schedulers.computation(), ArrayListSupplier.asCallable()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, int i2, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048758, this, new Object[]{function, Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048758, this, new Object[]{function, Integer.valueOf(i2), Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(function, "selector is null");
             ObjectHelper.verifyPositive(i2, "bufferSize");
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return ObservableReplay.multicastSelector(ObservableInternalHelper.replayCallable(this, i2, j2, timeUnit, scheduler), function);
+            return ObservableReplay.multicastSelector(ObservableInternalHelper.replayCallable(this, i2, j, timeUnit, scheduler), function);
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -4271,14 +4271,14 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> skipLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
+    public final Observable<T> skipLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048800, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048800, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             ObjectHelper.verifyPositive(i2, "bufferSize");
-            return RxJavaPlugins.onAssembly(new ObservableSkipLastTimed(this, j2, timeUnit, scheduler, i2 << 1, z));
+            return RxJavaPlugins.onAssembly(new ObservableSkipLastTimed(this, j, timeUnit, scheduler, i2 << 1, z));
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -4302,10 +4302,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<Observable<T>> window(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048891, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler})) == null) ? window(j2, j3, timeUnit, scheduler, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048891, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) ? window(j, j2, timeUnit, scheduler, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4383,10 +4383,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<List<T>> buffer(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<List<T>> buffer(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler})) == null) ? (Observable<List<T>>) buffer(j2, j3, timeUnit, scheduler, ArrayListSupplier.asCallable()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) ? (Observable<List<T>>) buffer(j, j2, timeUnit, scheduler, ArrayListSupplier.asCallable()) : (Observable) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: io.reactivex.functions.Function<? super T, ? extends io.reactivex.ObservableSource<V>> */
@@ -4413,24 +4413,24 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048859, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? timeout0(j2, timeUnit, null, scheduler) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048859, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? timeout0(j, timeUnit, null, scheduler) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+    public final Observable<Observable<T>> window(long j, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048892, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler, Integer.valueOf(i2)})) == null) {
-            ObjectHelper.verifyPositive(j2, "timespan");
-            ObjectHelper.verifyPositive(j3, "timeskip");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048892, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)})) == null) {
+            ObjectHelper.verifyPositive(j, "timespan");
+            ObjectHelper.verifyPositive(j2, "timeskip");
             ObjectHelper.verifyPositive(i2, "bufferSize");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            return RxJavaPlugins.onAssembly(new ObservableWindowTimed(this, j2, j3, timeUnit, scheduler, Long.MAX_VALUE, i2, false));
+            return RxJavaPlugins.onAssembly(new ObservableWindowTimed(this, j, j2, timeUnit, scheduler, Long.MAX_VALUE, i2, false));
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -4497,14 +4497,14 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final <U extends Collection<? super T>> Observable<U> buffer(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, Callable<U> callable) {
+    public final <U extends Collection<? super T>> Observable<U> buffer(long j, long j2, TimeUnit timeUnit, Scheduler scheduler, Callable<U> callable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler, callable})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, callable})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
-            return RxJavaPlugins.onAssembly(new ObservableBufferTimed(this, j2, j3, timeUnit, scheduler, callable, Integer.MAX_VALUE, false));
+            return RxJavaPlugins.onAssembly(new ObservableBufferTimed(this, j, j2, timeUnit, scheduler, callable, Integer.MAX_VALUE, false));
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -4624,10 +4624,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.TRAMPOLINE)
     @CheckReturnValue
-    public final Observable<T> takeLast(long j2, TimeUnit timeUnit) {
+    public final Observable<T> takeLast(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048837, this, j2, timeUnit)) == null) ? takeLast(j2, timeUnit, Schedulers.trampoline(), false, bufferSize()) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048837, this, j, timeUnit)) == null) ? takeLast(j, timeUnit, Schedulers.trampoline(), false, bufferSize()) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4645,10 +4645,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.TRAMPOLINE)
     @CheckReturnValue
-    public final Observable<T> takeLast(long j2, TimeUnit timeUnit, boolean z) {
+    public final Observable<T> takeLast(long j, TimeUnit timeUnit, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048841, this, new Object[]{Long.valueOf(j2), timeUnit, Boolean.valueOf(z)})) == null) ? takeLast(j2, timeUnit, Schedulers.trampoline(), z, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048841, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) ? takeLast(j, timeUnit, Schedulers.trampoline(), z, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4689,10 +4689,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<List<T>> buffer(long j2, TimeUnit timeUnit) {
+    public final Observable<List<T>> buffer(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048604, this, j2, timeUnit)) == null) ? buffer(j2, timeUnit, Schedulers.computation(), Integer.MAX_VALUE) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048604, this, j, timeUnit)) == null) ? buffer(j, timeUnit, Schedulers.computation(), Integer.MAX_VALUE) : (Observable) invokeJL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
@@ -4711,10 +4711,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> takeLast(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<T> takeLast(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048838, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? takeLast(j2, timeUnit, scheduler, false, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048838, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? takeLast(j, timeUnit, scheduler, false, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4748,26 +4748,26 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<List<T>> buffer(long j2, TimeUnit timeUnit, int i2) {
+    public final Observable<List<T>> buffer(long j, TimeUnit timeUnit, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j2), timeUnit, Integer.valueOf(i2)})) == null) ? buffer(j2, timeUnit, Schedulers.computation(), i2) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j), timeUnit, Integer.valueOf(i2)})) == null) ? buffer(j, timeUnit, Schedulers.computation(), i2) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> takeLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public final Observable<T> takeLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048839, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)})) == null) ? takeLast(j2, timeUnit, scheduler, z, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048839, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) ? takeLast(j, timeUnit, scheduler, z, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit) {
+    public final Observable<Observable<T>> window(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048893, this, j2, timeUnit)) == null) ? window(j2, timeUnit, Schedulers.computation(), Long.MAX_VALUE, false) : (Observable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048893, this, j, timeUnit)) == null) ? window(j, timeUnit, Schedulers.computation(), Long.MAX_VALUE, false) : (Observable) invokeJL.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: io.reactivex.Observable<T> */
@@ -4820,10 +4820,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<List<T>> buffer(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+    public final Observable<List<T>> buffer(long j, TimeUnit timeUnit, Scheduler scheduler, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? (Observable<List<T>>) buffer(j2, timeUnit, scheduler, i2, ArrayListSupplier.asCallable(), false) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? (Observable<List<T>>) buffer(j, timeUnit, scheduler, i2, ArrayListSupplier.asCallable(), false) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4842,18 +4842,18 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<T> takeLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
+    public final Observable<T> takeLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048840, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) ? takeLast(Long.MAX_VALUE, j2, timeUnit, scheduler, z, i2) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048840, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) ? takeLast(Long.MAX_VALUE, j, timeUnit, scheduler, z, i2) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, long j3) {
+    public final Observable<Observable<T>> window(long j, TimeUnit timeUnit, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048894, this, new Object[]{Long.valueOf(j2), timeUnit, Long.valueOf(j3)})) == null) ? window(j2, timeUnit, Schedulers.computation(), j3, false) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048894, this, new Object[]{Long.valueOf(j), timeUnit, Long.valueOf(j2)})) == null) ? window(j, timeUnit, Schedulers.computation(), j2, false) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4872,25 +4872,25 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final <U extends Collection<? super T>> Observable<U> buffer(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, Callable<U> callable, boolean z) {
+    public final <U extends Collection<? super T>> Observable<U> buffer(long j, TimeUnit timeUnit, Scheduler scheduler, int i2, Callable<U> callable, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2), callable, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i2), callable, Boolean.valueOf(z)})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
             ObjectHelper.verifyPositive(i2, "count");
-            return RxJavaPlugins.onAssembly(new ObservableBufferTimed(this, j2, j2, timeUnit, scheduler, callable, i2, z));
+            return RxJavaPlugins.onAssembly(new ObservableBufferTimed(this, j, j, timeUnit, scheduler, callable, i2, z));
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, long j3, boolean z) {
+    public final Observable<Observable<T>> window(long j, TimeUnit timeUnit, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048895, this, new Object[]{Long.valueOf(j2), timeUnit, Long.valueOf(j3), Boolean.valueOf(z)})) == null) ? window(j2, timeUnit, Schedulers.computation(), j3, z) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048895, this, new Object[]{Long.valueOf(j), timeUnit, Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? window(j, timeUnit, Schedulers.computation(), j2, z) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4909,18 +4909,18 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<Observable<T>> window(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048896, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? window(j2, timeUnit, scheduler, Long.MAX_VALUE, false) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048896, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? window(j, timeUnit, scheduler, Long.MAX_VALUE, false) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler, long j3) {
+    public final Observable<Observable<T>> window(long j, TimeUnit timeUnit, Scheduler scheduler, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048897, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Long.valueOf(j3)})) == null) ? window(j2, timeUnit, scheduler, j3, false) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048897, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Long.valueOf(j2)})) == null) ? window(j, timeUnit, scheduler, j2, false) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4933,18 +4933,18 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, long j2, TimeUnit timeUnit) {
+    public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048760, this, new Object[]{function, Long.valueOf(j2), timeUnit})) == null) ? replay(function, j2, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048760, this, new Object[]{function, Long.valueOf(j), timeUnit})) == null) ? replay(function, j, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, boolean z) {
+    public final Observable<Observable<T>> window(long j, TimeUnit timeUnit, Scheduler scheduler, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048898, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Long.valueOf(j3), Boolean.valueOf(z)})) == null) ? window(j2, timeUnit, scheduler, j3, z, bufferSize()) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048898, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? window(j, timeUnit, scheduler, j2, z, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -4989,29 +4989,29 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048761, this, new Object[]{function, Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048761, this, new Object[]{function, Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(function, "selector is null");
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return ObservableReplay.multicastSelector(ObservableInternalHelper.replayCallable(this, j2, timeUnit, scheduler), function);
+            return ObservableReplay.multicastSelector(ObservableInternalHelper.replayCallable(this, j, timeUnit, scheduler), function);
         }
         return (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, boolean z, int i2) {
+    public final Observable<Observable<T>> window(long j, TimeUnit timeUnit, Scheduler scheduler, long j2, boolean z, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048899, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Long.valueOf(j3), Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048899, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Long.valueOf(j2), Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             ObjectHelper.verifyPositive(i2, "bufferSize");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.verifyPositive(j3, "count");
-            return RxJavaPlugins.onAssembly(new ObservableWindowTimed(this, j2, j2, timeUnit, scheduler, j3, i2, z));
+            ObjectHelper.verifyPositive(j2, "count");
+            return RxJavaPlugins.onAssembly(new ObservableWindowTimed(this, j, j, timeUnit, scheduler, j2, i2, z));
         }
         return (Observable) invokeCommon.objValue;
     }
@@ -5033,10 +5033,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final Observable<List<T>> buffer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Observable<List<T>> buffer(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? (Observable<List<T>>) buffer(j2, timeUnit, scheduler, Integer.MAX_VALUE, ArrayListSupplier.asCallable(), false) : (Observable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? (Observable<List<T>>) buffer(j, timeUnit, scheduler, Integer.MAX_VALUE, ArrayListSupplier.asCallable(), false) : (Observable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -5294,10 +5294,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final ConnectableObservable<T> replay(int i2, long j2, TimeUnit timeUnit) {
+    public final ConnectableObservable<T> replay(int i2, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048765, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), timeUnit})) == null) ? replay(i2, j2, timeUnit, Schedulers.computation()) : (ConnectableObservable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048765, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), timeUnit})) == null) ? replay(i2, j, timeUnit, Schedulers.computation()) : (ConnectableObservable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -5319,14 +5319,14 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final ConnectableObservable<T> replay(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final ConnectableObservable<T> replay(int i2, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048766, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048766, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.verifyPositive(i2, "bufferSize");
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return ObservableReplay.create(this, j2, timeUnit, scheduler, i2);
+            return ObservableReplay.create(this, j, timeUnit, scheduler, i2);
         }
         return (ConnectableObservable) invokeCommon.objValue;
     }
@@ -5424,10 +5424,10 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final ConnectableObservable<T> replay(long j2, TimeUnit timeUnit) {
+    public final ConnectableObservable<T> replay(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048768, this, j2, timeUnit)) == null) ? replay(j2, timeUnit, Schedulers.computation()) : (ConnectableObservable) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048768, this, j, timeUnit)) == null) ? replay(j, timeUnit, Schedulers.computation()) : (ConnectableObservable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -5450,13 +5450,13 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     @CheckReturnValue
-    public final ConnectableObservable<T> replay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final ConnectableObservable<T> replay(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048769, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048769, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return ObservableReplay.create(this, j2, timeUnit, scheduler);
+            return ObservableReplay.create(this, j, timeUnit, scheduler);
         }
         return (ConnectableObservable) invokeCommon.objValue;
     }

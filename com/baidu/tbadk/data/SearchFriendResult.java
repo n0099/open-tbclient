@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SearchFriendResult extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 14010660746769448L;
@@ -20,7 +20,7 @@ public class SearchFriendResult extends OrmObject implements Serializable {
     public List<UserInfo> user_info;
     public String usermsg;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4475845825063348182L;
@@ -68,10 +68,10 @@ public class SearchFriendResult extends OrmObject implements Serializable {
             }
         }
 
-        public void setUserId(long j2) {
+        public void setUserId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.user_id = j2;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.user_id = j;
             }
         }
 

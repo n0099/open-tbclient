@@ -17,16 +17,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class dq extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77844a;
+    public int f70806a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f245a;
+    public Context f246a;
 
     public dq(Context context, int i2) {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public abstract class dq extends ai.a {
                 return;
             }
         }
-        this.f77844a = i2;
-        this.f245a = context;
+        this.f70806a = i2;
+        this.f246a = context;
     }
 
     public static void a(Context context, hn hnVar) {
@@ -68,7 +68,7 @@ public abstract class dq extends ai.a {
         if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, hnVar, str) == null) || (b2 = dl.b(str, ip.a(hnVar))) == null || b2.length == 0) {
             return;
         }
-        synchronized (dm.f77839a) {
+        synchronized (dm.f70801a) {
             FileLock fileLock = null;
             try {
                 try {
@@ -182,7 +182,7 @@ public abstract class dq extends ai.a {
     public boolean mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f245a, String.valueOf(mo187a()), this.f77844a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f246a, String.valueOf(mo187a()), this.f70806a) : invokeV.booleanValue;
     }
 
     public abstract String b();
@@ -223,15 +223,15 @@ public abstract class dq extends ai.a {
             String a2 = m249a == null ? "" : m249a.a();
             if (!TextUtils.isEmpty(a2) && m251b()) {
                 if (m252c()) {
-                    SharedPreferences sharedPreferences = this.f245a.getSharedPreferences("mipush_extra", 0);
+                    SharedPreferences sharedPreferences = this.f246a.getSharedPreferences("mipush_extra", 0);
                     if (bm.a(b2).equals(sharedPreferences.getString(d(), null))) {
-                        long j2 = sharedPreferences.getLong(c(), 0L);
-                        int a3 = com.xiaomi.push.service.aq.a(this.f245a).a(hk.ba.a(), 604800);
-                        if ((System.currentTimeMillis() - j2) / 1000 < this.f77844a) {
+                        long j = sharedPreferences.getLong(c(), 0L);
+                        int a3 = com.xiaomi.push.service.aq.a(this.f246a).a(hk.ba.a(), 604800);
+                        if ((System.currentTimeMillis() - j) / 1000 < this.f70806a) {
                             return;
                         }
-                        if ((System.currentTimeMillis() - j2) / 1000 < a3) {
-                            b2 = "same_" + j2;
+                        if ((System.currentTimeMillis() - j) / 1000 < a3) {
+                            b2 = "same_" + j;
                         }
                     }
                 }
@@ -239,7 +239,7 @@ public abstract class dq extends ai.a {
                 hnVar.a(b2);
                 hnVar.a(System.currentTimeMillis());
                 hnVar.a(mo187a());
-                a(this.f245a, hnVar, a2);
+                a(this.f246a, hnVar, a2);
             }
         }
     }

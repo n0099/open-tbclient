@@ -141,20 +141,20 @@ public class PlaybackStateCompatApi21 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? ((PlaybackState) obj).getState() : invokeL.intValue;
     }
 
-    public static Object newInstance(int i2, long j2, long j3, float f2, long j4, CharSequence charSequence, long j5, List<Object> list, long j6) {
+    public static Object newInstance(int i2, long j, long j2, float f2, long j3, CharSequence charSequence, long j4, List<Object> list, long j5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Float.valueOf(f2), Long.valueOf(j4), charSequence, Long.valueOf(j5), list, Long.valueOf(j6)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Long.valueOf(j3), charSequence, Long.valueOf(j4), list, Long.valueOf(j5)})) == null) {
             PlaybackState.Builder builder = new PlaybackState.Builder();
-            builder.setState(i2, j2, f2, j5);
-            builder.setBufferedPosition(j3);
-            builder.setActions(j4);
+            builder.setState(i2, j, f2, j4);
+            builder.setBufferedPosition(j2);
+            builder.setActions(j3);
             builder.setErrorMessage(charSequence);
             Iterator<Object> it = list.iterator();
             while (it.hasNext()) {
                 builder.addCustomAction((PlaybackState.CustomAction) it.next());
             }
-            builder.setActiveQueueItemId(j6);
+            builder.setActiveQueueItemId(j5);
             return builder.build();
         }
         return invokeCommon.objValue;

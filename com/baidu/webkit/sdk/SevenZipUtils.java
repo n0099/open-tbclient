@@ -37,7 +37,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SevenZipUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSETS_NAME_PREFIX = "file:///android_assets";
@@ -309,13 +309,13 @@ public class SevenZipUtils {
 
     private native int init(String str, String str2, int i2, int i3, int i4, int i5);
 
-    private boolean isEnoughSpace(long j2) {
+    private boolean isEnoughSpace(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, this, j)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j2;
+                return ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j;
             } catch (Exception e2) {
                 Log.i(TAG, "[WARNING]get available blocks failed : " + e2.toString());
                 return true;

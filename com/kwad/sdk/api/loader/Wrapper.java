@@ -19,7 +19,7 @@ import com.kwad.sdk.api.core.ResContext;
 import java.util.Map;
 import java.util.WeakHashMap;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Wrapper {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Context, Context> sResContextCache;

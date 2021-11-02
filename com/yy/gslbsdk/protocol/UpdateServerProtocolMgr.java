@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UpdateServerProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UpdateServerProtocolMgr";
@@ -73,7 +73,7 @@ public class UpdateServerProtocolMgr {
                 JSONObject jSONObject = new JSONObject(str);
                 int translateErrCode = translateErrCode(jSONObject.getInt("s"));
                 int i2 = jSONObject.getInt("ver");
-                JSONArray jSONArray = jSONObject.getJSONArray(b.c.f38133b);
+                JSONArray jSONArray = jSONObject.getJSONArray(b.c.f36145b);
                 for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                     int i4 = jSONObject2.getInt("v");

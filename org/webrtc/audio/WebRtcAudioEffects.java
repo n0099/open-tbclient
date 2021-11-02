@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebRtcAudioEffects {
     public static /* synthetic */ Interceptable $ic = null;
     public static final UUID AOSP_ACOUSTIC_ECHO_CANCELER;

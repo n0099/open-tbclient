@@ -18,7 +18,7 @@ import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DefaultMp4SampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,12 +30,12 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
     public Container topLevel;
     public TrackBox trackBox;
 
-    public DefaultMp4SampleList(long j2, Container container) {
+    public DefaultMp4SampleList(long j, Container container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j2), container};
+            Object[] objArr = {Long.valueOf(j), container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -51,7 +51,7 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
         this.lastChunk = 0;
         this.topLevel = container;
         for (TrackBox trackBox : ((MovieBox) container.getBoxes(MovieBox.class).get(0)).getBoxes(TrackBox.class)) {
-            if (trackBox.getTrackHeaderBox().getTrackId() == j2) {
+            if (trackBox.getTrackHeaderBox().getTrackId() == j) {
                 this.trackBox = trackBox;
             }
         }
@@ -118,7 +118,7 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
                 i4 = i12;
             }
         } else {
-            throw new RuntimeException("This MP4 does not contain track " + j2);
+            throw new RuntimeException("This MP4 does not contain track " + j);
         }
     }
 
@@ -168,12 +168,12 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
                 }
                 int chunkForSample = getChunkForSample(i2);
                 int i3 = this.chunkNumsStartSampleNum[chunkForSample];
-                long j2 = this.chunkOffsets[CastUtils.l2i(chunkForSample)];
+                long j = this.chunkOffsets[CastUtils.l2i(chunkForSample)];
                 while (i3 < i2 + 1) {
-                    j2 += this.ssb.getSampleSizeAtIndex(i3 - 1);
+                    j += this.ssb.getSampleSizeAtIndex(i3 - 1);
                     i3++;
                 }
-                SampleImpl sampleImpl = new SampleImpl(j2, this.ssb.getSampleSizeAtIndex(i3 - 1), this.topLevel);
+                SampleImpl sampleImpl = new SampleImpl(j, this.ssb.getSampleSizeAtIndex(i3 - 1), this.topLevel);
                 this.cache[i2] = new SoftReference<>(sampleImpl);
                 return sampleImpl;
             }

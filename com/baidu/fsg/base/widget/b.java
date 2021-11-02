@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BdActionBar f39793a;
+    public final /* synthetic */ BdActionBar f37724a;
 
     public b(BdActionBar bdActionBar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b implements View.OnTouchListener {
                 return;
             }
         }
-        this.f39793a = bdActionBar;
+        this.f37724a = bdActionBar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -42,10 +42,10 @@ public class b implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                view2 = this.f39793a.f39747g;
+                view2 = this.f37724a.f37683g;
                 f2 = 0.5f;
             } else {
-                view2 = this.f39793a.f39747g;
+                view2 = this.f37724a.f37683g;
                 f2 = 1.0f;
             }
             ViewHelper.setAlpha(view2, f2);

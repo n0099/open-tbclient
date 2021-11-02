@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,8 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes2.dex */
+@SuppressLint({"BDThrowableCheck"})
+/* loaded from: classes3.dex */
 public class BaseNCodecInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,20 +100,20 @@ public class BaseNCodecInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j2) throws IOException {
+    public long skip(long j) throws IOException {
         InterceptResult invokeJ;
         int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-            if (j2 < 0) {
-                throw new IllegalArgumentException("Negative skip length: " + j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            if (j < 0) {
+                throw new IllegalArgumentException("Negative skip length: " + j);
             }
             byte[] bArr = new byte[512];
-            long j3 = j2;
-            while (j3 > 0 && (read = read(bArr, 0, (int) Math.min(512, j3))) != -1) {
-                j3 -= read;
+            long j2 = j;
+            while (j2 > 0 && (read = read(bArr, 0, (int) Math.min(512, j2))) != -1) {
+                j2 -= read;
             }
-            return j2 - j3;
+            return j - j2;
         }
         return invokeJ.longValue;
     }

@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.er;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class es implements er.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile long f77934a;
+    public volatile long f70894a;
 
     /* renamed from: a  reason: collision with other field name */
-    public PendingIntent f339a;
+    public PendingIntent f340a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f340a;
+    public Context f341a;
 
     public es(Context context) {
         Interceptable interceptable = $ic;
@@ -43,17 +43,17 @@ public class es implements er.a {
                 return;
             }
         }
-        this.f339a = null;
         this.f340a = null;
-        this.f77934a = 0L;
-        this.f340a = context;
+        this.f341a = null;
+        this.f70894a = 0L;
+        this.f341a = context;
     }
 
-    private void a(AlarmManager alarmManager, long j2, PendingIntent pendingIntent) {
+    private void a(AlarmManager alarmManager, long j, PendingIntent pendingIntent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{alarmManager, Long.valueOf(j2), pendingIntent}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{alarmManager, Long.valueOf(j), pendingIntent}) == null) {
             try {
-                AlarmManager.class.getMethod("setExact", Integer.TYPE, Long.TYPE, PendingIntent.class).invoke(alarmManager, 0, Long.valueOf(j2), pendingIntent);
+                AlarmManager.class.getMethod("setExact", Integer.TYPE, Long.TYPE, PendingIntent.class).invoke(alarmManager, 0, Long.valueOf(j), pendingIntent);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
@@ -71,44 +71,44 @@ public class es implements er.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f339a != null) {
+            if (this.f340a != null) {
                 try {
-                    ((AlarmManager) this.f340a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f339a);
+                    ((AlarmManager) this.f341a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f340a);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
-                    this.f339a = null;
+                    this.f340a = null;
                     com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-                    this.f77934a = 0L;
+                    this.f70894a = 0L;
                     throw th;
                 }
-                this.f339a = null;
+                this.f340a = null;
                 com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-                this.f77934a = 0L;
+                this.f70894a = 0L;
             }
-            this.f77934a = 0L;
+            this.f70894a = 0L;
         }
     }
 
-    public void a(Intent intent, long j2) {
+    public void a(Intent intent, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, intent, j2) == null) {
-            AlarmManager alarmManager = (AlarmManager) this.f340a.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            PendingIntent broadcast = PendingIntent.getBroadcast(this.f340a, 0, intent, 0);
-            this.f339a = broadcast;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, intent, j) == null) {
+            AlarmManager alarmManager = (AlarmManager) this.f341a.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            PendingIntent broadcast = PendingIntent.getBroadcast(this.f341a, 0, intent, 0);
+            this.f340a = broadcast;
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 23) {
-                bh.a((Object) alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j2), this.f339a);
+                bh.a((Object) alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j), this.f340a);
             } else if (i2 >= 19) {
-                a(alarmManager, j2, broadcast);
+                a(alarmManager, j, broadcast);
             } else {
-                alarmManager.set(0, j2, broadcast);
+                alarmManager.set(0, j, broadcast);
             }
-            com.xiaomi.channel.commonutils.logger.b.c("register timer " + j2);
+            com.xiaomi.channel.commonutils.logger.b.c("register timer " + j);
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x002e, code lost:
-        if (r7.f77934a < java.lang.System.currentTimeMillis()) goto L18;
+        if (r7.f70894a < java.lang.System.currentTimeMillis()) goto L18;
      */
     @Override // com.xiaomi.push.er.a
     /*
@@ -118,19 +118,19 @@ public class es implements er.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             long a2 = a();
-            if (z || this.f77934a != 0) {
+            if (z || this.f70894a != 0) {
                 if (z) {
                     a();
                 }
-                if (z || this.f77934a == 0) {
+                if (z || this.f70894a == 0) {
                     a2 -= SystemClock.elapsedRealtime() % a2;
                 } else {
-                    this.f77934a += a2;
+                    this.f70894a += a2;
                 }
-                this.f77934a = System.currentTimeMillis() + a2;
+                this.f70894a = System.currentTimeMillis() + a2;
                 Intent intent = new Intent(com.xiaomi.push.service.az.o);
-                intent.setPackage(this.f340a.getPackageName());
-                a(intent, this.f77934a);
+                intent.setPackage(this.f341a.getPackageName());
+                a(intent, this.f70894a);
             }
         }
     }
@@ -139,6 +139,6 @@ public class es implements er.a {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f77934a != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70894a != 0 : invokeV.booleanValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.report.ReportAction;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class aa implements com.kwad.sdk.core.d<ReportAction.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class aa implements com.kwad.sdk.core.d<ReportAction.a> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f72511a = jSONObject.optInt("posIdWidth");
-        aVar.f72512b = jSONObject.optInt("posIdHeight");
+        aVar.f64967a = jSONObject.optInt("posIdWidth");
+        aVar.f64968b = jSONObject.optInt("posIdHeight");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class aa implements com.kwad.sdk.core.d<ReportAction.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "posIdWidth", aVar.f72511a);
-            com.kwad.sdk.utils.q.a(jSONObject, "posIdHeight", aVar.f72512b);
+            com.kwad.sdk.utils.q.a(jSONObject, "posIdWidth", aVar.f64967a);
+            com.kwad.sdk.utils.q.a(jSONObject, "posIdHeight", aVar.f64968b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

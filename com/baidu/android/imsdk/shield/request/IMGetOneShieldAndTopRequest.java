@@ -9,18 +9,17 @@ import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.shield.model.GetShieldAndTopResult;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetOneShieldAndTopRequest";
@@ -39,12 +38,12 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public long mShieldTime;
 
     @Deprecated
-    public IMGetOneShieldAndTopRequest(Context context, long j2, String str) {
+    public IMGetOneShieldAndTopRequest(Context context, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -63,9 +62,9 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.mGraphicStatus = 1;
         this.mCommodityStatus = 1;
         this.mContext = context;
-        this.mContacter = j2;
+        this.mContacter = j;
         this.mKey = str;
-        int i4 = (j2 & Constants.PAFLAG) != 0 ? 1 : 0;
+        int i4 = (j & Constants.PAFLAG) != 0 ? 1 : 0;
         this.mChatType = i4;
         this.mContacterType = getContacterType(i4);
     }
@@ -108,9 +107,9 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("appid", appid);
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+                jSONObject.put("device_type", 2);
                 jSONObject.put("uk", uk);
                 jSONObject.put("contacter", this.mContacter);
                 jSONObject.put("timestamp", currentTimeMillis);
@@ -151,7 +150,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i3 = jSONObject.optInt("error_code");
-                str = jSONObject.optString("error_msg");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 JSONArray optJSONArray = jSONObject.optJSONArray("contacter");
                 if (optJSONArray != null) {
                     for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
@@ -195,12 +194,12 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         }
     }
 
-    public IMGetOneShieldAndTopRequest(Context context, long j2, int i2, String str) {
+    public IMGetOneShieldAndTopRequest(Context context, long j, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), str};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -219,7 +218,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.mGraphicStatus = 1;
         this.mCommodityStatus = 1;
         this.mContext = context;
-        this.mContacter = j2;
+        this.mContacter = j;
         this.mKey = str;
         this.mChatType = i2;
         this.mContacterType = getContacterType(i2);

@@ -1,8 +1,8 @@
 package com.baidu.tieba.themeCenter.dressCenter;
 
-import c.a.r0.q3.h.a;
-import c.a.r0.q3.h.d;
-import c.a.r0.q3.h.e;
+import b.a.r0.r3.h.a;
+import b.a.r0.r3.h.d;
+import b.a.r0.r3.h.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ import tbclient.GetThemeList.DataRes;
 import tbclient.GetThemeList.GetThemeListResIdl;
 import tbclient.GetThemeList.ThemeCarousel;
 import tbclient.GetThemeList.ThemeList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
                 for (ThemeList themeList : getThemeListResIdl.data.theme_list) {
                     if (themeList != null && !StringUtils.isNull(themeList.name)) {
                         d dVar = new d();
-                        dVar.e(themeList);
+                        dVar.d(themeList);
                         this.mThemeList.add(dVar);
                     }
                 }

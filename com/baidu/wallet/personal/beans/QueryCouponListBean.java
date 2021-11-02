@@ -16,22 +16,22 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.personal.datamodel.CouponListResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class QueryCouponListBean extends BaseBean<CouponListResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CouponStatus f63776a;
+    public CouponStatus f60622a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63777b;
+    public String f60623b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63778c;
+    public String f60624c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class CouponStatus {
         public static final /* synthetic */ CouponStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -119,22 +119,22 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
                 return;
             }
         }
-        this.f63776a = CouponStatus.UNUSE;
-        this.f63777b = "0";
-        this.f63778c = "";
+        this.f60622a = CouponStatus.UNUSE;
+        this.f60623b = "0";
+        this.f60624c = "";
     }
 
     public void a(CouponStatus couponStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, couponStatus) == null) {
-            this.f63776a = couponStatus;
+            this.f60622a = couponStatus;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f63777b = str;
+            this.f60623b = str;
         }
     }
 
@@ -151,12 +151,12 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f63777b)) {
+            if (TextUtils.isEmpty(this.f60623b)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("page_index", this.f63777b));
-            arrayList.add(new RestNameValuePair("filter_status_new", this.f63776a.getVal()));
+            arrayList.add(new RestNameValuePair("page_index", this.f60623b));
+            arrayList.add(new RestNameValuePair("filter_status_new", this.f60622a.getVal()));
             return arrayList;
         }
         return (List) invokeV.objValue;

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MediaPlayerProxy extends PlayerProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaPlayerProxy";
@@ -35,7 +35,7 @@ public class MediaPlayerProxy extends PlayerProxy {
     public long mStartTimeMs;
 
     /* renamed from: com.baidu.searchbox.afx.proxy.MediaPlayerProxy$6  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
         public static /* synthetic */ Interceptable $ic;
@@ -526,13 +526,13 @@ public class MediaPlayerProxy extends PlayerProxy {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy
-    public void setSourceFD(FileDescriptor fileDescriptor, long j2, long j3) {
+    public void setSourceFD(FileDescriptor fileDescriptor, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{fileDescriptor, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             try {
                 reset();
                 if (this.mMediaPlayer != null) {
-                    this.mMediaPlayer.setDataSource(fileDescriptor, j2, j3);
+                    this.mMediaPlayer.setDataSource(fileDescriptor, j, j2);
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();

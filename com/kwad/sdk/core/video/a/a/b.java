@@ -13,7 +13,7 @@ import com.kwad.sdk.core.g.a.e;
 import com.kwad.sdk.core.g.a.i;
 import com.kwad.sdk.d;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b extends com.kwad.sdk.core.network.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,11 +55,11 @@ public class b extends com.kwad.sdk.core.network.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             b("protocolVersion", "2.0");
-            b("SDKVersion", "3.3.11");
-            a("SDKVersionCode", 3031100);
+            b("SDKVersion", "3.3.11.4");
+            a("SDKVersionCode", 3031104);
             b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
             a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-            a("sdkType", d.f73077a);
+            a("sdkType", d.f65521a);
             a(DI.APP_INFO_NAME, com.kwad.sdk.core.g.a.b.a());
             a(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, com.kwad.sdk.core.g.a.d.a(false));
             a("networkInfo", i.a());

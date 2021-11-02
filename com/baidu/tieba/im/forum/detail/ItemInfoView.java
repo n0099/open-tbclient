@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.e.e.p.k;
-import c.a.q0.x.p.b;
+import b.a.e.e.p.k;
+import b.a.q0.x.p.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,13 +25,13 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ItemInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f53171e;
+    public TextView f50427e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemInfoView(Context context) {
@@ -89,14 +89,14 @@ public class ItemInfoView extends LinearLayout {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
             setVisibility(8);
-            this.f53171e = (TextView) findViewById(R.id.info_brief_content);
+            this.f50427e = (TextView) findViewById(R.id.info_brief_content);
         }
     }
 
     public void onChangeSkinType(ForumDetailActivity forumDetailActivity, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumDetailActivity, i2) == null) {
-            SkinManager.setViewTextColor(this.f53171e, R.color.common_color_10177, 1);
+            SkinManager.setViewTextColor(this.f50427e, R.color.common_color_10177, 1);
             forumDetailActivity.getLayoutMode().k(i2 == 1);
             forumDetailActivity.getLayoutMode().j(this);
         }
@@ -107,9 +107,9 @@ public class ItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, recommendForumInfo) == null) {
             if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !k.isEmpty(recommendForumInfo.slogan))) {
-                this.f53171e.setText(a(recommendForumInfo.content, recommendForumInfo.slogan));
+                this.f50427e.setText(a(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.f53171e.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+                this.f50427e.setText(getResources().getString(R.string.forum_detail_info_no_brief));
             }
             setVisibility(0);
         }

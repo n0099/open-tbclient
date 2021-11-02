@@ -1,20 +1,22 @@
 package com.fun.openid.sdk;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f70372a;
+    public static boolean f62887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f70373b;
+    public static boolean f62888b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {
@@ -49,5 +51,29 @@ public class b {
             return null;
         }
         return (f) invokeV.objValue;
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            q a2 = q.a(context);
+            a2.getClass();
+            if (q.f62912b) {
+                String str = q.f62918h;
+                if (str != null) {
+                    return str;
+                }
+                a2.a(0, null);
+                if (q.f62913c == null) {
+                    Context context2 = q.f62911a;
+                    q.f62913c = new s(q.f62919i, 0, null);
+                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f62913c);
+                }
+                return q.f62918h;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -14,19 +14,19 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class gj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static gj f78080a;
+    public static gj f71035a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, Object> f442a;
+    public Map<String, Object> f443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f78081b;
+    public Map<String, Object> f71036b;
 
     public gj() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class gj {
                 return;
             }
         }
-        this.f442a = new ConcurrentHashMap();
-        this.f78081b = new ConcurrentHashMap();
+        this.f443a = new ConcurrentHashMap();
+        this.f71036b = new ConcurrentHashMap();
         m354a();
     }
 
@@ -52,10 +52,10 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (gj.class) {
-                if (f78080a == null) {
-                    f78080a = new gj();
+                if (f71035a == null) {
+                    f71035a = new gj();
                 }
-                gjVar = f78080a;
+                gjVar = f71035a;
             }
             return gjVar;
         }
@@ -102,7 +102,7 @@ public class gj {
     public Object m353a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f442a.get(a(str, str2)) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f443a.get(a(str, str2)) : invokeLL.objValue;
     }
 
     /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0103 */
@@ -140,14 +140,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText3 = newPullParser.nextText();
                                     String a2 = a(nextText, nextText2);
-                                    if (!this.f78081b.containsKey(a2)) {
+                                    if (!this.f71036b.containsKey(a2)) {
                                         try {
                                             Class<?> cls = Class.forName(nextText3);
                                             if (gh.class.isAssignableFrom(cls)) {
-                                                map2 = this.f78081b;
+                                                map2 = this.f71036b;
                                                 obj2 = cls.newInstance();
                                             } else if (ga.class.isAssignableFrom(cls)) {
-                                                map2 = this.f78081b;
+                                                map2 = this.f71036b;
                                                 obj2 = cls;
                                             }
                                             map2.put(a2, obj2);
@@ -170,14 +170,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText6 = newPullParser.nextText();
                                     String a3 = a(nextText4, nextText5);
-                                    if (!this.f442a.containsKey(a3)) {
+                                    if (!this.f443a.containsKey(a3)) {
                                         try {
                                             Class<?> cls2 = Class.forName(nextText6);
                                             if (gi.class.isAssignableFrom(cls2)) {
-                                                map = this.f442a;
+                                                map = this.f443a;
                                                 obj = cls2.newInstance();
                                             } else if (gd.class.isAssignableFrom(cls2)) {
-                                                map = this.f442a;
+                                                map = this.f443a;
                                                 obj = cls2;
                                             }
                                             map.put(a3, obj);
@@ -212,7 +212,7 @@ public class gj {
             if (!(obj instanceof gi) && !(obj instanceof Class)) {
                 throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
             }
-            this.f442a.put(a(str, str2), obj);
+            this.f443a.put(a(str, str2), obj);
         }
     }
 }

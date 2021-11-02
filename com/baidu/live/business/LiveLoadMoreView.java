@@ -6,12 +6,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.w.c.a.c;
-import c.a.w.c.a.d;
-import c.a.w.i.f;
+import b.a.w.c.a.c;
+import b.a.w.c.a.d;
+import b.a.w.i.f;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.PathUtils;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveRoomEntity;
@@ -19,16 +18,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LiveLoadMoreView extends LiveBaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LottieAnimationView f40801f;
+    public LottieAnimationView f38689f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40802g;
+    public TextView f38690g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveLoadMoreView(Context context) {
@@ -55,7 +54,7 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int i2 = d.live_feed_page_load_more_bd;
-            if (PathUtils.DIRCTORY_BAIDU.equals(LiveFeedPageSdk.e().d())) {
+            if ("baidu".equals(LiveFeedPageSdk.e().d())) {
                 i2 = d.live_feed_page_load_more_bd;
             } else if ("haokan".equals(LiveFeedPageSdk.e().d())) {
                 i2 = d.live_feed_page_load_more_hk;
@@ -66,27 +65,27 @@ public class LiveLoadMoreView extends LiveBaseItemView {
             }
             LayoutInflater.from(getContext()).inflate(i2, this);
             LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(c.load_more_anim_view);
-            this.f40801f = lottieAnimationView;
+            this.f38689f = lottieAnimationView;
             lottieAnimationView.loop(true);
-            this.f40802g = (TextView) findViewById(c.load_more_label);
+            this.f38690g = (TextView) findViewById(c.load_more_label);
         }
     }
 
     public final void b() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (lottieAnimationView = this.f40801f) != null && lottieAnimationView.isAnimating()) {
-            this.f40801f.cancelAnimation();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (lottieAnimationView = this.f38689f) != null && lottieAnimationView.isAnimating()) {
+            this.f38689f.cancelAnimation();
         }
     }
 
     public final void c() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (lottieAnimationView = this.f40801f) == null || lottieAnimationView.isAnimating()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (lottieAnimationView = this.f38689f) == null || lottieAnimationView.isAnimating()) {
             return;
         }
-        this.f40801f.playAnimation();
+        this.f38689f.playAnimation();
     }
 
     @Override // com.baidu.live.business.base.LiveBaseItemView
@@ -103,12 +102,12 @@ public class LiveLoadMoreView extends LiveBaseItemView {
             if (TextUtils.isEmpty(f2)) {
                 int g2 = f.e().g(z);
                 if (g2 != 0) {
-                    this.f40801f.setAnimation(g2);
+                    this.f38689f.setAnimation(g2);
                 }
             } else {
-                this.f40801f.setAnimation(f2);
+                this.f38689f.setAnimation(f2);
             }
-            this.f40802g.setTextColor(f.e().a(getContext(), z, "color_1F1F1F"));
+            this.f38690g.setTextColor(f.e().a(getContext(), z, "color_1F1F1F"));
         }
     }
 
@@ -152,11 +151,11 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             if (i2 == 0) {
-                this.f40801f.playAnimation();
+                this.f38689f.playAnimation();
             } else {
-                this.f40801f.cancelAnimation();
+                this.f38689f.cancelAnimation();
             }
-            this.f40801f.setVisibility(i2);
+            this.f38689f.setVisibility(i2);
         }
     }
 
@@ -172,13 +171,13 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f40802g.setText(str);
+        this.f38690g.setText(str);
     }
 
     public void setTextColor(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (textView = this.f40802g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (textView = this.f38690g) == null) {
             return;
         }
         textView.setTextColor(i2);
@@ -187,7 +186,7 @@ public class LiveLoadMoreView extends LiveBaseItemView {
     public void setTextSize(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (textView = this.f40802g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (textView = this.f38690g) == null) {
             return;
         }
         textView.setTextSize(2, i2);
@@ -198,9 +197,9 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             if (i2 == 0) {
-                this.f40801f.playAnimation();
+                this.f38689f.playAnimation();
             } else {
-                this.f40801f.cancelAnimation();
+                this.f38689f.cancelAnimation();
             }
             super.setVisibility(i2);
         }
@@ -235,7 +234,7 @@ public class LiveLoadMoreView extends LiveBaseItemView {
             if (TextUtils.isEmpty(string)) {
                 return;
             }
-            this.f40802g.setText(string);
+            this.f38690g.setText(string);
         }
     }
 }

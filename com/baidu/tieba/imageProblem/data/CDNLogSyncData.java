@@ -3,7 +3,7 @@ package com.baidu.tieba.imageProblem.data;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.n.a;
+import b.a.e.e.n.a;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,31 +15,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CDNLogSyncData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f53683a;
+    public boolean f50916a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f53684b;
+    public int f50917b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53685c;
+    public int f50918c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f53686d;
+    public int f50919d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53687e;
+    public int f50920e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53688f;
+    public int f50921f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53689g;
+    public int f50922g;
 
     public CDNLogSyncData() {
         Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class CDNLogSyncData {
                 return;
             }
         }
-        this.f53687e = 25;
-        this.f53688f = 25;
-        this.f53689g = 10;
+        this.f50920e = 25;
+        this.f50921f = 25;
+        this.f50922g = 10;
     }
 
     public final void a(JSONObject jSONObject) {
@@ -66,30 +66,30 @@ public class CDNLogSyncData {
         }
         try {
             if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1) {
-                this.f53683a = true;
+                this.f50916a = true;
             } else {
-                this.f53683a = false;
+                this.f50916a = false;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
             if (optJSONObject != null) {
-                this.f53686d = optJSONObject.optInt("num");
+                this.f50919d = optJSONObject.optInt("num");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
             if (optJSONObject2 != null) {
-                this.f53685c = optJSONObject2.optInt("time");
-                this.f53684b = optJSONObject2.optInt("num");
+                this.f50918c = optJSONObject2.optInt("time");
+                this.f50917b = optJSONObject2.optInt("num");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
             if (optJSONObject3 != null) {
-                this.f53687e = optJSONObject3.optInt("succ");
-                this.f53688f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                this.f53689g = optJSONObject3.optInt("slow");
+                this.f50920e = optJSONObject3.optInt("succ");
+                this.f50921f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                this.f50922g = optJSONObject3.optInt("slow");
             }
-            if (this.f53685c <= 0 || this.f53684b <= 0 || this.f53686d <= 0) {
-                this.f53683a = false;
+            if (this.f50918c <= 0 || this.f50917b <= 0 || this.f50919d <= 0) {
+                this.f50916a = false;
             }
         } catch (Exception e2) {
-            this.f53683a = false;
+            this.f50916a = false;
             BdLog.e(e2.getMessage());
         }
     }
@@ -97,43 +97,43 @@ public class CDNLogSyncData {
     public int getErrNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53686d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50919d : invokeV.intValue;
     }
 
     public int getErrRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53688f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50921f : invokeV.intValue;
     }
 
     public int getSlowNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53684b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50917b : invokeV.intValue;
     }
 
     public int getSlowRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53689g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50922g : invokeV.intValue;
     }
 
     public int getSuccRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53687e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f50920e : invokeV.intValue;
     }
 
     public int getTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f53685c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f50918c : invokeV.intValue;
     }
 
     public boolean ismSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f53683a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f50916a : invokeV.booleanValue;
     }
 
     public void parseJson(String str) {
@@ -145,7 +145,7 @@ public class CDNLogSyncData {
                 }
                 a(new JSONObject(str));
             } catch (Exception e2) {
-                this.f53683a = false;
+                this.f50916a = false;
                 BdLog.e(e2.getMessage());
             }
         }
@@ -154,56 +154,56 @@ public class CDNLogSyncData {
     public void setErrNumber(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f53686d = i2;
+            this.f50919d = i2;
         }
     }
 
     public void setErrRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f53688f = i2;
+            this.f50921f = i2;
         }
     }
 
     public void setSlowNumber(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f53684b = i2;
+            this.f50917b = i2;
         }
     }
 
     public void setSlowRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f53689g = i2;
+            this.f50922g = i2;
         }
     }
 
     public void setSuccRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f53687e = i2;
+            this.f50920e = i2;
         }
     }
 
     public void setTime(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f53685c = i2;
+            this.f50918c = i2;
         }
     }
 
     public void setmSwitch(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            if (this.f53683a != z) {
+            if (this.f50916a != z) {
                 a logItem = ImageLogger.getLogItem();
                 logItem.b("act", "fallback");
                 logItem.b("result", z ? "1" : "0");
                 logItem.b("type", SetImageWatermarkTypeReqMsg.SWITCH);
                 BdStatisticsManager.getInstance().debug("img", logItem);
             }
-            this.f53683a = z;
+            this.f50916a = z;
         }
     }
 }

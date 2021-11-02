@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class COSPushHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f77608a;
+    public static long f70571a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f48a;
+    public static volatile boolean f49a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,9 +64,9 @@ public class COSPushHelper {
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (getNeedRegister()) {
-                long j2 = f77608a;
-                if (j2 <= 0 || j2 + 300000 <= elapsedRealtime) {
-                    f77608a = elapsedRealtime;
+                long j = f70571a;
+                if (j <= 0 || j + 300000 <= elapsedRealtime) {
+                    f70571a = elapsedRealtime;
                     registerCOSAssemblePush(context);
                 }
             }
@@ -76,7 +76,7 @@ public class COSPushHelper {
     public static boolean getNeedRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f48a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f49a : invokeV.booleanValue;
     }
 
     public static boolean hasNetwork(Context context) {
@@ -100,7 +100,7 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.f77661c)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.f70624c)) == null) {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH :  register cos when network change!");
@@ -111,7 +111,7 @@ public class COSPushHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
             synchronized (COSPushHelper.class) {
-                f48a = z;
+                f49a = z;
             }
         }
     }
@@ -119,7 +119,7 @@ public class COSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            i.a(context, e.f77661c, str);
+            i.a(context, e.f70624c, str);
         }
     }
 }

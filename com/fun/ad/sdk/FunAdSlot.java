@@ -7,25 +7,52 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FunAdSlot {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int adCount;
-    public int expressHeight;
-    public int expressWidth;
-    public String sid;
-    public boolean smallImgStyle;
 
-    /* loaded from: classes9.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public String f62728a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f62729b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f62730c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f62731d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f62732e;
+
+    /* renamed from: com.fun.ad.sdk.FunAdSlot$1  reason: invalid class name */
+    /* loaded from: classes11.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes11.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int adCount;
-        public int expressHeight;
-        public int expressWidth;
-        public String sid;
-        public boolean smallImgStyle;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f62733a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f62734b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f62735c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f62736d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f62737e;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -45,12 +72,12 @@ public class FunAdSlot {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                FunAdSlot funAdSlot = new FunAdSlot(null);
-                funAdSlot.sid = this.sid;
-                funAdSlot.expressWidth = this.expressWidth;
-                funAdSlot.expressHeight = this.expressHeight;
-                funAdSlot.smallImgStyle = this.smallImgStyle;
-                funAdSlot.adCount = this.adCount;
+                FunAdSlot funAdSlot = new FunAdSlot();
+                funAdSlot.f62728a = this.f62733a;
+                funAdSlot.f62729b = this.f62734b;
+                funAdSlot.f62730c = this.f62735c;
+                funAdSlot.f62732e = this.f62736d;
+                funAdSlot.f62731d = this.f62737e;
                 return funAdSlot;
             }
             return (FunAdSlot) invokeV.objValue;
@@ -60,7 +87,7 @@ public class FunAdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.adCount = i2;
+                this.f62737e = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -70,7 +97,7 @@ public class FunAdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.expressHeight = i2;
+                this.f62735c = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -80,7 +107,7 @@ public class FunAdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.expressWidth = i2;
+                this.f62734b = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -90,7 +117,7 @@ public class FunAdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.sid = str;
+                this.f62733a = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -100,17 +127,11 @@ public class FunAdSlot {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.smallImgStyle = z;
+                this.f62736d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     public FunAdSlot() {
@@ -127,37 +148,33 @@ public class FunAdSlot {
         }
     }
 
-    public /* synthetic */ FunAdSlot(a aVar) {
-        this();
-    }
-
     public int getAdCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.adCount : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62731d : invokeV.intValue;
     }
 
     public int getExpressHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.expressHeight : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62730c : invokeV.intValue;
     }
 
     public int getExpressWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.expressWidth : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62729b : invokeV.intValue;
     }
 
     public String getSid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sid : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62728a : (String) invokeV.objValue;
     }
 
     public boolean isSmallImgStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.smallImgStyle : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f62732e : invokeV.booleanValue;
     }
 }

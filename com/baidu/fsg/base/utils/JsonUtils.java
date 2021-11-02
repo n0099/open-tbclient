@@ -31,15 +31,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f39637a;
+    public static final boolean f37578a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class DataType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Decoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public final class JsonUtils {
                     }
                     return map;
                 } catch (JSONException e2) {
-                    if (JsonUtils.f39637a) {
+                    if (JsonUtils.f37578a) {
                         e2.printStackTrace();
                         return null;
                     }
@@ -214,7 +214,7 @@ public final class JsonUtils {
                 }
                 field.set(obj, obj2);
             } catch (Exception e2) {
-                if (JsonUtils.f39637a) {
+                if (JsonUtils.f37578a) {
                     e2.printStackTrace();
                 }
             }
@@ -236,13 +236,13 @@ public final class JsonUtils {
 
         /* JADX WARN: Can't wrap try/catch for region: R(6:11|(5:16|(4:22|23|19|20)|18|19|20)|30|31|19|20) */
         /* JADX WARN: Code restructure failed: missing block: B:34:0x006c, code lost:
-            if (com.baidu.fsg.base.utils.JsonUtils.f39637a == false) goto L28;
+            if (com.baidu.fsg.base.utils.JsonUtils.f37578a == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:38:0x0078, code lost:
             r4 = e;
          */
         /* JADX WARN: Code restructure failed: missing block: B:40:0x007d, code lost:
-            if (com.baidu.fsg.base.utils.JsonUtils.f39637a == false) goto L28;
+            if (com.baidu.fsg.base.utils.JsonUtils.f37578a == false) goto L28;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -276,7 +276,7 @@ public final class JsonUtils {
                             deserialize = Integer.valueOf(jSONObject.getInt(name));
                         } catch (JSONException e2) {
                             e = e2;
-                            if (JsonUtils.f39637a) {
+                            if (JsonUtils.f37578a) {
                                 e.printStackTrace();
                             }
                             deserialize = null;
@@ -288,7 +288,7 @@ public final class JsonUtils {
                             deserialize = Long.valueOf(jSONObject.getLong(name));
                         } catch (JSONException e3) {
                             e = e3;
-                            if (JsonUtils.f39637a) {
+                            if (JsonUtils.f37578a) {
                                 e.printStackTrace();
                             }
                             deserialize = null;
@@ -312,7 +312,7 @@ public final class JsonUtils {
                         a(obj, field, deserialize);
                     }
                 } catch (Exception e5) {
-                    if (JsonUtils.f39637a) {
+                    if (JsonUtils.f37578a) {
                         e5.printStackTrace();
                     }
                 }
@@ -335,7 +335,7 @@ public final class JsonUtils {
                     try {
                         tArr[i2] = a(jSONArray, i2, cls, z);
                     } catch (JSONException e2) {
-                        if (JsonUtils.f39637a) {
+                        if (JsonUtils.f37578a) {
                             e2.printStackTrace();
                         }
                     }
@@ -365,7 +365,7 @@ public final class JsonUtils {
                     try {
                         r5.add(a(jSONArray, i2, cls2, z));
                     } catch (JSONException e2) {
-                        if (JsonUtils.f39637a) {
+                        if (JsonUtils.f37578a) {
                             e2.printStackTrace();
                         }
                     }
@@ -414,7 +414,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Encoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -444,7 +444,7 @@ public final class JsonUtils {
                     }
                     jSONStringer.endArray();
                 } catch (Exception e2) {
-                    if (JsonUtils.f39637a) {
+                    if (JsonUtils.f37578a) {
                         e2.printStackTrace();
                     }
                 }
@@ -459,7 +459,7 @@ public final class JsonUtils {
                 try {
                     jSONStringer.value((Object) null);
                 } catch (JSONException e2) {
-                    if (JsonUtils.f39637a) {
+                    if (JsonUtils.f37578a) {
                         e2.printStackTrace();
                     }
                 }
@@ -501,7 +501,7 @@ public final class JsonUtils {
                     }
                     jSONStringer.endArray();
                 } catch (Exception e2) {
-                    if (JsonUtils.f39637a) {
+                    if (JsonUtils.f37578a) {
                         e2.printStackTrace();
                     }
                 }
@@ -519,7 +519,7 @@ public final class JsonUtils {
                     }
                     jSONStringer.endObject();
                 } catch (Exception e2) {
-                    if (JsonUtils.f39637a) {
+                    if (JsonUtils.f37578a) {
                         e2.printStackTrace();
                     }
                 }
@@ -534,7 +534,7 @@ public final class JsonUtils {
                     a(jSONStringer, obj.getClass(), obj);
                     jSONStringer.endObject();
                 } catch (Exception e2) {
-                    if (JsonUtils.f39637a) {
+                    if (JsonUtils.f37578a) {
                         e2.printStackTrace();
                     }
                 }
@@ -547,7 +547,7 @@ public final class JsonUtils {
                 try {
                     jSONStringer.value(obj);
                 } catch (JSONException e2) {
-                    if (JsonUtils.f39637a) {
+                    if (JsonUtils.f37578a) {
                         e2.printStackTrace();
                     }
                 }
@@ -593,7 +593,7 @@ public final class JsonUtils {
                 return;
             }
         }
-        f39637a = ApollonConstants.DEBUG & false;
+        f37578a = ApollonConstants.DEBUG & false;
     }
 
     public JsonUtils() {

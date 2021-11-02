@@ -11,7 +11,7 @@ import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.dxmpay.apollon.utils.Md5Utils;
 import com.dxmpay.wallet.core.beans.BeanRequestBase;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PayQueryRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CRDDITPAY_NAME = "get_credit_pay_android_result";

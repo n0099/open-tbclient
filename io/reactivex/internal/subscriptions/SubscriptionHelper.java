@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class SubscriptionHelper implements Subscription {
     public static final /* synthetic */ SubscriptionHelper[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -81,14 +81,14 @@ public final class SubscriptionHelper implements Subscription {
         return invokeL.booleanValue;
     }
 
-    public static void deferredRequest(AtomicReference<Subscription> atomicReference, AtomicLong atomicLong, long j2) {
+    public static void deferredRequest(AtomicReference<Subscription> atomicReference, AtomicLong atomicLong, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{atomicReference, atomicLong, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{atomicReference, atomicLong, Long.valueOf(j)}) == null) {
             Subscription subscription = atomicReference.get();
             if (subscription != null) {
-                subscription.request(j2);
-            } else if (validate(j2)) {
-                BackpressureHelper.add(atomicLong, j2);
+                subscription.request(j);
+            } else if (validate(j)) {
+                BackpressureHelper.add(atomicLong, j);
                 Subscription subscription2 = atomicReference.get();
                 if (subscription2 != null) {
                     long andSet = atomicLong.getAndSet(0L);
@@ -143,10 +143,10 @@ public final class SubscriptionHelper implements Subscription {
         return invokeLL.booleanValue;
     }
 
-    public static void reportMoreProduced(long j2) {
+    public static void reportMoreProduced(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, null, j2) == null) {
-            RxJavaPlugins.onError(new ProtocolViolationException("More produced than requested: " + j2));
+        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
+            RxJavaPlugins.onError(new ProtocolViolationException("More produced than requested: " + j));
         }
     }
 
@@ -237,18 +237,18 @@ public final class SubscriptionHelper implements Subscription {
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
         }
     }
 
-    public static boolean validate(long j2) {
+    public static boolean validate(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65548, null, j2)) == null) {
-            if (j2 <= 0) {
-                RxJavaPlugins.onError(new IllegalArgumentException("n > 0 required but it was " + j2));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65548, null, j)) == null) {
+            if (j <= 0) {
+                RxJavaPlugins.onError(new IllegalArgumentException("n > 0 required but it was " + j));
                 return false;
             }
             return true;
@@ -256,12 +256,12 @@ public final class SubscriptionHelper implements Subscription {
         return invokeJ.booleanValue;
     }
 
-    public static boolean setOnce(AtomicReference<Subscription> atomicReference, Subscription subscription, long j2) {
+    public static boolean setOnce(AtomicReference<Subscription> atomicReference, Subscription subscription, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{atomicReference, subscription, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{atomicReference, subscription, Long.valueOf(j)})) == null) {
             if (setOnce(atomicReference, subscription)) {
-                subscription.request(j2);
+                subscription.request(j);
                 return true;
             }
             return false;

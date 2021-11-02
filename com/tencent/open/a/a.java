@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.tencent.open.log.SLog;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f76658a;
+    public static final Uri f70012a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f76658a = Uri.parse("content://telephony/carriers/preferapn");
+        f70012a = Uri.parse("content://telephony/carriers/preferapn");
     }
 
     public static String a(Context context) {
@@ -94,7 +94,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                Cursor query = context.getContentResolver().query(f76658a, null, null, null, null);
+                Cursor query = context.getContentResolver().query(f70012a, null, null, null, null);
                 if (query == null) {
                     return null;
                 }

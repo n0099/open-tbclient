@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.b.i;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface b extends d {
     void a(int i2);
 

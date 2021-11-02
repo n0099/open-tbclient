@@ -21,20 +21,20 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void a(String str, long j2);
+        void a(String str, long j);
 
-        void a(String str, long j2, long j3);
+        void a(String str, long j, long j2);
 
-        void a(String str, long j2, String str2);
+        void a(String str, long j, String str2);
 
-        void b(String str, long j2);
+        void b(String str, long j);
     }
 
     public static long a(String str, OutputStream outputStream, a aVar) throws Exception {
@@ -149,13 +149,13 @@ public class b {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f39115a;
+                    public final /* synthetic */ String f37073a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f39116b;
+                    public final /* synthetic */ String f37074b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f39117c;
+                    public final /* synthetic */ a f37075c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -172,16 +172,16 @@ public class b {
                                 return;
                             }
                         }
-                        this.f39115a = str4;
-                        this.f39116b = str;
-                        this.f39117c = aVar;
+                        this.f37073a = str4;
+                        this.f37074b = str;
+                        this.f37075c = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.b(this.f39115a, this.f39116b, this.f39117c);
+                            b.b(this.f37073a, this.f37074b, this.f37075c);
                         }
                     }
                 });
@@ -191,9 +191,9 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0028 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x000d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0034 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0029 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x000e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0035 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v10, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
     /* JADX WARN: Type inference failed for: r1v11 */

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcTrackDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "bimrtc_track.db";
@@ -35,7 +35,7 @@ public class BIMRtcTrackDatabase {
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_REQUEST;
@@ -137,7 +137,7 @@ public class BIMRtcTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -352,7 +352,7 @@ public class BIMRtcTrackDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (myLock) {
-                long j2 = 0;
+                long j = 0;
                 SQLiteDatabase db = getDb(this.context);
                 if (db == null) {
                     return 0L;
@@ -361,7 +361,7 @@ public class BIMRtcTrackDatabase {
                 try {
                     cursor = db.rawQuery("select count(*) from request", null);
                     if (cursor != null && cursor.moveToNext()) {
-                        j2 = cursor.getInt(0);
+                        j = cursor.getInt(0);
                     }
                     if (cursor != null) {
                         cursor.close();
@@ -373,7 +373,7 @@ public class BIMRtcTrackDatabase {
                     }
                 }
                 db.close();
-                return j2;
+                return j;
             }
         }
         return invokeV.longValue;
@@ -410,10 +410,10 @@ public class BIMRtcTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List<Request> getRequestsByAliasId(long j2) {
+    public List<Request> getRequestsByAliasId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
             synchronized (myLock) {
                 SQLiteDatabase db = getDb(this.context);
                 Cursor cursor = null;
@@ -422,7 +422,7 @@ public class BIMRtcTrackDatabase {
                 }
                 List<Request> arrayList = new ArrayList<>();
                 try {
-                    cursor = db.rawQuery("select * from request limit 1000 where " + RequestEnum.aliasId + " = " + j2, null);
+                    cursor = db.rawQuery("select * from request limit 1000 where " + RequestEnum.aliasId + " = " + j, null);
                     arrayList = getCursorRequests(cursor);
                     if (cursor != null) {
                         cursor.close();

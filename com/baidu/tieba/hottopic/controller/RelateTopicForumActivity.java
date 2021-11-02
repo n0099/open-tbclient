@@ -2,10 +2,10 @@ package com.baidu.tieba.hottopic.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.e.a.e;
-import c.a.e.e.p.l;
-import c.a.r0.j1.a.j;
-import c.a.r0.j1.f.d;
+import b.a.e.a.e;
+import b.a.e.e.p.l;
+import b.a.r0.j1.j.j;
+import b.a.r0.j1.o.d;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     public String topicId;
     public CustomMessageListener unLikeForumListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelateTopicForumActivity f52735a;
+        public final /* synthetic */ RelateTopicForumActivity f50014a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RelateTopicForumActivity relateTopicForumActivity, int i2) {
@@ -62,25 +62,25 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     return;
                 }
             }
-            this.f52735a = relateTopicForumActivity;
+            this.f50014a = relateTopicForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52735a.dataList.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f50014a.dataList.isEmpty()) {
                 return;
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof Long) {
-                RelateForumItemData itemByForumId = this.f52735a.getItemByForumId(((Long) data).longValue());
+                RelateForumItemData itemByForumId = this.f50014a.getItemByForumId(((Long) data).longValue());
                 if (itemByForumId != null) {
                     itemByForumId.followNum++;
                     itemByForumId.setIsLiked(true);
-                    j e2 = this.f52735a.mHotTopicMoreView.e();
+                    j e2 = this.f50014a.mHotTopicMoreView.e();
                     if (e2 != null) {
-                        e2.d(this.f52735a.dataList, this.f52735a.topicId);
+                        e2.d(this.f50014a.dataList, this.f50014a.topicId);
                         e2.notifyDataSetChanged();
                     }
                 }
@@ -88,13 +88,13 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelateTopicForumActivity f52736a;
+        public final /* synthetic */ RelateTopicForumActivity f50015a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(RelateTopicForumActivity relateTopicForumActivity, int i2) {
@@ -114,25 +114,25 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     return;
                 }
             }
-            this.f52736a = relateTopicForumActivity;
+            this.f50015a = relateTopicForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52736a.dataList.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f50015a.dataList.isEmpty()) {
                 return;
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof Long) {
-                RelateForumItemData itemByForumId = this.f52736a.getItemByForumId(((Long) data).longValue());
+                RelateForumItemData itemByForumId = this.f50015a.getItemByForumId(((Long) data).longValue());
                 if (itemByForumId != null) {
                     itemByForumId.followNum--;
                     itemByForumId.setIsLiked(false);
-                    j e2 = this.f52736a.mHotTopicMoreView.e();
+                    j e2 = this.f50015a.mHotTopicMoreView.e();
                     if (e2 != null) {
-                        e2.d(this.f52736a.dataList, this.f52736a.topicId);
+                        e2.d(this.f50015a.dataList, this.f50015a.topicId);
                         e2.notifyDataSetChanged();
                     }
                 }
@@ -140,13 +140,13 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelateTopicForumActivity f52737a;
+        public final /* synthetic */ RelateTopicForumActivity f50016a;
 
         public c(RelateTopicForumActivity relateTopicForumActivity) {
             Interceptable interceptable = $ic;
@@ -163,18 +163,18 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     return;
                 }
             }
-            this.f52737a = relateTopicForumActivity;
+            this.f50016a = relateTopicForumActivity;
         }
 
-        @Override // c.a.e.a.e
+        @Override // b.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (AntiHelper.m(this.f52737a.likeModel.getErrorCode(), this.f52737a.likeModel.getErrorString())) {
-                    AntiHelper.u(this.f52737a.getActivity(), this.f52737a.likeModel.getErrorString());
-                } else if (StringUtils.isNull(this.f52737a.likeModel.getErrorString())) {
+                if (AntiHelper.m(this.f50016a.likeModel.getErrorCode(), this.f50016a.likeModel.getErrorString())) {
+                    AntiHelper.u(this.f50016a.getActivity(), this.f50016a.likeModel.getErrorString());
+                } else if (StringUtils.isNull(this.f50016a.likeModel.getErrorString())) {
                 } else {
-                    l.M(TbadkCoreApplication.getInst(), this.f52737a.likeModel.getErrorString());
+                    l.M(TbadkCoreApplication.getInst(), this.f50016a.likeModel.getErrorString());
                 }
             }
         }
@@ -213,14 +213,14 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public RelateForumItemData getItemByForumId(long j2) {
+    public RelateForumItemData getItemByForumId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, this, j)) == null) {
             for (int i2 = 0; i2 < this.dataList.size(); i2++) {
                 if (ListUtils.getItem(this.dataList, i2) != null && (this.dataList.get(i2) instanceof RelateForumItemData)) {
                     RelateForumItemData relateForumItemData = this.dataList.get(i2);
-                    if (j2 == relateForumItemData.forumId) {
+                    if (j == relateForumItemData.forumId) {
                         return relateForumItemData;
                     }
                 }

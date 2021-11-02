@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Oauth2AccessToken {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ACCESS_TOKEN = "access_token";
@@ -144,10 +144,10 @@ public class Oauth2AccessToken {
         setExpiresTime(System.currentTimeMillis() + (Long.parseLong(str) * 1000));
     }
 
-    public void setExpiresTime(long j2) {
+    public void setExpiresTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.mExpiresTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.mExpiresTime = j;
         }
     }
 

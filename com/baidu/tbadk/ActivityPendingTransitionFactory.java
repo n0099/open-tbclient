@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ActivityPendingTransitionFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_CUSTOM_FROM_THIRD_PARTY = false;

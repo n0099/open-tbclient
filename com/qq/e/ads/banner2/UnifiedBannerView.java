@@ -20,13 +20,13 @@ import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.Map;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplianceInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UnifiedBannerAD f75469a;
+    public final UnifiedBannerAD f67819a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener) {
@@ -67,7 +67,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                 return;
             }
         }
-        this.f75469a = new UnifiedBannerAD(activity, this, str, unifiedBannerADListener);
+        this.f67819a = new UnifiedBannerAD(activity, this, str, unifiedBannerADListener);
         a();
     }
 
@@ -89,10 +89,10 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                 return;
             }
         }
-        if (!TextUtils.isEmpty(str2)) {
+        if (TextUtils.isEmpty(str2)) {
             GDTLogger.e(UnifiedBannerView.class.getSimpleName() + "构造函数中 token 参数不可为空");
         }
-        this.f75469a = new UnifiedBannerAD(activity, this, str, str2, unifiedBannerADListener);
+        this.f67819a = new UnifiedBannerAD(activity, this, str, str2, unifiedBannerADListener);
         a();
     }
 
@@ -151,91 +151,110 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f75469a.f();
+            this.f67819a.destroy();
         }
+    }
+
+    public String getAdNetWorkName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67819a.getAdNetWorkName() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public String getApkInfoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75469a.getApkInfoUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67819a.getApkInfoUrl() : (String) invokeV.objValue;
     }
 
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75469a.getECPM() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67819a.getECPM() : invokeV.intValue;
     }
 
     public String getECPMLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75469a.getECPMLevel() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f67819a.getECPMLevel() : (String) invokeV.objValue;
     }
 
     public Map getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f75469a.e() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f67819a.getExt() : (Map) invokeV.objValue;
+    }
+
+    public Map<String, Object> getExtraInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f67819a.getExtraInfo() : (Map) invokeV.objValue;
     }
 
     public void loadAD() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f75469a.d();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f67819a.loadAD();
         }
     }
 
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onWindowFocusChanged(z);
-            this.f75469a.a(z);
+            this.f67819a.onWindowFocusChanged(z);
         }
     }
 
     public void sendLossNotification(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, str) == null) {
-            this.f75469a.sendLossNotification(i2, i3, str);
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, str) == null) {
+            this.f67819a.sendLossNotification(i2, i3, str);
         }
     }
 
     public void sendWinNotification(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f75469a.sendWinNotification(i2);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f67819a.sendWinNotification(i2);
+        }
+    }
+
+    public void setBidECPM(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.f67819a.setBidECPM(i2);
         }
     }
 
     public void setDownConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, downAPPConfirmPolicy) == null) {
-            this.f75469a.a(downAPPConfirmPolicy);
+        if (interceptable == null || interceptable.invokeL(1048588, this, downAPPConfirmPolicy) == null) {
+            this.f67819a.a(downAPPConfirmPolicy);
         }
     }
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, downloadConfirmListener) == null) {
-            this.f75469a.setDownloadConfirmListener(downloadConfirmListener);
+        if (interceptable == null || interceptable.invokeL(1048589, this, downloadConfirmListener) == null) {
+            this.f67819a.setDownloadConfirmListener(downloadConfirmListener);
         }
     }
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, loadAdParams) == null) {
-            this.f75469a.a(loadAdParams);
+        if (interceptable == null || interceptable.invokeL(1048590, this, loadAdParams) == null) {
+            this.f67819a.setLoadAdParams(loadAdParams);
         }
     }
 
     public void setRefresh(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f75469a.c(i2);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.f67819a.c(i2);
         }
     }
 }

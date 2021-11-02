@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SimpleInterceptor implements Interceptable {
     @Override // com.baidu.titan.sdk.runtime.Interceptable
     public InterceptResult invokeB(int i2, Object obj, byte b2) {
@@ -56,12 +56,12 @@ public class SimpleInterceptor implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeJ(int i2, Object obj, long j2) {
+    public InterceptResult invokeJ(int i2, Object obj, long j) {
         return null;
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeJL(int i2, Object obj, long j2, Object obj2) {
+    public InterceptResult invokeJL(int i2, Object obj, long j, Object obj2) {
         return null;
     }
 
@@ -101,7 +101,7 @@ public class SimpleInterceptor implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLJ(int i2, Object obj, Object obj2, long j2) {
+    public InterceptResult invokeLJ(int i2, Object obj, Object obj2, long j) {
         return null;
     }
 

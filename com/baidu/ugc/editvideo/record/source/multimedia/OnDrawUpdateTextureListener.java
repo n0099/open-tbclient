@@ -1,11 +1,11 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import android.graphics.SurfaceTexture;
-import c.a.a0.b.a.e;
+import b.a.a0.b.a.e;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface OnDrawUpdateTextureListener extends SurfaceTexture.OnFrameAvailableListener, EffectChangeObserver, MediaTrackChangeObserver {
     FullFrameRect getFullFrameRect2D();
 
@@ -13,7 +13,7 @@ public interface OnDrawUpdateTextureListener extends SurfaceTexture.OnFrameAvail
 
     e getVlogCore();
 
-    void onDrawFrame(int i2, long j2);
+    void onDrawFrame(int i2, long j);
 
     void onSizeChange(int i2, int i3);
 

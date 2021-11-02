@@ -4,16 +4,15 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.core.j.g;
-/* loaded from: classes9.dex */
+import com.bytedance.sdk.openadsdk.ITTProvider;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+/* loaded from: classes11.dex */
 public class TTMultiProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,13 +31,25 @@ public class TTMultiProvider extends ContentProvider {
         }
     }
 
+    private ITTProvider a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (TTAdSdk.getAdManager() != null) {
+                return (ITTProvider) TTAdSdk.getAdManager().getExtra(ITTProvider.class, null);
+            }
+            return null;
+        }
+        return (ITTProvider) invokeV.objValue;
+    }
+
     @Override // android.content.ContentProvider
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+    public int delete(Uri uri, String str, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            if (g.a()) {
-                return f.b(getContext()).a(uri, str, strArr);
+            if (a() != null) {
+                return a().delete(uri, str, strArr);
             }
             return 0;
         }
@@ -46,27 +57,19 @@ public class TTMultiProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    @Nullable
-    public String getType(@NonNull Uri uri) {
+    public String getType(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            if (g.a()) {
-                return f.b(getContext()).a(uri);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? a() != null ? a().getType(uri) : "" : (String) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+    public Uri insert(Uri uri, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, contentValues)) == null) {
-            if (g.a()) {
-                return f.b(getContext()).a(uri, contentValues);
+            if (a() != null) {
+                return a().insert(uri, contentValues);
             }
             return null;
         }
@@ -78,23 +81,18 @@ public class TTMultiProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (g.a()) {
-                f.b(getContext()).a(getContext());
-                return true;
-            }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // android.content.ContentProvider
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
-            if (g.a()) {
-                return f.b(getContext()).a(uri, strArr, str, strArr2, str2);
+            if (a() != null) {
+                return a().query(uri, strArr, str, strArr2, str2);
             }
             return null;
         }
@@ -102,12 +100,12 @@ public class TTMultiProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
-            if (g.a()) {
-                return f.b(getContext()).a(uri, contentValues, str, strArr);
+            if (a() != null) {
+                return a().update(uri, contentValues, str, strArr);
             }
             return 0;
         }

@@ -16,24 +16,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GetHotWordsModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f54700e;
+    public b f51873e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f54701f;
+    public final HttpMessageListener f51874f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetHotWordsModel f54702a;
+        public final /* synthetic */ GetHotWordsModel f51875a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GetHotWordsModel getHotWordsModel, int i2) {
@@ -53,25 +53,25 @@ public class GetHotWordsModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f54702a = getHotWordsModel;
+            this.f51875a = getHotWordsModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003352 && (httpResponsedMessage instanceof GetHotWordsMessage) && this.f54702a.f54700e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003352 && (httpResponsedMessage instanceof GetHotWordsMessage) && this.f51875a.f51873e != null) {
                 GetHotWordsMessage getHotWordsMessage = (GetHotWordsMessage) httpResponsedMessage;
                 if (getHotWordsMessage.getData() != null) {
-                    this.f54702a.f54700e.onSuccess(getHotWordsMessage.getData());
+                    this.f51875a.f51873e.onSuccess(getHotWordsMessage.getData());
                 } else {
-                    this.f54702a.f54700e.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
+                    this.f51875a.f51873e.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void onFail(int i2, String str);
 
@@ -91,12 +91,12 @@ public class GetHotWordsModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f54701f = new a(this, CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
+        this.f51874f = new a(this, CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f54701f.setTag(getUniqueId());
-        this.f54701f.setSelfListener(true);
-        registerListener(this.f54701f);
+        this.f51874f.setTag(getUniqueId());
+        this.f51874f.setSelfListener(true);
+        registerListener(this.f51874f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -104,7 +104,7 @@ public class GetHotWordsModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f54701f);
+            MessageManager.getInstance().unRegisterListener(this.f51874f);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
             return true;
         }
@@ -133,7 +133,7 @@ public class GetHotWordsModel extends FaceBaseModel {
     public void x(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f54700e = bVar;
+            this.f51873e = bVar;
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS));
         }
     }

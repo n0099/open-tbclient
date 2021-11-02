@@ -10,7 +10,7 @@ import com.facebook.common.internal.Preconditions;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ThrottlingProducer<T> implements Producer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "ThrottlingProducer";
@@ -24,13 +24,13 @@ public class ThrottlingProducer<T> implements Producer<T> {
     public final ConcurrentLinkedQueue<Pair<Consumer<T>, ProducerContext>> mPendingRequests;
 
     /* renamed from: com.facebook.imagepipeline.producers.ThrottlingProducer$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class ThrottlerConsumer extends DelegatingConsumer<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public class ThrottlingProducer<T> implements Producer<T> {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
-            producerContext.getListener().onProducerStart(producerContext.getId(), PRODUCER_NAME);
+            producerContext.getProducerListener().onProducerStart(producerContext, PRODUCER_NAME);
             synchronized (this) {
                 z = true;
                 if (this.mNumCurrentRequests >= this.mMaxSimultaneousRequests) {
@@ -194,7 +194,7 @@ public class ThrottlingProducer<T> implements Producer<T> {
     public void produceResultsInternal(Consumer<T> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext) == null) {
-            producerContext.getListener().onProducerFinishWithSuccess(producerContext.getId(), PRODUCER_NAME, null);
+            producerContext.getProducerListener().onProducerFinishWithSuccess(producerContext, PRODUCER_NAME, null);
             this.mInputProducer.produceResults(new ThrottlerConsumer(this, consumer, null), producerContext);
         }
     }

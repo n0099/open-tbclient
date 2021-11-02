@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class cc implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.e> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,8 +33,8 @@ public class cc implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.e> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, eVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        eVar.f71666a = jSONObject.optInt("sensorType");
-        eVar.f71668c = jSONObject.optLong("timestamp");
+        eVar.f64142a = jSONObject.optInt("sensorType");
+        eVar.f64144c = jSONObject.optLong("timestamp");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,8 +46,8 @@ public class cc implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.e> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "sensorType", eVar.f71666a);
-            com.kwad.sdk.utils.q.a(jSONObject, "timestamp", eVar.f71668c);
+            com.kwad.sdk.utils.q.a(jSONObject, "sensorType", eVar.f64142a);
+            com.kwad.sdk.utils.q.a(jSONObject, "timestamp", eVar.f64144c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

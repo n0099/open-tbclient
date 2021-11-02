@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UrlSchemaHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
@@ -88,6 +88,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_FINISH_THIS_PAGE = "jump=finish_this_page";
     public static final String SCHEMA_TYPE_FRS = "frs:";
     public static final String SCHEMA_TYPE_FRS_DETAIL = "tieba://frsdetail?";
+    public static final String SCHEMA_TYPE_FRS_ITEM_TAB = "tieba.baidu.com/f/itemdetail?forumname=";
     public static final String SCHEMA_TYPE_FRS_RULES = "forumruledetail://";
     public static final String SCHEMA_TYPE_GAME_CENTER = "gamecenter:";
     public static final String SCHEMA_TYPE_GAME_DETAIL = "game:detail:";

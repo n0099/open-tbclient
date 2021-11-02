@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class b extends ConnectivityManager.NetworkCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ URL f75791a;
+    public /* synthetic */ URL f68095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f75792b;
+    public /* synthetic */ a f68096b;
 
     public b(a aVar, URL url) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public final class b extends ConnectivityManager.NetworkCallback {
                 return;
             }
         }
-        this.f75792b = aVar;
-        this.f75791a = url;
+        this.f68096b = aVar;
+        this.f68095a = url;
     }
 
     @Override // android.net.ConnectivityManager.NetworkCallback
@@ -45,7 +45,7 @@ public final class b extends ConnectivityManager.NetworkCallback {
         if (interceptable == null || interceptable.invokeL(1048576, this, network) == null) {
             super.onAvailable(network);
             try {
-                this.f75792b.f75784c = (HttpURLConnection) network.openConnection(this.f75791a);
+                this.f68096b.f68088c = (HttpURLConnection) network.openConnection(this.f68095a);
             } catch (IOException unused) {
             }
         }

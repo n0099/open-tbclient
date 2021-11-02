@@ -20,43 +20,41 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class aw {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static aw f43284b;
+    public static aw f41080b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f43285a;
+    public a f41081a;
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerThread f43286c;
+    public HandlerThread f41082c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f43287d;
+    public Handler f41083d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f43288e;
+    public volatile int f41084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43289f;
+    public int f41085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f43290g;
+    public JSONObject f41086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f43291h;
+    public JSONArray f41087h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONArray f43292i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public JSONArray f43293j;
+    public JSONArray f41088i;
+    public JSONArray j;
     public JSONArray k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(JSONObject jSONObject);
     }
@@ -74,7 +72,7 @@ public class aw {
                 return;
             }
         }
-        f43284b = new aw();
+        f41080b = new aw();
     }
 
     public aw() {
@@ -90,15 +88,15 @@ public class aw {
                 return;
             }
         }
-        this.f43286c = new HandlerThread("fullTraceHandleThread");
-        this.f43290g = new JSONObject();
-        this.f43291h = new JSONArray();
-        this.f43292i = new JSONArray();
-        this.f43293j = new JSONArray();
+        this.f41082c = new HandlerThread("fullTraceHandleThread");
+        this.f41086g = new JSONObject();
+        this.f41087h = new JSONArray();
+        this.f41088i = new JSONArray();
+        this.j = new JSONArray();
         this.k = new JSONArray();
-        this.f43286c.start();
-        this.f43286c.setPriority(10);
-        this.f43287d = new Handler(this.f43286c.getLooper());
+        this.f41082c.start();
+        this.f41082c.setPriority(10);
+        this.f41083d = new Handler(this.f41082c.getLooper());
     }
 
     private void b(JSONObject jSONObject) {
@@ -110,7 +108,7 @@ public class aw {
     private void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65567, this, context) == null) {
-            this.f43292i = b(this.f43292i, BDStatCore.instance().getPageSessionHead());
+            this.f41088i = b(this.f41088i, BDStatCore.instance().getPageSessionHead());
             b(context, false);
             b();
         }
@@ -119,11 +117,11 @@ public class aw {
     public void c(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, context, z) == null) {
-            this.f43290g = new JSONObject();
+            this.f41086g = new JSONObject();
             b(context);
-            this.f43292i = new JSONArray();
-            this.f43291h = new JSONArray();
-            this.f43293j = new JSONArray();
+            this.f41088i = new JSONArray();
+            this.f41087h = new JSONArray();
+            this.j = new JSONArray();
             this.k = new JSONArray();
             if (!z) {
                 au.a().b();
@@ -141,27 +139,27 @@ public class aw {
                 b();
             }
             try {
-                b(context, this.f43290g);
+                b(context, this.f41086g);
             } catch (Exception unused) {
             }
-            if (this.f43291h.length() == 0 && this.f43292i.length() == 0 && this.f43293j.length() == 0 && this.k.length() == 0) {
+            if (this.f41087h.length() == 0 && this.f41088i.length() == 0 && this.j.length() == 0 && this.k.length() == 0) {
                 return;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("he", this.f43290g);
+                jSONObject.put("he", this.f41086g);
             } catch (Exception unused2) {
             }
             try {
-                jSONObject.put("pr", this.f43292i);
+                jSONObject.put("pr", this.f41088i);
             } catch (Exception unused3) {
             }
             try {
-                jSONObject.put("ev", this.f43291h);
+                jSONObject.put("ev", this.f41087h);
             } catch (Exception unused4) {
             }
             try {
-                jSONObject.put("ti", this.f43293j);
+                jSONObject.put("ti", this.j);
             } catch (Exception unused5) {
             }
             try {
@@ -169,15 +167,15 @@ public class aw {
             } catch (Exception unused6) {
             }
             try {
-                jSONObject.put("pd", au.a().a(au.a.f43282b));
+                jSONObject.put("pd", au.a().a(au.a.f41078b));
             } catch (Exception unused7) {
             }
             try {
-                jSONObject.put("ed", au.a().a(au.a.f43281a));
+                jSONObject.put("ed", au.a().a(au.a.f41077a));
             } catch (Exception unused8) {
             }
             try {
-                jSONObject.put("sd", au.a().a(au.a.f43283c));
+                jSONObject.put("sd", au.a().a(au.a.f41079c));
             } catch (Exception unused9) {
             }
             c(context, jSONObject);
@@ -205,17 +203,17 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f43288e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f41084e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
-        a(this.f43292i, jSONObject);
+        a(this.f41088i, jSONObject);
     }
 
     public static aw a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f43284b : (aw) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f41080b : (aw) invokeV.objValue;
     }
 
     public void a(Context context) {
@@ -271,14 +269,14 @@ public class aw {
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("he", new JSONObject(this.f43290g.toString()));
-                jSONObject.put("pr", new JSONArray(this.f43292i.toString()));
-                jSONObject.put("ev", new JSONArray(this.f43291h.toString()));
-                jSONObject.put("ti", new JSONArray(this.f43293j.toString()));
+                jSONObject.put("he", new JSONObject(this.f41086g.toString()));
+                jSONObject.put("pr", new JSONArray(this.f41088i.toString()));
+                jSONObject.put("ev", new JSONArray(this.f41087h.toString()));
+                jSONObject.put("ti", new JSONArray(this.j.toString()));
                 jSONObject.put("sv", new JSONArray(this.k.toString()));
-                jSONObject.put("pd", au.a().a(au.a.f43282b));
-                jSONObject.put("ed", au.a().a(au.a.f43281a));
-                jSONObject.put("sd", au.a().a(au.a.f43283c));
+                jSONObject.put("pd", au.a().a(au.a.f41078b));
+                jSONObject.put("ed", au.a().a(au.a.f41077a));
+                jSONObject.put("sd", au.a().a(au.a.f41079c));
             } catch (Exception unused) {
             }
             String jSONObject2 = jSONObject.toString();
@@ -286,7 +284,7 @@ public class aw {
             if (length >= 184320) {
                 return;
             }
-            this.f43288e = length;
+            this.f41084e = length;
             String u = bw.u(context);
             bo.a(context, u + Config.STAT_FULL_CACHE_FILE_NAME, jSONObject2, false);
         }
@@ -302,7 +300,7 @@ public class aw {
         Iterator<aq> it = arrayList.iterator();
         while (it.hasNext()) {
             aq next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f43282b), au.a().a(next.f(), au.a.f43283c), bj.c(next.c()));
+            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f41078b), au.a().a(next.f(), au.a.f41079c), bj.c(next.c()));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -314,7 +312,7 @@ public class aw {
     public void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            CooperService.instance().getHeadObject().installHeader(context, this.f43290g);
+            CooperService.instance().getHeadObject().installHeader(context, this.f41086g);
         }
     }
 
@@ -324,7 +322,7 @@ public class aw {
             CooperService.instance().getHeadObject().installHeader(context, jSONObject);
             try {
                 jSONObject.put("t", System.currentTimeMillis());
-                jSONObject.put("sq", this.f43289f);
+                jSONObject.put("sq", this.f41085f);
                 jSONObject.put("ss", BDStatCore.instance().getSessionStartTime());
                 jSONObject.put("at", "1");
                 jSONObject.put("sign", CooperService.instance().getUUID());
@@ -336,7 +334,7 @@ public class aw {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65564, this) == null) {
-            this.f43289f = 0;
+            this.f41085f = 0;
         }
     }
 
@@ -359,7 +357,7 @@ public class aw {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            this.f43289f++;
+            this.f41085f++;
         }
     }
 
@@ -367,9 +365,9 @@ public class aw {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, this, context, str) == null) {
             LogSender.instance().saveLogData(context, str, true);
-            if (this.f43285a != null) {
+            if (this.f41081a != null) {
                 try {
-                    this.f43285a.a(new JSONObject(str));
+                    this.f41081a.a(new JSONObject(str));
                 } catch (Exception unused) {
                 }
             }
@@ -386,7 +384,7 @@ public class aw {
         Iterator<ap> it = arrayList.iterator();
         while (it.hasNext()) {
             ap next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f43283c));
+            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f41079c));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -395,49 +393,47 @@ public class aw {
         c(context);
     }
 
-    public void a(Context context, String str, String str2, int i2, long j2, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, JSONObject jSONObject, String str6) {
+    public void a(Context context, String str, String str2, int i2, long j, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, JSONObject jSONObject, String str6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, str2, Integer.valueOf(i2), Long.valueOf(j2), str3, jSONArray, str4, jSONArray2, str5, map, jSONObject, str6}) == null) {
-            a(context, str, str2, i2, j2, str3, jSONArray, str4, jSONArray2, str5, map, false, jSONObject, str6);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, str2, Integer.valueOf(i2), Long.valueOf(j), str3, jSONArray, str4, jSONArray2, str5, map, jSONObject, str6}) == null) {
+            a(context, str, str2, i2, j, str3, jSONArray, str4, jSONArray2, str5, map, false, jSONObject, str6);
         }
     }
 
-    public void a(Context context, String str, String str2, int i2, long j2, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, boolean z, JSONObject jSONObject, String str6) {
+    public void a(Context context, String str, String str2, int i2, long j, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, boolean z, JSONObject jSONObject, String str6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, str2, Integer.valueOf(i2), Long.valueOf(j2), str3, jSONArray, str4, jSONArray2, str5, map, Boolean.valueOf(z), jSONObject, str6}) == null) {
-            this.f43287d.post(new Runnable(this, context, str, str2, i2, j2, str3, jSONArray, str4, jSONArray2, str5, map, z, jSONObject, str6) { // from class: com.baidu.mobstat.aw.1
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, str2, Integer.valueOf(i2), Long.valueOf(j), str3, jSONArray, str4, jSONArray2, str5, map, Boolean.valueOf(z), jSONObject, str6}) == null) {
+            this.f41083d.post(new Runnable(this, context, str, str2, i2, j, str3, jSONArray, str4, jSONArray2, str5, map, z, jSONObject, str6) { // from class: com.baidu.mobstat.aw.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f43294a;
+                public final /* synthetic */ Context f41089a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f43295b;
+                public final /* synthetic */ String f41090b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f43296c;
+                public final /* synthetic */ String f41091c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f43297d;
+                public final /* synthetic */ int f41092d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ long f43298e;
+                public final /* synthetic */ long f41093e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ String f43299f;
+                public final /* synthetic */ String f41094f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ JSONArray f43300g;
+                public final /* synthetic */ JSONArray f41095g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ String f43301h;
+                public final /* synthetic */ String f41096h;
 
                 /* renamed from: i  reason: collision with root package name */
-                public final /* synthetic */ JSONArray f43302i;
-
-                /* renamed from: j  reason: collision with root package name */
-                public final /* synthetic */ String f43303j;
+                public final /* synthetic */ JSONArray f41097i;
+                public final /* synthetic */ String j;
                 public final /* synthetic */ Map k;
                 public final /* synthetic */ boolean l;
                 public final /* synthetic */ JSONObject m;
@@ -449,7 +445,7 @@ public class aw {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, str, str2, Integer.valueOf(i2), Long.valueOf(j2), str3, jSONArray, str4, jSONArray2, str5, map, Boolean.valueOf(z), jSONObject, str6};
+                        Object[] objArr = {this, context, str, str2, Integer.valueOf(i2), Long.valueOf(j), str3, jSONArray, str4, jSONArray2, str5, map, Boolean.valueOf(z), jSONObject, str6};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -460,16 +456,16 @@ public class aw {
                         }
                     }
                     this.o = this;
-                    this.f43294a = context;
-                    this.f43295b = str;
-                    this.f43296c = str2;
-                    this.f43297d = i2;
-                    this.f43298e = j2;
-                    this.f43299f = str3;
-                    this.f43300g = jSONArray;
-                    this.f43301h = str4;
-                    this.f43302i = jSONArray2;
-                    this.f43303j = str5;
+                    this.f41089a = context;
+                    this.f41090b = str;
+                    this.f41091c = str2;
+                    this.f41092d = i2;
+                    this.f41093e = j;
+                    this.f41094f = str3;
+                    this.f41095g = jSONArray;
+                    this.f41096h = str4;
+                    this.f41097i = jSONArray2;
+                    this.j = str5;
                     this.k = map;
                     this.l = z;
                     this.m = jSONObject;
@@ -484,7 +480,7 @@ public class aw {
                         if (sessionStartTime <= 0) {
                             return;
                         }
-                        this.o.a(this.f43294a, sessionStartTime, this.f43295b, this.f43296c, this.f43297d, this.f43298e, this.f43299f, this.f43300g, this.f43301h, this.f43302i, this.f43303j, this.k, this.l, this.m, this.n);
+                        this.o.a(this.f41089a, sessionStartTime, this.f41090b, this.f41091c, this.f41092d, this.f41093e, this.f41094f, this.f41095g, this.f41096h, this.f41097i, this.j, this.k, this.l, this.m, this.n);
                     }
                 }
             });
@@ -492,10 +488,10 @@ public class aw {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Context context, long j2, String str, String str2, int i2, long j3, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, boolean z, JSONObject jSONObject, String str6) {
+    public void a(Context context, long j, String str, String str2, int i2, long j2, String str3, JSONArray jSONArray, String str4, JSONArray jSONArray2, String str5, Map<String, String> map, boolean z, JSONObject jSONObject, String str6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{context, Long.valueOf(j2), str, str2, Integer.valueOf(i2), Long.valueOf(j3), str3, jSONArray, str4, jSONArray2, str5, map, Boolean.valueOf(z), jSONObject, str6}) == null) {
-            a(context, EventAnalysis.getEvent(context, j2, str, str2, i2, j3, 0L, "", null, null, bj.a(str3), bj.a(str4), str5, Config.EventViewType.EDIT.getValue(), 3, null, map, bj.c(jSONArray), bj.d(jSONArray2), z, jSONObject, str6));
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{context, Long.valueOf(j), str, str2, Integer.valueOf(i2), Long.valueOf(j2), str3, jSONArray, str4, jSONArray2, str5, map, Boolean.valueOf(z), jSONObject, str6}) == null) {
+            a(context, EventAnalysis.getEvent(context, j, str, str2, i2, j2, 0L, "", null, null, bj.a(str3), bj.a(str4), str5, Config.EventViewType.EDIT.getValue(), 3, null, map, bj.c(jSONArray), bj.d(jSONArray2), z, jSONObject, str6));
             c(context);
         }
     }
@@ -503,18 +499,18 @@ public class aw {
     public void b(Context context, ArrayList<aq> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, arrayList) == null) {
-            this.f43287d.post(new Runnable(this, context, arrayList) { // from class: com.baidu.mobstat.aw.6
+            this.f41083d.post(new Runnable(this, context, arrayList) { // from class: com.baidu.mobstat.aw.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f43315a;
+                public final /* synthetic */ Context f41109a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ArrayList f43316b;
+                public final /* synthetic */ ArrayList f41110b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ aw f43317c;
+                public final /* synthetic */ aw f41111c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -531,16 +527,16 @@ public class aw {
                             return;
                         }
                     }
-                    this.f43317c = this;
-                    this.f43315a = context;
-                    this.f43316b = arrayList;
+                    this.f41111c = this;
+                    this.f41109a = context;
+                    this.f41110b = arrayList;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43317c.d(this.f43315a, this.f43316b);
+                        this.f41111c.d(this.f41109a, this.f41110b);
                     }
                 }
             });
@@ -553,16 +549,16 @@ public class aw {
         if (!(interceptable == null || interceptable.invokeLL(65556, this, context, aoVar) == null) || context == null || aoVar == null) {
             return;
         }
-        JSONArray b2 = b(this.f43292i, BDStatCore.instance().getPageSessionHead());
-        this.f43292i = b2;
+        JSONArray b2 = b(this.f41088i, BDStatCore.instance().getPageSessionHead());
+        this.f41088i = b2;
         if (b2.length() == 0) {
             return;
         }
-        long a2 = a(this.f43292i);
+        long a2 = a(this.f41088i);
         if (a2 <= 0) {
             return;
         }
-        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f43282b), au.a().a(aoVar.b(), au.a.f43283c)));
+        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f41078b), au.a().a(aoVar.b(), au.a.f41079c)));
         c(context);
     }
 
@@ -579,11 +575,11 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f43288e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f41084e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
-        EventAnalysis.doEventMerge(this.f43291h, jSONObject);
+        EventAnalysis.doEventMerge(this.f41087h, jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -667,7 +663,7 @@ public class aw {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, this, context, str)) == null) {
-            return (str != null ? str.getBytes().length : 0) + this.f43288e > 184320;
+            return (str != null ? str.getBytes().length : 0) + this.f41084e > 184320;
         }
         return invokeLL.booleanValue;
     }
@@ -675,18 +671,18 @@ public class aw {
     public void a(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, context, z) == null) {
-            this.f43287d.post(new Runnable(this, context, z) { // from class: com.baidu.mobstat.aw.2
+            this.f41083d.post(new Runnable(this, context, z) { // from class: com.baidu.mobstat.aw.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f43304a;
+                public final /* synthetic */ Context f41098a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f43305b;
+                public final /* synthetic */ boolean f41099b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ aw f43306c;
+                public final /* synthetic */ aw f41100c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -703,16 +699,16 @@ public class aw {
                             return;
                         }
                     }
-                    this.f43306c = this;
-                    this.f43304a = context;
-                    this.f43305b = z;
+                    this.f41100c = this;
+                    this.f41098a = context;
+                    this.f41099b = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43306c.b(this.f43304a, this.f43305b);
+                        this.f41100c.b(this.f41098a, this.f41099b);
                     }
                 }
             });
@@ -722,15 +718,15 @@ public class aw {
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            this.f43287d.post(new Runnable(this, jSONObject) { // from class: com.baidu.mobstat.aw.3
+            this.f41083d.post(new Runnable(this, jSONObject) { // from class: com.baidu.mobstat.aw.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f43307a;
+                public final /* synthetic */ JSONObject f41101a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ aw f43308b;
+                public final /* synthetic */ aw f41102b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -747,19 +743,19 @@ public class aw {
                             return;
                         }
                     }
-                    this.f43308b = this;
-                    this.f43307a = jSONObject;
+                    this.f41102b = this;
+                    this.f41101a = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     JSONObject jSONObject2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (jSONObject2 = this.f43307a) == null || jSONObject2.length() == 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (jSONObject2 = this.f41101a) == null || jSONObject2.length() == 0) {
                         return;
                     }
-                    aw awVar = this.f43308b;
-                    awVar.f43292i = awVar.b(awVar.f43292i, this.f43307a);
+                    aw awVar = this.f41102b;
+                    awVar.f41088i = awVar.b(awVar.f41088i, this.f41101a);
                 }
             });
         }
@@ -768,18 +764,18 @@ public class aw {
     public void a(Context context, ao aoVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aoVar) == null) {
-            this.f43287d.post(new Runnable(this, context, aoVar) { // from class: com.baidu.mobstat.aw.4
+            this.f41083d.post(new Runnable(this, context, aoVar) { // from class: com.baidu.mobstat.aw.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f43309a;
+                public final /* synthetic */ Context f41103a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ao f43310b;
+                public final /* synthetic */ ao f41104b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ aw f43311c;
+                public final /* synthetic */ aw f41105c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -796,9 +792,9 @@ public class aw {
                             return;
                         }
                     }
-                    this.f43311c = this;
-                    this.f43309a = context;
-                    this.f43310b = aoVar;
+                    this.f41105c = this;
+                    this.f41103a = context;
+                    this.f41104b = aoVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -807,7 +803,7 @@ public class aw {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || BDStatCore.instance().getSessionStartTime() <= 0) {
                         return;
                     }
-                    this.f43311c.b(this.f43309a, this.f43310b);
+                    this.f41105c.b(this.f41103a, this.f41104b);
                 }
             });
         }
@@ -816,18 +812,18 @@ public class aw {
     public void a(Context context, ArrayList<ap> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, arrayList) == null) {
-            this.f43287d.post(new Runnable(this, context, arrayList) { // from class: com.baidu.mobstat.aw.5
+            this.f41083d.post(new Runnable(this, context, arrayList) { // from class: com.baidu.mobstat.aw.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f43312a;
+                public final /* synthetic */ Context f41106a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ArrayList f43313b;
+                public final /* synthetic */ ArrayList f41107b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ aw f43314c;
+                public final /* synthetic */ aw f41108c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -844,16 +840,16 @@ public class aw {
                             return;
                         }
                     }
-                    this.f43314c = this;
-                    this.f43312a = context;
-                    this.f43313b = arrayList;
+                    this.f41108c = this;
+                    this.f41106a = context;
+                    this.f41107b = arrayList;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43314c.c(this.f43312a, this.f43313b);
+                        this.f41108c.c(this.f41106a, this.f41107b);
                     }
                 }
             });
@@ -906,7 +902,7 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f43288e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f41084e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }
@@ -931,7 +927,7 @@ public class aw {
 
     private void a(Context context, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, this, context, jSONArray) == null) || context == null || this.f43293j == null || jSONArray == null || jSONArray.length() == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65544, this, context, jSONArray) == null) || context == null || this.j == null || jSONArray == null || jSONArray.length() == 0) {
             return;
         }
         if (bh.c().b()) {
@@ -942,11 +938,11 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f43288e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f41084e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }
-        a(this.f43293j, jSONArray);
+        a(this.j, jSONArray);
     }
 
     private void b(JSONArray jSONArray, JSONArray jSONArray2) {
@@ -1035,8 +1031,8 @@ public class aw {
         String str;
         String str2;
         String str3;
+        long j;
         long j2;
-        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65563, this, jSONObject, jSONObject2) == null) {
             String optString = jSONObject.optString("d");
@@ -1049,7 +1045,7 @@ public class aw {
             String optString4 = jSONObject2.optString("ps");
             int i2 = optInt + optInt2;
             int i3 = (optLong > optLong2 ? 1 : (optLong == optLong2 ? 0 : -1));
-            long j4 = i3 <= 0 ? optLong : optLong2;
+            long j3 = i3 <= 0 ? optLong : optLong2;
             if (i3 <= 0) {
                 str = "ps";
                 str2 = optString + "|" + optString3;
@@ -1058,9 +1054,9 @@ public class aw {
                 str2 = optString3 + "|" + optString;
             }
             int i4 = 0;
-            long j5 = 0;
+            long j4 = 0;
             if (i3 <= 0) {
-                long j6 = optLong2 - optLong;
+                long j5 = optLong2 - optLong;
                 StringBuilder sb = new StringBuilder();
                 String[] split = optString4.split("\\|");
                 if (split != null && split.length != 0) {
@@ -1071,23 +1067,23 @@ public class aw {
                             sb.append("|");
                         }
                         try {
-                            j3 = Long.valueOf(str4).longValue();
+                            j2 = Long.valueOf(str4).longValue();
                         } catch (Exception unused) {
-                            j3 = 0;
+                            j2 = 0;
                         }
-                        sb.append(j3 + j6);
+                        sb.append(j2 + j5);
                         i4++;
                     }
                 } else {
                     try {
-                        j5 = Long.valueOf(optString4).longValue();
+                        j4 = Long.valueOf(optString4).longValue();
                     } catch (Exception unused2) {
                     }
-                    sb.append(j6 + j5);
+                    sb.append(j5 + j4);
                 }
                 str3 = optString2 + "|" + sb.toString();
             } else {
-                long j7 = optLong - optLong2;
+                long j6 = optLong - optLong2;
                 StringBuilder sb2 = new StringBuilder();
                 String[] split2 = optString2.split("\\|");
                 if (split2 != null && split2.length != 0) {
@@ -1098,25 +1094,25 @@ public class aw {
                             sb2.append("|");
                         }
                         try {
-                            j2 = Long.valueOf(str5).longValue();
+                            j = Long.valueOf(str5).longValue();
                         } catch (Exception unused3) {
-                            j2 = 0;
+                            j = 0;
                         }
-                        sb2.append(j2 + j7);
+                        sb2.append(j + j6);
                         i4++;
                     }
                 } else {
                     try {
-                        j5 = Long.valueOf(optString2).longValue();
+                        j4 = Long.valueOf(optString2).longValue();
                     } catch (Exception unused4) {
                     }
-                    sb2.append(j7 + j5);
+                    sb2.append(j6 + j4);
                 }
                 str3 = optString4 + "|" + sb2.toString();
             }
             try {
                 jSONObject.put("c", i2);
-                jSONObject.put("t", j4);
+                jSONObject.put("t", j3);
                 jSONObject.put("d", str2);
                 jSONObject.put(str, str3);
             } catch (Exception unused5) {

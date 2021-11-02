@@ -30,15 +30,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class VDeviceAPI {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PowerManager.WakeLock f42627a;
+    public static PowerManager.WakeLock f40439a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f42628b;
+    public static BroadcastReceiver f40440b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -390,8 +390,8 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             unsetNetworkChangedCallback();
-            f42628b = new a();
-            b.a().registerReceiver(f42628b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            f40440b = new a();
+            b.a().registerReceiver(f40440b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
     }
 
@@ -399,18 +399,18 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65563, null, z) == null) {
             if (z) {
-                if (f42627a == null) {
-                    f42627a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+                if (f40439a == null) {
+                    f40439a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
                 }
-                f42627a.acquire();
+                f40439a.acquire();
                 return;
             }
-            PowerManager.WakeLock wakeLock = f42627a;
+            PowerManager.WakeLock wakeLock = f40439a;
             if (wakeLock == null || !wakeLock.isHeld()) {
                 return;
             }
-            f42627a.release();
-            f42627a = null;
+            f40439a.release();
+            f40439a = null;
         }
     }
 
@@ -425,10 +425,10 @@ public class VDeviceAPI {
 
     public static void unsetNetworkChangedCallback() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f42628b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f40440b == null) {
             return;
         }
-        b.a().unregisterReceiver(f42628b);
-        f42628b = null;
+        b.a().unregisterReceiver(f40440b);
+        f40440b = null;
     }
 }

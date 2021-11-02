@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.TimeZone;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f60484c = "c";
+    public static final String f57396c = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60485d;
+    public int f57397d;
 
     static {
         InterceptResult invokeClinit;
@@ -38,13 +38,13 @@ public class c extends a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(String str, int i2, long j2, int i3) {
+    public c(String str, int i2, long j, int i3) {
         super(str, 0L, i3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -56,14 +56,14 @@ public class c extends a {
                 return;
             }
         }
-        this.f60485d = i2;
+        this.f57397d = i2;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.a, com.baidu.wallet.base.nopassauth.b
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60485d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57397d : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.a, com.baidu.wallet.base.nopassauth.b
@@ -81,7 +81,7 @@ public class c extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f60485d);
+            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f57397d);
             return super.a(context);
         }
         return (String) invokeL.objValue;

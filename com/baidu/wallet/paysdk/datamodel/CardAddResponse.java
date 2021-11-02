@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.base.datamodel.UserData;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CardAddResponse extends DirectPayContentResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHECK_PWD_TYPE_DIGIT = "digit";
@@ -25,7 +25,7 @@ public class CardAddResponse extends DirectPayContentResponse {
     public int request_type;
     public SupportPwdInfo[] support_pwd_info;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class ConfirmWindow implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class CustomerSvcCfg implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class QuickBindCardList implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class QuickBindCardTypeList implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class SupportPwdInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,12 +143,12 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static CardAddResponse f62761a;
+        public static CardAddResponse f59630a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -164,7 +164,7 @@ public class CardAddResponse extends DirectPayContentResponse {
                     return;
                 }
             }
-            f62761a = new CardAddResponse();
+            f59630a = new CardAddResponse();
         }
     }
 
@@ -185,13 +185,13 @@ public class CardAddResponse extends DirectPayContentResponse {
     public static CardAddResponse getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f62761a : (CardAddResponse) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f59630a : (CardAddResponse) invokeV.objValue;
     }
 
     public static void updateContent(Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, obj) == null) && (obj instanceof CardAddResponse)) {
-            CardAddResponse unused = a.f62761a = (CardAddResponse) obj;
+            CardAddResponse unused = a.f59630a = (CardAddResponse) obj;
         }
     }
 

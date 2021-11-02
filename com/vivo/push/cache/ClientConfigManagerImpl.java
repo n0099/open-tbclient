@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ClientConfigManagerImpl implements e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object SLOCK;
@@ -231,16 +231,16 @@ public class ClientConfigManagerImpl implements e {
     }
 
     @Override // com.vivo.push.cache.e
-    public boolean isInBlackList(long j2) {
+    public boolean isInBlackList(long j) {
         InterceptResult invokeJ;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
             String c2 = preparePushConfigSettings().c("BL");
             if (!TextUtils.isEmpty(c2)) {
                 for (String str : c2.split(",")) {
                     try {
-                        if (!TextUtils.isEmpty(str) && Long.parseLong(str) == j2) {
+                        if (!TextUtils.isEmpty(str) && Long.parseLong(str) == j) {
                             return true;
                         }
                     } catch (NumberFormatException e2) {

@@ -27,7 +27,7 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class WebViewFactoryProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "WebViewFactoryProvider";
@@ -70,7 +70,7 @@ public abstract class WebViewFactoryProvider {
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Object> mStaticWebSettings;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface SettingsStatics {
         void addPreConnectPrefixes(String str);
 
@@ -417,7 +417,7 @@ public abstract class WebViewFactoryProvider {
         boolean useCronet();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface Statics {
         int AdBlockInit(String str, boolean z);
 
@@ -802,9 +802,9 @@ public abstract class WebViewFactoryProvider {
         }
     }
 
-    public void onPageKeySectionTimeCostKeySection(WebView webView, String str, int i2, long j2) {
+    public void onPageKeySectionTimeCostKeySection(WebView webView, String str, int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
         }
     }
 

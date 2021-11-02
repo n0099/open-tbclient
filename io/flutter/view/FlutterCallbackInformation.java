@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.FlutterJNI;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlutterCallbackInformation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public final class FlutterCallbackInformation {
     }
 
     @NonNull
-    public static FlutterCallbackInformation lookupCallbackInformation(long j2) {
+    public static FlutterCallbackInformation lookupCallbackInformation(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) ? FlutterJNI.nativeLookupCallbackInformation(j2) : (FlutterCallbackInformation) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) ? FlutterJNI.nativeLookupCallbackInformation(j) : (FlutterCallbackInformation) invokeJ.objValue;
     }
 }

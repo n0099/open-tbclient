@@ -4,18 +4,21 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import b.q.a.j1;
+import b.q.a.j3;
+import b.q.a.r0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PBMediaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h0 f77204a;
+    public j3 f70464a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PBMediaView(Context context) {
@@ -78,22 +81,22 @@ public class PBMediaView extends FrameLayout {
                 return;
             }
         }
-        this.f77204a = new h0(context);
-        addView(this.f77204a.f77392c, new FrameLayout.LayoutParams(-1, -1));
+        this.f70464a = new j3(context);
+        addView(this.f70464a.f33355c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
-            int i5 = (int) ((context.getResources().getDisplayMetrics().density * 15.0f) + 0.5f);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i5, i5);
+            int b2 = r0.b(context, 15);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b2, b2);
             layoutParams.gravity = 3;
-            imageView.setImageResource(R.drawable.win_btn_op);
+            imageView.setImageResource(j1.win_btn_op);
             addView(imageView, layoutParams);
         } catch (Exception unused) {
         }
     }
 
-    public h0 getHtmlWebView() {
+    public j3 getHtmlWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77204a : (h0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70464a : (j3) invokeV.objValue;
     }
 }

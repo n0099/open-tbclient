@@ -19,7 +19,7 @@ import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.lightapp.ability.datamodle.NativeAbilityDeviceInfoModel;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

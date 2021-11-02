@@ -11,10 +11,67 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IPCServiceManagerAidl extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
+    public static class Default implements IPCServiceManagerAidl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl
+        public void addService(String str, IBinder iBinder, boolean z) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLZ(1048576, this, str, iBinder, z) == null) {
+            }
+        }
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (IBinder) invokeV.objValue;
+        }
+
+        @Override // com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl
+        public IBinder getService(String str) throws RemoteException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                return null;
+            }
+            return (IBinder) invokeL.objValue;
+        }
+
+        @Override // com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl
+        public boolean removeService(String str) throws RemoteException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
     public static abstract class Stub extends Binder implements IPCServiceManagerAidl {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl";
@@ -23,9 +80,10 @@ public interface IPCServiceManagerAidl extends IInterface {
         public static final int TRANSACTION_removeService = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class Proxy implements IPCServiceManagerAidl {
             public static /* synthetic */ Interceptable $ic;
+            public static IPCServiceManagerAidl sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
 
@@ -58,8 +116,11 @@ public interface IPCServiceManagerAidl extends IInterface {
                         obtain.writeString(str);
                         obtain.writeStrongBinder(iBinder);
                         obtain.writeInt(z ? 1 : 0);
-                        this.mRemote.transact(3, obtain, obtain2, 0);
-                        obtain2.readException();
+                        if (!this.mRemote.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().addService(str, iBinder, z);
+                        } else {
+                            obtain2.readException();
+                        }
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -90,7 +151,9 @@ public interface IPCServiceManagerAidl extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeString(str);
-                        this.mRemote.transact(1, obtain, obtain2, 0);
+                        if (!this.mRemote.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            return Stub.getDefaultImpl().getService(str);
+                        }
                         obtain2.readException();
                         return obtain2.readStrongBinder();
                     } finally {
@@ -111,7 +174,9 @@ public interface IPCServiceManagerAidl extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeString(str);
-                        this.mRemote.transact(2, obtain, obtain2, 0);
+                        if (!this.mRemote.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            return Stub.getDefaultImpl().removeService(str);
+                        }
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -153,6 +218,25 @@ public interface IPCServiceManagerAidl extends IInterface {
                 return new Proxy(iBinder);
             }
             return (IPCServiceManagerAidl) invokeL.objValue;
+        }
+
+        public static IPCServiceManagerAidl getDefaultImpl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (IPCServiceManagerAidl) invokeV.objValue;
+        }
+
+        public static boolean setDefaultImpl(IPCServiceManagerAidl iPCServiceManagerAidl) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iPCServiceManagerAidl)) == null) {
+                if (Proxy.sDefaultImpl != null || iPCServiceManagerAidl == null) {
+                    return false;
+                }
+                Proxy.sDefaultImpl = iPCServiceManagerAidl;
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // android.os.IInterface

@@ -8,8 +8,8 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.m.e;
-import c.a.e.e.p.l;
+import b.a.e.e.m.e;
+import b.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -19,28 +19,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AudioAnimationView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58197e;
+    public int f55208e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f58198f;
+    public Paint f55209f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Random f58199g;
+    public Random f55210g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58200h;
+    public int f55211h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58201i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f58202j;
+    public int f55212i;
+    public boolean j;
     public boolean k;
     public int l;
     public int m;
@@ -50,13 +48,13 @@ public class AudioAnimationView extends View {
     public int q;
     public final Runnable r;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AudioAnimationView f58203e;
+        public final /* synthetic */ AudioAnimationView f55213e;
 
         public a(AudioAnimationView audioAnimationView) {
             Interceptable interceptable = $ic;
@@ -73,14 +71,14 @@ public class AudioAnimationView extends View {
                     return;
                 }
             }
-            this.f58203e = audioAnimationView;
+            this.f55213e = audioAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f58203e.b();
+                this.f55213e.b();
             }
         }
     }
@@ -103,11 +101,11 @@ public class AudioAnimationView extends View {
                 return;
             }
         }
-        this.f58197e = 3;
-        this.f58199g = new Random();
-        this.f58200h = 0;
-        this.f58201i = 8;
-        this.f58202j = false;
+        this.f55208e = 3;
+        this.f55210g = new Random();
+        this.f55211h = 0;
+        this.f55212i = 8;
+        this.j = false;
         this.k = true;
         this.o = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
         this.p = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
@@ -120,7 +118,7 @@ public class AudioAnimationView extends View {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f58202j) {
+            if (this.j) {
                 invalidate();
             }
             e.a().removeCallbacks(this.r);
@@ -135,11 +133,11 @@ public class AudioAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
-            this.f58198f = paint;
+            this.f55209f = paint;
             paint.setDither(true);
-            this.f58198f.setAntiAlias(true);
-            this.f58198f.setStyle(Paint.Style.FILL);
-            this.f58198f.setColor(SkinManager.getColor(this.q));
+            this.f55209f.setAntiAlias(true);
+            this.f55209f.setStyle(Paint.Style.FILL);
+            this.f55209f.setColor(SkinManager.getColor(this.q));
         }
     }
 
@@ -148,16 +146,16 @@ public class AudioAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             RectF[] rectFArr = this.n;
-            if (rectFArr == null || rectFArr.length != this.f58201i) {
-                this.n = new RectF[this.f58201i];
+            if (rectFArr == null || rectFArr.length != this.f55212i) {
+                this.n = new RectF[this.f55212i];
             }
-            for (int i2 = 0; i2 < this.f58201i; i2++) {
+            for (int i2 = 0; i2 < this.f55212i; i2++) {
                 int i3 = this.p * i2 * 2;
                 if (this.k) {
                     nextInt = (int) ((1.0d - (this.o[i2 % 22] / 10.0d)) * this.m);
                 } else {
                     int i4 = this.m;
-                    nextInt = i4 > 0 ? this.f58199g.nextInt(i4) : 0;
+                    nextInt = i4 > 0 ? this.f55210g.nextInt(i4) : 0;
                 }
                 int i5 = this.p + i3;
                 int i6 = this.m;
@@ -174,12 +172,12 @@ public class AudioAnimationView extends View {
     public void onChangeSkinType(int i2) {
         Paint paint;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == this.f58197e || (paint = this.f58198f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == this.f55208e || (paint = this.f55209f) == null) {
             return;
         }
         paint.setColor(SkinManager.getColor(this.q));
         invalidate();
-        this.f58197e = i2;
+        this.f55208e = i2;
     }
 
     @Override // android.view.View
@@ -196,13 +194,13 @@ public class AudioAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f58202j) {
-                for (int i2 = 0; i2 < this.f58201i; i2++) {
+            if (this.j) {
+                for (int i2 = 0; i2 < this.f55212i; i2++) {
                     d();
                     if (i2 < this.n.length) {
                         canvas.save();
                         canvas.translate(0.0f, -(this.n[i2].top / 2.0f));
-                        canvas.drawRoundRect(this.n[i2], 10.0f, 10.0f, this.f58198f);
+                        canvas.drawRoundRect(this.n[i2], 10.0f, 10.0f, this.f55209f);
                         canvas.restore();
                     }
                 }
@@ -215,21 +213,21 @@ public class AudioAnimationView extends View {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            if (this.f58200h > 0) {
+            if (this.f55211h > 0) {
                 int mode = View.MeasureSpec.getMode(i2);
                 int i4 = this.p;
-                int i5 = this.f58200h;
+                int i5 = this.f55211h;
                 int i6 = i4 * ((i5 * 2) - 1);
                 this.l = i6;
-                this.f58201i = i5;
+                this.f55212i = i5;
                 i2 = View.MeasureSpec.makeMeasureSpec(i6, mode);
             }
             super.onMeasure(i2, i3);
             this.m = getMeasuredHeight();
             int measuredWidth = getMeasuredWidth();
             this.l = measuredWidth;
-            if (this.f58200h <= 0) {
-                this.f58201i = (measuredWidth / this.p) / 2;
+            if (this.f55211h <= 0) {
+                this.f55212i = (measuredWidth / this.p) / 2;
             }
         }
     }
@@ -237,7 +235,7 @@ public class AudioAnimationView extends View {
     public void resetStartState() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f58202j = true;
+            this.j = true;
             this.k = true;
             b();
         }
@@ -248,13 +246,13 @@ public class AudioAnimationView extends View {
         if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f58200h = i2;
+        this.f55211h = i2;
     }
 
     public void setColumnColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            Paint paint = this.f58198f;
+            Paint paint = this.f55209f;
             if (paint != null) {
                 paint.setColor(SkinManager.getColor(i2));
             }
@@ -273,7 +271,7 @@ public class AudioAnimationView extends View {
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f58202j = true;
+            this.j = true;
             this.k = false;
             b();
         }
@@ -298,11 +296,11 @@ public class AudioAnimationView extends View {
                 return;
             }
         }
-        this.f58197e = 3;
-        this.f58199g = new Random();
-        this.f58200h = 0;
-        this.f58201i = 8;
-        this.f58202j = false;
+        this.f55208e = 3;
+        this.f55210g = new Random();
+        this.f55211h = 0;
+        this.f55212i = 8;
+        this.j = false;
         this.k = true;
         this.o = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
         this.p = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);

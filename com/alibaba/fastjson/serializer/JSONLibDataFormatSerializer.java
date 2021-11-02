@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class JSONLibDataFormatSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

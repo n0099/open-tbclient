@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class V8NetFunctionTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "V8NetFunctionTable";
@@ -109,13 +109,13 @@ public class V8NetFunctionTable {
         }
     }
 
-    public static void notifyAllV8NetFunctionTableListeners(long j2) {
+    public static void notifyAllV8NetFunctionTableListeners(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j) == null) {
             synchronized (sV8NetFunctionTableInitListenerList) {
-                sNativeGlobalFunctionTablePointer = j2;
+                sNativeGlobalFunctionTablePointer = j;
                 for (ValueCallback<Long> valueCallback : sV8NetFunctionTableInitListenerList) {
-                    valueCallback.onReceiveValue(Long.valueOf(j2));
+                    valueCallback.onReceiveValue(Long.valueOf(j));
                 }
                 sV8NetFunctionTableInitListenerList.clear();
             }

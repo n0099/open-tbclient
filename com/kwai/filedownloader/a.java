@@ -1,16 +1,16 @@
 package com.kwai.filedownloader;
 
 import com.kwai.filedownloader.w;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface a {
 
     /* renamed from: com.kwai.filedownloader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC2028a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC1938a {
         void a(a aVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         a F();
 
@@ -35,12 +35,12 @@ public interface a {
         boolean b(int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         int a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         void a();
 

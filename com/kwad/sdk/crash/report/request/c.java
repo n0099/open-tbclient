@@ -10,7 +10,7 @@ import com.kwad.sdk.crash.report.ReportEvent;
 import com.kwad.sdk.crash.utils.d;
 import java.util.Calendar;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (!TextUtils.isEmpty(str) && !"Unknown".equals(str)) {
                 try {
-                    String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.f73000g);
+                    String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.f65446g);
                     if (!TextUtils.isEmpty(optString)) {
                         return optString;
                     }

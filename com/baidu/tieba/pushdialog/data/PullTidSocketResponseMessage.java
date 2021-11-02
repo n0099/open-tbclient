@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetLockWindowTid.GetLockWindowTidResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PullTidSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class PullTidSocketResponseMessage extends SocketResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             try {
-                this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f56299a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
+                this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f53420a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
             } catch (Throwable unused) {
             }
         }

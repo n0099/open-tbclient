@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.shield.ISetSubscriptionListener;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetSubscriptionRequest";
@@ -23,13 +24,13 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public int mCategory;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMSetSubscriptionRequest(Context context, int i2, long j2, List<Long> list, List<String> list2, String str, String str2) {
-        super(context, j2, list, list2, str2, str);
+    public IMSetSubscriptionRequest(Context context, int i2, long j, List<Long> list, List<String> list2, String str, String str2) {
+        super(context, j, list, list2, str2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), list, list2, str, str2};
+            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j), list, list2, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -76,7 +77,7 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i3 = jSONObject.getInt("error_code");
-                str = jSONObject.optString("error_msg", "");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
             } catch (Exception e2) {
                 LogUtils.e(TAG, "JSONException", e2);
                 i3 = 1010;

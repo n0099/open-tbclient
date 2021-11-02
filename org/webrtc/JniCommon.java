@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JniCommon {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,11 +24,11 @@ public class JniCommon {
         }
     }
 
-    public static native void nativeAddRef(long j2);
+    public static native void nativeAddRef(long j);
 
     public static native ByteBuffer nativeAllocateByteBuffer(int i2);
 
     public static native void nativeFreeByteBuffer(ByteBuffer byteBuffer);
 
-    public static native void nativeReleaseRef(long j2);
+    public static native void nativeReleaseRef(long j);
 }

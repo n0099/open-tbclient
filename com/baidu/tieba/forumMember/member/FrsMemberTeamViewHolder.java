@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.member;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.BawuRoleInfoPub;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

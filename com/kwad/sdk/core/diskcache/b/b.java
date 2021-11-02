@@ -8,46 +8,46 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f71929a;
+    public Context f64400a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71930b;
+    public int f64401b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f71931c;
+    public long f64402c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f71932d;
+    public File f64403d;
 
     /* renamed from: com.kwad.sdk.core.diskcache.b.b$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f71933a;
+        public Context f64404a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f71934b;
+        public int f64405b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f71935c;
+        public long f64406c;
 
         /* renamed from: d  reason: collision with root package name */
-        public File f71936d;
+        public File f64407d;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -64,9 +64,9 @@ public class b {
                     return;
                 }
             }
-            this.f71934b = 1;
-            this.f71935c = 100L;
-            this.f71933a = context.getApplicationContext();
+            this.f64405b = 1;
+            this.f64406c = 100L;
+            this.f64404a = context.getApplicationContext();
         }
 
         public a a(int i2) {
@@ -74,7 +74,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 if (i2 > 0) {
-                    this.f71934b = i2;
+                    this.f64405b = i2;
                     return this;
                 }
                 throw new IllegalArgumentException("appVersion <= 0");
@@ -82,12 +82,12 @@ public class b {
             return (a) invokeI.objValue;
         }
 
-        public a a(long j2) {
+        public a a(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                if (j2 > 0) {
-                    this.f71935c = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                if (j > 0) {
+                    this.f64406c = j;
                     return this;
                 }
                 throw new IllegalArgumentException("maxSize <= 0");
@@ -100,7 +100,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
                 d.a(file, "directory is not allow null");
-                this.f71936d = file;
+                this.f64407d = file;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -111,10 +111,10 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 b bVar = new b(null);
-                bVar.f71929a = this.f71933a;
-                bVar.f71930b = this.f71934b;
-                bVar.f71931c = this.f71935c;
-                bVar.f71932d = this.f71936d;
+                bVar.f64400a = this.f64404a;
+                bVar.f64401b = this.f64405b;
+                bVar.f64402c = this.f64406c;
+                bVar.f64403d = this.f64407d;
                 return bVar;
             }
             return (b) invokeV.objValue;

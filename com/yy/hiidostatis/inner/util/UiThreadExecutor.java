@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UiThreadExecutor {
     public static /* synthetic */ Interceptable $ic;
     public static final Handler HANDLER;
     public static final Map<String, Token> TOKENS;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Token {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,20 +171,20 @@ public class UiThreadExecutor {
         }
     }
 
-    public static void runTask(Runnable runnable, long j2) {
+    public static void runTask(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65543, null, runnable, j2) == null) {
-            runTask("", runnable, j2);
+        if (interceptable == null || interceptable.invokeLJ(65543, null, runnable, j) == null) {
+            runTask("", runnable, j);
         }
     }
 
-    public static void runTask(String str, Runnable runnable, long j2) {
+    public static void runTask(String str, Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, runnable, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, runnable, Long.valueOf(j)}) == null) {
             if ("".equals(str)) {
-                HANDLER.postDelayed(runnable, j2);
+                HANDLER.postDelayed(runnable, j);
             } else {
-                HANDLER.postAtTime(runnable, nextToken(str), SystemClock.uptimeMillis() + j2);
+                HANDLER.postAtTime(runnable, nextToken(str), SystemClock.uptimeMillis() + j);
             }
         }
     }

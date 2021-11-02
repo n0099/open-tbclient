@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.Nullable;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCELLED = 4;
@@ -129,10 +129,10 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
     }
 
     @Override // org.reactivestreams.Subscription
-    public final void request(long j2) {
+    public final void request(long j) {
         T t;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
             do {
                 int i2 = get();
                 if ((i2 & (-2)) != 0) {

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ji extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f78407a;
+    public InputStream f71346a;
 
     /* renamed from: a  reason: collision with other field name */
-    public OutputStream f820a;
+    public OutputStream f821a;
 
     public ji() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class ji extends jl {
                 return;
             }
         }
-        this.f78407a = null;
-        this.f820a = null;
+        this.f71346a = null;
+        this.f821a = null;
     }
 
     public ji(OutputStream outputStream) {
@@ -52,9 +52,9 @@ public class ji extends jl {
                 return;
             }
         }
-        this.f78407a = null;
-        this.f820a = null;
-        this.f820a = outputStream;
+        this.f71346a = null;
+        this.f821a = null;
+        this.f821a = outputStream;
     }
 
     @Override // com.xiaomi.push.jl
@@ -62,7 +62,7 @@ public class ji extends jl {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            InputStream inputStream = this.f78407a;
+            InputStream inputStream = this.f71346a;
             if (inputStream != null) {
                 try {
                     int read = inputStream.read(bArr, i2, i3);
@@ -83,7 +83,7 @@ public class ji extends jl {
     public void a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
-            OutputStream outputStream = this.f820a;
+            OutputStream outputStream = this.f821a;
             if (outputStream == null) {
                 throw new jm(1, "Cannot write to null outputStream");
             }

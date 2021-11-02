@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PaInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PaInfo> CREATOR;
@@ -490,10 +490,10 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setLastRefreshTime(long j2) {
+    public void setLastRefreshTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048623, this, j2) == null) {
-            this.mLastRefreshTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048623, this, j) == null) {
+            this.mLastRefreshTime = j;
         }
     }
 
@@ -504,10 +504,10 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setMarkTopTime(long j2) {
+    public void setMarkTopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048625, this, j2) == null) {
-            this.markTopTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048625, this, j) == null) {
+            this.markTopTime = j;
         }
     }
 
@@ -532,10 +532,10 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setPaId(long j2) {
+    public void setPaId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
-            this.paId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
+            this.paId = j;
         }
     }
 
@@ -567,10 +567,10 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setShieldTime(long j2) {
+    public void setShieldTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048634, this, j2) == null) {
-            this.mShieldTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048634, this, j) == null) {
+            this.mShieldTime = j;
         }
     }
 
@@ -581,10 +581,10 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setSubcribeTime(long j2) {
+    public void setSubcribeTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048636, this, j2) == null) {
-            this.subcribeTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048636, this, j) == null) {
+            this.subcribeTime = j;
         }
     }
 
@@ -609,10 +609,10 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setTPL(long j2) {
+    public void setTPL(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048640, this, j2) == null) {
-            this.tpl = j2;
+        if (interceptable == null || interceptable.invokeJ(1048640, this, j) == null) {
+            this.tpl = j;
         }
     }
 

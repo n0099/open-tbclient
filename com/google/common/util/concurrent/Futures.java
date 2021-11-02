@@ -1,9 +1,9 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.g;
-import c.i.d.a.j;
-import c.i.d.a.n;
+import b.i.d.a.g;
+import b.i.d.a.j;
+import b.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -27,12 +27,12 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Futures extends GwtFuturesCatchingSpecialization {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class CallbackListener<V> implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class FutureCombiner<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class InCompletionOrderFuture<T> extends AbstractFuture<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -233,7 +233,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class InCompletionOrderState<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -308,7 +308,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class NonCancellationPropagatingFuture<V> extends AbstractFuture.TrustedFuture<V> implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -483,9 +483,9 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
             for (int i2 = 0; i2 < listenableFutureArr.length; i2++) {
                 builder.h(new InCompletionOrderFuture(inCompletionOrderState));
             }
-            ImmutableList<ListenableFuture<T>> j2 = builder.j();
+            ImmutableList<ListenableFuture<T>> j = builder.j();
             for (int i3 = 0; i3 < listenableFutureArr.length; i3++) {
-                listenableFutureArr[i3].addListener(new Runnable(inCompletionOrderState, j2, i3) { // from class: com.google.common.util.concurrent.Futures.3
+                listenableFutureArr[i3].addListener(new Runnable(inCompletionOrderState, j, i3) { // from class: com.google.common.util.concurrent.Futures.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ImmutableList val$delegates;
@@ -497,7 +497,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {inCompletionOrderState, j2, Integer.valueOf(i3)};
+                            Object[] objArr = {inCompletionOrderState, j, Integer.valueOf(i3)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i4 = newInitContext.flag;
                             if ((i4 & 1) != 0) {
@@ -508,7 +508,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
                             }
                         }
                         this.val$state = inCompletionOrderState;
-                        this.val$delegates = j2;
+                        this.val$delegates = j;
                         this.val$localI = i3;
                     }
 
@@ -521,7 +521,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
                     }
                 }, MoreExecutors.directExecutor());
             }
-            return j2;
+            return j;
         }
         return (ImmutableList) invokeL.objValue;
     }
@@ -605,10 +605,10 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
                 /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, O] */
                 /* JADX WARN: Type inference failed for: r5v2, types: [java.lang.Object, O] */
                 @Override // java.util.concurrent.Future
-                public O get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+                public O get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
                     InterceptResult invokeJL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeJL = interceptable2.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit)) == null) ? applyTransformation(this.val$input.get(j2, timeUnit)) : invokeJL.objValue;
+                    return (interceptable2 == null || (invokeJL = interceptable2.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit)) == null) ? applyTransformation(this.val$input.get(j, timeUnit)) : invokeJL.objValue;
                 }
             };
         }
@@ -629,12 +629,12 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         return (ListenableFuture) invokeL.objValue;
     }
 
-    public static <O> ListenableFuture<O> scheduleAsync(AsyncCallable<O> asyncCallable, long j2, TimeUnit timeUnit, ScheduledExecutorService scheduledExecutorService) {
+    public static <O> ListenableFuture<O> scheduleAsync(AsyncCallable<O> asyncCallable, long j, TimeUnit timeUnit, ScheduledExecutorService scheduledExecutorService) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{asyncCallable, Long.valueOf(j2), timeUnit, scheduledExecutorService})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{asyncCallable, Long.valueOf(j), timeUnit, scheduledExecutorService})) == null) {
             TrustedListenableFutureTask create = TrustedListenableFutureTask.create(asyncCallable);
-            create.addListener(new Runnable(scheduledExecutorService.schedule(create, j2, timeUnit)) { // from class: com.google.common.util.concurrent.Futures.1
+            create.addListener(new Runnable(scheduledExecutorService.schedule(create, j, timeUnit)) { // from class: com.google.common.util.concurrent.Futures.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Future val$scheduled;
@@ -714,10 +714,10 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, listenableFutureArr)) == null) ? new FutureCombiner<>(true, ImmutableList.copyOf(listenableFutureArr)) : (FutureCombiner) invokeL.objValue;
     }
 
-    public static <V> ListenableFuture<V> withTimeout(ListenableFuture<V> listenableFuture, long j2, TimeUnit timeUnit, ScheduledExecutorService scheduledExecutorService) {
+    public static <V> ListenableFuture<V> withTimeout(ListenableFuture<V> listenableFuture, long j, TimeUnit timeUnit, ScheduledExecutorService scheduledExecutorService) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65562, null, new Object[]{listenableFuture, Long.valueOf(j2), timeUnit, scheduledExecutorService})) == null) ? listenableFuture.isDone() ? listenableFuture : TimeoutFuture.create(listenableFuture, j2, timeUnit, scheduledExecutorService) : (ListenableFuture) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65562, null, new Object[]{listenableFuture, Long.valueOf(j), timeUnit, scheduledExecutorService})) == null) ? listenableFuture.isDone() ? listenableFuture : TimeoutFuture.create(listenableFuture, j, timeUnit, scheduledExecutorService) : (ListenableFuture) invokeCommon.objValue;
     }
 
     public static void wrapAndThrowUnchecked(Throwable th) {
@@ -736,10 +736,10 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iterable)) == null) ? new CollectionFuture.ListFuture(ImmutableList.copyOf(iterable), true) : (ListenableFuture) invokeL.objValue;
     }
 
-    public static <V, X extends Exception> V getChecked(Future<V> future, Class<X> cls, long j2, TimeUnit timeUnit) throws Exception {
+    public static <V, X extends Exception> V getChecked(Future<V> future, Class<X> cls, long j, TimeUnit timeUnit) throws Exception {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{future, cls, Long.valueOf(j2), timeUnit})) == null) ? (V) FuturesGetChecked.getChecked(future, cls, j2, timeUnit) : (V) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{future, cls, Long.valueOf(j), timeUnit})) == null) ? (V) FuturesGetChecked.getChecked(future, cls, j, timeUnit) : (V) invokeCommon.objValue;
     }
 
     public static <V> ListenableFuture<List<V>> successfulAsList(Iterable<? extends ListenableFuture<? extends V>> iterable) {

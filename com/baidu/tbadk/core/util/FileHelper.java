@@ -14,13 +14,13 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.m.a;
-import c.a.e.e.m.e;
-import c.a.e.e.p.d;
-import c.a.e.e.p.f;
-import c.a.e.e.p.k;
-import c.a.e.e.p.l;
-import c.a.e.e.p.m;
+import b.a.e.e.m.a;
+import b.a.e.e.m.e;
+import b.a.e.e.p.d;
+import b.a.e.e.p.f;
+import b.a.e.e.p.k;
+import b.a.e.e.p.l;
+import b.a.e.e.p.m;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -48,7 +48,7 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FileHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final File CACHE_DIR;
@@ -68,7 +68,7 @@ public class FileHelper {
     public static final int FILE_TYPE_VOICE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class DataDir {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PACKAGE_DATA_DIR;
@@ -76,7 +76,7 @@ public class FileHelper {
         public static final String PACKAGE_VERSION_LAST_DIR = "/package.last";
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static class CompratorByLastModified implements Comparator<File> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -231,11 +231,11 @@ public class FileHelper {
                     File file = new File(PACKAGE_DATA_DIR + "/" + str);
                     if (file.exists() && file.isDirectory()) {
                         File[] listFiles = file.listFiles();
-                        long j2 = 0;
+                        long j = 0;
                         int length = listFiles.length;
                         for (int i2 = 0; i2 < length; i2++) {
-                            if (j2 < listFiles[i2].lastModified()) {
-                                j2 = listFiles[i2].lastModified();
+                            if (j < listFiles[i2].lastModified()) {
+                                j = listFiles[i2].lastModified();
                                 str2 = listFiles[i2].getName();
                             }
                         }
@@ -274,7 +274,7 @@ public class FileHelper {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface MediaScanCallback {
         void callBack(HashMap<String, String> hashMap);
     }
@@ -2176,7 +2176,7 @@ public class FileHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65586, null, file, z)) == null) {
             File[] listFiles = file.listFiles();
-            long j2 = 0;
+            long j = 0;
             if (listFiles == null) {
                 return 0L;
             }
@@ -2186,9 +2186,9 @@ public class FileHelper {
                 } else {
                     length = listFiles[i2].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeLZ.longValue;
     }
@@ -2236,7 +2236,7 @@ public class FileHelper {
         if (interceptable != null && (invokeL = interceptable.invokeL(65591, null, file)) != null) {
             return invokeL.longValue;
         }
-        long j2 = 0;
+        long j = 0;
         FileInputStream fileInputStream = null;
         try {
         } catch (Exception e2) {
@@ -2247,7 +2247,7 @@ public class FileHelper {
                 if (file.exists()) {
                     FileInputStream fileInputStream2 = new FileInputStream(file);
                     try {
-                        j2 = fileInputStream2.available();
+                        j = fileInputStream2.available();
                         fileInputStream = fileInputStream2;
                     } catch (Exception e3) {
                         e = e3;
@@ -2256,7 +2256,7 @@ public class FileHelper {
                         if (fileInputStream != null) {
                             fileInputStream.close();
                         }
-                        return j2;
+                        return j;
                     } catch (Throwable th) {
                         th = th;
                         fileInputStream = fileInputStream2;
@@ -2276,7 +2276,7 @@ public class FileHelper {
             if (fileInputStream != null) {
                 fileInputStream.close();
             }
-            return j2;
+            return j;
         } catch (Throwable th2) {
             th = th2;
         }

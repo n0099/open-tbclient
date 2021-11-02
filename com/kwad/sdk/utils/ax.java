@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ax implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Runnable> f74284a;
+    public WeakReference<Runnable> f66667a;
 
     public ax(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class ax implements Runnable {
                 return;
             }
         }
-        this.f74284a = new WeakReference<>(runnable);
+        this.f66667a = new WeakReference<>(runnable);
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (runnable = this.f74284a.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (runnable = this.f66667a.get()) == null) {
             return;
         }
         runnable.run();

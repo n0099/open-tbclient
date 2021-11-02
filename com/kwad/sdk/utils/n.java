@@ -18,7 +18,7 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,14 +42,14 @@ public class n {
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65537, null, reader, writer, cArr)) != null) {
             return invokeLLL.longValue;
         }
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = reader.read(cArr);
             if (-1 == read) {
-                return j2;
+                return j;
             }
             writer.write(cArr, 0, read);
-            j2 += read;
+            j += read;
         }
     }
 

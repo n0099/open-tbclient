@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IdentityReviewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FID = "fid";
@@ -15,13 +15,13 @@ public class IdentityReviewActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IdentityReviewActivityConfig(Context context, long j2) {
+    public IdentityReviewActivityConfig(Context context, long j) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,17 +32,17 @@ public class IdentityReviewActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("fid", j2);
+        getIntent().putExtra("fid", j);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IdentityReviewActivityConfig(Context context, long j2, int i2) {
+    public IdentityReviewActivityConfig(Context context, long j, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -54,7 +54,7 @@ public class IdentityReviewActivityConfig extends IntentConfig {
             }
         }
         Intent intent = getIntent();
-        intent.putExtra("fid", j2);
+        intent.putExtra("fid", j);
         intent.putExtra(KEY_IS_START_FOR_RESULT, true);
         intent.putExtra("request_code", i2);
     }

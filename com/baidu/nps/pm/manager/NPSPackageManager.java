@@ -13,7 +13,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.i.j;
+import b.a.b0.i.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.pm.BundleInfo;
@@ -38,7 +38,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NPSPackageManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NPS-NPSPackageManager";
@@ -49,34 +49,34 @@ public class NPSPackageManager {
     public boolean mIsInited;
     public Map<String, BundleInfo> mPresetInfoMap;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43895e;
+        public final /* synthetic */ String f41669e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ IInstallCallback f43896f;
+        public final /* synthetic */ IInstallCallback f41670f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f43897g;
+        public final /* synthetic */ int f41671g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ NPSPackageManager f43898h;
+        public final /* synthetic */ NPSPackageManager f41672h;
 
         /* renamed from: com.baidu.nps.pm.manager.NPSPackageManager$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C1689a extends ContentObserver {
+        /* loaded from: classes7.dex */
+        public class C1646a extends ContentObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f43899a;
+            public final /* synthetic */ a f41673a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C1689a(a aVar, Handler handler) {
+            public C1646a(a aVar, Handler handler) {
                 super(handler);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -93,16 +93,16 @@ public class NPSPackageManager {
                         return;
                     }
                 }
-                this.f43899a = aVar;
+                this.f41673a = aVar;
             }
 
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, uri) == null) {
-                    c.a.b0.i.g a2 = j.a(uri);
-                    if (a2.f1933b > 0 || a2.f1932a > 0) {
-                        this.f43899a.f43896f.onProgress(a2.f1932a, a2.f1933b);
+                    b.a.b0.i.g a2 = j.a(uri);
+                    if (a2.f1420b > 0 || a2.f1419a > 0) {
+                        this.f41673a.f41670f.onProgress(a2.f1419a, a2.f1420b);
                     }
                 }
             }
@@ -123,53 +123,53 @@ public class NPSPackageManager {
                     return;
                 }
             }
-            this.f43898h = nPSPackageManager;
-            this.f43895e = str;
-            this.f43896f = iInstallCallback;
-            this.f43897g = i2;
+            this.f41672h = nPSPackageManager;
+            this.f41669e = str;
+            this.f41670f = iInstallCallback;
+            this.f41671g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Uri e2 = j.e(this.f43895e);
-                C1689a c1689a = new C1689a(this, null);
-                ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(e2, false, c1689a);
-                int installBundle = this.f43898h.installBundle(this.f43895e, this.f43897g);
-                this.f43898h.mInstallingSet.remove(this.f43895e);
-                ContextHolder.getApplicationContext().getContentResolver().unregisterContentObserver(c1689a);
-                if (this.f43896f != null) {
-                    if (c.a.b0.i.b.a()) {
+                Uri e2 = j.e(this.f41669e);
+                C1646a c1646a = new C1646a(this, null);
+                ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(e2, false, c1646a);
+                int installBundle = this.f41672h.installBundle(this.f41669e, this.f41671g);
+                this.f41672h.mInstallingSet.remove(this.f41669e);
+                ContextHolder.getApplicationContext().getContentResolver().unregisterContentObserver(c1646a);
+                if (this.f41670f != null) {
+                    if (b.a.b0.i.b.a()) {
                         String str = "installBundle, retCode=" + installBundle;
                     }
-                    this.f43896f.onResult(installBundle, "");
+                    this.f41670f.onResult(installBundle, "");
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.b0.d.a.a f43900e;
+        public final /* synthetic */ b.a.b0.d.a.a f41674e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43901f;
+        public final /* synthetic */ String f41675f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ NPSPackageManager f43902g;
+        public final /* synthetic */ NPSPackageManager f41676g;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public class a extends ContentObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f43903a;
+            public final /* synthetic */ b f41677a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(b bVar, Handler handler) {
@@ -189,24 +189,24 @@ public class NPSPackageManager {
                         return;
                     }
                 }
-                this.f43903a = bVar;
+                this.f41677a = bVar;
             }
 
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, uri) == null) {
-                    c.a.b0.i.g a2 = j.a(uri);
-                    if (this.f43903a.f43900e != null) {
-                        if (a2.f1933b > 0 || a2.f1932a > 0) {
-                            this.f43903a.f43900e.onProgress(a2.f1932a, a2.f1933b);
+                    b.a.b0.i.g a2 = j.a(uri);
+                    if (this.f41677a.f41674e != null) {
+                        if (a2.f1420b > 0 || a2.f1419a > 0) {
+                            this.f41677a.f41674e.onProgress(a2.f1419a, a2.f1420b);
                         }
                     }
                 }
             }
         }
 
-        public b(NPSPackageManager nPSPackageManager, c.a.b0.d.a.a aVar, String str) {
+        public b(NPSPackageManager nPSPackageManager, b.a.b0.d.a.a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -221,9 +221,9 @@ public class NPSPackageManager {
                     return;
                 }
             }
-            this.f43902g = nPSPackageManager;
-            this.f43900e = aVar;
-            this.f43901f = str;
+            this.f41676g = nPSPackageManager;
+            this.f41674e = aVar;
+            this.f41675f = str;
         }
 
         @Override // java.lang.Runnable
@@ -231,17 +231,17 @@ public class NPSPackageManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 a aVar = null;
-                if (this.f43900e != null) {
-                    Uri d2 = j.d(this.f43901f);
+                if (this.f41674e != null) {
+                    Uri d2 = j.d(this.f41675f);
                     a aVar2 = new a(this, null);
                     ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(d2, false, aVar2);
                     aVar = aVar2;
                 }
-                int downloadBundle = this.f43902g.downloadBundle(this.f43901f);
+                int downloadBundle = this.f41676g.downloadBundle(this.f41675f);
                 if (aVar != null) {
                     ContextHolder.getApplicationContext().getContentResolver().unregisterContentObserver(aVar);
                 }
-                c.a.b0.d.a.a aVar3 = this.f43900e;
+                b.a.b0.d.a.a aVar3 = this.f41674e;
                 if (aVar3 != null) {
                     aVar3.onResult(downloadBundle, "");
                 }
@@ -249,24 +249,24 @@ public class NPSPackageManager {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43904e;
+        public final /* synthetic */ String f41678e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f43905f;
+        public final /* synthetic */ int f41679f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.b0.d.a.a f43906g;
+        public final /* synthetic */ b.a.b0.d.a.a f41680g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ NPSPackageManager f43907h;
+        public final /* synthetic */ NPSPackageManager f41681h;
 
-        public c(NPSPackageManager nPSPackageManager, String str, int i2, c.a.b0.d.a.a aVar) {
+        public c(NPSPackageManager nPSPackageManager, String str, int i2, b.a.b0.d.a.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -281,77 +281,77 @@ public class NPSPackageManager {
                     return;
                 }
             }
-            this.f43907h = nPSPackageManager;
-            this.f43904e = str;
-            this.f43905f = i2;
-            this.f43906g = aVar;
+            this.f41681h = nPSPackageManager;
+            this.f41678e = str;
+            this.f41679f = i2;
+            this.f41680g = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f43907h.getBundleStatus(this.f43904e) == 44) {
-                    if (this.f43905f == 0) {
-                        c.a.b0.g.a.b.i().c(this.f43907h.getUpdateBundle(this.f43904e));
+                if (this.f41681h.getBundleStatus(this.f41678e) == 44) {
+                    if (this.f41679f == 0) {
+                        b.a.b0.g.a.b.i().c(this.f41681h.getUpdateBundle(this.f41678e));
                         return;
-                    } else if (!c.a.b0.i.d.b(ContextHolder.getApplicationContext())) {
-                        c.a.b0.g.a.b.i().c(this.f43907h.getUpdateBundle(this.f43904e));
-                        c.a.b0.d.a.a aVar = this.f43906g;
+                    } else if (!b.a.b0.i.d.b(ContextHolder.getApplicationContext())) {
+                        b.a.b0.g.a.b.i().c(this.f41681h.getUpdateBundle(this.f41678e));
+                        b.a.b0.d.a.a aVar = this.f41680g;
                         if (aVar != null) {
-                            aVar.onResult(51, this.f43907h.getDownloadMessage(c.a.b0.a.predownload_net_error_msg));
+                            aVar.onResult(51, this.f41681h.getDownloadMessage(b.a.b0.a.predownload_net_error_msg));
                         }
-                        if (c.a.b0.i.b.a()) {
-                            String str = "preDownload, retCode=51，message = " + this.f43907h.getDownloadMessage(c.a.b0.a.predownload_net_error_msg);
+                        if (b.a.b0.i.b.a()) {
+                            String str = "preDownload, retCode=51，message = " + this.f41681h.getDownloadMessage(b.a.b0.a.predownload_net_error_msg);
                             return;
                         }
                         return;
                     } else {
-                        this.f43907h.downloadBundle(this.f43904e, this.f43906g, 48);
+                        this.f41681h.downloadBundle(this.f41678e, this.f41680g, 48);
                         return;
                     }
                 }
-                c.a.b0.d.a.a aVar2 = this.f43906g;
+                b.a.b0.d.a.a aVar2 = this.f41680g;
                 if (aVar2 != null) {
-                    aVar2.onResult(3, this.f43907h.getDownloadMessage(c.a.b0.a.predownload_no_available_msg));
+                    aVar2.onResult(3, this.f41681h.getDownloadMessage(b.a.b0.a.predownload_no_available_msg));
                 }
-                if (c.a.b0.i.b.a()) {
-                    String str2 = "preDownload, retCode=3，message = " + this.f43907h.getDownloadMessage(c.a.b0.a.predownload_no_available_msg);
+                if (b.a.b0.i.b.a()) {
+                    String str2 = "preDownload, retCode=3，message = " + this.f41681h.getDownloadMessage(b.a.b0.a.predownload_no_available_msg);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43908e;
+        public final /* synthetic */ String f41682e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.b0.d.a.a f43909f;
+        public final /* synthetic */ b.a.b0.d.a.a f41683f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f43910g;
+        public final /* synthetic */ int f41684g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.b0.f.a f43911h;
+        public final /* synthetic */ b.a.b0.f.a f41685h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ NPSPackageManager f43912i;
+        public final /* synthetic */ NPSPackageManager f41686i;
 
-        /* loaded from: classes5.dex */
-        public class a implements c.a.b0.f.b {
+        /* loaded from: classes7.dex */
+        public class a implements b.a.b0.f.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BundleInfo f43913a;
+            public final /* synthetic */ BundleInfo f41687a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d f43914b;
+            public final /* synthetic */ d f41688b;
 
             public a(d dVar, BundleInfo bundleInfo) {
                 Interceptable interceptable = $ic;
@@ -368,33 +368,33 @@ public class NPSPackageManager {
                         return;
                     }
                 }
-                this.f43914b = dVar;
-                this.f43913a = bundleInfo;
+                this.f41688b = dVar;
+                this.f41687a = bundleInfo;
             }
 
-            @Override // c.a.b0.f.b
+            @Override // b.a.b0.f.b
             public void onResult(int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                     if (i2 == 1) {
-                        d dVar = this.f43914b;
-                        dVar.f43912i.downloadBundle(dVar.f43908e, dVar.f43909f, 48);
+                        d dVar = this.f41688b;
+                        dVar.f41686i.downloadBundle(dVar.f41682e, dVar.f41683f, 48);
                         return;
                     }
-                    c.a.b0.g.a.b.i().c(this.f43913a);
-                    d dVar2 = this.f43914b;
-                    c.a.b0.d.a.a aVar = dVar2.f43909f;
+                    b.a.b0.g.a.b.i().c(this.f41687a);
+                    d dVar2 = this.f41688b;
+                    b.a.b0.d.a.a aVar = dVar2.f41683f;
                     if (aVar != null) {
-                        aVar.onResult(51, dVar2.f43912i.getDownloadMessage(c.a.b0.a.predownload_net_error_msg));
+                        aVar.onResult(51, dVar2.f41686i.getDownloadMessage(b.a.b0.a.predownload_net_error_msg));
                     }
-                    if (c.a.b0.i.b.a()) {
-                        String str = "preDownload, retCode=51，message = " + this.f43914b.f43912i.getDownloadMessage(c.a.b0.a.predownload_net_error_msg);
+                    if (b.a.b0.i.b.a()) {
+                        String str = "preDownload, retCode=51，message = " + this.f41688b.f41686i.getDownloadMessage(b.a.b0.a.predownload_net_error_msg);
                     }
                 }
             }
         }
 
-        public d(NPSPackageManager nPSPackageManager, String str, c.a.b0.d.a.a aVar, int i2, c.a.b0.f.a aVar2) {
+        public d(NPSPackageManager nPSPackageManager, String str, b.a.b0.d.a.a aVar, int i2, b.a.b0.f.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -409,47 +409,47 @@ public class NPSPackageManager {
                     return;
                 }
             }
-            this.f43912i = nPSPackageManager;
-            this.f43908e = str;
-            this.f43909f = aVar;
-            this.f43910g = i2;
-            this.f43911h = aVar2;
+            this.f41686i = nPSPackageManager;
+            this.f41682e = str;
+            this.f41683f = aVar;
+            this.f41684g = i2;
+            this.f41685h = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BundleInfo updateBundle = this.f43912i.getUpdateBundle(this.f43908e);
+                BundleInfo updateBundle = this.f41686i.getUpdateBundle(this.f41682e);
                 if (updateBundle == null) {
-                    c.a.b0.d.a.a aVar = this.f43909f;
+                    b.a.b0.d.a.a aVar = this.f41683f;
                     if (aVar != null) {
-                        aVar.onResult(3, this.f43912i.getDownloadMessage(c.a.b0.a.predownload_no_available_msg));
+                        aVar.onResult(3, this.f41686i.getDownloadMessage(b.a.b0.a.predownload_no_available_msg));
                     }
-                    if (c.a.b0.i.b.a()) {
-                        String str = "update, retCode=3,message = " + this.f43912i.getDownloadMessage(c.a.b0.a.predownload_no_available_msg);
+                    if (b.a.b0.i.b.a()) {
+                        String str = "update, retCode=3,message = " + this.f41686i.getDownloadMessage(b.a.b0.a.predownload_no_available_msg);
                     }
-                } else if (this.f43910g == 1) {
-                    if (c.a.b0.i.d.b(ContextHolder.getApplicationContext())) {
-                        this.f43912i.downloadBundle(this.f43908e);
+                } else if (this.f41684g == 1) {
+                    if (b.a.b0.i.d.b(ContextHolder.getApplicationContext())) {
+                        this.f41686i.downloadBundle(this.f41682e);
                     } else {
-                        this.f43911h.checkAuthorization(updateBundle, 1, new a(this, updateBundle));
+                        this.f41685h.checkAuthorization(updateBundle, 1, new a(this, updateBundle));
                     }
                 } else {
-                    c.a.b0.g.a.b.i().c(updateBundle);
-                    c.a.b0.d.a.a aVar2 = this.f43909f;
+                    b.a.b0.g.a.b.i().c(updateBundle);
+                    b.a.b0.d.a.a aVar2 = this.f41683f;
                     if (aVar2 != null) {
-                        aVar2.onResult(51, this.f43912i.getDownloadMessage(c.a.b0.a.predownload_net_error_msg));
+                        aVar2.onResult(51, this.f41686i.getDownloadMessage(b.a.b0.a.predownload_net_error_msg));
                     }
-                    if (c.a.b0.i.b.a()) {
-                        String str2 = "preDownload, retCode=51，message = " + this.f43912i.getDownloadMessage(c.a.b0.a.predownload_net_error_msg);
+                    if (b.a.b0.i.b.a()) {
+                        String str2 = "preDownload, retCode=51，message = " + this.f41686i.getDownloadMessage(b.a.b0.a.predownload_net_error_msg);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -474,29 +474,29 @@ public class NPSPackageManager {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.b0.g.a.b.i().b();
+                b.a.b0.g.a.b.i().b();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class f extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NPSPackageManager f43915a;
+        public final /* synthetic */ NPSPackageManager f41689a;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Uri f43916e;
+            public final /* synthetic */ Uri f41690e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ f f43917f;
+            public final /* synthetic */ f f41691f;
 
             public a(f fVar, Uri uri) {
                 Interceptable interceptable = $ic;
@@ -513,15 +513,15 @@ public class NPSPackageManager {
                         return;
                     }
                 }
-                this.f43917f = fVar;
-                this.f43916e = uri;
+                this.f41691f = fVar;
+                this.f41690e = uri;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f43917f.f43915a.updateBundleInfos(this.f43916e);
+                    this.f41691f.f41689a.updateBundleInfos(this.f41690e);
                 }
             }
         }
@@ -544,25 +544,25 @@ public class NPSPackageManager {
                     return;
                 }
             }
-            this.f43915a = nPSPackageManager;
+            this.f41689a = nPSPackageManager;
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z, Uri uri) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, uri) == null) {
-                c.a.b0.c.a.g.a().b().run(new a(this, uri));
+                b.a.b0.c.a.g.a().b().run(new a(this, uri));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NPSPackageManager f43918e;
+        public final /* synthetic */ NPSPackageManager f41692e;
 
         public g(NPSPackageManager nPSPackageManager) {
             Interceptable interceptable = $ic;
@@ -579,33 +579,33 @@ public class NPSPackageManager {
                     return;
                 }
             }
-            this.f43918e = nPSPackageManager;
+            this.f41692e = nPSPackageManager;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Bundle o;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (o = c.a.b0.g.a.b.i().o()) != null && o.getInt(Constant.TAG.RET_CODE, -1) == 13) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (o = b.a.b0.g.a.b.i().o()) != null && o.getInt(Constant.TAG.RET_CODE, -1) == 13) {
                 ArrayList parcelableArrayList = o.getParcelableArrayList(Constant.TAG.RET_VALUE);
-                long j2 = o.getLong("time_stamp");
+                long j = o.getLong("time_stamp");
                 if (parcelableArrayList != null) {
                     Iterator it = parcelableArrayList.iterator();
                     while (it.hasNext()) {
-                        this.f43918e.updateBundleInfo(BundleInfo.toBundleInfo((ContentValues) it.next()), j2);
+                        this.f41692e.updateBundleInfo(BundleInfo.toBundleInfo((ContentValues) it.next()), j);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f43919e;
+        public final /* synthetic */ CountDownLatch f41693e;
 
         public h(NPSPackageManager nPSPackageManager, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
@@ -622,28 +622,28 @@ public class NPSPackageManager {
                     return;
                 }
             }
-            this.f43919e = countDownLatch;
+            this.f41693e = countDownLatch;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43919e.countDown();
+                this.f41693e.countDown();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f43920e;
+        public final /* synthetic */ CountDownLatch f41694e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NPSPackageManager f43921f;
+        public final /* synthetic */ NPSPackageManager f41695f;
 
         public i(NPSPackageManager nPSPackageManager, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
@@ -660,16 +660,16 @@ public class NPSPackageManager {
                     return;
                 }
             }
-            this.f43921f = nPSPackageManager;
-            this.f43920e = countDownLatch;
+            this.f41695f = nPSPackageManager;
+            this.f41694e = countDownLatch;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43921f.killProcessesWithPluginsRunning();
-                this.f43920e.countDown();
+                this.f41695f.killProcessesWithPluginsRunning();
+                this.f41694e.countDown();
             }
         }
     }
@@ -720,11 +720,11 @@ public class NPSPackageManager {
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             Bundle bundle = new Bundle();
             ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
-            for (BundleInfo bundleInfo : c.a.b0.e.a.b().d()) {
+            for (BundleInfo bundleInfo : b.a.b0.e.a.b().d()) {
                 arrayList.add(BundleInfo.toContentValues(bundleInfo));
             }
             bundle.putParcelableArrayList(Constant.TAG.PARAM_VALUE, arrayList);
-            c.a.b0.g.a.b.i().a(bundle);
+            b.a.b0.g.a.b.i().a(bundle);
         }
     }
 
@@ -744,16 +744,16 @@ public class NPSPackageManager {
             if (checkPresetBundleWithDownload(bundleByType)) {
                 return 2;
             }
-            Bundle d2 = c.a.b0.g.a.b.i().d(bundleByType);
+            Bundle d2 = b.a.b0.g.a.b.i().d(bundleByType);
             if (d2 == null) {
                 return 31;
             }
             int i2 = d2.getInt(Constant.TAG.RET_CODE, -1);
             if (i2 == 2) {
                 ContentValues contentValues = (ContentValues) d2.getParcelable(Constant.TAG.RET_VALUE);
-                long j2 = d2.getLong("time_stamp");
+                long j = d2.getLong("time_stamp");
                 if (contentValues != null) {
-                    updateBundleInfo(BundleInfo.toBundleInfo(contentValues), j2);
+                    updateBundleInfo(BundleInfo.toBundleInfo(contentValues), j);
                 }
             }
             return i2;
@@ -764,7 +764,7 @@ public class NPSPackageManager {
     private List<BundleInfo> getBundleInfoFromDB(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) ? c.a.b0.g.a.b.i().g(str) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) ? b.a.b0.g.a.b.i().g(str) : (List) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -816,7 +816,7 @@ public class NPSPackageManager {
             } else {
                 bundleInfo = null;
             }
-            if (bundleInfo2 == null || bundleInfo2.isForbidden() || bundleInfo2.getVersionCode() < c.a.b0.e.a.b().c(str)) {
+            if (bundleInfo2 == null || bundleInfo2.isForbidden() || bundleInfo2.getVersionCode() < b.a.b0.e.a.b().c(str)) {
                 return false;
             }
             return bundleInfo2.getVersionCode() > (bundleInfo == null ? 0 : bundleInfo.getVersionCode());
@@ -831,7 +831,7 @@ public class NPSPackageManager {
             initIfNeed();
             BundleInfoGroup bundleInfoGroup = this.mBundleInfoGroupMap.get(str);
             BundleInfo bundleByType = bundleInfoGroup != null ? bundleInfoGroup.getBundleByType(3) : null;
-            return (bundleByType == null || bundleByType.isForbidden() || bundleByType.getVersionCode() < c.a.b0.e.a.b().c(str)) ? false : true;
+            return (bundleByType == null || bundleByType.isForbidden() || bundleByType.getVersionCode() < b.a.b0.e.a.b().c(str)) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -844,7 +844,7 @@ public class NPSPackageManager {
             BundleInfo bundleInfo = this.mPresetInfoMap.get(str);
             BundleInfoGroup bundleInfoGroup = this.mBundleInfoGroupMap.get(str);
             BundleInfo bundleByType = bundleInfoGroup != null ? bundleInfoGroup.getBundleByType(3) : null;
-            if (bundleInfo != null && bundleInfo.getVersionCode() >= c.a.b0.e.a.b().c(str)) {
+            if (bundleInfo != null && bundleInfo.getVersionCode() >= b.a.b0.e.a.b().c(str)) {
                 return bundleInfo.getVersionCode() > (bundleByType == null ? 0 : bundleByType.getVersionCode());
             }
             return false;
@@ -852,10 +852,10 @@ public class NPSPackageManager {
         return invokeL.booleanValue;
     }
 
-    private void initBundleInfoFromDB(long j2) {
+    private void initBundleInfoFromDB(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65556, this, j2) == null) {
-            this.mBundleInfoGroupMap = c.a.b0.g.a.b.i().f(j2);
+        if (interceptable == null || interceptable.invokeJ(65556, this, j) == null) {
+            this.mBundleInfoGroupMap = b.a.b0.g.a.b.i().f(j);
         }
     }
 
@@ -874,12 +874,12 @@ public class NPSPackageManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
-            Bundle j2 = c.a.b0.g.a.b.i().j();
-            if (j2 == null) {
+            Bundle j = b.a.b0.g.a.b.i().j();
+            if (j == null) {
                 return 32;
             }
-            int i2 = j2.getInt(Constant.TAG.RET_CODE, -1);
-            ArrayList parcelableArrayList = j2.getParcelableArrayList(Constant.TAG.RET_VALUE);
+            int i2 = j.getInt(Constant.TAG.RET_CODE, -1);
+            ArrayList parcelableArrayList = j.getParcelableArrayList(Constant.TAG.RET_VALUE);
             if (parcelableArrayList != null) {
                 Iterator it = parcelableArrayList.iterator();
                 while (it.hasNext()) {
@@ -908,16 +908,16 @@ public class NPSPackageManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, this, bundleInfo)) == null) {
-            Bundle l = c.a.b0.g.a.b.i().l(bundleInfo);
+            Bundle l = b.a.b0.g.a.b.i().l(bundleInfo);
             if (l == null) {
                 return 28;
             }
             int i2 = l.getInt(Constant.TAG.RET_CODE, -1);
             if (i2 == 13) {
                 ContentValues contentValues = (ContentValues) l.getParcelable(Constant.TAG.RET_VALUE);
-                long j2 = l.getLong("time_stamp");
+                long j = l.getLong("time_stamp");
                 if (contentValues != null) {
-                    updateBundleInfo(BundleInfo.toBundleInfo(contentValues), j2);
+                    updateBundleInfo(BundleInfo.toBundleInfo(contentValues), j);
                 }
             }
             return i2;
@@ -928,7 +928,7 @@ public class NPSPackageManager {
     private void installPreset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            c.a.b0.c.a.g.a().b().run(new g(this));
+            b.a.b0.c.a.g.a().b().run(new g(this));
         }
     }
 
@@ -961,14 +961,14 @@ public class NPSPackageManager {
     private boolean isValidPackageName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65565, this, str)) == null) ? c.a.b0.e.a.b().c(str) != -1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65565, this, str)) == null) ? b.a.b0.e.a.b().c(str) != -1 : invokeL.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void killProcessesWithPluginsRunning() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, this) == null) {
-            Intent intent = new Intent(c.a.b0.i.a.f1930a);
+            Intent intent = new Intent(b.a.b0.i.a.f1417a);
             intent.setPackage(ContextHolder.getApplicationContext().getPackageName());
             ContextHolder.getApplicationContext().sendBroadcast(intent);
         }
@@ -997,7 +997,7 @@ public class NPSPackageManager {
     private void registerObsever() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65568, this) == null) {
-            c.a.b0.g.a.b.i().r(true, new f(this, new Handler(Looper.getMainLooper())));
+            b.a.b0.g.a.b.i().r(true, new f(this, new Handler(Looper.getMainLooper())));
         }
     }
 
@@ -1006,7 +1006,7 @@ public class NPSPackageManager {
         if (interceptable == null || interceptable.invokeV(65569, this) == null) {
             Application applicationContext = ContextHolder.getApplicationContext();
             CountDownLatch countDownLatch = new CountDownLatch(1);
-            c.a.b0.c.a.a.a().c(applicationContext.getString(c.a.b0.a.alert_title_force_update), applicationContext.getString(c.a.b0.a.alert_msg_force_update), new h(this, countDownLatch), applicationContext.getString(c.a.b0.a.alert_force_update_negative_msg), new i(this, countDownLatch), applicationContext.getString(c.a.b0.a.alert_force_update_positive_msg));
+            b.a.b0.c.a.a.a().c(applicationContext.getString(b.a.b0.a.alert_title_force_update), applicationContext.getString(b.a.b0.a.alert_msg_force_update), new h(this, countDownLatch), applicationContext.getString(b.a.b0.a.alert_force_update_negative_msg), new i(this, countDownLatch), applicationContext.getString(b.a.b0.a.alert_force_update_positive_msg));
             try {
                 countDownLatch.await();
             } catch (InterruptedException unused) {
@@ -1015,31 +1015,31 @@ public class NPSPackageManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void updateBundleInfo(BundleInfo bundleInfo, long j2) {
+    public synchronized void updateBundleInfo(BundleInfo bundleInfo, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65570, this, bundleInfo, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65570, this, bundleInfo, j) == null) {
             synchronized (this) {
                 BundleInfoGroup bundleInfoGroup = this.mBundleInfoGroupMap.get(bundleInfo.getPackageName());
-                long j3 = 0;
+                long j2 = 0;
                 if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j2);
+                    bundleInfoGroup = new BundleInfoGroup(j);
                     this.mBundleInfoGroupMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
                 } else {
-                    j3 = bundleInfoGroup.getTimeStamp();
+                    j2 = bundleInfoGroup.getTimeStamp();
                 }
-                if (j2 > j3) {
+                if (j > j2) {
                     bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
                 }
             }
         }
     }
 
-    private synchronized void updateBundleInfos(List<BundleInfo> list, long j2) {
+    private synchronized void updateBundleInfos(List<BundleInfo> list, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65572, this, list, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65572, this, list, j) == null) {
             synchronized (this) {
                 for (BundleInfo bundleInfo : list) {
-                    updateBundleInfo(bundleInfo, j2);
+                    updateBundleInfo(bundleInfo, j);
                 }
             }
         }
@@ -1048,14 +1048,14 @@ public class NPSPackageManager {
     public void downloadAllBundles() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.b0.c.a.g.a().b().run(new e(this));
+            b.a.b0.c.a.g.a().b().run(new e(this));
         }
     }
 
-    public void downloadUpdatePackage(String str, c.a.b0.d.a.a aVar, c.a.b0.f.a aVar2, int i2) {
+    public void downloadUpdatePackage(String str, b.a.b0.d.a.a aVar, b.a.b0.f.a aVar2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048579, this, str, aVar, aVar2, i2) == null) {
-            c.a.b0.c.a.g.a().b().run(new d(this, str, aVar, i2, aVar2));
+            b.a.b0.c.a.g.a().b().run(new d(this, str, aVar, i2, aVar2));
         }
     }
 
@@ -1063,18 +1063,18 @@ public class NPSPackageManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Bundle e2 = c.a.b0.g.a.b.i().e();
+            Bundle e2 = b.a.b0.g.a.b.i().e();
             if (e2 == null) {
                 return 30;
             }
             int i2 = e2.getInt(Constant.TAG.RET_CODE, -1);
             if (i2 == 0) {
                 ArrayList parcelableArrayList = e2.getParcelableArrayList(Constant.TAG.RET_VALUE);
-                long j2 = e2.getLong("time_stamp");
+                long j = e2.getLong("time_stamp");
                 if (parcelableArrayList != null) {
                     Iterator it = parcelableArrayList.iterator();
                     while (it.hasNext()) {
-                        updateBundleInfo(BundleInfo.toBundleInfo((ContentValues) it.next()), j2);
+                        updateBundleInfo(BundleInfo.toBundleInfo((ContentValues) it.next()), j);
                     }
                 }
             }
@@ -1096,7 +1096,7 @@ public class NPSPackageManager {
     public Map<String, BundleInfoGroup> getAllBundleGroupForLogSystem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? BundleInfoGroupManager.toBundleInfoGroups(c.a.b0.g.a.a.c(ContextHolder.getApplicationContext()).e(), System.currentTimeMillis()) : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? BundleInfoGroupManager.toBundleInfoGroups(b.a.b0.g.a.a.b(ContextHolder.getApplicationContext()).c(), System.currentTimeMillis()) : (Map) invokeV.objValue;
     }
 
     public BundleInfoGroup getBundleGroup(String str) {
@@ -1128,24 +1128,24 @@ public class NPSPackageManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                c.a.b0.i.b.a();
+                b.a.b0.i.b.a();
                 return 5;
             }
             initIfNeed();
             if (!isValidPackageName(str)) {
-                c.a.b0.i.b.a();
+                b.a.b0.i.b.a();
                 return 15;
             } else if (needForceUpdate(str)) {
-                c.a.b0.i.b.a();
+                b.a.b0.i.b.a();
                 return 44;
             } else if (hasValidInstalledBundle(str)) {
-                c.a.b0.i.b.a();
+                b.a.b0.i.b.a();
                 return 43;
             } else if (!hasValidPresetBundle(str) && !hasValidDownloadedBundle(str) && !hasValidInstalledBundle(str)) {
-                c.a.b0.i.b.a();
+                b.a.b0.i.b.a();
                 return 44;
             } else {
-                c.a.b0.i.b.a();
+                b.a.b0.i.b.a();
                 return 43;
             }
         }
@@ -1157,7 +1157,7 @@ public class NPSPackageManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             initIfNeed();
-            return c.a.b0.e.a.b().e(str);
+            return b.a.b0.e.a.b().e(str);
         }
         return (String) invokeL.objValue;
     }
@@ -1169,7 +1169,7 @@ public class NPSPackageManager {
                 if (this.mIsInited) {
                     return;
                 }
-                c.a.b0.e.a.b().f();
+                b.a.b0.e.a.b().f();
                 clearDeprecatedBundles();
                 registerObsever();
                 initBundleInfoFromDB(System.currentTimeMillis());
@@ -1185,7 +1185,7 @@ public class NPSPackageManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             if (new File(str).exists()) {
-                PackageInfo a2 = c.a.b0.i.e.a(str, 128);
+                PackageInfo a2 = b.a.b0.i.e.a(str, 128);
                 if (a2 == null) {
                     return 8;
                 }
@@ -1204,16 +1204,16 @@ public class NPSPackageManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, bundleInfo)) == null) {
-            Bundle m = c.a.b0.g.a.b.i().m(bundleInfo);
+            Bundle m = b.a.b0.g.a.b.i().m(bundleInfo);
             if (m == null) {
                 return 29;
             }
             int i2 = m.getInt(Constant.TAG.RET_CODE, -1);
             if (i2 == 13) {
                 ContentValues contentValues = (ContentValues) m.getParcelable(Constant.TAG.RET_VALUE);
-                long j2 = m.getLong("time_stamp");
+                long j = m.getLong("time_stamp");
                 if (contentValues != null) {
-                    updateBundleInfo(BundleInfo.toBundleInfo(contentValues), j2);
+                    updateBundleInfo(BundleInfo.toBundleInfo(contentValues), j);
                 }
             }
             return i2;
@@ -1224,13 +1224,13 @@ public class NPSPackageManager {
     public boolean isBundleRunning(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? c.a.b0.g.a.b.i().p(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? b.a.b0.g.a.b.i().p(str) : invokeL.booleanValue;
     }
 
-    public void preDownload(String str, c.a.b0.d.a.a aVar, int i2, SourceData sourceData) {
+    public void preDownload(String str, b.a.b0.d.a.a aVar, int i2, SourceData sourceData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048593, this, str, aVar, i2, sourceData) == null) {
-            c.a.b0.c.a.g.a().b().run(new c(this, str, i2, aVar));
+            b.a.b0.c.a.g.a().b().run(new c(this, str, i2, aVar));
         }
     }
 
@@ -1243,7 +1243,7 @@ public class NPSPackageManager {
     public void recordBundleRunning(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            c.a.b0.g.a.b.i().q(str);
+            b.a.b0.g.a.b.i().q(str);
         }
     }
 
@@ -1251,16 +1251,16 @@ public class NPSPackageManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, bundleInfo)) == null) {
-            Bundle n = c.a.b0.g.a.b.i().n(bundleInfo);
+            Bundle n = b.a.b0.g.a.b.i().n(bundleInfo);
             if (n == null) {
                 return 33;
             }
             int i2 = n.getInt(Constant.TAG.RET_CODE, -1);
             if (i2 == 13) {
                 BundleInfo bundleInfo2 = BundleInfo.toBundleInfo((ContentValues) n.getParcelable(Constant.TAG.RET_VALUE));
-                long j2 = n.getLong("time_stamp");
+                long j = n.getLong("time_stamp");
                 if (bundleInfo2 != null) {
-                    updateBundleInfo(bundleInfo2, j2);
+                    updateBundleInfo(bundleInfo2, j);
                 }
             }
             return i2;
@@ -1317,16 +1317,16 @@ public class NPSPackageManager {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65559, this, bundleInfo, i2)) == null) {
-            Bundle k = c.a.b0.g.a.b.i().k(bundleInfo);
+            Bundle k = b.a.b0.g.a.b.i().k(bundleInfo);
             if (k == null) {
                 return 27;
             }
             int i3 = k.getInt(Constant.TAG.RET_CODE, -1);
             if (i3 == 13) {
                 ContentValues contentValues = (ContentValues) k.getParcelable(Constant.TAG.RET_VALUE);
-                long j2 = k.getLong("time_stamp");
+                long j = k.getLong("time_stamp");
                 if (contentValues != null) {
-                    updateBundleInfo(BundleInfo.toBundleInfo(contentValues), j2);
+                    updateBundleInfo(BundleInfo.toBundleInfo(contentValues), j);
                 }
             } else if (i3 == 50) {
                 int i4 = i2 & 16;
@@ -1345,7 +1345,7 @@ public class NPSPackageManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateBundleInfos(Uri uri) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65571, this, uri) == null) || uri == null) {
             return;
@@ -1356,22 +1356,22 @@ public class NPSPackageManager {
         }
         String str = pathSegments.get(0);
         try {
-            j2 = Long.parseLong(pathSegments.get(1));
+            j = Long.parseLong(pathSegments.get(1));
         } catch (NumberFormatException e2) {
-            c.a.b0.c.a.f.a().b().recordException(1, e2.toString(), "uri=" + uri + ", pathSegments=" + pathSegments.toString());
-            j2 = 0L;
+            b.a.b0.c.a.f.a().b().recordException(1, e2.toString(), "uri=" + uri + ", pathSegments=" + pathSegments.toString());
+            j = 0L;
         }
         if ("all".equalsIgnoreCase(str)) {
-            initBundleInfoFromDB(j2);
+            initBundleInfoFromDB(j);
             return;
         }
         BundleInfoGroup bundleInfoGroup = this.mBundleInfoGroupMap.get(str);
-        if (j2 > (bundleInfoGroup != null ? bundleInfoGroup.getTimeStamp() : 0L)) {
-            this.mBundleInfoGroupMap.put(str, c.a.b0.g.a.b.i().h(str, j2));
+        if (j > (bundleInfoGroup != null ? bundleInfoGroup.getTimeStamp() : 0L)) {
+            this.mBundleInfoGroupMap.put(str, b.a.b0.g.a.b.i().h(str, j));
         }
     }
 
-    public void downloadBundle(String str, c.a.b0.d.a.a aVar) {
+    public void downloadBundle(String str, b.a.b0.d.a.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) || aVar == null) {
             return;
@@ -1379,10 +1379,10 @@ public class NPSPackageManager {
         downloadBundle(str, aVar, 48);
     }
 
-    public void downloadBundle(String str, c.a.b0.d.a.a aVar, int i2) {
+    public void downloadBundle(String str, b.a.b0.d.a.a aVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, aVar, i2) == null) {
-            c.a.b0.c.a.g.a().b().run(new b(this, aVar, str));
+            b.a.b0.c.a.g.a().b().run(new b(this, aVar, str));
         }
     }
 
@@ -1398,12 +1398,12 @@ public class NPSPackageManager {
         if (interceptable == null || interceptable.invokeLIL(1048588, this, str, i2, iInstallCallback) == null) {
             synchronized (this) {
                 if (this.mInstallingSet.contains(str) && iInstallCallback != null) {
-                    c.a.b0.i.b.a();
+                    b.a.b0.i.b.a();
                     iInstallCallback.onResult(34, "");
                     return;
                 }
                 this.mInstallingSet.add(str);
-                c.a.b0.c.a.g.a().b().run(new a(this, str, iInstallCallback, i2));
+                b.a.b0.c.a.g.a().b().run(new a(this, str, iInstallCallback, i2));
             }
         }
     }

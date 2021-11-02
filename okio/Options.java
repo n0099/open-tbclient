@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Options extends AbstractList<ByteString> implements RandomAccess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,13 +38,13 @@ public final class Options extends AbstractList<ByteString> implements RandomAcc
         this.trie = iArr;
     }
 
-    public static void buildTrieRecursive(long j2, Buffer buffer, int i2, List<ByteString> list, int i3, int i4, List<Integer> list2) {
+    public static void buildTrieRecursive(long j, Buffer buffer, int i2, List<ByteString> list, int i3, int i4, List<Integer> list2) {
         int i5;
         int i6;
         int i7;
         Buffer buffer2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), buffer, Integer.valueOf(i2), list, Integer.valueOf(i3), Integer.valueOf(i4), list2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), buffer, Integer.valueOf(i2), list, Integer.valueOf(i3), Integer.valueOf(i4), list2}) == null) {
             int i8 = i3;
             if (i8 < i4) {
                 for (int i9 = i8; i9 < i4; i9++) {
@@ -68,7 +68,7 @@ public final class Options extends AbstractList<ByteString> implements RandomAcc
                             i12++;
                         }
                     }
-                    long intCount = j2 + intCount(buffer) + 2 + (i12 * 2);
+                    long intCount = j + intCount(buffer) + 2 + (i12 * 2);
                     buffer.writeInt(i12);
                     buffer.writeInt(i10);
                     for (int i14 = i11; i14 < i4; i14++) {
@@ -116,7 +116,7 @@ public final class Options extends AbstractList<ByteString> implements RandomAcc
                 for (int i19 = i2; i19 < min && byteString.getByte(i19) == byteString2.getByte(i19); i19++) {
                     i18++;
                 }
-                long intCount2 = 1 + j2 + intCount(buffer) + 2 + i18;
+                long intCount2 = 1 + j + intCount(buffer) + 2 + i18;
                 buffer.writeInt(-i18);
                 buffer.writeInt(i10);
                 int i20 = i2;

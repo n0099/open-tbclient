@@ -12,20 +12,19 @@ import com.baidu.android.imsdk.shield.IGetDisturbListListener;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetShieldAndTopListRequest";
@@ -103,8 +102,8 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
                 jSONObject.put("appid", appid);
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+                jSONObject.put("sdk_version", "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("device_type", 2);
                 jSONObject.put("uk", uk);
                 jSONObject.put("sub_business", this.mSubBusiness);
                 jSONObject.put("timestamp", currentTimeMillis);
@@ -163,7 +162,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 int i4 = jSONObject.getInt("error_code");
-                String optString = jSONObject.optString("error_msg", "");
+                String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 JSONArray optJSONArray = jSONObject.optJSONArray("uks");
                 if (optJSONArray != null) {
                     for (int i5 = 0; i5 < optJSONArray.length(); i5++) {

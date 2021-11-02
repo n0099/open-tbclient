@@ -20,15 +20,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BitmapDescriptorFactory {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f41452a;
+    public static final /* synthetic */ boolean f39306a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f41453b;
+    public static final String f39307b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,8 +44,8 @@ public class BitmapDescriptorFactory {
                 return;
             }
         }
-        f41452a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        f41453b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        f39306a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f39307b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
     public BitmapDescriptorFactory() {
@@ -73,7 +73,7 @@ public class BitmapDescriptorFactory {
             try {
                 Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
                 BitmapDescriptor fromBitmap = fromBitmap(a2);
-                if (!f41452a && a2 == null) {
+                if (!f39306a && a2 == null) {
                     throw new AssertionError();
                 }
                 a2.recycle();

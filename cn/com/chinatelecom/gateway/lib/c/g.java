@@ -24,12 +24,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f35711a;
+    public static final Pattern f33818a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public final class g {
                 return;
             }
         }
-        f35711a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+        f33818a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
     }
 
     public static String a() {
@@ -63,7 +63,7 @@ public final class g {
                         Enumeration<InetAddress> inetAddresses = nextElement.getInetAddresses();
                         while (inetAddresses.hasMoreElements()) {
                             InetAddress nextElement2 = inetAddresses.nextElement();
-                            if (!nextElement2.isLoopbackAddress() && !nextElement2.isLinkLocalAddress() && (hostAddress = nextElement2.getHostAddress()) != null && f35711a.matcher(hostAddress).matches()) {
+                            if (!nextElement2.isLoopbackAddress() && !nextElement2.isLinkLocalAddress() && (hostAddress = nextElement2.getHostAddress()) != null && f33818a.matcher(hostAddress).matches()) {
                                 if (stringBuffer.length() > 0) {
                                     stringBuffer.append(",");
                                 }

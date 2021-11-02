@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Ast {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AS_FILE_NAME = "ast";
@@ -328,9 +328,9 @@ public class Ast {
         }
     }
 
-    public void faceHit(String str, long j2, int i2) {
+    public void faceHit(String str, long j, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2)}) == null) || this.properties == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i2)}) == null) || this.properties == null) {
             return;
         }
         String generateFaceHitKey = generateFaceHitKey(str);
@@ -349,7 +349,7 @@ public class Ast {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (this.dev.getFirstRun() || System.currentTimeMillis() - currentTimeMillis >= j2) {
+        if (this.dev.getFirstRun() || System.currentTimeMillis() - currentTimeMillis >= j) {
             sendData();
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.n.b;
+import b.a.e.e.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BdLogSetting implements b {
     public static /* synthetic */ Interceptable $ic;
     public static BdLogSetting mInstance;
@@ -83,7 +83,7 @@ public class BdLogSetting implements b {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkSettings.getInst().loadLong("log_stat_error_time", 0L) : invokeV.longValue;
     }
 
-    @Override // c.a.e.e.n.b
+    @Override // b.a.e.e.n.b
     public long getLogUploadTime(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -108,39 +108,39 @@ public class BdLogSetting implements b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TbadkSettings.getInst().loadString("log_stat_switch_data", null) : (String) invokeV.objValue;
     }
 
-    public void setDebugUploadTime(long j2) {
+    public void setDebugUploadTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            TbadkSettings.getInst().saveLong("log_stat_debug_time", j2);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            TbadkSettings.getInst().saveLong("log_stat_debug_time", j);
         }
     }
 
-    public void setErrorUploadTime(long j2) {
+    public void setErrorUploadTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            TbadkSettings.getInst().saveLong("log_stat_error_time", j2);
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            TbadkSettings.getInst().saveLong("log_stat_error_time", j);
         }
     }
 
-    @Override // c.a.e.e.n.b
-    public void setLogUploadTime(String str, long j2) {
+    @Override // b.a.e.e.n.b
+    public void setLogUploadTime(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j2) == null) {
-            TbadkSettings.getInst().saveLong(generateKey(str), j2);
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j) == null) {
+            TbadkSettings.getInst().saveLong(generateKey(str), j);
         }
     }
 
-    public void setPerformanceUploadTime(long j2) {
+    public void setPerformanceUploadTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            TbadkSettings.getInst().saveLong("log_stat_perfor_time", j2);
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            TbadkSettings.getInst().saveLong("log_stat_perfor_time", j);
         }
     }
 
-    public void setStatUploadTime(long j2) {
+    public void setStatUploadTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            TbadkSettings.getInst().saveLong("log_stat_upload_time ", j2);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            TbadkSettings.getInst().saveLong("log_stat_upload_time ", j);
         }
     }
 

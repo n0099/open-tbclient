@@ -34,7 +34,7 @@ import java.util.Date;
 import java.util.Locale;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_BYTES_SIZE = 8192;
@@ -103,7 +103,7 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
         }
         try {
             try {
-                long j2 = 0;
+                long j = 0;
                 if (Utility.isMediaUri(this.mFilePath)) {
                     fileInputStream = this.mContext.getContentResolver().openInputStream(Uri.parse(this.mFilePath));
                     length = fileInputStream != null ? fileInputStream.available() : 0L;
@@ -138,9 +138,9 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                         break;
                     }
                     dataOutputStream.write(bArr, 0, read);
-                    j2 += read;
-                    LogUtils.d(TAG, "write bytes:" + read + "  total:" + j2 + "  time:" + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f));
-                    onProgressUpdate(Integer.valueOf((int) ((100 * j2) / length)));
+                    j += read;
+                    LogUtils.d(TAG, "write bytes:" + read + "  total:" + j + "  time:" + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f));
+                    onProgressUpdate(Integer.valueOf((int) ((100 * j) / length)));
                     httpURLConnection = httpURLConnection;
                 }
                 fileInputStream.close();

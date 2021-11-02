@@ -1,36 +1,34 @@
 package com.fun.ad.sdk.channel.model.gdt;
 
-import a.a.a.a.s.b.b.b;
-import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import b.a.a.a.x.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.Glide;
-import com.fun.ad.sdk.R;
+import com.fun.ad.sdk.channel.gdt.R;
+import com.fun.ad.sdk.internal.api.utils.GlideHelper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.module.gdt.x;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
-public class GDTNativeUnifiedImgView extends b {
+/* loaded from: classes11.dex */
+public class GDTNativeUnifiedImgView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f70316d;
+    public ImageView f62765d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f70317e;
+    public float f62766e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GDTNativeUnifiedImgView(Context context) {
@@ -93,55 +91,41 @@ public class GDTNativeUnifiedImgView extends b {
                 return;
             }
         }
-        this.f70317e = 1.78f;
+        this.f62766e = 1.78f;
     }
 
-    @Override // a.a.a.a.s.b.b.b
+    @Override // com.fun.module.gdt.x
     public List<View> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f1021c);
-            arrayList.add(((b) this).f1020b);
-            arrayList.add(((b) this).f1019a);
-            arrayList.add(this.f70316d);
+            arrayList.add(this.f62883c);
+            arrayList.add(((x) this).f62882b);
+            arrayList.add(((x) this).f62881a);
+            arrayList.add(this.f62765d);
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // a.a.a.a.s.b.b.b
-    public void a(Activity activity, NativeUnifiedADData nativeUnifiedADData) {
+    @Override // com.fun.module.gdt.x
+    public void a(NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, nativeUnifiedADData) == null) {
-            super.a(activity, nativeUnifiedADData);
-            d.f("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-            this.f70317e = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
-            Context context = getContext();
-            String imgUrl = nativeUnifiedADData.getImgUrl();
-            ImageView imageView = this.f70316d;
-            if (context == null) {
-                d.f("GlideHelper: context is null when load: " + imgUrl, new Object[0]);
-            } else if (context instanceof Activity) {
-                Activity activity2 = (Activity) context;
-                if (!activity2.isFinishing() && (Build.VERSION.SDK_INT <= 17 || !activity2.isDestroyed())) {
-                    Glide.with(activity2).load(imgUrl).into(imageView);
-                    return;
-                }
-                d.f("GlideHelper: activity is destroyed when load: " + imgUrl, new Object[0]);
-            } else {
-                Glide.with(context).load(imgUrl).into(imageView);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
+            super.a(nativeUnifiedADData);
+            LogPrinter.e("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
+            this.f62766e = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgUrl(), this.f62765d);
         }
     }
 
-    @Override // a.a.a.a.s.b.b.b, android.view.View
+    @Override // com.fun.module.gdt.x, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.f70316d = (ImageView) findViewById(R.id.ad_img);
+            this.f62765d = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -150,11 +134,11 @@ public class GDTNativeUnifiedImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f70316d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62765d.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f70317e);
-            this.f70316d.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f62766e);
+            this.f62765d.setLayoutParams(layoutParams);
         }
     }
 }

@@ -9,16 +9,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class LightEstimate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f70589a;
+    public final Session f63100a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f63101b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,6 +101,47 @@ public class LightEstimate {
         }
     }
 
+    public LightEstimate(Session session) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {session};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f63101b = 0L;
+        this.f63100a = session;
+        this.f63101b = nativeCreateLightEstimate(session.f63103a);
+    }
+
+    public static native long nativeCreateLightEstimate(long j);
+
+    public static native void nativeDestroyLightEstimate(long j);
+
+    private native void nativeGetColorCorrection(long j, long j2, float[] fArr, int i2);
+
+    private native float nativeGetPixelIntensity(long j, long j2);
+
+    private native int nativeGetState(long j, long j2);
+
+    public void finalize() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.f63101b;
+            if (j != 0) {
+                nativeDestroyLightEstimate(j);
+            }
+            super.finalize();
+        }
+    }
+
     public LightEstimate() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,28 +155,7 @@ public class LightEstimate {
                 return;
             }
         }
-        this.f70589a = 0L;
-        this.f70589a = 0L;
-    }
-
-    public static native long nativeCreateLightEstimate(long j2);
-
-    public static native void nativeDestroyLightEstimate(long j2);
-
-    private native void nativeGetColorCorrection(long j2, long j3, float[] fArr, int i2);
-
-    private native float nativeGetPixelIntensity(long j2, long j3);
-
-    private native int nativeGetState(long j2, long j3);
-
-    public void finalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f70589a;
-            if (j2 != 0) {
-                nativeDestroyLightEstimate(j2);
-            }
-            super.finalize();
-        }
+        this.f63101b = 0L;
+        this.f63101b = 0L;
     }
 }

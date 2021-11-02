@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class CharSequenceTranslator {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] HEX_DIGITS;

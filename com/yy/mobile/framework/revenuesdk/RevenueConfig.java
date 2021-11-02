@@ -13,7 +13,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.ReportConfig;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RevenueConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class RevenueConfig {
     public long uid;
     public int usedChannel;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class RevenueConfigBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,11 +267,11 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setUid(long j2) {
+        public RevenueConfigBuilder setUid(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j2)) == null) {
-                this.uid = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
+                this.uid = j;
                 return this;
             }
             return (RevenueConfigBuilder) invokeJ.objValue;
@@ -418,10 +418,10 @@ public class RevenueConfig {
         }
     }
 
-    public void setUid(long j2) {
+    public void setUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.uid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.uid = j;
         }
     }
 
@@ -429,7 +429,7 @@ public class RevenueConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return "RevenueConfig { uid=" + this.uid + " appId=" + this.appId + " usedChannel=" + this.usedChannel + " currencyType=" + this.currencyType + " clientVer=" + this.clientVer + " authType=" + this.authType + " }";
+            return "RevenueConfig { appId=" + this.appId + " usedChannel=" + this.usedChannel + " currencyType=" + this.currencyType + " clientVer=" + this.clientVer + " authType=" + this.authType + " }";
         }
         return (String) invokeV.objValue;
     }

@@ -13,9 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ClientIdHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BI_CLIENT_ID_FILE_NAME = "hdcltid.ini";
@@ -183,7 +182,7 @@ public class ClientIdHelper {
                         }
                         if (!z) {
                         }
-                        String str4 = EventType.GiftEventID.LOAD_ALL_GIFT_FAIL + this.boardDigit + this.brandDigit + this.cpuAbiDigit + this.deviceDigit + this.manufacturerDigit + this.modelDigit + this.productDigit;
+                        String str4 = "35" + this.boardDigit + this.brandDigit + this.cpuAbiDigit + this.deviceDigit + this.manufacturerDigit + this.modelDigit + this.productDigit;
                         if (!checkBuild) {
                         }
                         if (!checkBuild) {
@@ -208,7 +207,7 @@ public class ClientIdHelper {
             if (!z) {
                 str2 = "";
             }
-            String str42 = EventType.GiftEventID.LOAD_ALL_GIFT_FAIL + this.boardDigit + this.brandDigit + this.cpuAbiDigit + this.deviceDigit + this.manufacturerDigit + this.modelDigit + this.productDigit;
+            String str42 = "35" + this.boardDigit + this.brandDigit + this.cpuAbiDigit + this.deviceDigit + this.manufacturerDigit + this.modelDigit + this.productDigit;
             if (!checkBuild && !TextUtils.isEmpty(str2)) {
                 str3 = PREFIX_NORMAL + new UUID(str42.hashCode(), str2.hashCode()).toString();
             } else if (!checkBuild) {

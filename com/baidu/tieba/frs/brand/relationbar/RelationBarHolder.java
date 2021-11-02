@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RelationBarHolder<T extends View> extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f51077a;
+    public T f48427a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelationBarHolder(T t) {
@@ -33,12 +33,12 @@ public class RelationBarHolder<T extends View> extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f51077a = t;
+        this.f48427a = t;
     }
 
     public T getRelationBarCellView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51077a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48427a : (T) invokeV.objValue;
     }
 }

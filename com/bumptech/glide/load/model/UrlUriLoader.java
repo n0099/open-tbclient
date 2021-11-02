@@ -17,14 +17,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UrlUriLoader<Data> implements ModelLoader<Uri, Data> {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> SCHEMES;
     public transient /* synthetic */ FieldHolder $fh;
     public final ModelLoader<GlideUrl, Data> urlLoader;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class StreamFactory implements ModelLoaderFactory<Uri, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

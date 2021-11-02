@@ -7,6 +7,7 @@ import com.baidu.mobads.container.XAdSDKRemoteVersion;
 import com.baidu.mobads.container.util.APKStateManager;
 import com.baidu.mobads.container.util.Base64;
 import com.baidu.mobads.container.util.SPUtils;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CloudControlConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.mobads.container.gray.CloudControlConfig";
@@ -31,7 +32,7 @@ public class CloudControlConfig {
     public String mSPName;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class AvailablePKType {
         public static final /* synthetic */ AvailablePKType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -245,7 +246,7 @@ public class CloudControlConfig {
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    String decodeStr = Base64.decodeStr(jSONObject.optString("config"));
+                    String decodeStr = Base64.decodeStr(jSONObject.optString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
                     if (decodeStr != null) {
                         this.configJson = new JSONObject(decodeStr);
                     }

@@ -23,21 +23,21 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class CyberPlayerCoreProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class LibsVersionType {
         public static /* synthetic */ Interceptable $ic;
         public static final LibsVersionType ALL_VERSION;
         public static final LibsVersionType SUCCESS_LOADED_VERSION;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ LibsVersionType[] f38998a;
+        public static final /* synthetic */ LibsVersionType[] f36961a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +56,7 @@ public abstract class CyberPlayerCoreProvider {
             ALL_VERSION = new LibsVersionType("ALL_VERSION", 0);
             LibsVersionType libsVersionType = new LibsVersionType("SUCCESS_LOADED_VERSION", 1);
             SUCCESS_LOADED_VERSION = libsVersionType;
-            f38998a = new LibsVersionType[]{ALL_VERSION, libsVersionType};
+            f36961a = new LibsVersionType[]{ALL_VERSION, libsVersionType};
         }
 
         public LibsVersionType(String str, int i2) {
@@ -87,7 +87,7 @@ public abstract class CyberPlayerCoreProvider {
         public static LibsVersionType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LibsVersionType[]) f38998a.clone() : (LibsVersionType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LibsVersionType[]) f36961a.clone() : (LibsVersionType[]) invokeV.objValue;
         }
     }
 
@@ -109,7 +109,7 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract void cancelDownload(String str);
 
-    public abstract void cleanFilecacheWithTimeExpired(long j2);
+    public abstract void cleanFilecacheWithTimeExpired(long j);
 
     public abstract CaptureManagerProvider createCaptureManager(Context context, int i2, int i3, int i4, int i5, int i6);
 
@@ -153,7 +153,7 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract void loadlibs(int i2, Map<String, String> map) throws FileNotFoundException, UnsatisfiedLinkError, SecurityException;
 
-    public abstract int nativeKernelNetInit(long j2);
+    public abstract int nativeKernelNetInit(long j);
 
     public abstract void pauseDownload(String str);
 
@@ -177,5 +177,5 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract void updatePlayerConfig(String str);
 
-    public abstract void updateStorageQuota(long j2);
+    public abstract void updateStorageQuota(long j);
 }

@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdRemoteDownloadAPKCommand {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XAdRemoteDownloadAPKCommand";

@@ -1,8 +1,8 @@
 package com.baidu.tieba.pb.chosen.net;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.d.l;
-import c.a.r0.k2.g.c.a;
+import b.a.e.e.d.l;
+import b.a.r0.k2.q.c.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
@@ -21,7 +21,7 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,49 +50,49 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
         }
     }
 
-    @Override // c.a.r0.k2.g.c.a
+    @Override // b.a.r0.k2.q.c.a
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? super.getError() : invokeV.intValue;
     }
 
-    @Override // c.a.r0.k2.g.c.a
+    @Override // b.a.r0.k2.q.c.a
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.k2.g.c.a
+    @Override // b.a.r0.k2.q.c.a
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.postList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.k2.g.c.a
+    @Override // b.a.r0.k2.q.c.a
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadInfo : (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // c.a.r0.k2.g.c.a
+    @Override // b.a.r0.k2.q.c.a
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userInfo : (UserInfo) invokeV.objValue;
     }
 
-    @Override // c.a.r0.k2.g.c.a
+    @Override // b.a.r0.k2.q.c.a
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.userList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.k2.g.c.a
+    @Override // b.a.r0.k2.q.c.a
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;
@@ -113,8 +113,8 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
-            c.a.q0.s.r.a.f();
-            l<byte[]> d2 = c.a.q0.s.r.a.d("tb.pb_normal");
+            b.a.q0.s.r.a.f();
+            l<byte[]> d2 = b.a.q0.s.r.a.d("tb.pb_normal");
             d2.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
             d2.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
         }

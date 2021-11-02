@@ -2,12 +2,11 @@ package com.baidu.swan.pms.node;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.n.j.d;
-import c.a.p0.n.j.e;
-import c.a.p0.n.j.j.c;
+import b.a.p0.n.j.d;
+import b.a.p0.n.j.e;
+import b.a.p0.n.j.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class Node {
     public static final /* synthetic */ Node[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,10 +43,10 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", c.class, c.a.p0.n.j.j.d.class);
-        PACKAGE = new Node("PACKAGE", 1, AsInstallService.SCHEME_PACKAGE_ADDED, c.a.p0.n.j.k.d.class, c.a.p0.n.j.k.e.class, true);
-        CERES = new Node("CERES", 2, "ceres", c.a.p0.n.j.h.c.class, c.a.p0.n.j.h.d.class);
-        Node node = new Node("COMMON", 3, "common", c.a.p0.n.j.i.c.class, c.a.p0.n.j.i.d.class);
+        HOST = new Node("HOST", 0, "host", c.class, b.a.p0.n.j.j.d.class);
+        PACKAGE = new Node("PACKAGE", 1, "package", b.a.p0.n.j.k.d.class, b.a.p0.n.j.k.e.class, true);
+        CERES = new Node("CERES", 2, "ceres", b.a.p0.n.j.h.c.class, b.a.p0.n.j.h.d.class);
+        Node node = new Node("COMMON", 3, "common", b.a.p0.n.j.i.c.class, b.a.p0.n.j.i.d.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
     }
@@ -102,7 +101,7 @@ public final class Node {
             try {
                 return paramsProvider.newInstance();
             } catch (IllegalAccessException | InstantiationException e2) {
-                if (c.a.p0.n.c.f11864a) {
+                if (b.a.p0.n.c.f11048a) {
                     e2.printStackTrace();
                 }
                 return null;

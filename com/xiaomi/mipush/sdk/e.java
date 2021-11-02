@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f77659a;
+    public static final e f70622a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ e[] f91a;
+    public static final /* synthetic */ e[] f92a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f77660b;
+    public static final e f70623b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f77661c;
+    public static final e f70624c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final e f77662d;
+    public static final e f70625d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f92a;
+    public int f93a;
 
     static {
         InterceptResult invokeClinit;
@@ -44,12 +44,12 @@ public final class e {
                 return;
             }
         }
-        f77659a = new e("ASSEMBLE_PUSH_HUAWEI", 0, 1);
-        f77660b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
-        f77661c = new e("ASSEMBLE_PUSH_COS", 2, 3);
+        f70622a = new e("ASSEMBLE_PUSH_HUAWEI", 0, 1);
+        f70623b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
+        f70624c = new e("ASSEMBLE_PUSH_COS", 2, 3);
         e eVar = new e("ASSEMBLE_PUSH_FTOS", 3, 4);
-        f77662d = eVar;
-        f91a = new e[]{f77659a, f77660b, f77661c, eVar};
+        f70625d = eVar;
+        f92a = new e[]{f70622a, f70623b, f70624c, eVar};
     }
 
     public e(String str, int i2, int i3) {
@@ -70,7 +70,7 @@ public final class e {
                 return;
             }
         }
-        this.f92a = i3;
+        this.f93a = i3;
     }
 
     public static e valueOf(String str) {
@@ -82,6 +82,6 @@ public final class e {
     public static e[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (e[]) f91a.clone() : (e[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (e[]) f92a.clone() : (e[]) invokeV.objValue;
     }
 }

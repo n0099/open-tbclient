@@ -1,13 +1,14 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
-import c.a.e.e.d.l;
-import c.a.q0.s.q.i1;
-import c.a.q0.s.r.a;
+import b.a.e.e.d.l;
+import b.a.q0.s.q.i1;
+import b.a.q0.s.r.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +55,7 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             int error = getError();
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
-                this.mErrMsg = jSONObject.optString("error_msg");
+                this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 i1 i1Var = new i1();
                 this.data = i1Var;
                 i1Var.c(jSONObject);

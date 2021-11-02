@@ -1,7 +1,7 @@
 package com.baidu.tieba.mainentrance;
 
-import c.a.r0.v1.b;
-import c.a.r0.v1.c;
+import b.a.r0.v1.b;
+import b.a.r0.v1.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +17,7 @@ import tbclient.Error;
 import tbclient.HotForum.ForumInfo;
 import tbclient.HotForum.HotForumResIdl;
 import tbclient.HotForum.HotTopicList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         if (hotForumResIdl.data.hot_search != null) {
             HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
             this.mHotSearchInfo = hotSearchInfoData;
-            hotSearchInfoData.y(hotForumResIdl.data.hot_search);
+            hotSearchInfoData.x(hotForumResIdl.data.hot_search);
         }
         if (hotForumResIdl.data.hot_topic != null) {
             this.mTopicInfoList = new ArrayList();

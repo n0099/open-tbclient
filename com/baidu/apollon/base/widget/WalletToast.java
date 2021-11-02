@@ -22,58 +22,56 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WalletToast {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_LONG = 1;
     public static final int LENGTH_SHORT = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f37861h = 3500;
+    public static final int f35882h = 3500;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f37862i = 2000;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static List<View> f37863j;
+    public static final int f35883i = 2000;
+    public static List<View> j;
     public static CancleRunnable k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37864a;
+    public Context f35884a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37865b;
+    public int f35885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37866c;
+    public int f35886c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f37867d;
+    public int f35887d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37868e;
+    public int f35888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f37869f;
+    public float f35889f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f37870g;
+    public float f35890g;
     public WindowManager l;
     public View m;
     public WindowManager.LayoutParams n;
     public Handler o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class CancleRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile boolean f37872a;
+        public volatile boolean f35892a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WalletToast f37873b;
+        public final /* synthetic */ WalletToast f35893b;
 
         public CancleRunnable(WalletToast walletToast) {
             Interceptable interceptable = $ic;
@@ -90,24 +88,24 @@ public class WalletToast {
                     return;
                 }
             }
-            this.f37873b = walletToast;
-            this.f37872a = false;
+            this.f35893b = walletToast;
+            this.f35892a = false;
         }
 
         public void discard() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f37872a = true;
+                this.f35892a = true;
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f37872a) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f35892a) {
                 return;
             }
-            this.f37873b.a();
+            this.f35893b.a();
         }
     }
 
@@ -124,7 +122,7 @@ public class WalletToast {
                 return;
             }
         }
-        f37863j = new ArrayList();
+        j = new ArrayList();
     }
 
     public WalletToast(Context context) {
@@ -144,34 +142,34 @@ public class WalletToast {
         }
         this.o = new Handler(Looper.getMainLooper());
         this.l = (WindowManager) context.getSystemService("window");
-        this.f37864a = context;
+        this.f35884a = context;
         Toast toast = new Toast(context);
-        this.f37868e = toast.getYOffset();
+        this.f35888e = toast.getYOffset();
         a(toast);
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37865b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35885b : invokeV.intValue;
     }
 
     public int getGravity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37866c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35886c : invokeV.intValue;
     }
 
     public float getHorizontalMargin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37870g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35890g : invokeV.floatValue;
     }
 
     public float getVerticalMargin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37869f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35889f : invokeV.floatValue;
     }
 
     public View getView() {
@@ -183,36 +181,36 @@ public class WalletToast {
     public int getXOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37867d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35887d : invokeV.intValue;
     }
 
     public int getYOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37868e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35888e : invokeV.intValue;
     }
 
     public void setDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f37865b = i2;
+            this.f35885b = i2;
         }
     }
 
     public void setGravity(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4) == null) {
-            this.f37866c = i2;
-            this.f37867d = i3;
-            this.f37868e = i4;
+            this.f35886c = i2;
+            this.f35887d = i3;
+            this.f35888e = i4;
         }
     }
 
     public void setMargin(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f37870g = f2;
-            this.f37869f = f3;
+            this.f35890g = f2;
+            this.f35889f = f3;
         }
     }
 
@@ -231,7 +229,7 @@ public class WalletToast {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WalletToast f37871a;
+                public final /* synthetic */ WalletToast f35891a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -248,15 +246,15 @@ public class WalletToast {
                             return;
                         }
                     }
-                    this.f37871a = this;
+                    this.f35891a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f37871a.a();
-                        WalletToast walletToast = this.f37871a;
+                        this.f35891a.a();
+                        WalletToast walletToast = this.f35891a;
                         walletToast.a(walletToast.m);
                     }
                 }
@@ -294,12 +292,12 @@ public class WalletToast {
                 layoutParams.width = -2;
                 layoutParams.format = -3;
                 layoutParams.type = 2005;
-                layoutParams.windowAnimations = ResUtils.style(this.f37864a, "EbpayActivityAnim2");
+                layoutParams.windowAnimations = ResUtils.style(this.f35884a, "EbpayActivityAnim2");
                 this.n.setTitle("Toast");
                 this.n.flags = 152;
             }
-            this.f37866c = 17;
-            this.f37868e = 0;
+            this.f35886c = 17;
+            this.f35888e = 0;
             this.m = toast.getView();
         }
     }
@@ -322,9 +320,9 @@ public class WalletToast {
         }
         this.o = new Handler(Looper.getMainLooper());
         this.l = (WindowManager) context.getSystemService("window");
-        this.f37864a = context;
+        this.f35884a = context;
         Toast makeText = Toast.makeText(context, str, i2);
-        this.f37868e = makeText.getYOffset();
+        this.f35888e = makeText.getYOffset();
         a(makeText);
     }
 
@@ -338,10 +336,10 @@ public class WalletToast {
                 this.o.removeCallbacks(k);
                 k = null;
             }
-            for (View view : f37863j) {
+            for (View view : j) {
                 b(view);
             }
-            f37863j.clear();
+            j.clear();
         }
     }
 
@@ -349,12 +347,12 @@ public class WalletToast {
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view) == null) {
-            Context applicationContext = DxmApplicationContextImpl.getApplicationContext(this.f37864a);
+            Context applicationContext = DxmApplicationContextImpl.getApplicationContext(this.f35884a);
             if (applicationContext == null) {
-                applicationContext = this.f37864a;
+                applicationContext = this.f35884a;
             }
             this.l = (WindowManager) applicationContext.getSystemService("window");
-            int i2 = this.f37866c;
+            int i2 = this.f35886c;
             WindowManager.LayoutParams layoutParams = this.n;
             layoutParams.gravity = i2;
             if ((i2 & 7) == 7) {
@@ -364,20 +362,20 @@ public class WalletToast {
                 this.n.verticalWeight = 1.0f;
             }
             WindowManager.LayoutParams layoutParams2 = this.n;
-            layoutParams2.x = this.f37867d;
-            layoutParams2.y = this.f37868e;
-            layoutParams2.verticalMargin = this.f37869f;
-            layoutParams2.horizontalMargin = this.f37870g;
+            layoutParams2.x = this.f35887d;
+            layoutParams2.y = this.f35888e;
+            layoutParams2.verticalMargin = this.f35889f;
+            layoutParams2.horizontalMargin = this.f35890g;
             try {
                 if (view.getParent() != null) {
                     this.l.updateViewLayout(view, this.n);
                 } else {
                     this.l.addView(view, this.n);
                 }
-                f37863j.add(view);
+                j.add(view);
                 CancleRunnable cancleRunnable = new CancleRunnable(this);
                 k = cancleRunnable;
-                this.o.postDelayed(cancleRunnable, this.f37865b == 1 ? 3500L : 2000L);
+                this.o.postDelayed(cancleRunnable, this.f35885b == 1 ? 3500L : 2000L);
             } catch (Exception unused) {
             }
         }

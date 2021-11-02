@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Result;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class URIResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern URL_WITHOUT_PROTOCOL_PATTERN;

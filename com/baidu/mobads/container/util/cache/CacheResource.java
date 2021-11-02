@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CacheResource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,10 +67,10 @@ public class CacheResource<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resource.getClass() : (Class) invokeV.objValue;
     }
 
-    public boolean isExpired(long j2) {
+    public boolean isExpired(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? (this.resource instanceof File) && System.currentTimeMillis() - ((File) this.resource).lastModified() > j2 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? (this.resource instanceof File) && System.currentTimeMillis() - ((File) this.resource).lastModified() > j : invokeJ.booleanValue;
     }
 
     public boolean recycle() {

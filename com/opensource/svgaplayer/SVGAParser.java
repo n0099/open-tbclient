@@ -50,54 +50,54 @@ import kotlin.jvm.internal.StringCompanionObject;
 import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0012\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\u0018\u0000 =:\u0003=>?B\u000f\u0012\u0006\u00102\u001a\u000201¢\u0006\u0004\b;\u0010<J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\b\u001a\u00020\u00012\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\b\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\b\u0010\u000bJ\u001d\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\f\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u0010\u0010\u0011J\u001f\u0010\u0012\u001a\u00020\u000f2\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\rH\u0002¢\u0006\u0004\b\u0012\u0010\u0011J/\u0010\u0017\u001a\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\r2\b\b\u0002\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u0017\u0010\u0018J%\u0010\u001a\u001a\n\u0012\u0004\u0012\u00020\u000f\u0018\u00010\u00192\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u001a\u0010\u001bJ\u0019\u0010\u001e\u001a\u0004\u0018\u00010\u001c2\u0006\u0010\u001d\u001a\u00020\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u001f\u0010\"\u001a\u00020\u000f2\u0006\u0010!\u001a\u00020 2\u0006\u0010\u000e\u001a\u00020\rH\u0002¢\u0006\u0004\b\"\u0010#J\u001f\u0010&\u001a\u00020\u000f2\u0006\u0010%\u001a\u00020$2\u0006\u0010\u000e\u001a\u00020\rH\u0002¢\u0006\u0004\b&\u0010'J\u0017\u0010(\u001a\u00020\u00152\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b(\u0010)J1\u0010*\u001a\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\r2\b\b\u0002\u0010\u0016\u001a\u00020\u0015H\u0007¢\u0006\u0004\b*\u0010\u0018J\u001f\u0010*\u001a\u00020\u000f2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\rH\u0007¢\u0006\u0004\b*\u0010+J\u001f\u0010*\u001a\u00020\u000f2\u0006\u0010,\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\rH\u0007¢\u0006\u0004\b*\u0010\u0011J\u0019\u0010-\u001a\u0004\u0018\u00010\u001c2\u0006\u0010\u0014\u001a\u00020\u0013H\u0002¢\u0006\u0004\b-\u0010.J\u001f\u0010/\u001a\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b/\u00100R\u0016\u00102\u001a\u0002018\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b2\u00103R\"\u00105\u001a\u0002048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b5\u00106\u001a\u0004\b7\u00108\"\u0004\b9\u0010:¨\u0006@"}, d2 = {"Lcom/opensource/svgaplayer/SVGAParser;", "", "cacheKey", "Ljava/io/File;", "buildCacheDir", "(Ljava/lang/String;)Ljava/io/File;", "Ljava/net/URL;", "url", "buildCacheKey", "(Ljava/net/URL;)Ljava/lang/String;", "str", "(Ljava/lang/String;)Ljava/lang/String;", "name", "Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;", "callback", "", "decodeFromAssets", "(Ljava/lang/String;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)V", "decodeFromCacheKey", "Ljava/io/InputStream;", "inputStream", "", "closeInputStream", "decodeFromInputStream", "(Ljava/io/InputStream;Ljava/lang/String;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;Z)V", "Lkotlin/Function0;", "decodeFromURL", "(Ljava/net/URL;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)Lkotlin/Function0;", "", "byteArray", "inflate", "([B)[B", "Lcom/opensource/svgaplayer/SVGAVideoEntity;", "videoItem", "invokeCompleteCallback", "(Lcom/opensource/svgaplayer/SVGAVideoEntity;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)V", "Ljava/lang/Exception;", "e", "invokeErrorCallback", "(Ljava/lang/Exception;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)V", "isCached", "(Ljava/lang/String;)Z", "parse", "(Ljava/net/URL;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)V", "assetsName", "readAsBytes", "(Ljava/io/InputStream;)[B", ZeusPerformanceTiming.KEY_UNZIP, "(Ljava/io/InputStream;Ljava/lang/String;)V", "Landroid/content/Context;", "context", "Landroid/content/Context;", "Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "fileDownloader", "Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "getFileDownloader", "()Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "setFileDownloader", "(Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;)V", "<init>", "(Landroid/content/Context;)V", "Companion", "FileDownloader", "ParseCompletion", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SVGAParser {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final LinkedBlockingQueue<Runnable> f75381c;
+    public static final LinkedBlockingQueue<Runnable> f67735c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ThreadPoolExecutor f75382d;
+    public static ThreadPoolExecutor f67736d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f75383e;
+    public static final a f67737e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FileDownloader f75384a;
+    public FileDownloader f67738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f75385b;
+    public final Context f67739b;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\t\b\u0016\u0018\u0000B\u0007¢\u0006\u0004\b\u0018\u0010\u0019Jg\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\b0\u000e2\u0006\u0010\u0002\u001a\u00020\u00012!\u0010\t\u001a\u001d\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0004\u0012\u00020\b0\u00032%\u0010\r\u001a!\u0012\u0017\u0012\u00150\nj\u0002`\u000b¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\f\u0012\u0004\u0012\u00020\b0\u0003H\u0016¢\u0006\u0004\b\u000f\u0010\u0010R\"\u0010\u0012\u001a\u00020\u00118\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017¨\u0006\u001a"}, d2 = {"Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "Ljava/net/URL;", "url", "Lkotlin/Function1;", "Ljava/io/InputStream;", "Lkotlin/ParameterName;", "name", "inputStream", "", XAdRemoteEvent.COMPLETE, "Ljava/lang/Exception;", "Lkotlin/Exception;", "e", SmsLoginView.f.l, "Lkotlin/Function0;", "resume", "(Ljava/net/URL;Lkotlin/Function1;Lkotlin/Function1;)Lkotlin/Function0;", "", "noCache", "Z", "getNoCache", "()Z", "setNoCache", "(Z)V", "<init>", "()V", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class FileDownloader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f75386a;
+        public boolean f67740a;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ FileDownloader f75387e;
+            public final /* synthetic */ FileDownloader f67741e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ URL f75388f;
+            public final /* synthetic */ URL f67742f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Ref.BooleanRef f75389g;
+            public final /* synthetic */ Ref.BooleanRef f67743g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Function1 f75390h;
+            public final /* synthetic */ Function1 f67744h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ Function1 f75391i;
+            public final /* synthetic */ Function1 f67745i;
 
             public a(FileDownloader fileDownloader, URL url, Ref.BooleanRef booleanRef, Function1 function1, Function1 function12) {
                 Interceptable interceptable = $ic;
@@ -114,11 +114,11 @@ public final class SVGAParser {
                         return;
                     }
                 }
-                this.f75387e = fileDownloader;
-                this.f75388f = url;
-                this.f75389g = booleanRef;
-                this.f75390h = function1;
-                this.f75391i = function12;
+                this.f67741e = fileDownloader;
+                this.f67742f = url;
+                this.f67743g = booleanRef;
+                this.f67744h = function1;
+                this.f67745i = function12;
             }
 
             /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -129,9 +129,9 @@ public final class SVGAParser {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
                         if (HttpResponseCache.getInstalled() == null) {
-                            this.f75387e.a();
+                            this.f67741e.a();
                         }
-                        URLConnection openConnection = this.f75388f.openConnection();
+                        URLConnection openConnection = this.f67742f.openConnection();
                         if (!(openConnection instanceof HttpURLConnection)) {
                             openConnection = null;
                         }
@@ -144,16 +144,16 @@ public final class SVGAParser {
                             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                             try {
                                 byte[] bArr = new byte[4096];
-                                while (!this.f75389g.element && (read = inputStream.read(bArr, 0, 4096)) != -1) {
+                                while (!this.f67743g.element && (read = inputStream.read(bArr, 0, 4096)) != -1) {
                                     byteArrayOutputStream.write(bArr, 0, read);
                                 }
-                                if (this.f75389g.element) {
+                                if (this.f67743g.element) {
                                     CloseableKt.closeFinally(byteArrayOutputStream, null);
                                     CloseableKt.closeFinally(inputStream, null);
                                     return;
                                 }
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-                                this.f75390h.invoke(byteArrayInputStream);
+                                this.f67744h.invoke(byteArrayInputStream);
                                 Unit unit = Unit.INSTANCE;
                                 CloseableKt.closeFinally(byteArrayInputStream, null);
                                 Unit unit2 = Unit.INSTANCE;
@@ -171,7 +171,7 @@ public final class SVGAParser {
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
-                        this.f75391i.invoke(e2);
+                        this.f67745i.invoke(e2);
                     }
                 }
             }
@@ -194,7 +194,7 @@ public final class SVGAParser {
         public final boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75386a : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67740a : invokeV.booleanValue;
         }
 
         public Function0<Unit> b(URL url, Function1<? super InputStream, Unit> function1, Function1<? super Exception, Unit> function12) {
@@ -204,14 +204,14 @@ public final class SVGAParser {
                 Ref.BooleanRef booleanRef = new Ref.BooleanRef();
                 booleanRef.element = false;
                 SVGAParser$FileDownloader$resume$cancelBlock$1 sVGAParser$FileDownloader$resume$cancelBlock$1 = new SVGAParser$FileDownloader$resume$cancelBlock$1(booleanRef);
-                SVGAParser.f75383e.a().execute(new a(this, url, booleanRef, function1, function12));
+                SVGAParser.f67737e.a().execute(new a(this, url, booleanRef, function1, function12));
                 return sVGAParser$FileDownloader$resume$cancelBlock$1;
             }
             return (Function0) invokeLLL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -233,7 +233,7 @@ public final class SVGAParser {
         public final ThreadPoolExecutor a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SVGAParser.f75382d : (ThreadPoolExecutor) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SVGAParser.f67736d : (ThreadPoolExecutor) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -241,26 +241,26 @@ public final class SVGAParser {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(SVGAVideoEntity sVGAVideoEntity);
 
         void onError();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SVGAParser f75392e;
+        public final /* synthetic */ SVGAParser f67746e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ URL f75393f;
+        public final /* synthetic */ URL f67747f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f75394g;
+        public final /* synthetic */ b f67748g;
 
         public c(SVGAParser sVGAParser, URL url, b bVar) {
             Interceptable interceptable = $ic;
@@ -277,31 +277,31 @@ public final class SVGAParser {
                     return;
                 }
             }
-            this.f75392e = sVGAParser;
-            this.f75393f = url;
-            this.f75394g = bVar;
+            this.f67746e = sVGAParser;
+            this.f67747f = url;
+            this.f67748g = bVar;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SVGAParser sVGAParser = this.f75392e;
-                sVGAParser.n(sVGAParser.l(this.f75393f), this.f75394g);
+                SVGAParser sVGAParser = this.f67746e;
+                sVGAParser.n(sVGAParser.l(this.f67747f), this.f67748g);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f75395e;
+        public final /* synthetic */ b f67749e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SVGAVideoEntity f75396f;
+        public final /* synthetic */ SVGAVideoEntity f67750f;
 
         public d(b bVar, SVGAVideoEntity sVGAVideoEntity) {
             Interceptable interceptable = $ic;
@@ -318,26 +318,26 @@ public final class SVGAParser {
                     return;
                 }
             }
-            this.f75395e = bVar;
-            this.f75396f = sVGAVideoEntity;
+            this.f67749e = bVar;
+            this.f67750f = sVGAVideoEntity;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f75395e.a(this.f75396f);
+                this.f67749e.a(this.f67750f);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f75402e;
+        public final /* synthetic */ b f67756e;
 
         public e(b bVar) {
             Interceptable interceptable = $ic;
@@ -354,14 +354,14 @@ public final class SVGAParser {
                     return;
                 }
             }
-            this.f75402e = bVar;
+            this.f67756e = bVar;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f75402e.onError();
+                this.f67756e.onError();
             }
         }
     }
@@ -379,9 +379,9 @@ public final class SVGAParser {
                 return;
             }
         }
-        f75383e = new a(null);
-        f75381c = new LinkedBlockingQueue<>();
-        f75382d = new ThreadPoolExecutor(3, 10, 60000L, TimeUnit.MILLISECONDS, f75381c);
+        f67737e = new a(null);
+        f67735c = new LinkedBlockingQueue<>();
+        f67736d = new ThreadPoolExecutor(3, 10, 60000L, TimeUnit.MILLISECONDS, f67735c);
     }
 
     public SVGAParser(Context context) {
@@ -399,8 +399,8 @@ public final class SVGAParser {
                 return;
             }
         }
-        this.f75385b = context;
-        this.f75384a = new FileDownloader();
+        this.f67739b = context;
+        this.f67738a = new FileDownloader();
     }
 
     public static /* synthetic */ void p(SVGAParser sVGAParser, InputStream inputStream, String str, b bVar, boolean z, int i2, Object obj) {
@@ -415,7 +415,7 @@ public final class SVGAParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             StringBuilder sb = new StringBuilder();
-            File cacheDir = this.f75385b.getCacheDir();
+            File cacheDir = this.f67739b.getCacheDir();
             Intrinsics.checkExpressionValueIsNotNull(cacheDir, "context.cacheDir");
             sb.append(cacheDir.getAbsolutePath());
             sb.append("/");
@@ -470,7 +470,7 @@ public final class SVGAParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
             try {
-                InputStream open = this.f75385b.getAssets().open(str);
+                InputStream open = this.f67739b.getAssets().open(str);
                 if (open != null) {
                     o(open, k("file:///assets/" + str), bVar, true);
                 }
@@ -488,7 +488,7 @@ public final class SVGAParser {
         }
         try {
             StringBuilder sb = new StringBuilder();
-            File cacheDir = this.f75385b.getCacheDir();
+            File cacheDir = this.f67739b.getCacheDir();
             Intrinsics.checkExpressionValueIsNotNull(cacheDir, "context.cacheDir");
             sb.append(cacheDir.getAbsolutePath());
             sb.append("/");
@@ -558,7 +558,7 @@ public final class SVGAParser {
     public final void o(InputStream inputStream, String str, b bVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{inputStream, str, bVar, Boolean.valueOf(z)}) == null) {
-            f75382d.execute(new SVGAParser$decodeFromInputStream$1(this, inputStream, str, bVar, z));
+            f67736d.execute(new SVGAParser$decodeFromInputStream$1(this, inputStream, str, bVar, z));
         }
     }
 
@@ -567,10 +567,10 @@ public final class SVGAParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, url, bVar)) == null) {
             if (u(l(url))) {
-                f75382d.execute(new c(this, url, bVar));
+                f67736d.execute(new c(this, url, bVar));
                 return null;
             }
-            return this.f75384a.b(url, new SVGAParser$decodeFromURL$2(this, url, bVar), new SVGAParser$decodeFromURL$3(this, bVar));
+            return this.f67738a.b(url, new SVGAParser$decodeFromURL$2(this, url, bVar), new SVGAParser$decodeFromURL$3(this, bVar));
         }
         return (Function0) invokeLL.objValue;
     }
@@ -605,7 +605,7 @@ public final class SVGAParser {
     public final void s(SVGAVideoEntity sVGAVideoEntity, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sVGAVideoEntity, bVar) == null) {
-            new Handler(this.f75385b.getMainLooper()).post(new d(bVar, sVGAVideoEntity));
+            new Handler(this.f67739b.getMainLooper()).post(new d(bVar, sVGAVideoEntity));
         }
     }
 
@@ -613,7 +613,7 @@ public final class SVGAParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, exc, bVar) == null) {
             exc.printStackTrace();
-            new Handler(this.f75385b.getMainLooper()).post(new e(bVar));
+            new Handler(this.f67739b.getMainLooper()).post(new e(bVar));
         }
     }
 
@@ -669,10 +669,10 @@ public final class SVGAParser {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, str) == null) {
-            i2 = c.n.a.d.f34376a;
+            i2 = b.n.a.d.f33158a;
             synchronized (Integer.valueOf(i2)) {
-                File j2 = j(str);
-                j2.mkdirs();
+                File j = j(str);
+                j.mkdirs();
                 try {
                     BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
                     try {
@@ -683,7 +683,7 @@ public final class SVGAParser {
                                 String name = nextEntry.getName();
                                 Intrinsics.checkExpressionValueIsNotNull(name, "zipItem.name");
                                 if (!StringsKt__StringsKt.contains$default((CharSequence) name, (CharSequence) "/", false, 2, (Object) null)) {
-                                    FileOutputStream fileOutputStream = new FileOutputStream(new File(j2, nextEntry.getName()));
+                                    FileOutputStream fileOutputStream = new FileOutputStream(new File(j, nextEntry.getName()));
                                     byte[] bArr = new byte[2048];
                                     while (true) {
                                         int read = zipInputStream.read(bArr);
@@ -707,7 +707,7 @@ public final class SVGAParser {
                     } finally {
                     }
                 } catch (Exception e2) {
-                    j2.delete();
+                    j.delete();
                     throw e2;
                 }
             }

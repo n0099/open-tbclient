@@ -14,7 +14,7 @@ import tbclient.GetMsgRecForumlist.DataRes;
 import tbclient.GetMsgRecForumlist.GetMsgRecForumlistResIdl;
 import tbclient.Page;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MsgRecForumHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

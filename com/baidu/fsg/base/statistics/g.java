@@ -14,39 +14,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39551a = "g";
+    public static final String f37494a = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f39552b;
+    public JSONArray f37495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f39553c;
+    public byte[] f37496c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f39554d;
+    public byte[] f37497d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f39555e;
+    public byte[] f37498e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f39556a;
+        public int f37499a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39557b;
+        public String f37500b;
 
         /* renamed from: c  reason: collision with root package name */
-        public h[] f39558c;
+        public h[] f37501c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,12 +63,12 @@ public class g {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f39559a;
+        public static g f37502a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -84,7 +84,7 @@ public class g {
                     return;
                 }
             }
-            f39559a = new g(null);
+            f37502a = new g(null);
         }
 
         public b() {
@@ -130,10 +130,10 @@ public class g {
                 return;
             }
         }
-        this.f39552b = new JSONArray();
-        this.f39553c = new byte[0];
-        this.f39554d = new byte[0];
-        this.f39555e = new byte[0];
+        this.f37495b = new JSONArray();
+        this.f37496c = new byte[0];
+        this.f37497d = new byte[0];
+        this.f37498e = new byte[0];
     }
 
     public /* synthetic */ g(f fVar) {
@@ -143,20 +143,20 @@ public class g {
     public static g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f39559a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f37502a : (g) invokeV.objValue;
     }
 
     public JSONArray a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39552b : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37495b : (JSONArray) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && com.baidu.fsg.base.statistics.b.o.equals(str)) {
-            synchronized (this.f39554d) {
-                this.f39552b = new JSONArray();
+            synchronized (this.f37497d) {
+                this.f37495b = new JSONArray();
             }
             com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, StringUtil.EMPTY_ARRAY, false);
         }
@@ -165,9 +165,9 @@ public class g {
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            synchronized (this.f39554d) {
+            synchronized (this.f37497d) {
                 try {
-                    this.f39552b.put(this.f39552b.length(), jSONObject);
+                    this.f37495b.put(this.f37495b.length(), jSONObject);
                 } catch (JSONException unused) {
                 }
             }
@@ -179,8 +179,8 @@ public class g {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.f39554d) {
-                z = this.f39552b.length() == 0;
+            synchronized (this.f37497d) {
+                z = this.f37495b.length() == 0;
             }
             return z;
         }

@@ -4,12 +4,12 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.c2.e;
-import c.a.p0.a.c2.f.a0;
-import c.a.p0.a.e2.c.d;
-import c.a.p0.a.e2.c.i;
-import c.a.p0.a.e2.c.j.b;
-import c.a.p0.a.v2.e1.b;
+import b.a.p0.a.c2.e;
+import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.e2.c.d;
+import b.a.p0.a.e2.c.i;
+import b.a.p0.a.e2.c.j.b;
+import b.a.p0.a.v2.e1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanAppDownloadAction extends a0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class SwanAppDownloadType {
         public static final /* synthetic */ SwanAppDownloadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -124,28 +124,26 @@ public class SwanAppDownloadAction extends a0 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements b<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46623e;
+        public final /* synthetic */ CallbackHandler f44283e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46624f;
+        public final /* synthetic */ UnitedSchemeEntity f44284f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f46625g;
+        public final /* synthetic */ Context f44285g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46626h;
+        public final /* synthetic */ JSONObject f44286h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ SwanAppDownloadType f46627i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ SwanAppDownloadAction f46628j;
+        public final /* synthetic */ SwanAppDownloadType f44287i;
+        public final /* synthetic */ SwanAppDownloadAction j;
 
         public a(SwanAppDownloadAction swanAppDownloadAction, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
             Interceptable interceptable = $ic;
@@ -162,28 +160,28 @@ public class SwanAppDownloadAction extends a0 {
                     return;
                 }
             }
-            this.f46628j = swanAppDownloadAction;
-            this.f46623e = callbackHandler;
-            this.f46624f = unitedSchemeEntity;
-            this.f46625g = context;
-            this.f46626h = jSONObject;
-            this.f46627i = swanAppDownloadType;
+            this.j = swanAppDownloadAction;
+            this.f44283e = callbackHandler;
+            this.f44284f = unitedSchemeEntity;
+            this.f44285g = context;
+            this.f44286h = jSONObject;
+            this.f44287i = swanAppDownloadType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (d.h(iVar)) {
-                    if (this.f46628j.k(this.f46625g, this.f46624f, this.f46623e, this.f46626h, this.f46627i)) {
+                    if (this.j.k(this.f44285g, this.f44284f, this.f44283e, this.f44286h, this.f44287i)) {
                         return;
                     }
-                    UnitedSchemeUtility.callCallback(this.f46623e, this.f46624f, UnitedSchemeUtility.wrapCallbackParams(1001));
+                    UnitedSchemeUtility.callCallback(this.f44283e, this.f44284f, UnitedSchemeUtility.wrapCallbackParams(1001));
                     return;
                 }
-                d.o(iVar, this.f46623e, this.f46624f);
+                d.o(iVar, this.f44283e, this.f44284f);
             }
         }
     }
@@ -209,29 +207,29 @@ public class SwanAppDownloadAction extends a0 {
         }
     }
 
-    @Override // c.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, c.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.c2.f.a0
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
-                c.a.p0.a.e0.d.g("SwanAppDownloadAction", "params parse error");
+                b.a.p0.a.e0.d.g("SwanAppDownloadAction", "params parse error");
                 return false;
             }
             String optString = a2.optString("type");
             SwanAppDownloadType find = SwanAppDownloadType.find(optString);
             if (find == SwanAppDownloadType.TYPE_OTHER) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "parameters empty");
-                c.a.p0.a.e0.d.g("SwanAppDownloadAction", "type error:" + optString);
+                b.a.p0.a.e0.d.g("SwanAppDownloadAction", "type error:" + optString);
                 return true;
             } else if (!l(unitedSchemeEntity, eVar)) {
                 k(context, unitedSchemeEntity, callbackHandler, a2, find);
                 return true;
             } else {
                 if (eVar != null) {
-                    eVar.T().g(context, "mapp_i_app_download", new a(this, callbackHandler, unitedSchemeEntity, context, a2, find));
+                    eVar.S().g(context, "mapp_i_app_download", new a(this, callbackHandler, unitedSchemeEntity, context, a2, find));
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 } else {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "SwanApp is Null");
@@ -246,7 +244,7 @@ public class SwanAppDownloadAction extends a0 {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, jSONObject, swanAppDownloadType)) == null) {
-            boolean c2 = c.a.p0.a.c1.a.c().c(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
+            boolean c2 = b.a.p0.a.c1.a.c().c(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
             if (c2) {
                 JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0, "success");
                 unitedSchemeEntity.result = wrapCallbackParams;
@@ -259,7 +257,7 @@ public class SwanAppDownloadAction extends a0 {
         return invokeLLLLL.booleanValue;
     }
 
-    public boolean l(@NonNull UnitedSchemeEntity unitedSchemeEntity, @Nullable c.a.p0.a.a2.e eVar) {
+    public boolean l(@NonNull UnitedSchemeEntity unitedSchemeEntity, @Nullable b.a.p0.a.a2.e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, eVar)) == null) {

@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LpVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLAY_BIG = "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";
@@ -49,7 +49,7 @@ public class LpVideoView extends RelativeLayout {
     public int screenWidth;
     public int videoHeight;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class BackgroundLayout extends RelativeLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class LpVideoView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class DownloadFilesTask extends AsyncTask<String, Integer, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,12 +193,12 @@ public class LpVideoView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnVideoListener {
         void onReturnButtonClicked();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class PlayIconLayout extends RelativeLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

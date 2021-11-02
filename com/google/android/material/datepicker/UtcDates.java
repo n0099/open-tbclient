@@ -20,7 +20,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UtcDates {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UTC = "UTC";
@@ -57,12 +57,12 @@ public class UtcDates {
         }
     }
 
-    public static long canonicalYearMonthDay(long j2) {
+    public static long canonicalYearMonthDay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
             Calendar utcCalendar = getUtcCalendar();
-            utcCalendar.setTimeInMillis(j2);
+            utcCalendar.setTimeInMillis(j);
             return getDayCopy(utcCalendar).getTimeInMillis();
         }
         return invokeJ.longValue;

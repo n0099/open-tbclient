@@ -1,7 +1,7 @@
 package com.baidu.mobads.container.bridge;
 
 import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface BridgeListener {
     void onAdClicked(IXAdInstanceInfo iXAdInstanceInfo);
 

@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.r0.l1.f.e;
+import b.a.e.e.p.l;
+import b.a.r0.l1.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MsgrightView extends e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String z = "com.baidu.tieba.im.chat.MsgrightView";
@@ -34,13 +34,13 @@ public class MsgrightView extends e {
     public TextView x;
     public TextView y;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f52927e;
+        public final /* synthetic */ MsgrightView f50194e;
 
         public a(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -57,26 +57,26 @@ public class MsgrightView extends e {
                     return;
                 }
             }
-            this.f52927e = msgrightView;
+            this.f50194e = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f52927e;
-                msgrightView.f21392b.onItemViewClick(view, 6, msgrightView.f21396f, 0L);
+                MsgrightView msgrightView = this.f50194e;
+                msgrightView.f19988b.onItemViewClick(view, 6, msgrightView.f19992f, 0L);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f52928e;
+        public final /* synthetic */ MsgrightView f50195e;
 
         public b(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -93,15 +93,15 @@ public class MsgrightView extends e {
                     return;
                 }
             }
-            this.f52928e = msgrightView;
+            this.f50195e = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f52928e;
-                msgrightView.f21392b.onItemViewClick(view, 1, msgrightView.f21396f, 0L);
+                MsgrightView msgrightView = this.f50195e;
+                msgrightView.f19988b.onItemViewClick(view, 1, msgrightView.f19992f, 0L);
             }
         }
     }
@@ -161,23 +161,23 @@ public class MsgrightView extends e {
         this.n.setIsLeft(false);
     }
 
-    @Override // c.a.r0.l1.f.e
+    @Override // b.a.r0.l1.f.e
     public void i(View view, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, chatMessage) == null) {
             super.i(view, chatMessage);
             if (chatMessage == null) {
-                this.f21398h.setVisibility(8);
+                this.f19994h.setVisibility(8);
                 this.t.setVisibility(8);
                 this.u.setVisibility(8);
                 this.x.setVisibility(8);
                 this.y.setVisibility(8);
-                this.f21399i.setVisibility(0);
-                this.f21399i.setText(null);
+                this.f19995i.setVisibility(0);
+                this.f19995i.setText(null);
                 j(8);
                 this.p.getImage().setTag(null);
-                this.f21400j.setVisibility(8);
-                this.f21400j.setTag(null);
+                this.j.setVisibility(8);
+                this.j.setTag(null);
                 this.m.setVisibility(8);
                 this.n.setVisibility(8);
                 this.o.setVisibility(8);
@@ -220,9 +220,9 @@ public class MsgrightView extends e {
                 if (this.u.getVisibility() == 0) {
                     this.u.setOnClickListener(new b(this));
                 }
-                this.f21399i.setVisibility(8);
+                this.f19995i.setVisibility(8);
                 j(8);
-                this.f21400j.setVisibility(8);
+                this.j.setVisibility(8);
                 this.k.setVisibility(8);
                 this.n.setVisibility(8);
                 this.m.setVisibility(8);
@@ -234,7 +234,7 @@ public class MsgrightView extends e {
                     w(view, chatMessage, z);
                 } else if (msgType == 3) {
                     y(chatMessage, z);
-                    this.f21400j.setVisibility(0);
+                    this.j.setVisibility(0);
                 } else if (msgType == 4) {
                     s(chatMessage, true);
                 } else if (msgType != 9) {
@@ -246,7 +246,7 @@ public class MsgrightView extends e {
         }
     }
 
-    @Override // c.a.r0.l1.f.e
+    @Override // b.a.r0.l1.f.e
     public void q(View view, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, chatMessage) == null) {

@@ -40,12 +40,12 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DefaultConfigurationFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public static final AtomicInteger poolNumber;
@@ -129,14 +129,14 @@ public class DefaultConfigurationFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new SimpleBitmapDisplayer() : (BitmapDisplayer) invokeV.objValue;
     }
 
-    public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j2, int i2) {
+    public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, fileNameGenerator, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, fileNameGenerator, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
             File createReserveDiskCacheDir = createReserveDiskCacheDir(context);
-            if (j2 > 0 || i2 > 0) {
+            if (j > 0 || i2 > 0) {
                 try {
-                    return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context), createReserveDiskCacheDir, fileNameGenerator, j2, i2);
+                    return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context), createReserveDiskCacheDir, fileNameGenerator, j, i2);
                 } catch (IOException e2) {
                     L.e(e2);
                 }

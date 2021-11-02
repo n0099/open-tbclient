@@ -2,8 +2,8 @@ package com.baidu.tieba.write.accountAccess;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.r0.d4.j.a;
-import c.a.r0.d4.j.b;
+import b.a.r0.d4.j.a;
+import b.a.r0.d4.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_ACCESS_CANCEL = "http://tieba.baidu.com/account/access/cancel";
@@ -113,7 +113,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 }
                 a aVar = new a(this.mView, this.mWriteModel);
                 this.mPresenter = aVar;
-                this.mView.m(aVar);
+                this.mView.l(aVar);
                 this.mPresenter.h(joinStrsForH5());
                 return;
             }
@@ -126,7 +126,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            this.mView.l();
+            this.mView.k();
         }
     }
 }

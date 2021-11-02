@@ -26,12 +26,12 @@ import io.reactivex.observables.ConnectableObservable;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableInternalHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class BufferedReplayCallable<T> implements Callable<ConnectableObservable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class BufferedTimedReplayCallable<T> implements Callable<ConnectableObservable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,12 +76,12 @@ public final class ObservableInternalHelper {
         public final long time;
         public final TimeUnit unit;
 
-        public BufferedTimedReplayCallable(Observable<T> observable, int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public BufferedTimedReplayCallable(Observable<T> observable, int i2, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observable, Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {observable, Integer.valueOf(i2), Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -93,7 +93,7 @@ public final class ObservableInternalHelper {
             }
             this.parent = observable;
             this.bufferSize = i2;
-            this.time = j2;
+            this.time = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -107,7 +107,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class FlatMapIntoIterable<T, U> implements Function<T, ObservableSource<U>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +146,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class FlatMapWithCombinerInner<U, R, T> implements Function<U, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class FlatMapWithCombinerOuter<T, R, U> implements Function<T, ObservableSource<R>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,7 +222,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ItemDelayFunction<T, U> implements Function<T, ObservableSource<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -262,7 +262,7 @@ public final class ObservableInternalHelper {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class MapToInt implements Function<Object, Object> {
         public static final /* synthetic */ MapToInt[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -329,7 +329,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ObserverOnComplete<T> implements Action {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -362,7 +362,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ObserverOnError<T> implements Consumer<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -396,7 +396,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ObserverOnNext<T> implements Consumer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -429,7 +429,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ReplayCallable<T> implements Callable<ConnectableObservable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -462,7 +462,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ReplayFunction<T, R> implements Function<Observable<T>, ObservableSource<R>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -500,7 +500,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class SimpleBiGenerator<T, S> implements BiFunction<S, Emitter<T>, S> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -542,7 +542,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class SimpleGenerator<T, S> implements BiFunction<S, Emitter<T>, S> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -584,7 +584,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class TimedReplayCallable<T> implements Callable<ConnectableObservable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -593,12 +593,12 @@ public final class ObservableInternalHelper {
         public final long time;
         public final TimeUnit unit;
 
-        public TimedReplayCallable(Observable<T> observable, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public TimedReplayCallable(Observable<T> observable, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observable, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {observable, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -609,7 +609,7 @@ public final class ObservableInternalHelper {
                 }
             }
             this.parent = observable;
-            this.time = j2;
+            this.time = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -623,7 +623,7 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipIterableFunction<T, R> implements Function<List<ObservableSource<? extends T>>, ObservableSource<? extends R>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -747,15 +747,15 @@ public final class ObservableInternalHelper {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, observable, i2)) == null) ? new BufferedReplayCallable(observable, i2) : (Callable) invokeLI.objValue;
     }
 
-    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, int i2, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{observable, Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler})) == null) ? new BufferedTimedReplayCallable(observable, i2, j2, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{observable, Integer.valueOf(i2), Long.valueOf(j), timeUnit, scheduler})) == null) ? new BufferedTimedReplayCallable(observable, i2, j, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
     }
 
-    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{observable, Long.valueOf(j2), timeUnit, scheduler})) == null) ? new TimedReplayCallable(observable, j2, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{observable, Long.valueOf(j), timeUnit, scheduler})) == null) ? new TimedReplayCallable(observable, j, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
     }
 }

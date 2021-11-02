@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class TTLocation {
+/* loaded from: classes11.dex */
+public class TTLocation implements LocationProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f65762a;
+    public double f61580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f65763b;
+    public double f61581b;
 
     public TTLocation(double d2, double d3) {
         Interceptable interceptable = $ic;
@@ -32,35 +32,37 @@ public class TTLocation {
                 return;
             }
         }
-        this.f65762a = 0.0d;
-        this.f65763b = 0.0d;
-        this.f65762a = d2;
-        this.f65763b = d3;
+        this.f61580a = 0.0d;
+        this.f61581b = 0.0d;
+        this.f61580a = d2;
+        this.f61581b = d3;
     }
 
+    @Override // com.bytedance.sdk.openadsdk.LocationProvider
     public double getLatitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65762a : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61580a : invokeV.doubleValue;
     }
 
+    @Override // com.bytedance.sdk.openadsdk.LocationProvider
     public double getLongitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65763b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61581b : invokeV.doubleValue;
     }
 
     public void setLatitude(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f65762a = d2;
+            this.f61580a = d2;
         }
     }
 
     public void setLongitude(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f65763b = d2;
+            this.f61581b = d2;
         }
     }
 }

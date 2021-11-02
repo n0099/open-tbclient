@@ -10,29 +10,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CallArgs implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CallArgs> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f45235a;
+    public int f42967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45236b;
+    public int f42968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45237c;
+    public String f42969c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f45238d;
+    public Object[] f42970d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object[] f45239e;
+    public Object[] f42971e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f45240f;
+    public Object f42972f;
 
     static {
         InterceptResult invokeClinit;
@@ -107,12 +107,12 @@ public class CallArgs implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-            parcel.writeInt(this.f45235a);
-            parcel.writeInt(this.f45236b);
-            parcel.writeString(this.f45237c);
-            parcel.writeArray(this.f45239e);
-            parcel.writeArray(this.f45238d);
-            parcel.writeValue(this.f45240f);
+            parcel.writeInt(this.f42967a);
+            parcel.writeInt(this.f42968b);
+            parcel.writeString(this.f42969c);
+            parcel.writeArray(this.f42971e);
+            parcel.writeArray(this.f42970d);
+            parcel.writeValue(this.f42972f);
         }
     }
 
@@ -131,11 +131,11 @@ public class CallArgs implements Parcelable {
                 return;
             }
         }
-        this.f45235a = parcel.readInt();
-        this.f45236b = parcel.readInt();
-        this.f45237c = parcel.readString();
-        this.f45239e = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f45238d = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f45240f = parcel.readValue(CallArgs.class.getClassLoader());
+        this.f42967a = parcel.readInt();
+        this.f42968b = parcel.readInt();
+        this.f42969c = parcel.readString();
+        this.f42971e = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f42970d = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f42972f = parcel.readValue(CallArgs.class.getClassLoader());
     }
 }

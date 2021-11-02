@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.e.e.p.k;
-import c.a.e.e.p.l;
+import b.a.e.e.p.k;
+import b.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -27,36 +27,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f50175a;
+    public TbPageContext<?> f47577a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedList<VisitedForumData> f50176b;
+    public LinkedList<VisitedForumData> f47578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50177c;
+    public boolean f47579c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f50178d;
+    public a f47580d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnLongClickListener f50179e;
+    public View.OnLongClickListener f47581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f50180f;
+    public View.OnClickListener f47582f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class ForumViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RecentlyVisitedForumListAdapter f50181a;
+        public final /* synthetic */ RecentlyVisitedForumListAdapter f47583a;
         public LinearLayout mBottomContainer;
         public ImageView mDeleteView;
         public LinearGradientView mForumBgImage;
@@ -67,13 +67,13 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
         public MessageRedDotView mRedDot;
         public View mTopContainer;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ForumViewHolder f50182e;
+            public final /* synthetic */ ForumViewHolder f47584e;
 
             public a(ForumViewHolder forumViewHolder, RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter) {
                 Interceptable interceptable = $ic;
@@ -90,26 +90,26 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
                         return;
                     }
                 }
-                this.f50182e = forumViewHolder;
+                this.f47584e = forumViewHolder;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50182e.f50181a.f50178d == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47584e.f47583a.f47580d == null) {
                     return;
                 }
-                this.f50182e.f50181a.f50178d.a(this.f50182e);
+                this.f47584e.f47583a.f47580d.a(this.f47584e);
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class b implements View.OnLongClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ForumViewHolder f50183e;
+            public final /* synthetic */ ForumViewHolder f47585e;
 
             public b(ForumViewHolder forumViewHolder, RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter) {
                 Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
                         return;
                     }
                 }
-                this.f50183e = forumViewHolder;
+                this.f47585e = forumViewHolder;
             }
 
             @Override // android.view.View.OnLongClickListener
@@ -134,8 +134,8 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                    if (this.f50183e.f50181a.f50179e != null) {
-                        this.f50183e.f50181a.f50179e.onLongClick(view);
+                    if (this.f47585e.f47583a.f47581e != null) {
+                        this.f47585e.f47583a.f47581e.onLongClick(view);
                         return true;
                     }
                     return true;
@@ -144,13 +144,13 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ForumViewHolder f50184e;
+            public final /* synthetic */ ForumViewHolder f47586e;
 
             public c(ForumViewHolder forumViewHolder, RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter) {
                 Interceptable interceptable = $ic;
@@ -167,16 +167,16 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
                         return;
                     }
                 }
-                this.f50184e = forumViewHolder;
+                this.f47586e = forumViewHolder;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50184e.f50181a.f50180f == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47586e.f47583a.f47582f == null) {
                     return;
                 }
-                this.f50184e.f50181a.f50180f.onClick(view);
+                this.f47586e.f47583a.f47582f.onClick(view);
             }
         }
 
@@ -198,7 +198,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
                     return;
                 }
             }
-            this.f50181a = recentlyVisitedForumListAdapter;
+            this.f47583a = recentlyVisitedForumListAdapter;
             view.setOnClickListener(new a(this, recentlyVisitedForumListAdapter));
             view.setOnLongClickListener(new b(this, recentlyVisitedForumListAdapter));
             this.mTopContainer = view.findViewById(R.id.top_container);
@@ -210,7 +210,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.mForumFollow = (TextView) view.findViewById(R.id.forum_follow);
             LinearGradientView linearGradientView = (LinearGradientView) view.findViewById(R.id.forum_bg);
             this.mForumBgImage = linearGradientView;
-            linearGradientView.setCornerRadius(l.g(recentlyVisitedForumListAdapter.f50175a.getPageActivity(), R.dimen.tbds10));
+            linearGradientView.setCornerRadius(l.g(recentlyVisitedForumListAdapter.f47577a.getPageActivity(), R.dimen.tbds10));
             this.mForumBgImage.setRoundMode(3);
             this.mForumBgImage.setVisibility(8);
             this.mRedDot.setThreeDotMode(2);
@@ -223,7 +223,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(ForumViewHolder forumViewHolder);
     }
@@ -243,7 +243,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
                 return;
             }
         }
-        this.f50175a = tbPageContext;
+        this.f47577a = tbPageContext;
     }
 
     public final void e(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
@@ -276,7 +276,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
         forumViewHolder.mRedDot.setVisibility(8);
         forumViewHolder.mDeleteView.setVisibility(8);
         forumViewHolder.mLiveLabelView.setVisibility(8);
-        if (this.f50177c) {
+        if (this.f47579c) {
             forumViewHolder.mDeleteView.setVisibility(0);
             forumViewHolder.mDeleteView.setTag(visitedForumData);
         } else if (!visitedForumData.F()) {
@@ -296,7 +296,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinkedList<VisitedForumData> linkedList = this.f50176b;
+            LinkedList<VisitedForumData> linkedList = this.f47578b;
             if (linkedList == null) {
                 return 0;
             }
@@ -326,21 +326,21 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
     public void setData(LinkedList<VisitedForumData> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, linkedList) == null) {
-            this.f50176b = linkedList;
+            this.f47578b = linkedList;
         }
     }
 
     public void setDeleteClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
-            this.f50180f = onClickListener;
+            this.f47582f = onClickListener;
         }
     }
 
     public void setEditState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f50177c = z;
+            this.f47579c = z;
             notifyDataSetChanged();
         }
     }
@@ -348,14 +348,14 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
     public void setItemClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.f50178d = aVar;
+            this.f47580d = aVar;
         }
     }
 
     public void setItemLongClickListener(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onLongClickListener) == null) {
-            this.f50179e = onLongClickListener;
+            this.f47581e = onLongClickListener;
         }
     }
 
@@ -364,10 +364,10 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
     public void onBindViewHolder(ForumViewHolder forumViewHolder, int i2) {
         LinkedList<VisitedForumData> linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, forumViewHolder, i2) == null) || forumViewHolder == null || (linkedList = this.f50176b) == null || linkedList.get(i2) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, forumViewHolder, i2) == null) || forumViewHolder == null || (linkedList = this.f47578b) == null || linkedList.get(i2) == null) {
             return;
         }
-        VisitedForumData visitedForumData = this.f50176b.get(i2);
+        VisitedForumData visitedForumData = this.f47578b.get(i2);
         forumViewHolder.itemView.setTag(visitedForumData);
         f(visitedForumData, forumViewHolder);
         e(visitedForumData, forumViewHolder);
@@ -380,7 +380,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
         SkinManager.setImageResource(forumViewHolder.mDeleteView, R.drawable.icon_ba_delete_n);
         SkinManager.setViewTextColor(forumViewHolder.mForumName, R.color.CAM_X0105);
         SkinManager.setViewTextColor(forumViewHolder.mForumFollow, R.color.CAM_X0109);
-        TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f50175a.getPageActivity(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(l.g(this.f50175a.getPageActivity(), R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f50175a.getPageActivity(), R.dimen.tbds5)).into(forumViewHolder.mBottomContainer);
+        TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f47577a.getPageActivity(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(l.g(this.f47577a.getPageActivity(), R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f47577a.getPageActivity(), R.dimen.tbds5)).into(forumViewHolder.mBottomContainer);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -388,6 +388,6 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
     public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2)) == null) ? new ForumViewHolder(this, this.f50175a.getPageActivity().getLayoutInflater().inflate(R.layout.recently_visited_forum_item, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2)) == null) ? new ForumViewHolder(this, this.f47577a.getPageActivity().getLayoutInflater().inflate(R.layout.recently_visited_forum_item, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
     }
 }

@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import c.a.q0.s.q.f;
+import b.a.e.e.p.l;
+import b.a.q0.s.q.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,29 +32,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ImageViewerBottomLayout extends LinearLayout implements View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int ImageViewerBottomHeight;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageUrlData f48201e;
+    public ImageUrlData f45749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48202f;
+    public TextView f45750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f48203g;
+    public ImageView f45751g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f48204h;
+    public View f45752h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f48205i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f48206j;
+    public TextView f45753i;
+    public LinearLayout j;
     public AgreeView k;
     public ImageView l;
     public TextView m;
@@ -67,17 +65,17 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     public Context t;
     public boolean u;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void onSave();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a();
     }
@@ -128,17 +126,17 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.image_viewer_bottom_layout, (ViewGroup) this, true);
-            this.f48204h = findViewById(R.id.unfold_root);
-            this.f48202f = (TextView) findViewById(R.id.unfold_text);
-            this.f48203g = (ImageView) findViewById(R.id.unfold_icon);
-            this.f48204h.setVisibility(8);
-            WebPManager.setMaskDrawable(this.f48203g, R.drawable.icon_mask_unfold30, null);
+            this.f45752h = findViewById(R.id.unfold_root);
+            this.f45750f = (TextView) findViewById(R.id.unfold_text);
+            this.f45751g = (ImageView) findViewById(R.id.unfold_icon);
+            this.f45752h.setVisibility(8);
+            WebPManager.setMaskDrawable(this.f45751g, R.drawable.icon_mask_unfold30, null);
             TextView textView = (TextView) findViewById(R.id.image_viewer_reply);
-            this.f48205i = textView;
+            this.f45753i = textView;
             textView.setText(R.string.image_viewer_reply);
-            SkinManager.setViewTextColor(this.f48205i, R.color.CAM_X0101);
-            this.f48205i.setBackground(SkinManager.createShapeDrawableFromColor(l.g(context, R.dimen.tbds38), SkinManager.getColor(R.color.CAM_X0615)));
-            this.f48206j = (LinearLayout) findViewById(R.id.image_viewer_comment_and_agree);
+            SkinManager.setViewTextColor(this.f45753i, R.color.CAM_X0101);
+            this.f45753i.setBackground(SkinManager.createShapeDrawableFromColor(l.g(context, R.dimen.tbds38), SkinManager.getColor(R.color.CAM_X0615)));
+            this.j = (LinearLayout) findViewById(R.id.image_viewer_comment_and_agree);
             ImageView imageView = (ImageView) findViewById(R.id.comment_icon);
             this.l = imageView;
             WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_comment22, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
@@ -159,8 +157,8 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 this.k.getImgAgree().setAlpha(1.0f);
             }
             f fVar = new f();
-            fVar.f14190b = 13;
-            fVar.f14196h = 10;
+            fVar.f13300b = 13;
+            fVar.f13306h = 10;
             this.k.setStatisticData(fVar);
             ImageView imageView2 = (ImageView) findViewById(R.id.share_icon);
             this.n = imageView2;
@@ -178,7 +176,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
             this.m.setOnClickListener(this);
             this.n.setOnClickListener(this);
             this.o.setOnClickListener(this);
-            this.f48204h.setOnClickListener(this);
+            this.f45752h.setOnClickListener(this);
             setOnTouchListener(this);
         }
     }
@@ -186,13 +184,13 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     public final void c() {
         ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageUrlData = this.f48201e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageUrlData = this.f45749e) == null) {
             return;
         }
         String valueOf = String.valueOf(imageUrlData.threadId);
-        String valueOf2 = String.valueOf(this.f48201e.postId);
+        String valueOf2 = String.valueOf(this.f45749e.postId);
         PbActivityConfig pbActivityConfig = new PbActivityConfig(getContext());
-        ImageUrlData imageUrlData2 = this.f48201e;
+        ImageUrlData imageUrlData2 = this.f45749e;
         PbActivityConfig createHistoryCfg = pbActivityConfig.createHistoryCfg(valueOf, valueOf2, imageUrlData2.mIsSeeHost, imageUrlData2.mIsReserver, null);
         createHistoryCfg.setJumpToCommentArea(true);
         createHistoryCfg.setHighLightPostId(valueOf2);
@@ -210,8 +208,8 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                     if (cVar != null) {
                         cVar.a();
                     }
-                    if (this.f48201e != null) {
-                        TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "9").param("post_id", this.f48201e.threadId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f48201e.forumId));
+                    if (this.f45749e != null) {
+                        TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "9").param("post_id", this.f45749e.threadId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f45749e.forumId));
                         return;
                     }
                     return;
@@ -220,39 +218,39 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                     if (bVar != null) {
                         bVar.onSave();
                     }
-                    if (this.f48201e != null) {
-                        TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "2").param("post_id", this.f48201e.threadId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f48201e.forumId));
+                    if (this.f45749e != null) {
+                        TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "2").param("post_id", this.f45749e.threadId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f45749e.forumId));
                         return;
                     }
                     return;
-                } else if (view == this.f48204h) {
-                    if (this.f48202f.getText().toString().equals(getContext().getString(R.string.expand))) {
-                        this.f48202f.setText(getContext().getString(R.string.fold));
-                        WebPManager.setMaskDrawable(this.f48203g, R.drawable.icon_mask_unfold30, null);
+                } else if (view == this.f45752h) {
+                    if (this.f45750f.getText().toString().equals(getContext().getString(R.string.expand))) {
+                        this.f45750f.setText(getContext().getString(R.string.fold));
+                        WebPManager.setMaskDrawable(this.f45751g, R.drawable.icon_mask_unfold30, null);
                         a aVar = this.q;
                         if (aVar != null) {
                             aVar.a(this, true);
                         }
                     } else {
-                        this.f48202f.setText(getContext().getString(R.string.expand));
-                        WebPManager.setMaskDrawable(this.f48203g, R.drawable.icon_mask_fold30, null);
+                        this.f45750f.setText(getContext().getString(R.string.expand));
+                        WebPManager.setMaskDrawable(this.f45751g, R.drawable.icon_mask_fold30, null);
                         a aVar2 = this.q;
                         if (aVar2 != null) {
                             aVar2.a(this, false);
                         }
                     }
-                    TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "6").param("post_id", this.f48201e.threadId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f48201e.forumId));
+                    TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "6").param("post_id", this.f45749e.threadId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f45749e.forumId));
                     return;
                 } else {
                     return;
                 }
             }
-            if (this.f48201e != null) {
+            if (this.f45749e != null) {
                 StatisticItem statisticItem = new StatisticItem("c13685");
-                statisticItem.param("tid", this.f48201e.threadId);
-                statisticItem.param("nid", this.f48201e.nid);
-                statisticItem.param("fid", this.f48201e.forumId);
-                String str = this.f48201e.from;
+                statisticItem.param("tid", this.f45749e.threadId);
+                statisticItem.param("nid", this.f45749e.nid);
+                statisticItem.param("fid", this.f45749e.forumId);
+                String str = this.f45749e.from;
                 if (str == "index") {
                     statisticItem.param("obj_locate", 1);
                 } else if (str == "frs") {
@@ -262,7 +260,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 }
                 TiebaStatic.log(statisticItem);
             }
-            c.a.q0.m0.c f2 = TbPageExtraHelper.f(view);
+            b.a.q0.m0.c f2 = TbPageExtraHelper.f(view);
             StatisticItem statisticItem2 = new StatisticItem("c12942");
             statisticItem2.param("obj_type", "2");
             statisticItem2.param("obj_locate", "12");
@@ -282,7 +280,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view, motionEvent)) == null) {
-            TiebaStatic.log(new StatisticItem("c13339").param("uid", this.p).param("post_id", this.f48201e.threadId));
+            TiebaStatic.log(new StatisticItem("c13339").param("uid", this.p).param("post_id", this.f45749e.threadId));
             return true;
         }
         return invokeLL.booleanValue;
@@ -305,7 +303,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f48205i.setOnClickListener(onClickListener);
+            this.f45753i.setOnClickListener(onClickListener);
         }
     }
 
@@ -327,7 +325,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.u = false;
-            this.f48205i.setVisibility(z ? 8 : 0);
+            this.f45753i.setVisibility(z ? 8 : 0);
             this.l.setVisibility(z ? 8 : 0);
             this.m.setVisibility(z ? 8 : 0);
             this.k.setVisibility(z ? 8 : 0);
@@ -338,7 +336,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     public void updateData(ImageUrlData imageUrlData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, imageUrlData) == null) {
-            this.f48201e = imageUrlData;
+            this.f45749e = imageUrlData;
             if (imageUrlData != null && imageUrlData.agreeData != null) {
                 setVisibility(0);
                 String str = imageUrlData.commentNum;
@@ -352,7 +350,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 if (this.u) {
                     return;
                 }
-                this.f48204h.setVisibility(0);
+                this.f45752h.setVisibility(0);
                 return;
             }
             setVisibility(8);
@@ -363,16 +361,16 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             if (z) {
-                this.f48202f.setText(getContext().getString(R.string.expand));
-                WebPManager.setMaskDrawable(this.f48203g, R.drawable.icon_mask_fold30, null);
-                this.f48206j.setVisibility(8);
-                this.f48205i.setVisibility(8);
+                this.f45750f.setText(getContext().getString(R.string.expand));
+                WebPManager.setMaskDrawable(this.f45751g, R.drawable.icon_mask_fold30, null);
+                this.j.setVisibility(8);
+                this.f45753i.setVisibility(8);
                 return;
             }
-            this.f48202f.setText(getContext().getString(R.string.fold));
-            WebPManager.setMaskDrawable(this.f48203g, R.drawable.icon_mask_unfold30, null);
-            this.f48206j.setVisibility(0);
-            this.f48205i.setVisibility(0);
+            this.f45750f.setText(getContext().getString(R.string.fold));
+            WebPManager.setMaskDrawable(this.f45751g, R.drawable.icon_mask_unfold30, null);
+            this.j.setVisibility(0);
+            this.f45753i.setVisibility(0);
         }
     }
 }

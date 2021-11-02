@@ -16,19 +16,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TextureSupportMapFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41691a;
+    public static final String f39531a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextureMapView f41692b;
+    public TextureMapView f39532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaiduMapOptions f41693c;
+    public BaiduMapOptions f39533c;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class TextureSupportMapFragment extends Fragment {
                 return;
             }
         }
-        f41691a = TextureSupportMapFragment.class.getSimpleName();
+        f39531a = TextureSupportMapFragment.class.getSimpleName();
     }
 
     public TextureSupportMapFragment() {
@@ -75,7 +75,7 @@ public class TextureSupportMapFragment extends Fragment {
                 return;
             }
         }
-        this.f41693c = baiduMapOptions;
+        this.f39533c = baiduMapOptions;
     }
 
     public static TextureSupportMapFragment newInstance() {
@@ -94,7 +94,7 @@ public class TextureSupportMapFragment extends Fragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TextureMapView textureMapView = this.f41692b;
+            TextureMapView textureMapView = this.f39532b;
             if (textureMapView == null) {
                 return null;
             }
@@ -106,7 +106,7 @@ public class TextureSupportMapFragment extends Fragment {
     public TextureMapView getMapView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41692b : (TextureMapView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39532b : (TextureMapView) invokeV.objValue;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -146,8 +146,8 @@ public class TextureSupportMapFragment extends Fragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            TextureMapView textureMapView = new TextureMapView(getActivity(), this.f41693c);
-            this.f41692b = textureMapView;
+            TextureMapView textureMapView = new TextureMapView(getActivity(), this.f39533c);
+            this.f39532b = textureMapView;
             return textureMapView;
         }
         return (View) invokeLLL.objValue;
@@ -166,7 +166,7 @@ public class TextureSupportMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroyView();
-            this.f41692b.onDestroy();
+            this.f39532b.onDestroy();
         }
     }
 
@@ -183,7 +183,7 @@ public class TextureSupportMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            this.f41692b.onPause();
+            this.f39532b.onPause();
         }
     }
 
@@ -192,7 +192,7 @@ public class TextureSupportMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            this.f41692b.onResume();
+            this.f39532b.onResume();
         }
     }
 

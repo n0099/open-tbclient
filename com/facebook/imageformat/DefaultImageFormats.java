@@ -1,7 +1,6 @@
 package com.facebook.imageformat;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class DefaultImageFormats {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageFormat BMP;
+    public static final ImageFormat DNG;
     public static final ImageFormat GIF;
     public static final ImageFormat HEIF;
     public static final ImageFormat ICO;
@@ -47,12 +47,13 @@ public final class DefaultImageFormats {
         GIF = new ImageFormat("GIF", "gif");
         BMP = new ImageFormat("BMP", "bmp");
         ICO = new ImageFormat("ICO", "ico");
-        WEBP_SIMPLE = new ImageFormat("WEBP_SIMPLE", OvalActionButton.WEBP);
-        WEBP_LOSSLESS = new ImageFormat("WEBP_LOSSLESS", OvalActionButton.WEBP);
-        WEBP_EXTENDED = new ImageFormat("WEBP_EXTENDED", OvalActionButton.WEBP);
-        WEBP_EXTENDED_WITH_ALPHA = new ImageFormat("WEBP_EXTENDED_WITH_ALPHA", OvalActionButton.WEBP);
-        WEBP_ANIMATED = new ImageFormat("WEBP_ANIMATED", OvalActionButton.WEBP);
+        WEBP_SIMPLE = new ImageFormat("WEBP_SIMPLE", "webp");
+        WEBP_LOSSLESS = new ImageFormat("WEBP_LOSSLESS", "webp");
+        WEBP_EXTENDED = new ImageFormat("WEBP_EXTENDED", "webp");
+        WEBP_EXTENDED_WITH_ALPHA = new ImageFormat("WEBP_EXTENDED_WITH_ALPHA", "webp");
+        WEBP_ANIMATED = new ImageFormat("WEBP_ANIMATED", "webp");
         HEIF = new ImageFormat("HEIF", "heif");
+        DNG = new ImageFormat("DNG", "dng");
     }
 
     public DefaultImageFormats() {

@@ -16,21 +16,21 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     /* renamed from: com.facebook.datasource.FirstAvailableDataSourceSupplier$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @ThreadSafe
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class FirstAvailableDataSource extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
         public int mIndex;
         public final /* synthetic */ FirstAvailableDataSourceSupplier this$0;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +212,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
                 if (startNextDataSource()) {
                     return;
                 }
-                setFailure(dataSource.getFailureCause());
+                setFailure(dataSource.getFailureCause(), dataSource.getExtras());
             }
         }
 
@@ -222,7 +222,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
             if (interceptable == null || interceptable.invokeL(65545, this, dataSource) == null) {
                 maybeSetDataSourceWithResult(dataSource, dataSource.isFinished());
                 if (dataSource == getDataSourceWithResult()) {
-                    setResult(null, dataSource.isFinished());
+                    setResult(null, dataSource.isFinished(), dataSource.getExtras());
                 }
             }
         }

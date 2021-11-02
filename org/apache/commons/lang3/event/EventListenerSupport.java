@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EventListenerSupport<L> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3593265990380473632L;
@@ -30,7 +30,7 @@ public class EventListenerSupport<L> implements Serializable {
     public transient L[] prototypeArray;
     public transient L proxy;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ProxyInvocationHandler implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

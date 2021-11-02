@@ -12,16 +12,16 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.d f74131a;
+    public com.kwad.sdk.splashscreen.d f66520a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsLogoView f74132b;
+    public KsLogoView f66521b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -59,19 +59,19 @@ public class a extends Presenter {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
             com.kwad.sdk.splashscreen.d dVar = (com.kwad.sdk.splashscreen.d) l();
-            this.f74131a = dVar;
-            KsLogoView ksLogoView = (KsLogoView) dVar.f74221e.findViewById(R.id.ksad_splash_logo_container);
-            this.f74132b = ksLogoView;
+            this.f66520a = dVar;
+            KsLogoView ksLogoView = (KsLogoView) dVar.f66607e.findViewById(R.id.ksad_splash_logo_container);
+            this.f66521b = ksLogoView;
             a((ViewGroup) ksLogoView);
-            if (this.f74131a.f74220d.adInfoList.isEmpty() || (adSplashInfo = this.f74131a.f74220d.adInfoList.get(0).adSplashInfo) == null) {
+            if (this.f66520a.f66606d.adInfoList.isEmpty() || (adSplashInfo = this.f66520a.f66606d.adInfoList.get(0).adSplashInfo) == null) {
                 return;
             }
             if (adSplashInfo.logoPosition == 0) {
-                this.f74132b.setVisibility(8);
+                this.f66521b.setVisibility(8);
                 return;
             }
-            this.f74132b.setVisibility(0);
-            this.f74132b.a(this.f74131a.f74220d);
+            this.f66521b.setVisibility(0);
+            this.f66521b.a(this.f66520a.f66606d);
         }
     }
 

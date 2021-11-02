@@ -14,7 +14,7 @@ import com.xiaomi.push.hp;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c implements ee {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,10 +40,10 @@ public class c implements ee {
             ie ieVar = new ie();
             ieVar.b(ea.a(context).m287a());
             ieVar.d(ea.a(context).b());
-            ieVar.c(hp.I.f513a);
+            ieVar.c(hp.I.f514a);
             ieVar.a(com.xiaomi.push.service.at.a());
-            ieVar.f654a = hashMap;
-            an.a(context).a((an) ieVar, hf.f78124i, true, (hs) null, true);
+            ieVar.f655a = hashMap;
+            an.a(context).a((an) ieVar, hf.f71079i, true, (hs) null, true);
             com.xiaomi.channel.commonutils.logger.b.m73a("MoleInfo：\u3000send data in app layer");
         }
     }

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BLOCK_TABLE_NAME = "block";
@@ -269,11 +269,11 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void updateBlockIncrease(@NonNull BreakpointInfo breakpointInfo, int i2, long j2) {
+    public void updateBlockIncrease(@NonNull BreakpointInfo breakpointInfo, int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put(BreakpointSQLiteKey.CURRENT_OFFSET, Long.valueOf(j2));
+            contentValues.put(BreakpointSQLiteKey.CURRENT_OFFSET, Long.valueOf(j));
             getWritableDatabase().update(BLOCK_TABLE_NAME, contentValues, "breakpoint_id = ? AND block_index = ?", new String[]{Integer.toString(breakpointInfo.getId()), Integer.toString(i2)});
         }
     }

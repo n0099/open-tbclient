@@ -9,27 +9,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f75850a;
+    public static final g f68153a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f75851b;
+    public static final g f68154b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f75852c;
+    public static final g f68155c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f75853d;
+    public static final g f68156d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f75854e;
+    public static final g f68157e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f75855f;
+    public static final g f68158f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,12 +45,12 @@ public final class g {
                 return;
             }
         }
-        f75850a = new g("WAITING", 0, 0);
-        f75851b = new g("STARTED", 1, 1);
-        f75852c = new g("LOADING", 2, 2);
-        f75853d = new g("FAILURE", 3, 3);
-        f75854e = new g("CANCELLED", 4, 4);
-        f75855f = new g(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
+        f68153a = new g("WAITING", 0, 0);
+        f68154b = new g("STARTED", 1, 1);
+        f68155c = new g("LOADING", 2, 2);
+        f68156d = new g("FAILURE", 3, 3);
+        f68157e = new g("CANCELLED", 4, 4);
+        f68158f = new g(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
     }
 
     public g(String str, int i2, int i3) {

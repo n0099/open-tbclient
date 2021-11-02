@@ -2,6 +2,7 @@ package com.baidu.searchbox.dns.d.c;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class b<T> extends a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +49,11 @@ public abstract class b<T> extends a<T> {
             if (!TextUtils.isEmpty(c2)) {
                 sb.append(c2);
             }
-            return q + sb.toString();
+            String str = q + sb.toString();
+            if (!DnsUtil.DEBUG || TextUtils.isEmpty(DnsUtil.httpDnsDebugExtraQueryParams)) {
+                return str;
+            }
+            return str + "&" + DnsUtil.httpDnsDebugExtraQueryParams;
         }
         return (String) invokeV.objValue;
     }

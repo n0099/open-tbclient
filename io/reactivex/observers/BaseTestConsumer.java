@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> implements Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,14 +45,14 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
     public final List<T> values;
 
     /* renamed from: io.reactivex.observers.BaseTestConsumer$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static abstract class TestWaitStrategy implements Runnable {
         public static final /* synthetic */ TestWaitStrategy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -362,12 +362,12 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j2 = this.completions;
-            if (j2 != 0) {
-                if (j2 <= 1) {
+            long j = this.completions;
+            if (j != 0) {
+                if (j <= 1) {
                     return this;
                 }
-                throw fail("Multiple completions: " + j2);
+                throw fail("Multiple completions: " + j);
             }
             throw fail("Not completed");
         }
@@ -467,13 +467,13 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j2 = this.completions;
-            int i2 = (j2 > 1L ? 1 : (j2 == 1L ? 0 : -1));
+            long j = this.completions;
+            int i2 = (j > 1L ? 1 : (j == 1L ? 0 : -1));
             if (i2 != 0) {
                 if (i2 <= 0) {
                     return this;
                 }
-                throw fail("Multiple completions: " + j2);
+                throw fail("Multiple completions: " + j);
             }
             throw fail("Completed!");
         }
@@ -507,18 +507,18 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             if (this.done.getCount() == 0) {
-                long j2 = this.completions;
-                if (j2 <= 1) {
+                long j = this.completions;
+                if (j <= 1) {
                     int size = this.errors.size();
                     if (size > 1) {
                         throw fail("Terminated with multiple errors: " + size);
-                    } else if (j2 == 0 || size == 0) {
+                    } else if (j == 0 || size == 0) {
                         return this;
                     } else {
-                        throw fail("Terminated with multiple completions and errors: " + j2);
+                        throw fail("Terminated with multiple completions and errors: " + j);
                     }
                 }
-                throw fail("Terminated with multiple completions: " + j2);
+                throw fail("Terminated with multiple completions: " + j);
             }
             throw fail("Subscriber still running!");
         }
@@ -684,12 +684,12 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) ? awaitCount(i2, TestWaitStrategy.SLEEP_10MS, 5000L) : (U) invokeI.objValue;
     }
 
-    public final U awaitDone(long j2, TimeUnit timeUnit) {
+    public final U awaitDone(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048611, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048611, this, j, timeUnit)) == null) {
             try {
-                if (!this.done.await(j2, timeUnit)) {
+                if (!this.done.await(j, timeUnit)) {
                     this.timeout = true;
                     dispose();
                 }
@@ -796,7 +796,7 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             arrayList.add(values());
             arrayList.add(errors());
             ArrayList arrayList2 = new ArrayList();
-            for (long j2 = 0; j2 < this.completions; j2++) {
+            for (long j = 0; j < this.completions; j++) {
                 arrayList2.add(Notification.createOnComplete());
             }
             arrayList.add(arrayList2);
@@ -891,24 +891,24 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return (U) invokeL.objValue;
     }
 
-    public final boolean await(long j2, TimeUnit timeUnit) throws InterruptedException {
+    public final boolean await(long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048607, this, j2, timeUnit)) == null) {
-            boolean z = this.done.getCount() == 0 || this.done.await(j2, timeUnit);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048607, this, j, timeUnit)) == null) {
+            boolean z = this.done.getCount() == 0 || this.done.await(j, timeUnit);
             this.timeout = !z;
             return z;
         }
         return invokeJL.booleanValue;
     }
 
-    public final U awaitCount(int i2, Runnable runnable, long j2) {
+    public final U awaitCount(int i2, Runnable runnable, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), runnable, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), runnable, Long.valueOf(j)})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             while (true) {
-                if (j2 > 0 && System.currentTimeMillis() - currentTimeMillis >= j2) {
+                if (j > 0 && System.currentTimeMillis() - currentTimeMillis >= j) {
                     this.timeout = true;
                     break;
                 } else if (this.done.getCount() == 0 || this.values.size() >= i2) {
@@ -922,12 +922,12 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return (U) invokeCommon.objValue;
     }
 
-    public final boolean awaitTerminalEvent(long j2, TimeUnit timeUnit) {
+    public final boolean awaitTerminalEvent(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048613, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048613, this, j, timeUnit)) == null) {
             try {
-                return await(j2, timeUnit);
+                return await(j, timeUnit);
             } catch (InterruptedException unused) {
                 Thread.currentThread().interrupt();
                 return false;

@@ -29,7 +29,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SapiAccount implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SapiAccount> CREATOR;
@@ -64,7 +64,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     public String uid;
     public String username;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class DispersionCertification implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ExtraProperty implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTRA_ACCOUNT_TYPE = "account_type";

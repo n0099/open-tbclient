@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectListener, DownloadTask.OnDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,28 +69,28 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
         }
     }
 
-    private void download(long j2, boolean z) {
+    private void download(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             this.mStatus = 104;
-            initDownloadTasks(j2, z);
+            initDownloadTasks(j, z);
             for (DownloadTask downloadTask : this.mDownloadTasks) {
                 this.mExecutor.execute(downloadTask);
             }
         }
     }
 
-    private List<ThreadRecord> getMultiThreadRecords(long j2) {
+    private List<ThreadRecord> getMultiThreadRecords(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
             ArrayList arrayList = new ArrayList();
             int threadNum = this.mConfig.getThreadNum();
             int i2 = 0;
             while (i2 < threadNum) {
-                long j3 = j2 / threadNum;
-                long j4 = j3 * i2;
-                arrayList.add(new ThreadRecord(i2, this.mTag, this.mRequest.getUri(), j4, i2 == threadNum + (-1) ? j2 : (j3 + j4) - 1, 0L));
+                long j2 = j / threadNum;
+                long j3 = j2 * i2;
+                arrayList.add(new ThreadRecord(i2, this.mTag, this.mRequest.getUri(), j3, i2 == threadNum + (-1) ? j : (j2 + j3) - 1, 0L));
                 i2++;
             }
             return arrayList;
@@ -112,12 +112,12 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
         }
     }
 
-    private void initDownloadTasks(long j2, boolean z) {
+    private void initDownloadTasks(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             this.mDownloadTasks.clear();
             if (z) {
-                List<ThreadRecord> multiThreadRecords = getMultiThreadRecords(j2);
+                List<ThreadRecord> multiThreadRecords = getMultiThreadRecords(j);
                 int i2 = 0;
                 for (ThreadRecord threadRecord : multiThreadRecords) {
                     i2 = (int) (i2 + threadRecord.getFinished());
@@ -261,18 +261,18 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask.OnConnectListener
-    public void onConnected(long j2, long j3, boolean z) {
+    public void onConnected(long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             if (this.mConnectTask.isCanceled()) {
                 onConnectCanceled();
                 return;
             }
             this.mStatus = 103;
-            this.mResponse.onConnected(j2, j3, z);
+            this.mResponse.onConnected(j, j2, z);
             this.mDownloadInfo.setAcceptRanges(z);
-            this.mDownloadInfo.setLength(j3);
-            download(j3, z);
+            this.mDownloadInfo.setLength(j2);
+            download(j2, z);
         }
     }
 
@@ -335,10 +335,10 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask.OnDownloadListener
-    public void onDownloadProgress(long j2, long j3) {
+    public void onDownloadProgress(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.mResponse.onDownloadProgress(j2, j3, (int) ((100 * j2) / j3));
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.mResponse.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
         }
     }
 

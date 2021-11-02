@@ -20,7 +20,7 @@ import com.baidu.wallet.core.NoProguard;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PermissionsUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PermissionsUtil";

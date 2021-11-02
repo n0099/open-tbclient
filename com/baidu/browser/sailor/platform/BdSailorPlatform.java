@@ -43,7 +43,7 @@ import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class BdSailorPlatform implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_STATE_BACKGROUND = 0;
@@ -67,18 +67,18 @@ public final class BdSailorPlatform implements INoProGuard {
     public b mNetworkChangedReciever;
     public int mNetworkType;
     public HashMap<String, com.baidu.browser.sailor.feature.a> mSailorFeatureMap;
-    public c.a.k.b.b.b.a mSailorStatic;
+    public b.a.k.b.b.b.a mSailorStatic;
     public BdWebkitManager mWebkitMgr;
     public boolean mWebkitTimerPaused;
     public String mWorkspace;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdSailorPlatform f38614a;
+        public final /* synthetic */ BdSailorPlatform f36602a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdSailorPlatform bdSailorPlatform, Looper looper) {
@@ -98,21 +98,21 @@ public final class BdSailorPlatform implements INoProGuard {
                     return;
                 }
             }
-            this.f38614a = bdSailorPlatform;
+            this.f36602a = bdSailorPlatform;
         }
 
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f38614a.mContext != null) {
-                BdSailorPlatform bdSailorPlatform = this.f38614a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f36602a.mContext != null) {
+                BdSailorPlatform bdSailorPlatform = this.f36602a;
                 if (bdSailorPlatform.isAppOnForeground(bdSailorPlatform.mContext)) {
                     return;
                 }
                 try {
                     Log.d(BdSailorPlatform.TAG, "do pause");
-                    this.f38614a.mWebkitTimerPaused = c.a.k.b.d.a.a().c();
-                    CookieSyncManager createInstance = CookieSyncManager.createInstance(this.f38614a.mContext);
+                    this.f36602a.mWebkitTimerPaused = b.a.k.b.d.a.a().c();
+                    CookieSyncManager createInstance = CookieSyncManager.createInstance(this.f36602a.mContext);
                     if (createInstance != null) {
                         createInstance.stopSync();
                     }
@@ -123,13 +123,13 @@ public final class BdSailorPlatform implements INoProGuard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdSailorPlatform f38615a;
+        public final /* synthetic */ BdSailorPlatform f36603a;
 
         public b(BdSailorPlatform bdSailorPlatform) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public final class BdSailorPlatform implements INoProGuard {
                     return;
                 }
             }
-            this.f38615a = bdSailorPlatform;
+            this.f36603a = bdSailorPlatform;
         }
 
         public /* synthetic */ b(BdSailorPlatform bdSailorPlatform, byte b2) {
@@ -199,7 +199,7 @@ public final class BdSailorPlatform implements INoProGuard {
         this.mHasInit = false;
         this.mIsNeedUpdateKernel = true;
         Log.d(TAG, "BdSailorPlatform");
-        this.mSailorStatic = new c.a.k.b.b.b.a();
+        this.mSailorStatic = new b.a.k.b.b.b.a();
         this.mWebkitMgr = new BdWebkitManager();
         this.mSailorFeatureMap = new HashMap<>(4);
     }
@@ -253,10 +253,10 @@ public final class BdSailorPlatform implements INoProGuard {
         return (BdSailorPlatform) invokeV.objValue;
     }
 
-    public static c.a.k.b.b.b.a getStatic() {
+    public static b.a.k.b.b.b.a getStatic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getInstance().mSailorStatic : (c.a.k.b.b.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getInstance().mSailorStatic : (b.a.k.b.b.b.a) invokeV.objValue;
     }
 
     public static BdWebkitManager getWebkitManager() {
@@ -432,10 +432,10 @@ public final class BdSailorPlatform implements INoProGuard {
     public final void clearCache(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            c.a.k.b.d.a a2 = c.a.k.b.d.a.a();
+            b.a.k.b.d.a a2 = b.a.k.b.d.a.a();
             try {
                 a2.e();
-                a2.f3737b.clearCache(z);
+                a2.f3172b.clearCache(z);
             } catch (Exception e2) {
                 Log.printStackTrace(e2);
             }
@@ -452,8 +452,8 @@ public final class BdSailorPlatform implements INoProGuard {
                     this.mHandler.removeMessages(1);
                     this.mHandler = null;
                 }
-                c.a.k.b.b.a.a.a();
-                c.a.k.b.d.a.b();
+                b.a.k.b.b.a.a.a();
+                b.a.k.b.d.a.b();
                 WebKitFactory.destroy();
                 this.mContext = null;
             } catch (Exception e2) {
@@ -543,7 +543,7 @@ public final class BdSailorPlatform implements INoProGuard {
                 if (filesDir != null) {
                     z = doInitWorkspace(filesDir.getAbsolutePath() + str);
                     initFeature(context);
-                    BdCore.b().c(context, false);
+                    BdCore.a().b(context, false);
                     if (this.mHandler == null) {
                         this.mHandler = new a(this, Looper.getMainLooper());
                     }
@@ -552,7 +552,7 @@ public final class BdSailorPlatform implements INoProGuard {
             }
             z = false;
             initFeature(context);
-            BdCore.b().c(context, false);
+            BdCore.a().b(context, false);
             if (this.mHandler == null) {
             }
             return z;
@@ -573,11 +573,11 @@ public final class BdSailorPlatform implements INoProGuard {
             bdWebkitManager.initWebkit(str, z, cls);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        c.a.k.b.d.a a2 = c.a.k.b.d.a.a();
+        b.a.k.b.d.a a2 = b.a.k.b.d.a.a();
         Context appContext = getAppContext();
-        if (a2.f3736a == null) {
-            a2.f3736a = appContext.getApplicationContext();
-            Log.d(c.a.k.b.d.a.f3734d, "in BdWebViewSingleton, init");
+        if (a2.f3171a == null) {
+            a2.f3171a = appContext.getApplicationContext();
+            Log.d(b.a.k.b.d.a.f3169d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();
@@ -671,7 +671,7 @@ public final class BdSailorPlatform implements INoProGuard {
                     this.mHandler.removeMessages(1);
                     if (this.mWebkitTimerPaused) {
                         Log.d(TAG, "do resume");
-                        c.a.k.b.d.a.a().d();
+                        b.a.k.b.d.a.a().d();
                         CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
                         if (createInstance != null) {
                             createInstance.startSync();

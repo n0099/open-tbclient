@@ -20,18 +20,18 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ad {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Integer> f74230a;
+    public static Map<String, Integer> f66615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Set<String> f74231b;
+    public static Set<String> f66616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f74232c;
+    public static Method f66617c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,10 +48,10 @@ public class ad {
             }
         }
         HashSet hashSet = new HashSet();
-        f74231b = hashSet;
+        f66616b = hashSet;
         hashSet.add("android.permission.REQUEST_INSTALL_PACKAGES");
-        f74231b.add("android.permission.WRITE_SETTINGS");
-        f74231b.add("android.permission.SYSTEM_ALERT_WINDOW");
+        f66616b.add("android.permission.WRITE_SETTINGS");
+        f66616b.add("android.permission.SYSTEM_ALERT_WINDOW");
     }
 
     public static int a(Context context, String str) {
@@ -59,13 +59,13 @@ public class ad {
         int b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (f74230a == null) {
+            if (f66615a == null) {
                 try {
                     a(context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions);
                 } catch (PackageManager.NameNotFoundException unused) {
                 }
             }
-            if (!f74231b.contains(str) || (b2 = b(context, str)) == -2) {
+            if (!f66616b.contains(str) || (b2 = b(context, str)) == -2) {
                 int c2 = c(context, str);
                 return c2 != -2 ? c2 : context.checkPermission(str, Process.myPid(), Process.myUid());
             }
@@ -99,14 +99,14 @@ public class ad {
         if (!(interceptable == null || interceptable.invokeL(65539, null, strArr) == null) || Build.VERSION.SDK_INT < 19 || strArr == null) {
             return;
         }
-        f74230a = new HashMap();
+        f66615a = new HashMap();
         for (String str : strArr) {
             try {
                 Field declaredField = AppOpsManager.class.getDeclaredField("OP_" + a(str));
                 declaredField.setAccessible(true);
                 int intValue = ((Integer) declaredField.get(null)).intValue();
                 if (intValue >= 0) {
-                    f74230a.put(str, Integer.valueOf(intValue));
+                    f66615a.put(str, Integer.valueOf(intValue));
                 }
             } catch (Throwable unused) {
             }
@@ -188,15 +188,15 @@ public class ad {
             if (Build.VERSION.SDK_INT < 19) {
                 return 0;
             }
-            if (f74230a.containsKey(str)) {
-                int intValue = f74230a.get(str).intValue();
+            if (f66615a.containsKey(str)) {
+                int intValue = f66615a.get(str).intValue();
                 try {
-                    if (f74232c == null) {
+                    if (f66617c == null) {
                         Method declaredMethod = AppOpsManager.class.getDeclaredMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class);
-                        f74232c = declaredMethod;
+                        f66617c = declaredMethod;
                         declaredMethod.setAccessible(true);
                     }
-                    return ((Integer) f74232c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
+                    return ((Integer) f66617c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     return 0;

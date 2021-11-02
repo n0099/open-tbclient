@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Md5Util {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f75773a;
+    public static final String[] f68077a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class Md5Util {
                 return;
             }
         }
-        f75773a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        f68077a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     public Md5Util() {
@@ -60,7 +60,7 @@ public class Md5Util {
                 if (i2 < 0) {
                     i2 += 256;
                 }
-                stringBuffer.append(f75773a[i2 / 16] + f75773a[i2 % 16]);
+                stringBuffer.append(f68077a[i2 / 16] + f68077a[i2 % 16]);
             }
             return stringBuffer.toString();
         }
@@ -70,74 +70,73 @@ public class Md5Util {
     public static String encode(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
-        if (file == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            if (file != null && file.exists()) {
+                FileInputStream fileInputStream = null;
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    FileInputStream fileInputStream2 = new FileInputStream(file);
+                    try {
+                        byte[] bArr = new byte[16384];
+                        while (true) {
+                            int read = fileInputStream2.read(bArr);
+                            if (read <= 0) {
+                                break;
+                            }
+                            messageDigest.update(bArr, 0, read);
+                        }
+                        String byteArrayToHexString = byteArrayToHexString(messageDigest.digest());
+                        try {
+                            fileInputStream2.close();
+                        } catch (Exception unused) {
+                        }
+                        return byteArrayToHexString;
+                    } catch (Exception unused2) {
+                        fileInputStream = fileInputStream2;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception unused3) {
+                            }
+                        }
+                        return "";
+                    } catch (Throwable th) {
+                        th = th;
+                        fileInputStream = fileInputStream2;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception unused4) {
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (Exception unused5) {
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            }
             return "";
         }
-        FileInputStream fileInputStream = null;
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            FileInputStream fileInputStream2 = new FileInputStream(file);
-            try {
-                byte[] bArr = new byte[16384];
-                while (true) {
-                    int read = fileInputStream2.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                String byteArrayToHexString = byteArrayToHexString(messageDigest.digest());
-                try {
-                    fileInputStream2.close();
-                } catch (Exception unused) {
-                }
-                return byteArrayToHexString;
-            } catch (Exception unused2) {
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception unused3) {
-                    }
-                }
-                return "";
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception unused4) {
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception unused5) {
-        } catch (Throwable th2) {
-            th = th2;
-        }
+        return (String) invokeL.objValue;
     }
 
     public static String encode(String str) {
-        String str2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        try {
-            str2 = new String(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
-                return byteArrayToHexString(MessageDigest.getInstance("MD5").digest(str2.getBytes("UTF-8")));
-            } catch (Exception unused) {
-                return str2;
+                String str2 = new String(str);
+                try {
+                    return byteArrayToHexString(MessageDigest.getInstance("MD5").digest(str2.getBytes("UTF-8")));
+                } catch (Exception unused) {
+                    return str2;
+                }
+            } catch (Exception unused2) {
+                return null;
             }
-        } catch (Exception unused2) {
-            str2 = null;
         }
+        return (String) invokeL.objValue;
     }
 
     public static String encodeBase64String(String str) {

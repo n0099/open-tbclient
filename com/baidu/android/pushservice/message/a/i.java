@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,24 +43,24 @@ public class i extends d {
             String c2 = kVar.c();
             String f2 = kVar.f();
             int a2 = kVar.a();
-            PublicMsg a3 = j.a(this.f37732a, f2, c2, bArr);
+            PublicMsg a3 = j.a(this.f35756a, f2, c2, bArr);
             if (a3 == null || TextUtils.isEmpty(a3.mTitle) || TextUtils.isEmpty(a3.mDescription) || TextUtils.isEmpty(a3.mUrl)) {
-                m.a(">>> pMsg JSON parsing error!", this.f37732a);
+                m.a(">>> pMsg JSON parsing error!", this.f35756a);
                 i2 = 2;
             } else {
-                if (f.a(this.f37732a, a3)) {
-                    Context context = this.f37732a;
+                if (f.a(this.f35756a, a3)) {
+                    Context context = this.f35756a;
                     if (m.d(context, context.getPackageName())) {
-                        m.a(">>> Show pMsg Notification!", this.f37732a);
-                        f.a(this.f37732a, a3, f2, a2);
+                        m.a(">>> Show pMsg Notification!", this.f35756a);
+                        f.a(this.f35756a, a3, f2, a2);
                         i2 = 1;
                     }
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(">>> Don't Show pMsg Notification! --- IsBaiduApp = ");
-                Context context2 = this.f37732a;
+                Context context2 = this.f35756a;
                 sb.append(m.d(context2, context2.getPackageName()));
-                m.a(sb.toString(), this.f37732a);
+                m.a(sb.toString(), this.f35756a);
                 i2 = 0;
             }
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

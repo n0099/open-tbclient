@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f75908a;
+    public static final g f68210a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f75909b;
+    public static final g f68211b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public abstract class g {
                 return;
             }
         }
-        f75908a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
+        f68210a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public abstract class g {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? com.sdk.base.framework.f.e.a.a("cucc/host_cucc.properties", "PRODUCE_STATISTICAL") : (String) invokeV.objValue;
             }
         };
-        f75909b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
+        f68211b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,9 +1,8 @@
 package com.baidu.tbadk.core.data;
 
-import c.a.e.e.m.b;
+import b.a.e.e.m.b;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +22,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ItemData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSOCIATED_ITEM_DATA_FORMAT = "#(item,%d,%s)";
@@ -80,7 +79,7 @@ public class ItemData extends OrmObject implements Serializable {
                 this.mIconSize = jSONObject.optDouble("icon_size");
                 this.mIconUrl = jSONObject.optString("icon_url");
                 this.mScore = jSONObject.optDouble("score");
-                this.mStar = jSONObject.optInt(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR);
+                this.mStar = jSONObject.optInt("star");
                 this.buttonName = jSONObject.optString("button_name");
                 this.buttonLink = jSONObject.optString("button_link");
                 this.buttonLinkType = Integer.valueOf(jSONObject.optInt("button_link_type"));

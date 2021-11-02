@@ -4,7 +4,7 @@ import android.content.Context;
 import android.location.Address;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.k;
+import b.a.e.e.p.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -39,12 +39,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class SignStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class a implements CustomMessageTask.CustomRunnable<ForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class SignStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,14 +209,14 @@ public class SignStatic {
     }
 
     public static void a(NetWork netWork) {
-        Address h2;
+        Address j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
             String locationLng = TbadkCoreApplication.getInst().getLocationLng();
             String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (h2 = c.a.e.e.i.a.l().h(false)) != null) {
-                locationLng = String.valueOf(h2.getLongitude());
-                locationLat = String.valueOf(h2.getLatitude());
+            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = b.a.e.e.i.a.n().j(false)) != null) {
+                locationLng = String.valueOf(j.getLongitude());
+                locationLat = String.valueOf(j.getLatitude());
             }
             if (TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) {
                 return;

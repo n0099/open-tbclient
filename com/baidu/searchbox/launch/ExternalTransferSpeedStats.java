@@ -16,7 +16,7 @@ import com.baidu.ubc.UBCManager;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ExternalTransferSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ABTEST_EXTERNAL_TRANSFER_OPT_KEY = "external_transfer_opt_enable";
@@ -137,9 +137,9 @@ public class ExternalTransferSpeedStats {
                             jSONObject2.put(UBC_APPLICATION_CREATE_KEY, LaunchStatsUtils.getAppCreateTime());
                             long appCreateTime = LaunchStatsUtils.getAppCreateTime();
                             if (sSchemeDispatcherStartTimeStamp != 0) {
-                                long j2 = sSchemeDispatcherStartTimeStamp - appCreateTime;
-                                if (j2 > 0 && j2 < 15000) {
-                                    jSONObject2.put(UBC_DISPATCH_START_KEY, j2);
+                                long j = sSchemeDispatcherStartTimeStamp - appCreateTime;
+                                if (j > 0 && j < 15000) {
+                                    jSONObject2.put(UBC_DISPATCH_START_KEY, j);
                                 } else {
                                     jSONObject2.put(UBC_DISPATCH_START_KEY, -1);
                                 }
@@ -147,9 +147,9 @@ public class ExternalTransferSpeedStats {
                                 jSONObject2.put(UBC_DISPATCH_START_KEY, -1);
                             }
                             if (sSchemeDispatcherEndTimeStamp != 0) {
-                                long j3 = sSchemeDispatcherEndTimeStamp - appCreateTime;
-                                if (j3 > 0 && j3 < 15000) {
-                                    jSONObject2.put(UBC_DISPATCH_END_KEY, j3);
+                                long j2 = sSchemeDispatcherEndTimeStamp - appCreateTime;
+                                if (j2 > 0 && j2 < 15000) {
+                                    jSONObject2.put(UBC_DISPATCH_END_KEY, j2);
                                 } else {
                                     jSONObject2.put(UBC_DISPATCH_END_KEY, -1);
                                 }
@@ -157,9 +157,9 @@ public class ExternalTransferSpeedStats {
                                 jSONObject2.put(UBC_DISPATCH_END_KEY, -1);
                             }
                             if (sBusinessPageCreateTimeStamp != 0) {
-                                long j4 = sBusinessPageCreateTimeStamp - appCreateTime;
-                                if (j4 > 0 && j4 < 15000) {
-                                    jSONObject2.put(UBC_PAGE_WILL_SHOW_DURATION_KEY, j4);
+                                long j3 = sBusinessPageCreateTimeStamp - appCreateTime;
+                                if (j3 > 0 && j3 < 15000) {
+                                    jSONObject2.put(UBC_PAGE_WILL_SHOW_DURATION_KEY, j3);
                                 } else {
                                     jSONObject2.put(UBC_PAGE_WILL_SHOW_DURATION_KEY, -1);
                                 }
@@ -167,8 +167,8 @@ public class ExternalTransferSpeedStats {
                                 jSONObject2.put(UBC_PAGE_WILL_SHOW_DURATION_KEY, -1);
                             }
                             if (sBusinessPageUiReadyTimeStamp != 0) {
-                                long j5 = sBusinessPageUiReadyTimeStamp - appCreateTime;
-                                if (j5 > 0 && j5 < 15000) {
+                                long j4 = sBusinessPageUiReadyTimeStamp - appCreateTime;
+                                if (j4 > 0 && j4 < 15000) {
                                     jSONObject2.put("duration", sBusinessPageUiReadyTimeStamp - LaunchStatsUtils.getAppCreateTime());
                                 } else {
                                     jSONObject2.put("duration", -1);

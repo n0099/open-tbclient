@@ -2,13 +2,14 @@ package com.baidu.tieba.tbadkCore;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PraiseResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +48,7 @@ public class PraiseResponseMessage extends JsonHttpResponsedMessage {
                 return;
             }
             this.errCode = jSONObject.optInt("error_code");
-            this.errMsg = jSONObject.optString("error_msg");
+            this.errMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
         }
     }
 

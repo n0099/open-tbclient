@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +89,7 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
             }
             JSONObject jSONObject = new JSONObject(parseToString);
             setError(jSONObject.optInt("error_code", -1));
-            setErrorString(jSONObject.optString("error_msg"));
+            setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
             JSONObject optJSONObject = jSONObject.optJSONObject("info");
             if (optJSONObject != null) {
                 this.blockSuccess = optJSONObject.optInt("block_success");

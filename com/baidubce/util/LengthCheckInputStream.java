@@ -11,7 +11,7 @@ import com.baidubce.BceClientException;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LengthCheckInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean EXCLUDE_SKIPPED_BYTES = false;
@@ -23,13 +23,13 @@ public class LengthCheckInputStream extends FilterInputStream {
     public long marked;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LengthCheckInputStream(InputStream inputStream, long j2, boolean z) {
+    public LengthCheckInputStream(InputStream inputStream, long j, boolean z) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {inputStream, Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -40,8 +40,8 @@ public class LengthCheckInputStream extends FilterInputStream {
                 return;
             }
         }
-        if (j2 >= 0) {
-            this.expectedLength = j2;
+        if (j >= 0) {
+            this.expectedLength = j;
             this.includeSkipped = z;
             return;
         }
@@ -99,11 +99,11 @@ public class LengthCheckInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j2) throws IOException {
+    public long skip(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-            long skip = super.skip(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            long skip = super.skip(j);
             if (this.includeSkipped && skip > 0) {
                 this.dataLength += skip;
                 checkLength(false);

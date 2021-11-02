@@ -7,17 +7,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import c.p.a.e.b.d.c;
-import c.p.a.e.b.g.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+import com.ss.android.socialbase.appdownloader.e.d;
+import com.ss.android.socialbase.downloader.constants.e;
+import com.ss.android.socialbase.downloader.downloader.c;
+/* loaded from: classes2.dex */
 public class a extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,8 +46,8 @@ public class a extends Fragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Context n = e.n();
-            return (n != null || getActivity() == null || getActivity().isFinishing()) ? n : getActivity().getApplicationContext();
+            Context N = c.N();
+            return (N != null || getActivity() == null || getActivity().isFinishing()) ? N : getActivity().getApplicationContext();
         }
         return (Context) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class a extends Fragment {
             }
             Intent intent = new Intent("android.settings.APP_NOTIFICATION_SETTINGS");
             String packageName = e2.getPackageName();
-            intent.putExtra(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
+            intent.putExtra("package", packageName);
             intent.putExtra("android.provider.extra.APP_PACKAGE", packageName);
             intent.putExtra("app_package", packageName);
             int i2 = e2.getApplicationInfo().uid;
@@ -103,7 +103,7 @@ public class a extends Fragment {
             String packageName = e2.getPackageName();
             if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
                 String lowerCase = Build.MANUFACTURER.toLowerCase();
-                if (lowerCase.contains(c.f35108c)) {
+                if (lowerCase.contains(e.f69179c)) {
                     Intent intent = new Intent();
                     intent.putExtra("packageName", packageName);
                     intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));
@@ -147,10 +147,10 @@ public class a extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            if (c.p.a.e.a.f.c.d()) {
-                c.p.a.e.a.f.c.c(true);
+            if (d.a()) {
+                d.a(true);
             } else {
-                c.p.a.e.a.f.c.c(false);
+                d.a(false);
             }
         }
     }

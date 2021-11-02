@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AlbumActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SELECT_IMAGE_RESULT = "com.baidu.tieba.AlbumActivity.SelectImageResult";
@@ -38,7 +38,8 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String FROM_TOPIC = "topic";
     public static final int FROM_TOPIC_DETAIL_REPLAY = 4;
     public static final int FROM_VOTE = 3;
-    public static final int FROM_WEB_VIEW = 5;
+    public static final String FROM_WEB_VIEW = "webview";
+    public static final int FROM_WEB_VIEW_HYBRID = 5;
     public static final String FROM_WRITE = "write";
     public static final int FROM_WRITE_ACTIVITY = 3;
     public static final int IM_TYPE = 1;

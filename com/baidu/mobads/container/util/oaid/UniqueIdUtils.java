@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UniqueIdUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SPFILE_NAME = "mobads_uniqueidentifier";
@@ -43,7 +43,7 @@ public class UniqueIdUtils {
     public static String miitOAID = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class InvocationHandlerImp implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,10 +255,10 @@ public class UniqueIdUtils {
         }
     }
 
-    public static void update(long j2, String str) {
+    public static void update(long j, String str) {
         XSharedPreferences xSharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65545, null, j2, str) == null) || (xSharedPreferences = mSPOAID) == null) {
+        if (!(interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) || (xSharedPreferences = mSPOAID) == null) {
             return;
         }
         String value = xSharedPreferences.getValue("oaid");
@@ -266,7 +266,7 @@ public class UniqueIdUtils {
             str = value;
         }
         mSPOAID.putString("oaid", str);
-        long currentTimeMillis = System.currentTimeMillis() + j2;
+        long currentTimeMillis = System.currentTimeMillis() + j;
         mSPOAID.putLong(SPKEY_OAID_VALID_PERIOD, Long.valueOf(currentTimeMillis));
         mPeriod = currentTimeMillis;
         miitOAID = str;

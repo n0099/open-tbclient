@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FrameSequenceDrawable extends Drawable implements Animatable, Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_DELAY_MS = 100;
@@ -68,14 +68,14 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     public int mState;
     public RectF mTempRectF;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         Bitmap a(int i2, int i3);
 
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(FrameSequenceDrawable frameSequenceDrawable);
     }
@@ -176,7 +176,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ FrameSequenceDrawable f73405a;
+            public final /* synthetic */ FrameSequenceDrawable f65834a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -193,7 +193,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                         return;
                     }
                 }
-                this.f73405a = this;
+                this.f65834a = this;
             }
 
             @Override // java.lang.Runnable
@@ -202,46 +202,46 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                 Bitmap bitmap;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.f73405a.mLock) {
-                        if (this.f73405a.mDestroyed) {
+                    synchronized (this.f65834a.mLock) {
+                        if (this.f65834a.mDestroyed) {
                             return;
                         }
-                        int i4 = this.f73405a.mNextFrameToDecode;
+                        int i4 = this.f65834a.mNextFrameToDecode;
                         if (i4 < 0) {
                             return;
                         }
-                        Bitmap bitmap2 = this.f73405a.mBackBitmap;
-                        this.f73405a.mState = 2;
-                        long j2 = 0;
+                        Bitmap bitmap2 = this.f65834a.mBackBitmap;
+                        this.f65834a.mState = 2;
+                        long j = 0;
                         boolean z2 = true;
                         try {
-                            j2 = this.f73405a.mFrameSequenceState.getFrame(i4, bitmap2, i4 - 2);
+                            j = this.f65834a.mFrameSequenceState.getFrame(i4, bitmap2, i4 - 2);
                             z = false;
                         } catch (Exception e2) {
                             String str = "exception during decode: " + e2;
                             z = true;
                         }
-                        if (j2 < 20) {
-                            j2 = 100;
+                        if (j < 20) {
+                            j = 100;
                         }
-                        synchronized (this.f73405a.mLock) {
+                        synchronized (this.f65834a.mLock) {
                             bitmap = null;
-                            if (this.f73405a.mDestroyed) {
-                                Bitmap bitmap3 = this.f73405a.mBackBitmap;
-                                this.f73405a.mBackBitmap = null;
+                            if (this.f65834a.mDestroyed) {
+                                Bitmap bitmap3 = this.f65834a.mBackBitmap;
+                                this.f65834a.mBackBitmap = null;
                                 bitmap = bitmap3;
-                            } else if (this.f73405a.mNextFrameToDecode >= 0 && this.f73405a.mState == 2) {
-                                this.f73405a.mNextSwap = z ? Long.MAX_VALUE : j2 + this.f73405a.mLastSwap;
-                                this.f73405a.mState = 3;
+                            } else if (this.f65834a.mNextFrameToDecode >= 0 && this.f65834a.mState == 2) {
+                                this.f65834a.mNextSwap = z ? Long.MAX_VALUE : j + this.f65834a.mLastSwap;
+                                this.f65834a.mState = 3;
                             }
                             z2 = false;
                         }
                         if (z2) {
-                            FrameSequenceDrawable frameSequenceDrawable = this.f73405a;
+                            FrameSequenceDrawable frameSequenceDrawable = this.f65834a;
                             frameSequenceDrawable.scheduleSelf(frameSequenceDrawable, frameSequenceDrawable.mNextSwap);
                         }
                         if (bitmap != null) {
-                            this.f73405a.mBitmapProvider.a(bitmap);
+                            this.f65834a.mBitmapProvider.a(bitmap);
                         }
                     }
                 }
@@ -252,7 +252,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ FrameSequenceDrawable f73406a;
+            public final /* synthetic */ FrameSequenceDrawable f65835a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -269,19 +269,19 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                         return;
                     }
                 }
-                this.f73406a = this;
+                this.f65835a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.f73406a.mLock) {
-                        this.f73406a.mNextFrameToDecode = -1;
-                        this.f73406a.mState = 0;
+                    synchronized (this.f65835a.mLock) {
+                        this.f65835a.mNextFrameToDecode = -1;
+                        this.f65835a.mState = 0;
                     }
-                    if (this.f73406a.mOnFinishedListener != null) {
-                        this.f73406a.mOnFinishedListener.a(this.f73406a);
+                    if (this.f65835a.mOnFinishedListener != null) {
+                        this.f65835a.mOnFinishedListener.a(this.f65835a);
                     }
                 }
             }

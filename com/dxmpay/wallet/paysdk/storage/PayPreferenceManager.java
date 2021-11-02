@@ -13,7 +13,7 @@ import com.dxmpay.apollon.utils.Md5Utils;
 import com.dxmpay.apollon.utils.SharedPreferencesUtils;
 import com.dxmpay.wallet.api.WalletLoginHelper;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class PayPreferenceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PWDPAY_DISPLAY_SCORE_TIP = "pwdpay_display_score_tip";

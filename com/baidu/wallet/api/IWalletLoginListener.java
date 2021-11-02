@@ -2,7 +2,7 @@ package com.baidu.wallet.api;
 
 import android.content.Context;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IWalletLoginListener extends IWalletHostListener2 {
     public static final String KEY_LOGIN_TYPE = "loginType";
     @Deprecated

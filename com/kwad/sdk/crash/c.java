@@ -8,30 +8,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final double f72994a;
+    public static final double f65440a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f72995b;
+    public static final Pattern f65441b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f72996c;
+    public static final Pattern f65442c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f72997d;
+    public static final Pattern f65443d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f72998e;
+    public static final Pattern f65444e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f72999f;
+    public static int f65445f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f73000g;
+    public static String f65446g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,13 +47,13 @@ public final class c {
                 return;
             }
         }
-        f72994a = Runtime.getRuntime().maxMemory();
-        f72995b = Pattern.compile("/data/user");
-        f72996c = Pattern.compile("/data");
-        f72997d = Pattern.compile("/data/data/(.*)/data/.*");
-        f72998e = Pattern.compile("/data/user/.*/(.*)/data/.*");
-        f72999f = 20;
-        f73000g = "sessionId";
+        f65440a = Runtime.getRuntime().maxMemory();
+        f65441b = Pattern.compile("/data/user");
+        f65442c = Pattern.compile("/data");
+        f65443d = Pattern.compile("/data/data/(.*)/data/.*");
+        f65444e = Pattern.compile("/data/user/.*/(.*)/data/.*");
+        f65445f = 20;
+        f65446g = "sessionId";
     }
 
     public c() {

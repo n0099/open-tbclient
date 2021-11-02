@@ -17,13 +17,13 @@ import com.xiaomi.push.el;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f77618a;
+    public Set<String> f70581a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f77618a = new HashSet();
+        this.f70581a = new HashSet();
     }
 
     public static void a(Application application) {
@@ -89,10 +89,10 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         String stringExtra = intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID);
         int intExtra = intent.getIntExtra("eventMessageType", -1);
-        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f77618a.contains(stringExtra)) {
+        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f70581a.contains(stringExtra)) {
             return;
         }
-        this.f77618a.add(stringExtra);
+        this.f70581a.add(stringExtra);
         if (intExtra == 3000) {
             a2 = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();

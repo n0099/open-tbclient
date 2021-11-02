@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Base64Utils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f38266a;
+    public static final Boolean f36273a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class Base64Utils {
                 return;
             }
         }
-        f38266a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
+        f36273a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
     }
 
     public Base64Utils() {
@@ -54,7 +54,7 @@ public class Base64Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (f38266a.booleanValue()) {
+            if (f36273a.booleanValue()) {
                 return Base64.decode(bArr, 2);
             }
             try {
@@ -70,7 +70,7 @@ public class Base64Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (f38266a.booleanValue()) {
+            if (f36273a.booleanValue()) {
                 return Base64.encode(bArr, 2);
             }
             return com.baidu.apollon.utils.support.Base64.encodeBytesToBytes(bArr);
@@ -82,7 +82,7 @@ public class Base64Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
-            if (f38266a.booleanValue()) {
+            if (f36273a.booleanValue()) {
                 return Base64.encodeToString(bArr, 2);
             }
             return com.baidu.apollon.utils.support.Base64.encodeBytes(bArr);
@@ -94,7 +94,7 @@ public class Base64Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (f38266a.booleanValue()) {
+            if (f36273a.booleanValue()) {
                 return Base64.decode(str, 2);
             }
             try {

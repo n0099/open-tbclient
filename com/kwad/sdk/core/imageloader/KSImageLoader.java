@@ -37,7 +37,7 @@ import com.kwad.sdk.core.report.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.av;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class KSImageLoader {
     public static /* synthetic */ Interceptable $ic;
     public static DisplayImageOptions IMGOPTION_ENTRY;
@@ -47,7 +47,7 @@ public class KSImageLoader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.imageloader.KSImageLoader$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType;
         public static /* synthetic */ Interceptable $ic;
@@ -91,7 +91,7 @@ public class KSImageLoader {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class InnerImageLoadingListener implements ImageLoadingListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

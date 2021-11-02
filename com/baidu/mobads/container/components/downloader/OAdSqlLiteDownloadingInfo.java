@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OAdSqlLiteDownloadingInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,12 +18,12 @@ public class OAdSqlLiteDownloadingInfo {
     public int mThreadId;
     public String mURL;
 
-    public OAdSqlLiteDownloadingInfo(int i2, String str, String str2, long j2, long j3, long j4) {
+    public OAdSqlLiteDownloadingInfo(int i2, String str, String str2, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -36,9 +36,9 @@ public class OAdSqlLiteDownloadingInfo {
         setThreadId(i2);
         setURL(str);
         setDownloadedFilePath(str2);
-        setStartPos(j2);
-        setEndPos(j3);
-        setDownloadedContentLength(j4);
+        setStartPos(j);
+        setEndPos(j2);
+        setDownloadedContentLength(j3);
     }
 
     public long getDownloadedContentLength() {
@@ -77,10 +77,10 @@ public class OAdSqlLiteDownloadingInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mURL : (String) invokeV.objValue;
     }
 
-    public void setDownloadedContentLength(long j2) {
+    public void setDownloadedContentLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.mDownloadedContentLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mDownloadedContentLength = j;
         }
     }
 
@@ -91,17 +91,17 @@ public class OAdSqlLiteDownloadingInfo {
         }
     }
 
-    public void setEndPos(long j2) {
+    public void setEndPos(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.mEndPos = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.mEndPos = j;
         }
     }
 
-    public void setStartPos(long j2) {
+    public void setStartPos(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.mStartPos = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.mStartPos = j;
         }
     }
 

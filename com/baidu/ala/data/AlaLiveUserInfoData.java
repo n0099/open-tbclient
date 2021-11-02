@@ -1,7 +1,7 @@
 package com.baidu.ala.data;
 
 import android.text.TextUtils;
-import c.a.q0.s.q.p;
+import b.a.q0.s.q.p;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaLiveUserInfoData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
@@ -84,7 +84,7 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         this.isNewGiftPriceStrategy = false;
     }
 
-    @Override // c.a.q0.s.q.p
+    @Override // b.a.q0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {

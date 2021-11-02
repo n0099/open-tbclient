@@ -7,7 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+import com.facebook.infer.annotation.Nullsafe;
+@Nullsafe(Nullsafe.Mode.STRICT)
+/* loaded from: classes11.dex */
 public class Suppliers {
     public static /* synthetic */ Interceptable $ic;
     public static final Supplier<Boolean> BOOLEAN_FALSE;

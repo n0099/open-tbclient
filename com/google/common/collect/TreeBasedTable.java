@@ -1,11 +1,11 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.g;
-import c.i.d.a.n;
-import c.i.d.a.r;
-import c.i.d.c.k1;
-import c.i.d.c.o0;
+import b.i.d.a.g;
+import b.i.d.a.n;
+import b.i.d.a.r;
+import b.i.d.c.k1;
+import b.i.d.c.o0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,14 +23,14 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public final Comparator<? super C> columnComparator;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Factory<C, V> implements r<TreeMap<C, V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -56,7 +56,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.r
+        @Override // b.i.d.a.r
         public TreeMap<C, V> get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class a implements g<Map<C, V>, Iterator<C>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.g
+        @Override // b.i.d.a.g
         /* renamed from: a */
         public Iterator<C> apply(Map<C, V> map) {
             InterceptResult invokeL;
@@ -95,19 +95,19 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class b extends AbstractIterator<C> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public C f71100g;
+        public C f63590g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Iterator f71101h;
+        public final /* synthetic */ Iterator f63591h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Comparator f71102i;
+        public final /* synthetic */ Comparator f63592i;
 
         public b(TreeBasedTable treeBasedTable, Iterator it, Comparator comparator) {
             Interceptable interceptable = $ic;
@@ -124,8 +124,8 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                     return;
                 }
             }
-            this.f71101h = it;
-            this.f71102i = comparator;
+            this.f63591h = it;
+            this.f63592i = comparator;
         }
 
         @Override // com.google.common.collect.AbstractIterator
@@ -134,10 +134,10 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                while (this.f71101h.hasNext()) {
-                    C c2 = (C) this.f71101h.next();
-                    C c3 = this.f71100g;
-                    if (c3 == null || this.f71102i.compare(c2, c3) != 0) {
+                while (this.f63591h.hasNext()) {
+                    C c2 = (C) this.f63591h.next();
+                    C c3 = this.f63590g;
+                    if (c3 == null || this.f63592i.compare(c2, c3) != 0) {
                         z = false;
                         continue;
                     } else {
@@ -145,30 +145,28 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                         continue;
                     }
                     if (!z) {
-                        this.f71100g = c2;
+                        this.f63590g = c2;
                         return c2;
                     }
                 }
-                this.f71100g = null;
+                this.f63590g = null;
                 return b();
             }
             return (C) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class c extends StandardTable<R, C, V>.g implements SortedMap<C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final C f71103h;
+        public final C f63593h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final C f71104i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public transient SortedMap<C, V> f71105j;
+        public final C f63594i;
+        public transient SortedMap<C, V> j;
         public final /* synthetic */ TreeBasedTable k;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -209,10 +207,10 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         @Override // com.google.common.collect.StandardTable.g
         public void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && k() != null && this.f71105j.isEmpty()) {
-                this.k.backingMap.remove(this.f71083e);
-                this.f71105j = null;
-                this.f71084f = null;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && k() != null && this.j.isEmpty()) {
+                this.k.backingMap.remove(this.f63573e);
+                this.j = null;
+                this.f63574f = null;
             }
         }
 
@@ -253,11 +251,11 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 SortedMap<C, V> k = k();
                 if (k != null) {
-                    C c2 = this.f71103h;
+                    C c2 = this.f63593h;
                     if (c2 != null) {
                         k = k.tailMap(c2);
                     }
-                    C c3 = this.f71104i;
+                    C c3 = this.f63594i;
                     return c3 != null ? k.headMap(c3) : k;
                 }
                 return null;
@@ -272,7 +270,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, c2)) == null) {
                 n.p(c2);
                 n.d(j(c2));
-                return new c(this.k, this.f71083e, this.f71103h, c2);
+                return new c(this.k, this.f63573e, this.f63593h, c2);
             }
             return (SortedMap) invokeL.objValue;
         }
@@ -291,18 +289,18 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             C c2;
             C c3;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? obj != null && ((c2 = this.f71103h) == null || g(c2, obj) <= 0) && ((c3 = this.f71104i) == null || g(c3, obj) > 0) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? obj != null && ((c2 = this.f63593h) == null || g(c2, obj) <= 0) && ((c3 = this.f63594i) == null || g(c3, obj) > 0) : invokeL.booleanValue;
         }
 
         public SortedMap<C, V> k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                SortedMap<C, V> sortedMap = this.f71105j;
-                if (sortedMap == null || (sortedMap.isEmpty() && this.k.backingMap.containsKey(this.f71083e))) {
-                    this.f71105j = (SortedMap) this.k.backingMap.get(this.f71083e);
+                SortedMap<C, V> sortedMap = this.j;
+                if (sortedMap == null || (sortedMap.isEmpty() && this.k.backingMap.containsKey(this.f63573e))) {
+                    this.j = (SortedMap) this.k.backingMap.get(this.f63573e);
                 }
-                return this.f71105j;
+                return this.j;
             }
             return (SortedMap) invokeV.objValue;
         }
@@ -344,12 +342,12 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                     if (j(c3)) {
                         z = true;
                         n.d(z);
-                        return new c(this.k, this.f71083e, c2, c3);
+                        return new c(this.k, this.f63573e, c2, c3);
                     }
                 }
                 z = false;
                 n.d(z);
-                return new c(this.k, this.f71083e, c2, c3);
+                return new c(this.k, this.f63573e, c2, c3);
             }
             return (SortedMap) invokeLL.objValue;
         }
@@ -361,7 +359,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, c2)) == null) {
                 n.p(c2);
                 n.d(j(c2));
-                return new c(this.k, this.f71083e, c2, this.f71104i);
+                return new c(this.k, this.f63573e, c2, this.f63594i);
             }
             return (SortedMap) invokeL.objValue;
         }
@@ -386,8 +384,8 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                 }
             }
             this.k = treeBasedTable;
-            this.f71103h = c2;
-            this.f71104i = c3;
+            this.f63593h = c2;
+            this.f63594i = c3;
             n.d(c2 == null || c3 == null || g(c2, c3) <= 0);
         }
     }
@@ -420,19 +418,19 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new TreeBasedTable<>(Ordering.natural(), Ordering.natural()) : (TreeBasedTable) invokeV.objValue;
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ Set cellSet() {
         return super.cellSet();
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ void clear() {
         super.clear();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.k1
     public /* bridge */ /* synthetic */ Map column(Object obj) {
         return super.column(obj);
     }
@@ -444,32 +442,32 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.columnComparator : (Comparator) invokeV.objValue;
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ Set columnKeySet() {
         return super.columnKeySet();
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.k1
     public /* bridge */ /* synthetic */ Map columnMap() {
         return super.columnMap();
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean contains(Object obj, Object obj2) {
         return super.contains(obj, obj2);
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean containsColumn(Object obj) {
         return super.containsColumn(obj);
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean containsRow(Object obj) {
         return super.containsRow(obj);
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean containsValue(Object obj) {
         return super.containsValue(obj);
     }
@@ -485,22 +483,22 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         return (Iterator) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.i, c.i.d.c.k1
+    @Override // b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ Object get(Object obj, Object obj2) {
         return super.get(obj, obj2);
     }
 
-    @Override // c.i.d.c.i, c.i.d.c.k1
+    @Override // b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ int hashCode() {
         return super.hashCode();
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
@@ -509,24 +507,24 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ Object put(Object obj, Object obj2, Object obj3) {
         return super.put(obj, obj2, obj3);
     }
 
-    @Override // c.i.d.c.i, c.i.d.c.k1
+    @Override // b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ void putAll(k1 k1Var) {
         super.putAll(k1Var);
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ Object remove(Object obj, Object obj2) {
         return super.remove(obj, obj2);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.k1
     public /* bridge */ /* synthetic */ Map row(Object obj) {
         return row((TreeBasedTable<R, C, V>) obj);
     }
@@ -538,17 +536,17 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? rowKeySet().comparator() : (Comparator) invokeV.objValue;
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.k1
     public /* bridge */ /* synthetic */ int size() {
         return super.size();
     }
 
-    @Override // c.i.d.c.i
+    @Override // b.i.d.c.i
     public /* bridge */ /* synthetic */ String toString() {
         return super.toString();
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public /* bridge */ /* synthetic */ Collection values() {
         return super.values();
     }
@@ -564,7 +562,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         return (TreeBasedTable) invokeLL.objValue;
     }
 
-    @Override // com.google.common.collect.StandardTable, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardTable, b.i.d.c.k1
     public SortedMap<C, V> row(R r) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -572,7 +570,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.StandardRowSortedTable, com.google.common.collect.StandardTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardRowSortedTable, com.google.common.collect.StandardTable, b.i.d.c.i, b.i.d.c.k1
     public SortedSet<R> rowKeySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -580,7 +578,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.StandardRowSortedTable, com.google.common.collect.StandardTable, c.i.d.c.k1
+    @Override // com.google.common.collect.StandardRowSortedTable, com.google.common.collect.StandardTable, b.i.d.c.k1
     public SortedMap<R, Map<C, V>> rowMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f78597a;
+    public static Context f71535a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f989a;
+    public static String f990a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,7 +57,7 @@ public class t {
     public static Context m639a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78597a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f71535a : (Context) invokeV.objValue;
     }
 
     public static Class<?> a(Context context, String str) {
@@ -90,8 +90,8 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (t.class) {
-                if (f989a != null) {
-                    return f989a;
+                if (f990a != null) {
+                    return f990a;
                 }
                 String str = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -107,7 +107,7 @@ public class t {
                     }
                     str = b2;
                 }
-                f989a = str;
+                f990a = str;
                 return str;
             }
         }
@@ -131,7 +131,7 @@ public class t {
     public static void m641a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
-            f78597a = context.getApplicationContext();
+            f71535a = context.getApplicationContext();
         }
     }
 
@@ -162,7 +162,7 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             String a2 = s.a("ro.build.version.emui", "");
-            f989a = a2;
+            f990a = a2;
             return a2;
         }
         return (String) invokeV.objValue;
@@ -192,9 +192,9 @@ public class t {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String a2 = s.a("ro.build.version.opporom", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-                f989a = "ColorOS_" + a2;
+                f990a = "ColorOS_" + a2;
             }
-            return f989a;
+            return f990a;
         }
         return (String) invokeV.objValue;
     }
@@ -205,9 +205,9 @@ public class t {
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             String a2 = s.a("ro.vivo.os.version", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-                f989a = "FuntouchOS_" + a2;
+                f990a = "FuntouchOS_" + a2;
             }
-            return f989a;
+            return f990a;
         }
         return (String) invokeV.objValue;
     }

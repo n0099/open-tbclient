@@ -18,6 +18,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.upload.action.IMTrackManager;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +32,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryGroupRequest";
@@ -43,7 +44,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public String mKey;
     public String mRequestParam;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +72,8 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             this.this$0 = iMQueryGroupRequest;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:43:0x0186  */
-        /* JADX WARN: Removed duplicated region for block: B:52:0x01f5  */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x0187  */
+        /* JADX WARN: Removed duplicated region for block: B:52:0x01f6  */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -87,7 +88,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                 try {
                     JSONObject jSONObject = new JSONObject(mytask.mJson);
                     int i3 = jSONObject.getInt("error_code");
-                    String optString = jSONObject.optString("error_msg", "");
+                    String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     if (i3 == 0 && jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("group_info");
                         int i4 = 0;
@@ -232,12 +233,12 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMQueryGroupRequest(Context context, String str, long j2, ArrayList<String> arrayList, boolean z, ArrayList<GroupMember> arrayList2) {
+    public IMQueryGroupRequest(Context context, String str, long j, ArrayList<String> arrayList, boolean z, ArrayList<GroupMember> arrayList2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), arrayList, Boolean.valueOf(z), arrayList2};
+            Object[] objArr = {context, str, Long.valueOf(j), arrayList, Boolean.valueOf(z), arrayList2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -249,7 +250,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
         }
         this.isCreateGroup = false;
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
         this.mGroupIds = arrayList;
         this.mAddMembers = arrayList2;

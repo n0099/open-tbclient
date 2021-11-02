@@ -132,32 +132,32 @@ public class TwilightManager {
     }
 
     private void updateState(@NonNull Location location) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, location) == null) {
             TwilightState twilightState = this.mTwilightState;
             long currentTimeMillis = System.currentTimeMillis();
             TwilightCalculator twilightCalculator = TwilightCalculator.getInstance();
             twilightCalculator.calculateTwilight(currentTimeMillis - 86400000, location.getLatitude(), location.getLongitude());
-            long j3 = twilightCalculator.sunset;
+            long j2 = twilightCalculator.sunset;
             twilightCalculator.calculateTwilight(currentTimeMillis, location.getLatitude(), location.getLongitude());
             boolean z = twilightCalculator.state == 1;
-            long j4 = twilightCalculator.sunrise;
-            long j5 = twilightCalculator.sunset;
+            long j3 = twilightCalculator.sunrise;
+            long j4 = twilightCalculator.sunset;
             boolean z2 = z;
             twilightCalculator.calculateTwilight(86400000 + currentTimeMillis, location.getLatitude(), location.getLongitude());
-            long j6 = twilightCalculator.sunrise;
-            if (j4 == -1 || j5 == -1) {
-                j2 = 43200000 + currentTimeMillis;
+            long j5 = twilightCalculator.sunrise;
+            if (j3 == -1 || j4 == -1) {
+                j = 43200000 + currentTimeMillis;
             } else {
-                j2 = (currentTimeMillis > j5 ? 0 + j6 : currentTimeMillis > j4 ? 0 + j5 : 0 + j4) + 60000;
+                j = (currentTimeMillis > j4 ? 0 + j5 : currentTimeMillis > j3 ? 0 + j4 : 0 + j3) + 60000;
             }
             twilightState.isNight = z2;
-            twilightState.yesterdaySunset = j3;
-            twilightState.todaySunrise = j4;
-            twilightState.todaySunset = j5;
-            twilightState.tomorrowSunrise = j6;
-            twilightState.nextUpdate = j2;
+            twilightState.yesterdaySunset = j2;
+            twilightState.todaySunrise = j3;
+            twilightState.todaySunset = j4;
+            twilightState.tomorrowSunrise = j5;
+            twilightState.nextUpdate = j;
         }
     }
 

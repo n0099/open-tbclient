@@ -1,18 +1,18 @@
 package com.baidu.wallet.base.camera.internal;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f60435a = 1;
+    public static final int f57348a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f60436b = 2;
+    public static final int f57349b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f60437c = 4;
+    public static final int f57350c = 4;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f60438d = 8;
+    public static final int f57351d = 8;
 
     void destroyCamera();
 

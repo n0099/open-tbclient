@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.z;
+import b.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SubPbRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class SubPbRequestMessage extends NetMessage {
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbRequestMessage(Context context, long j2, long j3, long j4, int i2, int i3, int i4, double d2, String str, int i5) {
+    public SubPbRequestMessage(Context context, long j, long j2, long j3, int i2, int i3, int i4, double d2, String str, int i5) {
         super(CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Double.valueOf(d2), str, Integer.valueOf(i5)};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Double.valueOf(d2), str, Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
@@ -55,9 +55,9 @@ public class SubPbRequestMessage extends NetMessage {
             }
         }
         this.richTextClickListener = context;
-        this.kz = j2;
-        this.pid = j3;
-        this.spid = j4;
+        this.kz = j;
+        this.pid = j2;
+        this.spid = j3;
         this.pn = i2;
         this.scr_w = i3;
         this.scr_h = i4;
@@ -109,10 +109,10 @@ public class SubPbRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.treatDelPage : invokeV.booleanValue;
     }
 
-    public void setForumId(long j2) {
+    public void setForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.forumId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.forumId = j;
         }
     }
 

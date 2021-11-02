@@ -1,11 +1,11 @@
 package com.baidu.tieba.signall;
 
-import c.a.e.a.f;
-import c.a.e.e.p.j;
-import c.a.r0.g3.c;
-import c.a.r0.g3.d;
-import c.a.r0.g3.e;
-import c.a.r0.g3.h;
+import b.a.e.a.f;
+import b.a.e.e.p.j;
+import b.a.r0.g3.c;
+import b.a.r0.g3.d;
+import b.a.r0.g3.e;
+import b.a.r0.g3.h;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,47 +17,47 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f56894e;
+    public b f53988e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f56895f;
+    public h f53989f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f56896g;
+    public a f53990g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f56897h;
+    public c f53991h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f56898i;
+    public String f53992i;
     public boolean isRunning;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(h hVar);
 
         void onNetError(String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends BdAsyncTask<String, Integer, h> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public e f56899a;
+        public e f53993a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f56900b;
+        public boolean f53994b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumModel f56901c;
+        public final /* synthetic */ SignAllForumModel f53995c;
 
         public b(SignAllForumModel signAllForumModel) {
             Interceptable interceptable = $ic;
@@ -74,9 +74,9 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                     return;
                 }
             }
-            this.f56901c = signAllForumModel;
-            this.f56899a = null;
-            this.f56900b = false;
+            this.f53995c = signAllForumModel;
+            this.f53993a = null;
+            this.f53994b = false;
             setPriority(3);
         }
 
@@ -91,8 +91,8 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 if (c() || !(strArr == null || strArr.length == 0 || strArr[0] == null)) {
                     if (c()) {
                         e eVar = new e();
-                        this.f56899a = eVar;
-                        eVar.d(this.f56901c.f56898i);
+                        this.f53993a = eVar;
+                        eVar.d(this.f53995c.f53992i);
                         if (j.z()) {
                             e();
                         }
@@ -110,14 +110,14 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                                 }
                             }
                             e eVar2 = new e();
-                            this.f56899a = eVar2;
-                            eVar2.d(this.f56901c.f56898i);
+                            this.f53993a = eVar2;
+                            eVar2.d(this.f53995c.f53992i);
                             if (j.z()) {
                                 d(sb.toString());
                             }
                         }
                     }
-                    return this.f56901c.f56895f;
+                    return this.f53995c.f53989f;
                 }
                 return null;
             }
@@ -127,7 +127,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56900b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53994b : invokeV.booleanValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -135,10 +135,10 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                this.f56899a.a();
-                this.f56899a = null;
-                this.f56901c.f56894e = null;
-                this.f56901c.isRunning = false;
+                this.f53993a.a();
+                this.f53993a = null;
+                this.f53995c.f53988e = null;
+                this.f53995c.isRunning = false;
             }
         }
 
@@ -146,12 +146,12 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                String e2 = this.f56899a.e(str);
-                if (this.f56899a.c()) {
-                    this.f56901c.f56895f.i(e2);
-                    return this.f56901c.f56895f;
+                String e2 = this.f53993a.e(str);
+                if (this.f53993a.c()) {
+                    this.f53995c.f53989f.i(e2);
+                    return this.f53995c.f53989f;
                 }
-                this.f56901c.f56895f = null;
+                this.f53995c.f53989f = null;
                 AuthTokenData.parse(e2);
                 return null;
             }
@@ -162,12 +162,12 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                String f2 = this.f56899a.f();
-                if (this.f56899a.c()) {
-                    this.f56901c.f56895f.i(f2);
-                    return this.f56901c.f56895f;
+                String f2 = this.f53993a.f();
+                if (this.f53993a.c()) {
+                    this.f53995c.f53989f.i(f2);
+                    return this.f53995c.f53989f;
                 }
-                this.f56901c.f56895f = null;
+                this.f53995c.f53989f = null;
                 AuthTokenData.parse(f2);
                 return null;
             }
@@ -180,16 +180,16 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         public void onPostExecute(h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, hVar) == null) {
-                SignAllForumModel signAllForumModel = this.f56901c;
+                SignAllForumModel signAllForumModel = this.f53995c;
                 signAllForumModel.isRunning = false;
-                signAllForumModel.f56894e = null;
-                if (this.f56901c.f56896g != null) {
-                    if (this.f56901c.f56895f != null) {
-                        this.f56901c.f56896g.a(this.f56901c.f56895f);
+                signAllForumModel.f53988e = null;
+                if (this.f53995c.f53990g != null) {
+                    if (this.f53995c.f53989f != null) {
+                        this.f53995c.f53990g.a(this.f53995c.f53989f);
                         return;
                     }
-                    e eVar = this.f56899a;
-                    this.f56901c.f56896g.onNetError(eVar != null ? eVar.b() : null);
+                    e eVar = this.f53993a;
+                    this.f53995c.f53990g.onNetError(eVar != null ? eVar.b() : null);
                 }
             }
         }
@@ -197,7 +197,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         public void g(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.f56900b = z;
+                this.f53994b = z;
             }
         }
 
@@ -206,7 +206,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
                 super.onPreExecute();
-                this.f56901c.isRunning = true;
+                this.f53995c.isRunning = true;
             }
         }
     }
@@ -229,26 +229,26 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 return;
             }
         }
-        this.f56894e = null;
-        this.f56895f = null;
-        this.f56896g = null;
-        this.f56895f = new h();
+        this.f53988e = null;
+        this.f53989f = null;
+        this.f53990g = null;
+        this.f53989f = new h();
     }
 
     public final String B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<d> x = this.f56897h.x();
+            ArrayList<d> x = this.f53991h.x();
             if (x == null) {
                 return "";
             }
-            if (!this.f56897h.B()) {
+            if (!this.f53991h.B()) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<d> it = x.iterator();
                 while (it.hasNext()) {
                     d next = it.next();
-                    if (next.i() < this.f56897h.l()) {
+                    if (next.i() < this.f53991h.l()) {
                         arrayList.add(next);
                     }
                 }
@@ -276,20 +276,20 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     public c C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56897h : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53991h : (c) invokeV.objValue;
     }
 
     public void D(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f56897h = cVar;
+            this.f53991h = cVar;
         }
     }
 
     public void E(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f56896g = aVar;
+            this.f53990g = aVar;
         }
     }
 
@@ -298,7 +298,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            b bVar = this.f56894e;
+            b bVar = this.f53988e;
             if (bVar != null) {
                 bVar.cancel();
                 return true;
@@ -313,14 +313,14 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f56894e != null) {
+            if (this.f53988e != null) {
                 return false;
             }
-            this.f56894e = new b(this);
-            boolean n = this.f56897h.n();
+            this.f53988e = new b(this);
+            boolean n = this.f53991h.n();
             String B = n ? null : B();
-            this.f56894e.g(n);
-            this.f56894e.execute(B);
+            this.f53988e.g(n);
+            this.f53988e.execute(B);
             return true;
         }
         return invokeV.booleanValue;

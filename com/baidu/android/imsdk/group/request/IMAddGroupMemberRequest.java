@@ -16,6 +16,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMAddGroupMemberRequest";
@@ -40,7 +41,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
     public String mKey;
     public ArrayList<String> mMembers;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +79,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i2 = jSONObject.getInt("error_code");
-                    str = jSONObject.optString("error_msg", "");
+                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     if (i2 == 0 && jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("members");
                         for (int i3 = 0; i3 < jSONArray.length(); i3++) {
@@ -149,12 +150,12 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMAddGroupMemberRequest(Context context, String str, long j2, long j3, ArrayList<String> arrayList, boolean z) {
+    public IMAddGroupMemberRequest(Context context, String str, long j, long j2, ArrayList<String> arrayList, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3), arrayList, Boolean.valueOf(z)};
+            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2), arrayList, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -166,10 +167,10 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
         }
         this.isCreateGroup = false;
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
         this.mMembers = arrayList;
-        this.mGroupId = j3;
+        this.mGroupId = j2;
         this.isCreateGroup = z;
     }
 

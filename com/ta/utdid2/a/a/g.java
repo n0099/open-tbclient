@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f76399a;
+    public static final Pattern f69762a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class g {
                 return;
             }
         }
-        f76399a = Pattern.compile("([\t\r\n])+");
+        f69762a = Pattern.compile("([\t\r\n])+");
     }
 
     /* renamed from: a  reason: collision with other method in class */

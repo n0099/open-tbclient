@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ResContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class l extends ContextThemeWrapper implements ResContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ContextThemeWrapper f71507a;
+    public final ContextThemeWrapper f63986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f71508b;
+    public Resources.Theme f63987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f71509c;
+    public int f63988c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(ContextThemeWrapper contextThemeWrapper) {
@@ -46,8 +46,8 @@ public class l extends ContextThemeWrapper implements ResContext {
                 return;
             }
         }
-        this.f71507a = contextThemeWrapper;
-        this.f71509c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.f63986a = contextThemeWrapper;
+        this.f63988c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -79,7 +79,7 @@ public class l extends ContextThemeWrapper implements ResContext {
     public Context getDelegatedContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71507a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63986a : (Context) invokeV.objValue;
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -99,10 +99,10 @@ public class l extends ContextThemeWrapper implements ResContext {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if ("layout_inflater".equals(str)) {
-                LayoutInflater layoutInflater = (LayoutInflater) this.f71507a.getSystemService(str);
+                LayoutInflater layoutInflater = (LayoutInflater) this.f63986a.getSystemService(str);
                 return !(layoutInflater.getContext() instanceof ResContext) ? layoutInflater.cloneInContext(this) : layoutInflater;
             }
-            return this.f71507a.getSystemService(str);
+            return this.f63986a.getSystemService(str);
         }
         return invokeL.objValue;
     }
@@ -121,12 +121,12 @@ public class l extends ContextThemeWrapper implements ResContext {
             }
             Resources externalResource = Loader.get().getExternalResource();
             if (externalResource != null) {
-                if (this.f71508b == null) {
+                if (this.f63987b == null) {
                     Resources.Theme newTheme = externalResource.newTheme();
-                    this.f71508b = newTheme;
-                    newTheme.applyStyle(this.f71509c, true);
+                    this.f63987b = newTheme;
+                    newTheme.applyStyle(this.f63988c, true);
                 }
-                return this.f71508b;
+                return this.f63987b;
             }
             return theme;
         }
@@ -137,7 +137,7 @@ public class l extends ContextThemeWrapper implements ResContext {
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, componentCallbacks) == null) {
-            this.f71507a.registerComponentCallbacks(componentCallbacks);
+            this.f63986a.registerComponentCallbacks(componentCallbacks);
         }
     }
 
@@ -145,7 +145,7 @@ public class l extends ContextThemeWrapper implements ResContext {
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, componentCallbacks) == null) {
-            this.f71507a.unregisterComponentCallbacks(componentCallbacks);
+            this.f63986a.unregisterComponentCallbacks(componentCallbacks);
         }
     }
 }

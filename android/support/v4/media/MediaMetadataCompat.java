@@ -473,14 +473,14 @@ public final class MediaMetadataCompat implements Parcelable {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder putLong(String str, long j2) {
+        public Builder putLong(String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
                 if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
                     throw new IllegalArgumentException("The " + str + " key cannot be used to put a long");
                 }
-                this.mBundle.putLong(str, j2);
+                this.mBundle.putLong(str, j);
                 return this;
             }
             return (Builder) invokeLJ.objValue;

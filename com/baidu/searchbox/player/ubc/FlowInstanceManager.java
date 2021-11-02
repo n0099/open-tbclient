@@ -17,7 +17,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FlowInstanceManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ConcurrentHashMap<String, Flow> FLOW_FETCHERS;

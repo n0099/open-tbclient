@@ -2,7 +2,6 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -21,7 +20,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BYTES_PER_FORMAT;
@@ -49,7 +48,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static final int WEBP_LOSSLESS_ALPHA_FLAG = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class ByteBufferReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,11 +116,11 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public long skip(long j2) {
+        public long skip(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                int min = (int) Math.min(this.byteBuffer.remaining(), j2);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                int min = (int) Math.min(this.byteBuffer.remaining(), j);
                 ByteBuffer byteBuffer = this.byteBuffer;
                 byteBuffer.position(byteBuffer.position() + min);
                 return min;
@@ -130,7 +129,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class RandomAccessReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,7 +197,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface Reader {
         int getByte() throws IOException;
 
@@ -208,10 +207,10 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
 
         int read(byte[] bArr, int i2) throws IOException;
 
-        long skip(long j2) throws IOException;
+        long skip(long j) throws IOException;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class StreamReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,25 +274,25 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public long skip(long j2) throws IOException {
+        public long skip(long j) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                if (j2 < 0) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                if (j < 0) {
                     return 0L;
                 }
-                long j3 = j2;
-                while (j3 > 0) {
-                    long skip = this.is.skip(j3);
+                long j2 = j;
+                while (j2 > 0) {
+                    long skip = this.is.skip(j2);
                     if (skip <= 0) {
                         if (this.is.read() == -1) {
                             break;
                         }
                         skip = 1;
                     }
-                    j3 -= skip;
+                    j2 -= skip;
                 }
-                return j2 - j3;
+                return j - j2;
             }
             return invokeJ.longValue;
         }
@@ -369,7 +368,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         short uInt8;
         short uInt82;
         int uInt16;
-        long j2;
+        long j;
         long skip;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -393,9 +392,9 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                 if (uInt82 == 225) {
                     return uInt16;
                 }
-                j2 = uInt16;
-                skip = reader.skip(j2);
-            } while (skip == j2);
+                j = uInt16;
+                skip = reader.skip(j);
+            } while (skip == j);
             if (Log.isLoggable(TAG, 3)) {
                 String str2 = "Unable to skip enough data, type: " + ((int) uInt82) + ", wanted to skip: " + uInt16 + ", but actually skipped: " + skip;
             }
@@ -456,7 +455,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
             if (uInt16 == 65496) {
                 return ImageHeaderParser.ImageType.JPEG;
             }
-            int uInt162 = ((uInt16 << 16) & SupportMenu.CATEGORY_MASK) | (reader.getUInt16() & 65535);
+            int uInt162 = ((uInt16 << 16) & (-65536)) | (reader.getUInt16() & 65535);
             if (uInt162 == -1991225785) {
                 reader.skip(21L);
                 return reader.getByte() >= 3 ? ImageHeaderParser.ImageType.PNG_A : ImageHeaderParser.ImageType.PNG;
@@ -467,10 +466,10 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                     return ImageHeaderParser.ImageType.UNKNOWN;
                 }
                 reader.skip(4L);
-                if ((((reader.getUInt16() << 16) & SupportMenu.CATEGORY_MASK) | (reader.getUInt16() & 65535)) != 1464156752) {
+                if ((((reader.getUInt16() << 16) & (-65536)) | (reader.getUInt16() & 65535)) != 1464156752) {
                     return ImageHeaderParser.ImageType.UNKNOWN;
                 }
-                int uInt163 = ((reader.getUInt16() << 16) & SupportMenu.CATEGORY_MASK) | (reader.getUInt16() & 65535);
+                int uInt163 = ((reader.getUInt16() << 16) & (-65536)) | (reader.getUInt16() & 65535);
                 if ((uInt163 & (-256)) != 1448097792) {
                     return ImageHeaderParser.ImageType.UNKNOWN;
                 }

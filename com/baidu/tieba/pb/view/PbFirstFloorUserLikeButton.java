@@ -4,25 +4,27 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.f0.t.b;
+import b.a.q0.s.g0.t.b;
+import b.a.r0.k2.f;
+import b.a.r0.k2.g;
+import b.a.r0.k2.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener afterClickListener;
     public String mStrAlreadyFollowed;
     public String mStrFollow;
-    public c.a.q0.s.f0.n.b r;
-    public c.a.q0.s.f0.n.b s;
+    public b.a.q0.s.g0.n.b r;
+    public b.a.q0.s.g0.n.b s;
     public View.OnClickListener t;
     public boolean u;
 
@@ -50,21 +52,21 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-            this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
-            setTextSize(R.dimen.T_X08);
+            this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(l.relate_forum_is_followed);
+            this.mStrFollow = TbadkCoreApplication.getInst().getString(l.attention);
+            setTextSize(g.T_X08);
             setText(this.mStrFollow);
-            c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
+            b.a.q0.s.g0.n.b bVar = new b.a.q0.s.g0.n.b();
             this.r = bVar;
-            bVar.r(R.color.CAM_X0304);
-            c.a.q0.s.f0.n.b bVar2 = new c.a.q0.s.f0.n.b();
+            bVar.r(f.CAM_X0304);
+            b.a.q0.s.g0.n.b bVar2 = new b.a.q0.s.g0.n.b();
             this.s = bVar2;
-            bVar2.s(R.color.CAM_X0109);
+            bVar2.s(f.CAM_X0109);
             setConfig(this.r);
         }
     }
 
-    @Override // c.a.q0.s.f0.t.b
+    @Override // b.a.q0.s.g0.t.b
     public void bindOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
@@ -117,7 +119,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         }
     }
 
-    @Override // c.a.q0.s.f0.t.b
+    @Override // b.a.q0.s.g0.t.b
     public void updateFansNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
@@ -194,7 +196,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         f();
     }
 
-    @Override // c.a.q0.s.f0.t.b
+    @Override // b.a.q0.s.g0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -207,7 +209,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         }
     }
 
-    @Override // c.a.q0.s.f0.t.b
+    @Override // b.a.q0.s.g0.t.b
     public void updateLikeStatus(boolean z, int i2, boolean z2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;

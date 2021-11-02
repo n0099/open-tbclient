@@ -14,7 +14,7 @@ import tbclient.DoDailyTask.DialogItem;
 import tbclient.DoDailyTask.DoDailyTaskResIdl;
 import tbclient.DoDailyTask.RetDataList;
 import tbclient.Error;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DoDailyTaskSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

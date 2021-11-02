@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetSocketAddress;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class cq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77807a;
+    public int f70769a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f200a;
+    public String f201a;
 
     public cq(String str, int i2) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class cq {
                 return;
             }
         }
-        this.f200a = str;
-        this.f77807a = i2;
+        this.f201a = str;
+        this.f70769a = i2;
     }
 
     public static cq a(String str, int i2) {
@@ -72,24 +72,24 @@ public final class cq {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77807a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70769a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public String m230a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f200a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f201a : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f77807a > 0) {
-                return this.f200a + ":" + this.f77807a;
+            if (this.f70769a > 0) {
+                return this.f201a + ":" + this.f70769a;
             }
-            return this.f200a;
+            return this.f201a;
         }
         return (String) invokeV.objValue;
     }

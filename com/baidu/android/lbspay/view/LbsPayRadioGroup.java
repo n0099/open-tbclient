@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LbsPayRadioGroup extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class LbsPayRadioGroup extends LinearLayout {
     public OnCheckedListener mCheckedListener;
     public PayChannelController.GetPayModeListener mGetPayModeListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class CheckedViewClickListener implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class LbsPayRadioGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface OnCheckedListener {
         void onChecked(ChannelViewBase channelViewBase);
     }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.bigday;
 
-import c.a.e.e.p.l;
-import c.a.q0.d1.z;
+import b.a.e.e.p.l;
+import b.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetBigday.DataReq;
 import tbclient.GetBigday.GetBigdayReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GetBigdayInfoReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

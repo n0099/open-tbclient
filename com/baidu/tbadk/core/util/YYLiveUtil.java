@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,7 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.net.URLEncoder;
+/* loaded from: classes8.dex */
 public class YYLiveUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SOURCE_BAIDU_LIVE_CARD_ = "baidu_live_zhibo_block_";
@@ -153,7 +155,7 @@ public class YYLiveUtil {
 
     public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+        if ((interceptable == null || interceptable.invokeLL(65547, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
             YyExtData yyExtData = alaInfoData.mYyExtData;
             String str = yyExtData.mSid;
             String str2 = yyExtData.mSsid;
@@ -162,13 +164,44 @@ public class YYLiveUtil {
         }
     }
 
-    public static String makeJumpToYYLiveRoomUrl(String str, String str2, String str3, String str4, String str5) {
-        InterceptResult invokeLLLLL;
+    public static String makeJumpToYYLiveRoomUrl(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, str, str2, str3, str4, str5)) == null) {
-            return UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX + "sid=" + str + "&ssid=" + str2 + "&templateId=" + str3 + "&roomId=" + str4 + "&source=" + str5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            StringBuilder sb = new StringBuilder(UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX);
+            sb.append("sid=");
+            sb.append(str);
+            sb.append("&ssid=");
+            sb.append(str2);
+            sb.append("&templateId=");
+            sb.append(str3);
+            sb.append("&roomId=");
+            sb.append(str4);
+            sb.append("&source=");
+            sb.append(str6);
+            if (!StringUtils.isNull(str5)) {
+                sb.append("&streamInfo=");
+                sb.append(urlEncoded(str5));
+            }
+            return sb.toString();
         }
-        return (String) invokeLLLLL.objValue;
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String urlEncoded(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            try {
+                return URLEncoder.encode(new String(str.getBytes(), "UTF-8"), "UTF-8");
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void jumpToYYLiveRoom(TbPageContext tbPageContext, String str, String str2, String str3, String str4) {
@@ -181,18 +214,40 @@ public class YYLiveUtil {
     public static void jumpToYYLiveRoom(TbPageContext tbPageContext, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{tbPageContext, str, str2, str3, str4, str5}) == null) {
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX + "sid=" + str + "&ssid=" + str2 + "&templateId=" + str3 + "&roomId=" + str4 + "&source=" + str5});
+            jumpToYYLiveRoom(tbPageContext, str, str2, str3, str4, null, str5);
         }
     }
 
     public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65547, null, tbPageContext, alaInfoData, str) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+        if ((interceptable == null || interceptable.invokeLLL(65548, null, tbPageContext, alaInfoData, str) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
             YyExtData yyExtData = alaInfoData.mYyExtData;
             String str2 = yyExtData.mSid;
             String str3 = yyExtData.mSsid;
             String str4 = yyExtData.mTemplateId;
             jumpToYYLiveRoom(tbPageContext, str2, str3, str4, "" + alaInfoData.roomId, str);
+        }
+    }
+
+    public static void jumpToYYLiveRoom(TbPageContext tbPageContext, String str, String str2, String str3, String str4, String str5, String str6) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{tbPageContext, str, str2, str3, str4, str5, str6}) == null) {
+            StringBuilder sb = new StringBuilder(UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX);
+            sb.append("sid=");
+            sb.append(str);
+            sb.append("&ssid=");
+            sb.append(str2);
+            sb.append("&templateId=");
+            sb.append(str3);
+            sb.append("&roomId=");
+            sb.append(str4);
+            sb.append("&source=");
+            sb.append(str6);
+            if (!StringUtils.isNull(str5)) {
+                sb.append("&streamInfo=");
+                sb.append(urlEncoded(str5));
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
         }
     }
 

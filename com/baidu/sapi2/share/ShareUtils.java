@@ -52,7 +52,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ShareUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SHARE_ACTIVITY = "baidu.intent.action.account.SHARE_ACTIVITY";
@@ -226,9 +226,9 @@ public final class ShareUtils {
         return (List) invokeL.objValue;
     }
 
-    public static void getShareModels(long j2, Context context, String str, ShareModelCallback shareModelCallback) {
+    public static void getShareModels(long j, Context context, String str, ShareModelCallback shareModelCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Long.valueOf(j2), context, str, shareModelCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Long.valueOf(j), context, str, shareModelCallback}) == null) {
             List<String> installedApps = getInstalledApps(context);
             if (installedApps != null && installedApps.size() > 0) {
                 List<ShareStorage.StorageModel> shareModelsFromQuickCache = getShareModelsFromQuickCache(installedApps);
@@ -298,7 +298,7 @@ public final class ShareUtils {
                     }
                 };
                 handler.removeCallbacksAndMessages(null);
-                handler.sendEmptyMessageDelayed(0, j2);
+                handler.sendEmptyMessageDelayed(0, j);
                 getShareV3App(context, str, installedApps, new GetShareV3AppCallback(handler, shareModelCallback) { // from class: com.baidu.sapi2.share.ShareUtils.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -718,8 +718,18 @@ public final class ShareUtils {
 
     public static List<Intent> queryShareActivitys(Context context) {
         InterceptResult invokeL;
+        List<ResolveInfo> list;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) ? queryShareIntent(context, context.getPackageManager().queryIntentActivities(new Intent(ACTION_SHARE_ACTIVITY), 32), ACTION_SHARE_ACTIVITY) : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
+            try {
+                list = context.getPackageManager().queryIntentActivities(new Intent(ACTION_SHARE_ACTIVITY), 32);
+            } catch (Exception e2) {
+                Log.e(e2);
+                list = null;
+            }
+            return queryShareIntent(context, list, ACTION_SHARE_ACTIVITY);
+        }
+        return (List) invokeL.objValue;
     }
 
     public static List<Intent> queryShareIntent(Context context, List<ResolveInfo> list, String str) {

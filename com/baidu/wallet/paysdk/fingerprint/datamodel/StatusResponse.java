@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class StatusResponse extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f62877a = "StatusResponse";
+    public static final String f59746a = "StatusResponse";
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject fingerprint;
     public JSONObject user_info;

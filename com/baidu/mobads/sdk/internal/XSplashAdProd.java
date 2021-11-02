@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XSplashAdProd extends XAbstractAdProdTemplate {
     public static /* synthetic */ Interceptable $ic;
     public static int scaleType;

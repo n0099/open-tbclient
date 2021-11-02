@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ft extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f78014a;
+    public final /* synthetic */ long f70971a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ fs f417a;
+    public final /* synthetic */ fs f418a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ft(fs fsVar, int i2, long j2) {
+    public ft(fs fsVar, int i2, long j) {
         super(i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fsVar, Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {fsVar, Integer.valueOf(i2), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -36,8 +36,8 @@ public class ft extends XMPushService.i {
                 return;
             }
         }
-        this.f417a = fsVar;
-        this.f78014a = j2;
+        this.f418a = fsVar;
+        this.f70971a = j;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -45,7 +45,7 @@ public class ft extends XMPushService.i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "check the ping-pong." + this.f78014a;
+            return "check the ping-pong." + this.f70971a;
         }
         return (String) invokeV.objValue;
     }
@@ -55,10 +55,10 @@ public class ft extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Thread.yield();
-            if (!this.f417a.m330c() || this.f417a.a(this.f78014a)) {
+            if (!this.f418a.m330c() || this.f418a.a(this.f70971a)) {
                 return;
             }
-            this.f417a.f78008b.a(22, (Exception) null);
+            this.f418a.f70965b.a(22, (Exception) null);
         }
     }
 }

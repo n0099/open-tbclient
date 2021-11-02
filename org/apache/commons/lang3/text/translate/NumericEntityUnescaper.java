@@ -13,14 +13,14 @@ import java.io.Writer;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.EnumSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NumericEntityUnescaper extends CharSequenceTranslator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final EnumSet<OPTION> options;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class OPTION {
         public static final /* synthetic */ OPTION[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

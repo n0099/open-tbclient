@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.d;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class m extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37243d;
+    public String f35283d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(i iVar, Context context, String str) {
@@ -37,7 +38,7 @@ public class m extends c {
                 return;
             }
         }
-        this.f37243d = str;
+        this.f35283d = str;
     }
 
     @Override // com.baidu.android.pushservice.d.a
@@ -46,7 +47,7 @@ public class m extends c {
         if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
             super.a(intent);
             if (intent != null) {
-                intent.getIntExtra("error_msg", -1);
+                intent.getIntExtra(GameCodeGetResponseMsg.PARAM_ERROR_MSG, -1);
             }
         }
     }
@@ -64,7 +65,7 @@ public class m extends c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.b(hashMap);
             hashMap.put("method", "settags");
-            hashMap.put(CommandMessage.TYPE_TAGS, this.f37243d);
+            hashMap.put(CommandMessage.TYPE_TAGS, this.f35283d);
         }
     }
 }

@@ -22,7 +22,7 @@ import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.modelpay.PayResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ChannelWXPay extends AbstractChannelPay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int WX_PAY_CANCLE = -2;
@@ -31,18 +31,18 @@ public class ChannelWXPay extends AbstractChannelPay {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.lbspay.channelpay.wxpay.ChannelWXPay$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelWXPay f36846a;
+        public static ChannelWXPay f34897a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public class ChannelWXPay extends AbstractChannelPay {
                     return;
                 }
             }
-            f36846a = new ChannelWXPay(null);
+            f34897a = new ChannelWXPay(null);
         }
     }
 
@@ -86,7 +86,7 @@ public class ChannelWXPay extends AbstractChannelPay {
     public static ChannelWXPay getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f36846a : (ChannelWXPay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f34897a : (ChannelWXPay) invokeV.objValue;
     }
 
     @Override // com.baidu.android.lbspay.channelpay.IChannelPay

@@ -6,19 +6,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class w extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f73538h;
+    public int f65953h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f73539i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f73540j;
+    public int f65954i;
+    public int j;
     public int k;
     public int l;
 
@@ -47,8 +45,8 @@ public class w extends aa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            int i2 = this.f73473e.f73571f ? 1 : 3;
-            return this.f73473e.f73570e ? i2 + 1 : i2;
+            int i2 = this.f65898e.f65982f ? 1 : 3;
+            return this.f65898e.f65981e ? i2 + 1 : i2;
         }
         return invokeV.intValue;
     }
@@ -58,25 +56,25 @@ public class w extends aa {
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f73494a != c()) {
+            if (dVar.f65917a != c()) {
                 throw new PngjException("bad chunk length " + dVar);
             }
-            if (this.f73473e.f73571f) {
-                this.f73538h = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 0);
-                if (!this.f73473e.f73570e) {
+            if (this.f65898e.f65982f) {
+                this.f65953h = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 0);
+                if (!this.f65898e.f65981e) {
                     return;
                 }
-                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 1);
+                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 1);
             } else {
-                this.f73540j = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 0);
-                this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 1);
-                this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 2);
-                if (!this.f73473e.f73570e) {
+                this.j = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 0);
+                this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 1);
+                this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 2);
+                if (!this.f65898e.f65981e) {
                     return;
                 }
-                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f73497d, 3);
+                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f65920d, 3);
             }
-            this.f73539i = a2;
+            this.f65954i = a2;
         }
     }
 }

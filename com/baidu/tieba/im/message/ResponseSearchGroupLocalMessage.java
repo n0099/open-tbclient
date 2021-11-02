@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import c.a.e.e.d.l;
+import b.a.e.e.d.l;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BaseGroupData;
@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.SearchGroup.SearchGroupResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,10 +105,10 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
-    public void setGid(long j2) {
+    public void setGid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.gid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.gid = j;
         }
     }
 

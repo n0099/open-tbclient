@@ -1006,10 +1006,10 @@ public class DrawerLayout extends ViewGroup implements Openable {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j2) {
+    public boolean drawChild(Canvas canvas, View view, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
             int height = getHeight();
             boolean isContentView = isContentView(view);
             int width = getWidth();
@@ -1037,7 +1037,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
                 canvas.clipRect(i3, 0, width, getHeight());
                 i2 = i3;
             }
-            boolean drawChild = super.drawChild(canvas, view, j2);
+            boolean drawChild = super.drawChild(canvas, view, j);
             canvas.restoreToCount(save);
             float f2 = this.mScrimOpacity;
             if (f2 > 0.0f && isContentView) {

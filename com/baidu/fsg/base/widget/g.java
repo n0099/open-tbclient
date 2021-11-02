@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f39798a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f37729a;
 
     public g(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class g implements View.OnTouchListener {
                 return;
             }
         }
-        this.f39798a = safeKeyBoardPopupWindow;
+        this.f37729a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -41,19 +41,19 @@ public class g implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f39798a.b();
+                this.f37729a.b();
                 return false;
             }
             if (motionEvent.getAction() != 1) {
                 if (motionEvent.getAction() != 2) {
                     return false;
                 }
-                imageButton = this.f39798a.k;
+                imageButton = this.f37729a.k;
                 if (imageButton.isPressed()) {
                     return false;
                 }
             }
-            this.f39798a.a();
+            this.f37729a.a();
             return false;
         }
         return invokeLL.booleanValue;

@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMManagerImpl {
     public static /* synthetic */ Interceptable $ic;
     public static volatile IMManagerImpl mInstance;

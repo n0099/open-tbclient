@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonTabView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TAB_REPLY = 1;
@@ -21,22 +21,20 @@ public class PersonTabView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f56127e;
+    public Context f53259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f56128f;
+    public TextView f53260f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f56129g;
+    public TextView f53261g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f56130h;
+    public View f53262h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f56131i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public View f56132j;
+    public View f53263i;
+    public View j;
     public View k;
     public int l;
     public int m;
@@ -44,13 +42,13 @@ public class PersonTabView extends LinearLayout {
     public b o;
     public View.OnClickListener p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonTabView f56133e;
+        public final /* synthetic */ PersonTabView f53264e;
 
         public a(PersonTabView personTabView) {
             Interceptable interceptable = $ic;
@@ -67,7 +65,7 @@ public class PersonTabView extends LinearLayout {
                     return;
                 }
             }
-            this.f56133e = personTabView;
+            this.f53264e = personTabView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -75,18 +73,18 @@ public class PersonTabView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.main_thread_btn) {
-                    this.f56133e.setCurrentTab(0);
+                    this.f53264e.setCurrentTab(0);
                 } else if (view.getId() == R.id.reply_btn) {
-                    this.f56133e.setCurrentTab(1);
+                    this.f53264e.setCurrentTab(1);
                 }
-                if (this.f56133e.o != null) {
-                    this.f56133e.o.onTabSelect(this.f56133e.l);
+                if (this.f53264e.o != null) {
+                    this.f53264e.o.onTabSelect(this.f53264e.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void onTabSelect(int i2);
     }
@@ -119,17 +117,17 @@ public class PersonTabView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f56127e = context;
+            this.f53259e = context;
             LayoutInflater.from(context).inflate(R.layout.person_button_header_view, this);
             TextView textView = (TextView) findViewById(R.id.main_thread_btn);
-            this.f56128f = textView;
+            this.f53260f = textView;
             textView.setOnClickListener(this.p);
             TextView textView2 = (TextView) findViewById(R.id.reply_btn);
-            this.f56129g = textView2;
+            this.f53261g = textView2;
             textView2.setOnClickListener(this.p);
-            this.f56130h = findViewById(R.id.main_thread_divider);
-            this.f56131i = findViewById(R.id.reply_btn_divider);
-            this.f56132j = findViewById(R.id.main_thread_bottom_divider);
+            this.f53262h = findViewById(R.id.main_thread_divider);
+            this.f53263i = findViewById(R.id.reply_btn_divider);
+            this.j = findViewById(R.id.main_thread_bottom_divider);
             this.k = findViewById(R.id.reply_btn_bottom_divider);
             setCurrentTab(0);
         }
@@ -141,17 +139,17 @@ public class PersonTabView extends LinearLayout {
             this.m = SkinManager.getColor(R.color.CAM_X0105);
             this.n = SkinManager.getColor(R.color.CAM_X0107);
             SkinManager.setBackgroundResource(this, R.drawable.item_person_header_attention_bg_selector);
-            SkinManager.setBackgroundResource(this.f56130h, R.drawable.roundline);
-            SkinManager.setBackgroundResource(this.f56131i, R.drawable.roundline);
-            SkinManager.setBackgroundColor(this.f56132j, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f53262h, R.drawable.roundline);
+            SkinManager.setBackgroundResource(this.f53263i, R.drawable.roundline);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
             int i2 = this.l;
             if (i2 == 0) {
-                this.f56128f.setTextColor(this.m);
-                this.f56129g.setTextColor(this.n);
+                this.f53260f.setTextColor(this.m);
+                this.f53261g.setTextColor(this.n);
             } else if (i2 == 1) {
-                this.f56128f.setTextColor(this.n);
-                this.f56129g.setTextColor(this.m);
+                this.f53260f.setTextColor(this.n);
+                this.f53261g.setTextColor(this.m);
             }
         }
     }
@@ -163,15 +161,15 @@ public class PersonTabView extends LinearLayout {
         }
         this.l = i2;
         if (i2 == 0) {
-            this.f56130h.setVisibility(0);
-            this.f56131i.setVisibility(4);
-            this.f56128f.setTextColor(this.m);
-            this.f56129g.setTextColor(this.n);
+            this.f53262h.setVisibility(0);
+            this.f53263i.setVisibility(4);
+            this.f53260f.setTextColor(this.m);
+            this.f53261g.setTextColor(this.n);
         } else if (i2 == 1) {
-            this.f56130h.setVisibility(4);
-            this.f56131i.setVisibility(0);
-            this.f56128f.setTextColor(this.n);
-            this.f56129g.setTextColor(this.m);
+            this.f53262h.setVisibility(4);
+            this.f53263i.setVisibility(0);
+            this.f53260f.setTextColor(this.n);
+            this.f53261g.setTextColor(this.m);
         }
     }
 

@@ -18,15 +18,15 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements X509TrustManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509Certificate[] f38194a;
+    public static final X509Certificate[] f36203a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TrustManager[] f38195b;
+    public static TrustManager[] f36204b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a implements X509TrustManager {
                 return;
             }
         }
-        f38194a = new X509Certificate[0];
+        f36203a = new X509Certificate[0];
     }
 
     public a() {
@@ -93,8 +93,8 @@ public class a implements X509TrustManager {
                     return invokeLL.booleanValue;
                 }
             });
-            if (f38195b == null) {
-                f38195b = new TrustManager[]{new a()};
+            if (f36204b == null) {
+                f36204b = new TrustManager[]{new a()};
             }
             try {
                 sSLContext = SSLContext.getInstance("TLS");
@@ -106,7 +106,7 @@ public class a implements X509TrustManager {
                 e2 = e5;
             }
             try {
-                sSLContext.init(null, f38195b, null);
+                sSLContext.init(null, f36204b, null);
             } catch (KeyManagementException e6) {
                 e3 = e6;
                 e3.printStackTrace();
@@ -156,6 +156,6 @@ public class a implements X509TrustManager {
     public X509Certificate[] getAcceptedIssuers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f38194a : (X509Certificate[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f36203a : (X509Certificate[]) invokeV.objValue;
     }
 }

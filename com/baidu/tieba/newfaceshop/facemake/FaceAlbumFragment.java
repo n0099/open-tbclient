@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
-import c.a.e.e.p.l;
-import c.a.q0.f.d;
-import c.a.r0.f2.g.f;
-import c.a.r0.f2.g.g;
+import b.a.e.e.p.l;
+import b.a.q0.f.d;
+import b.a.r0.f2.g.f;
+import b.a.r0.f2.g.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -34,37 +34,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.f.b f54660e;
+    public b.a.q0.f.b f51836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GridView f54661f;
+    public GridView f51837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f54662g;
+    public g f51838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ImageFileInfo> f54663h;
+    public List<ImageFileInfo> f51839h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f54664i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public NoDataView f54665j;
+    public f f51840i;
+    public NoDataView j;
     public BaseFragmentActivity k;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FaceAlbumFragment f54666a;
+        public final /* synthetic */ FaceAlbumFragment f51841a;
 
         public a(FaceAlbumFragment faceAlbumFragment) {
             Interceptable interceptable = $ic;
@@ -81,24 +79,24 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
                     return;
                 }
             }
-            this.f54666a = faceAlbumFragment;
+            this.f51841a = faceAlbumFragment;
         }
 
-        @Override // c.a.q0.f.d
-        public void a(List<c.a.q0.f.a> list, List<ImageFileInfo> list2, String str) {
+        @Override // b.a.q0.f.d
+        public void a(List<b.a.q0.f.a> list, List<ImageFileInfo> list2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, str) == null) {
                 if (!ListUtils.isEmpty(list2)) {
-                    this.f54666a.f54663h.addAll(list2);
-                    this.f54666a.f54662g.notifyDataSetChanged();
+                    this.f51841a.f51839h.addAll(list2);
+                    this.f51841a.f51838g.notifyDataSetChanged();
                     return;
                 }
-                this.f54666a.f54661f.setVisibility(8);
-                this.f54666a.f54665j.setVisibility(0);
+                this.f51841a.f51837f.setVisibility(8);
+                this.f51841a.j.setVisibility(0);
             }
         }
 
-        @Override // c.a.q0.f.d
+        @Override // b.a.q0.f.d
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -106,13 +104,13 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements c.a.q0.c0.b {
+    /* loaded from: classes9.dex */
+    public class b implements b.a.q0.c0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceAlbumFragment f54667e;
+        public final /* synthetic */ FaceAlbumFragment f51842e;
 
         public b(FaceAlbumFragment faceAlbumFragment) {
             Interceptable interceptable = $ic;
@@ -129,14 +127,14 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
                     return;
                 }
             }
-            this.f54667e = faceAlbumFragment;
+            this.f51842e = faceAlbumFragment;
         }
 
-        @Override // c.a.q0.c0.b
-        public void imageLoaded(c.a.e.l.d.a aVar, String str, boolean z) {
+        @Override // b.a.q0.c0.b
+        public void imageLoaded(b.a.e.l.d.a aVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f54667e.f54661f.findViewWithTag(str)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f51842e.f51837f.findViewWithTag(str)) == null || aVar == null) {
                 return;
             }
             tbImageView.invalidate();
@@ -160,7 +158,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f54660e.i(c.a.q0.f.a.f13055f, new a(this));
+            this.f51836e.i(b.a.q0.f.a.f12212f, new a(this));
         }
     }
 
@@ -168,7 +166,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g gVar = this.f54662g;
+            g gVar = this.f51838g;
             if (gVar != null) {
                 return gVar.f();
             }
@@ -180,19 +178,19 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public final void h() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f54662g) == null || gVar.g() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f51838g) == null || gVar.g() == null) {
             return;
         }
-        int childCount = this.f54661f.getChildCount();
-        int firstVisiblePosition = this.f54661f.getFirstVisiblePosition();
+        int childCount = this.f51837f.getChildCount();
+        int firstVisiblePosition = this.f51837f.getFirstVisiblePosition();
         for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = this.f54661f.getChildAt(i2);
+            View childAt = this.f51837f.getChildAt(i2);
             if (childAt != null) {
                 TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.image);
-                ImageFileInfo item = this.f54662g.getItem(firstVisiblePosition + i2);
+                ImageFileInfo item = this.f51838g.getItem(firstVisiblePosition + i2);
                 if (item != null && tbImageView != null) {
                     tbImageView.setTag(item.toCachedKey(false));
-                    this.f54662g.g().e(item, new b(this), false, false);
+                    this.f51838g.g().e(item, new b(this), false, false);
                 }
             }
         }
@@ -203,13 +201,13 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         ImageFileInfo imageFileInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f54663h = new ArrayList();
-            this.f54660e = new c.a.q0.f.b(getActivity());
-            g gVar = new g(this.k, this.f54663h);
-            this.f54662g = gVar;
-            gVar.j(this.f54664i);
-            this.f54661f.setAdapter((ListAdapter) this.f54662g);
-            this.f54661f.setOnScrollListener(this);
+            this.f51839h = new ArrayList();
+            this.f51836e = new b.a.q0.f.b(getActivity());
+            g gVar = new g(this.k, this.f51839h);
+            this.f51838g = gVar;
+            gVar.j(this.f51840i);
+            this.f51837f.setAdapter((ListAdapter) this.f51838g);
+            this.f51837f.setOnScrollListener(this);
             if (getArguments() == null || (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) == null || !(serializable instanceof ArrayList)) {
                 return;
             }
@@ -221,7 +219,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
                     linkedHashMap.put(imageFileInfo.getFilePath(), faceData.imageFileInfo);
                 }
             }
-            this.f54662g.e(linkedHashMap);
+            this.f51838g.e(linkedHashMap);
         }
     }
 
@@ -234,10 +232,10 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             View inflate = layoutInflater.inflate(R.layout.fragment_pick_album, (ViewGroup) null);
             SkinManager.setBackgroundResource(inflate, R.color.CAM_X0201);
             NoDataView a2 = NoDataViewFactory.a(this.k, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.k, R.dimen.ds320)), NoDataViewFactory.e.c(this.k.getText(R.string.face_group_no_picture).toString()), null);
-            this.f54665j = a2;
+            this.j = a2;
             a2.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            this.f54665j.setVisibility(8);
-            this.f54661f = (GridView) inflate.findViewById(R.id.grid_view);
+            this.j.setVisibility(8);
+            this.f51837f = (GridView) inflate.findViewById(R.id.grid_view);
             init();
             g();
             return inflate;
@@ -250,7 +248,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            c.a.q0.f.b bVar = this.f54660e;
+            b.a.q0.f.b bVar = this.f51836e;
             if (bVar != null) {
                 bVar.d();
             }
@@ -263,9 +261,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         if (interceptable == null || interceptable.invokeLI(1048582, this, absListView, i2) == null) {
             super.onScrollStateChanged(absListView, i2);
             if (i2 == 2) {
-                this.f54662g.l(true);
-            } else if (this.f54662g.i()) {
-                this.f54662g.l(false);
+                this.f51838g.l(true);
+            } else if (this.f51838g.i()) {
+                this.f51838g.l(false);
                 h();
             }
         }
@@ -274,8 +272,8 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public void setEmotionChooseCallback(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.f54664i = fVar;
-            g gVar = this.f54662g;
+            this.f51840i = fVar;
+            g gVar = this.f51838g;
             if (gVar != null) {
                 gVar.j(fVar);
             }

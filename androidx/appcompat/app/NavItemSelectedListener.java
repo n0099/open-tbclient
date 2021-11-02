@@ -33,13 +33,13 @@ public class NavItemSelectedListener implements AdapterView.OnItemSelectedListen
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i2, long j) {
         ActionBar.OnNavigationListener onNavigationListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (onNavigationListener = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (onNavigationListener = this.mListener) == null) {
             return;
         }
-        onNavigationListener.onNavigationItemSelected(i2, j2);
+        onNavigationListener.onNavigationItemSelected(i2, j);
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener

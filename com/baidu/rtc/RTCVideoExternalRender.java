@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoSink;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class RTCVideoExternalRender implements VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RTCVideoExternalRender";
@@ -22,12 +22,12 @@ public abstract class RTCVideoExternalRender implements VideoSink {
     public BaiduRtcRoom.BaiduRtcRoomVideoObserver mVideoObserver;
     public StuckDataCalculator stuckDataCalculator;
 
-    public RTCVideoExternalRender(BaiduRtcRoom.BaiduRtcRoomVideoObserver baiduRtcRoomVideoObserver, long j2) {
+    public RTCVideoExternalRender(BaiduRtcRoom.BaiduRtcRoomVideoObserver baiduRtcRoomVideoObserver, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baiduRtcRoomVideoObserver, Long.valueOf(j2)};
+            Object[] objArr = {baiduRtcRoomVideoObserver, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -42,7 +42,7 @@ public abstract class RTCVideoExternalRender implements VideoSink {
         this.mIsRenderInited = false;
         this.stuckDataCalculator = new StuckDataCalculator(600);
         this.isEnableSLIDataReport = false;
-        this.mUserId = j2;
+        this.mUserId = j;
         this.mVideoObserver = baiduRtcRoomVideoObserver;
     }
 

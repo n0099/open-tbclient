@@ -7,14 +7,6 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import c.p.a.e.b.f.r;
-import c.p.a.e.b.f.s;
-import c.p.a.e.b.f.t;
-import c.p.a.e.b.f.u;
-import c.p.a.e.b.f.w;
-import c.p.a.e.b.f.x;
-import c.p.a.e.b.f.y;
-import c.p.a.e.b.f.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,8 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
+import com.ss.android.socialbase.downloader.depend.IDownloadInterceptor;
+import com.ss.android.socialbase.downloader.depend.IDownloadListener;
+import com.ss.android.socialbase.downloader.depend.ae;
 import com.ss.android.socialbase.downloader.depend.af;
-import com.ss.android.socialbase.downloader.depend.ai;
+import com.ss.android.socialbase.downloader.depend.ah;
+import com.ss.android.socialbase.downloader.depend.aj;
 import com.ss.android.socialbase.downloader.depend.ak;
 import com.ss.android.socialbase.downloader.depend.e;
 import com.ss.android.socialbase.downloader.depend.f;
@@ -34,692 +31,34 @@ import com.ss.android.socialbase.downloader.depend.h;
 import com.ss.android.socialbase.downloader.depend.i;
 import com.ss.android.socialbase.downloader.depend.j;
 import com.ss.android.socialbase.downloader.depend.l;
+import com.ss.android.socialbase.downloader.depend.m;
+import com.ss.android.socialbase.downloader.depend.n;
 import com.ss.android.socialbase.downloader.depend.o;
 import com.ss.android.socialbase.downloader.depend.p;
+import com.ss.android.socialbase.downloader.depend.q;
+import com.ss.android.socialbase.downloader.depend.r;
+import com.ss.android.socialbase.downloader.depend.s;
+import com.ss.android.socialbase.downloader.depend.t;
 import com.ss.android.socialbase.downloader.depend.u;
 import com.ss.android.socialbase.downloader.depend.v;
+import com.ss.android.socialbase.downloader.depend.w;
+import com.ss.android.socialbase.downloader.depend.x;
+import com.ss.android.socialbase.downloader.depend.y;
 import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
+import com.ss.android.socialbase.downloader.model.DownloadTask;
 import com.ss.android.socialbase.downloader.model.a;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f76264a;
+    public static Handler f69447a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes10.dex */
-    public static class a implements c.p.a.e.b.f.j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ af f76309a;
-
-        public a(af afVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {afVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76309a = afVar;
-        }
-
-        @Override // c.p.a.e.b.f.j
-        public boolean a(DownloadInfo downloadInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadInfo)) == null) {
-                try {
-                    return this.f76309a.a(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // c.p.a.e.b.f.j
-        public boolean b(DownloadInfo downloadInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) {
-                try {
-                    return this.f76309a.b(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // c.p.a.e.b.f.j
-        public boolean c(DownloadInfo downloadInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo)) == null) {
-                try {
-                    return this.f76309a.c(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class b implements c.p.a.e.b.g.j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.e f76310a;
-
-        public b(com.ss.android.socialbase.downloader.depend.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76310a = eVar;
-        }
-
-        @Override // c.p.a.e.b.g.j
-        public int a(long j2) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                try {
-                    return this.f76310a.a(j2);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return 0;
-                }
-            }
-            return invokeJ.intValue;
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class c implements s {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.f f76311a;
-
-        public c(com.ss.android.socialbase.downloader.depend.f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76311a = fVar;
-        }
-
-        @Override // c.p.a.e.b.f.s
-        public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, downloadInfo, baseException, i2) == null) || downloadInfo == null) {
-                return;
-            }
-            try {
-                this.f76311a.a(downloadInfo, baseException, i2);
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class e implements y {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ v f76313a;
-
-        public e(v vVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76313a = vVar;
-        }
-
-        @Override // c.p.a.e.b.f.y
-        public boolean a(x xVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xVar)) == null) {
-                try {
-                    return this.f76313a.a(g.x(xVar));
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class f implements c.p.a.e.b.f.m {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ak f76314a;
-
-        public f(ak akVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {akVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76314a = akVar;
-        }
-
-        @Override // c.p.a.e.b.f.m
-        public void a(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                try {
-                    this.f76314a.a(i2, i3);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* renamed from: com.ss.android.socialbase.downloader.i.g$g  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C2080g implements u {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ p f76315a;
-
-        public C2080g(p pVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76315a = pVar;
-        }
-
-        @Override // c.p.a.e.b.f.u
-        public boolean a(long j2, long j3, t tVar) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), tVar})) == null) {
-                try {
-                    return this.f76315a.a(j2, j3, g.s(tVar));
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            }
-            return invokeCommon.booleanValue;
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class h implements c.p.a.e.b.g.s {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ai f76316a;
-
-        public h(ai aiVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aiVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76316a = aiVar;
-        }
-
-        @Override // c.p.a.e.b.g.s
-        public long a(int i2, int i3) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-                try {
-                    return this.f76316a.a(i2, i3);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return 0L;
-                }
-            }
-            return invokeII.longValue;
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class i implements c.p.a.e.b.f.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.h f76317a;
-
-        public i(com.ss.android.socialbase.downloader.depend.h hVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76317a = hVar;
-        }
-
-        @Override // c.p.a.e.b.f.b
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    return this.f76317a.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class j implements w {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.g f76318a;
-
-        public j(com.ss.android.socialbase.downloader.depend.g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76318a = gVar;
-        }
-
-        @Override // c.p.a.e.b.f.w
-        public Uri a(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                try {
-                    return this.f76318a.a(str, str2);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return null;
-                }
-            }
-            return (Uri) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class k implements c.p.a.e.b.f.v {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.i f76319a;
-
-        public k(com.ss.android.socialbase.downloader.depend.i iVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76319a = iVar;
-        }
-
-        @Override // c.p.a.e.b.f.v
-        public void a(DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-                try {
-                    this.f76319a.i(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void b(DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
-                try {
-                    this.f76319a.d(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void c(DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) {
-                try {
-                    this.f76319a.b(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void d(DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) {
-                try {
-                    this.f76319a.g(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void e(DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) {
-                try {
-                    this.f76319a.f(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void f(DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
-                try {
-                    this.f76319a.e(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void g(DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, downloadInfo) == null) {
-                try {
-                    this.f76319a.c(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void h(DownloadInfo downloadInfo, BaseException baseException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, downloadInfo, baseException) == null) {
-                try {
-                    this.f76319a.a(downloadInfo, baseException);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void i(DownloadInfo downloadInfo, BaseException baseException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadInfo, baseException) == null) {
-                try {
-                    this.f76319a.b(downloadInfo, baseException);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void j(DownloadInfo downloadInfo, BaseException baseException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048585, this, downloadInfo, baseException) == null) {
-                try {
-                    this.f76319a.c(downloadInfo, baseException);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void k(DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, downloadInfo) == null) {
-                try {
-                    this.f76319a.h(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.c
-        public void l(DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, downloadInfo) == null) {
-                try {
-                    this.f76319a.a(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class l implements t {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.o f76320a;
-
-        public l(com.ss.android.socialbase.downloader.depend.o oVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76320a = oVar;
-        }
-
-        @Override // c.p.a.e.b.f.t
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.f76320a.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class o implements r {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.l f76323a;
-
-        public o(com.ss.android.socialbase.downloader.depend.l lVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76323a = lVar;
-        }
-
-        @Override // c.p.a.e.b.f.r
-        public void a(DownloadInfo downloadInfo) throws BaseException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-                try {
-                    this.f76323a.a(downloadInfo);
-                } catch (RemoteException e2) {
-                    throw new BaseException(1008, e2);
-                }
-            }
-        }
-
-        @Override // c.p.a.e.b.f.r
-        public boolean b(DownloadInfo downloadInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) {
-                try {
-                    return this.f76323a.b(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -734,53 +73,29 @@ public class g {
                 return;
             }
         }
-        f76264a = new Handler(Looper.getMainLooper());
+        f69447a = new Handler(Looper.getMainLooper());
     }
 
-    public static y A(v vVar) {
+    public static com.ss.android.socialbase.downloader.model.a a(DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vVar)) == null) {
-            if (vVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, downloadTask)) == null) {
+            if (downloadTask == null) {
                 return null;
             }
-            return new e(vVar);
-        }
-        return (y) invokeL.objValue;
-    }
-
-    public static z B(com.ss.android.socialbase.downloader.depend.j jVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jVar)) == null) {
-            if (jVar == null) {
-                return null;
-            }
-            return new d(jVar);
-        }
-        return (z) invokeL.objValue;
-    }
-
-    public static com.ss.android.socialbase.downloader.depend.z C(c.p.a.e.b.f.e eVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eVar)) == null) {
-            if (eVar == null) {
-                return null;
-            }
-            return new z.a(eVar) { // from class: com.ss.android.socialbase.downloader.i.g.23
+            return new a.AbstractBinderC2007a(downloadTask) { // from class: com.ss.android.socialbase.downloader.i.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.e f76298a;
+                public final /* synthetic */ DownloadTask f69448a;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {eVar};
+                        Object[] objArr = {downloadTask};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -790,224 +105,98 @@ public class g {
                             return;
                         }
                     }
-                    this.f76298a = eVar;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.z
-                public void a(int i2, DownloadInfo downloadInfo, String str, String str2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), downloadInfo, str, str2}) == null) {
-                        this.f76298a.a(i2, downloadInfo, str, str2);
-                    }
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.z
-                public boolean a(boolean z) throws RemoteException {
-                    InterceptResult invokeZ;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeZ = interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? this.f76298a.a(z) : invokeZ.booleanValue;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.z
-                public String a() throws RemoteException {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f76298a.a() : (String) invokeV.objValue;
-                }
-            };
-        }
-        return (com.ss.android.socialbase.downloader.depend.z) invokeL.objValue;
-    }
-
-    public static c.p.a.e.b.g.j D(com.ss.android.socialbase.downloader.depend.e eVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar)) == null) {
-            if (eVar == null) {
-                return null;
-            }
-            return new b(eVar);
-        }
-        return (c.p.a.e.b.g.j) invokeL.objValue;
-    }
-
-    public static c.p.a.e.b.g.s E(ai aiVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, aiVar)) == null) {
-            if (aiVar == null) {
-                return null;
-            }
-            return new h(aiVar);
-        }
-        return (c.p.a.e.b.g.s) invokeL.objValue;
-    }
-
-    public static c.p.a.e.b.n.a F(com.ss.android.socialbase.downloader.model.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, aVar)) == null) {
-            if (aVar == null) {
-                return null;
-            }
-            try {
-                c.p.a.e.b.n.a aVar2 = new c.p.a.e.b.n.a(aVar.a());
-                aVar2.l(D(aVar.b()));
-                aVar2.t0(d(aVar.c()));
-                aVar2.Y(b(aVar.e()));
-                aVar2.o(r(aVar.f()));
-                aVar2.h0(B(aVar.j()));
-                aVar2.A(A(aVar.g()));
-                aVar2.p(v(aVar.i()));
-                aVar2.z(w(aVar.k()));
-                aVar2.s0(f(aVar.d()));
-                aVar2.C0(E(aVar.h()));
-                com.ss.android.socialbase.downloader.depend.i b2 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f76194a.ordinal());
-                if (b2 != null) {
-                    aVar2.c0(b2.hashCode(), c(b2));
-                }
-                com.ss.android.socialbase.downloader.depend.i b3 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f76195b.ordinal());
-                if (b3 != null) {
-                    aVar2.M0(b3.hashCode(), c(b3));
-                }
-                com.ss.android.socialbase.downloader.depend.i b4 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f76196c.ordinal());
-                if (b4 != null) {
-                    aVar2.v0(b4.hashCode(), c(b4));
-                }
-                I(aVar2, aVar, com.ss.android.socialbase.downloader.constants.f.f76194a);
-                I(aVar2, aVar, com.ss.android.socialbase.downloader.constants.f.f76195b);
-                I(aVar2, aVar, com.ss.android.socialbase.downloader.constants.f.f76196c);
-                H(aVar2, aVar);
-                return aVar2;
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
-                return null;
-            }
-        }
-        return (c.p.a.e.b.n.a) invokeL.objValue;
-    }
-
-    public static com.ss.android.socialbase.downloader.model.a G(c.p.a.e.b.n.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, aVar)) == null) {
-            if (aVar == null) {
-                return null;
-            }
-            return new a.AbstractBinderC2081a(aVar) { // from class: com.ss.android.socialbase.downloader.i.g.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.n.a f76265a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f76265a = aVar;
+                    this.f69448a = downloadTask;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public DownloadInfo a() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f76265a.J() : (DownloadInfo) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69448a.getDownloadInfo() : (DownloadInfo) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.e b() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? g.j(this.f76265a.D()) : (com.ss.android.socialbase.downloader.depend.e) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? g.a(this.f69448a.getChunkStrategy()) : (com.ss.android.socialbase.downloader.depend.e) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
-                public com.ss.android.socialbase.downloader.depend.z c() throws RemoteException {
+                public y c() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) ? g.C(this.f76265a.T()) : (com.ss.android.socialbase.downloader.depend.z) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) ? g.a(this.f69448a.getNotificationEventListener()) : (y) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
-                public af d() throws RemoteException {
+                public ae d() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) ? g.e(this.f76265a.S()) : (af) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) ? g.a(this.f69448a.getNotificationClickCallback()) : (ae) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.h e() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? g.m(this.f76265a.Q()) : (com.ss.android.socialbase.downloader.depend.h) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? g.a(this.f69448a.getInterceptor()) : (com.ss.android.socialbase.downloader.depend.h) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.f f() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048585, this)) == null) ? g.k(this.f76265a.E()) : (com.ss.android.socialbase.downloader.depend.f) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048585, this)) == null) ? g.a(this.f69448a.getDepend()) : (com.ss.android.socialbase.downloader.depend.f) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
-                public v g() throws RemoteException {
+                public u g() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048586, this)) == null) ? g.y(this.f76265a.O()) : (v) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048586, this)) == null) ? g.a(this.f69448a.getForbiddenHandler()) : (u) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
-                public ai h() throws RemoteException {
+                public ah h() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048587, this)) == null) ? g.g(this.f76265a.U()) : (ai) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048587, this)) == null) ? g.a(this.f69448a.getRetryDelayTimeCalculator()) : (ah) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public p i() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048588, this)) == null) ? g.t(this.f76265a.F()) : (p) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048588, this)) == null) ? g.a(this.f69448a.getDiskSpaceHandler()) : (p) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.j j() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048589, this)) == null) ? g.o(this.f76265a.R()) : (com.ss.android.socialbase.downloader.depend.j) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048589, this)) == null) ? g.a(this.f69448a.getMonitorDepend()) : (com.ss.android.socialbase.downloader.depend.j) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.g k() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048590, this)) == null) ? g.l(this.f76265a.N()) : (com.ss.android.socialbase.downloader.depend.g) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048590, this)) == null) ? g.a(this.f69448a.getFileUriProvider()) : (com.ss.android.socialbase.downloader.depend.g) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public int l() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048591, this)) == null) ? this.f76265a.H().size() : invokeV.intValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048591, this)) == null) ? this.f69448a.getDownloadCompleteHandlers().size() : invokeV.intValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public int a(int i2) throws RemoteException {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? this.f76265a.L(c.p.a.e.b.l.f.H0(i2)) : invokeI.intValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? this.f69448a.getDownloadListenerSize(f.e(i2)) : invokeI.intValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
@@ -1015,16 +204,16 @@ public class g {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) {
-                        return g.n(this.f76265a.V(c.p.a.e.b.l.f.H0(i2)), i2 != com.ss.android.socialbase.downloader.constants.f.f76195b.ordinal());
+                        return g.a(this.f69448a.getSingleDownloadListener(f.e(i2)), i2 != com.ss.android.socialbase.downloader.constants.f.f69187b.ordinal());
                     }
                     return (com.ss.android.socialbase.downloader.depend.i) invokeI.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
-                public com.ss.android.socialbase.downloader.depend.l c(int i2) throws RemoteException {
+                public l c(int i2) throws RemoteException {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048581, this, i2)) == null) ? g.p(this.f76265a.G(i2)) : (com.ss.android.socialbase.downloader.depend.l) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048581, this, i2)) == null) ? g.a(this.f69448a.getDownloadCompleteHandlerByIndex(i2)) : (l) invokeI.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
@@ -1032,7 +221,7 @@ public class g {
                     InterceptResult invokeII;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-                        return g.n(this.f76265a.K(c.p.a.e.b.l.f.H0(i2), i3), i2 != com.ss.android.socialbase.downloader.constants.f.f76195b.ordinal());
+                        return g.a(this.f69448a.getDownloadListenerByIndex(f.e(i2), i3), i2 != com.ss.android.socialbase.downloader.constants.f.f69187b.ordinal());
                     }
                     return (com.ss.android.socialbase.downloader.depend.i) invokeII.objValue;
                 }
@@ -1041,924 +230,29 @@ public class g {
         return (com.ss.android.socialbase.downloader.model.a) invokeL.objValue;
     }
 
-    public static void H(c.p.a.e.b.n.a aVar, com.ss.android.socialbase.downloader.model.a aVar2) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, aVar, aVar2) == null) {
-            for (int i2 = 0; i2 < aVar2.l(); i2++) {
-                com.ss.android.socialbase.downloader.depend.l c2 = aVar2.c(i2);
-                if (c2 != null) {
-                    aVar.b(q(c2));
-                }
-            }
-        }
-    }
-
-    public static void I(c.p.a.e.b.n.a aVar, com.ss.android.socialbase.downloader.model.a aVar2, com.ss.android.socialbase.downloader.constants.f fVar) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, aVar, aVar2, fVar) == null) {
-            SparseArray<c.p.a.e.b.f.c> sparseArray = new SparseArray<>();
-            for (int i2 = 0; i2 < aVar2.a(fVar.ordinal()); i2++) {
-                com.ss.android.socialbase.downloader.depend.i a2 = aVar2.a(fVar.ordinal(), i2);
-                if (a2 != null) {
-                    sparseArray.put(a2.a(), c(a2));
-                }
-            }
-            aVar.H0(sparseArray, fVar);
-        }
-    }
-
-    public static c.p.a.e.b.f.b b(com.ss.android.socialbase.downloader.depend.h hVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, hVar)) == null) {
-            if (hVar == null) {
-                return null;
-            }
-            return new i(hVar);
-        }
-        return (c.p.a.e.b.f.b) invokeL.objValue;
-    }
-
-    public static c.p.a.e.b.f.c c(com.ss.android.socialbase.downloader.depend.i iVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, iVar)) == null) {
-            if (iVar == null) {
-                return null;
-            }
-            return new k(iVar);
-        }
-        return (c.p.a.e.b.f.c) invokeL.objValue;
-    }
-
-    public static c.p.a.e.b.f.e d(com.ss.android.socialbase.downloader.depend.z zVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, zVar)) == null) {
-            if (zVar == null) {
-                return null;
-            }
-            return new n(zVar);
-        }
-        return (c.p.a.e.b.f.e) invokeL.objValue;
-    }
-
-    public static af e(c.p.a.e.b.f.j jVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, jVar)) == null) {
-            if (jVar == null) {
-                return null;
-            }
-            return new af.a(jVar) { // from class: com.ss.android.socialbase.downloader.i.g.26
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.j f76299a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {jVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f76299a = jVar;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.af
-                public boolean a(DownloadInfo downloadInfo) throws RemoteException {
-                    InterceptResult invokeL2;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, downloadInfo)) == null) ? this.f76299a.a(downloadInfo) : invokeL2.booleanValue;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.af
-                public boolean b(DownloadInfo downloadInfo) throws RemoteException {
-                    InterceptResult invokeL2;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) ? this.f76299a.b(downloadInfo) : invokeL2.booleanValue;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.af
-                public boolean c(DownloadInfo downloadInfo) throws RemoteException {
-                    InterceptResult invokeL2;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo)) == null) ? this.f76299a.c(downloadInfo) : invokeL2.booleanValue;
-                }
-            };
-        }
-        return (af) invokeL.objValue;
-    }
-
-    public static c.p.a.e.b.f.j f(af afVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, afVar)) == null) {
-            if (afVar == null) {
-                return null;
-            }
-            return new a(afVar);
-        }
-        return (c.p.a.e.b.f.j) invokeL.objValue;
-    }
-
-    public static ai g(c.p.a.e.b.g.s sVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, sVar)) == null) {
-            if (sVar == null) {
-                return null;
-            }
-            return new ai.a(sVar) { // from class: com.ss.android.socialbase.downloader.i.g.27
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.g.s f76300a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {sVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f76300a = sVar;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.ai
-                public long a(int i2, int i3) throws RemoteException {
-                    InterceptResult invokeII;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i2, i3)) == null) ? this.f76300a.a(i2, i3) : invokeII.longValue;
-                }
-            };
-        }
-        return (ai) invokeL.objValue;
-    }
-
-    public static ak h(c.p.a.e.b.f.m mVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, mVar)) == null) {
-            if (mVar == null) {
-                return null;
-            }
-            return new ak.a(mVar) { // from class: com.ss.android.socialbase.downloader.i.g.17
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.m f76296a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {mVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f76296a = mVar;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.ak
-                public void a(int i2, int i3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeII(1048576, this, i2, i3) == null) {
-                        this.f76296a.a(i2, i3);
-                    }
-                }
-            };
-        }
-        return (ak) invokeL.objValue;
-    }
-
-    public static c.p.a.e.b.f.m i(ak akVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, akVar)) == null) {
-            if (akVar == null) {
-                return null;
-            }
-            return new f(akVar);
-        }
-        return (c.p.a.e.b.f.m) invokeL.objValue;
-    }
-
-    public static com.ss.android.socialbase.downloader.depend.e j(c.p.a.e.b.g.j jVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, jVar)) == null) {
-            if (jVar == null) {
-                return null;
-            }
-            return new e.a(jVar) { // from class: com.ss.android.socialbase.downloader.i.g.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.g.j f76306a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {jVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f76306a = jVar;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.e
-                public int a(long j2) throws RemoteException {
-                    InterceptResult invokeJ;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeJ = interceptable2.invokeJ(1048576, this, j2)) == null) ? this.f76306a.a(j2) : invokeJ.intValue;
-                }
-            };
-        }
-        return (com.ss.android.socialbase.downloader.depend.e) invokeL.objValue;
-    }
-
-    public static com.ss.android.socialbase.downloader.depend.f k(s sVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, sVar)) == null) {
-            if (sVar == null) {
-                return null;
-            }
-            return new f.a(sVar) { // from class: com.ss.android.socialbase.downloader.i.g.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ s f76303a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {sVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f76303a = sVar;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.f
-                public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, downloadInfo, baseException, i2) == null) {
-                        this.f76303a.a(downloadInfo, baseException, i2);
-                    }
-                }
-            };
-        }
-        return (com.ss.android.socialbase.downloader.depend.f) invokeL.objValue;
-    }
-
-    public static com.ss.android.socialbase.downloader.depend.g l(w wVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, wVar)) == null) {
-            if (wVar == null) {
-                return null;
-            }
-            return new g.a(wVar) { // from class: com.ss.android.socialbase.downloader.i.g.29
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ w f76302a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {wVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f76302a = wVar;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.g
-                public Uri a(String str, String str2) throws RemoteException {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, str2)) == null) ? this.f76302a.a(str, str2) : (Uri) invokeLL.objValue;
-                }
-            };
-        }
-        return (com.ss.android.socialbase.downloader.depend.g) invokeL.objValue;
-    }
-
-    public static com.ss.android.socialbase.downloader.depend.h m(c.p.a.e.b.f.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, bVar)) == null) {
-            if (bVar == null) {
-                return null;
-            }
-            return new h.a(bVar) { // from class: com.ss.android.socialbase.downloader.i.g.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.b f76307a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {bVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f76307a = bVar;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.h
-                public boolean a() throws RemoteException {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f76307a.a() : invokeV.booleanValue;
-                }
-            };
-        }
-        return (com.ss.android.socialbase.downloader.depend.h) invokeL.objValue;
-    }
-
-    public static com.ss.android.socialbase.downloader.depend.i n(c.p.a.e.b.f.c cVar, boolean z) {
+    public static com.ss.android.socialbase.downloader.depend.i a(IDownloadListener iDownloadListener, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65559, null, cVar, z)) == null) {
-            if (cVar == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65550, null, iDownloadListener, z)) == null) {
+            if (iDownloadListener == null) {
                 return null;
             }
-            return new i.a(cVar, z) { // from class: com.ss.android.socialbase.downloader.i.g.12
+            return new i.a(iDownloadListener, z) { // from class: com.ss.android.socialbase.downloader.i.g.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.c f76266a;
+                public final /* synthetic */ IDownloadListener f69451a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f76267b;
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$a */
-                /* loaded from: classes10.dex */
-                public class a implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76268e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76269f;
-
-                    public a(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76269f = anonymousClass12;
-                        this.f76268e = downloadInfo;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76269f.f76266a.e(this.f76268e);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$b */
-                /* loaded from: classes10.dex */
-                public class b implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76270e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76271f;
-
-                    public b(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76271f = anonymousClass12;
-                        this.f76270e = downloadInfo;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76271f.f76266a.d(this.f76270e);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$c */
-                /* loaded from: classes10.dex */
-                public class c implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76272e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76273f;
-
-                    public c(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76273f = anonymousClass12;
-                        this.f76272e = downloadInfo;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76273f.f76266a.k(this.f76272e);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$d */
-                /* loaded from: classes10.dex */
-                public class d implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76274e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76275f;
-
-                    public d(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76275f = anonymousClass12;
-                        this.f76274e = downloadInfo;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76275f.f76266a.l(this.f76274e);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$e */
-                /* loaded from: classes10.dex */
-                public class e implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76276e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ BaseException f76277f;
-
-                    /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76278g;
-
-                    public e(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo, BaseException baseException) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo, baseException};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76278g = anonymousClass12;
-                        this.f76276e = downloadInfo;
-                        this.f76277f = baseException;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76278g.f76266a.i(this.f76276e, this.f76277f);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$f */
-                /* loaded from: classes10.dex */
-                public class f implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76279e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ BaseException f76280f;
-
-                    /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76281g;
-
-                    public f(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo, BaseException baseException) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo, baseException};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76281g = anonymousClass12;
-                        this.f76279e = downloadInfo;
-                        this.f76280f = baseException;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76281g.f76266a.j(this.f76279e, this.f76280f);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$g  reason: collision with other inner class name */
-                /* loaded from: classes10.dex */
-                public class RunnableC2079g implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76282e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76283f;
-
-                    public RunnableC2079g(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76283f = anonymousClass12;
-                        this.f76282e = downloadInfo;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            ((c.p.a.e.b.f.v) this.f76283f.f76266a).a(this.f76282e);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$h */
-                /* loaded from: classes10.dex */
-                public class h implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76284e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76285f;
-
-                    public h(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76285f = anonymousClass12;
-                        this.f76284e = downloadInfo;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76285f.f76266a.c(this.f76284e);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$i */
-                /* loaded from: classes10.dex */
-                public class i implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76286e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76287f;
-
-                    public i(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76287f = anonymousClass12;
-                        this.f76286e = downloadInfo;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76287f.f76266a.g(this.f76286e);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$j */
-                /* loaded from: classes10.dex */
-                public class j implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76288e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76289f;
-
-                    public j(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76289f = anonymousClass12;
-                        this.f76288e = downloadInfo;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76289f.f76266a.b(this.f76288e);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$k */
-                /* loaded from: classes10.dex */
-                public class k implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76290e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76291f;
-
-                    public k(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76291f = anonymousClass12;
-                        this.f76290e = downloadInfo;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76291f.f76266a.f(this.f76290e);
-                        }
-                    }
-                }
-
-                /* renamed from: com.ss.android.socialbase.downloader.i.g$12$l */
-                /* loaded from: classes10.dex */
-                public class l implements Runnable {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f76292e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ BaseException f76293f;
-
-                    /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f76294g;
-
-                    public l(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo, BaseException baseException) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass12, downloadInfo, baseException};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f76294g = anonymousClass12;
-                        this.f76292e = downloadInfo;
-                        this.f76293f = baseException;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f76294g.f76266a.h(this.f76292e, this.f76293f);
-                        }
-                    }
-                }
+                public final /* synthetic */ boolean f69452b;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {cVar, Boolean.valueOf(z)};
+                        Object[] objArr = {iDownloadListener, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -1968,25 +262,61 @@ public class g {
                             return;
                         }
                     }
-                    this.f76266a = cVar;
-                    this.f76267b = z;
+                    this.f69451a = iDownloadListener;
+                    this.f69452b = z;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.i
                 public int a() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f76266a.hashCode() : invokeV.intValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f69451a.hashCode() : invokeV.intValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.i
                 public void b(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadInfo) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new h(this, downloadInfo));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.5
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69469a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69470b;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69470b = this;
+                                    this.f69469a = downloadInfo;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69470b.f69451a.onStart(this.f69469a);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.c(downloadInfo);
+                            this.f69451a.onStart(downloadInfo);
                         }
                     }
                 }
@@ -1995,10 +325,46 @@ public class g {
                 public void c(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048581, this, downloadInfo) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new i(this, downloadInfo));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.6
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69471a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69472b;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69472b = this;
+                                    this.f69471a = downloadInfo;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69472b.f69451a.onProgress(this.f69471a);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.g(downloadInfo);
+                            this.f69451a.onProgress(downloadInfo);
                         }
                     }
                 }
@@ -2007,10 +373,46 @@ public class g {
                 public void d(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048583, this, downloadInfo) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new j(this, downloadInfo));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.7
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69473a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69474b;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69474b = this;
+                                    this.f69473a = downloadInfo;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69474b.f69451a.onPause(this.f69473a);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.b(downloadInfo);
+                            this.f69451a.onPause(downloadInfo);
                         }
                     }
                 }
@@ -2019,10 +421,46 @@ public class g {
                 public void e(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadInfo) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new k(this, downloadInfo));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.8
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69475a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69476b;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69476b = this;
+                                    this.f69475a = downloadInfo;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69476b.f69451a.onSuccessed(this.f69475a);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.f(downloadInfo);
+                            this.f69451a.onSuccessed(downloadInfo);
                         }
                     }
                 }
@@ -2031,10 +469,46 @@ public class g {
                 public void f(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048585, this, downloadInfo) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new a(this, downloadInfo));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.10
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69455a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69456b;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69456b = this;
+                                    this.f69455a = downloadInfo;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69456b.f69451a.onCanceled(this.f69455a);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.e(downloadInfo);
+                            this.f69451a.onCanceled(downloadInfo);
                         }
                     }
                 }
@@ -2043,10 +517,46 @@ public class g {
                 public void g(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048586, this, downloadInfo) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new b(this, downloadInfo));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.11
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69457a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69458b;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69458b = this;
+                                    this.f69457a = downloadInfo;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69458b.f69451a.onFirstStart(this.f69457a);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.d(downloadInfo);
+                            this.f69451a.onFirstStart(downloadInfo);
                         }
                     }
                 }
@@ -2055,10 +565,46 @@ public class g {
                 public void h(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048587, this, downloadInfo) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new c(this, downloadInfo));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.12
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69459a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69460b;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69460b = this;
+                                    this.f69459a = downloadInfo;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69460b.f69451a.onFirstSuccess(this.f69459a);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.k(downloadInfo);
+                            this.f69451a.onFirstSuccess(downloadInfo);
                         }
                     }
                 }
@@ -2067,12 +613,48 @@ public class g {
                 public void i(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048588, this, downloadInfo) == null) {
-                        c.p.a.e.b.f.c cVar2 = this.f76266a;
-                        if (cVar2 instanceof c.p.a.e.b.f.v) {
-                            if (this.f76267b) {
-                                g.f76264a.post(new RunnableC2079g(this, downloadInfo));
+                        IDownloadListener iDownloadListener2 = this.f69451a;
+                        if (iDownloadListener2 instanceof s) {
+                            if (this.f69452b) {
+                                g.f69447a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.4
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    /* renamed from: a  reason: collision with root package name */
+                                    public final /* synthetic */ DownloadInfo f69467a;
+
+                                    /* renamed from: b  reason: collision with root package name */
+                                    public final /* synthetic */ AnonymousClass12 f69468b;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this, downloadInfo};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i2 = newInitContext.flag;
+                                            if ((i2 & 1) != 0) {
+                                                int i3 = i2 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.f69468b = this;
+                                        this.f69467a = downloadInfo;
+                                    }
+
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                            ((s) this.f69468b.f69451a).a(this.f69467a);
+                                        }
+                                    }
+                                });
                             } else {
-                                ((c.p.a.e.b.f.v) cVar2).a(downloadInfo);
+                                ((s) iDownloadListener2).a(downloadInfo);
                             }
                         }
                     }
@@ -2082,10 +664,46 @@ public class g {
                 public void a(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new d(this, downloadInfo));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69453a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69454b;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69454b = this;
+                                    this.f69453a = downloadInfo;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69454b.f69451a.onPrepare(this.f69453a);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.l(downloadInfo);
+                            this.f69451a.onPrepare(downloadInfo);
                         }
                     }
                 }
@@ -2094,10 +712,50 @@ public class g {
                 public void b(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048580, this, downloadInfo, baseException) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new e(this, downloadInfo, baseException));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo, baseException) { // from class: com.ss.android.socialbase.downloader.i.g.12.2
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69461a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ BaseException f69462b;
+
+                                /* renamed from: c  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69463c;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo, baseException};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69463c = this;
+                                    this.f69461a = downloadInfo;
+                                    this.f69462b = baseException;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69463c.f69451a.onRetry(this.f69461a, this.f69462b);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.i(downloadInfo, baseException);
+                            this.f69451a.onRetry(downloadInfo, baseException);
                         }
                     }
                 }
@@ -2106,10 +764,50 @@ public class g {
                 public void c(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048582, this, downloadInfo, baseException) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new f(this, downloadInfo, baseException));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo, baseException) { // from class: com.ss.android.socialbase.downloader.i.g.12.3
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69464a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ BaseException f69465b;
+
+                                /* renamed from: c  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69466c;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo, baseException};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69466c = this;
+                                    this.f69464a = downloadInfo;
+                                    this.f69465b = baseException;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69466c.f69451a.onRetryDelay(this.f69464a, this.f69465b);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.j(downloadInfo, baseException);
+                            this.f69451a.onRetryDelay(downloadInfo, baseException);
                         }
                     }
                 }
@@ -2118,10 +816,50 @@ public class g {
                 public void a(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo, baseException) == null) {
-                        if (this.f76267b) {
-                            g.f76264a.post(new l(this, downloadInfo, baseException));
+                        if (this.f69452b) {
+                            g.f69447a.post(new Runnable(this, downloadInfo, baseException) { // from class: com.ss.android.socialbase.downloader.i.g.12.9
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ DownloadInfo f69477a;
+
+                                /* renamed from: b  reason: collision with root package name */
+                                public final /* synthetic */ BaseException f69478b;
+
+                                /* renamed from: c  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass12 f69479c;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, downloadInfo, baseException};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f69479c = this;
+                                    this.f69477a = downloadInfo;
+                                    this.f69478b = baseException;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.f69479c.f69451a.onFailed(this.f69477a, this.f69478b);
+                                    }
+                                }
+                            });
                         } else {
-                            this.f76266a.h(downloadInfo, baseException);
+                            this.f69451a.onFailed(downloadInfo, baseException);
                         }
                     }
                 }
@@ -2130,19 +868,19 @@ public class g {
         return (com.ss.android.socialbase.downloader.depend.i) invokeLZ.objValue;
     }
 
-    public static com.ss.android.socialbase.downloader.depend.j o(c.p.a.e.b.f.z zVar) {
+    public static y a(z zVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, zVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, zVar)) == null) {
             if (zVar == null) {
                 return null;
             }
-            return new j.a(zVar) { // from class: com.ss.android.socialbase.downloader.i.g.4
+            return new y.a(zVar) { // from class: com.ss.android.socialbase.downloader.i.g.23
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.z f76305a;
+                public final /* synthetic */ z f69491a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2159,67 +897,55 @@ public class g {
                             return;
                         }
                     }
-                    this.f76305a = zVar;
+                    this.f69491a = zVar;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.depend.j
-                public void a(String str) throws RemoteException {
+                @Override // com.ss.android.socialbase.downloader.depend.y
+                public void a(int i2, DownloadInfo downloadInfo, String str, String str2) throws RemoteException {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
-                        return;
-                    }
-                    try {
-                        this.f76305a.a(new JSONObject(str));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), downloadInfo, str, str2}) == null) {
+                        this.f69491a.a(i2, downloadInfo, str, str2);
                     }
                 }
 
-                @Override // com.ss.android.socialbase.downloader.depend.j
-                public int[] b() throws RemoteException {
-                    InterceptResult invokeV;
+                @Override // com.ss.android.socialbase.downloader.depend.y
+                public boolean a(boolean z) throws RemoteException {
+                    InterceptResult invokeZ;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        c.p.a.e.b.f.z zVar2 = this.f76305a;
-                        if (zVar2 instanceof c.p.a.e.b.f.o) {
-                            return ((c.p.a.e.b.f.o) zVar2).a();
-                        }
-                        return null;
-                    }
-                    return (int[]) invokeV.objValue;
+                    return (interceptable2 == null || (invokeZ = interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? this.f69491a.a(z) : invokeZ.booleanValue;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.depend.j
+                @Override // com.ss.android.socialbase.downloader.depend.y
                 public String a() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f76305a.b() : (String) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f69491a.a() : (String) invokeV.objValue;
                 }
             };
         }
-        return (com.ss.android.socialbase.downloader.depend.j) invokeL.objValue;
+        return (y) invokeL.objValue;
     }
 
-    public static com.ss.android.socialbase.downloader.depend.l p(r rVar) {
+    public static ae a(af afVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, rVar)) == null) {
-            if (rVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, afVar)) == null) {
+            if (afVar == null) {
                 return null;
             }
-            return new l.a(rVar) { // from class: com.ss.android.socialbase.downloader.i.g.9
+            return new ae.a(afVar) { // from class: com.ss.android.socialbase.downloader.i.g.26
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ r f76308a;
+                public final /* synthetic */ af f69494a;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {rVar};
+                        Object[] objArr = {afVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -2229,69 +955,176 @@ public class g {
                             return;
                         }
                     }
-                    this.f76308a = rVar;
+                    this.f69494a = afVar;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.depend.l
-                public void a(DownloadInfo downloadInfo) throws RemoteException {
+                @Override // com.ss.android.socialbase.downloader.depend.ae
+                public boolean a(DownloadInfo downloadInfo) throws RemoteException {
+                    InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, downloadInfo) == null) {
-                        try {
-                            this.f76308a.a(downloadInfo);
-                        } catch (BaseException e2) {
-                            throw new IllegalArgumentException(e2);
-                        }
-                    }
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, downloadInfo)) == null) ? this.f69494a.a(downloadInfo) : invokeL2.booleanValue;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.depend.l
+                @Override // com.ss.android.socialbase.downloader.depend.ae
                 public boolean b(DownloadInfo downloadInfo) throws RemoteException {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) ? this.f76308a.b(downloadInfo) : invokeL2.booleanValue;
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) ? this.f69494a.b(downloadInfo) : invokeL2.booleanValue;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.ae
+                public boolean c(DownloadInfo downloadInfo) throws RemoteException {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo)) == null) ? this.f69494a.c(downloadInfo) : invokeL2.booleanValue;
                 }
             };
         }
-        return (com.ss.android.socialbase.downloader.depend.l) invokeL.objValue;
+        return (ae) invokeL.objValue;
     }
 
-    public static r q(com.ss.android.socialbase.downloader.depend.l lVar) {
+    public static ah a(com.ss.android.socialbase.downloader.downloader.s sVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, lVar)) == null) {
-            if (lVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, sVar)) == null) {
+            if (sVar == null) {
                 return null;
             }
-            return new o(lVar);
-        }
-        return (r) invokeL.objValue;
-    }
-
-    public static s r(com.ss.android.socialbase.downloader.depend.f fVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, fVar)) == null) {
-            if (fVar == null) {
-                return null;
-            }
-            return new c(fVar);
-        }
-        return (s) invokeL.objValue;
-    }
-
-    public static com.ss.android.socialbase.downloader.depend.o s(t tVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, tVar)) == null) {
-            if (tVar == null) {
-                return null;
-            }
-            return new o.a(tVar) { // from class: com.ss.android.socialbase.downloader.i.g.20
+            return new ah.a(sVar) { // from class: com.ss.android.socialbase.downloader.i.g.27
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ t f76297a;
+                public final /* synthetic */ com.ss.android.socialbase.downloader.downloader.s f69495a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {sVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69495a = sVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.ah
+                public long a(int i2, int i3) throws RemoteException {
+                    InterceptResult invokeII;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i2, i3)) == null) ? this.f69495a.a(i2, i3) : invokeII.longValue;
+                }
+            };
+        }
+        return (ah) invokeL.objValue;
+    }
+
+    public static u a(w wVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, wVar)) == null) {
+            if (wVar == null) {
+                return null;
+            }
+            return new u.a(wVar) { // from class: com.ss.android.socialbase.downloader.i.g.28
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ w f69496a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {wVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69496a = wVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.u
+                public boolean a(t tVar) throws RemoteException {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, tVar)) == null) ? this.f69496a.a(g.a(tVar)) : invokeL2.booleanValue;
+                }
+            };
+        }
+        return (u) invokeL.objValue;
+    }
+
+    public static com.ss.android.socialbase.downloader.depend.g a(IDownloadFileUriProvider iDownloadFileUriProvider) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, iDownloadFileUriProvider)) == null) {
+            if (iDownloadFileUriProvider == null) {
+                return null;
+            }
+            return new g.a(iDownloadFileUriProvider) { // from class: com.ss.android.socialbase.downloader.i.g.29
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ IDownloadFileUriProvider f69497a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {iDownloadFileUriProvider};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69497a = iDownloadFileUriProvider;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.g
+                public Uri a(String str, String str2) throws RemoteException {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, str2)) == null) ? this.f69497a.getUriForFile(str, str2) : (Uri) invokeLL.objValue;
+                }
+            };
+        }
+        return (com.ss.android.socialbase.downloader.depend.g) invokeL.objValue;
+    }
+
+    public static v a(t tVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, tVar)) == null) {
+            if (tVar == null) {
+                return null;
+            }
+            return new v(tVar) { // from class: com.ss.android.socialbase.downloader.i.g.30
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ t f69499a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2308,41 +1141,60 @@ public class g {
                             return;
                         }
                     }
-                    this.f76297a = tVar;
+                    this.f69499a = tVar;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.depend.o
-                public void a() throws RemoteException {
+                @Override // com.ss.android.socialbase.downloader.depend.v
+                public void a(List<String> list) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f76297a.a();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
+                        try {
+                            this.f69499a.a(list);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
                     }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.v
+                public boolean a() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        try {
+                            return this.f69499a.a();
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeV.booleanValue;
                 }
             };
         }
-        return (com.ss.android.socialbase.downloader.depend.o) invokeL.objValue;
+        return (v) invokeL.objValue;
     }
 
-    public static p t(u uVar) {
+    public static p a(r rVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, uVar)) == null) {
-            if (uVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, rVar)) == null) {
+            if (rVar == null) {
                 return null;
             }
-            return new p.a(uVar) { // from class: com.ss.android.socialbase.downloader.i.g.31
+            return new p.a(rVar) { // from class: com.ss.android.socialbase.downloader.i.g.31
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ u f76304a;
+                public final /* synthetic */ r f69500a;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {uVar};
+                        Object[] objArr = {rVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -2352,69 +1204,125 @@ public class g {
                             return;
                         }
                     }
-                    this.f76304a = uVar;
+                    this.f69500a = rVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.p
-                public boolean a(long j2, long j3, com.ss.android.socialbase.downloader.depend.o oVar) throws RemoteException {
+                public boolean a(long j, long j2, o oVar) throws RemoteException {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), oVar})) == null) ? this.f76304a.a(j2, j3, g.u(oVar)) : invokeCommon.booleanValue;
+                    return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), oVar})) == null) ? this.f69500a.a(j, j2, g.a(oVar)) : invokeCommon.booleanValue;
                 }
             };
         }
         return (p) invokeL.objValue;
     }
 
-    public static t u(com.ss.android.socialbase.downloader.depend.o oVar) {
+    public static q a(o oVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, oVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, oVar)) == null) {
             if (oVar == null) {
                 return null;
             }
-            return new l(oVar);
-        }
-        return (t) invokeL.objValue;
-    }
-
-    public static u v(p pVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, pVar)) == null) {
-            if (pVar == null) {
-                return null;
-            }
-            return new C2080g(pVar);
-        }
-        return (u) invokeL.objValue;
-    }
-
-    public static w w(com.ss.android.socialbase.downloader.depend.g gVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, gVar)) == null) {
-            if (gVar == null) {
-                return null;
-            }
-            return new j(gVar);
-        }
-        return (w) invokeL.objValue;
-    }
-
-    public static com.ss.android.socialbase.downloader.depend.u x(x xVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, xVar)) == null) {
-            if (xVar == null) {
-                return null;
-            }
-            return new u.a(xVar) { // from class: com.ss.android.socialbase.downloader.i.g.16
+            return new q(oVar) { // from class: com.ss.android.socialbase.downloader.i.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ x f76295a;
+                public final /* synthetic */ o f69487a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {oVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69487a = oVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.q
+                public void a() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            this.f69487a.a();
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+            };
+        }
+        return (q) invokeL.objValue;
+    }
+
+    public static com.ss.android.socialbase.downloader.depend.f a(n nVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, nVar)) == null) {
+            if (nVar == null) {
+                return null;
+            }
+            return new f.a(nVar) { // from class: com.ss.android.socialbase.downloader.i.g.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ n f69498a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {nVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69498a = nVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.f
+                public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, downloadInfo, baseException, i2) == null) {
+                        this.f69498a.a(downloadInfo, baseException, i2);
+                    }
+                }
+            };
+        }
+        return (com.ss.android.socialbase.downloader.depend.f) invokeL.objValue;
+    }
+
+    public static com.ss.android.socialbase.downloader.depend.j a(x xVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, xVar)) == null) {
+            if (xVar == null) {
+                return null;
+            }
+            return new j.a(xVar) { // from class: com.ss.android.socialbase.downloader.i.g.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ x f69501a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2431,41 +1339,207 @@ public class g {
                             return;
                         }
                     }
-                    this.f76295a = xVar;
+                    this.f69501a = xVar;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.depend.u
-                public void a(List<String> list) {
+                @Override // com.ss.android.socialbase.downloader.depend.j
+                public void a(String str) throws RemoteException {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
-                        this.f76295a.a(list);
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+                        return;
+                    }
+                    try {
+                        this.f69501a.a(new JSONObject(str));
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
                 }
 
-                @Override // com.ss.android.socialbase.downloader.depend.u
-                public boolean a() {
+                @Override // com.ss.android.socialbase.downloader.depend.j
+                public int[] b() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76295a.a() : invokeV.booleanValue;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        x xVar2 = this.f69501a;
+                        if (xVar2 instanceof com.ss.android.socialbase.downloader.depend.c) {
+                            return ((com.ss.android.socialbase.downloader.depend.c) xVar2).a();
+                        }
+                        return null;
+                    }
+                    return (int[]) invokeV.objValue;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.j
+                public String a() throws RemoteException {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f69501a.b() : (String) invokeV.objValue;
                 }
             };
         }
-        return (com.ss.android.socialbase.downloader.depend.u) invokeL.objValue;
+        return (com.ss.android.socialbase.downloader.depend.j) invokeL.objValue;
     }
 
-    public static v y(y yVar) {
+    public static com.ss.android.socialbase.downloader.depend.e a(com.ss.android.socialbase.downloader.downloader.h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, yVar)) == null) {
-            if (yVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, hVar)) == null) {
+            if (hVar == null) {
                 return null;
             }
-            return new v.a(yVar) { // from class: com.ss.android.socialbase.downloader.i.g.28
+            return new e.a(hVar) { // from class: com.ss.android.socialbase.downloader.i.g.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ y f76301a;
+                public final /* synthetic */ com.ss.android.socialbase.downloader.downloader.h f69502a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {hVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69502a = hVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.e
+                public int a(long j) throws RemoteException {
+                    InterceptResult invokeJ;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeJ = interceptable2.invokeJ(1048576, this, j)) == null) ? this.f69502a.a(j) : invokeJ.intValue;
+                }
+            };
+        }
+        return (com.ss.android.socialbase.downloader.depend.e) invokeL.objValue;
+    }
+
+    public static com.ss.android.socialbase.downloader.depend.h a(IDownloadInterceptor iDownloadInterceptor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, iDownloadInterceptor)) == null) {
+            if (iDownloadInterceptor == null) {
+                return null;
+            }
+            return new h.a(iDownloadInterceptor) { // from class: com.ss.android.socialbase.downloader.i.g.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ IDownloadInterceptor f69503a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {iDownloadInterceptor};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69503a = iDownloadInterceptor;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.h
+                public boolean a() throws RemoteException {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f69503a.intercepte() : invokeV.booleanValue;
+                }
+            };
+        }
+        return (com.ss.android.socialbase.downloader.depend.h) invokeL.objValue;
+    }
+
+    public static DownloadTask a(com.ss.android.socialbase.downloader.model.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, aVar)) == null) {
+            if (aVar == null) {
+                return null;
+            }
+            try {
+                DownloadTask downloadTask = new DownloadTask(aVar.a());
+                downloadTask.chunkStategy(a(aVar.b())).notificationEventListener(a(aVar.c())).interceptor(a(aVar.e())).depend(a(aVar.f())).monitorDepend(a(aVar.j())).forbiddenHandler(a(aVar.g())).diskSpaceHandler(a(aVar.i())).fileUriProvider(a(aVar.k())).notificationClickCallback(a(aVar.d())).retryDelayTimeCalculator(a(aVar.h()));
+                com.ss.android.socialbase.downloader.depend.i b2 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f69186a.ordinal());
+                if (b2 != null) {
+                    downloadTask.mainThreadListenerWithHashCode(b2.hashCode(), a(b2));
+                }
+                com.ss.android.socialbase.downloader.depend.i b3 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f69187b.ordinal());
+                if (b3 != null) {
+                    downloadTask.subThreadListenerWithHashCode(b3.hashCode(), a(b3));
+                }
+                com.ss.android.socialbase.downloader.depend.i b4 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f69188c.ordinal());
+                if (b4 != null) {
+                    downloadTask.notificationListenerWithHashCode(b4.hashCode(), a(b4));
+                }
+                a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.f69186a);
+                a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.f69187b);
+                a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.f69188c);
+                a(downloadTask, aVar);
+                return downloadTask;
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (DownloadTask) invokeL.objValue;
+    }
+
+    public static void a(DownloadTask downloadTask, com.ss.android.socialbase.downloader.model.a aVar, com.ss.android.socialbase.downloader.constants.f fVar) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65571, null, downloadTask, aVar, fVar) == null) {
+            SparseArray<IDownloadListener> sparseArray = new SparseArray<>();
+            for (int i2 = 0; i2 < aVar.a(fVar.ordinal()); i2++) {
+                com.ss.android.socialbase.downloader.depend.i a2 = aVar.a(fVar.ordinal(), i2);
+                if (a2 != null) {
+                    sparseArray.put(a2.a(), a(a2));
+                }
+            }
+            downloadTask.setDownloadListeners(sparseArray, fVar);
+        }
+    }
+
+    public static void a(DownloadTask downloadTask, com.ss.android.socialbase.downloader.model.a aVar) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65570, null, downloadTask, aVar) == null) {
+            for (int i2 = 0; i2 < aVar.l(); i2++) {
+                l c2 = aVar.c(i2);
+                if (c2 != null) {
+                    downloadTask.addDownloadCompleteHandler(a(c2));
+                }
+            }
+        }
+    }
+
+    public static z a(y yVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, yVar)) == null) {
+            if (yVar == null) {
+                return null;
+            }
+            return new z(yVar) { // from class: com.ss.android.socialbase.downloader.i.g.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ y f69504a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2482,222 +1556,1052 @@ public class g {
                             return;
                         }
                     }
-                    this.f76301a = yVar;
+                    this.f69504a = yVar;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.depend.v
-                public boolean a(com.ss.android.socialbase.downloader.depend.u uVar) throws RemoteException {
-                    InterceptResult invokeL2;
+                @Override // com.ss.android.socialbase.downloader.depend.z
+                public void a(int i2, DownloadInfo downloadInfo, String str, String str2) {
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, uVar)) == null) ? this.f76301a.a(g.z(uVar)) : invokeL2.booleanValue;
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), downloadInfo, str, str2}) == null) {
+                        try {
+                            this.f69504a.a(i2, downloadInfo, str, str2);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.z
+                public boolean a(boolean z) {
+                    InterceptResult invokeZ;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeZ = interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                        try {
+                            return this.f69504a.a(z);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeZ.booleanValue;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.z
+                public String a() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        try {
+                            return this.f69504a.a();
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return null;
+                        }
+                    }
+                    return (String) invokeV.objValue;
                 }
             };
         }
-        return (v) invokeL.objValue;
+        return (z) invokeL.objValue;
     }
 
-    public static x z(com.ss.android.socialbase.downloader.depend.u uVar) {
+    public static m a(l lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, uVar)) == null) {
-            if (uVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, lVar)) == null) {
+            if (lVar == null) {
                 return null;
             }
-            return new m(uVar);
+            return new m(lVar) { // from class: com.ss.android.socialbase.downloader.i.g.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ l f69505a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {lVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69505a = lVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.m
+                public void a(DownloadInfo downloadInfo) throws BaseException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, downloadInfo) == null) {
+                        try {
+                            this.f69505a.a(downloadInfo);
+                        } catch (RemoteException e2) {
+                            throw new BaseException(1008, e2);
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.m
+                public boolean b(DownloadInfo downloadInfo) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) {
+                        try {
+                            return this.f69505a.b(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeL2.booleanValue;
+                }
+            };
+        }
+        return (m) invokeL.objValue;
+    }
+
+    public static l a(m mVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, mVar)) == null) {
+            if (mVar == null) {
+                return null;
+            }
+            return new l.a(mVar) { // from class: com.ss.android.socialbase.downloader.i.g.9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ m f69506a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {mVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69506a = mVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.l
+                public void a(DownloadInfo downloadInfo) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, downloadInfo) == null) {
+                        try {
+                            this.f69506a.a(downloadInfo);
+                        } catch (BaseException e2) {
+                            throw new IllegalArgumentException(e2);
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.l
+                public boolean b(DownloadInfo downloadInfo) throws RemoteException {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) ? this.f69506a.b(downloadInfo) : invokeL2.booleanValue;
+                }
+            };
+        }
+        return (l) invokeL.objValue;
+    }
+
+    public static af a(ae aeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, aeVar)) == null) {
+            if (aeVar == null) {
+                return null;
+            }
+            return new af(aeVar) { // from class: com.ss.android.socialbase.downloader.i.g.10
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ ae f69449a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aeVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69449a = aeVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.af
+                public boolean a(DownloadInfo downloadInfo) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, downloadInfo)) == null) {
+                        try {
+                            return this.f69449a.a(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeL2.booleanValue;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.af
+                public boolean b(DownloadInfo downloadInfo) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) {
+                        try {
+                            return this.f69449a.b(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeL2.booleanValue;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.af
+                public boolean c(DownloadInfo downloadInfo) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo)) == null) {
+                        try {
+                            return this.f69449a.c(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeL2.booleanValue;
+                }
+            };
+        }
+        return (af) invokeL.objValue;
+    }
+
+    public static com.ss.android.socialbase.downloader.downloader.h a(com.ss.android.socialbase.downloader.depend.e eVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, eVar)) == null) {
+            if (eVar == null) {
+                return null;
+            }
+            return new com.ss.android.socialbase.downloader.downloader.h(eVar) { // from class: com.ss.android.socialbase.downloader.i.g.11
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ com.ss.android.socialbase.downloader.depend.e f69450a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {eVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69450a = eVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.downloader.h
+                public int a(long j) {
+                    InterceptResult invokeJ;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeJ = interceptable2.invokeJ(1048576, this, j)) == null) {
+                        try {
+                            return this.f69450a.a(j);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return 0;
+                        }
+                    }
+                    return invokeJ.intValue;
+                }
+            };
+        }
+        return (com.ss.android.socialbase.downloader.downloader.h) invokeL.objValue;
+    }
+
+    public static n a(com.ss.android.socialbase.downloader.depend.f fVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, fVar)) == null) {
+            if (fVar == null) {
+                return null;
+            }
+            return new n(fVar) { // from class: com.ss.android.socialbase.downloader.i.g.13
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ com.ss.android.socialbase.downloader.depend.f f69480a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {fVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69480a = fVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.n
+                public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeLLI(1048576, this, downloadInfo, baseException, i2) == null) || downloadInfo == null) {
+                        return;
+                    }
+                    try {
+                        this.f69480a.a(downloadInfo, baseException, i2);
+                    } catch (RemoteException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            };
+        }
+        return (n) invokeL.objValue;
+    }
+
+    public static x a(com.ss.android.socialbase.downloader.depend.j jVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, jVar)) == null) {
+            if (jVar == null) {
+                return null;
+            }
+            return new com.ss.android.socialbase.downloader.depend.c(jVar) { // from class: com.ss.android.socialbase.downloader.i.g.14
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ com.ss.android.socialbase.downloader.depend.j f69481a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {jVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69481a = jVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.x
+                public void a(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                        return;
+                    }
+                    try {
+                        this.f69481a.a(jSONObject.toString());
+                    } catch (RemoteException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.x
+                public String b() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        try {
+                            return this.f69481a.a();
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return "";
+                        }
+                    }
+                    return (String) invokeV.objValue;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.c
+                public int[] a() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        try {
+                            return this.f69481a.b();
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return null;
+                        }
+                    }
+                    return (int[]) invokeV.objValue;
+                }
+            };
         }
         return (x) invokeL.objValue;
     }
 
-    /* loaded from: classes10.dex */
-    public static class d extends c.p.a.e.b.f.o {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static w a(u uVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, uVar)) == null) {
+            if (uVar == null) {
+                return null;
+            }
+            return new w(uVar) { // from class: com.ss.android.socialbase.downloader.i.g.15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.j f76312a;
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ u f69482a;
 
-        public d(com.ss.android.socialbase.downloader.depend.j jVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {uVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69482a = uVar;
                 }
-            }
-            this.f76312a = jVar;
-        }
 
-        @Override // c.p.a.e.b.f.z
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            try {
-                this.f76312a.a(jSONObject.toString());
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
-            }
-        }
-
-        @Override // c.p.a.e.b.f.z
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                try {
-                    return this.f76312a.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return "";
+                @Override // com.ss.android.socialbase.downloader.depend.w
+                public boolean a(v vVar) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, vVar)) == null) {
+                        try {
+                            return this.f69482a.a(g.a(vVar));
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeL2.booleanValue;
                 }
-            }
-            return (String) invokeV.objValue;
+            };
         }
-
-        @Override // c.p.a.e.b.f.o
-        public int[] a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                try {
-                    return this.f76312a.b();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return null;
-                }
-            }
-            return (int[]) invokeV.objValue;
-        }
+        return (w) invokeL.objValue;
     }
 
-    /* loaded from: classes10.dex */
-    public static class m implements x {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.u f76321a;
-
-        public m(com.ss.android.socialbase.downloader.depend.u uVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static t a(v vVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, vVar)) == null) {
+            if (vVar == null) {
+                return null;
             }
-            this.f76321a = uVar;
-        }
+            return new t.a(vVar) { // from class: com.ss.android.socialbase.downloader.i.g.16
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // c.p.a.e.b.f.x
-        public void a(List<String> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                try {
-                    this.f76321a.a(list);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ v f69483a;
 
-        @Override // c.p.a.e.b.f.x
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                try {
-                    return this.f76321a.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return false;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {vVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69483a = vVar;
                 }
-            }
-            return invokeV.booleanValue;
+
+                @Override // com.ss.android.socialbase.downloader.depend.t
+                public void a(List<String> list) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
+                        this.f69483a.a(list);
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.t
+                public boolean a() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69483a.a() : invokeV.booleanValue;
+                }
+            };
         }
+        return (t) invokeL.objValue;
     }
 
-    /* loaded from: classes10.dex */
-    public static class n implements c.p.a.e.b.f.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.z f76322a;
-
-        public n(com.ss.android.socialbase.downloader.depend.z zVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static aj a(ak akVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, akVar)) == null) {
+            if (akVar == null) {
+                return null;
             }
-            this.f76322a = zVar;
-        }
+            return new aj.a(akVar) { // from class: com.ss.android.socialbase.downloader.i.g.17
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // c.p.a.e.b.f.e
-        public void a(int i2, DownloadInfo downloadInfo, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), downloadInfo, str, str2}) == null) {
-                try {
-                    this.f76322a.a(i2, downloadInfo, str, str2);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ ak f69484a;
 
-        @Override // c.p.a.e.b.f.e
-        public boolean a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                try {
-                    return this.f76322a.a(z);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return false;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {akVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69484a = akVar;
                 }
-            }
-            return invokeZ.booleanValue;
-        }
 
-        @Override // c.p.a.e.b.f.e
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    return this.f76322a.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                    return null;
+                @Override // com.ss.android.socialbase.downloader.depend.aj
+                public void a(int i2, int i3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeII(1048576, this, i2, i3) == null) {
+                        this.f69484a.a(i2, i3);
+                    }
                 }
-            }
-            return (String) invokeV.objValue;
+            };
         }
+        return (aj) invokeL.objValue;
+    }
+
+    public static ak a(aj ajVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, ajVar)) == null) {
+            if (ajVar == null) {
+                return null;
+            }
+            return new ak(ajVar) { // from class: com.ss.android.socialbase.downloader.i.g.18
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ aj f69485a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {ajVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69485a = ajVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.ak
+                public void a(int i2, int i3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeII(1048576, this, i2, i3) == null) {
+                        try {
+                            this.f69485a.a(i2, i3);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+            };
+        }
+        return (ak) invokeL.objValue;
+    }
+
+    public static r a(p pVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, pVar)) == null) {
+            if (pVar == null) {
+                return null;
+            }
+            return new r(pVar) { // from class: com.ss.android.socialbase.downloader.i.g.19
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ p f69486a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {pVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69486a = pVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.r
+                public boolean a(long j, long j2, q qVar) {
+                    InterceptResult invokeCommon;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), qVar})) == null) {
+                        try {
+                            return this.f69486a.a(j, j2, g.a(qVar));
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeCommon.booleanValue;
+                }
+            };
+        }
+        return (r) invokeL.objValue;
+    }
+
+    public static o a(q qVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, qVar)) == null) {
+            if (qVar == null) {
+                return null;
+            }
+            return new o.a(qVar) { // from class: com.ss.android.socialbase.downloader.i.g.20
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ q f69488a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {qVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69488a = qVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.o
+                public void a() throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f69488a.a();
+                    }
+                }
+            };
+        }
+        return (o) invokeL.objValue;
+    }
+
+    public static com.ss.android.socialbase.downloader.downloader.s a(ah ahVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, ahVar)) == null) {
+            if (ahVar == null) {
+                return null;
+            }
+            return new com.ss.android.socialbase.downloader.downloader.s(ahVar) { // from class: com.ss.android.socialbase.downloader.i.g.21
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ ah f69489a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {ahVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69489a = ahVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.downloader.s
+                public long a(int i2, int i3) {
+                    InterceptResult invokeII;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i2, i3)) == null) {
+                        try {
+                            return this.f69489a.a(i2, i3);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return 0L;
+                        }
+                    }
+                    return invokeII.longValue;
+                }
+            };
+        }
+        return (com.ss.android.socialbase.downloader.downloader.s) invokeL.objValue;
+    }
+
+    public static IDownloadInterceptor a(com.ss.android.socialbase.downloader.depend.h hVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hVar)) == null) {
+            if (hVar == null) {
+                return null;
+            }
+            return new IDownloadInterceptor(hVar) { // from class: com.ss.android.socialbase.downloader.i.g.22
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ com.ss.android.socialbase.downloader.depend.h f69490a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {hVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69490a = hVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadInterceptor
+                public boolean intercepte() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        try {
+                            return this.f69490a.a();
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeV.booleanValue;
+                }
+            };
+        }
+        return (IDownloadInterceptor) invokeL.objValue;
+    }
+
+    public static IDownloadFileUriProvider a(com.ss.android.socialbase.downloader.depend.g gVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, gVar)) == null) {
+            if (gVar == null) {
+                return null;
+            }
+            return new IDownloadFileUriProvider(gVar) { // from class: com.ss.android.socialbase.downloader.i.g.24
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ com.ss.android.socialbase.downloader.depend.g f69492a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {gVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69492a = gVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider
+                public Uri getUriForFile(String str, String str2) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, str2)) == null) {
+                        try {
+                            return this.f69492a.a(str, str2);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                            return null;
+                        }
+                    }
+                    return (Uri) invokeLL.objValue;
+                }
+            };
+        }
+        return (IDownloadFileUriProvider) invokeL.objValue;
+    }
+
+    public static IDownloadListener a(com.ss.android.socialbase.downloader.depend.i iVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iVar)) == null) {
+            if (iVar == null) {
+                return null;
+            }
+            return new s(iVar) { // from class: com.ss.android.socialbase.downloader.i.g.25
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ com.ss.android.socialbase.downloader.depend.i f69493a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {iVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69493a = iVar;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.s
+                public void a(DownloadInfo downloadInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, downloadInfo) == null) {
+                        try {
+                            this.f69493a.i(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onCanceled(DownloadInfo downloadInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
+                        try {
+                            this.f69493a.f(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onFailed(DownloadInfo downloadInfo, BaseException baseException) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo, baseException) == null) {
+                        try {
+                            this.f69493a.a(downloadInfo, baseException);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onFirstStart(DownloadInfo downloadInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadInfo) == null) {
+                        try {
+                            this.f69493a.g(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onFirstSuccess(DownloadInfo downloadInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, downloadInfo) == null) {
+                        try {
+                            this.f69493a.h(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onPause(DownloadInfo downloadInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048581, this, downloadInfo) == null) {
+                        try {
+                            this.f69493a.d(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onPrepare(DownloadInfo downloadInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, downloadInfo) == null) {
+                        try {
+                            this.f69493a.a(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onProgress(DownloadInfo downloadInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048583, this, downloadInfo) == null) {
+                        try {
+                            this.f69493a.c(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onRetry(DownloadInfo downloadInfo, BaseException baseException) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadInfo, baseException) == null) {
+                        try {
+                            this.f69493a.b(downloadInfo, baseException);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onRetryDelay(DownloadInfo downloadInfo, BaseException baseException) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048585, this, downloadInfo, baseException) == null) {
+                        try {
+                            this.f69493a.c(downloadInfo, baseException);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onStart(DownloadInfo downloadInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048586, this, downloadInfo) == null) {
+                        try {
+                            this.f69493a.b(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.IDownloadListener
+                public void onSuccessed(DownloadInfo downloadInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048587, this, downloadInfo) == null) {
+                        try {
+                            this.f69493a.e(downloadInfo);
+                        } catch (RemoteException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+            };
+        }
+        return (IDownloadListener) invokeL.objValue;
     }
 }

@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetNickNameRequest";
@@ -34,7 +35,7 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     public String mKey;
     public String mNickName;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +72,7 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i2 = jSONObject.getInt("error_code");
-                    str = jSONObject.optString("error_msg", "");
+                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     if (i2 == 0) {
                         int updateMemberNickName = GroupInfoDAOImpl.updateMemberNickName(this.this$0.mContext, this.this$0.mGroupId, String.valueOf(this.this$0.mBuid), this.this$0.mNickName);
                         if (updateMemberNickName < 0) {
@@ -113,12 +114,12 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMSetNickNameRequest(Context context, String str, long j2, boolean z, String str2, String str3, long j3) {
+    public IMSetNickNameRequest(Context context, String str, long j, boolean z, String str2, String str3, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Boolean.valueOf(z), str2, str3, Long.valueOf(j3)};
+            Object[] objArr = {context, str, Long.valueOf(j), Boolean.valueOf(z), str2, str3, Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -130,9 +131,9 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
         }
         this.mContext = context;
         this.mIsFansGroup = z;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
-        this.mBuid = j3;
+        this.mBuid = j2;
         this.mGroupId = str2;
         this.mNickName = str3;
     }

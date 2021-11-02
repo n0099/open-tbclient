@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AccountToolsActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
@@ -27,10 +27,10 @@ public class AccountToolsActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountToolsResult f44569a;
+    public AccountToolsResult f42324a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f44570b;
+    public AccountToolsCallback f42325b;
 
     public AccountToolsActivity() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class AccountToolsActivity extends Activity {
                 return;
             }
         }
-        this.f44569a = new AccountToolsResult();
+        this.f42324a = new AccountToolsResult();
     }
 
     @Override // android.app.Activity
@@ -54,7 +54,7 @@ public class AccountToolsActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-            this.f44570b = CoreViewRouter.getInstance().getAccountToolsCallback();
+            this.f42325b = CoreViewRouter.getInstance().getAccountToolsCallback();
             AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
             accountCenterDTO.accountToolsUrl = a(intExtra);
             accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
@@ -63,7 +63,7 @@ public class AccountToolsActivity extends Activity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountToolsActivity f44571a;
+                public final /* synthetic */ AccountToolsActivity f42326a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -80,16 +80,16 @@ public class AccountToolsActivity extends Activity {
                             return;
                         }
                     }
-                    this.f44571a = this;
+                    this.f42326a = this;
                 }
 
                 @Override // com.baidu.sapi2.callback.AccountCenterCallback
                 public void onFinish(AccountCenterResult accountCenterResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, accountCenterResult) == null) {
-                        this.f44571a.f44569a.setResultCode(accountCenterResult.getResultCode());
-                        this.f44571a.f44569a.setResultMsg(accountCenterResult.getResultMsg());
-                        this.f44571a.a();
+                        this.f42326a.f42324a.setResultCode(accountCenterResult.getResultCode());
+                        this.f42326a.f42324a.setResultMsg(accountCenterResult.getResultMsg());
+                        this.f42326a.a();
                     }
                 }
 
@@ -107,9 +107,9 @@ public class AccountToolsActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            AccountToolsCallback accountToolsCallback = this.f44570b;
+            AccountToolsCallback accountToolsCallback = this.f42325b;
             if (accountToolsCallback != null) {
-                accountToolsCallback.onFinish(this.f44569a);
+                accountToolsCallback.onFinish(this.f42324a);
             }
             finish();
         }

@@ -5,40 +5,38 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FavSyncPoi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42202a;
+    public String f40030a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42203b;
+    public String f40031b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f42204c;
+    public Point f40032c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42205d;
+    public String f40033d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42206e;
+    public String f40034e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42207f;
+    public String f40035f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42208g;
+    public int f40036g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42209h;
+    public String f40037h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f42210i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f42211j;
+    public boolean f40038i;
+    public String j;
 
     public FavSyncPoi() {
         Interceptable interceptable = $ic;

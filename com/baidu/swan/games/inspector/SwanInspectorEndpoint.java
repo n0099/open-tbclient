@@ -1,9 +1,9 @@
 package com.baidu.swan.games.inspector;
 
 import android.content.res.Resources;
-import c.a.p0.a.k;
-import c.a.p0.f.g;
-import c.a.p0.h.r.a;
+import b.a.p0.a.k;
+import b.a.p0.f.g;
+import b.a.p0.h.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.InspectorNativeChannel;
 import com.baidu.searchbox.v8engine.InspectorNativeClient;
@@ -25,7 +25,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanInspectorEndpoint {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean t;
@@ -33,37 +33,35 @@ public class SwanInspectorEndpoint {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47043a;
+    public String f44673a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<String> f47044b;
+    public LinkedBlockingQueue<String> f44674b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47045c;
+    public String f44675c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f47046d;
+    public String f44676d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47047e;
+    public boolean f44677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f47048f;
+    public boolean f44678f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.C0594a f47049g;
+    public a.C0589a f44679g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f47050h;
+    public boolean f44680h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f47051i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ConnectionState f47052j;
+    public Runnable f44681i;
+    public ConnectionState j;
     public ConnectionState k;
     public Throwable l;
-    public c.a.p0.a.l0.a m;
+    public b.a.p0.a.l0.a m;
     public int n;
     public WebSocketTask o;
     public int p;
@@ -72,7 +70,7 @@ public class SwanInspectorEndpoint {
     public InspectorNativeChannel s;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class ConnectionState {
         public static final /* synthetic */ ConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -133,22 +131,22 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f47053a;
+        public String f44682a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f47054b;
+        public JSONObject f44683b;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -165,17 +163,17 @@ public class SwanInspectorEndpoint {
                     return;
                 }
             }
-            this.f47053a = str;
+            this.f44682a = str;
         }
 
         public final JSONObject a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f47054b == null) {
-                    this.f47054b = d(this.f47053a);
+                if (this.f44683b == null) {
+                    this.f44683b = d(this.f44682a);
                 }
-                return this.f47054b;
+                return this.f44683b;
             }
             return (JSONObject) invokeV.objValue;
         }
@@ -227,13 +225,13 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c extends InspectorNativeChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanInspectorEndpoint f47055a;
+        public final /* synthetic */ SwanInspectorEndpoint f44684a;
 
         public c(SwanInspectorEndpoint swanInspectorEndpoint) {
             Interceptable interceptable = $ic;
@@ -250,7 +248,7 @@ public class SwanInspectorEndpoint {
                     return;
                 }
             }
-            this.f47055a = swanInspectorEndpoint;
+            this.f44684a = swanInspectorEndpoint;
         }
 
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
@@ -260,8 +258,8 @@ public class SwanInspectorEndpoint {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 boolean unused = SwanInspectorEndpoint.t;
                 try {
-                    this.f47055a.f47050h = true;
-                    return (String) this.f47055a.f47044b.take();
+                    this.f44684a.f44680h = true;
+                    return (String) this.f44684a.f44674b.take();
                 } catch (InterruptedException unused2) {
                     boolean unused3 = SwanInspectorEndpoint.t;
                     return null;
@@ -275,7 +273,7 @@ public class SwanInspectorEndpoint {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 try {
-                    this.f47055a.o.send(str);
+                    this.f44684a.o.send(str);
                 } catch (Exception unused) {
                     boolean unused2 = SwanInspectorEndpoint.t;
                 }
@@ -300,7 +298,7 @@ public class SwanInspectorEndpoint {
                 return;
             }
         }
-        t = k.f7085a;
+        t = k.f6397a;
         u = new SwanInspectorEndpoint();
     }
 
@@ -317,16 +315,16 @@ public class SwanInspectorEndpoint {
                 return;
             }
         }
-        this.f47044b = new LinkedBlockingQueue<>();
-        this.f47047e = false;
-        this.f47048f = false;
-        this.f47050h = false;
+        this.f44674b = new LinkedBlockingQueue<>();
+        this.f44677e = false;
+        this.f44678f = false;
+        this.f44680h = false;
         ConnectionState connectionState = ConnectionState.CLOSED;
-        this.f47052j = connectionState;
+        this.j = connectionState;
         this.k = connectionState;
         this.p = 0;
         this.q = 0L;
-        this.f47043a = UUID.randomUUID().toString();
+        this.f44673a = UUID.randomUUID().toString();
     }
 
     public static SwanInspectorEndpoint v() {
@@ -338,9 +336,9 @@ public class SwanInspectorEndpoint {
     public final void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (this.o != null && this.f47052j != ConnectionState.CLOSED) {
+            if (this.o != null && this.j != ConnectionState.CLOSED) {
                 if (t) {
-                    String str = "WebSocket connect onClosed: " + this.f47046d;
+                    String str = "WebSocket connect onClosed: " + this.f44676d;
                 }
                 try {
                     this.o.close(0, "Inspector close");
@@ -351,23 +349,23 @@ public class SwanInspectorEndpoint {
             this.o = null;
             this.q = 0L;
             ConnectionState connectionState = ConnectionState.CLOSED;
-            this.f47052j = connectionState;
+            this.j = connectionState;
             this.m = null;
             this.s = null;
             this.r = null;
             this.k = connectionState;
-            this.f47051i = null;
-            this.f47044b.clear();
+            this.f44681i = null;
+            this.f44674b.clear();
             if (z) {
                 return;
             }
-            this.f47050h = false;
+            this.f44680h = false;
             this.l = null;
-            this.f47045c = null;
-            this.f47046d = null;
-            this.f47047e = false;
-            this.f47048f = false;
-            this.f47049g = null;
+            this.f44675c = null;
+            this.f44676d = null;
+            this.f44677e = false;
+            this.f44678f = false;
+            this.f44679g = null;
         }
     }
 
@@ -378,15 +376,15 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void r(c.a.p0.h.r.a aVar, c.a.p0.a.l0.a aVar2, a.C0594a c0594a, Runnable runnable) {
+    public void r(b.a.p0.h.r.a aVar, b.a.p0.a.l0.a aVar2, a.C0589a c0589a, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, aVar, aVar2, c0594a, runnable) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, aVar, aVar2, c0589a, runnable) == null) {
             p(false);
-            w(c0594a);
+            w(c0589a);
             try {
                 t(aVar2);
                 if (aVar.d()) {
-                    this.f47051i = runnable;
+                    this.f44681i = runnable;
                     s(aVar);
                 } else {
                     s(aVar);
@@ -399,27 +397,27 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void s(c.a.p0.h.r.a aVar) {
+    public final void s(b.a.p0.h.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f47052j = ConnectionState.CONNECTING;
-            this.f47045c = aVar.a();
-            this.f47048f = aVar.b();
-            this.f47047e = aVar.d();
-            this.f47046d = "ws://" + this.f47045c + "/inspect/inspectorTarget/" + this.f47043a;
+            this.j = ConnectionState.CONNECTING;
+            this.f44675c = aVar.a();
+            this.f44678f = aVar.b();
+            this.f44677e = aVar.d();
+            this.f44676d = "ws://" + this.f44675c + "/inspect/inspectorTarget/" + this.f44673a;
             if (t) {
-                String str = "Starting inspector to " + this.f47046d;
+                String str = "Starting inspector to " + this.f44676d;
             }
             this.q = System.currentTimeMillis();
             WebSocketManager webSocketManager = WebSocketManager.INSTANCE;
-            WebSocketRequest webSocketRequest = new WebSocketRequest(this.f47046d);
+            WebSocketRequest webSocketRequest = new WebSocketRequest(this.f44676d);
             int i2 = this.p + 1;
             this.p = i2;
             this.o = webSocketManager.connect(webSocketRequest, new d(this, i2));
         }
     }
 
-    public final void t(c.a.p0.a.l0.a aVar) throws Exception {
+    public final void t(b.a.p0.a.l0.a aVar) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.k = ConnectionState.CONNECTING;
@@ -445,21 +443,21 @@ public class SwanInspectorEndpoint {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, resources)) == null) {
             StringBuilder sb = new StringBuilder();
             long currentTimeMillis = System.currentTimeMillis();
-            a.C0594a c0594a = this.f47049g;
-            if (c0594a == null) {
-                c0594a = a.C0594a.c();
+            a.C0589a c0589a = this.f44679g;
+            if (c0589a == null) {
+                c0589a = a.C0589a.c();
             }
-            sb.append(c0594a.a());
+            sb.append(c0589a.a());
             sb.append(StringUtils.LF);
-            if (!c0594a.b()) {
+            if (!c0589a.b()) {
                 return sb.toString();
             }
             String str = null;
-            ConnectionState connectionState = this.f47052j;
+            ConnectionState connectionState = this.j;
             if (connectionState == ConnectionState.OPEN) {
                 string = resources.getString(g.aiapps_game_inspector_connection_state_open);
             } else if (this.l == null && (connectionState != ConnectionState.CONNECTING || currentTimeMillis - this.q <= 5000)) {
-                if (this.f47052j == ConnectionState.CONNECTING) {
+                if (this.j == ConnectionState.CONNECTING) {
                     string = resources.getString(g.aiapps_game_inspector_connection_state_connecting);
                 } else {
                     string = resources.getString(g.aiapps_game_inspector_connection_state_close);
@@ -476,13 +474,13 @@ public class SwanInspectorEndpoint {
                 sb.append(StringUtils.LF);
             }
             sb.append(resources.getString(g.aiapps_game_inspector_info_label_addr));
-            sb.append(this.f47045c);
+            sb.append(this.f44675c);
             sb.append(StringUtils.LF);
-            if (this.f47052j == ConnectionState.OPEN) {
+            if (this.j == ConnectionState.OPEN) {
                 sb.append(resources.getString(g.aiapps_game_inspector_info_label_program_state));
-                if (this.f47051i != null) {
+                if (this.f44681i != null) {
                     string2 = resources.getString(g.aiapps_game_inspector_program_state_pause_at_start);
-                } else if (this.f47050h) {
+                } else if (this.f44680h) {
                     string2 = resources.getString(g.aiapps_game_inspector_program_state_pause_at_breakpoint);
                 } else {
                     string2 = resources.getString(g.aiapps_game_inspector_program_state_running);
@@ -490,7 +488,7 @@ public class SwanInspectorEndpoint {
                 sb.append(string2);
                 sb.append(StringUtils.LF);
                 sb.append(resources.getString(g.aiapps_game_inspector_info_label_pause_at_start_set));
-                if (this.f47047e) {
+                if (this.f44677e) {
                     string3 = resources.getString(g.aiapps_game_inspector_text_yes);
                 } else {
                     string3 = resources.getString(g.aiapps_game_inspector_text_no);
@@ -503,31 +501,31 @@ public class SwanInspectorEndpoint {
         return (String) invokeL.objValue;
     }
 
-    public void w(a.C0594a c0594a) {
+    public void w(a.C0589a c0589a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, c0594a) == null) {
-            this.f47049g = c0594a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, c0589a) == null) {
+            this.f44679g = c0589a;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class d implements IWebSocketListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47056e;
+        public int f44685e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanInspectorEndpoint f47057f;
+        public final /* synthetic */ SwanInspectorEndpoint f44686f;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f47058e;
+            public final /* synthetic */ d f44687e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -544,33 +542,33 @@ public class SwanInspectorEndpoint {
                         return;
                     }
                 }
-                this.f47058e = dVar;
+                this.f44687e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f47058e.f47057f.f47050h = false;
-                    String str = (String) this.f47058e.f47057f.f47044b.poll();
+                    this.f44687e.f44686f.f44680h = false;
+                    String str = (String) this.f44687e.f44686f.f44674b.poll();
                     while (str != null) {
-                        this.f47058e.f47057f.r.dispatchProtocolMessage(str);
-                        str = (String) this.f47058e.f47057f.f47044b.poll();
+                        this.f44687e.f44686f.r.dispatchProtocolMessage(str);
+                        str = (String) this.f44687e.f44686f.f44674b.poll();
                     }
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Runnable f47059e;
+            public final /* synthetic */ Runnable f44688e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f47060f;
+            public final /* synthetic */ d f44689f;
 
             public b(d dVar, Runnable runnable) {
                 Interceptable interceptable = $ic;
@@ -587,8 +585,8 @@ public class SwanInspectorEndpoint {
                         return;
                     }
                 }
-                this.f47060f = dVar;
-                this.f47059e = runnable;
+                this.f44689f = dVar;
+                this.f44688e = runnable;
             }
 
             @Override // java.lang.Runnable
@@ -596,8 +594,8 @@ public class SwanInspectorEndpoint {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     boolean unused = SwanInspectorEndpoint.t;
-                    this.f47060f.f47057f.r.scheduleBreak();
-                    this.f47059e.run();
+                    this.f44689f.f44686f.r.scheduleBreak();
+                    this.f44688e.run();
                 }
             }
         }
@@ -617,40 +615,40 @@ public class SwanInspectorEndpoint {
                     return;
                 }
             }
-            this.f47057f = swanInspectorEndpoint;
-            this.f47056e = -1;
-            this.f47056e = i2;
+            this.f44686f = swanInspectorEndpoint;
+            this.f44685e = -1;
+            this.f44685e = i2;
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onClose(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && this.f47056e == this.f47057f.p) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && this.f44685e == this.f44686f.p) {
                 if (SwanInspectorEndpoint.t) {
-                    String str = "WebSocket connect onClose: " + this.f47057f.f47046d;
+                    String str = "WebSocket connect onClose: " + this.f44686f.f44676d;
                 }
-                this.f47057f.f47052j = ConnectionState.CLOSED;
-                this.f47057f.p(true);
+                this.f44686f.j = ConnectionState.CLOSED;
+                this.f44686f.p(true);
             }
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onError(Throwable th, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.f47056e == this.f47057f.p) {
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.f44685e == this.f44686f.p) {
                 boolean unused = SwanInspectorEndpoint.t;
-                this.f47057f.l = th;
+                this.f44686f.l = th;
             }
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onMessage(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.f47056e == this.f47057f.p) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.f44685e == this.f44686f.p) {
                 if (SwanInspectorEndpoint.t) {
                     r0 = "WebSocket onMessage: " + str;
                 }
-                if (this.f47057f.k != ConnectionState.OPEN) {
+                if (this.f44686f.k != ConnectionState.OPEN) {
                     if (SwanInspectorEndpoint.t) {
                         new Exception("Illegal state: " + ConnectionState.OPEN);
                         return;
@@ -658,28 +656,28 @@ public class SwanInspectorEndpoint {
                     return;
                 }
                 b bVar = new b(str);
-                if (this.f47057f.f47048f && bVar.b()) {
+                if (this.f44686f.f44678f && bVar.b()) {
                     return;
                 }
-                this.f47057f.f47044b.offer(str);
-                this.f47057f.m.postOnJSThread(new a(this));
-                if (this.f47057f.f47051i == null || !bVar.c()) {
+                this.f44686f.f44674b.offer(str);
+                this.f44686f.m.postOnJSThread(new a(this));
+                if (this.f44686f.f44681i == null || !bVar.c()) {
                     return;
                 }
-                Runnable runnable = this.f47057f.f47051i;
-                this.f47057f.f47051i = null;
-                this.f47057f.m.postOnJSThread(new b(this, runnable));
+                Runnable runnable = this.f44686f.f44681i;
+                this.f44686f.f44681i = null;
+                this.f44686f.m.postOnJSThread(new b(this, runnable));
             }
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onOpen(Map map) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, map) == null) && this.f47056e == this.f47057f.p) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, map) == null) && this.f44685e == this.f44686f.p) {
                 if (SwanInspectorEndpoint.t) {
-                    String str = "WebSocket connect onOpened: " + this.f47057f.f47046d;
+                    String str = "WebSocket connect onOpened: " + this.f44686f.f44676d;
                 }
-                this.f47057f.f47052j = ConnectionState.OPEN;
+                this.f44686f.j = ConnectionState.OPEN;
             }
         }
 

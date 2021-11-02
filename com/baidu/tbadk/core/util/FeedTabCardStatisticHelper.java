@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.q.x0;
+import b.a.q0.s.q.d2;
+import b.a.q0.s.q.x0;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FeedTabCardStatisticHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TAB_FEED_PICTURE_TEXT_THREAD_BIG_PICTURE_CLICK = "c13632";
@@ -250,7 +250,7 @@ public class FeedTabCardStatisticHelper {
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(d2Var));
             baseThreadStatisticLog.param("obj_type", d2Var.d3());
             if (d2Var.v1() != null) {
-                baseThreadStatisticLog.param("obj_name", d2Var.v1().c0 ? 1 : 0);
+                baseThreadStatisticLog.param("obj_name", d2Var.v1().j0 ? 1 : 0);
             }
             if (d2Var.L() != null) {
                 baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);

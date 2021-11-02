@@ -16,34 +16,34 @@ import com.dxmpay.wallet.core.NoProguard;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BankcardDetectionController extends Observable implements NoProguard, Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IDetectionListener f60374a;
+    public IDetectionListener f57288a;
 
     /* renamed from: com.baidu.wallet.bankdetection.BankcardDetectionController$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface IDetectionListener extends NoProguard {
         void onFail(int i2, String str);
 
         void onResult(String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankcardDetectionController f60375a;
+        public static BankcardDetectionController f57289a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,7 +59,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
                     return;
                 }
             }
-            f60375a = new BankcardDetectionController(null);
+            f57289a = new BankcardDetectionController(null);
         }
     }
 
@@ -70,13 +70,13 @@ public class BankcardDetectionController extends Observable implements NoProguar
     public static BankcardDetectionController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60375a : (BankcardDetectionController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f57289a : (BankcardDetectionController) invokeV.objValue;
     }
 
     public void clearCardDetectionCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f60374a = null;
+            this.f57288a = null;
         }
     }
 
@@ -88,7 +88,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
                 return;
             }
             StatHelper.cacheBankCardStartTime(System.currentTimeMillis());
-            this.f60374a = iDetectionListener;
+            this.f57288a = iDetectionListener;
             Intent intent = new Intent(context, BankCardDetectionActivity.class);
             if (!(context instanceof Activity)) {
                 intent.setFlags(268435456);
@@ -101,23 +101,23 @@ public class BankcardDetectionController extends Observable implements NoProguar
     public void update(Observable observable, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, observable, obj) == null) {
-            if (this.f60374a != null) {
-                this.f60374a.onResult(obj == null ? "" : (String) obj);
-                this.f60374a = null;
+            if (this.f57288a != null) {
+                this.f57288a.onResult(obj == null ? "" : (String) obj);
+                this.f57288a = null;
             }
-            this.f60374a = null;
+            this.f57288a = null;
         }
     }
 
     public void updateFail(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
-            IDetectionListener iDetectionListener = this.f60374a;
+            IDetectionListener iDetectionListener = this.f57288a;
             if (iDetectionListener != null) {
                 iDetectionListener.onFail(i2, str);
-                this.f60374a = null;
+                this.f57288a = null;
             }
-            this.f60374a = null;
+            this.f57288a = null;
         }
     }
 

@@ -6,8 +6,8 @@ import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.j0.a.i.c;
-import c.a.j0.a.i.d;
+import b.a.j0.a.i.c;
+import b.a.j0.a.i.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,25 +15,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(14)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BaseTextureView extends TextureView implements TextureView.SurfaceTextureListener, c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45050e;
+    public int f42788e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45051f;
+    public int f42789f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45052g;
+    public int f42790g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f45053h;
+    public d f42791h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SurfaceTexture f45054i;
+    public SurfaceTexture f42792i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseTextureView(Context context, d dVar) {
@@ -53,8 +53,8 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
                 return;
             }
         }
-        this.f45050e = 1;
-        this.f45053h = dVar;
+        this.f42788e = 1;
+        this.f42791h = dVar;
         setSurfaceTextureListener(this);
     }
 
@@ -69,7 +69,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
     public int getDisplayMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45050e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42788e : invokeV.intValue;
     }
 
     @Override // android.view.View
@@ -77,11 +77,11 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            int defaultSize = TextureView.getDefaultSize(this.f45051f, i2);
-            int defaultSize2 = TextureView.getDefaultSize(this.f45052g, i3);
-            int i5 = this.f45051f;
-            if (i5 > 0 && (i4 = this.f45052g) > 0) {
-                int i6 = this.f45050e;
+            int defaultSize = TextureView.getDefaultSize(this.f42789f, i2);
+            int defaultSize2 = TextureView.getDefaultSize(this.f42790g, i3);
+            int i5 = this.f42789f;
+            if (i5 > 0 && (i4 = this.f42790g) > 0) {
+                int i6 = this.f42788e;
                 if (i6 != 0) {
                     if (i6 != 1) {
                         if (i6 == 3) {
@@ -121,7 +121,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
                     defaultSize2 = (i4 * defaultSize) / i5;
                 }
             }
-            String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f45051f), Integer.valueOf(this.f45052g));
+            String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f42789f), Integer.valueOf(this.f42790g));
             setMeasuredDimension(defaultSize, defaultSize2);
         }
     }
@@ -130,7 +130,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i2, i3) == null) || (dVar = this.f45053h) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i2, i3) == null) || (dVar = this.f42791h) == null) {
             return;
         }
         dVar.surfaceCreated(new Surface(surfaceTexture));
@@ -141,11 +141,11 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, surfaceTexture)) == null) {
-            d dVar = this.f45053h;
+            d dVar = this.f42791h;
             if (dVar != null) {
                 dVar.surfaceDestroy();
             }
-            this.f45054i = surfaceTexture;
+            this.f42792i = surfaceTexture;
             return false;
         }
         return invokeL.booleanValue;
@@ -165,12 +165,12 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         }
     }
 
-    @Override // c.a.j0.a.i.c
+    @Override // b.a.j0.a.i.c
     public void onVideoSizeChanged(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            this.f45051f = i2;
-            this.f45052g = i3;
+            this.f42789f = i2;
+            this.f42790g = i3;
             if (i2 == 0 || i3 == 0) {
                 return;
             }
@@ -178,11 +178,11 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         }
     }
 
-    @Override // c.a.j0.a.i.c
+    @Override // b.a.j0.a.i.c
     public void setDisplayMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f45050e = i2;
+            this.f42788e = i2;
         }
     }
 
@@ -190,7 +190,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
     public void setEndSurface() {
         SurfaceTexture surfaceTexture;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (surfaceTexture = this.f45054i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (surfaceTexture = this.f42792i) == null) {
             return;
         }
         setSurfaceTexture(surfaceTexture);

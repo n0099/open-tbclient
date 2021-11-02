@@ -21,7 +21,7 @@ import java.util.WeakHashMap;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.SystemUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ToStringStyle implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ToStringStyle DEFAULT_STYLE;
@@ -55,7 +55,7 @@ public abstract class ToStringStyle implements Serializable {
     public boolean useIdentityHashCode;
     public boolean useShortClassName;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DefaultToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -82,7 +82,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class JsonToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -338,7 +338,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class MultiLineToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -370,7 +370,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class NoClassNameToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -400,7 +400,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class NoFieldNameToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -429,7 +429,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ShortPrefixToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -459,7 +459,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SimpleToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -1204,10 +1204,10 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    public void appendDetail(StringBuffer stringBuffer, String str, long j2) {
+    public void appendDetail(StringBuffer stringBuffer, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{stringBuffer, str, Long.valueOf(j2)}) == null) {
-            stringBuffer.append(j2);
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{stringBuffer, str, Long.valueOf(j)}) == null) {
+            stringBuffer.append(j);
         }
     }
 
@@ -1218,11 +1218,11 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    public void append(StringBuffer stringBuffer, String str, long j2) {
+    public void append(StringBuffer stringBuffer, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{stringBuffer, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{stringBuffer, str, Long.valueOf(j)}) == null) {
             appendFieldStart(stringBuffer, str);
-            appendDetail(stringBuffer, str, j2);
+            appendDetail(stringBuffer, str, j);
             appendFieldEnd(stringBuffer, str);
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import c.a.q0.s.q.t0;
+import b.a.q0.s.q.t0;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LoginDialogActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGIN_DIALOG_DATA_LOCATE = "login_dialog_data_locate";
@@ -71,7 +71,7 @@ public class LoginDialogActivityConfig extends IntentConfig {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoginDialogActivityConfig(t0 t0Var) {
-        super(t0Var.a());
+        super(t0Var.getContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,51 +87,51 @@ public class LoginDialogActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(LOGIN_DIALOG_DATA_LOCATE, t0Var.b());
-        if (t0Var.c() != null) {
-            getIntent().putExtra("login_dialog_login_listener", t0Var.c());
+        getIntent().putExtra(LOGIN_DIALOG_DATA_LOCATE, t0Var.a());
+        if (t0Var.b() != null) {
+            getIntent().putExtra("login_dialog_login_listener", t0Var.b());
         }
-        String b2 = t0Var.b();
+        String a2 = t0Var.a();
         char c2 = 65535;
-        switch (b2.hashCode()) {
+        switch (a2.hashCode()) {
             case -1723264065:
-                if (b2.equals("pb_shoucang")) {
+                if (a2.equals("pb_shoucang")) {
                     c2 = 1;
                     break;
                 }
                 break;
             case -1142545818:
-                if (b2.equals("frs_fabu")) {
+                if (a2.equals("frs_fabu")) {
                     c2 = 2;
                     break;
                 }
                 break;
             case -652469911:
-                if (b2.equals("pb_huifu_louzhonglou")) {
+                if (a2.equals("pb_huifu_louzhonglou")) {
                     c2 = 4;
                     break;
                 }
                 break;
             case -360946952:
-                if (b2.equals("first_login_abtest")) {
+                if (a2.equals("first_login_abtest")) {
                     c2 = 6;
                     break;
                 }
                 break;
             case -72485631:
-                if (b2.equals("pb_huitie")) {
+                if (a2.equals("pb_huitie")) {
                     c2 = 3;
                     break;
                 }
                 break;
             case 844222914:
-                if (b2.equals("pb_chakanhuifu")) {
+                if (a2.equals("pb_chakanhuifu")) {
                     c2 = 0;
                     break;
                 }
                 break;
             case 1683575996:
-                if (b2.equals("sousuo_dianji")) {
+                if (a2.equals("sousuo_dianji")) {
                     c2 = 5;
                     break;
                 }
@@ -159,7 +159,7 @@ public class LoginDialogActivityConfig extends IntentConfig {
                 setIntentAction(IntentAction.ActivityForResult);
                 return;
             case 5:
-                getIntent().putExtra(LOGIN_DIALOG_DATA_URL, t0Var.d());
+                getIntent().putExtra(LOGIN_DIALOG_DATA_URL, t0Var.c());
                 return;
             case 6:
                 setRequestCode(25059);

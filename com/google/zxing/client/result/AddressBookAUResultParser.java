@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Result;
 import java.util.ArrayList;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class AddressBookAUResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

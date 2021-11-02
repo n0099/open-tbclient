@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.net.URI;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f71830a;
+    public static final String[] f64304a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class a {
                 return;
             }
         }
-        f71830a = new String[]{"gifshow.com", "kuaishou.com", "static.yximgs.com"};
+        f64304a = new String[]{"gifshow.com", "kuaishou.com", "static.yximgs.com"};
     }
 
     public static boolean a(String str) {
@@ -60,7 +60,7 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (String str2 : f71830a) {
+            for (String str2 : f64304a) {
                 if (str.contains(str2)) {
                     return true;
                 }

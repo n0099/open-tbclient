@@ -2,10 +2,10 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.e;
-import c.a.a0.b.a.j;
-import c.a.x0.b;
-import c.a.x0.t.h;
+import b.a.a0.b.a.e;
+import b.a.a0.b.a.j;
+import b.a.x0.b;
+import b.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AEffectProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
         this.runOnDraw = new LinkedList<>();
         j jVar = new j();
         this.mVlogEditCore = jVar;
-        jVar.j(b.d().b());
+        jVar.j(b.c().getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -161,10 +161,10 @@ public class AEffectProcessor extends BaseEffectProcessor {
         }
     }
 
-    public void startRecordAnim(int i2, long j2) {
+    public void startRecordAnim(int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.runOnDraw.add(new Runnable(this, i2, j2) { // from class: com.baidu.ugc.editvideo.record.processor.AEffectProcessor.3
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            this.runOnDraw.add(new Runnable(this, i2, j) { // from class: com.baidu.ugc.editvideo.record.processor.AEffectProcessor.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AEffectProcessor this$0;
@@ -176,7 +176,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Long.valueOf(j2)};
+                        Object[] objArr = {this, Integer.valueOf(i2), Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -188,7 +188,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
                     }
                     this.this$0 = this;
                     this.val$currentIndex = i2;
-                    this.val$playTime = j2;
+                    this.val$playTime = j;
                 }
 
                 @Override // java.lang.Runnable

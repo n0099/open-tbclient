@@ -13,20 +13,20 @@ import io.reactivex.Scheduler;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class CompletableDisposeOn extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
     public final CompletableSource source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class CompletableObserverImplementation implements CompletableObserver, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f79305d;
+        public Disposable f72489d;
         public volatile boolean disposed;
         public final CompletableObserver s;
         public final Scheduler scheduler;
@@ -90,8 +90,8 @@ public final class CompletableDisposeOn extends Completable {
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f79305d, disposable)) {
-                this.f79305d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f72489d, disposable)) {
+                this.f72489d = disposable;
                 this.s.onSubscribe(this);
             }
         }
@@ -100,8 +100,8 @@ public final class CompletableDisposeOn extends Completable {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f79305d.dispose();
-                this.f79305d = DisposableHelper.DISPOSED;
+                this.f72489d.dispose();
+                this.f72489d = DisposableHelper.DISPOSED;
             }
         }
     }

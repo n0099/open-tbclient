@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.k;
-import c.a.q0.s.q.d2;
-import c.a.r0.f0.f;
-import c.a.r0.t0.a.i.c;
+import b.a.e.e.p.k;
+import b.a.q0.s.q.d2;
+import b.a.r0.f0.h;
+import b.a.r0.t0.a.i.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTiebaShare {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -192,20 +192,20 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         shareItem.k(bundle);
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
         if (z) {
-            f.b().k(shareDialogConfig);
+            h.c().l(shareDialogConfig);
             return;
         }
         shareDialogConfig.isCopyLink = true;
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00ca  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00cc  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0158  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x015f  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x01a0  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x01a8  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x01ad  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00c9  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00cb  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0157  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x015e  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x019f  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x01a7  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x01ac  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -284,7 +284,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             shareItem.J = str3;
             shareItem.p = str2;
             shareItem.K = str6;
-            shareItem.f48139f = true;
+            shareItem.f45693f = true;
             shareItem.o = 6;
             shareItem.E = 8;
             shareItem.M = stateThreadType;
@@ -313,7 +313,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
             shareDialogConfig.setIsAlaLive((d2Var.o1() != 49 || d2Var.o1() == 60 || d2Var.o1() == 69) ? true : true);
             shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
-            f.b().k(shareDialogConfig);
+            h.c().l(shareDialogConfig);
         }
         z = true;
         String shareImageUrl2 = getShareImageUrl(d2Var);
@@ -338,7 +338,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         shareItem2.J = str3;
         shareItem2.p = str2;
         shareItem2.K = str6;
-        shareItem2.f48139f = true;
+        shareItem2.f45693f = true;
         shareItem2.o = 6;
         shareItem2.E = 8;
         shareItem2.M = stateThreadType2;
@@ -364,7 +364,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         ShareDialogConfig shareDialogConfig2 = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem2, true);
         shareDialogConfig2.setIsAlaLive((d2Var.o1() != 49 || d2Var.o1() == 60 || d2Var.o1() == 69) ? true : true);
         shareDialogConfig2.setFrom(ShareDialogConfig.From.PersonPolymeric);
-        f.b().k(shareDialogConfig2);
+        h.c().l(shareDialogConfig2);
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin

@@ -3,7 +3,9 @@ package com.googlecode.mp4parser.boxes.apple;
 import androidx.room.RoomMasterTable;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.searchbox.http.HttpConfig;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,15 +20,13 @@ import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import com.tencent.connect.common.Constants;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Locale;
-import kotlin.UShort;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AppleDataBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -73,8 +73,8 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("13", "Finnish");
         language.put("14", "Greek");
         language.put("15", "Icelandic");
-        language.put(Constants.VIA_REPORT_TYPE_START_WAP, "Maltese");
-        language.put(Constants.VIA_REPORT_TYPE_START_GROUP, "Turkish");
+        language.put("16", "Maltese");
+        language.put("17", "Turkish");
         language.put("18", "Croatian");
         language.put(Constants.VIA_ACT_TYPE_NINETEEN, "Traditional_Chinese");
         language.put("20", "Urdu");
@@ -87,14 +87,14 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("27", "Estonian");
         language.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, "Lettish");
         language.put("29", "Sami");
-        language.put(EventType.GiftEventID.SEND_GIFT_TO_USER_SUCCESS, "Faroese");
-        language.put(EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, "Farsi");
-        language.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, "Russian");
-        language.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, "Simplified_Chinese");
-        language.put(EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, "Flemish");
-        language.put(EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "Irish");
-        language.put("36", "Albanian");
-        language.put("37", "Romanian");
+        language.put("30", "Faroese");
+        language.put("31", "Farsi");
+        language.put("32", "Russian");
+        language.put("33", "Simplified_Chinese");
+        language.put("34", "Flemish");
+        language.put("35", "Irish");
+        language.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "Albanian");
+        language.put(PayConfig.PAYMENT_POS_KEY_MANGA, "Romanian");
         language.put("38", "Czech");
         language.put("39", "Slovak");
         language.put("40", "Slovenian");
@@ -287,12 +287,12 @@ public abstract class AppleDataBox extends AbstractBox {
             short s = byteBuffer.getShort();
             this.dataCountry = s;
             if (s < 0) {
-                this.dataCountry = s + UShort.MIN_VALUE;
+                this.dataCountry = s + 65536;
             }
             short s2 = byteBuffer.getShort();
             this.dataLanguage = s2;
             if (s2 < 0) {
-                this.dataLanguage = s2 + UShort.MIN_VALUE;
+                this.dataLanguage = s2 + 65536;
             }
             int i3 = i2 - 16;
             ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i3);

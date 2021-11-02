@@ -10,10 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
-import com.tencent.connect.common.Constants;
 import java.util.HashMap;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -361,7 +360,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                                 }
                         }
                     } else {
-                        if (findAIvalue.equals(Constants.VIA_REPORT_TYPE_START_GROUP)) {
+                        if (findAIvalue.equals("17")) {
                             c2 = 6;
                         }
                         c2 = 65535;

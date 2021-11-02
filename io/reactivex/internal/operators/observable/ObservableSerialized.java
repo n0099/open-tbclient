@@ -8,7 +8,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.observers.SerializedObserver;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableSerialized<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

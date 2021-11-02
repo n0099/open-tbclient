@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public final Set<RetainingDataSource> mDataSources;
 
     /* renamed from: com.facebook.datasource.RetainingDataSourceSupplier$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class RetainingDataSource<T> extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
         @Nullable
         public DataSource<T> mDataSource;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +167,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
         public void onDataSourceNewResult(DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(65543, this, dataSource) == null) && dataSource == this.mDataSource) {
-                setResult(null, false);
+                setResult(null, false, dataSource.getExtras());
             }
         }
 

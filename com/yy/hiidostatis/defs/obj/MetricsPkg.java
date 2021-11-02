@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MetricsPkg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,10 +44,10 @@ public class MetricsPkg {
         this.maxCount = i2;
     }
 
-    private JSONObject cutPiece(JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, long j2) {
+    private JSONObject cutPiece(JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{jSONArray, jSONArray2, jSONArray3, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{jSONArray, jSONArray2, jSONArray3, Long.valueOf(j)})) == null) {
             JSONObject jSONObject = new JSONObject();
             if (jSONArray != null) {
                 try {
@@ -63,7 +63,7 @@ public class MetricsPkg {
             if (jSONArray3 != null) {
                 jSONObject.put("flatdata", jSONArray3);
             }
-            jSONObject.put("clienttime", j2);
+            jSONObject.put("clienttime", j);
             return jSONObject;
         }
         return (JSONObject) invokeCommon.objValue;

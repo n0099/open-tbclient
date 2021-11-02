@@ -14,31 +14,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final k f43847a;
+    public static final k f41623a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k f43848b;
+    public static final k f41624b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f43849c;
+    public static final k f41625c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final k f43850d;
+    public static final k f41626d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final k f43851e;
+    public static final k f41627e;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ k[] f43852g;
+    public static final /* synthetic */ k[] f41628g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43853f;
+    public int f41629f;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public abstract class k {
                 return;
             }
         }
-        f43847a = new k("AP_LIST", 0, 0) { // from class: com.baidu.mobstat.k.1
+        f41623a = new k("AP_LIST", 0, 0) { // from class: com.baidu.mobstat.k.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,7 +85,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new n() : (j) invokeV.objValue;
             }
         };
-        f43848b = new k("APP_LIST", 1, 1) { // from class: com.baidu.mobstat.k.2
+        f41624b = new k("APP_LIST", 1, 1) { // from class: com.baidu.mobstat.k.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +117,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new q() : (j) invokeV.objValue;
             }
         };
-        f43849c = new k("APP_TRACE", 2, 2) { // from class: com.baidu.mobstat.k.3
+        f41625c = new k("APP_TRACE", 2, 2) { // from class: com.baidu.mobstat.k.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -149,7 +149,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new r() : (j) invokeV.objValue;
             }
         };
-        f43850d = new k("APP_CHANGE", 3, 3) { // from class: com.baidu.mobstat.k.4
+        f41626d = new k("APP_CHANGE", 3, 3) { // from class: com.baidu.mobstat.k.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,8 +213,8 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new o() : (j) invokeV.objValue;
             }
         };
-        f43851e = kVar;
-        f43852g = new k[]{f43847a, f43848b, f43849c, f43850d, kVar};
+        f41627e = kVar;
+        f41628g = new k[]{f41623a, f41624b, f41625c, f41626d, kVar};
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -263,7 +263,7 @@ public abstract class k {
     public static k[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (k[]) f43852g.clone() : (k[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (k[]) f41628g.clone() : (k[]) invokeV.objValue;
     }
 
     public abstract j a();
@@ -324,7 +324,7 @@ public abstract class k {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.valueOf(this.f43853f) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.valueOf(this.f41629f) : (String) invokeV.objValue;
     }
 
     public k(String str, int i2, int i3) {
@@ -345,7 +345,7 @@ public abstract class k {
                 return;
             }
         }
-        this.f43853f = i3;
+        this.f41629f = i3;
     }
 
     public synchronized boolean b(int i2) {
@@ -376,14 +376,14 @@ public abstract class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized long a(long j2, String str) {
+    public synchronized long a(long j, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, str)) != null) {
+        if (interceptable != null && (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str)) != null) {
             return invokeJL.longValue;
         }
         synchronized (this) {
-            long j3 = -1;
+            long j2 = -1;
             j jVar = null;
             try {
                 jVar = a();
@@ -393,7 +393,7 @@ public abstract class k {
                     }
                     return -1L;
                 }
-                j3 = jVar.a(String.valueOf(j2), str);
+                j2 = jVar.a(String.valueOf(j), str);
             } catch (Exception e2) {
                 bb.c().b(e2);
             }

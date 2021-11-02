@@ -6,24 +6,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bun.miitmdid.utils.sysParamters;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f64292a;
+    public static String f61133a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(f64292a)) {
+            if (TextUtils.isEmpty(f61133a)) {
                 String str = "miitmdid(sdkv_" + sysParamters.a().c() + SmallTailInfo.EMOTION_SUFFIX;
-                f64292a = str;
+                f61133a = str;
                 return str;
             }
-            return f64292a;
+            return f61133a;
         }
         return (String) invokeV.objValue;
     }

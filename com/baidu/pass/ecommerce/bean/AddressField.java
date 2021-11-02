@@ -1,7 +1,7 @@
 package com.baidu.pass.ecommerce.bean;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface AddressField extends NoProguard {
     public static final String KEY_ADDR_ID = "addr_id";
     public static final String KEY_ADDR_INFO = "addr_info";

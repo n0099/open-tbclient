@@ -31,14 +31,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GroupInfoDAOImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GroupInfoDAOImpl";
     public static GroupInfoParse sGroupInfoParse;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class GroupInfoParse implements IResultParse<GroupInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,44 +71,44 @@ public class GroupInfoDAOImpl {
                 String string2 = cursor.getString(cursor.getColumnIndex("group_name"));
                 int i2 = cursor.getInt(cursor.getColumnIndex("group_type"));
                 int i3 = cursor.getInt(cursor.getColumnIndex("state"));
-                long j2 = cursor.getLong(cursor.getColumnIndex("create_time"));
-                long j3 = cursor.getLong(cursor.getColumnIndex("bduid"));
-                long j4 = cursor.getLong(cursor.getColumnIndex("uk"));
+                long j = cursor.getLong(cursor.getColumnIndex("create_time"));
+                long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
+                long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
                 int i4 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM));
-                long j5 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION));
+                long j4 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION));
                 int i5 = cursor.getInt(cursor.getColumnIndex("disturb"));
                 int i6 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF));
                 String string3 = cursor.getString(cursor.getColumnIndex("description"));
                 int i7 = cursor.getInt(cursor.getColumnIndex("marktop"));
-                long j6 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
+                long j5 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
                 String string4 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE));
                 int i8 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SIZE));
                 int i9 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_VERIFY));
                 String string5 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_DESC));
-                long j7 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION));
-                long j8 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION));
-                long j9 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION));
+                long j6 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION));
+                long j7 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION));
+                long j8 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION));
                 GroupInfo groupInfo = new GroupInfo(string);
                 groupInfo.setGroupName(string2);
                 groupInfo.setType(i2);
                 groupInfo.setState(i3);
-                groupInfo.setCreateTime(j2);
-                groupInfo.setBuid(j3);
-                groupInfo.setUk(j4);
+                groupInfo.setCreateTime(j);
+                groupInfo.setBuid(j2);
+                groupInfo.setUk(j3);
                 groupInfo.setNum(i4);
-                groupInfo.setMembersVersion(j5);
+                groupInfo.setMembersVersion(j4);
                 groupInfo.setDisturb(i5);
                 groupInfo.setBrief(i6);
                 groupInfo.setHeadUrl(string3);
-                groupInfo.setMarkTopTime(j6);
+                groupInfo.setMarkTopTime(j5);
                 groupInfo.setMarkTop(i7);
                 groupInfo.setGroupNotice(string4);
                 groupInfo.setGroupCapacity(i8);
                 groupInfo.setGroupVerify(i9);
                 groupInfo.setDescription(string5);
-                groupInfo.setLocalMembersVersion(j7);
-                groupInfo.setLocalInfoVersion(j8);
-                groupInfo.setInfoVersion(j9);
+                groupInfo.setLocalMembersVersion(j6);
+                groupInfo.setLocalInfoVersion(j7);
+                groupInfo.setInfoVersion(j8);
                 return groupInfo;
             }
             return (GroupInfo) invokeL.objValue;
@@ -379,10 +379,10 @@ public class GroupInfoDAOImpl {
         return (ArrayList) invokeL.objValue;
     }
 
-    public static ArrayList<String> getExpiredFansGroupInfoList(Context context, long j2) {
+    public static ArrayList<String> getExpiredFansGroupInfoList(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, context, j)) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.3
@@ -410,17 +410,17 @@ public class GroupInfoDAOImpl {
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) ? cursor.getString(cursor.getColumnIndex("group_id")) : (String) invokeL.objValue;
                     }
-                }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type = 3 AND local_groupinfo_version < " + j2, null, null, null, "create_time DESC", null);
+                }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type = 3 AND local_groupinfo_version < " + j, null, null, null, "create_time DESC", null);
             }
             return null;
         }
         return (ArrayList) invokeLJ.objValue;
     }
 
-    public static ArrayList<String> getExpiredFansGroupMemberList(Context context, long j2) {
+    public static ArrayList<String> getExpiredFansGroupMemberList(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65549, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65549, null, context, j)) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.4
@@ -448,7 +448,7 @@ public class GroupInfoDAOImpl {
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) ? cursor.getString(cursor.getColumnIndex("group_id")) : (String) invokeL.objValue;
                     }
-                }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type = 3 AND local_members_version < " + j2 + " AND " + DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION + " > 0 ", null, null, null, "create_time DESC", null);
+                }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type = 3 AND local_members_version < " + j + " AND " + DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION + " > 0 ", null, null, null, "create_time DESC", null);
             }
             return null;
         }
@@ -628,15 +628,15 @@ public class GroupInfoDAOImpl {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
                                 String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                                long j2 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
+                                long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
                                 int i4 = cursor.getInt(cursor.getColumnIndex("role"));
                                 String string2 = cursor.getString(cursor.getColumnIndex("name"));
                                 String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
-                                long j3 = cursor.getLong(cursor.getColumnIndex("bduid"));
-                                long j4 = cursor.getLong(cursor.getColumnIndex("uk"));
+                                long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
+                                long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
                                 int i5 = cursor.getInt(cursor.getColumnIndex("status"));
                                 String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
-                                GroupMember groupMember2 = new GroupMember(string, j4, string2, j3, i4, j2);
+                                GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i4, j);
                                 groupMember2.setValid(i5);
                                 groupMember2.setNickName(string3);
                                 groupMember2.setPortrait(string4);
@@ -673,15 +673,15 @@ public class GroupInfoDAOImpl {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
                             String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                            long j2 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
+                            long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
                             int i4 = cursor.getInt(cursor.getColumnIndex("role"));
                             String string2 = cursor.getString(cursor.getColumnIndex("name"));
                             String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
-                            long j3 = cursor.getLong(cursor.getColumnIndex("bduid"));
-                            long j4 = cursor.getLong(cursor.getColumnIndex("uk"));
+                            long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
+                            long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
                             int i5 = cursor.getInt(cursor.getColumnIndex("status"));
                             String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
-                            GroupMember groupMember2 = new GroupMember(string, j4, string2, j3, i4, j2);
+                            GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i4, j);
                             groupMember2.setValid(i5);
                             groupMember2.setNickName(string3);
                             groupMember2.setPortrait(string4);
@@ -815,15 +815,15 @@ public class GroupInfoDAOImpl {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
                         String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                        long j2 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
+                        long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
                         int i2 = cursor.getInt(cursor.getColumnIndex("role"));
                         String string2 = cursor.getString(cursor.getColumnIndex("name"));
                         String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
-                        long j3 = cursor.getLong(cursor.getColumnIndex("bduid"));
-                        long j4 = cursor.getLong(cursor.getColumnIndex("uk"));
+                        long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
+                        long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
                         int i3 = cursor.getInt(cursor.getColumnIndex("status"));
                         String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
-                        GroupMember groupMember = new GroupMember(string, j4, string2, j3, i2, j2);
+                        GroupMember groupMember = new GroupMember(string, j3, string2, j2, i2, j);
                         groupMember.setValid(i3);
                         groupMember.setNickName(string3);
                         groupMember.setPortrait(string4);
@@ -976,18 +976,18 @@ public class GroupInfoDAOImpl {
         return invokeLL.booleanValue;
     }
 
-    public static int modifyGroupInfoVersion(Context context, String str, long j2, long j3) {
+    public static int modifyGroupInfoVersion(Context context, String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{context, str, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (context == null || TextUtils.isEmpty(str) || j2 < 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{context, str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (context == null || TextUtils.isEmpty(str) || j < 0) {
                 return DBResponseCode.ERROR_PARAMETER;
             }
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION, Long.valueOf(j2));
-                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION, Long.valueOf(j3));
+                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION, Long.valueOf(j));
+                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION, Long.valueOf(j2));
                 return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
             }
             return DBResponseCode.ERROR_DB_OPEN;
@@ -1013,18 +1013,18 @@ public class GroupInfoDAOImpl {
         return invokeLLI.intValue;
     }
 
-    public static int modifyGroupMemberVersion(Context context, String str, long j2, long j3) {
+    public static int modifyGroupMemberVersion(Context context, String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, null, new Object[]{context, str, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (context == null || TextUtils.isEmpty(str) || j2 < 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, null, new Object[]{context, str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (context == null || TextUtils.isEmpty(str) || j < 0) {
                 return DBResponseCode.ERROR_PARAMETER;
             }
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION, Long.valueOf(j2));
-                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION, Long.valueOf(j3));
+                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION, Long.valueOf(j));
+                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION, Long.valueOf(j2));
                 return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
             }
             return DBResponseCode.ERROR_DB_OPEN;
@@ -1225,20 +1225,20 @@ public class GroupInfoDAOImpl {
         return invokeLL.intValue;
     }
 
-    public static int updateGroupInfoMarkTop(Context context, long j2, int i2, long j3) {
+    public static int updateGroupInfoMarkTop(Context context, long j, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             if (context == null) {
                 return DBResponseCode.ERROR_PARAMETER;
             }
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb != null) {
-                if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, String.valueOf(j2))) {
+                if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, String.valueOf(j))) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("marktop", Integer.valueOf(i2));
-                    contentValues.put("marktoptime", Long.valueOf(j3));
-                    return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{String.valueOf(j2)}).intValue();
+                    contentValues.put("marktoptime", Long.valueOf(j2));
+                    return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{String.valueOf(j)}).intValue();
                 }
                 return DBResponseCode.ERROR_GROUP_NOT_EXIST;
             }
@@ -1259,14 +1259,14 @@ public class GroupInfoDAOImpl {
         }
     }
 
-    public static void updateGroupMarkTop(Context context, long j2, int i2, long j3) {
+    public static void updateGroupMarkTop(Context context, long j, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65574, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3)}) == null) {
-            updateGroupInfoMarkTop(context, j2, i2, j3);
+        if (interceptable == null || interceptable.invokeCommon(65574, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            updateGroupInfoMarkTop(context, j, i2, j2);
             ContentValues contentValues = new ContentValues();
             contentValues.put("marktop", Integer.valueOf(i2));
-            contentValues.put("marktoptime", Long.valueOf(j3));
-            ChatMessageDBManager.getInstance(context).updateChatSession("contacter=?", new String[]{String.valueOf(j2)}, contentValues);
+            contentValues.put("marktoptime", Long.valueOf(j2));
+            ChatMessageDBManager.getInstance(context).updateChatSession("contacter=?", new String[]{String.valueOf(j)}, contentValues);
         }
     }
 

@@ -25,16 +25,16 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.statistics.StatServiceEvent;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a implements View.OnClickListener, e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AuthorizeSignActivity f62993a;
+    public AuthorizeSignActivity f59860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62994b;
+    public int f59861b;
 
     public a(AuthorizeSignActivity authorizeSignActivity) {
         Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class a implements View.OnClickListener, e {
                 return;
             }
         }
-        this.f62994b = 1;
-        this.f62993a = authorizeSignActivity;
+        this.f59861b = 1;
+        this.f59860a = authorizeSignActivity;
     }
 
     private void h() {
@@ -61,12 +61,12 @@ public class a implements View.OnClickListener, e {
             StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_ENTER);
             StatisticManager.onEventStart(PayStatServiceEvent.PAY_BIND_CARD_DURATION);
             if (PayDataCache.getInstance().hasMobilePwd()) {
-                PasswordController.getPassWordInstance().checkPwd(this.f62993a.getActivity(), BeanConstants.FROM_BIND_PAY, new PasswordController.IPwdListener(this) { // from class: com.baidu.wallet.paysdk.presenter.a.2
+                PasswordController.getPassWordInstance().checkPwd(this.f59860a.getActivity(), BeanConstants.FROM_BIND_PAY, new PasswordController.IPwdListener(this) { // from class: com.baidu.wallet.paysdk.presenter.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f62996a;
+                    public final /* synthetic */ a f59863a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -83,7 +83,7 @@ public class a implements View.OnClickListener, e {
                                 return;
                             }
                         }
-                        this.f62996a = this;
+                        this.f59863a = this;
                     }
 
                     @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
@@ -99,14 +99,14 @@ public class a implements View.OnClickListener, e {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                             PayRequestCache.getInstance().removeBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
-                            BaiduPay.getInstance().bindCardAuth(this.f62996a.f62993a.getActivity(), false);
+                            BaiduPay.getInstance().bindCardAuth(this.f59863a.f59860a.getActivity(), false);
                             StatHelper.statServiceEvent(StatServiceEvent.EVENT_AuthorizePay_ClickNext, null, StatServiceEvent.VALUE_AuthorizePay_ClickNext_NewCard);
                         }
                     }
                 });
                 return;
             }
-            BaiduPay.getInstance().bindCardAuth(this.f62993a.getActivity(), false);
+            BaiduPay.getInstance().bindCardAuth(this.f59860a.getActivity(), false);
             StatHelper.statServiceEvent(StatServiceEvent.EVENT_AuthorizePay_ClickNext, null, StatServiceEvent.VALUE_AuthorizePay_ClickNext_NewCard);
         }
     }
@@ -115,16 +115,16 @@ public class a implements View.OnClickListener, e {
     public void a() {
         AuthorizeSignActivity authorizeSignActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (authorizeSignActivity = this.f62993a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (authorizeSignActivity = this.f59860a) == null) {
             return;
         }
         authorizeSignActivity.initCardList();
-        this.f62993a.setSelectCardListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.a.1
+        this.f59860a.setSelectCardListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f62995a;
+            public final /* synthetic */ a f59862a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -141,18 +141,18 @@ public class a implements View.OnClickListener, e {
                         return;
                     }
                 }
-                this.f62995a = this;
+                this.f59862a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    com.baidu.wallet.paysdk.a.b.a(this.f62995a.f62993a.getActivity(), null);
+                    com.baidu.wallet.paysdk.a.b.a(this.f59862a.f59860a.getActivity(), null);
                 }
             }
         });
-        this.f62993a.initNextButton(this);
+        this.f59860a.initNextButton(this);
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.e
@@ -166,18 +166,18 @@ public class a implements View.OnClickListener, e {
     public void b() {
         AuthorizeSignActivity authorizeSignActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (authorizeSignActivity = this.f62993a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (authorizeSignActivity = this.f59860a) == null) {
             return;
         }
         authorizeSignActivity.updateProtocolFields();
-        this.f62993a.updateNextButton();
-        AuthorizeSignActivity authorizeSignActivity2 = this.f62993a;
+        this.f59860a.updateNextButton();
+        AuthorizeSignActivity authorizeSignActivity2 = this.f59860a;
         authorizeSignActivity2.updateSelBankInfo(authorizeSignActivity2.getPayRequest().mBondCard);
-        DirectPayContentResponse payResponse = this.f62993a.getPayResponse();
+        DirectPayContentResponse payResponse = this.f59860a.getPayResponse();
         if (payResponse == null || payResponse.authorize == null || !f()) {
             return;
         }
-        this.f62993a.updateHintText(payResponse.authorize.extra.fee_tip);
+        this.f59860a.updateHintText(payResponse.authorize.extra.fee_tip);
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.e
@@ -217,7 +217,7 @@ public class a implements View.OnClickListener, e {
         Authorize.Extra extra;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            DirectPayContentResponse payResponse = this.f62993a.getPayResponse();
+            DirectPayContentResponse payResponse = this.f59860a.getPayResponse();
             return (payResponse == null || (authorize = payResponse.authorize) == null || (extra = authorize.extra) == null || TextUtils.isEmpty(extra.fee_tip)) ? false : true;
         }
         return invokeV.booleanValue;
@@ -227,15 +227,15 @@ public class a implements View.OnClickListener, e {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f62994b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59861b : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) && this.f62993a != null && view.getId() == ResUtils.id(this.f62993a.getApplicationContext(), "sign_next_btn")) {
-            PayRequest payRequest = this.f62993a.getPayRequest();
-            CardData.BondCard selectedCard = this.f62993a.getSelectedCard();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) && this.f59860a != null && view.getId() == ResUtils.id(this.f59860a.getApplicationContext(), "sign_next_btn")) {
+            PayRequest payRequest = this.f59860a.getPayRequest();
+            CardData.BondCard selectedCard = this.f59860a.getSelectedCard();
             StatHelper.cacheHasPwd(PayDataCache.getInstance().hasMobilePwd());
             StatHelper.cacheHasBankCard(PayDataCache.getInstance().hasBondCards());
             StatHelper.cachePayType(0);
@@ -249,7 +249,7 @@ public class a implements View.OnClickListener, e {
                 if (payRequest != null) {
                     payRequest.mBondCard = selectedCard;
                 }
-                BaiduPay.getInstance().directAuth(this.f62993a.getActivity(), selectedCard);
+                BaiduPay.getInstance().directAuth(this.f59860a.getActivity(), selectedCard);
                 StatHelper.statServiceEvent(StatServiceEvent.EVENT_AuthorizePay_ClickNext, null, StatServiceEvent.VALUE_AuthorizePay_ClickNext_BoundCard);
                 StatisticManager.onEventStart(PayStatServiceEvent.PAY_SMS_DURATION);
             } else {
@@ -265,15 +265,15 @@ public class a implements View.OnClickListener, e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bondCard) == null) {
             if (PayDataCache.getInstance().hasMobilePwd()) {
-                PasswordController.getPassWordInstance().checkPwd(this.f62993a.getActivity(), BeanConstants.FROM_COMPLETE_PAY, new PasswordController.IPwdListener(this, bondCard) { // from class: com.baidu.wallet.paysdk.presenter.a.3
+                PasswordController.getPassWordInstance().checkPwd(this.f59860a.getActivity(), BeanConstants.FROM_COMPLETE_PAY, new PasswordController.IPwdListener(this, bondCard) { // from class: com.baidu.wallet.paysdk.presenter.a.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ CardData.BondCard f62997a;
+                    public final /* synthetic */ CardData.BondCard f59864a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f62998b;
+                    public final /* synthetic */ a f59865b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -290,8 +290,8 @@ public class a implements View.OnClickListener, e {
                                 return;
                             }
                         }
-                        this.f62998b = this;
-                        this.f62997a = bondCard;
+                        this.f59865b = this;
+                        this.f59864a = bondCard;
                     }
 
                     @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
@@ -307,14 +307,14 @@ public class a implements View.OnClickListener, e {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                             PayRequestCache.getInstance().removeBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
-                            BaiduPay.getInstance().completeCardAuth(this.f62998b.f62993a.getActivity(), this.f62997a);
+                            BaiduPay.getInstance().completeCardAuth(this.f59865b.f59860a.getActivity(), this.f59864a);
                             StatHelper.statServiceEvent(StatServiceEvent.EVENT_AuthorizePay_ClickNext, null, StatServiceEvent.VALUE_AuthorizePay_ClickNext_CompleteCard);
                         }
                     }
                 });
                 return;
             }
-            BaiduPay.getInstance().completeCardAuth(this.f62993a.getActivity(), bondCard);
+            BaiduPay.getInstance().completeCardAuth(this.f59860a.getActivity(), bondCard);
             StatHelper.statServiceEvent(StatServiceEvent.EVENT_AuthorizePay_ClickNext, null, StatServiceEvent.VALUE_AuthorizePay_ClickNext_CompleteCard);
         }
     }

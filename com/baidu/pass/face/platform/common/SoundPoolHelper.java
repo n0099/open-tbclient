@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SoundPoolHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SoundPoolHelper";
@@ -68,7 +68,7 @@ public class SoundPoolHelper {
 
     private long getSoundDuration(int i2) {
         InterceptResult invokeI;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeI = interceptable.invokeI(65538, this, i2)) != null) {
             return invokeI.longValue;
@@ -80,32 +80,32 @@ public class SoundPoolHelper {
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
             mediaMetadataRetriever.setDataSource(this.mContext, Uri.parse("android.resource://" + this.mContext.getPackageName() + "/" + i2));
-            j2 = Long.valueOf(mediaMetadataRetriever.extractMetadata(9)).longValue() + 0;
+            j = Long.valueOf(mediaMetadataRetriever.extractMetadata(9)).longValue() + 0;
             try {
-                this.mPlayDurationMap.put(Integer.valueOf(i2), Long.valueOf(j2));
-                return j2;
+                this.mPlayDurationMap.put(Integer.valueOf(i2), Long.valueOf(j));
+                return j;
             } catch (IllegalArgumentException e2) {
                 e = e2;
                 e.printStackTrace();
-                return j2;
+                return j;
             } catch (IllegalStateException e3) {
                 e = e3;
                 e.printStackTrace();
-                return j2;
+                return j;
             } catch (Exception e4) {
                 e = e4;
                 e.printStackTrace();
-                return j2;
+                return j;
             }
         } catch (IllegalArgumentException e5) {
             e = e5;
-            j2 = 600;
+            j = 600;
         } catch (IllegalStateException e6) {
             e = e6;
-            j2 = 600;
+            j = 600;
         } catch (Exception e7) {
             e = e7;
-            j2 = 600;
+            j = 600;
         }
     }
 

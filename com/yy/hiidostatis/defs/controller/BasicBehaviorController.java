@@ -23,7 +23,7 @@ import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BasicBehaviorController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean EMPTY_DATA_FORBIDDEN = false;
@@ -46,7 +46,7 @@ public class BasicBehaviorController {
     public IStatisAPI mStatisAPI;
     public int mbehaviorSendThreshold;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class AppActionReporter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,15 +207,15 @@ public class BasicBehaviorController {
                     return;
                 }
                 this.mEndStartCpuTimeMillis = Util.wallTimeMillis();
-                long j2 = 0;
+                long j = 0;
                 if (isStartCalled()) {
-                    j2 = this.mEndStartCpuTimeMillis - this.mBeginStartCpuTimeMillis;
-                    L.brief("appa :launch delayed : %d millis", Long.valueOf(j2));
+                    j = this.mEndStartCpuTimeMillis - this.mBeginStartCpuTimeMillis;
+                    L.brief("appa :launch delayed : %d millis", Long.valueOf(j));
                     if (this.mElemInfo != null) {
-                        this.mElemInfo.setDtime(j2);
+                        this.mElemInfo.setDtime(j);
                     }
                 }
-                L.brief("appa onAppStarted: mBeginStartCpuTimeMillis [%d],mEndStartCpuTimeMillis[%d],Dtimes[%d] ", Long.valueOf(this.mBeginStartCpuTimeMillis), Long.valueOf(this.mEndStartCpuTimeMillis), Long.valueOf(j2));
+                L.brief("appa onAppStarted: mBeginStartCpuTimeMillis [%d],mEndStartCpuTimeMillis[%d],Dtimes[%d] ", Long.valueOf(this.mBeginStartCpuTimeMillis), Long.valueOf(this.mEndStartCpuTimeMillis), Long.valueOf(j));
             }
         }
 
@@ -244,11 +244,11 @@ public class BasicBehaviorController {
                     L.debug(this, "Last quit time is empty value %d", Long.valueOf(lastQuitTime));
                     return;
                 }
-                long j2 = this.mBeginStartCpuTimeMillis;
-                long j3 = j2 - lastQuitTime;
-                L.brief("set ftime wall time %d - last quit time %d = %d", Long.valueOf(j2), Long.valueOf(lastQuitTime), Long.valueOf(j3));
+                long j = this.mBeginStartCpuTimeMillis;
+                long j2 = j - lastQuitTime;
+                L.brief("set ftime wall time %d - last quit time %d = %d", Long.valueOf(j), Long.valueOf(lastQuitTime), Long.valueOf(j2));
                 if (this.mElemInfo != null) {
-                    this.mElemInfo.setFtime(j3);
+                    this.mElemInfo.setFtime(j2);
                 }
             }
         }
@@ -263,36 +263,36 @@ public class BasicBehaviorController {
                 long wallTimeMillis = Util.wallTimeMillis();
                 if (z3) {
                     long lastOnPauseTime = this.this$0.getLastOnPauseTime();
-                    long j2 = this.this$0.mBackgroundDurationMillisAsQuit;
+                    long j = this.this$0.mBackgroundDurationMillisAsQuit;
                     if (lastOnPauseTime < wallTimeMillis) {
                         appaElemInfo = appaElemInfo3;
                         if (lastOnPauseTime - this.mBeginStartCpuTimeMillis > 0) {
-                            long j3 = wallTimeMillis - lastOnPauseTime;
-                            long j4 = j2 / 2;
-                            if (j3 > j2 - j4 && j3 < j2 + j4) {
+                            long j2 = wallTimeMillis - lastOnPauseTime;
+                            long j3 = j / 2;
+                            if (j2 > j - j3 && j2 < j + j3) {
                                 L.brief("appa onExitApp:get the lastOnPauseTime[%d] instead of quitTime[%d]", Long.valueOf(lastOnPauseTime), Long.valueOf(wallTimeMillis));
                                 wallTimeMillis = lastOnPauseTime;
                             }
                         }
                         if (appaElemInfo == null && isStartCalled() && isStartedCalled()) {
-                            long j5 = this.mBeginStartCpuTimeMillis;
-                            L.brief("Start CPU time millis is %d", Long.valueOf(j5));
-                            if (j5 != 0) {
-                                long j6 = wallTimeMillis - j5;
-                                L.brief("Calculated usage time, begin %d,end %d, lasts %d", Long.valueOf(j5), Long.valueOf(wallTimeMillis), Long.valueOf(j6));
-                                int i2 = (j6 > 0L ? 1 : (j6 == 0L ? 0 : -1));
+                            long j4 = this.mBeginStartCpuTimeMillis;
+                            L.brief("Start CPU time millis is %d", Long.valueOf(j4));
+                            if (j4 != 0) {
+                                long j5 = wallTimeMillis - j4;
+                                L.brief("Calculated usage time, begin %d,end %d, lasts %d", Long.valueOf(j4), Long.valueOf(wallTimeMillis), Long.valueOf(j5));
+                                int i2 = (j5 > 0L ? 1 : (j5 == 0L ? 0 : -1));
                                 if (i2 != 0) {
-                                    L.brief("set app linger time %d sec", Long.valueOf(j6));
+                                    L.brief("set app linger time %d sec", Long.valueOf(j5));
                                     appaElemInfo2 = appaElemInfo;
-                                    appaElemInfo2.setLingerTime(j6);
+                                    appaElemInfo2.setLingerTime(j5);
                                 } else {
                                     appaElemInfo2 = appaElemInfo;
                                     L.debug(this, "appa onExitApp:Cannot calculate app action linger time.", new Object[0]);
                                 }
-                                if (j6 > 21600000 || i2 < 0) {
-                                    L.warn(this, "appa onExitApp:app action linger time [%d] is off normal.", Long.valueOf(j6));
+                                if (j5 > 21600000 || i2 < 0) {
+                                    L.warn(this, "appa onExitApp:app action linger time [%d] is off normal.", Long.valueOf(j5));
                                 } else {
-                                    L.brief("appa onExitApp:normal", Long.valueOf(j6));
+                                    L.brief("appa onExitApp:normal", Long.valueOf(j5));
                                 }
                                 this.mAppaInfo.addElem(appaElemInfo2);
                             }
@@ -319,7 +319,7 @@ public class BasicBehaviorController {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class PageActionReporter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -422,9 +422,9 @@ public class BasicBehaviorController {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPageInfo : (PageInfo) invokeV.objValue;
         }
 
-        public void onFinishGotoUI(long j2, String str, boolean z) {
+        public void onFinishGotoUI(long j, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), str, Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, Boolean.valueOf(z)}) == null) {
                 PageElemInfo pageElemInfo = this.mPageElemInfo;
                 if (pageElemInfo != null) {
                     String page = pageElemInfo.getPage();
@@ -449,7 +449,7 @@ public class BasicBehaviorController {
                     this.mPageInfo.addElem(this.mPageElemInfo);
                     clearCurPageElement();
                     L.brief("Page elements %d", Integer.valueOf(this.mPageInfo.getElemsCount()));
-                    this.this$0.onNewDataAdded(j2);
+                    this.this$0.onNewDataAdded(j);
                     onSavePageFile(this.mPageInfo);
                     this.this$0.recordPagePath(page);
                     this.this$0.saveTmpAppa(null);
@@ -481,10 +481,10 @@ public class BasicBehaviorController {
                 if (!Util.empty(str) && this.mEnterTimeStamp != 0 && this.mStartJumpingTimeStamp == 0) {
                     long wallTimeMillis = Util.wallTimeMillis();
                     this.mStartJumpingTimeStamp = wallTimeMillis;
-                    long j2 = wallTimeMillis - this.mEnterTimeStamp;
-                    this.mPageElemInfo.setLtime(j2);
+                    long j = wallTimeMillis - this.mEnterTimeStamp;
+                    this.mPageElemInfo.setLtime(j);
                     this.mPageElemInfo.setDestinationPage(str2);
-                    L.brief("page onLeavingUI [%s]:normal. pageid[%s], lingerTimeMillis[%d], mStartJumpingTimeStamp[%d]", str, str, Long.valueOf(j2), Long.valueOf(this.mStartJumpingTimeStamp));
+                    L.brief("page onLeavingUI [%s]:normal. pageid[%s], lingerTimeMillis[%d], mStartJumpingTimeStamp[%d]", str, str, Long.valueOf(j), Long.valueOf(this.mStartJumpingTimeStamp));
                     onSaveTmpPage();
                     return;
                 }
@@ -492,11 +492,11 @@ public class BasicBehaviorController {
             }
         }
 
-        public void onResumeUI(long j2, String str) {
+        public void onResumeUI(long j, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(1048581, this, j2, str) == null) {
+            if (interceptable == null || interceptable.invokeJL(1048581, this, j, str) == null) {
                 if (this.mPageElemInfo != null) {
-                    onFinishGotoUI(j2, str, false);
+                    onFinishGotoUI(j, str, false);
                 }
                 clearCurPageElement();
                 PageElemInfo pageElemInfo = new PageElemInfo();
@@ -520,12 +520,12 @@ public class BasicBehaviorController {
         }
     }
 
-    public BasicBehaviorController(Context context, Handler handler, IOnStatisListener iOnStatisListener, IStatisAPI iStatisAPI, long j2, int i2, int i3) {
+    public BasicBehaviorController(Context context, Handler handler, IOnStatisListener iOnStatisListener, IStatisAPI iStatisAPI, long j, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler, iOnStatisListener, iStatisAPI, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, handler, iOnStatisListener, iStatisAPI, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -541,7 +541,7 @@ public class BasicBehaviorController {
         this.mContext = context;
         this.mOnStatisListener = iOnStatisListener;
         this.mStatisAPI = iStatisAPI;
-        this.mBackgroundDurationMillisAsQuit = j2;
+        this.mBackgroundDurationMillisAsQuit = j;
         this.mbehaviorSendThreshold = i2;
         this.mMaxbehaviorSendThreshold = i3;
         loadStoredAsync();
@@ -584,10 +584,10 @@ public class BasicBehaviorController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long getStoredUid(long j2) {
+    public long getStoredUid(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, this, j2)) == null) ? DefaultPreference.getPreference().getPrefLong(this.mContext, KEY_UID, j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, this, j)) == null) ? DefaultPreference.getPreference().getPrefLong(this.mContext, KEY_UID, j) : invokeJ.longValue;
     }
 
     private int getThreshold() {
@@ -698,9 +698,9 @@ public class BasicBehaviorController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onNewDataAdded(long j2) {
+    public void onNewDataAdded(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65565, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65565, this, j) == null) {
             sendReportIfReach(getThreshold());
         }
     }
@@ -713,9 +713,9 @@ public class BasicBehaviorController {
         }
     }
 
-    private void reportBasicBehavior(Context context, long j2, AppaInfo appaInfo, PageInfo pageInfo) {
+    private void reportBasicBehavior(Context context, long j, AppaInfo appaInfo, PageInfo pageInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65567, this, new Object[]{context, Long.valueOf(j2), appaInfo, pageInfo}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65567, this, new Object[]{context, Long.valueOf(j), appaInfo, pageInfo}) == null) {
             if (context == null) {
                 L.debug("BasicStatisAPI", "Null context when reporting to hiido, cancelled.", new Object[0]);
                 return;
@@ -726,12 +726,12 @@ public class BasicBehaviorController {
             L.brief("To report Appa info %s", appaInfo);
             L.brief("To report Page info %s", pageInfo);
             if (appaInfo != null && appaInfo.getElemsCount() > 0) {
-                this.mStatisAPI.reportLanuch(j2, appaInfo.getResult(), SensorController.loadFileAndClear(context));
+                this.mStatisAPI.reportLanuch(j, appaInfo.getResult(), SensorController.loadFileAndClear(context));
             }
             if (pageInfo == null || pageInfo.getElemsCount() <= 0) {
                 return;
             }
-            this.mStatisAPI.reportPage(j2, pageInfo.getResult());
+            this.mStatisAPI.reportPage(j, pageInfo.getResult());
         }
     }
 
@@ -756,10 +756,10 @@ public class BasicBehaviorController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void saveQuitTimeMillis(long j2) {
+    public void saveQuitTimeMillis(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65570, this, j2) == null) {
-            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_QUIT_TIME, j2);
+        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
+            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_QUIT_TIME, j);
         }
     }
 
@@ -839,10 +839,10 @@ public class BasicBehaviorController {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mLastReportCpuMillis != 0 : invokeV.booleanValue;
     }
 
-    public void saveLastOnPauseTime(long j2) {
+    public void saveLastOnPauseTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_LAST_ONPAUSE_TIME, j2);
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_LAST_ONPAUSE_TIME, j);
         }
     }
 

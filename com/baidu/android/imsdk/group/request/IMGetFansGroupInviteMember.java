@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetFansGroupInviteMember";
@@ -99,7 +100,7 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i3 = jSONObject.optInt("error_code");
-                str = jSONObject.optString("error_msg");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 if (i3 == 0 && jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
                     int optInt = jSONObject2.optInt("server_sort", 0);
@@ -108,10 +109,10 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
                             JSONArray jSONArray = jSONObject2.getJSONArray("members");
                             while (i4 < jSONArray.length()) {
                                 JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
-                                long j2 = jSONObject3.getLong("bd_uid");
+                                long j = jSONObject3.getLong("bd_uid");
                                 String optString = jSONObject3.optString("display_name");
                                 String optString2 = jSONObject3.optString("group_name");
-                                ChatUser chatUser = new ChatUser(0L, j2, TextUtils.isEmpty(optString2) ? optString : optString2, jSONObject3.optString("avatar"));
+                                ChatUser chatUser = new ChatUser(0L, j, TextUtils.isEmpty(optString2) ? optString : optString2, jSONObject3.optString("avatar"));
                                 chatUser.setGroupStatus(jSONObject3.optInt("group_status"));
                                 arrayList.add(chatUser);
                                 i4++;

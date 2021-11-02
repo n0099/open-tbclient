@@ -1,6 +1,6 @@
 package com.baidu.ala.gift;
 
-import c.a.e.e.n.a;
+import b.a.e.e.n.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -13,12 +13,13 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaRefreshScoreModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +85,7 @@ public class AlaRefreshScoreModel extends BdBaseModel {
                     statsItem.b("workflow", "synctdou");
                     statsItem.b("eventType", "syncfail");
                     statsItem.c("response_code", Integer.valueOf(httpResponsedMessage.getStatusCode()));
-                    statsItem.b("error_msg", httpResponsedMessage.getErrorString());
+                    statsItem.b(GameCodeGetResponseMsg.PARAM_ERROR_MSG, httpResponsedMessage.getErrorString());
                     statsItem.c("error_code", Integer.valueOf(httpResponsedMessage.getError()));
                     statsItem.b("response_content", contentStr);
                     statsItem.b("uid", TbadkCoreApplication.getCurrentAccount());

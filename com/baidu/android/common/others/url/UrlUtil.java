@@ -1,5 +1,6 @@
 package com.baidu.android.common.others.url;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
@@ -8,7 +9,6 @@ import com.baidu.android.common.others.java.Patterns;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
@@ -25,10 +25,12 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+@Deprecated
+/* loaded from: classes6.dex */
 public class UrlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -295,7 +297,7 @@ public class UrlUtil {
                 }
                 z &= Character.isLowerCase(charAt);
                 if (i2 == indexOf - 1 && !z) {
-                    str = str.substring(0, indexOf).toLowerCase() + str.substring(indexOf);
+                    str = str.substring(0, indexOf).toLowerCase(Locale.getDefault()) + str.substring(indexOf);
                 }
             }
             if (str.startsWith("http://") || str.startsWith("https://") || str.startsWith("rtsp://")) {
@@ -312,11 +314,11 @@ public class UrlUtil {
         return (String) invokeL.objValue;
     }
 
-    public static String getCookieStr(String str, String str2, String str3, long j2) {
+    public static String getCookieStr(String str, String str2, String str3, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, Long.valueOf(j2)})) == null) {
-            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j2 + ";";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
+            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ";";
         }
         return (String) invokeCommon.objValue;
     }
@@ -331,8 +333,8 @@ public class UrlUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            String lowerCase = Uri.parse(str).getPath().toLowerCase();
-            return lowerCase.contains(FileHelper.FILE_CACHE_CSS) ? "text/css" : lowerCase.contains(".js") ? "application/x-javascript" : (lowerCase.contains(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) ? BdUploadHandler.IMAGE_MIME_TYPE : SapiWebView.DATA_MIME_TYPE;
+            String lowerCase = Uri.parse(str).getPath().toLowerCase(Locale.getDefault());
+            return lowerCase.contains(FileHelper.FILE_CACHE_CSS) ? "text/css" : lowerCase.contains(".js") ? "application/x-javascript" : (lowerCase.contains(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) || lowerCase.contains(".gif") || lowerCase.contains(".png") || lowerCase.contains(".jpeg")) ? BdUploadHandler.IMAGE_MIME_TYPE : SapiWebView.DATA_MIME_TYPE;
         }
         return (String) invokeL.objValue;
     }
@@ -450,6 +452,7 @@ public class UrlUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) ? isUrl(str) || isUrlAuxiliary(str) : invokeL.booleanValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static String mapToString(Map<String, String> map) {
         InterceptResult invokeL;
         String encode;
@@ -482,6 +485,7 @@ public class UrlUtil {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static Map<String, String> stringToMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

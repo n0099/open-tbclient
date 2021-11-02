@@ -170,17 +170,17 @@ public class DocumentsContractApi19 {
         return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65550, null, context, uri, str, i2)) == null) ? (int) queryForLong(context, uri, str, i2) : invokeLLLI.intValue;
     }
 
-    public static long queryForLong(Context context, Uri uri, String str, long j2) {
+    public static long queryForLong(Context context, Uri uri, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, uri, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, uri, str, Long.valueOf(j)})) == null) {
             Cursor cursor = null;
             try {
                 cursor = context.getContentResolver().query(uri, new String[]{str}, null, null, null);
-                return (!cursor.moveToFirst() || cursor.isNull(0)) ? j2 : cursor.getLong(0);
+                return (!cursor.moveToFirst() || cursor.isNull(0)) ? j : cursor.getLong(0);
             } catch (Exception e2) {
                 String str2 = "Failed query: " + e2;
-                return j2;
+                return j;
             } finally {
                 closeQuietly(cursor);
             }

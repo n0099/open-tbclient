@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.cache.ServerIPMgr;
 import com.yy.gslbsdk.control.IpVersionController;
@@ -41,7 +42,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class QualityDetectFlow {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "QualityDetectFlow";
@@ -349,9 +350,9 @@ public class QualityDetectFlow {
                         }
                         long currentTimeMillis2 = System.currentTimeMillis();
                         if (canReport) {
-                            long j2 = currentTimeMillis2 - currentTimeMillis;
-                            addReportData(host, next, j2);
-                            LogTools.printDebug(TAG, "Probe success: " + host + " " + next + " " + j2 + "ms");
+                            long j = currentTimeMillis2 - currentTimeMillis;
+                            addReportData(host, next, j);
+                            LogTools.printDebug(TAG, "Probe success: " + host + " " + next + " " + j + "ms");
                         }
                     }
                 }
@@ -377,7 +378,7 @@ public class QualityDetectFlow {
                     break;
                 }
                 String[] post = HTTPMgr.post(ServerIPMgr.reportUrl, reportProtocol, null, GlobalTools.HTTPS_LEVEL == 2);
-                if (post != null && post[0].equals("200")) {
+                if (post != null && post[0].equals(BasicPushStatus.SUCCESS_CODE)) {
                     DataCacheMgr.INSTANCE.resetFailedDnsCount();
                     DataCacheMgr.INSTANCE.resetLocalDnsCount();
                     DataCacheMgr.INSTANCE.resetListDnsCost();
@@ -392,7 +393,7 @@ public class QualityDetectFlow {
         for (ReportInfo reportInfo : collectMin1Data.values()) {
             String reportProtocol2 = ReportProtocolMgr.reportProtocol(reportInfo);
             String[] post2 = HTTPMgr.post(ServerIPMgr.reportUrl, reportProtocol2, null, GlobalTools.HTTPS_LEVEL == 2);
-            if (post2 != null && post2[0].equals("200")) {
+            if (post2 != null && post2[0].equals(BasicPushStatus.SUCCESS_CODE)) {
                 DataCacheMgr.INSTANCE.deleteDelayByHostFromUpper(reportInfo.getHost());
                 LogTools.printDebug(TAG, "Report min1 success: " + reportProtocol2);
             }
@@ -410,7 +411,7 @@ public class QualityDetectFlow {
                 }
                 String reportProtocol3 = ReportProtocolMgr.reportProtocol(reportInfo2);
                 String[] post3 = HTTPMgr.post(ServerIPMgr.reportUrl, reportProtocol3, null, GlobalTools.HTTPS_LEVEL == 2);
-                if (post3 != null && post3[0].equals("200")) {
+                if (post3 != null && post3[0].equals(BasicPushStatus.SUCCESS_CODE)) {
                     DataCacheMgr.INSTANCE.deleteDelayByHostFromLower(reportInfo2.getHost());
                     DataCacheMgr.INSTANCE.clearInvokeApiNum(reportInfo2.getHost());
                     DataCacheMgr.INSTANCE.clearHitCacheNum(reportInfo2.getHost());
@@ -420,7 +421,7 @@ public class QualityDetectFlow {
             for (ReportInfo reportInfo3 : collectHijackData(dBAccessMgr.getAllHijack(), networkInfo).values()) {
                 String reportProtocol4 = ReportProtocolMgr.reportProtocol(reportInfo3);
                 String[] postHttp = HTTPMgr.postHttp(ServerIPMgr.reportUrl, reportProtocol4);
-                if (postHttp != null && postHttp[0].equals("200")) {
+                if (postHttp != null && postHttp[0].equals(BasicPushStatus.SUCCESS_CODE)) {
                     dBAccessMgr.delHijackByHost(reportInfo3.getHost());
                     DataCacheMgr.INSTANCE.setReportDate(GlobalTools.APP_CONTEXT, new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
                     LogTools.printDebug(TAG, "Report hijack success: " + reportProtocol4);
@@ -448,17 +449,17 @@ public class QualityDetectFlow {
         }
     }
 
-    public void addReportData(String str, String str2, long j2) {
+    public void addReportData(String str, String str2, long j) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) || (context = GlobalTools.APP_CONTEXT) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || (context = GlobalTools.APP_CONTEXT) == null) {
             return;
         }
         DBAccessMgr.getInstance(context);
         DelayTB delayTB = new DelayTB();
         delayTB.setHost(str);
         delayTB.setIp(str2);
-        delayTB.setDelay(j2);
+        delayTB.setDelay(j);
         DataCacheMgr.INSTANCE.addDelay(delayTB);
     }
 

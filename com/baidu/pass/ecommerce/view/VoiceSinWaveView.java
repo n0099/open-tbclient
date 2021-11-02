@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.a.b;
+import b.a.c0.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_PHASE = 4097;
@@ -78,7 +78,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public float mVolume;
     public int mWidth;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class TimerThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface VoiceWaveCallBack {
         void fadeOut();
 
@@ -340,8 +340,8 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         if (0 == this.mLastVolumeTimeMillis) {
             this.mLastVolumeTimeMillis = currentTimeMillis - 100;
         }
-        long j2 = currentTimeMillis - this.mLastVolumeTimeMillis;
-        long j3 = j2 > 0 ? j2 : 100L;
+        long j = currentTimeMillis - this.mLastVolumeTimeMillis;
+        long j2 = j > 0 ? j : 100L;
         ValueAnimator valueAnimator = this.mValueAnimator;
         if (valueAnimator != null) {
             valueAnimator.cancel();
@@ -349,7 +349,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(this.mLastVolume, f2);
         this.mValueAnimator = ofFloat;
-        ofFloat.setDuration(j3);
+        ofFloat.setDuration(j2);
         this.mValueAnimator.setInterpolator(this.mLinearInterpolator);
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.baidu.pass.ecommerce.view.VoiceSinWaveView.4
             public static /* synthetic */ Interceptable $ic;

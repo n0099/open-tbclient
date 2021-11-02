@@ -23,22 +23,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43761a;
+    public static boolean f41540a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnZidReceiveListener {
         String getZid();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }
@@ -257,10 +257,10 @@ public class StatService {
 
     public static void setOn(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65566, null, context, i2) == null) || !a(context, "setOn(...)") || f43761a || a(context)) {
+        if (!(interceptable == null || interceptable.invokeLI(65566, null, context, i2) == null) || !a(context, "setOn(...)") || f41540a || a(context)) {
             return;
         }
-        f43761a = true;
+        f41540a = true;
         if ((i2 & 1) != 0) {
             a(context, false);
         } else if ((i2 & 16) != 0) {

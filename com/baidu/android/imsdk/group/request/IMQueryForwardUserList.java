@@ -11,6 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryForwardUserList";
@@ -96,7 +97,7 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i3 = jSONObject.optInt("error_code");
-                str = jSONObject.optString("error_msg");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 if (i3 == 0 && jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
                     int optInt = jSONObject2.optInt("server_sort", 0);

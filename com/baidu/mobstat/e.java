@@ -20,12 +20,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f43827a;
+    public static final e f41604a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class e {
                 return;
             }
         }
-        f43827a = new e();
+        f41604a = new e();
     }
 
     public e() {
@@ -100,7 +100,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        k.f43848b.a(System.currentTimeMillis(), str);
+        k.f41624b.a(System.currentTimeMillis(), str);
     }
 
     public synchronized void a(Context context, boolean z) {
@@ -113,21 +113,21 @@ public class e {
     }
 
     private void a(boolean z, String str, String str2, PackageInfo packageInfo, JSONArray jSONArray) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), str, str2, packageInfo, jSONArray}) == null) {
             if (z && packageInfo.packageName.startsWith("com.android.")) {
                 return;
             }
-            long j3 = 0;
+            long j2 = 0;
             try {
-                j2 = packageInfo.firstInstallTime;
+                j = packageInfo.firstInstallTime;
             } catch (Throwable th) {
                 bb.c().b(th);
-                j2 = 0;
+                j = 0;
             }
             try {
-                j3 = packageInfo.lastUpdateTime;
+                j2 = packageInfo.lastUpdateTime;
             } catch (Throwable th2) {
                 bb.c().b(th2);
             }
@@ -137,8 +137,8 @@ public class e {
                 jSONObject.put("n", packageInfo.packageName);
                 jSONObject.put("a", str);
                 jSONObject.put("v", String.valueOf(packageInfo.versionName));
-                jSONObject.put("f", j2);
-                jSONObject.put("l", j3);
+                jSONObject.put("f", j);
+                jSONObject.put("l", j2);
                 jSONObject.put("m", a2);
                 jSONArray.put(jSONObject);
             } catch (JSONException e2) {

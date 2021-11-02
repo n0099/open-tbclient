@@ -13,12 +13,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConcurrentUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ConstantFuture<T> implements Future<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,10 +80,10 @@ public class ConcurrentUtils {
         }
 
         @Override // java.util.concurrent.Future
-        public T get(long j2, TimeUnit timeUnit) {
+        public T get(long j, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit)) == null) ? this.value : (T) invokeJL.objValue;
+            return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit)) == null) ? this.value : (T) invokeJL.objValue;
         }
     }
 

@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicLongArray;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
     public final int prefetch;
     public final Publisher<? extends T> source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ParallelDispatcher<T> extends AtomicInteger implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4470634016609963609L;
@@ -49,13 +49,11 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
         public final AtomicInteger subscriberCount;
         public final Subscriber<? super T>[] subscribers;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public final class RailSubscription implements Subscription {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: j  reason: collision with root package name */
-            public final int f79361j;
+            public final int j;
             public final int m;
             public final /* synthetic */ ParallelDispatcher this$0;
 
@@ -75,7 +73,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                     }
                 }
                 this.this$0 = parallelDispatcher;
-                this.f79361j = i2;
+                this.j = i2;
                 this.m = i3;
             }
 
@@ -83,7 +81,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
             public void cancel() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.this$0.requests.compareAndSet(this.f79361j + this.m, 0L, 1L)) {
+                    if (this.this$0.requests.compareAndSet(this.j + this.m, 0L, 1L)) {
                         ParallelDispatcher parallelDispatcher = this.this$0;
                         int i2 = this.m;
                         parallelDispatcher.cancel(i2 + i2);
@@ -92,17 +90,17 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
             }
 
             @Override // org.reactivestreams.Subscription
-            public void request(long j2) {
-                long j3;
+            public void request(long j) {
+                long j2;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
                     AtomicLongArray atomicLongArray = this.this$0.requests;
                     do {
-                        j3 = atomicLongArray.get(this.f79361j);
-                        if (j3 == Long.MAX_VALUE) {
+                        j2 = atomicLongArray.get(this.j);
+                        if (j2 == Long.MAX_VALUE) {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.f79361j, j3, BackpressureHelper.addCap(j3, j2)));
+                    } while (!atomicLongArray.compareAndSet(this.j, j2, BackpressureHelper.addCap(j2, j)));
                     if (this.this$0.subscriberCount.get() == this.m) {
                         this.this$0.drain();
                     }
@@ -195,16 +193,16 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                             return;
                         }
                         if (!isEmpty) {
-                            long j2 = atomicLongArray.get(i2);
-                            long j3 = jArr[i2];
-                            if (j2 == j3 || atomicLongArray.get(length + i2) != 0) {
+                            long j = atomicLongArray.get(i2);
+                            long j2 = jArr[i2];
+                            if (j == j2 || atomicLongArray.get(length + i2) != 0) {
                                 i6++;
                             } else {
                                 try {
                                     T poll = simpleQueue.poll();
                                     if (poll != null) {
                                         subscriberArr[i2].onNext(poll);
-                                        jArr[i2] = j3 + 1;
+                                        jArr[i2] = j2 + 1;
                                         i3++;
                                         if (i3 == this.limit) {
                                             this.s.request(i3);
@@ -271,9 +269,9 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                             }
                             return;
                         }
-                        long j2 = atomicLongArray.get(i2);
-                        long j3 = jArr[i2];
-                        if (j2 == j3 || atomicLongArray.get(length + i2) != 0) {
+                        long j = atomicLongArray.get(i2);
+                        long j2 = jArr[i2];
+                        if (j == j2 || atomicLongArray.get(length + i2) != 0) {
                             i5++;
                         } else {
                             try {
@@ -287,7 +285,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                                     return;
                                 }
                                 subscriberArr[i2].onNext(poll);
-                                jArr[i2] = j3 + 1;
+                                jArr[i2] = j2 + 1;
                                 i5 = 0;
                             } catch (Throwable th) {
                                 Exceptions.throwIfFatal(th);

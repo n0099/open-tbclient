@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Proxy;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f35798a;
+    public g f33904a;
 
     /* renamed from: b  reason: collision with root package name */
-    public z f35799b;
+    public z f33905b;
 
     public x(g gVar) {
         Interceptable interceptable = $ic;
@@ -33,19 +33,19 @@ public final class x {
                 return;
             }
         }
-        this.f35798a = gVar;
-        this.f35799b = new z(this);
+        this.f33904a = gVar;
+        this.f33905b = new z(this);
     }
 
     public final g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35798a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33904a : (g) invokeV.objValue;
     }
 
     public final <T> T a(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new y(this.f35798a, cls, this.f35799b)) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new y(this.f33904a, cls, this.f33905b)) : (T) invokeL.objValue;
     }
 }

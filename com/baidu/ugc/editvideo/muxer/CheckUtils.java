@@ -2,10 +2,10 @@ package com.baidu.ugc.editvideo.muxer;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.i.c;
-import c.a.x0.l.a;
-import c.a.x0.t.h;
-import c.a.x0.t.n;
+import b.a.x0.i.c;
+import b.a.x0.l.a;
+import b.a.x0.t.h;
+import b.a.x0.t.n;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CheckUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class CheckUtils {
                 return false;
             }
             FilterValue filterValue = videoMuxerData.getFilterValue();
-            if (filterValue != null && (filterValue.getFilterType() != 1 ? !(filterValue.getFilterType() != 2 || TextUtils.isEmpty(filterValue.getFilterPath())) : !(TextUtils.isEmpty(filterValue.getValue()) || FilterValue.DEFAULT_FILTER_VALUE.equalsIgnoreCase(filterValue.getValue())))) {
+            if (filterValue != null && (filterValue.getFilterType() != 1 ? !(filterValue.getFilterType() != 2 || TextUtils.isEmpty(filterValue.getFilterPath())) : !(TextUtils.isEmpty(filterValue.getValue()) || "origin".equalsIgnoreCase(filterValue.getValue())))) {
                 z = true;
             }
             if (videoMuxerData.getVideoEffectData() != null) {
@@ -235,7 +235,7 @@ public class CheckUtils {
                 return false;
             }
             if (filterValue.getFilterType() == 1) {
-                if (TextUtils.isEmpty(filterValue.getValue()) || FilterValue.DEFAULT_FILTER_VALUE.equalsIgnoreCase(filterValue.getValue())) {
+                if (TextUtils.isEmpty(filterValue.getValue()) || "origin".equalsIgnoreCase(filterValue.getValue())) {
                     return false;
                 }
             } else if (filterValue.getFilterType() != 2 || TextUtils.isEmpty(filterValue.getFilterPath())) {
@@ -285,8 +285,8 @@ public class CheckUtils {
             if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
                 MultiMediaData multiMediaData = (MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0);
                 if (multiMediaData.type == 1 && multiMediaData.start == 0) {
-                    long j2 = multiMediaData.originalDuration;
-                    return (j2 == 0 || multiMediaData.end == j2) && multiMediaData.volume == 1.0f;
+                    long j = multiMediaData.originalDuration;
+                    return (j == 0 || multiMediaData.end == j) && multiMediaData.volume == 1.0f;
                 }
                 return false;
             }
@@ -302,8 +302,8 @@ public class CheckUtils {
             if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
                 MultiMediaData multiMediaData = (MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0);
                 if (multiMediaData.type == 1 && multiMediaData.start == 0) {
-                    long j2 = multiMediaData.originalDuration;
-                    return (j2 == 0 || multiMediaData.end == j2) && multiMediaData.angle == 0.0f && multiMediaData.scaleX == 1.0f && multiMediaData.scaleY == 1.0f && multiMediaData.x == 0.0f && multiMediaData.y == 0.0f && !multiMediaData.addDefaultEffect;
+                    long j = multiMediaData.originalDuration;
+                    return (j == 0 || multiMediaData.end == j) && multiMediaData.angle == 0.0f && multiMediaData.scaleX == 1.0f && multiMediaData.scaleY == 1.0f && multiMediaData.x == 0.0f && multiMediaData.y == 0.0f && !multiMediaData.addDefaultEffect;
                 }
                 return false;
             }

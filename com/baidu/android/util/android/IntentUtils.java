@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IntentUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -196,17 +196,17 @@ public class IntentUtils {
         return invokeLLI.intValue;
     }
 
-    public static long safeGetLongExtra(Intent intent, String str, long j2) {
+    public static long safeGetLongExtra(Intent intent, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{intent, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{intent, str, Long.valueOf(j)})) == null) {
             try {
-                return intent.getLongExtra(str, j2);
+                return intent.getLongExtra(str, j);
             } catch (Throwable unused) {
                 if (DEBUG) {
                     String str2 = "getLongExtra failed on intent " + intent;
                 }
-                return j2;
+                return j;
             }
         }
         return invokeCommon.longValue;

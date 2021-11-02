@@ -20,7 +20,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FutureObserver<T> extends CountDownLatch implements Observer<T>, Future<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -180,13 +180,13 @@ public final class FutureObserver<T> extends CountDownLatch implements Observer<
     }
 
     @Override // java.util.concurrent.Future
-    public T get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public T get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
             if (getCount() != 0) {
                 BlockingHelper.verifyNonBlocking();
-                if (!await(j2, timeUnit)) {
+                if (!await(j, timeUnit)) {
                     throw new TimeoutException();
                 }
             }

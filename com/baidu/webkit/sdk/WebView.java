@@ -47,6 +47,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -73,7 +74,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WebView extends AbsoluteLayout implements View.OnLongClickListener, ViewGroup.OnHierarchyChangeListener, ViewTreeObserver.OnGlobalFocusChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATA_REDUCTION_PROXY_SETTING_CHANGED = "com.baidu.webkit.sdk.DATA_REDUCTION_PROXY_SETTING_CHANGED";
@@ -108,13 +109,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public final Looper mWebViewThread;
 
     /* renamed from: com.baidu.webkit.sdk.WebView$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public final class DelegateAdapter implements WebViewProvider.ScrollDelegate, WebViewProvider.ViewDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -564,12 +565,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface FindListener {
         void onFindResultReceived(int i2, int i3, boolean z);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class FindListenerDistributor implements FindListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -615,7 +616,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class HitTestResult {
         public static /* synthetic */ Interceptable $ic = null;
         @Deprecated
@@ -848,12 +849,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface IVirtualMemoryListener {
         void onVirtualMemoryPressure(int i2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class JSInterfaceStatistics implements Statistics.Record {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -925,32 +926,32 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface MainResourcePrefetchListener {
-        void onPrefetchFinished(String str, long j2, boolean z, String str2, int i2);
+        void onPrefetchFinished(String str, long j, boolean z, String str2, int i2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnDragListener {
         boolean onDrag(View view, DragEvent dragEvent);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnGenericMotionListener {
         boolean onGenericMotion(View view, MotionEvent motionEvent);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnHoverListener {
         boolean onHover(View view, MotionEvent motionEvent);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnSystemUiVisibilityChangeListener {
         void onSystemUiVisibilityChange(int i2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class PageInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1021,14 +1022,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface PictureListener {
         @Deprecated
         void onNewPicture(WebView webView, Picture picture);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class PrerenderStatus {
         public static final /* synthetic */ PrerenderStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1091,7 +1092,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class PrivateAccess {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1289,12 +1290,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public @interface RendererPriority {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class SaveAsType {
         public static final /* synthetic */ SaveAsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1355,7 +1356,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static abstract class VisualStateCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1374,10 +1375,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             }
         }
 
-        public abstract void onComplete(long j2);
+        public abstract void onComplete(long j);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class WebPageInfoList {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1412,7 +1413,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class WebViewState {
         public static final /* synthetic */ WebViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1473,7 +1474,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class WebViewTransport {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1524,7 +1525,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class WebViewType {
         public static final /* synthetic */ WebViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -2206,7 +2207,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             boolean a2 = true ^ secureProcessor.a();
             if (obj != null && !TextUtils.isEmpty(str)) {
                 secureProcessor.d().put(str, obj);
-                secureProcessor.f64100d = null;
+                secureProcessor.f60943d = null;
             }
             if (!a2 || getEnableJsPrompt()) {
                 return;
@@ -2690,14 +2691,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
             a secureProcessor = getSecureProcessor();
-            if (secureProcessor.f64099c.getContext().getPackageName().contains("com.baidu.searchbox")) {
-                HashMap<String, Object> hashMap = secureProcessor.f64098b;
+            if (secureProcessor.f60942c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+                HashMap<String, Object> hashMap = secureProcessor.f60941b;
                 if (hashMap != null) {
                     hashMap.clear();
-                    secureProcessor.f64098b = null;
+                    secureProcessor.f60941b = null;
                 }
-                if (secureProcessor.f64099c.getWebViewClient() != null) {
-                    secureProcessor.f64100d = null;
+                if (secureProcessor.f60942c.getWebViewClient() != null) {
+                    secureProcessor.f60943d = null;
                 }
             }
             checkThread();
@@ -2951,7 +2952,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (SslCertificate) invokeV.objValue;
     }
 
-    @ViewDebug.ExportedProperty(category = "webview")
+    @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
     public int getContentHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2962,7 +2963,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return invokeV.intValue;
     }
 
-    @ViewDebug.ExportedProperty(category = "webview")
+    @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
     public int getContentWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -3072,7 +3073,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) ? this.mProvider.getMinZoomScale() : invokeV.floatValue;
     }
 
-    @ViewDebug.ExportedProperty(category = "webview")
+    @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
     public String getOriginalUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -3123,7 +3124,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) ? this.mProvider.getRendererRequestedPriority() : invokeV.intValue;
     }
 
-    @ViewDebug.ExportedProperty(category = "webview")
+    @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
     @Deprecated
     public float getScale() {
         InterceptResult invokeV;
@@ -3184,7 +3185,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) ? this.mProvider.getTextFieldText() : (CharSequence) invokeV.objValue;
     }
 
-    @ViewDebug.ExportedProperty(category = "webview")
+    @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -3217,7 +3218,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) ? this.mProvider.getTouchMode() : invokeV.intValue;
     }
 
-    @ViewDebug.ExportedProperty(category = "webview")
+    @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -4247,11 +4248,11 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public void postVisualStateCallback(long j2, VisualStateCallback visualStateCallback) {
+    public void postVisualStateCallback(long j, VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048796, this, j2, visualStateCallback) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048796, this, j, visualStateCallback) == null) {
             checkThread();
-            this.mProvider.insertVisualStateCallback(j2, visualStateCallback);
+            this.mProvider.insertVisualStateCallback(j, visualStateCallback);
         }
     }
 
@@ -4295,11 +4296,11 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         if (interceptable == null || interceptable.invokeL(1048801, this, str) == null) {
             a secureProcessor = getSecureProcessor();
             boolean z = true;
-            if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f64099c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+            if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f60942c.getContext().getPackageName().contains("com.baidu.searchbox")) {
                 boolean z2 = !secureProcessor.a();
                 secureProcessor.d().remove(str);
-                if (secureProcessor.f64099c.getWebViewClient() != null) {
-                    secureProcessor.f64100d = null;
+                if (secureProcessor.f60942c.getWebViewClient() != null) {
+                    secureProcessor.f60943d = null;
                 }
                 z = z2;
             }
@@ -4555,19 +4556,19 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void setCurrentSourceIdByIdentifier() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048831, this) == null) {
-            long j2 = mIdentifier + 1;
-            mIdentifier = j2;
-            this.mCurrentSourceId = j2 << 16;
+            long j = mIdentifier + 1;
+            mIdentifier = j;
+            this.mCurrentSourceId = j << 16;
             Log.i("huqin-sourceid", "setCurrentSourceIdByIdentifier sourceId = " + this.mCurrentSourceId);
         }
     }
 
-    public void setCurrentSourceIdByNavigationId(long j2) {
+    public void setCurrentSourceIdByNavigationId(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048832, this, j2) == null) || j2 < 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048832, this, j) == null) || j < 0) {
             return;
         }
-        this.mCurrentSourceId = (j2 << 2) + 1;
+        this.mCurrentSourceId = (j << 2) + 1;
         Log.i("huqin-sourceid", "setCurrentSourceIdByNavigationId sourceId = " + this.mCurrentSourceId);
     }
 

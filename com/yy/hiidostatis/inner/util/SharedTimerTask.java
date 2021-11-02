@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class SharedTimerTask implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCELLED = 3;
@@ -55,13 +55,13 @@ public abstract class SharedTimerTask implements Runnable {
 
     public long scheduledExecutionTime() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this.lock) {
-                j2 = this.nextExecutionTime;
+                j = this.nextExecutionTime;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

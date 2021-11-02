@@ -8,30 +8,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class af {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final af f77624a;
+    public static final af f70587a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ af[] f65a;
+    public static final /* synthetic */ af[] f66a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final af f77625b;
+    public static final af f70588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final af f77626c;
+    public static final af f70589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final af f77627d;
+    public static final af f70590d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final af f77628e;
+    public static final af f70591e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final af f77629f;
+    public static final af f70592f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,14 +47,14 @@ public final class af {
                 return;
             }
         }
-        f77624a = new af("HUAWEI", 0);
-        f77625b = new af("MEIZU", 1);
-        f77626c = new af("FCM", 2);
-        f77627d = new af("OPPO", 3);
-        f77628e = new af("VIVO", 4);
+        f70587a = new af("HUAWEI", 0);
+        f70588b = new af("MEIZU", 1);
+        f70589c = new af("FCM", 2);
+        f70590d = new af("OPPO", 3);
+        f70591e = new af("VIVO", 4);
         af afVar = new af("OTHER", 5);
-        f77629f = afVar;
-        f65a = new af[]{f77624a, f77625b, f77626c, f77627d, f77628e, afVar};
+        f70592f = afVar;
+        f66a = new af[]{f70587a, f70588b, f70589c, f70590d, f70591e, afVar};
     }
 
     public af(String str, int i2) {
@@ -85,6 +85,6 @@ public final class af {
     public static af[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (af[]) f65a.clone() : (af[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (af[]) f66a.clone() : (af[]) invokeV.objValue;
     }
 }

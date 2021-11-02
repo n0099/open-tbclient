@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public StaticLayout f46649e;
+    public StaticLayout f44307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f46650f;
+    public TextPaint f44308f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CenterTextView(Context context, AttributeSet attributeSet) {
@@ -50,10 +50,10 @@ public class CenterTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextPaint textPaint = new TextPaint(1);
-            this.f46650f = textPaint;
+            this.f44308f = textPaint;
             textPaint.setTextSize(getTextSize());
-            this.f46650f.setColor(getCurrentTextColor());
-            this.f46649e = new StaticLayout(getText(), this.f46650f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+            this.f44308f.setColor(getCurrentTextColor());
+            this.f44307e = new StaticLayout(getText(), this.f44308f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
         }
     }
 
@@ -61,7 +61,7 @@ public class CenterTextView extends TextView {
     public void onDraw(Canvas canvas) {
         StaticLayout staticLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || (staticLayout = this.f46649e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || (staticLayout = this.f44307e) == null) {
             return;
         }
         staticLayout.draw(canvas);

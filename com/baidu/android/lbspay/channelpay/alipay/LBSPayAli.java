@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.lbspay.channelpay.IChannelPay;
@@ -19,7 +20,7 @@ import com.dxmpay.wallet.core.NoProguard;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LBSPayAli implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALI_AUTH_PAY = "authorize_pay";
@@ -32,23 +33,23 @@ public class LBSPayAli implements NoProguard {
     public String mServiceType;
 
     /* renamed from: com.baidu.android.lbspay.channelpay.alipay.LBSPayAli$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface INoSupportAliAuthorizePay {
         void onNoSupportAliAuthorizePay();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayAli f36840a;
+        public static LBSPayAli f34891a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -64,7 +65,7 @@ public class LBSPayAli implements NoProguard {
                     return;
                 }
             }
-            f36840a = new LBSPayAli(null);
+            f34891a = new LBSPayAli(null);
         }
     }
 
@@ -75,7 +76,7 @@ public class LBSPayAli implements NoProguard {
     public static LBSPayAli getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36840a : (LBSPayAli) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f34891a : (LBSPayAli) invokeV.objValue;
     }
 
     private void handleError() {
@@ -149,7 +150,7 @@ public class LBSPayAli implements NoProguard {
             if (ALI_AUTH_PAY.equals(this.mServiceType)) {
                 if (this.mChannelPay != null) {
                     if (AUTHPAY_SUCCESS_HOST.equals(host)) {
-                        if ("T".equals(data.getQueryParameter("is_success")) && "TRADE_SUCCESS".equals(data.getQueryParameter("trade_status"))) {
+                        if (ExifInterface.GPS_DIRECTION_TRUE.equals(data.getQueryParameter("is_success")) && "TRADE_SUCCESS".equals(data.getQueryParameter("trade_status"))) {
                             this.mChannelPay.paySuccess(data.getQuery());
                         } else {
                             this.mChannelPay.payError(Result.RESULT_FAILED, EventAlias.PayEventAlias.PAY_FAIL);
@@ -165,7 +166,7 @@ public class LBSPayAli implements NoProguard {
                 }
             } else if (ALI_AUTH_SIGN.equals(this.mServiceType)) {
                 if (AUTHPAY_SUCCESS_HOST.equals(host)) {
-                    if ("T".equals(data.getQueryParameter("is_success"))) {
+                    if (ExifInterface.GPS_DIRECTION_TRUE.equals(data.getQueryParameter("is_success"))) {
                         LBSPayResult.payResult(null, 0, data.getQuery());
                     } else {
                         LBSPayResult.payResult(null, 2, data.getQuery());

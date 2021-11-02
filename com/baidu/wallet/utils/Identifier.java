@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Identifier implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static String sSessionID;

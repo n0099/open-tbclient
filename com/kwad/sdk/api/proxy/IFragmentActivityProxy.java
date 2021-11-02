@@ -12,7 +12,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.core.fragment.KsFragmentManager;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class IFragmentActivityProxy extends IActivityProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

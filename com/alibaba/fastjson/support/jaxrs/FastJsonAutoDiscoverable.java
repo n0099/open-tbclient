@@ -12,7 +12,7 @@ import javax.annotation.Priority;
 import javax.ws.rs.core.FeatureContext;
 import org.glassfish.jersey.internal.spi.AutoDiscoverable;
 @Priority(CyberVideoDownloader.DMDownloadError.Unknown)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FastJsonAutoDiscoverable implements AutoDiscoverable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FASTJSON_AUTO_DISCOVERABLE = "fastjson.auto.discoverable";

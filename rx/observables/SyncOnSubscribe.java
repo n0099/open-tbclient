@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.e;
-import i.f;
-import i.j;
-import i.k;
-import i.m.a;
-import i.r.c;
+import h.d;
+import h.e;
+import h.f;
+import h.j;
+import h.k;
+import h.m.a;
+import h.r.c;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SubscriptionProducer<S, T> extends AtomicLong implements f, k, e<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3736864024352728072L;
@@ -56,7 +56,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 try {
-                    this.parent.b(this.state);
+                    this.parent.c(this.state);
                 } catch (Throwable th) {
                     a.e(th);
                     c.j(th);
@@ -97,17 +97,17 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
         private void nextIteration(SyncOnSubscribe<S, T> syncOnSubscribe) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, syncOnSubscribe) == null) {
-                this.state = syncOnSubscribe.a(this.state, this);
+                this.state = syncOnSubscribe.b(this.state, this);
             }
         }
 
-        private void slowPath(long j2) {
+        private void slowPath(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) {
                 SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
                 j<? super T> jVar = this.actualSubscriber;
                 do {
-                    long j3 = j2;
+                    long j2 = j;
                     do {
                         try {
                             this.onNextCalled = false;
@@ -116,15 +116,15 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                                 return;
                             }
                             if (this.onNextCalled) {
-                                j3--;
+                                j2--;
                             }
                         } catch (Throwable th) {
                             handleThrownError(jVar, th);
                             return;
                         }
-                    } while (j3 != 0);
-                    j2 = addAndGet(-j2);
-                } while (j2 > 0);
+                    } while (j2 != 0);
+                    j = addAndGet(-j);
+                } while (j > 0);
                 tryUnsubscribe();
             }
         }
@@ -143,14 +143,14 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             return invokeV.booleanValue;
         }
 
-        @Override // i.k
+        @Override // h.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() < 0 : invokeV.booleanValue;
         }
 
-        @Override // i.e
+        @Override // h.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -166,7 +166,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             }
         }
 
-        @Override // i.e
+        @Override // h.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -182,7 +182,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             }
         }
 
-        @Override // i.e
+        @Override // h.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
@@ -195,35 +195,74 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             }
         }
 
-        @Override // i.f
-        public void request(long j2) {
+        @Override // h.f
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && j2 > 0 && i.o.a.a.b(this, j2) == 0) {
-                if (j2 == Long.MAX_VALUE) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j > 0 && h.o.a.a.b(this, j) == 0) {
+                if (j == Long.MAX_VALUE) {
                     fastPath();
                 } else {
-                    slowPath(j2);
+                    slowPath(j);
                 }
             }
         }
 
-        @Override // i.k
+        @Override // h.k
         public void unsubscribe() {
-            long j2;
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 do {
-                    j2 = get();
+                    j = get();
                     if (compareAndSet(0L, -1L)) {
                         doUnsubscribe();
                         return;
                     }
-                } while (!compareAndSet(j2, -2L));
+                } while (!compareAndSet(j, -2L));
             }
         }
     }
 
-    public abstract S a(S s, e<? super T> eVar);
+    public SyncOnSubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    public abstract void b(S s);
+    public abstract S a();
+
+    public abstract S b(S s, e<? super T> eVar);
+
+    public void c(S s) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s) == null) {
+        }
+    }
+
+    @Override // h.d.a, h.n.b
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((j) ((j) obj));
+    }
+
+    public final void call(j<? super T> jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jVar) == null) {
+            try {
+                SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, a());
+                jVar.b(subscriptionProducer);
+                jVar.f(subscriptionProducer);
+            } catch (Throwable th) {
+                a.e(th);
+                jVar.onError(th);
+            }
+        }
+    }
 }

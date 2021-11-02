@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class DisplayUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f38291a = 0.5f;
+    public static final float f36298a = 0.5f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f38292b;
+    public static DisplayMetrics f36299b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public DisplayUtils() {
@@ -36,8 +36,8 @@ public final class DisplayUtils {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f38292b == null) {
-            f38292b = context.getResources().getDisplayMetrics();
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f36299b == null) {
+            f36299b = context.getResources().getDisplayMetrics();
         }
     }
 
@@ -52,7 +52,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             a(context);
-            return f38292b.heightPixels;
+            return f36299b.heightPixels;
         }
         return invokeL.intValue;
     }
@@ -62,7 +62,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             a(context);
-            return f38292b.widthPixels;
+            return f36299b.widthPixels;
         }
         return invokeL.intValue;
     }

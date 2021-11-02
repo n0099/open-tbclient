@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
 @DisableIntercept
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class TitanIniter {
     public static Context sContext;
 

@@ -36,7 +36,7 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.Arrays;
 import java.util.HashMap;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WebViewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANNEL_DISCOUNT_PARAMS = "channel_discount_params";
@@ -51,13 +51,13 @@ public class WebViewActivity extends BaseActivity {
     public String mHtmlFromScene;
     public SafeWebView mWebView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f70255e;
+        public final /* synthetic */ WebViewActivity f62672e;
 
         public a(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -74,26 +74,26 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f70255e = webViewActivity;
+            this.f62672e = webViewActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                GlobalUtils.hideKeyboard(this.f70255e.getActivity());
-                this.f70255e.onBackPressed();
+                GlobalUtils.hideKeyboard(this.f62672e.getActivity());
+                this.f62672e.onBackPressed();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b extends SafeWebView.SafeChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f70256e;
+        public final /* synthetic */ WebViewActivity f62673e;
 
         public b(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f70256e = webViewActivity;
+            this.f62673e = webViewActivity;
         }
 
         @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
@@ -118,9 +118,9 @@ public class WebViewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                WebViewActivity webViewActivity = this.f70256e;
+                WebViewActivity webViewActivity = this.f62673e;
                 if (TextUtils.isEmpty(str)) {
-                    str = ResUtils.getString(this.f70256e.getActivity(), "dxm_ebpay_wallet");
+                    str = ResUtils.getString(this.f62673e.getActivity(), "dxm_ebpay_wallet");
                 }
                 webViewActivity.initActionBar(str);
             }
@@ -131,13 +131,13 @@ public class WebViewActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f70257e;
+        public final /* synthetic */ WebViewActivity f62674e;
 
         public c(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -154,7 +154,7 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f70257e = webViewActivity;
+            this.f62674e = webViewActivity;
         }
 
         @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
@@ -162,7 +162,7 @@ public class WebViewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                WalletGlobalUtils.safeDismissDialog(this.f70257e, -1);
+                WalletGlobalUtils.safeDismissDialog(this.f62674e, -1);
             }
         }
 
@@ -188,7 +188,7 @@ public class WebViewActivity extends BaseActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 if (str.startsWith("tel:")) {
                     try {
-                        this.f70257e.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
+                        this.f62674e.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -197,10 +197,10 @@ public class WebViewActivity extends BaseActivity {
                     try {
                         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str.substring(0, str.indexOf("?"))));
                         intent.putExtra("android.intent.extra.SUBJECT", Uri.parse(str.replace(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO, "mailto://")).getQueryParameter("subject"));
-                        this.f70257e.startActivity(intent);
+                        this.f62674e.startActivity(intent);
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        GlobalUtils.toast(this.f70257e.getActivity(), "请先配置邮箱");
+                        GlobalUtils.toast(this.f62674e.getActivity(), "请先配置邮箱");
                     }
                     return true;
                 } else {

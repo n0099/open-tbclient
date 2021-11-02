@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.recforum.model;
 
-import c.a.q0.d1.z;
+import b.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.GetMsgRecForumlist.DataReq;
 import tbclient.GetMsgRecForumlist.GetMsgRecForumlistReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MsgRecForumNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f53617common;
+    public CommonReq f50851common;
     public Integer mPn;
     public Integer mRn;
     public Long userId;
@@ -47,7 +47,7 @@ public class MsgRecForumNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f80055common = this.f53617common;
+            builder.f72888common = this.f50851common;
             builder.pn = this.mPn;
             builder.rn = this.mRn;
             builder.user_id = this.userId;

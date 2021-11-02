@@ -8,8 +8,8 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.d.a.a;
-import c.a.b0.f.b;
+import b.a.b0.d.a.a;
+import b.a.b0.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
@@ -49,7 +49,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LiveNPSPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LIVE_SHOW_ADMIN_LIST = "LIVE_SHOW_ADMIN_LIST";
@@ -70,6 +70,7 @@ public class LiveNPSPluginManager {
     public static final String LOAD_FROM_NPS_LOAD = "nps_load";
     public static final String MEDIA_BJH_CREATE_LIVE_ROOM = "MEDIA_BJH_CREATE_LIVE_ROOM";
     public static final String MEDIA_ENTER_LIVE_ROOM = "MEDIA_ENTER_LIVE_ROOM";
+    public static final String MEDIA_MASTER_ROUTER = "MEDIA_MASTER_ROUTER";
     public static final String NEW_CLEAR_RESOURCE_FILE = "NEW_CLEAR_RESOURCE_FILE";
     public static final String NEW_CREATE_LIVE_ROOM = "NEW_CREATE_LIVE_ROOM";
     public static final String NEW_GET_LIVE_ROOM_STATUS = "NEW_GET_LIVE_ROOM_STATUS";
@@ -107,12 +108,12 @@ public class LiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface PluginLoadCallback {
         void onResult(int i2, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static LiveNPSPluginManager instance;
@@ -200,7 +201,7 @@ public class LiveNPSPluginManager {
                 boolean isLoaded = this.mLiveNPSPlugin.getYYLiveEntry().isLoaded();
                 dLog("checkYYEntranceIsLoaded，url = " + str + ",  isLoaded = " + isLoaded);
                 if (!isLoaded) {
-                    this.mLiveNPSPlugin.getYYLiveEntry().loadPlugin(context, new LiveLoadStatusCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.25
+                    this.mLiveNPSPlugin.getYYLiveEntry().loadPlugin(context, new LiveLoadStatusCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.26
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -265,7 +266,7 @@ public class LiveNPSPluginManager {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65569, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage(NPS_PLUGIN_PKG_NAME, new a(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.29
+            NPSPackageManager.getInstance().downloadUpdatePackage(NPS_PLUGIN_PKG_NAME, new a(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.30
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -288,20 +289,20 @@ public class LiveNPSPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.b0.d.a.a
-                public void onProgress(long j2, long j3) {
+                @Override // b.a.b0.d.a.a
+                public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // c.a.b0.d.a.a
+                @Override // b.a.b0.d.a.a
                 public void onResult(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                     }
                 }
-            }, new c.a.b0.f.a(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.30
+            }, new b.a.b0.f.a(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.31
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -324,7 +325,7 @@ public class LiveNPSPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.b0.f.a
+                @Override // b.a.b0.f.a
                 public void checkAuthorization(IBundleInfo iBundleInfo, int i2, b bVar) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i2, bVar) == null) || bVar == null) {
@@ -393,7 +394,7 @@ public class LiveNPSPluginManager {
         if (interceptable == null || interceptable.invokeCommon(65574, this, new Object[]{Boolean.valueOf(z), str, pluginLoadCallback}) == null) {
             this.mCurrentCallback = pluginLoadCallback;
             String str2 = "NPS load from=" + str;
-            IInvokeCallback iInvokeCallback = new IInvokeCallback(this, str, pluginLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.31
+            IInvokeCallback iInvokeCallback = new IInvokeCallback(this, str, pluginLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -438,10 +439,10 @@ public class LiveNPSPluginManager {
                         if (this.val$callback != null) {
                             String str4 = this.this$0.fromDownLoad ? "download" : "install";
                             if (Looper.myLooper() != Looper.getMainLooper()) {
-                                this.this$0.handler.post(new Runnable(this, i2, str3, obj, str4) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.31.1
+                                this.this$0.handler.post(new Runnable(this, i2, str3, obj, str4) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass31 this$1;
+                                    public final /* synthetic */ AnonymousClass32 this$1;
                                     public final /* synthetic */ int val$i;
                                     public final /* synthetic */ String val$loadType;
                                     public final /* synthetic */ Object val$o;
@@ -487,7 +488,7 @@ public class LiveNPSPluginManager {
                     }
                 }
             };
-            IInvokeCallback iInvokeCallback2 = new IInvokeCallback(this, str, pluginLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32
+            IInvokeCallback iInvokeCallback2 = new IInvokeCallback(this, str, pluginLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -531,10 +532,10 @@ public class LiveNPSPluginManager {
                         liveNPSPluginManager2.logPluginEnd(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, pluginInstallVersion, z3, "load code" + i2, "nps_load", this.val$useFrom);
                         if (this.val$callback != null) {
                             if (Looper.myLooper() != Looper.getMainLooper()) {
-                                this.this$0.handler.post(new Runnable(this, i2, str3, obj) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32.1
+                                this.this$0.handler.post(new Runnable(this, i2, str3, obj) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass32 this$1;
+                                    public final /* synthetic */ AnonymousClass33 this$1;
                                     public final /* synthetic */ int val$i;
                                     public final /* synthetic */ Object val$o;
                                     public final /* synthetic */ String val$s;
@@ -589,7 +590,7 @@ public class LiveNPSPluginManager {
                 }
                 String str3 = "start load Class t=" + System.currentTimeMillis();
                 if (NPSPackageManager.getInstance().getBundleGroup(NPS_PLUGIN_PKG_NAME).getBundleByType(2) != null) {
-                    ExecutorUtilsExt.postOnElastic(new Runnable(this, iInvokeCallback2, z) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33
+                    ExecutorUtilsExt.postOnElastic(new Runnable(this, iInvokeCallback2, z) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.34
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -630,10 +631,10 @@ public class LiveNPSPluginManager {
                                 this.this$0.dLog("开始加载LiveNps");
                                 NpsLoadChainLog.getInstance().startLoadClazzLiveNps();
                                 NPSManager.getInstance().loadClazz(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, LiveNPSPluginManager.NPS_PLUGIN_IMPL_CLASS_NAME, ILiveNPSPlugin.class, this.val$proxyLoadCallback);
-                                this.this$0.handler.post(new Runnable(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33.1
+                                this.this$0.handler.post(new Runnable(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.34.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass33 this$1;
+                                    public final /* synthetic */ AnonymousClass34 this$1;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -657,9 +658,9 @@ public class LiveNPSPluginManager {
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            AnonymousClass33 anonymousClass33 = this.this$1;
-                                            if (anonymousClass33.val$enterPage) {
-                                                anonymousClass33.this$0.downloadUpdatePackage();
+                                            AnonymousClass34 anonymousClass34 = this.this$1;
+                                            if (anonymousClass34.val$enterPage) {
+                                                anonymousClass34.this$0.downloadUpdatePackage();
                                             }
                                         }
                                     }
@@ -689,7 +690,7 @@ public class LiveNPSPluginManager {
             String str4 = "start install bundle t=" + System.currentTimeMillis();
             dLog("下载LiveNps插件 = com.baidu.searchbox.livenps");
             NpsLoadChainLog.getInstance().startDownloadLiveNps();
-            NPSPackageManager.getInstance().installBundle(NPS_PLUGIN_PKG_NAME, new IInstallCallback(this, iInvokeCallback, z, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.34
+            NPSPackageManager.getInstance().installBundle(NPS_PLUGIN_PKG_NAME, new IInstallCallback(this, iInvokeCallback, z, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.35
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -719,18 +720,18 @@ public class LiveNPSPluginManager {
                 }
 
                 @Override // com.baidu.nps.main.install.IInstallCallback
-                public void onProgress(long j2, long j3) {
+                public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                         this.this$0.fromDownLoad = true;
                         if (this.this$0.loadingCallback != null && !this.this$0.isLoadingCanceled) {
-                            this.this$0.loadingCallback.onLoadingProgress(j2, j3);
+                            this.this$0.loadingCallback.onLoadingProgress(j, j2);
                         }
                         LiveNPSPluginManager liveNPSPluginManager = this.this$0;
-                        liveNPSPluginManager.dLog("downloadSize = " + j2 + ", totalSIze = " + j3);
-                        if (j2 >= j3) {
+                        liveNPSPluginManager.dLog("downloadSize = " + j + ", totalSIze = " + j2);
+                        if (j >= j2) {
                             this.this$0.dLog("LiveNps下载结束");
-                            NpsLoadChainLog.getInstance().endDownloadLiveNps(j2, j3);
+                            NpsLoadChainLog.getInstance().endDownloadLiveNps(j, j2);
                             this.this$0.dLog("开始安装LiveNps");
                             NpsLoadChainLog.getInstance().startInstallLiveNps();
                         }
@@ -762,10 +763,10 @@ public class LiveNPSPluginManager {
                             if (this.val$enterPage) {
                                 if (i2 == 34) {
                                     if (this.this$0.loadingCallback == null) {
-                                        this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_installing, 0);
+                                        this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_installing, 0);
                                     }
                                 } else {
-                                    this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                    this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                                 }
                             }
                             if (this.this$0.ubcManager != null && this.this$0.pageFlow != null) {
@@ -1019,7 +1020,7 @@ public class LiveNPSPluginManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65586, this, i2, i3) == null) {
             if (Looper.myLooper() != Looper.getMainLooper()) {
-                this.handler.post(new Runnable(this, i2, i3) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.39
+                this.handler.post(new Runnable(this, i2, i3) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.40
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1131,7 +1132,7 @@ public class LiveNPSPluginManager {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_CHECK_AR, new PluginLoadCallback(this, liveNpsArStatusCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.20
+                loadNPSPluginImpl(true, LIVE_SHOW_CHECK_AR, new PluginLoadCallback(this, liveNpsArStatusCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.21
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1174,7 +1175,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -1194,7 +1195,7 @@ public class LiveNPSPluginManager {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, NEW_CLEAR_RESOURCE_FILE, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.37
+                loadNPSPluginImpl(false, NEW_CLEAR_RESOURCE_FILE, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.38
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1233,7 +1234,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
                             }
@@ -1262,11 +1263,81 @@ public class LiveNPSPluginManager {
         if (this.mLiveNPSPlugin.getYYLiveEntry() != null) {
             this.mLiveNPSPlugin.getYYLiveEntry().dispatchHostEvent(context, str, map);
         }
+        if (this.mLiveNPSPlugin.getLiveBjhEntry() != null) {
+            this.mLiveNPSPlugin.getLiveBjhEntry().dispatchHostEvent(context, str, map);
+        }
+    }
+
+    public void dispatchLiveMasterRouter(@NonNull Application application, String str, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, application, str, map) == null) {
+            npsLoadChainInitStart();
+            ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
+            if (iLiveNPSPlugin == null) {
+                loadNPSPluginImpl(true, MEDIA_MASTER_ROUTER, new PluginLoadCallback(this, application, str, map) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ LiveNPSPluginManager this$0;
+                    public final /* synthetic */ Application val$packageContext;
+                    public final /* synthetic */ Map val$params;
+                    public final /* synthetic */ String val$path;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, application, str, map};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$packageContext = application;
+                        this.val$path = str;
+                        this.val$params = map;
+                    }
+
+                    @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
+                    public void onResult(int i2, String str2, Object obj, String str3) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, obj, str3}) == null) {
+                            if (i2 == 14) {
+                                try {
+                                    this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
+                                    if (this.this$0.isLoadingCanceled || this.this$0.mLiveNPSPlugin.getLiveBjhEntry() == null) {
+                                        return;
+                                    }
+                                    this.this$0.mLiveNPSPlugin.getLiveBjhEntry().dispatchLiveMasterRouter(this.val$packageContext, this.val$path, this.val$params);
+                                    return;
+                                } catch (Exception e2) {
+                                    e2.printStackTrace();
+                                    return;
+                                }
+                            }
+                            if (!this.this$0.isLoadingCanceled) {
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            }
+                            if (this.this$0.isDebug()) {
+                                String str4 = "load live nps plugin error=" + i2;
+                            }
+                        }
+                    }
+                });
+            } else if (iLiveNPSPlugin.getLiveBjhEntry() != null) {
+                this.mLiveNPSPlugin.getLiveBjhEntry().dispatchLiveMasterRouter(application, str, map);
+            }
+        }
     }
 
     public void dispatchYYLiveRouter(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
             if (YYStaticConfig.conf == null) {
                 YYStaticConfig.conf = new HashMap<>();
             }
@@ -1278,7 +1349,7 @@ public class LiveNPSPluginManager {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             npsLoadChainLog.setPluginVersion(getPluginInstallVersion() + "");
             if (this.mLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, YY_LIVE_ROUTER, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.28
+                loadNPSPluginImpl(true, YY_LIVE_ROUTER, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.29
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1309,10 +1380,10 @@ public class LiveNPSPluginManager {
                     public void onResult(int i2, String str2, Object obj, String str3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, obj, str3}) == null) {
-                            this.this$0.mMainHandler.post(new Runnable(this, str3, i2, obj) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.28.1
+                            this.this$0.mMainHandler.post(new Runnable(this, str3, i2, obj) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.29.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass28 this$1;
+                                public final /* synthetic */ AnonymousClass29 this$1;
                                 public final /* synthetic */ String val$loadType;
                                 public final /* synthetic */ int val$retCode;
                                 public final /* synthetic */ Object val$retObject;
@@ -1354,7 +1425,7 @@ public class LiveNPSPluginManager {
                                             YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "load");
                                         }
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -1382,16 +1453,16 @@ public class LiveNPSPluginManager {
     public BundleInfo getInstalledPluginInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? NPSPackageManager.getInstance().getBundleInfo(NPS_PLUGIN_PKG_NAME) : (BundleInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? NPSPackageManager.getInstance().getBundleInfo(NPS_PLUGIN_PKG_NAME) : (BundleInfo) invokeV.objValue;
     }
 
     public void getLiveResourceFileSize(@NonNull Context context, @NonNull ILiveFileSizeCallback iLiveFileSizeCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, context, iLiveFileSizeCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, iLiveFileSizeCallback) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, NEW_GET_RESOURCE_FILE_SIZE, new PluginLoadCallback(this, context, iLiveFileSizeCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.36
+                loadNPSPluginImpl(false, NEW_GET_RESOURCE_FILE_SIZE, new PluginLoadCallback(this, context, iLiveFileSizeCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.37
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1434,7 +1505,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             this.val$callback.getFileSize(0L);
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
                             }
@@ -1449,11 +1520,11 @@ public class LiveNPSPluginManager {
 
     public void getLiveRoomStatus(@NonNull String str, @NonNull LiveStatusDataCallback<String> liveStatusDataCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, liveStatusDataCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, liveStatusDataCallback) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, NEW_GET_LIVE_ROOM_STATUS, new PluginLoadCallback(this, str, liveStatusDataCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.6
+                loadNPSPluginImpl(false, NEW_GET_LIVE_ROOM_STATUS, new PluginLoadCallback(this, str, liveStatusDataCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1494,7 +1565,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
                             }
@@ -1509,11 +1580,11 @@ public class LiveNPSPluginManager {
 
     public void getLiveSdkFileSize(@NonNull Context context, @NonNull ILiveFileSizeCallback iLiveFileSizeCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, context, iLiveFileSizeCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, context, iLiveFileSizeCallback) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, NEW_GET_LIVE_SDK_FILE_SIZE, new PluginLoadCallback(this, context, iLiveFileSizeCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.35
+                loadNPSPluginImpl(false, NEW_GET_LIVE_SDK_FILE_SIZE, new PluginLoadCallback(this, context, iLiveFileSizeCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.36
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1556,7 +1627,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             this.val$callback.getFileSize(0L);
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
                             }
@@ -1572,7 +1643,7 @@ public class LiveNPSPluginManager {
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             int bundleStatus = NPSPackageManager.getInstance().getBundleStatus(NPS_PLUGIN_PKG_NAME);
             if (bundleStatus != 43) {
                 if (isDebug()) {
@@ -1638,11 +1709,11 @@ public class LiveNPSPluginManager {
 
     public void isInHistory(@NonNull String str, @NonNull LiveStatusDataCallback<Boolean> liveStatusDataCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, liveStatusDataCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, liveStatusDataCallback) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, NEW_IS_HISTORY, new PluginLoadCallback(this, str, liveStatusDataCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.3
+                loadNPSPluginImpl(false, NEW_IS_HISTORY, new PluginLoadCallback(this, str, liveStatusDataCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1683,7 +1754,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
                             }
@@ -1696,14 +1767,14 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void onDiskClearCacheChange(long j2, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback) {
+    public void onDiskClearCacheChange(long j, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback}) == null) {
             String str = "start DiskClearCacheChange t=" + System.currentTimeMillis();
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, NEW_ON_DISK_CLEAR_CACHE_CHANGE, new PluginLoadCallback(this, j2, i2, i3, iLiveDiskClearCacheCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.38
+                loadNPSPluginImpl(false, NEW_ON_DISK_CLEAR_CACHE_CHANGE, new PluginLoadCallback(this, j, i2, i3, iLiveDiskClearCacheCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.39
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1717,7 +1788,7 @@ public class LiveNPSPluginManager {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback};
+                            Object[] objArr = {this, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i4 = newInitContext.flag;
                             if ((i4 & 1) != 0) {
@@ -1728,7 +1799,7 @@ public class LiveNPSPluginManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$quota = j2;
+                        this.val$quota = j;
                         this.val$oldState = i2;
                         this.val$newState = i3;
                         this.val$callback = iLiveDiskClearCacheCallback;
@@ -1749,14 +1820,14 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                         }
                     }
                 });
                 return;
             }
             try {
-                iLiveNPSPlugin.onDiskClearCacheChange(j2, i2, i3, iLiveDiskClearCacheCallback);
+                iLiveNPSPlugin.onDiskClearCacheChange(j, i2, i3, iLiveDiskClearCacheCallback);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -1765,18 +1836,18 @@ public class LiveNPSPluginManager {
 
     public void setLoadingCallback(LiveNpsLoadingCallback liveNpsLoadingCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, liveNpsLoadingCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, liveNpsLoadingCallback) == null) {
             this.loadingCallback = liveNpsLoadingCallback;
         }
     }
 
     public void startAdminListActivity(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_ADMIN_LIST, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.15
+                loadNPSPluginImpl(true, LIVE_SHOW_ADMIN_LIST, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.16
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1819,7 +1890,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -1835,11 +1906,11 @@ public class LiveNPSPluginManager {
 
     public void startArSdkLoad(@NonNull Context context, @NonNull LiveNpsArLoadCallback liveNpsArLoadCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, context, liveNpsArLoadCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048592, this, context, liveNpsArLoadCallback) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, LIVE_SHOW_LOAD_AR, new PluginLoadCallback(this, liveNpsArLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.21
+                loadNPSPluginImpl(false, LIVE_SHOW_LOAD_AR, new PluginLoadCallback(this, liveNpsArLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.22
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1874,10 +1945,10 @@ public class LiveNPSPluginManager {
                                     if (this.this$0.isLoadingCanceled || this.this$0.mLiveNPSPlugin.getLiveShowMasterEntry() == null) {
                                         return;
                                     }
-                                    this.this$0.mLiveNPSPlugin.getLiveShowMasterEntry().loadArSdk(new ILiveShowMasterEntry.ArSdkLoadCallback(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.21.1
+                                    this.this$0.mLiveNPSPlugin.getLiveShowMasterEntry().loadArSdk(new ILiveShowMasterEntry.ArSdkLoadCallback(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.22.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass21 this$1;
+                                        public final /* synthetic */ AnonymousClass22 this$1;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -1920,7 +1991,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -1929,7 +2000,7 @@ public class LiveNPSPluginManager {
                     }
                 });
             } else if (iLiveNPSPlugin.getLiveShowMasterEntry() != null) {
-                this.mLiveNPSPlugin.getLiveShowMasterEntry().loadArSdk(new ILiveShowMasterEntry.ArSdkLoadCallback(this, liveNpsArLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.22
+                this.mLiveNPSPlugin.getLiveShowMasterEntry().loadArSdk(new ILiveShowMasterEntry.ArSdkLoadCallback(this, liveNpsArLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.23
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1976,7 +2047,7 @@ public class LiveNPSPluginManager {
 
     public void startBjhMasterActivity(@NonNull Application application, String str, Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048592, this, application, str, uri) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048593, this, application, str, uri) == null) {
             npsLoadChainInitStart();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
@@ -2027,7 +2098,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2043,11 +2114,11 @@ public class LiveNPSPluginManager {
 
     public void startFansListActivity(@NonNull Context context, @NonNull String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048593, this, context, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048594, this, context, str, i2) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_FANS_LIST, new PluginLoadCallback(this, context, str, i2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.11
+                loadNPSPluginImpl(true, LIVE_SHOW_FANS_LIST, new PluginLoadCallback(this, context, str, i2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.12
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2093,7 +2164,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i3;
                             }
@@ -2108,11 +2179,11 @@ public class LiveNPSPluginManager {
 
     public void startForbiddenListActivity(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, context) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_FORBIDDEN_LIST, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.16
+                loadNPSPluginImpl(true, LIVE_SHOW_FORBIDDEN_LIST, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.17
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2155,7 +2226,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -2171,11 +2242,11 @@ public class LiveNPSPluginManager {
 
     public void startGuardianListActivity(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048595, this, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048596, this, context, str, str2) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_GUARD_LIST, new PluginLoadCallback(this, context, str, str2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.12
+                loadNPSPluginImpl(true, LIVE_SHOW_GUARD_LIST, new PluginLoadCallback(this, context, str, str2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2222,7 +2293,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
@@ -2236,13 +2307,13 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void startLiveExpActivity(@NonNull Context context, long j2, int i2) {
+    public void startLiveExpActivity(@NonNull Context context, long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_LIVE_EXP, new PluginLoadCallback(this, context, j2, i2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.13
+                loadNPSPluginImpl(true, LIVE_SHOW_LIVE_EXP, new PluginLoadCallback(this, context, j, i2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.14
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2255,7 +2326,7 @@ public class LiveNPSPluginManager {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context, Long.valueOf(j2), Integer.valueOf(i2)};
+                            Object[] objArr = {this, context, Long.valueOf(j), Integer.valueOf(i2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i3 = newInitContext.flag;
                             if ((i3 & 1) != 0) {
@@ -2267,7 +2338,7 @@ public class LiveNPSPluginManager {
                         }
                         this.this$0 = this;
                         this.val$context = context;
-                        this.val$currentExp = j2;
+                        this.val$currentExp = j;
                         this.val$currentLevel = i2;
                     }
 
@@ -2289,7 +2360,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i3;
@@ -2298,25 +2369,25 @@ public class LiveNPSPluginManager {
                     }
                 });
             } else if (iLiveNPSPlugin.getLiveShowEntry() != null) {
-                this.mLiveNPSPlugin.getLiveShowEntry().openLiveExpPage(context, j2, i2);
+                this.mLiveNPSPlugin.getLiveShowEntry().openLiveExpPage(context, j, i2);
             }
         }
     }
 
     public void startLiveMediaActivity(Context context, String str, String str2, String str3, Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048597, this, context, str, str2, str3, uri) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048598, this, context, str, str2, str3, uri) == null) {
             startLiveMediaActivity(context, str, str2, str3, uri, false);
         }
     }
 
     public void startLiveShowActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048599, this, context, str) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_ENTER_LIVE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.7
+                loadNPSPluginImpl(true, LIVE_SHOW_ENTER_LIVE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2361,7 +2432,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2377,11 +2448,11 @@ public class LiveNPSPluginManager {
 
     public void startMasterActivity(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048599, this, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048600, this, context, str, str2) == null) {
             npsLoadChainInitStart();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, NEW_CREATE_LIVE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.4
+                loadNPSPluginImpl(true, NEW_CREATE_LIVE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2422,7 +2493,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
                             }
@@ -2437,11 +2508,11 @@ public class LiveNPSPluginManager {
 
     public void startMasterActivityV2(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048600, this, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048601, this, context, str, str2) == null) {
             npsLoadChainInitStart();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, NEW_CREATE_LIVE_ROOM, new PluginLoadCallback(this, context, str, str2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.5
+                loadNPSPluginImpl(true, NEW_CREATE_LIVE_ROOM, new PluginLoadCallback(this, context, str, str2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2484,7 +2555,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
                             }
@@ -2499,11 +2570,11 @@ public class LiveNPSPluginManager {
 
     public void startPatronageActivity(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, context) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_START_PATRONAGE, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.9
+                loadNPSPluginImpl(true, LIVE_SHOW_START_PATRONAGE, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2546,7 +2617,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -2562,11 +2633,11 @@ public class LiveNPSPluginManager {
 
     public void startPatronsActivity(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048603, this, context, str) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_START_PATRONS, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.10
+                loadNPSPluginImpl(true, LIVE_SHOW_START_PATRONS, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2611,7 +2682,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2627,11 +2698,11 @@ public class LiveNPSPluginManager {
 
     public void startPayActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048603, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048604, this, context, str) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_START_PAY, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.8
+                loadNPSPluginImpl(true, LIVE_SHOW_START_PAY, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2676,7 +2747,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2692,11 +2763,11 @@ public class LiveNPSPluginManager {
 
     public void startRealAuthActivity(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048604, this, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048605, this, context, str, str2) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_REAL_AUTH, new PluginLoadCallback(this, context, str, str2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.17
+                loadNPSPluginImpl(true, LIVE_SHOW_REAL_AUTH, new PluginLoadCallback(this, context, str, str2) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.18
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2743,7 +2814,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
@@ -2759,11 +2830,11 @@ public class LiveNPSPluginManager {
 
     public void startShowMasterActivity(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048605, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048606, this, context, str) == null) {
             npsLoadChainInitStart();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, LIVE_SHOW_CREATE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.14
+                loadNPSPluginImpl(true, LIVE_SHOW_CREATE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.15
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2808,7 +2879,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2824,11 +2895,11 @@ public class LiveNPSPluginManager {
 
     public void startYYActivity(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, context) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, YY_TEST_ENTER_LIVE_ROOM, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.23
+                loadNPSPluginImpl(true, YY_TEST_ENTER_LIVE_ROOM, new PluginLoadCallback(this, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.24
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2871,7 +2942,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -2887,7 +2958,7 @@ public class LiveNPSPluginManager {
 
     public void startYYCustomerServiceActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048607, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048608, this, context, str) == null) {
             String str2 = "startYYCustomerServiceActivity t=" + System.currentTimeMillis();
             checkHandler();
             dLog("startYYCustomerServiceActivity--进入YY客服页面，初始化NpsLoadChainLog，设置Entry，插件版本号 = " + getPluginInstallVersion());
@@ -2896,7 +2967,103 @@ public class LiveNPSPluginManager {
             NpsLoadChainLog.getInstance().setPluginVersion(getPluginInstallVersion() + "");
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, YY_CUSTOMER_SERVICE, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.27
+                loadNPSPluginImpl(true, YY_CUSTOMER_SERVICE, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.28
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ LiveNPSPluginManager this$0;
+                    public final /* synthetic */ Context val$context;
+                    public final /* synthetic */ String val$url;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, context, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$context = context;
+                        this.val$url = str;
+                    }
+
+                    @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
+                    public void onResult(int i2, String str3, Object obj, String str4) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str3, obj, str4}) == null) {
+                            this.this$0.mMainHandler.post(new Runnable(this, i2, obj) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.28.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ AnonymousClass28 this$1;
+                                public final /* synthetic */ int val$retCode;
+                                public final /* synthetic */ Object val$retObject;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, Integer.valueOf(i2), obj};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i3 = newInitContext.flag;
+                                        if ((i3 & 1) != 0) {
+                                            int i4 = i3 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$1 = this;
+                                    this.val$retCode = i2;
+                                    this.val$retObject = obj;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        String str5 = "finish load class t=" + System.currentTimeMillis();
+                                        if (this.val$retCode != 14) {
+                                            this.this$1.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                            return;
+                                        }
+                                        try {
+                                            this.this$1.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) this.val$retObject).newInstance();
+                                            this.this$1.this$0.mLiveNPSPlugin.getYYLiveEntry().startYYCustomerServiceActivity(this.this$1.val$context, this.this$1.val$url);
+                                        } catch (Exception e2) {
+                                            e2.printStackTrace();
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            } else {
+                iLiveNPSPlugin.getYYLiveEntry().startYYCustomerServiceActivity(context, str);
+            }
+        }
+    }
+
+    public void startYYFeedbackActivity(@NonNull Context context, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048609, this, context, str) == null) {
+            String str2 = "startYYFeedbackActivity t=" + System.currentTimeMillis();
+            checkHandler();
+            dLog("startYYFeedbackActivity--进入YY反馈页面，初始化NpsLoadChainLog，设置Entry，插件版本号 = " + getPluginInstallVersion());
+            NpsLoadChainLog.getInstance().initAndStart();
+            NpsLoadChainLog.getInstance().setEntry("YY-Feedback");
+            NpsLoadChainLog.getInstance().setPluginVersion(getPluginInstallVersion() + "");
+            ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
+            if (iLiveNPSPlugin == null) {
+                loadNPSPluginImpl(true, YY_FEED_BACK, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.27
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -2960,103 +3127,7 @@ public class LiveNPSPluginManager {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         String str5 = "finish load class t=" + System.currentTimeMillis();
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
-                                            return;
-                                        }
-                                        try {
-                                            this.this$1.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) this.val$retObject).newInstance();
-                                            this.this$1.this$0.mLiveNPSPlugin.getYYLiveEntry().startYYCustomerServiceActivity(this.this$1.val$context, this.this$1.val$url);
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
-                                        }
-                                    }
-                                }
-                            });
-                        }
-                    }
-                });
-            } else {
-                iLiveNPSPlugin.getYYLiveEntry().startYYCustomerServiceActivity(context, str);
-            }
-        }
-    }
-
-    public void startYYFeedbackActivity(@NonNull Context context, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048608, this, context, str) == null) {
-            String str2 = "startYYFeedbackActivity t=" + System.currentTimeMillis();
-            checkHandler();
-            dLog("startYYFeedbackActivity--进入YY反馈页面，初始化NpsLoadChainLog，设置Entry，插件版本号 = " + getPluginInstallVersion());
-            NpsLoadChainLog.getInstance().initAndStart();
-            NpsLoadChainLog.getInstance().setEntry("YY-Feedback");
-            NpsLoadChainLog.getInstance().setPluginVersion(getPluginInstallVersion() + "");
-            ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
-            if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, YY_FEED_BACK, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.26
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ LiveNPSPluginManager this$0;
-                    public final /* synthetic */ Context val$context;
-                    public final /* synthetic */ String val$url;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context, str};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$context = context;
-                        this.val$url = str;
-                    }
-
-                    @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
-                    public void onResult(int i2, String str3, Object obj, String str4) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str3, obj, str4}) == null) {
-                            this.this$0.mMainHandler.post(new Runnable(this, i2, obj) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.26.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass26 this$1;
-                                public final /* synthetic */ int val$retCode;
-                                public final /* synthetic */ Object val$retObject;
-
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, Integer.valueOf(i2), obj};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$1 = this;
-                                    this.val$retCode = i2;
-                                    this.val$retObject = obj;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        String str5 = "finish load class t=" + System.currentTimeMillis();
-                                        if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -3079,7 +3150,7 @@ public class LiveNPSPluginManager {
 
     public void startYYLiveActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048609, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048610, this, context, str) == null) {
             String str2 = "startYYLiveActivity t=" + System.currentTimeMillis();
             if (YYStaticConfig.conf == null) {
                 YYStaticConfig.conf = new HashMap<>();
@@ -3094,7 +3165,7 @@ public class LiveNPSPluginManager {
             NpsLoadChainLog.getInstance().setEntry(parseEntry(str));
             NpsLoadChainLog.getInstance().setPluginVersion(getPluginInstallVersion() + "");
             if (this.mLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, YY_ENTER_LIVE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.24
+                loadNPSPluginImpl(true, YY_ENTER_LIVE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.25
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -3129,7 +3200,7 @@ public class LiveNPSPluginManager {
                             this.this$0.dLog("startYYLiveActivity.PluginLoadCallback.onResult()，retCode = " + i2 + ", retMsg = " + str3 + ", retObject = " + obj + ", loadType = " + str4);
                             if (i2 != 14) {
                                 if (!this.this$0.isLoadingCanceled) {
-                                    this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                    this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                                 }
                                 if (this.this$0.isDebug()) {
                                     String str6 = "load live nps plugin error=" + i2;
@@ -3198,11 +3269,11 @@ public class LiveNPSPluginManager {
 
     public void startYuYinActivity(@NonNull Context context, @NonNull String str, @NonNull String str2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048610, this, context, str, str2, map) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048611, this, context, str, str2, map) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, YU_YIN_ENTER_LIVE_ROOM, new PluginLoadCallback(this, context, str, str2, map) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.18
+                loadNPSPluginImpl(true, YU_YIN_ENTER_LIVE_ROOM, new PluginLoadCallback(this, context, str, str2, map) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.19
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -3251,7 +3322,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
@@ -3267,11 +3338,11 @@ public class LiveNPSPluginManager {
 
     public void startYuYinCreateLiveRoomActivity(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048611, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048612, this, context, str) == null) {
             npsLoadChainInitOther();
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, YU_YIN_CREATE_LIVE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.19
+                loadNPSPluginImpl(true, YU_YIN_CREATE_LIVE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.20
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -3316,7 +3387,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -3414,7 +3485,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(b.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str6 = "load live nps plugin error=" + i2;

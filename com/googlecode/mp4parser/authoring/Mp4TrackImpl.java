@@ -38,7 +38,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Mp4TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class Mp4TrackImpl extends AbstractTrack {
 
     public Mp4TrackImpl(TrackBox trackBox, IsoFile... isoFileArr) {
         Iterator it;
-        long j2;
+        long j;
         Iterator it2;
         SampleFlags defaultSampleFlags;
         int i2;
@@ -102,7 +102,7 @@ public class Mp4TrackImpl extends AbstractTrack {
                 for (TrackExtendsBox trackExtendsBox : movieExtendsBox.getBoxes(TrackExtendsBox.class)) {
                     if (trackExtendsBox.getTrackId() == trackId) {
                         LinkedList<Long> linkedList = new LinkedList();
-                        long j3 = 1;
+                        long j2 = 1;
                         for (MovieFragmentBox movieFragmentBox : ((Box) trackBox.getParent()).getParent().getBoxes(MovieFragmentBox.class)) {
                             Iterator it3 = movieFragmentBox.getBoxes(TrackFragmentBox.class).iterator();
                             while (it3.hasNext()) {
@@ -125,19 +125,19 @@ public class Mp4TrackImpl extends AbstractTrack {
                                                     it = it3;
                                                     if (((TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1)).getDelta() == entry.getSampleDuration()) {
                                                         TimeToSampleBox.Entry entry2 = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - i6);
-                                                        j2 = trackId;
+                                                        j = trackId;
                                                         it2 = it4;
                                                         entry2.setCount(entry2.getCount() + 1);
                                                     }
                                                 } else {
                                                     it = it3;
                                                 }
-                                                j2 = trackId;
+                                                j = trackId;
                                                 it2 = it4;
                                                 arrayList.add(new TimeToSampleBox.Entry(1L, entry.getSampleDuration()));
                                             } else {
                                                 it = it3;
-                                                j2 = trackId;
+                                                j = trackId;
                                                 it2 = it4;
                                                 if (trackFragmentHeaderBox.hasDefaultSampleDuration()) {
                                                     arrayList.add(new TimeToSampleBox.Entry(1L, trackFragmentHeaderBox.getDefaultSampleDuration()));
@@ -169,12 +169,12 @@ public class Mp4TrackImpl extends AbstractTrack {
                                                 defaultSampleFlags = trackExtendsBox.getDefaultSampleFlags();
                                             }
                                             if (defaultSampleFlags != null && !defaultSampleFlags.isSampleIsDifferenceSample()) {
-                                                linkedList.add(Long.valueOf(j3));
+                                                linkedList.add(Long.valueOf(j2));
                                             }
-                                            j3++;
+                                            j2++;
                                             it3 = it;
                                             it4 = it2;
-                                            trackId = j2;
+                                            trackId = j;
                                             i6 = 1;
                                             z = false;
                                         }

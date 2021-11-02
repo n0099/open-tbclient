@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class EasyAudio implements IEasyAudio, VolumeListener, a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "EasyAudio";
@@ -115,15 +115,15 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
     }
 
     @Override // com.baidu.ar.audio.a
-    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j2) {
+    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             this.iT.lock();
             try {
                 if (this.iR != null) {
                     Iterator<EasyAudioCallback> it = this.iR.iterator();
                     while (it.hasNext()) {
-                        it.next().onAudioFrameAvailable(byteBuffer, i2, j2);
+                        it.next().onAudioFrameAvailable(byteBuffer, i2, j);
                     }
                 }
             } finally {

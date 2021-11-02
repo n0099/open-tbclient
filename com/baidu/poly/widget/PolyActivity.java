@@ -9,10 +9,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.a;
-import c.a.e0.k.h.d;
-import c.a.e0.n.b;
-import c.a.e0.o.a.c;
+import b.a.e0.a;
+import b.a.e0.k.h.d;
+import b.a.e0.n.b;
+import b.a.e0.o.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.poly.widget.m;
@@ -26,7 +26,7 @@ import com.google.protobuf.CodedInputStream;
 import com.heytap.mcssdk.mode.CommandMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PolyActivity extends Activity implements m.l {
     public static /* synthetic */ Interceptable $ic;
     public static c m;
@@ -96,7 +96,7 @@ public class PolyActivity extends Activity implements m.l {
             Intent intent = new Intent(context, PolyActivity.class);
             intent.putExtra("pay_arguements", bundle);
             if (!(context instanceof Activity)) {
-                c.a.e0.n.d.e("!context instanceof Activity");
+                b.a.e0.n.d.e("!context instanceof Activity");
                 intent.addFlags(268435456);
             }
             context.startActivity(intent);
@@ -129,7 +129,7 @@ public class PolyActivity extends Activity implements m.l {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("c", bundle.getString("cuid"));
             jSONObject.put("z", string);
-            jSONObject.put("mac", c.a.e0.n.a.d());
+            jSONObject.put("mac", b.a.e0.n.a.d());
             jSONObject.put("app", "android");
             jSONObject.put("ver", X());
             bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
@@ -144,9 +144,9 @@ public class PolyActivity extends Activity implements m.l {
             if (bundle == null) {
                 return new Bundle();
             }
-            d.f3182a = bundle.getString("bduss");
-            d.f3183b = bundle.getString("tpOrderId");
-            d.f3186e = bundle.getString("nativeAppId");
+            d.f2630a = bundle.getString("bduss");
+            d.f2631b = bundle.getString("tpOrderId");
+            d.f2634e = bundle.getString("nativeAppId");
             bundle.putString("deviceType", "ANDROID");
             bundle.putString("channel", "cashiersdk");
             bundle.putString(CommandMessage.SDK_VERSION, "2.7.7");
@@ -195,7 +195,7 @@ public class PolyActivity extends Activity implements m.l {
             super.onActivityResult(i2, i3, intent);
             if (i2 == 200) {
                 if (i3 == -1) {
-                    c.a.e0.k.i.a.k().d(this, intent.getExtras(), this.q, true);
+                    b.a.e0.k.i.a.k().d(this, intent.getExtras(), this.q, true);
                     return;
                 }
                 m mVar = this.q;
@@ -218,7 +218,7 @@ public class PolyActivity extends Activity implements m.l {
             if (!mVar.onBackPressed()) {
                 super.onBackPressed();
             }
-            c.a.e0.n.d.e("PolyActivity onBackPressed");
+            b.a.e0.n.d.e("PolyActivity onBackPressed");
         }
     }
 
@@ -241,7 +241,7 @@ public class PolyActivity extends Activity implements m.l {
             super.onCreate(bundle);
             overridePendingTransition(0, 0);
             Z();
-            c.a.e0.n.d.e("PolyActivity onCreate");
+            b.a.e0.n.d.e("PolyActivity onCreate");
         }
     }
 
@@ -291,7 +291,7 @@ public class PolyActivity extends Activity implements m.l {
             setContentView(mVar);
             this.q.setResultListener(n);
             this.q.setCloseListener(this);
-            this.q.setWalletList(new c.a.e0.k.i.c(new c.a.e0.k.i.b(this, m)));
+            this.q.setWalletList(new b.a.e0.k.i.c(new b.a.e0.k.i.b(this, m)));
             String string = this.arguments.getString("chosenChannel");
             if (TextUtils.equals(this.arguments.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
                 this.q.a(c(this.arguments), string);

@@ -1,6 +1,7 @@
 package com.baidu.wallet.lightapp.entrance;
 
 import android.content.Context;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,7 +10,7 @@ import com.baidu.wallet.lightapp.multipage.i;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LangbridgeSettingAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +33,7 @@ public class LangbridgeSettingAction implements RouterAction {
     public void invoke(Context context, HashMap hashMap, RouterCallback routerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, hashMap, routerCallback) == null) {
-            i.a().a(context, (String) hashMap.get("config"));
+            i.a().a(context, (String) hashMap.get(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
         }
     }
 }

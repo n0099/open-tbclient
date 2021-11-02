@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.c.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum a {
     Single(1),
     DefaultGroup(3),
@@ -7,13 +7,13 @@ public enum a {
     
 
     /* renamed from: d  reason: collision with root package name */
-    public int f75114d;
+    public int f67478d;
 
     a(int i2) {
-        this.f75114d = i2;
+        this.f67478d = i2;
     }
 
     public int a() {
-        return this.f75114d;
+        return this.f67478d;
     }
 }

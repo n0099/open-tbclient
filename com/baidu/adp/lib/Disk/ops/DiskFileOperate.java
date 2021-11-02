@@ -1,9 +1,10 @@
 package com.baidu.adp.lib.Disk.ops;
 
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.a.d;
-import c.a.e.e.a.e;
-import c.a.e.e.m.a;
+import b.a.e.e.a.d;
+import b.a.e.e.a.e;
+import b.a.e.e.m.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.OutputStream;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +40,7 @@ public class DiskFileOperate {
     public int mTrySuccessWeight;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -77,7 +78,7 @@ public class DiskFileOperate {
             DELETE_FILES = new Action("DELETE_FILES", 6);
             INFO = new Action("INFO", 7);
             RENAME = new Action("RENAME", 8);
-            Action action = new Action("CUSTOM", 9);
+            Action action = new Action(Key.CUSTOM, 9);
             CUSTOM = action;
             $VALUES = new Action[]{READ, WRITE, WRITE_FORCE, APPEND, APPEND_MORE, DELETE, DELETE_FILES, INFO, RENAME, action};
         }
@@ -115,7 +116,7 @@ public class DiskFileOperate {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class OperateType {
         public static final /* synthetic */ OperateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -214,7 +215,7 @@ public class DiskFileOperate {
     public boolean asyncCall() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.g().a(this) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.f().a(this) : invokeV.booleanValue;
     }
 
     public String buildDesPath() {
@@ -271,7 +272,7 @@ public class DiskFileOperate {
     public boolean call() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.g().d(this) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.f().call(this) : invokeV.booleanValue;
     }
 
     public void callback(boolean z) {
@@ -283,7 +284,7 @@ public class DiskFileOperate {
     public void cancelAsyncCall() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            d.g().e(this);
+            d.f().d(this);
         }
     }
 

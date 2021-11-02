@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableTimer extends Flowable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class FlowableTimer extends Flowable<Long> {
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class TimerSubscriber extends AtomicReference<Disposable> implements Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2809475196591179431L;
@@ -59,9 +59,9 @@ public final class FlowableTimer extends Flowable<Long> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
                 this.requested = true;
             }
         }
@@ -90,12 +90,12 @@ public final class FlowableTimer extends Flowable<Long> {
         }
     }
 
-    public FlowableTimer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public FlowableTimer(long j, TimeUnit timeUnit, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), timeUnit, scheduler};
+            Object[] objArr = {Long.valueOf(j), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -105,7 +105,7 @@ public final class FlowableTimer extends Flowable<Long> {
                 return;
             }
         }
-        this.delay = j2;
+        this.delay = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

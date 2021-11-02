@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "f";
@@ -102,10 +102,10 @@ public class f extends a {
         }
     }
 
-    public void p(long j2) {
+    public void p(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.oh = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.oh = j;
         }
     }
 
@@ -116,10 +116,10 @@ public class f extends a {
         }
     }
 
-    public void setTimestamp(long j2) {
+    public void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.timestamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.timestamp = j;
         }
     }
 }

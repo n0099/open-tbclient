@@ -63,7 +63,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterView extends SurfaceView implements BinaryMessenger, TextureRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterView";
@@ -92,17 +92,17 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public final SettingsChannel settingsChannel;
     public final SystemChannel systemChannel;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface FirstFrameListener {
         void onFirstFrame();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface Provider {
         FlutterView getFlutterView();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,12 +112,12 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         public final SurfaceTexture surfaceTexture;
         public final /* synthetic */ FlutterView this$0;
 
-        public SurfaceTextureRegistryEntry(FlutterView flutterView, long j2, SurfaceTexture surfaceTexture) {
+        public SurfaceTextureRegistryEntry(FlutterView flutterView, long j, SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {flutterView, Long.valueOf(j2), surfaceTexture};
+                Object[] objArr = {flutterView, Long.valueOf(j), surfaceTexture};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -161,7 +161,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
                 }
             };
             this.onFrameListener = onFrameAvailableListener;
-            this.id = j2;
+            this.id = j;
             this.surfaceTexture = surfaceTexture;
             if (Build.VERSION.SDK_INT >= 21) {
                 surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener, new Handler());
@@ -197,7 +197,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ViewportMetrics {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,7 +249,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ZeroSides {
         public static final /* synthetic */ ZeroSides[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -16,7 +16,7 @@ import com.dxmpay.apollon.beans.IBeanResponse;
 import com.dxmpay.apollon.utils.JsonUtils;
 import java.io.Serializable;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GetPayContent implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;

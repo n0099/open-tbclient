@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.mobads.container.XAdRemoteCommonUtils;
 import com.baidu.mobads.container.XAdSDKRemoteConfig;
 import com.baidu.mobads.container.XAdSDKRemoteVersion;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.mobads.container.util.Base64;
 import com.baidu.mobads.container.util.DeviceUtils;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class XAdRemoteAbstractTrackingInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COUNTLY_AD_TYPE = "adt";
@@ -112,7 +111,7 @@ public abstract class XAdRemoteAbstractTrackingInfo {
             hashMap.put("appsid", this.appsid);
             hashMap.put("pack", this.packageNameOfPubliser);
             hashMap.put(XAdRemoteAPKDownloadExtraInfo.QK, this.qk);
-            hashMap.put(IAdRequestParam.SN, this.sn);
+            hashMap.put("sn", this.sn);
             hashMap.put("ts", "" + this.ts);
             hashMap.put("v", this.v);
             hashMap.put("os", this.os);

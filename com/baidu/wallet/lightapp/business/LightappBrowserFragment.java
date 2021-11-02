@@ -70,42 +70,40 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LightappBrowserFragment extends BaseFragment implements NoProguard, com.baidu.wallet.lightapp.multipage.a, NoNetView.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JUMP_URL = "jump_url";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f61989b;
+    public static Pattern f58869b;
     public static final String sTag;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f61990a;
+    public boolean f58870a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61991c;
+    public String f58871c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LightappWebView f61992d;
+    public LightappWebView f58872d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PullToRefreshWebview f61993e;
+    public PullToRefreshWebview f58873e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LightappJsClient f61994f;
+    public LightappJsClient f58874f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61995g;
+    public boolean f58875g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadListener f61996h;
+    public DownloadListener f58876h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f61997i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public NoNetView f61998j;
+    public boolean f58877i;
+    public NoNetView j;
     public View k;
     public String l;
     public boolean m;
@@ -117,13 +115,13 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
     public boolean r;
     public ViewGroup s;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class BaseCustomChromeClient extends SafeWebView.SafeChromeClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LightappBrowserFragment f62005a;
+        public final /* synthetic */ LightappBrowserFragment f58884a;
 
         public BaseCustomChromeClient(LightappBrowserFragment lightappBrowserFragment) {
             Interceptable interceptable = $ic;
@@ -140,7 +138,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                     return;
                 }
             }
-            this.f62005a = lightappBrowserFragment;
+            this.f58884a = lightappBrowserFragment;
         }
 
         @Override // android.webkit.WebChromeClient
@@ -153,13 +151,13 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class BaseCustomWebViewClient extends SafeWebView.SafeWebViewClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LightappBrowserFragment f62006a;
+        public final /* synthetic */ LightappBrowserFragment f58885a;
 
         public BaseCustomWebViewClient(LightappBrowserFragment lightappBrowserFragment) {
             Interceptable interceptable = $ic;
@@ -176,7 +174,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                     return;
                 }
             }
-            this.f62006a = lightappBrowserFragment;
+            this.f58885a = lightappBrowserFragment;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
@@ -184,7 +182,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, bitmap) == null) {
                 DXMSdkSAUtils.onEvent(LightAppStatEvent.LIGHT_APP_lOAD_START);
-                this.f62006a.f61994f.setUrlLocal(str);
+                this.f58885a.f58874f.setUrlLocal(str);
                 super.onPageStarted(webView, str, bitmap);
             }
         }
@@ -211,24 +209,24 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                 String str3 = LightappBrowserFragment.sTag;
                 LogUtil.d(str3, "shouldOverrideUrlLoading url = " + str);
                 if (str.startsWith("tel:")) {
-                    this.f62006a.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
+                    this.f58885a.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
                     return true;
                 }
                 if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
                     try {
                         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str));
                         intent.putExtra("android.intent.extra.EMAIL", new String[]{str.replace(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO, "")});
-                        this.f62006a.startActivity(intent);
+                        this.f58885a.startActivity(intent);
                         return true;
                     } catch (Exception e2) {
                         e2.printStackTrace();
-                        GlobalUtils.toast(this.f62006a.getActivity(), "请先配置邮箱");
+                        GlobalUtils.toast(this.f58885a.getActivity(), "请先配置邮箱");
                     }
                 } else if (str.toLowerCase(Locale.CHINA).startsWith("http") || str.toLowerCase(Locale.CHINA).startsWith("https") || str.toLowerCase(Locale.CHINA).startsWith("file")) {
-                    if (!this.f62006a.f61997i || TextUtils.isEmpty(this.f62006a.f61991c) || str.equals(this.f62006a.f61991c)) {
+                    if (!this.f58885a.f58877i || TextUtils.isEmpty(this.f58885a.f58871c) || str.equals(this.f58885a.f58871c)) {
                         return false;
                     }
-                    BaiduWalletDelegate.getInstance().openH5Module(this.f62006a.getActivity(), str, true);
+                    BaiduWalletDelegate.getInstance().openH5Module(this.f58885a.getActivity(), str, true);
                     return true;
                 } else {
                     try {
@@ -236,7 +234,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                         intent2.addCategory("android.intent.category.BROWSABLE");
                         intent2.setComponent(null);
                         intent2.setSelector(null);
-                        this.f62006a.startActivity(intent2);
+                        this.f58885a.startActivity(intent2);
                         return true;
                     } catch (Exception e3) {
                         LogUtil.d(LightappBrowserFragment.sTag, e3.getMessage());
@@ -248,13 +246,13 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class CustomChromeClient extends BaseCustomChromeClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LightappBrowserFragment f62007b;
+        public final /* synthetic */ LightappBrowserFragment f58886b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public CustomChromeClient(LightappBrowserFragment lightappBrowserFragment) {
@@ -274,25 +272,25 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                     return;
                 }
             }
-            this.f62007b = lightappBrowserFragment;
+            this.f58886b = lightappBrowserFragment;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
-                if (this.f62007b.m) {
-                    this.f62007b.a(i2);
+                if (this.f58886b.m) {
+                    this.f58886b.a(i2);
                 }
                 if (i2 == 100) {
-                    if (this.f62007b.m) {
-                        this.f62007b.e();
+                    if (this.f58886b.m) {
+                        this.f58886b.e();
                     }
-                    if (this.f62007b.f61990a) {
+                    if (this.f58886b.f58870a) {
                         return;
                     }
                     LogUtil.d(LightappBrowserFragment.sTag, "onProgressChanged.hideErrorPage");
-                    this.f62007b.f();
+                    this.f58886b.f();
                 }
             }
         }
@@ -302,20 +300,20 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                if (TextUtils.isEmpty(this.f62007b.n) || NetworkUtils.isNetworkConnected(this.f62007b.getActivity())) {
-                    String unused = this.f62007b.o;
+                if (TextUtils.isEmpty(this.f58886b.n) || NetworkUtils.isNetworkConnected(this.f58886b.getActivity())) {
+                    String unused = this.f58886b.o;
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class CustomWebViewClient extends BaseCustomWebViewClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LightappBrowserFragment f62008b;
+        public final /* synthetic */ LightappBrowserFragment f58887b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public CustomWebViewClient(LightappBrowserFragment lightappBrowserFragment) {
@@ -335,22 +333,22 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                     return;
                 }
             }
-            this.f62008b = lightappBrowserFragment;
+            this.f58887b = lightappBrowserFragment;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                if (this.f62008b.m) {
-                    this.f62008b.e();
+                if (this.f58887b.m) {
+                    this.f58887b.e();
                 }
-                this.f62008b.a(str);
+                this.f58887b.a(str);
                 if (webView.getProgress() != 100) {
-                    this.f62008b.f61990a = true;
+                    this.f58887b.f58870a = true;
                 }
                 String str2 = LightappBrowserFragment.sTag;
-                LogUtil.d(str2, "onPageFinished.finishedError:  " + this.f62008b.f61990a);
+                LogUtil.d(str2, "onPageFinished.finishedError:  " + this.f58887b.f58870a);
                 super.onPageFinished(webView, str);
                 DXMSdkSAUtils.onEvent(LightAppStatEvent.LIGHT_APP_END_lOAD);
             }
@@ -360,10 +358,10 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                if (this.f62008b.m) {
-                    this.f62008b.d();
+                if (this.f58887b.m) {
+                    this.f58887b.d();
                 }
-                this.f62008b.o = null;
+                this.f58887b.o = null;
                 super.onPageStarted(webView, str, bitmap);
                 DXMSdkSAUtils.onEvent(LightAppStatEvent.LIGHT_APP_BEGIN_LOAD);
             }
@@ -376,12 +374,12 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
             if (!(interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) || -10 == i2) {
                 return;
             }
-            LightappBrowserFragment lightappBrowserFragment = this.f62008b;
-            lightappBrowserFragment.f61990a = true;
-            if (lightappBrowserFragment.f61998j != null) {
-                this.f62008b.f61998j.setFailureCause(i2);
+            LightappBrowserFragment lightappBrowserFragment = this.f58887b;
+            lightappBrowserFragment.f58870a = true;
+            if (lightappBrowserFragment.j != null) {
+                this.f58887b.j.setFailureCause(i2);
             }
-            this.f62008b.b(str2);
+            this.f58887b.b(str2);
             super.onReceivedError(webView, i2, str, str2);
         }
 
@@ -396,14 +394,14 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                     sslErrorHandler.proceed();
                     return;
                 }
-                LightappBrowserFragment lightappBrowserFragment = this.f62008b;
-                lightappBrowserFragment.f61990a = true;
-                if (lightappBrowserFragment.f61998j != null) {
-                    this.f62008b.f61998j.setFailureCause(primaryError);
+                LightappBrowserFragment lightappBrowserFragment = this.f58887b;
+                lightappBrowserFragment.f58870a = true;
+                if (lightappBrowserFragment.j != null) {
+                    this.f58887b.j.setFailureCause(primaryError);
                 }
-                this.f62008b.b(url);
+                this.f58887b.b(url);
                 DXMSdkSAUtils.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(primaryError + "", url));
-                String environment = DebugConfig.getInstance(this.f62008b.getActivity()).getEnvironment();
+                String environment = DebugConfig.getInstance(this.f58887b.getActivity()).getEnvironment();
                 if (!"QA".equals(environment) && !"RD".equals(environment)) {
                     super.onReceivedSslError(webView, sslErrorHandler, sslError);
                 } else {
@@ -427,7 +425,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
             }
         }
         sTag = LightappBrowserFragment.class.getSimpleName();
-        f61989b = Pattern.compile("^(https?://|file:///android_asset/).*");
+        f58869b = Pattern.compile("^(https?://|file:///android_asset/).*");
     }
 
     public LightappBrowserFragment() {
@@ -443,9 +441,9 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                 return;
             }
         }
-        this.f61995g = true;
-        this.f61997i = true;
-        this.f61990a = false;
+        this.f58875g = true;
+        this.f58877i = true;
+        this.f58870a = false;
         this.m = true;
         this.p = false;
         this.q = "wallet_base_multi_window_tips";
@@ -483,10 +481,10 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public boolean f62003a;
+                public boolean f58882a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LightappBrowserFragment f62004b;
+                public final /* synthetic */ LightappBrowserFragment f58883b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -503,17 +501,17 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                             return;
                         }
                     }
-                    this.f62004b = this;
-                    this.f62003a = false;
+                    this.f58883b = this;
+                    this.f58882a = false;
                 }
 
                 @Override // com.baidu.wallet.lightapp.ability.b.b.a
                 public void a(int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) || this.f62003a) {
+                    if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) || this.f58882a) {
                         return;
                     }
-                    WalletGlobalUtils.showLoadingDialog(this.f62004b.getActivity());
+                    WalletGlobalUtils.showLoadingDialog(this.f58883b.getActivity());
                 }
 
                 @Override // com.baidu.wallet.lightapp.ability.b.b.a
@@ -524,11 +522,11 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                         try {
                             JSONObject jSONObject = new JSONObject(str2);
                             if (!jSONObject.optBoolean("isOnline", true)) {
-                                GlobalUtils.toast(this.f62004b.getContext(), ResUtils.getString(this.f62004b.getActivity(), "network_no_connected"));
+                                GlobalUtils.toast(this.f58883b.getContext(), ResUtils.getString(this.f58883b.getActivity(), "network_no_connected"));
                             } else if (!jSONObject.optBoolean("isInternetConnected", true)) {
-                                GlobalUtils.toast(this.f62004b.getContext(), ResUtils.getString(this.f62004b.getActivity(), "network_no_internet_connected"));
+                                GlobalUtils.toast(this.f58883b.getContext(), ResUtils.getString(this.f58883b.getActivity(), "network_no_internet_connected"));
                             } else {
-                                GlobalUtils.toast(this.f62004b.getContext(), ResUtils.getString(this.f62004b.getActivity(), "network_tomography_done"));
+                                GlobalUtils.toast(this.f58883b.getContext(), ResUtils.getString(this.f58883b.getActivity(), "network_tomography_done"));
                             }
                         } catch (JSONException unused) {
                         }
@@ -558,7 +556,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
     @Override // com.baidu.wallet.lightapp.multipage.a
     public void executeJsFunction(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && this.f61992d != null && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && this.f58872d != null && !TextUtils.isEmpty(str)) {
             try {
                 StringBuilder sb = new StringBuilder(str);
                 sb.append("(\"");
@@ -567,10 +565,10 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                 }
                 sb.append("\")");
                 if (Build.VERSION.SDK_INT >= 19) {
-                    this.f61992d.evaluateJavascript(sb.toString(), null);
+                    this.f58872d.evaluateJavascript(sb.toString(), null);
                     return;
                 }
-                LightappWebView lightappWebView = this.f61992d;
+                LightappWebView lightappWebView = this.f58872d;
                 lightappWebView.loadUrl("javascript:" + sb.toString());
             } catch (Throwable unused) {
             }
@@ -639,10 +637,10 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
 
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.f61992d.canGoBack()) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.f58872d.canGoBack()) {
             String str = sTag;
-            LogUtil.d(str, "cangoback:  " + this.f61992d.getUrl());
-            this.f61992d.goBack();
+            LogUtil.d(str, "cangoback:  " + this.f58872d.getUrl());
+            this.f58872d.goBack();
         }
     }
 
@@ -672,18 +670,18 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDestroy();
-            LightappJsClient lightappJsClient = this.f61994f;
+            LightappJsClient lightappJsClient = this.f58874f;
             if (lightappJsClient != null) {
                 lightappJsClient.destroy();
             }
-            LightappWebView lightappWebView = this.f61992d;
+            LightappWebView lightappWebView = this.f58872d;
             if (lightappWebView != null) {
                 ViewGroup viewGroup = (ViewGroup) lightappWebView.getParent();
                 if (viewGroup != null) {
-                    viewGroup.removeView(this.f61992d);
+                    viewGroup.removeView(this.f58872d);
                 }
-                this.f61992d.removeAllViews();
-                this.f61992d.destroy();
+                this.f58872d.removeAllViews();
+                this.f58872d.destroy();
             }
         }
     }
@@ -717,7 +715,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048596, this, i2, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i2, strArr, iArr);
-            this.f61994f.onRequestPermissionsResultLocal(i2, strArr, iArr);
+            this.f58874f.onRequestPermissionsResultLocal(i2, strArr, iArr);
         }
     }
 
@@ -725,9 +723,9 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            LightappWebView lightappWebView = this.f61992d;
+            LightappWebView lightappWebView = this.f58872d;
             if (lightappWebView != null) {
-                lightappWebView.setDownloadListener(this.f61996h);
+                lightappWebView.setDownloadListener(this.f58876h);
             }
             super.onResume();
         }
@@ -760,17 +758,17 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
             Context applicationContext = DxmApplicationContextImpl.getApplicationContext(getActivity());
             if (!NetworkUtils.isNetworkAvailable(applicationContext)) {
                 GlobalUtils.toast(getActivity(), ResUtils.getString(applicationContext, "ebpay_no_network"));
-            } else if (this.f61992d != null) {
-                if (!TextUtils.isEmpty(str) && !f61989b.matcher(str).matches()) {
+            } else if (this.f58872d != null) {
+                if (!TextUtils.isEmpty(str) && !f58869b.matcher(str).matches()) {
                     str = "https://" + str;
                 }
                 if (TextUtils.isEmpty(str)) {
-                    this.f61992d.reload();
+                    this.f58872d.reload();
                 } else {
-                    this.f61991c = str;
-                    this.f61992d.loadUrl(str);
+                    this.f58871c = str;
+                    this.f58872d.loadUrl(str);
                 }
-                this.f61990a = false;
+                this.f58870a = false;
             }
         }
     }
@@ -792,7 +790,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
     public void setDownloadListener(DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, downloadListener) == null) {
-            this.f61996h = downloadListener;
+            this.f58876h = downloadListener;
         }
     }
 
@@ -846,14 +844,14 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
     public void setSupportZoom() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            this.f61992d.getSettings().setSupportZoom(true);
-            this.f61992d.getSettings().setBuiltInZoomControls(true);
+            this.f58872d.getSettings().setSupportZoom(true);
+            this.f58872d.getSettings().setBuiltInZoomControls(true);
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f61992d.getSettings().setDisplayZoomControls(false);
+                this.f58872d.getSettings().setDisplayZoomControls(false);
             } else {
-                setZoomControlGone(this.f61992d);
+                setZoomControlGone(this.f58872d);
             }
-            this.f61992d.getSettings().setUseWideViewPort(true);
+            this.f58872d.getSettings().setUseWideViewPort(true);
         }
     }
 
@@ -890,7 +888,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
     public void setmOpenUrlInNewWindow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
-            this.f61997i = z;
+            this.f58877i = z;
         }
     }
 
@@ -921,11 +919,11 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            NoNetView noNetView = this.f61998j;
+            NoNetView noNetView = this.j;
             if (noNetView != null) {
                 noNetView.notifyUrlFinish();
             }
-            LightappWebView lightappWebView = this.f61992d;
+            LightappWebView lightappWebView = this.f58872d;
             if (lightappWebView != null) {
                 lightappWebView.setVisibility(0);
             }
@@ -954,36 +952,36 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f61991c = arguments.getString("jump_url");
+                this.f58871c = arguments.getString("jump_url");
             }
-            if (TextUtils.isEmpty(this.f61991c)) {
+            if (TextUtils.isEmpty(this.f58871c)) {
                 return null;
             }
-            String trim = this.f61991c.trim();
-            this.f61991c = trim;
-            if (!f61989b.matcher(trim).matches()) {
-                this.f61991c = "https://" + this.f61991c;
+            String trim = this.f58871c.trim();
+            this.f58871c = trim;
+            if (!f58869b.matcher(trim).matches()) {
+                this.f58871c = "https://" + this.f58871c;
             }
-            if (this.f61991c.contains("hideNativeErrorPage=1") || this.f61991c.contains("hideNativeErrorPage%3d1")) {
-                this.f61995g = false;
+            if (this.f58871c.contains("hideNativeErrorPage=1") || this.f58871c.contains("hideNativeErrorPage%3d1")) {
+                this.f58875g = false;
             }
             this.n = "";
             this.l = ResUtils.getString(getActivity(), "ebpay_loading");
             ViewGroup viewGroup = (ViewGroup) this.mInflater.inflate(ResUtils.layout(getActivity(), "wallet_base_lightapp_webview_fragment"), (ViewGroup) null);
             this.s = viewGroup;
-            this.f61993e = (PullToRefreshWebview) viewGroup.findViewById(ResUtils.id(getActivity(), "cust_webview"));
-            this.f61993e.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<LightappWebView>(this) { // from class: com.baidu.wallet.lightapp.business.LightappBrowserFragment.1
+            this.f58873e = (PullToRefreshWebview) viewGroup.findViewById(ResUtils.id(getActivity(), "cust_webview"));
+            this.f58873e.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<LightappWebView>(this) { // from class: com.baidu.wallet.lightapp.business.LightappBrowserFragment.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public Handler f61999a;
+                public Handler f58878a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LightappBrowserFragment f62000b;
+                public final /* synthetic */ LightappBrowserFragment f58879b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final int f62001c;
+                public final int f58880c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1000,14 +998,14 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                             return;
                         }
                     }
-                    this.f62000b = this;
-                    this.f62001c = 1;
-                    this.f61999a = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.wallet.lightapp.business.LightappBrowserFragment.1.1
+                    this.f58879b = this;
+                    this.f58880c = 1;
+                    this.f58878a = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.wallet.lightapp.business.LightappBrowserFragment.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f62002a;
+                        public final /* synthetic */ AnonymousClass1 f58881a;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -1027,7 +1025,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                                     return;
                                 }
                             }
-                            this.f62002a = this;
+                            this.f58881a = this;
                         }
 
                         @Override // android.os.Handler
@@ -1052,7 +1050,7 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                         Message obtain = Message.obtain();
                         obtain.obj = pullToRefreshBase;
                         obtain.what = 1;
-                        this.f61999a.sendMessageDelayed(obtain, 600L);
+                        this.f58878a.sendMessageDelayed(obtain, 600L);
                     }
                 }
 
@@ -1063,44 +1061,44 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
                     }
                 }
             });
-            this.f61993e.setPullRefreshEnabled(true);
-            this.f61993e.setLoadingAnimationStyle(LoadingLayout.AnimationStyle.ROTATE);
-            this.f61992d = this.f61993e.getRefreshableView();
-            this.f61998j = (NoNetView) this.s.findViewById(ResUtils.id(getActivity(), "nonet_view"));
+            this.f58873e.setPullRefreshEnabled(true);
+            this.f58873e.setLoadingAnimationStyle(LoadingLayout.AnimationStyle.ROTATE);
+            this.f58872d = this.f58873e.getRefreshableView();
+            this.j = (NoNetView) this.s.findViewById(ResUtils.id(getActivity(), "nonet_view"));
             this.k = this.s.findViewById(ResUtils.id(getActivity(), "progress_line"));
-            String userAgentString = this.f61992d.getSettings().getUserAgentString();
+            String userAgentString = this.f58872d.getSettings().getUserAgentString();
             LogUtil.logd("ua=" + userAgentString);
-            WebSettings settings = this.f61992d.getSettings();
+            WebSettings settings = this.f58872d.getSettings();
             settings.setUserAgentString(userAgentString + " " + BussinessUtils.getUA(getActivity()));
             StringBuilder sb = new StringBuilder();
             sb.append("ua2=");
-            sb.append(this.f61992d.getSettings().getUserAgentString());
+            sb.append(this.f58872d.getSettings().getUserAgentString());
             LogUtil.logd(sb.toString());
-            this.f61992d.setWebViewClient(new CustomWebViewClient(this));
-            this.f61992d.setWebChromeClient(new CustomChromeClient(this));
-            this.f61992d.getSettings().setJavaScriptEnabled(true);
-            this.f61992d.getSettings().setDomStorageEnabled(true);
-            this.f61992d.getSettings().setDatabaseEnabled(true);
-            this.f61992d.getSettings().setGeolocationDatabasePath(DxmApplicationContextImpl.getApplicationContext(getActivity()).getDir("database", 0).getPath());
+            this.f58872d.setWebViewClient(new CustomWebViewClient(this));
+            this.f58872d.setWebChromeClient(new CustomChromeClient(this));
+            this.f58872d.getSettings().setJavaScriptEnabled(true);
+            this.f58872d.getSettings().setDomStorageEnabled(true);
+            this.f58872d.getSettings().setDatabaseEnabled(true);
+            this.f58872d.getSettings().setGeolocationDatabasePath(DxmApplicationContextImpl.getApplicationContext(getActivity()).getDir("database", 0).getPath());
             setSupportZoom();
-            this.f61992d.getSettings().setTextZoom(100);
-            this.f61992d.getSettings().setGeolocationEnabled(true);
-            this.f61992d.setScrollBarStyle(0);
-            this.f61992d.clearCache(false);
-            this.f61992d.resumeTimers();
+            this.f58872d.getSettings().setTextZoom(100);
+            this.f58872d.getSettings().setGeolocationEnabled(true);
+            this.f58872d.setScrollBarStyle(0);
+            this.f58872d.clearCache(false);
+            this.f58872d.resumeTimers();
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f61992d.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f61992d.removeJavascriptInterface("accessibility");
-                this.f61992d.removeJavascriptInterface("accessibilityTraversal");
+                this.f58872d.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f58872d.removeJavascriptInterface("accessibility");
+                this.f58872d.removeJavascriptInterface("accessibilityTraversal");
             }
-            LightappJsClient lightappJsClient = new LightappJsClient(this, this.f61992d);
-            this.f61994f = lightappJsClient;
-            this.f61992d.addJavascriptInterface(lightappJsClient, LightappJsClient.LIGHTAPP_JS_NAME);
+            LightappJsClient lightappJsClient = new LightappJsClient(this, this.f58872d);
+            this.f58874f = lightappJsClient;
+            this.f58872d.addJavascriptInterface(lightappJsClient, LightappJsClient.LIGHTAPP_JS_NAME);
             if (Build.VERSION.SDK_INT >= 21) {
-                CookieManager.getInstance().setAcceptThirdPartyCookies(this.f61992d, true);
+                CookieManager.getInstance().setAcceptThirdPartyCookies(this.f58872d, true);
             }
-            this.f61992d.loadUrl(this.f61991c);
-            this.f61990a = false;
+            this.f58872d.loadUrl(this.f58871c);
+            this.f58870a = false;
             return this.s;
         }
         return (View) invokeV.objValue;
@@ -1109,12 +1107,12 @@ public class LightappBrowserFragment extends BaseFragment implements NoProguard,
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, this, str) == null) && this.f61995g) {
-            NoNetView noNetView = this.f61998j;
+        if ((interceptable == null || interceptable.invokeL(65547, this, str) == null) && this.f58875g) {
+            NoNetView noNetView = this.j;
             if (noNetView != null) {
                 noNetView.show(str, this);
             }
-            LightappWebView lightappWebView = this.f61992d;
+            LightappWebView lightappWebView = this.f58872d;
             if (lightappWebView != null) {
                 lightappWebView.setVisibility(8);
             }

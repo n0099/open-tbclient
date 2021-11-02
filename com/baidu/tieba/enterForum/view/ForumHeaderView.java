@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.r0.o0.d.c;
+import b.a.e.e.p.l;
+import b.a.r0.o0.d.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_ENTER_FORUM = 0;
@@ -33,19 +33,19 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f50394e;
+    public LinearLayout f47780e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f50395f;
+    public TextView f47781f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f50396g;
+    public ImageView f47782g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f50397h;
+    public c f47783h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50398i;
+    public int f47784i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumHeaderView(Context context) {
@@ -65,7 +65,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f50398i = 0;
+        this.f47784i = 0;
         init();
     }
 
@@ -74,33 +74,33 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-            this.f50394e = (LinearLayout) findViewById(R.id.search_container);
-            this.f50395f = (TextView) findViewById(R.id.search_text);
-            this.f50396g = (ImageView) findViewById(R.id.search_icon);
+            this.f47780e = (LinearLayout) findViewById(R.id.search_container);
+            this.f47781f = (TextView) findViewById(R.id.search_text);
+            this.f47782g = (ImageView) findViewById(R.id.search_icon);
             setDescendantFocusability(262144);
-            this.f50394e.setOnClickListener(this);
+            this.f47780e.setOnClickListener(this);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c cVar = this.f50397h;
-            if (cVar != null && cVar.f22684a) {
-                if (cVar.f22686c > 0) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f50396g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                    SkinManager.setViewTextColor(this.f50395f, R.color.white_alpha50);
-                    SkinManager.setBackgroundResource(this.f50394e, R.drawable.enter_forum_search_ad_bg);
+            c cVar = this.f47783h;
+            if (cVar != null && cVar.f21561a) {
+                if (cVar.f21563c > 0) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f47782g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                    SkinManager.setViewTextColor(this.f47781f, R.color.white_alpha50);
+                    SkinManager.setBackgroundResource(this.f47780e, R.drawable.enter_forum_search_ad_bg);
                     return;
                 }
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f50396g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                SkinManager.setViewTextColor(this.f50395f, R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f50394e, R.drawable.enter_forum_search_bg);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f47782g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.f47781f, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f47780e, R.drawable.enter_forum_search_bg);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f50396g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f50395f, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f50394e, R.drawable.enter_forum_search_bg);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f47782g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f47781f, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f47780e, R.drawable.enter_forum_search_bg);
         }
     }
 
@@ -111,7 +111,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
             if (!TbadkCoreApplication.isLogin()) {
                 TiebaStatic.eventStat(getContext(), "notlogin_8", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
             }
-            if (this.f50398i != 1) {
+            if (this.f47784i != 1) {
                 TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
             } else {
                 TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
@@ -131,7 +131,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void setAdState(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f50397h = cVar;
+            this.f47783h = cVar;
             onChangeSkinType();
         }
     }
@@ -139,21 +139,21 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void setFrom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f50398i = i2;
+            this.f47784i = i2;
         }
     }
 
     public void setSearchHint(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f50395f.setText(str);
+            this.f47781f.setText(str);
         }
     }
 
     public void updateMarginTop(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f50394e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f47780e.getLayoutParams();
             layoutParams.topMargin = i2;
             setLayoutParams(layoutParams);
         }
@@ -178,7 +178,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f50398i = 0;
+        this.f47784i = 0;
         init();
     }
 
@@ -201,7 +201,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f50398i = 0;
+        this.f47784i = 0;
         init();
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,12 +40,12 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
     public String mVideoTempData;
     public int mVisibility;
 
-    public VideoDraftBean(String str, String str2, long j2, int i2) {
+    public VideoDraftBean(String str, String str2, long j, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -59,7 +59,7 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         this.mSelected = false;
         this.mDraftName = str;
         this.mUserID = str2;
-        this.mTimeStamp = j2;
+        this.mTimeStamp = j;
         this.mResumeRoute = i2;
     }
 
@@ -413,10 +413,10 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         }
     }
 
-    public void setTimeStamp(long j2) {
+    public void setTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
-            this.mTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
+            this.mTimeStamp = j;
         }
     }
 
@@ -514,12 +514,12 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
             if (videoDraftBean == null) {
                 return -1;
             }
-            long j2 = this.mTimeStamp;
-            long j3 = videoDraftBean.mTimeStamp;
-            if (j2 > j3) {
+            long j = this.mTimeStamp;
+            long j2 = videoDraftBean.mTimeStamp;
+            if (j > j2) {
                 return 1;
             }
-            return j2 < j3 ? -1 : 0;
+            return j < j2 ? -1 : 0;
         }
         return invokeL.intValue;
     }

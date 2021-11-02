@@ -11,7 +11,7 @@ import io.reactivex.internal.util.BackpressureHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long COMPLETE_MASK = Long.MIN_VALUE;
@@ -53,16 +53,16 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
         if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r) != null) {
             return;
         }
-        long j2 = this.produced;
-        if (j2 != 0) {
-            BackpressureHelper.produced(this, j2);
+        long j = this.produced;
+        if (j != 0) {
+            BackpressureHelper.produced(this, j);
         }
         while (true) {
-            long j3 = get();
-            if ((j3 & Long.MIN_VALUE) != 0) {
+            long j2 = get();
+            if ((j2 & Long.MIN_VALUE) != 0) {
                 onDrop(r);
                 return;
-            } else if ((j3 & Long.MAX_VALUE) != 0) {
+            } else if ((j2 & Long.MAX_VALUE) != 0) {
                 lazySet(-9223372036854775807L);
                 this.actual.onNext(r);
                 this.actual.onComplete();
@@ -94,13 +94,13 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
 
     /* JADX DEBUG: Type inference failed for r11v0. Raw type applied. Possible types: R, ? super R */
     @Override // org.reactivestreams.Subscription
-    public final void request(long j2) {
-        long j3;
+    public final void request(long j) {
+        long j2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && SubscriptionHelper.validate(j)) {
             do {
-                j3 = get();
-                if ((j3 & Long.MIN_VALUE) != 0) {
+                j2 = get();
+                if ((j2 & Long.MIN_VALUE) != 0) {
                     if (compareAndSet(Long.MIN_VALUE, -9223372036854775807L)) {
                         this.actual.onNext((R) this.value);
                         this.actual.onComplete();
@@ -108,8 +108,8 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
                     }
                     return;
                 }
-            } while (!compareAndSet(j3, BackpressureHelper.addCap(j3, j2)));
-            this.s.request(j2);
+            } while (!compareAndSet(j2, BackpressureHelper.addCap(j2, j)));
+            this.s.request(j);
         }
     }
 }

@@ -16,6 +16,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -156,19 +157,19 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             sb.append("&appid=" + appid);
             sb.append("&uk=");
             sb.append(AccountManager.getUK(this.mContext));
-            long j2 = 0;
+            long j = 0;
             if (Utility.isMediaUri(this.mFilePath)) {
                 try {
                     InputStream openInputStream = this.mContext.getContentResolver().openInputStream(Uri.parse(this.mFilePath));
                     if (openInputStream != null) {
-                        j2 = openInputStream.available();
+                        j = openInputStream.available();
                     }
                 } catch (Exception unused) {
                 }
             } else {
-                j2 = new File(this.mFilePath).length();
+                j = new File(this.mFilePath).length();
             }
-            sb.append("&content_length=" + j2);
+            sb.append("&content_length=" + j);
             if (!TextUtils.isEmpty(this.mContentType)) {
                 try {
                     sb.append("&content_type=" + URLEncoder.encode(this.mContentType, "UTF-8"));
@@ -275,7 +276,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                     }
                 } else {
                     i4 = jSONObject.getInt("error_code");
-                    string = jSONObject.getString("error_msg");
+                    string = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                     str2 = null;
                     hashMap2 = null;
                 }

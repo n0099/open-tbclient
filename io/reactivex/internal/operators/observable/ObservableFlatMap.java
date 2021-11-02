@@ -29,7 +29,7 @@ import java.util.Queue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
     public final Function<? super T, ? extends ObservableSource<? extends U>> mapper;
     public final int maxConcurrency;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class InnerObserver<T, U> extends AtomicReference<Disposable> implements Observer<U> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4606175640614850599L;
@@ -49,12 +49,12 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
         public final MergeObserver<T, U> parent;
         public volatile SimpleQueue<U> queue;
 
-        public InnerObserver(MergeObserver<T, U> mergeObserver, long j2) {
+        public InnerObserver(MergeObserver<T, U> mergeObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mergeObserver, Long.valueOf(j2)};
+                Object[] objArr = {mergeObserver, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -64,7 +64,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                     return;
                 }
             }
-            this.id = j2;
+            this.id = j;
             this.parent = mergeObserver;
         }
 
@@ -132,7 +132,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class MergeObserver<T, U> extends AtomicInteger implements Disposable, Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final InnerObserver<?, ?>[] CANCELLED;
@@ -335,13 +335,13 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                         return;
                     }
                     if (length != 0) {
-                        long j2 = this.lastId;
+                        long j = this.lastId;
                         int i4 = this.lastIndex;
-                        if (length <= i4 || innerObserverArr[i4].id != j2) {
+                        if (length <= i4 || innerObserverArr[i4].id != j) {
                             if (length <= i4) {
                                 i4 = 0;
                             }
-                            for (int i5 = 0; i5 < length && innerObserverArr[i4].id != j2; i5++) {
+                            for (int i5 = 0; i5 < length && innerObserverArr[i4].id != j; i5++) {
                                 i4++;
                                 if (i4 == length) {
                                     i4 = 0;
@@ -553,9 +553,9 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                     }
                     observableSource = poll;
                 }
-                long j2 = this.uniqueId;
-                this.uniqueId = 1 + j2;
-                InnerObserver<T, U> innerObserver = new InnerObserver<>(this, j2);
+                long j = this.uniqueId;
+                this.uniqueId = 1 + j;
+                InnerObserver<T, U> innerObserver = new InnerObserver<>(this, j);
                 if (addInner(innerObserver)) {
                     observableSource.subscribe(innerObserver);
                 }

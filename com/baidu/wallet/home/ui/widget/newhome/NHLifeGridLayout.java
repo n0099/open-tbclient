@@ -16,19 +16,19 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NHLifeGridLayout extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GridLayout f61648a;
+    public GridLayout f58533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NHTitleView f61649b;
+    public NHTitleView f58534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f61650c;
+    public List<BaseItemView> f58535c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHLifeGridLayout(Context context) {
@@ -48,7 +48,7 @@ public class NHLifeGridLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f61650c = new ArrayList();
+        this.f58535c = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -62,7 +62,7 @@ public class NHLifeGridLayout extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61650c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58535c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -71,9 +71,9 @@ public class NHLifeGridLayout extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_life_layout_finance"), this);
             GridLayout gridLayout = (GridLayout) findViewById(ResUtils.id(getContext(), "grid_layout"));
-            this.f61648a = gridLayout;
+            this.f58533a = gridLayout;
             gridLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_nh_whiteColor_bg"));
-            this.f61649b = (NHTitleView) findViewById(ResUtils.id(getContext(), "tip_view"));
+            this.f58534b = (NHTitleView) findViewById(ResUtils.id(getContext(), "tip_view"));
         }
     }
 
@@ -93,17 +93,17 @@ public class NHLifeGridLayout extends BaseItemLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f61649b.setData(this.mConfigData, getWalletInterface());
+            this.f58534b.setData(this.mConfigData, getWalletInterface());
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-            this.f61648a.setColumnCount(4);
-            this.f61648a.setHorizontalSpacing(0);
-            this.f61648a.setVerticalSpacing(0);
-            a(this.f61648a);
+            this.f58533a.setColumnCount(4);
+            this.f58533a.setHorizontalSpacing(0);
+            this.f58533a.setVerticalSpacing(0);
+            a(this.f58533a);
             for (HomeCfgResponse.DataItem dataItem : dataItemArr) {
                 NHLifeGridItem nHLifeGridItem = new NHLifeGridItem(getContext());
                 nHLifeGridItem.setData(dataItem, getWalletInterface());
-                this.f61648a.addView(nHLifeGridItem);
-                this.f61650c.add(nHLifeGridItem);
+                this.f58533a.addView(nHLifeGridItem);
+                this.f58535c.add(nHLifeGridItem);
             }
         }
     }
@@ -127,6 +127,6 @@ public class NHLifeGridLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f61650c = new ArrayList();
+        this.f58535c = new ArrayList();
     }
 }

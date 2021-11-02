@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class StrictSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4945028590049415624L;
@@ -100,15 +100,15 @@ public class StrictSubscriber<T> extends AtomicInteger implements FlowableSubscr
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            if (j <= 0) {
                 cancel();
-                onError(new IllegalArgumentException("§3.9 violated: positive request amount required but it was " + j2));
+                onError(new IllegalArgumentException("§3.9 violated: positive request amount required but it was " + j));
                 return;
             }
-            SubscriptionHelper.deferredRequest(this.s, this.requested, j2);
+            SubscriptionHelper.deferredRequest(this.s, this.requested, j);
         }
     }
 }

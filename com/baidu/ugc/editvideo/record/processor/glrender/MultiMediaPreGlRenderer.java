@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
+import b.a.x0.t.c;
+import b.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MultiMediaPreGlRenderer extends BaseGlRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,12 +60,12 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         }
     }
 
-    public int onPreProcess(int i2, long j2) {
+    public int onPreProcess(int i2, long j) {
         InterceptResult invokeCommon;
         MultiMediaData multiMediaData;
         OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             List<MultiMediaDataTrack> multiMediaDataTrack = this.iMultiMediaDataSource.getMultiMediaDataTrack();
             if ((!h.e(multiMediaDataTrack) && h.b(multiMediaDataTrack.get(0).multiMediaDataList) <= i2) || (multiMediaData = (MultiMediaData) h.c(multiMediaDataTrack.get(0).multiMediaDataList, i2)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
                 return -1;
@@ -79,7 +79,7 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
             this.mPreProcessor.setShaderConfigMap(this.iMultiMediaDataSource.getShaderConfigMap());
             this.mPreProcessor.setUpdateMediaTracks(this.iMultiMediaDataSource.getUpdateMediaTracks());
             this.mPreProcessor.setMediaTrackConfig(this.iMultiMediaDataSource.getMediaTrackConfig());
-            int preProcess = this.mPreProcessor.preProcess(multiMediaDataTrack, i2, j2, this.mUpdateTextureListener);
+            int preProcess = this.mPreProcessor.preProcess(multiMediaDataTrack, i2, j, this.mUpdateTextureListener);
             this.mUpdateTextureListener.setUpdateTexture(preProcess, GlUtil.IDENTITY_MATRIX, multiMediaData.textureMode);
             return preProcess;
         }

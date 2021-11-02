@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.samsung.android.deviceidservice.a;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SumsungCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DBG = false;
@@ -71,7 +71,7 @@ public class SumsungCore {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SumsungCore f64379a;
+            public final /* synthetic */ SumsungCore f61217a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -88,7 +88,7 @@ public class SumsungCore {
                         return;
                     }
                 }
-                this.f64379a = this;
+                this.f61217a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -96,9 +96,9 @@ public class SumsungCore {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     synchronized (this) {
-                        this.f64379a.mDeviceidInterface = a.AbstractBinderC2052a.a(iBinder);
-                        if (this.f64379a.mCallerCallBack != null) {
-                            this.f64379a.mCallerCallBack.a(true);
+                        this.f61217a.mDeviceidInterface = a.AbstractBinderC1962a.a(iBinder);
+                        if (this.f61217a.mCallerCallBack != null) {
+                            this.f61217a.mCallerCallBack.a(true);
                         }
                         com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceConnected");
                     }
@@ -109,7 +109,7 @@ public class SumsungCore {
             public void onServiceDisconnected(ComponentName componentName) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                    this.f64379a.mDeviceidInterface = null;
+                    this.f61217a.mDeviceidInterface = null;
                     com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceDisconnected");
                 }
             }

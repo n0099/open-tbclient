@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f72811a;
+    public a f65261a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(com.kwad.sdk.core.webview.b.a.c cVar);
     }
@@ -53,7 +53,7 @@ public class c implements com.kwad.sdk.core.webview.a.a {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f72811a = aVar;
+            this.f65261a = aVar;
         }
     }
 
@@ -64,8 +64,8 @@ public class c implements com.kwad.sdk.core.webview.a.a {
             com.kwad.sdk.core.webview.b.a.c cVar2 = new com.kwad.sdk.core.webview.b.a.c();
             try {
                 cVar2.parseJson(new JSONObject(str));
-                if (this.f72811a != null) {
-                    this.f72811a.a(cVar2);
+                if (this.f65261a != null) {
+                    this.f65261a.a(cVar2);
                 }
                 a(cVar2);
             } catch (JSONException e2) {
@@ -78,7 +78,7 @@ public class c implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f72811a = null;
+            this.f65261a = null;
         }
     }
 }

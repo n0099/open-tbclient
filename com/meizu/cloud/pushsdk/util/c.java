@@ -10,11 +10,11 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f75359a = Charset.forName("UTF-8");
+    public static final Charset f67714a = Charset.forName("UTF-8");
 
     public static String a(String str, String str2) {
         if (str != null) {
@@ -22,9 +22,9 @@ public class c {
                 if (TextUtils.isEmpty(str2)) {
                     return null;
                 }
-                return new String(a(a(str), b(str2)), f75359a);
+                return new String(a(a(str), b(str2)), f67714a);
             } catch (Exception e2) {
-                c.l.a.a.a.b("RSAUtils", "decrypt " + e2.getMessage());
+                b.l.a.a.a.b("RSAUtils", "decrypt " + e2.getMessage());
                 return null;
             }
         }
@@ -41,21 +41,21 @@ public class c {
             sb.append("loadPublicKey IOException ");
             message = e2.getMessage();
             sb.append(message);
-            c.l.a.a.a.b("RSAUtils", sb.toString());
+            b.l.a.a.a.b("RSAUtils", sb.toString());
             return null;
         } catch (NoSuchAlgorithmException e3) {
             sb = new StringBuilder();
             sb.append("loadPublicKey NoSuchAlgorithmException ");
             message = e3.getMessage();
             sb.append(message);
-            c.l.a.a.a.b("RSAUtils", sb.toString());
+            b.l.a.a.a.b("RSAUtils", sb.toString());
             return null;
         } catch (InvalidKeySpecException e4) {
             sb = new StringBuilder();
             sb.append("loadPublicKey InvalidKeySpecException ");
             message = e4.getMessage();
             sb.append(message);
-            c.l.a.a.a.b("RSAUtils", sb.toString());
+            b.l.a.a.a.b("RSAUtils", sb.toString());
             return null;
         }
     }

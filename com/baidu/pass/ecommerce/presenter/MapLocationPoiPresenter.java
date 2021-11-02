@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements GetLocationCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GET_LOCATION_CODE = 1001;

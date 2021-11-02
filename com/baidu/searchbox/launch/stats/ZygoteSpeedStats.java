@@ -24,7 +24,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AFTER_MAINTAB_CREATE_COST = "afterMainTabCreateCost";
@@ -99,9 +99,9 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             long appLaunchDuration = SpeedStatsManager.getInstance().getAppLaunchDuration();
             long startTimeFromStats = getStartTimeFromStats();
             if (startTimeFromStats > 0) {
-                long j2 = this.mElapsedRealtimeEnd - startTimeFromStats;
-                this.mUnFixUserPerceptionCost = j2;
-                if (j2 >= 10000 && Build.VERSION.SDK_INT >= 29) {
+                long j = this.mElapsedRealtimeEnd - startTimeFromStats;
+                this.mUnFixUserPerceptionCost = j;
+                if (j >= 10000 && Build.VERSION.SDK_INT >= 29) {
                     this.mFixUserPerceptionCost = this.mElapsedRealtimeEnd - Process.getStartElapsedRealtime();
                 } else {
                     this.mFixUserPerceptionCost = this.mUnFixUserPerceptionCost;
@@ -116,13 +116,13 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         BufferedReader bufferedReader;
         Throwable th;
         String readLine;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            long j3 = this.mStartTimeFromStats;
-            long j4 = -1;
-            if (j3 != -1) {
-                return j3;
+            long j2 = this.mStartTimeFromStats;
+            long j3 = -1;
+            if (j2 != -1) {
+                return j2;
             }
             BufferedReader bufferedReader2 = null;
             try {
@@ -142,20 +142,20 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                 bufferedReader2 = bufferedReader;
                 boolean z = DEBUG;
                 Closeables.closeSafely(bufferedReader2);
-                this.mStartTimeFromStats = j4;
-                return j4;
+                this.mStartTimeFromStats = j3;
+                return j3;
             } catch (IOException unused5) {
                 bufferedReader2 = bufferedReader;
                 boolean z2 = DEBUG;
                 Closeables.closeSafely(bufferedReader2);
-                this.mStartTimeFromStats = j4;
-                return j4;
+                this.mStartTimeFromStats = j3;
+                return j3;
             } catch (NumberFormatException unused6) {
                 bufferedReader2 = bufferedReader;
                 boolean z3 = DEBUG;
                 Closeables.closeSafely(bufferedReader2);
-                this.mStartTimeFromStats = j4;
-                return j4;
+                this.mStartTimeFromStats = j3;
+                return j3;
             } catch (Throwable th3) {
                 th = th3;
                 Closeables.closeSafely(bufferedReader);
@@ -169,33 +169,33 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             if (split.length > 21 && split[0].equals(String.valueOf(Process.myPid()))) {
                 String str = split[21];
                 try {
-                    j2 = LaunchNativeUtils.getClkTck();
+                    j = LaunchNativeUtils.getClkTck();
                 } catch (UnsatisfiedLinkError unused7) {
                     boolean z4 = DEBUG;
-                    j2 = 0;
+                    j = 0;
                 }
                 if (DEBUG) {
-                    String str2 = "_SC_CLK_TCK " + j2;
+                    String str2 = "_SC_CLK_TCK " + j;
                 }
-                if (j2 <= 0) {
-                    j2 = 100;
+                if (j <= 0) {
+                    j = 100;
                 }
-                j4 = (Long.parseLong(str) * 1000) / j2;
+                j3 = (Long.parseLong(str) * 1000) / j;
             }
             Closeables.closeSafely(bufferedReader);
-            this.mStartTimeFromStats = j4;
-            return j4;
+            this.mStartTimeFromStats = j3;
+            return j3;
         }
         return invokeV.longValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2, long j2) {
+    public void addStatsTimeStamp(int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            super.addStatsTimeStamp(i2, j2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.addStatsTimeStamp(i2, j);
             if (1001 == i2) {
-                this.mElapsedCpuTimeStart = j2;
+                this.mElapsedCpuTimeStart = j;
             }
         }
     }
@@ -219,11 +219,11 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             if (getStartTimeFromStats() <= 0) {
                 return 0L;
             }
-            long j2 = this.appOnCreateRealTime - this.mStartTimeFromStats;
-            if (j2 >= 1000 && Build.VERSION.SDK_INT >= 29) {
+            long j = this.appOnCreateRealTime - this.mStartTimeFromStats;
+            if (j >= 1000 && Build.VERSION.SDK_INT >= 29) {
                 return this.appOnCreateRealTime - Process.getStartElapsedRealtime();
             }
-            long appOnCreateDuration = j2 - SpeedStatsManager.getInstance().getAppOnCreateDuration();
+            long appOnCreateDuration = j - SpeedStatsManager.getInstance().getAppOnCreateDuration();
             if (appOnCreateDuration >= 0) {
                 return appOnCreateDuration;
             }
@@ -243,9 +243,9 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             hashMap.put(APP_STARTED_COST, String.valueOf(appLaunchDuration));
             hashMap.put(ELAPSED_CPU_COST, String.valueOf(this.mElapsedCpuTimeEnd - this.mElapsedCpuTimeStart));
             calculate();
-            long j2 = this.mFixUserPerceptionCost - appLaunchDuration;
-            if (j2 > 50 && j2 < 60000) {
-                hashMap.put(LAUNCH_2_APP_ON_START, String.valueOf(j2));
+            long j = this.mFixUserPerceptionCost - appLaunchDuration;
+            if (j > 50 && j < 60000) {
+                hashMap.put(LAUNCH_2_APP_ON_START, String.valueOf(j));
             }
             long splashActivityDuration = this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getSplashActivityDuration();
             if (splashActivityDuration > 50 && splashActivityDuration < 60000) {
@@ -253,9 +253,9 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             }
             hashMap.put(ELAPSED_REALTIME_COST, String.valueOf(this.mElapsedRealtimeCost));
             hashMap.put(UNFIX_USER_PERCEPTION_COST, String.valueOf(this.mUnFixUserPerceptionCost));
-            long j3 = this.mFixUserPerceptionCost;
-            if (j3 > 50 && j3 < 60000) {
-                hashMap.put(FIX_USER_PERCEPTION_COST, String.valueOf(j3));
+            long j2 = this.mFixUserPerceptionCost;
+            if (j2 > 50 && j2 < 60000) {
+                hashMap.put(FIX_USER_PERCEPTION_COST, String.valueOf(j2));
             }
             long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - SpeedStatsManager.getInstance().getMainTabActivityEndDuration();
             if (appLaunchEndTimeStamp > 50 && appLaunchEndTimeStamp < 60000) {
@@ -284,7 +284,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.addStatsTimeStamp(i2, System.currentTimeMillis());
-            if (i2 == 6000) {
+            if (i2 == 7000) {
                 this.mElapsedRealtimeEnd = SystemClock.elapsedRealtime();
                 this.mElapsedCpuTimeEnd = Process.getElapsedCpuTime();
             }

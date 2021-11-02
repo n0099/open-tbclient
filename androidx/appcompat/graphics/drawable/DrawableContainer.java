@@ -72,13 +72,13 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
-        public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
+        public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
             Drawable.Callback callback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) || (callback = this.mCallback) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) || (callback = this.mCallback) == null) {
                 return;
             }
-            callback.scheduleDrawable(drawable, runnable, j2);
+            callback.scheduleDrawable(drawable, runnable, j);
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
@@ -809,24 +809,24 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         long uptimeMillis = SystemClock.uptimeMillis();
         Drawable drawable2 = this.mCurrDrawable;
         if (drawable2 != null) {
-            long j2 = this.mEnterAnimationEnd;
-            if (j2 != 0) {
-                if (j2 <= uptimeMillis) {
+            long j = this.mEnterAnimationEnd;
+            if (j != 0) {
+                if (j <= uptimeMillis) {
                     drawable2.setAlpha(this.mAlpha);
                     this.mEnterAnimationEnd = 0L;
                 } else {
-                    drawable2.setAlpha(((255 - (((int) ((j2 - uptimeMillis) * 255)) / this.mDrawableContainerState.mEnterFadeDuration)) * this.mAlpha) / 255);
+                    drawable2.setAlpha(((255 - (((int) ((j - uptimeMillis) * 255)) / this.mDrawableContainerState.mEnterFadeDuration)) * this.mAlpha) / 255);
                     z2 = true;
                     drawable = this.mLastDrawable;
                     if (drawable == null) {
-                        long j3 = this.mExitAnimationEnd;
-                        if (j3 != 0) {
-                            if (j3 <= uptimeMillis) {
+                        long j2 = this.mExitAnimationEnd;
+                        if (j2 != 0) {
+                            if (j2 <= uptimeMillis) {
                                 drawable.setVisible(false, false);
                                 this.mLastDrawable = null;
                                 this.mExitAnimationEnd = 0L;
                             } else {
-                                drawable.setAlpha(((((int) ((j3 - uptimeMillis) * 255)) / this.mDrawableContainerState.mExitFadeDuration) * this.mAlpha) / 255);
+                                drawable.setAlpha(((((int) ((j2 - uptimeMillis) * 255)) / this.mDrawableContainerState.mExitFadeDuration) * this.mAlpha) / 255);
                                 if (z && z3) {
                                     scheduleSelf(this.mAnimationRunnable, uptimeMillis + 16);
                                     return;
@@ -1217,10 +1217,10 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         return invokeL.booleanValue;
     }
 
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) && drawable == this.mCurrDrawable && getCallback() != null) {
-            getCallback().scheduleDrawable(this, runnable, j2);
+        if ((interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) && drawable == this.mCurrDrawable && getCallback() != null) {
+            getCallback().scheduleDrawable(this, runnable, j);
         }
     }
 

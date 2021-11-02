@@ -56,7 +56,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IdCardActivity extends BeanActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CAMERA_REQUEST_CODE = 3;
@@ -112,7 +112,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public String mToastInfo;
     public View mTopView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 Bundle bundle = new Bundle();
                 bundle.putString("name", idCardActivity.mCardName);
                 bundle.putString(IdCardActivity.KEY_IMG_PATH, idCardActivity.mCardRealPath);
-                bundle.putString(IdCardActivity.KEY_NUMBER, idCardActivity.mCardNumber);
+                bundle.putString("number", idCardActivity.mCardNumber);
                 IdCardController.getInstance().success(bundle);
                 idCardActivity.finish();
             }
@@ -330,7 +330,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         iDDetectBean.execBean();
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x00d8 -> B:45:0x00e8). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x00d9 -> B:45:0x00e9). Please submit an issue!!! */
     private void dealResult(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65562, this, bArr) == null) {

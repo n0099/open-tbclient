@@ -26,39 +26,39 @@ import com.kwad.sdk.utils.ap;
 import com.kwad.sdk.utils.at;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f73225a;
+    public Context f65663a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f73226b;
+    public AdTemplate f65664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f73227c;
+    public a f65665c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f73228d;
+    public int f65666d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f73229e;
+    public ImageView f65667e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f73230f;
+    public TextView f65668f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f73231g;
+    public TextView f65669g;
 
     /* renamed from: h  reason: collision with root package name */
-    public KsLogoView f73232h;
+    public KsLogoView f65670h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f73233i;
+    public ValueAnimator f65671i;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
 
@@ -135,33 +135,33 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3) == null) {
             d();
             ValueAnimator a2 = at.a(this, i2, i3);
-            this.f73233i = a2;
+            this.f65671i = a2;
             a2.setInterpolator(new DecelerateInterpolator(2.0f));
-            this.f73233i.setDuration(300L);
-            this.f73233i.start();
+            this.f65671i.setDuration(300L);
+            this.f65671i.start();
         }
     }
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context) == null) {
-            this.f73225a = context;
+            this.f65663a = context;
             FrameLayout.inflate(context, R.layout.ksad_draw_card_h5, this);
-            this.f73229e = (ImageView) findViewById(R.id.ksad_card_close);
-            this.f73230f = (TextView) findViewById(R.id.ksad_card_ad_desc);
-            this.f73231g = (TextView) findViewById(R.id.ksad_card_h5_open_btn);
-            this.f73232h = (KsLogoView) findViewById(R.id.ksad_draw_h5_logo);
+            this.f65667e = (ImageView) findViewById(R.id.ksad_card_close);
+            this.f65668f = (TextView) findViewById(R.id.ksad_card_ad_desc);
+            this.f65669g = (TextView) findViewById(R.id.ksad_card_h5_open_btn);
+            this.f65670h = (KsLogoView) findViewById(R.id.ksad_draw_h5_logo);
         }
     }
 
     private void d() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (valueAnimator = this.f73233i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (valueAnimator = this.f65671i) == null) {
             return;
         }
         valueAnimator.removeAllListeners();
-        this.f73233i.cancel();
+        this.f65671i.cancel();
     }
 
     public void a() {
@@ -174,31 +174,31 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, aVar) == null) {
-            this.f73226b = adTemplate;
+            this.f65664b = adTemplate;
             AdInfo i2 = c.i(adTemplate);
-            this.f73227c = aVar;
-            this.f73230f.setText(com.kwad.sdk.core.response.b.a.m(i2));
-            this.f73231g.setText(com.kwad.sdk.core.response.b.a.u(i2));
-            this.f73229e.setOnClickListener(this);
-            this.f73231g.setOnClickListener(this);
-            this.f73232h.a(adTemplate);
+            this.f65665c = aVar;
+            this.f65668f.setText(com.kwad.sdk.core.response.b.a.m(i2));
+            this.f65669g.setText(com.kwad.sdk.core.response.b.a.u(i2));
+            this.f65667e.setOnClickListener(this);
+            this.f65669g.setOnClickListener(this);
+            this.f65670h.a(adTemplate);
             setOnClickListener(this);
-            this.f73230f.measure(View.MeasureSpec.makeMeasureSpec((ap.k(this.f73225a) - (av.a(this.f73225a, 16.0f) * 2)) - (av.a(this.f73225a, 10.0f) * 2), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
-            this.f73228d = av.a(this.f73225a, 100.0f) + this.f73230f.getMeasuredHeight();
+            this.f65668f.measure(View.MeasureSpec.makeMeasureSpec((ap.k(this.f65663a) - (av.a(this.f65663a, 16.0f) * 2)) - (av.a(this.f65663a, 10.0f) * 2), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+            this.f65666d = av.a(this.f65663a, 100.0f) + this.f65668f.getMeasuredHeight();
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(0, this.f73228d);
+            a(0, this.f65666d);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a(this.f73228d, 0);
+            a(this.f65666d, 0);
         }
     }
 
@@ -206,13 +206,13 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            if (view != this.f73229e) {
-                com.kwad.sdk.core.download.b.a.a(getContext(), this.f73226b, new a.InterfaceC1992a(this) { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
+            if (view != this.f65667e) {
+                com.kwad.sdk.core.download.b.a.a(getContext(), this.f65664b, new a.InterfaceC1901a(this) { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DrawCardH5 f73234a;
+                    public final /* synthetic */ DrawCardH5 f65672a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -229,22 +229,22 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
                                 return;
                             }
                         }
-                        this.f73234a = this;
+                        this.f65672a = this;
                     }
 
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1992a
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1901a
                     public void a() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f73234a.f73227c == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f65672a.f65665c == null) {
                             return;
                         }
-                        this.f73234a.f73227c.b();
+                        this.f65672a.f65665c.b();
                     }
-                }, null, view == this.f73231g);
+                }, null, view == this.f65669g);
                 return;
             }
             c();
-            a aVar = this.f73227c;
+            a aVar = this.f65665c;
             if (aVar != null) {
                 aVar.a();
             }

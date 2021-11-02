@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.p0.d;
-import c.a.q0.p0.e;
-import c.a.q0.p0.f;
+import b.a.q0.p0.d;
+import b.a.q0.p0.e;
+import b.a.q0.p0.f;
 import com.alipay.sdk.app.PayTask;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class WalletPluginImpl implements IWalletPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NPS_MODE = "Wallet";
@@ -120,9 +120,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         str3 = null;
                     }
                     e eVar = new e();
-                    eVar.f13662a = this.val$tag;
-                    eVar.f13663b = i2;
-                    eVar.f13664c = str3;
+                    eVar.f12796a = this.val$tag;
+                    eVar.f12797b = i2;
+                    eVar.f12798c = str3;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                 }
             }
@@ -172,8 +172,8 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f13663b = i2;
-                        eVar.f13664c = str2;
+                        eVar.f12797b = i2;
+                        eVar.f12798c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921335, eVar));
                     }
                 }
@@ -226,9 +226,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f13662a = this.val$tag;
-                        eVar.f13663b = i2;
-                        eVar.f13664c = str2;
+                        eVar.f12796a = this.val$tag;
+                        eVar.f12797b = i2;
+                        eVar.f12798c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }
@@ -510,9 +510,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         }
                         int i3 = i2 == 9000 ? 0 : i2 == 8000 ? 1 : i2 == 6001 ? 2 : 6;
                         e eVar = new e();
-                        eVar.f13662a = this.val$tag;
-                        eVar.f13663b = i3;
-                        eVar.f13664c = str2;
+                        eVar.f12796a = this.val$tag;
+                        eVar.f12797b = i3;
+                        eVar.f12798c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }

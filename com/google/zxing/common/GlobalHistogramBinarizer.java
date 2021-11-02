@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Binarizer;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.NotFoundException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class GlobalHistogramBinarizer extends Binarizer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] EMPTY;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.info.ImageOriginListener;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfMonitor;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfState;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ImagePerfImageOriginListener implements ImageOriginListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +34,11 @@ public class ImagePerfImageOriginListener implements ImageOriginListener {
     }
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImageOriginListener
-    public void onImageLoaded(String str, int i2, boolean z) {
+    public void onImageLoaded(String str, int i2, boolean z, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), str2}) == null) {
             this.mImagePerfState.setImageOrigin(i2);
+            this.mImagePerfState.setUltimateProducerName(str2);
             this.mImagePerfMonitor.notifyStatusUpdated(this.mImagePerfState, 1);
         }
     }

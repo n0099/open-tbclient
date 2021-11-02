@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.f.m;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class i extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference f59804a;
+    public final WeakReference f56729a;
 
     public i(ScreenCapEditActivity screenCapEditActivity) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public final class i extends Handler {
                 return;
             }
         }
-        this.f59804a = new WeakReference(screenCapEditActivity);
+        this.f56729a = new WeakReference(screenCapEditActivity);
     }
 
     @Override // android.os.Handler
@@ -51,7 +51,7 @@ public final class i extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            ScreenCapEditActivity screenCapEditActivity = (ScreenCapEditActivity) this.f59804a.get();
+            ScreenCapEditActivity screenCapEditActivity = (ScreenCapEditActivity) this.f56729a.get();
             if (screenCapEditActivity != null && message.what == 0) {
                 com.baidu.ufosdk.f.c.c("msg.what==0");
                 hashMap = screenCapEditActivity.t;

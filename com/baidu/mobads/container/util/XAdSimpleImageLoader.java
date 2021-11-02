@@ -22,7 +22,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdSimpleImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XAdSimpleImageLoader";
@@ -32,7 +32,7 @@ public class XAdSimpleImageLoader {
     public Context mAppContext;
     public LruCache<String, Bitmap> mCache;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ImageSize {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

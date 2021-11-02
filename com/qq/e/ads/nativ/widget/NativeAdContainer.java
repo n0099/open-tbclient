@@ -13,24 +13,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NativeAdContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewStatusListener f75597a;
+    public ViewStatusListener f67920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewStatus f75598b;
+    public ViewStatus f67921b;
 
     /* renamed from: com.qq.e.ads.nativ.widget.NativeAdContainer$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f75599a;
+        public static final /* synthetic */ int[] f67922a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,20 +47,20 @@ public class NativeAdContainer extends FrameLayout {
                 }
             }
             int[] iArr = new int[ViewStatus.values().length];
-            f75599a = iArr;
+            f67922a = iArr;
             try {
-                iArr[ViewStatus.ATTACHED.ordinal()] = 1;
+                iArr[1] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f75599a[ViewStatus.DETACHED.ordinal()] = 2;
+                f67922a[2] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ViewStatus {
         public static /* synthetic */ Interceptable $ic;
         public static final ViewStatus ATTACHED;
@@ -68,7 +68,7 @@ public class NativeAdContainer extends FrameLayout {
         public static final ViewStatus INIT;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ ViewStatus[] f75600a;
+        public static final /* synthetic */ ViewStatus[] f67923a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -88,7 +88,7 @@ public class NativeAdContainer extends FrameLayout {
             ATTACHED = new ViewStatus("ATTACHED", 1);
             ViewStatus viewStatus = new ViewStatus("DETACHED", 2);
             DETACHED = viewStatus;
-            f75600a = new ViewStatus[]{INIT, ATTACHED, viewStatus};
+            f67923a = new ViewStatus[]{INIT, ATTACHED, viewStatus};
         }
 
         public ViewStatus(String str, int i2) {
@@ -119,21 +119,22 @@ public class NativeAdContainer extends FrameLayout {
         public static ViewStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ViewStatus[]) f75600a.clone() : (ViewStatus[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ViewStatus[]) f67923a.clone() : (ViewStatus[]) invokeV.objValue;
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1634404480, "Lcom/qq/e/ads/nativ/widget/NativeAdContainer;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1634404480, "Lcom/qq/e/ads/nativ/widget/NativeAdContainer;");
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1634404480, "Lcom/qq/e/ads/nativ/widget/NativeAdContainer;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1634404480, "Lcom/qq/e/ads/nativ/widget/NativeAdContainer;");
         }
     }
 
@@ -155,7 +156,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f75598b = ViewStatus.INIT;
+        this.f67921b = ViewStatus.INIT;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -177,7 +178,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f75598b = ViewStatus.INIT;
+        this.f67921b = ViewStatus.INIT;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -199,7 +200,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f75598b = ViewStatus.INIT;
+        this.f67921b = ViewStatus.INIT;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -207,7 +208,7 @@ public class NativeAdContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            ViewStatusListener viewStatusListener = this.f75597a;
+            ViewStatusListener viewStatusListener = this.f67920a;
             if (viewStatusListener != null) {
                 viewStatusListener.onDispatchTouchEvent(motionEvent);
             }
@@ -222,8 +223,8 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
             GDTLogger.d("NativeAdContainer onAttachedToWindow");
-            this.f75598b = ViewStatus.ATTACHED;
-            ViewStatusListener viewStatusListener = this.f75597a;
+            this.f67921b = ViewStatus.ATTACHED;
+            ViewStatusListener viewStatusListener = this.f67920a;
             if (viewStatusListener != null) {
                 viewStatusListener.onAttachToWindow();
             }
@@ -236,8 +237,8 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
             GDTLogger.d("NativeAdContainer onDetachedFromWindow");
-            this.f75598b = ViewStatus.DETACHED;
-            ViewStatusListener viewStatusListener = this.f75597a;
+            this.f67921b = ViewStatus.DETACHED;
+            ViewStatusListener viewStatusListener = this.f67920a;
             if (viewStatusListener != null) {
                 viewStatusListener.onDetachFromWindow();
             }
@@ -250,7 +251,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             super.onWindowFocusChanged(z);
             GDTLogger.d("onWindowFocusChanged: hasWindowFocus: " + z);
-            ViewStatusListener viewStatusListener = this.f75597a;
+            ViewStatusListener viewStatusListener = this.f67920a;
             if (viewStatusListener != null) {
                 viewStatusListener.onWindowFocusChanged(z);
             }
@@ -263,7 +264,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
             GDTLogger.d("onWindowVisibilityChanged: visibility: " + i2);
-            ViewStatusListener viewStatusListener = this.f75597a;
+            ViewStatusListener viewStatusListener = this.f67920a;
             if (viewStatusListener != null) {
                 viewStatusListener.onWindowVisibilityChanged(i2);
             }
@@ -273,14 +274,14 @@ public class NativeAdContainer extends FrameLayout {
     public void setViewStatusListener(ViewStatusListener viewStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, viewStatusListener) == null) {
-            this.f75597a = viewStatusListener;
+            this.f67920a = viewStatusListener;
             if (viewStatusListener != null) {
-                int i2 = AnonymousClass1.f75599a[this.f75598b.ordinal()];
-                if (i2 == 1) {
-                    this.f75597a.onAttachToWindow();
-                } else if (i2 != 2) {
+                int ordinal = this.f67921b.ordinal();
+                if (ordinal == 1) {
+                    this.f67920a.onAttachToWindow();
+                } else if (ordinal != 2) {
                 } else {
-                    this.f75597a.onDetachFromWindow();
+                    this.f67920a.onDetachFromWindow();
                 }
             }
         }

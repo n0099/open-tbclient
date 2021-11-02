@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMUserManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMUserManager";
@@ -66,10 +66,10 @@ public class IMUserManager {
         sBuidCache = new UKCache(500);
     }
 
-    private ChatObject createChatObject(long j2) {
+    private ChatObject createChatObject(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) ? new ChatObject(this.mContext, 0, j2) : (ChatObject) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) ? new ChatObject(this.mContext, 0, j) : (ChatObject) invokeJ.objValue;
     }
 
     public static IMUserManager getInstance(Context context) {
@@ -86,17 +86,17 @@ public class IMUserManager {
         return (IMUserManager) invokeL.objValue;
     }
 
-    public long getBuidByUK(long j2) {
+    public long getBuidByUK(long j) {
         InterceptResult invokeJ;
         ChatUser chatUser;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            Long l = sBuidCache.get(j2);
-            if (l == null && (chatUser = ChatUserDBManager.getInstance(this.mContext).getChatUser(j2)) != null && chatUser.getBuid() >= 0 && chatUser.getUk() >= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            Long l = sBuidCache.get(j);
+            if (l == null && (chatUser = ChatUserDBManager.getInstance(this.mContext).getChatUser(j)) != null && chatUser.getBuid() >= 0 && chatUser.getUk() >= 0) {
                 l = Long.valueOf(chatUser.getBuid());
-                sChatObjectCache.put(createChatObject(j2), chatUser);
-                sUkCache.put(l, Long.valueOf(j2));
-                sBuidCache.put(Long.valueOf(j2), l);
+                sChatObjectCache.put(createChatObject(j), chatUser);
+                sUkCache.put(l, Long.valueOf(j));
+                sBuidCache.put(Long.valueOf(j), l);
             }
             if (l == null || l.longValue() <= -1) {
                 return -1L;
@@ -106,24 +106,24 @@ public class IMUserManager {
         return invokeJ.longValue;
     }
 
-    public ChatUser getChatUser(long j2) {
+    public ChatUser getChatUser(long j) {
         InterceptResult invokeJ;
         ChatUser chatUser;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            ChatObject createChatObject = createChatObject(j2);
-            if (isUserExist(j2)) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            ChatObject createChatObject = createChatObject(j);
+            if (isUserExist(j)) {
                 synchronized (IMUserManager.class) {
                     chatUser = (ChatUser) sChatObjectCache.get(createChatObject);
                 }
                 return chatUser;
             }
-            ChatUser chatUser2 = ChatUserDBManager.getInstance(this.mContext).getChatUser(j2);
+            ChatUser chatUser2 = ChatUserDBManager.getInstance(this.mContext).getChatUser(j);
             synchronized (IMUserManager.class) {
                 if (chatUser2 != null) {
                     sChatObjectCache.put(createChatObject, chatUser2);
-                    sUkCache.put(Long.valueOf(chatUser2.getBuid()), Long.valueOf(j2));
-                    sBuidCache.put(Long.valueOf(j2), Long.valueOf(chatUser2.getBuid()));
+                    sUkCache.put(Long.valueOf(chatUser2.getBuid()), Long.valueOf(j));
+                    sBuidCache.put(Long.valueOf(j), Long.valueOf(chatUser2.getBuid()));
                 }
             }
             return chatUser2;
@@ -131,17 +131,17 @@ public class IMUserManager {
         return (ChatUser) invokeJ.objValue;
     }
 
-    public long getUKbyBuid(long j2) {
+    public long getUKbyBuid(long j) {
         InterceptResult invokeJ;
         ChatUser chatUserByBuid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            Long l = sUkCache.get(j2);
-            if (l == null && (chatUserByBuid = ChatUserDBManager.getInstance(this.mContext).getChatUserByBuid(j2)) != null && chatUserByBuid.getBuid() >= 0 && chatUserByBuid.getUk() >= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            Long l = sUkCache.get(j);
+            if (l == null && (chatUserByBuid = ChatUserDBManager.getInstance(this.mContext).getChatUserByBuid(j)) != null && chatUserByBuid.getBuid() >= 0 && chatUserByBuid.getUk() >= 0) {
                 l = Long.valueOf(chatUserByBuid.getUk());
                 sChatObjectCache.put(createChatObject(l.longValue()), chatUserByBuid);
-                sUkCache.put(Long.valueOf(j2), l);
-                sBuidCache.put(l, Long.valueOf(j2));
+                sUkCache.put(Long.valueOf(j), l);
+                sBuidCache.put(l, Long.valueOf(j));
             }
             if (l == null || l.longValue() <= -1) {
                 return -1L;
@@ -169,25 +169,25 @@ public class IMUserManager {
         return (ArrayList) invokeL.objValue;
     }
 
-    public boolean isUserExist(long j2) {
+    public boolean isUserExist(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-            ChatObject createChatObject = createChatObject(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            ChatObject createChatObject = createChatObject(j);
             synchronized (IMUserManager.class) {
                 if (sChatObjectCache.get(createChatObject) != null) {
                     return true;
                 }
-                ChatUser chatUser = ChatUserDBManager.getInstance(this.mContext).getChatUser(j2);
+                ChatUser chatUser = ChatUserDBManager.getInstance(this.mContext).getChatUser(j);
                 if (chatUser != null) {
                     synchronized (IMUserManager.class) {
                         if (chatUser.getBuid() > 0) {
                             sChatObjectCache.put(createChatObject, chatUser);
-                            sUkCache.put(Long.valueOf(chatUser.getBuid()), Long.valueOf(j2));
-                            sBuidCache.put(Long.valueOf(j2), Long.valueOf(chatUser.getBuid()));
+                            sUkCache.put(Long.valueOf(chatUser.getBuid()), Long.valueOf(j));
+                            sBuidCache.put(Long.valueOf(j), Long.valueOf(chatUser.getBuid()));
                             return true;
                         }
-                        ChatUserDBManager.getInstance(this.mContext).deleteChatUser(j2);
+                        ChatUserDBManager.getInstance(this.mContext).deleteChatUser(j);
                         sChatObjectCache.remove(createChatObject);
                         return false;
                     }
@@ -198,15 +198,15 @@ public class IMUserManager {
         return invokeJ.booleanValue;
     }
 
-    public void removeChatObject(long j2) {
+    public void removeChatObject(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            ChatObject createChatObject = createChatObject(j2);
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            ChatObject createChatObject = createChatObject(j);
             ChatObjectCache chatObjectCache = sChatObjectCache;
             if (chatObjectCache == null || chatObjectCache.get(createChatObject) == null) {
                 return;
             }
-            LogUtils.e(TAG, "removeChatObject uk = " + j2);
+            LogUtils.e(TAG, "removeChatObject uk = " + j);
             sChatObjectCache.remove(createChatObject);
         }
     }

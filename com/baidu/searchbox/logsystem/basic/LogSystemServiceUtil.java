@@ -7,7 +7,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.h0.b.a.a;
+import b.a.h0.b.a.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.LokiService;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LogSystemServiceUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogSystemServiceUtil";
@@ -91,7 +91,7 @@ public class LogSystemServiceUtil {
                 intent.putExtra(LokiService.Constant.LOG_BASIC_DATA_FILE, file.getAbsolutePath());
             }
             if (logExtra != null) {
-                intent.putExtra(LokiService.Constant.LOG_EXTRA, logExtra);
+                intent.putExtra("logExtra", logExtra);
             }
             if (file2 != null) {
                 String absolutePath = file2.getAbsolutePath();

@@ -26,14 +26,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class CompletableConcat extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int prefetch;
     public final Publisher<? extends CompletableSource> sources;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class CompletableConcatSubscriber extends AtomicInteger implements FlowableSubscriber<CompletableSource>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9032184911934499404L;
@@ -50,7 +50,7 @@ public final class CompletableConcat extends Completable {
         public Subscription s;
         public int sourceFused;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public static final class ConcatInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -5454794857847146511L;
@@ -219,7 +219,7 @@ public final class CompletableConcat extends Completable {
             if ((interceptable == null || interceptable.invokeL(1048585, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 int i2 = this.prefetch;
-                long j2 = i2 == Integer.MAX_VALUE ? Long.MAX_VALUE : i2;
+                long j = i2 == Integer.MAX_VALUE ? Long.MAX_VALUE : i2;
                 if (subscription instanceof QueueSubscription) {
                     QueueSubscription queueSubscription = (QueueSubscription) subscription;
                     int requestFusion = queueSubscription.requestFusion(3);
@@ -234,7 +234,7 @@ public final class CompletableConcat extends Completable {
                         this.sourceFused = requestFusion;
                         this.queue = queueSubscription;
                         this.actual.onSubscribe(this);
-                        subscription.request(j2);
+                        subscription.request(j);
                         return;
                     }
                 }
@@ -244,7 +244,7 @@ public final class CompletableConcat extends Completable {
                     this.queue = new SpscArrayQueue(this.prefetch);
                 }
                 this.actual.onSubscribe(this);
-                subscription.request(j2);
+                subscription.request(j);
             }
         }
 

@@ -8,16 +8,15 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.m.b;
-import c.a.e.e.p.f;
-import c.a.e.e.p.m;
-import c.a.e.e.p.q;
+import b.a.e.e.m.b;
+import b.a.e.e.p.f;
+import b.a.e.e.p.m;
+import b.a.e.e.p.q;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,13 +31,13 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.util.HashSet;
 import kotlin.UShort;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class VersionCompare {
         public static final /* synthetic */ VersionCompare[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,19 +98,19 @@ public final class Util {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f36414a;
+        public boolean f34490a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36415b;
+        public String f34491b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f36416c;
+        public int f34492c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -126,9 +125,9 @@ public final class Util {
                     return;
                 }
             }
-            this.f36414a = false;
-            this.f36415b = null;
-            this.f36416c = 0;
+            this.f34490a = false;
+            this.f34491b = null;
+            this.f34492c = 0;
         }
     }
 
@@ -189,8 +188,8 @@ public final class Util {
             if (str.equals(str2)) {
                 return VersionCompare.EQUAL;
             }
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = str.split("\\.");
+            String[] split2 = str2.split("\\.");
             int length = split.length;
             int length2 = split2.length;
             int i2 = length < length2 ? length : length2;
@@ -246,24 +245,24 @@ public final class Util {
                     }
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    aVar.f36414a = true;
+                    aVar.f34490a = true;
                 } catch (Exception e3) {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
-                    aVar.f36414a = false;
-                    aVar.f36415b = e.toString();
-                    c.a.e.e.m.a.d(fileOutputStream2);
+                    aVar.f34490a = false;
+                    aVar.f34491b = e.toString();
+                    b.a.e.e.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
                     th = th2;
                     fileOutputStream2 = fileOutputStream;
-                    c.a.e.e.m.a.d(fileOutputStream2);
+                    b.a.e.e.m.a.d(fileOutputStream2);
                     throw th;
                 }
-                c.a.e.e.m.a.d(fileOutputStream2);
+                b.a.e.e.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f36415b = "illegal_param";
+            aVar.f34491b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -512,16 +511,16 @@ public final class Util {
         return invokeV.booleanValue;
     }
 
-    public static final boolean u(long j2) {
+    public static final boolean u(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j)) == null) {
             long g2 = g();
-            if (j2 <= 0) {
+            if (j <= 0) {
                 return g2 <= 0 || g2 >= 31457280;
             }
-            long j3 = j2 * (Build.VERSION.SDK_INT < 19 ? 6 : 10);
-            return (j3 <= 31457280 ? j3 : 31457280L) < g2;
+            long j2 = j * (Build.VERSION.SDK_INT < 19 ? 6 : 10);
+            return (j2 <= 31457280 ? j2 : 31457280L) < g2;
         }
         return invokeJ.booleanValue;
     }
@@ -551,7 +550,7 @@ public final class Util {
         return invokeLI.intValue;
     }
 
-    public static c.a.e.h.k.f x(InputStream inputStream) throws IOException {
+    public static b.a.e.h.k.f x(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, inputStream)) == null) {
@@ -564,11 +563,11 @@ public final class Util {
             }
             int w = w(bArr, 6);
             int w2 = w(bArr, 8);
-            c.a.e.h.k.f fVar = new c.a.e.h.k.f();
+            b.a.e.h.k.f fVar = new b.a.e.h.k.f();
             fVar.b(((w2 >> 9) & 127) + 1980, (w2 >> 5) & 15, w2 & 31, (w >> 11) & 31, (w >> 5) & 63, (w & 31) << 1);
             return fVar;
         }
-        return (c.a.e.h.k.f) invokeL.objValue;
+        return (b.a.e.h.k.f) invokeL.objValue;
     }
 
     public static String y(InputStream inputStream, byte[] bArr) {

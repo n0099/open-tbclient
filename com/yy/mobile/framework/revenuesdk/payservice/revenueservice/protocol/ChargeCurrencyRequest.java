@@ -13,7 +13,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IReq
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ChargeCurrencyRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
     public long uid;
     public int usedChannel;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class ExpandBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,12 +159,12 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
         }
     }
 
-    public ChargeCurrencyRequest(long j2, int i2, int i3, int i4, int i5, String str, String str2, String str3, double d2, int i6, boolean z, String str4, String str5, String str6, String str7) {
+    public ChargeCurrencyRequest(long j, int i2, int i3, int i4, int i5, String str, String str2, String str3, double d2, int i6, boolean z, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, str2, str3, Double.valueOf(d2), Integer.valueOf(i6), Boolean.valueOf(z), str4, str5, str6, str7};
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, str2, str3, Double.valueOf(d2), Integer.valueOf(i6), Boolean.valueOf(z), str4, str5, str6, str7};
             interceptable.invokeUnInit(65538, newInitContext);
             int i7 = newInitContext.flag;
             if ((i7 & 1) != 0) {
@@ -181,7 +181,7 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
         this.returnUrl = "";
         this.expand = "";
         this.clientVersion = "";
-        this.uid = j2;
+        this.uid = j;
         this.sid = i2;
         this.appId = i3;
         this.usedChannel = i4;

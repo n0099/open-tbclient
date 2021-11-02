@@ -5,7 +5,7 @@ import com.airbnb.lottie.model.content.Mask;
 import com.airbnb.lottie.model.content.ShapeData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MaskKeyframeAnimation {
     public final List<BaseKeyframeAnimation<ShapeData, Path>> maskAnimations;
     public final List<Mask> masks;

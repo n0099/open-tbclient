@@ -7,38 +7,37 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.q0.s.u.c;
+import b.a.q0.s.u.c;
+import b.a.r0.k2.f;
+import b.a.r0.k2.g;
+import b.a.r0.k2.l;
+import b.a.r0.k2.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TextLineView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f55378e;
+    public Paint f52559e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55379f;
+    public int f52560f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55380g;
+    public int f52561g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55381h;
+    public int f52562h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55382i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f55383j;
+    public int f52563i;
+    public int j;
     public RectF k;
     public int l;
     public int m;
@@ -70,28 +69,28 @@ public class TextLineView extends TextView {
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
             if (z) {
                 c d2 = c.d(this);
-                d2.v(R.color.CAM_X0105);
-                d2.A(R.string.F_X02);
+                d2.v(f.CAM_X0105);
+                d2.A(l.F_X02);
                 return;
             }
             c d3 = c.d(this);
-            d3.v(R.color.CAM_X0108);
-            d3.A(R.string.F_X01);
+            d3.v(f.CAM_X0108);
+            d3.A(l.F_X01);
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f55378e == null) {
-                this.f55378e = new Paint();
+            if (this.f52559e == null) {
+                this.f52559e = new Paint();
             }
-            this.f55378e.setAntiAlias(true);
-            this.f55378e.setStyle(Paint.Style.FILL);
+            this.f52559e.setAntiAlias(true);
+            this.f52559e.setStyle(Paint.Style.FILL);
             if (isSelected()) {
-                this.f55378e.setColor(SkinManager.getColor(R.color.transparent));
+                this.f52559e.setColor(SkinManager.getColor(f.transparent));
             } else {
-                this.f55378e.setColor(SkinManager.getColor(R.color.transparent));
+                this.f52559e.setColor(SkinManager.getColor(f.transparent));
             }
         }
     }
@@ -117,11 +116,11 @@ public class TextLineView extends TextView {
             RectF rectF = this.k;
             int i2 = this.n;
             int i3 = this.m;
-            int i4 = this.f55381h;
-            rectF.set(i2 + 0, (i3 - i4) - this.f55379f, this.l - i2, i3 - i4);
+            int i4 = this.f52562h;
+            rectF.set(i2 + 0, (i3 - i4) - this.f52560f, this.l - i2, i3 - i4);
             RectF rectF2 = this.k;
             int i5 = this.o;
-            canvas.drawRoundRect(rectF2, i5, i5, this.f55378e);
+            canvas.drawRoundRect(rectF2, i5, i5, this.f52559e);
         }
     }
 
@@ -132,7 +131,7 @@ public class TextLineView extends TextView {
             super.onSizeChanged(i2, i3, i4, i5);
             this.l = i2;
             this.m = i3;
-            this.n = (i2 - this.f55383j) / 2;
+            this.n = (i2 - this.j) / 2;
         }
     }
 
@@ -165,17 +164,17 @@ public class TextLineView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.TextLineView);
-        this.f55379f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_height, 0);
-        this.f55380g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_top_margin, 0);
-        this.f55381h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_bottom_margin, 0);
-        this.f55382i = obtainStyledAttributes.getColor(R$styleable.TextLineView_text_selected_color, SkinManager.getColor(R.color.CAM_X0105));
-        obtainStyledAttributes.getColor(R$styleable.TextLineView_text_unselected_color, SkinManager.getColor(R.color.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f55380g + this.f55379f + this.f55381h);
-        setTextColor(this.f55382i);
-        this.f55383j = l.g(context, R.dimen.ds56);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n.TextLineView);
+        this.f52560f = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_height, 0);
+        this.f52561g = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_top_margin, 0);
+        this.f52562h = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_bottom_margin, 0);
+        this.f52563i = obtainStyledAttributes.getColor(n.TextLineView_text_selected_color, SkinManager.getColor(f.CAM_X0105));
+        obtainStyledAttributes.getColor(n.TextLineView_text_unselected_color, SkinManager.getColor(f.CAM_X0108));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f52561g + this.f52560f + this.f52562h);
+        setTextColor(this.f52563i);
+        this.j = b.a.e.e.p.l.g(context, g.ds56);
         this.k = new RectF();
-        this.o = l.g(getContext(), R.dimen.ds4);
+        this.o = b.a.e.e.p.l.g(getContext(), g.ds4);
         obtainStyledAttributes.recycle();
     }
 }

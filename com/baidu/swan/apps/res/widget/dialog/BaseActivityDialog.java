@@ -15,10 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.g;
-import c.a.p0.a.k;
-import c.a.p0.a.v2.f;
-import c.a.p0.a.v2.q0;
+import b.a.p0.a.g;
+import b.a.p0.a.k;
+import b.a.p0.a.v2.f;
+import b.a.p0.a.v2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bdeventbus.Action;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -59,13 +59,13 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public SwanAppScrollView mScrollView;
     public TextView mTitle;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements Action<e.c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseActivityDialog f46459a;
+        public final /* synthetic */ BaseActivityDialog f44127a;
 
         public a(BaseActivityDialog baseActivityDialog) {
             Interceptable interceptable = $ic;
@@ -82,27 +82,26 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     return;
                 }
             }
-            this.f46459a = baseActivityDialog;
+            this.f44127a = baseActivityDialog;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.bdeventbus.Action
-        /* renamed from: a */
         public void call(e.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                this.f46459a.mBuilder.onEvent(cVar);
+                this.f44127a.mBuilder.onEvent(cVar);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b implements Action<e.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseActivityDialog f46460a;
+        public final /* synthetic */ BaseActivityDialog f44128a;
 
         public b(BaseActivityDialog baseActivityDialog) {
             Interceptable interceptable = $ic;
@@ -119,27 +118,26 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     return;
                 }
             }
-            this.f46460a = baseActivityDialog;
+            this.f44128a = baseActivityDialog;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.bdeventbus.Action
-        /* renamed from: a */
         public void call(e.b bVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.f46475a == this.f46460a.mBuilder.r) {
-                this.f46460a.dismiss();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.f44142a == this.f44128a.mBuilder.r) {
+                this.f44128a.dismiss();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivityDialog f46461e;
+        public final /* synthetic */ BaseActivityDialog f44129e;
 
         public c(BaseActivityDialog baseActivityDialog) {
             Interceptable interceptable = $ic;
@@ -156,27 +154,27 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     return;
                 }
             }
-            this.f46461e = baseActivityDialog;
+            this.f44129e = baseActivityDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46461e.onButtonClick(-1);
-                BdEventBus.Companion.getDefault().post(new e.c(this.f46461e, -1));
-                this.f46461e.dismiss();
+                this.f44129e.onButtonClick(-1);
+                BdEventBus.Companion.getDefault().post(new e.c(this.f44129e, -1));
+                this.f44129e.dismiss();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivityDialog f46462e;
+        public final /* synthetic */ BaseActivityDialog f44130e;
 
         public d(BaseActivityDialog baseActivityDialog) {
             Interceptable interceptable = $ic;
@@ -193,21 +191,21 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     return;
                 }
             }
-            this.f46462e = baseActivityDialog;
+            this.f44130e = baseActivityDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46462e.onButtonClick(-2);
-                this.f46462e.dismiss();
-                BdEventBus.Companion.getDefault().post(new e.c(this.f46462e, -2));
+                this.f44130e.onButtonClick(-2);
+                this.f44130e.dismiss();
+                BdEventBus.Companion.getDefault().post(new e.c(this.f44130e, -2));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public static volatile HashMap<String, e> t;
@@ -215,34 +213,32 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46463a;
+        public String f44131a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f46464b;
+        public CharSequence f44132b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46465c;
+        public String f44133c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f46466d;
+        public String f44134d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f46467e;
+        public View f44135e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Drawable f46468f;
+        public Drawable f44136f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f46469g;
+        public boolean f44137g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f46470h;
+        public int f44138h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Bundle f46471i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public DialogInterface.OnClickListener f46472j;
+        public Bundle f44139i;
+        public DialogInterface.OnClickListener j;
         public DialogInterface.OnClickListener k;
         public DialogInterface.OnCancelListener l;
         public DialogInterface.OnDismissListener m;
@@ -253,16 +249,16 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public Object r;
         public boolean s;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f46473e;
+            public final /* synthetic */ boolean f44140e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f46474f;
+            public final /* synthetic */ e f44141f;
 
             public a(e eVar, boolean z) {
                 Interceptable interceptable = $ic;
@@ -279,8 +275,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                         return;
                     }
                 }
-                this.f46474f = eVar;
-                this.f46473e = z;
+                this.f44141f = eVar;
+                this.f44140e = z;
             }
 
             @Override // java.lang.Runnable
@@ -288,45 +284,45 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     Context appContext = AppRuntime.getAppContext();
-                    if (this.f46474f.o == null) {
-                        this.f46474f.o = BaseActivityDialog.class;
+                    if (this.f44141f.o == null) {
+                        this.f44141f.o = BaseActivityDialog.class;
                     }
-                    Intent intent = new Intent(appContext, this.f46474f.o);
-                    intent.putExtra(BaseActivityDialog.KEY_NIGHT_MODE, this.f46473e);
+                    Intent intent = new Intent(appContext, this.f44141f.o);
+                    intent.putExtra("BOX_ACTIVITY_DIALOG_NIGHT_MODE", this.f44140e);
                     String valueOf = String.valueOf(intent.hashCode());
-                    intent.putExtra(BaseActivityDialog.KEY_FOR_BUILDER, valueOf);
-                    if (!TextUtils.isEmpty(this.f46474f.q)) {
-                        intent.putExtra(BaseActivityDialog.KEY_FROM, this.f46474f.q);
+                    intent.putExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER", valueOf);
+                    if (!TextUtils.isEmpty(this.f44141f.q)) {
+                        intent.putExtra("BOX_ACTIVITY_DIALOG_FROM", this.f44141f.q);
                     }
-                    if (this.f46474f.f46471i != null) {
-                        intent.putExtras(this.f46474f.f46471i);
+                    if (this.f44141f.f44139i != null) {
+                        intent.putExtras(this.f44141f.f44139i);
                     }
-                    e.t(valueOf, this.f46474f);
+                    e.t(valueOf, this.f44141f);
                     intent.addFlags(268435456);
                     f.g(appContext, intent);
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static class b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public Object f46475a;
+            public Object f44142a;
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static class c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public DialogInterface f46476a;
+            public DialogInterface f44143a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f46477b;
+            public int f44144b;
 
             public c(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
@@ -343,8 +339,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                         return;
                     }
                 }
-                this.f46476a = dialogInterface;
-                this.f46477b = i2;
+                this.f44143a = dialogInterface;
+                this.f44144b = i2;
             }
         }
 
@@ -413,8 +409,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, onClickListener)) == null) {
-                this.f46465c = str;
-                this.f46472j = onClickListener;
+                this.f44133c = str;
+                this.j = onClickListener;
                 return this;
             }
             return (e) invokeLL.objValue;
@@ -434,7 +430,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f46463a = str;
+                this.f44131a = str;
                 return this;
             }
             return (e) invokeL.objValue;
@@ -460,14 +456,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 return;
             }
             DialogInterface.OnClickListener onClickListener = null;
-            int i2 = cVar.f46477b;
+            int i2 = cVar.f44144b;
             if (i2 == -2) {
                 onClickListener = this.k;
             } else if (i2 == -1) {
-                onClickListener = this.f46472j;
+                onClickListener = this.j;
             }
             if (onClickListener != null) {
-                onClickListener.onClick(cVar.f46476a, cVar.f46477b);
+                onClickListener.onClick(cVar.f44143a, cVar.f44144b);
             }
         }
 
@@ -475,12 +471,12 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 u.remove(this.r);
-                this.f46472j = null;
+                this.j = null;
                 this.k = null;
                 this.l = null;
                 this.m = null;
-                this.f46467e = null;
-                this.f46468f = null;
+                this.f44135e = null;
+                this.f44136f = null;
             }
         }
 
@@ -498,7 +494,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f46464b = str;
+                this.f44132b = str;
                 return this;
             }
             return (e) invokeL.objValue;
@@ -518,7 +514,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, onClickListener)) == null) {
-                this.f46466d = str;
+                this.f44134d = str;
                 this.k = onClickListener;
                 return this;
             }
@@ -560,7 +556,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     return;
                 }
             }
-            this.f46469g = true;
+            this.f44137g = true;
             this.p = -1;
             this.n = AppRuntime.getAppContext();
             this.o = cls;
@@ -580,7 +576,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 return;
             }
         }
-        DEBUG = k.f7085a;
+        DEBUG = k.f6397a;
     }
 
     public BaseActivityDialog() {
@@ -636,7 +632,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Resources b2 = c.a.p0.a.c1.a.H().b();
+            Resources b2 = b.a.p0.a.c1.a.H().b();
             return b2 != null ? b2 : super.getResources();
         }
         return (Resources) invokeV.objValue;
@@ -677,26 +673,26 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.mTitle = (TextView) findViewById(c.a.p0.a.f.dialog_title);
-            this.mMessage = (TextView) findViewById(c.a.p0.a.f.dialog_message);
-            this.mMessageContent = (LinearLayout) findViewById(c.a.p0.a.f.dialog_message_content);
-            this.mPositiveButton = (TextView) findViewById(c.a.p0.a.f.positive_button);
-            this.mNegativeButton = (TextView) findViewById(c.a.p0.a.f.negative_button);
-            this.mNeutralButton = (TextView) findViewById(c.a.p0.a.f.neutral_button);
-            this.mDivider3 = findViewById(c.a.p0.a.f.divider3);
-            this.mDivider4 = findViewById(c.a.p0.a.f.divider4);
-            this.mDialogContent = (FrameLayout) findViewById(c.a.p0.a.f.dialog_custom_content);
-            this.mIcon = (ImageView) findViewById(c.a.p0.a.f.dialog_icon);
-            this.mDialogLayout = (RelativeLayout) findViewById(c.a.p0.a.f.searchbox_alert_dialog);
-            this.mDivider2 = findViewById(c.a.p0.a.f.divider2);
-            this.mScrollView = (SwanAppScrollView) findViewById(c.a.p0.a.f.message_scrollview);
-            this.mBtnPanelLayout = (LinearLayout) findViewById(c.a.p0.a.f.btn_panel);
-            this.mBtnHeight = getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_dialog_btns_height);
+            this.mTitle = (TextView) findViewById(b.a.p0.a.f.dialog_title);
+            this.mMessage = (TextView) findViewById(b.a.p0.a.f.dialog_message);
+            this.mMessageContent = (LinearLayout) findViewById(b.a.p0.a.f.dialog_message_content);
+            this.mPositiveButton = (TextView) findViewById(b.a.p0.a.f.positive_button);
+            this.mNegativeButton = (TextView) findViewById(b.a.p0.a.f.negative_button);
+            this.mNeutralButton = (TextView) findViewById(b.a.p0.a.f.neutral_button);
+            this.mDivider3 = findViewById(b.a.p0.a.f.divider3);
+            this.mDivider4 = findViewById(b.a.p0.a.f.divider4);
+            this.mDialogContent = (FrameLayout) findViewById(b.a.p0.a.f.dialog_custom_content);
+            this.mIcon = (ImageView) findViewById(b.a.p0.a.f.dialog_icon);
+            this.mDialogLayout = (RelativeLayout) findViewById(b.a.p0.a.f.searchbox_alert_dialog);
+            this.mDivider2 = findViewById(b.a.p0.a.f.divider2);
+            this.mScrollView = (SwanAppScrollView) findViewById(b.a.p0.a.f.message_scrollview);
+            this.mBtnPanelLayout = (LinearLayout) findViewById(b.a.p0.a.f.btn_panel);
+            this.mBtnHeight = getResources().getDimensionPixelSize(b.a.p0.a.d.aiapps_dialog_btns_height);
             if (this.mBuilder.p > 0) {
                 this.mScrollView.getLayoutParams().height = this.mBuilder.p;
             }
-            if (c.a.p0.a.v2.d.k() || c.a.p0.a.v2.d.l()) {
-                int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_dialog_text_padding);
+            if (b.a.p0.a.v2.d.k() || b.a.p0.a.v2.d.l()) {
+                int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(b.a.p0.a.d.aiapps_dialog_text_padding);
                 this.mMessage.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
         }
@@ -724,7 +720,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             super.onCreate(bundle);
             setContentView(g.aiapps_alert_dialog);
             getWindow().setLayout(-1, -1);
-            e r = e.r(getIntent().getStringExtra(KEY_FOR_BUILDER));
+            e r = e.r(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
             this.mBuilder = r;
             if (r == null) {
                 boolean z = DEBUG;
@@ -788,7 +784,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.mMessage.setText(charSequence);
             this.mMessageContent.setVisibility(!TextUtils.isEmpty(charSequence) ? 0 : 8);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-            layoutParams.addRule(3, c.a.p0.a.f.dialog_message_content);
+            layoutParams.addRule(3, b.a.p0.a.f.dialog_message_content);
             this.mBtnPanelLayout.setLayoutParams(layoutParams);
         }
     }
@@ -865,7 +861,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.mDialogContent.addView(view);
             this.mMessageContent.setVisibility(8);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-            layoutParams.addRule(3, c.a.p0.a.f.dialog_customPanel);
+            layoutParams.addRule(3, b.a.p0.a.f.dialog_customPanel);
             this.mBtnPanelLayout.setLayoutParams(layoutParams);
         }
     }
@@ -876,14 +872,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (eVar = this.mBuilder) == null) {
             return;
         }
-        setTitle(eVar.f46463a);
-        setIcon(eVar.f46468f);
-        setMessage(eVar.f46464b);
-        setView(eVar.f46467e);
-        setPositiveEnable(eVar.f46469g);
-        setPositiveTextColor(eVar.f46470h);
-        setPositiveButton(eVar.f46465c);
-        setNegativeButton(eVar.f46466d);
+        setTitle(eVar.f44131a);
+        setIcon(eVar.f44136f);
+        setMessage(eVar.f44132b);
+        setView(eVar.f44135e);
+        setPositiveEnable(eVar.f44137g);
+        setPositiveTextColor(eVar.f44138h);
+        setPositiveButton(eVar.f44133c);
+        setNegativeButton(eVar.f44134d);
         setBtnsPanlVisible(eVar.s);
     }
 
@@ -891,10 +887,10 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             Resources resources = getResources();
-            int color = resources.getColor(c.a.p0.a.c.aiapps_dialog_title_text_color);
-            int color2 = resources.getColor(c.a.p0.a.c.aiapps_box_dialog_message_text_color);
-            int color3 = resources.getColor(c.a.p0.a.c.aiapps_dialog_gray);
-            this.mDialogLayout.setBackground(resources.getDrawable(c.a.p0.a.e.aiapps_dialog_bg_white));
+            int color = resources.getColor(b.a.p0.a.c.aiapps_dialog_title_text_color);
+            int color2 = resources.getColor(b.a.p0.a.c.aiapps_box_dialog_message_text_color);
+            int color3 = resources.getColor(b.a.p0.a.c.aiapps_dialog_gray);
+            this.mDialogLayout.setBackground(resources.getDrawable(b.a.p0.a.e.aiapps_dialog_bg_white));
             this.mTitle.setTextColor(color);
             this.mMessage.setTextColor(color2);
             this.mPositiveButton.setTextColor(color);
@@ -903,12 +899,12 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.mDivider2.setBackgroundColor(color3);
             this.mDivider3.setBackgroundColor(color3);
             this.mDivider4.setBackgroundColor(color3);
-            this.mPositiveButton.setBackground(resources.getDrawable(c.a.p0.a.e.aiapp_alertdialog_button_day_bg_right_selector));
-            this.mNegativeButton.setBackground(resources.getDrawable(c.a.p0.a.e.aiapp_alertdialog_button_day_bg_left_selector));
-            this.mNeutralButton.setBackground(resources.getDrawable(c.a.p0.a.e.aiapp_alertdialog_button_day_bg_selector));
+            this.mPositiveButton.setBackground(resources.getDrawable(b.a.p0.a.e.aiapp_alertdialog_button_day_bg_right_selector));
+            this.mNegativeButton.setBackground(resources.getDrawable(b.a.p0.a.e.aiapp_alertdialog_button_day_bg_left_selector));
+            this.mNeutralButton.setBackground(resources.getDrawable(b.a.p0.a.e.aiapp_alertdialog_button_day_bg_selector));
             TextView ifOnlyOneBtnGetIt = ifOnlyOneBtnGetIt();
             if (ifOnlyOneBtnGetIt != null) {
-                ifOnlyOneBtnGetIt.setBackground(resources.getDrawable(c.a.p0.a.e.aiapp_alertdialog_button_day_bg_all_selector));
+                ifOnlyOneBtnGetIt.setBackground(resources.getDrawable(b.a.p0.a.e.aiapp_alertdialog_button_day_bg_all_selector));
             }
         }
     }

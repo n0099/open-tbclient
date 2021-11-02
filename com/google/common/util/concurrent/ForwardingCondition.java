@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ForwardingCondition implements Condition {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,10 @@ public abstract class ForwardingCondition implements Condition {
     }
 
     @Override // java.util.concurrent.locks.Condition
-    public long awaitNanos(long j2) throws InterruptedException {
+    public long awaitNanos(long j) throws InterruptedException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? delegate().awaitNanos(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? delegate().awaitNanos(j) : invokeJ.longValue;
     }
 
     @Override // java.util.concurrent.locks.Condition
@@ -77,9 +77,9 @@ public abstract class ForwardingCondition implements Condition {
     }
 
     @Override // java.util.concurrent.locks.Condition
-    public boolean await(long j2, TimeUnit timeUnit) throws InterruptedException {
+    public boolean await(long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, timeUnit)) == null) ? delegate().await(j2, timeUnit) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit)) == null) ? delegate().await(j, timeUnit) : invokeJL.booleanValue;
     }
 }

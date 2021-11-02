@@ -3,7 +3,7 @@ package com.airbnb.lottie;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import androidx.annotation.ColorInt;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SimpleColorFilter extends PorterDuffColorFilter {
     public SimpleColorFilter(@ColorInt int i2) {
         super(i2, PorterDuff.Mode.SRC_ATOP);

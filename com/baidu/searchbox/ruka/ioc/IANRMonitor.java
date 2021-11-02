@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ruka.ioc;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IANRMonitor {
     boolean enableMonitor();
 

@@ -15,25 +15,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.core.beans.BeanConstants;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class BaiduWalletUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_BAIDUAPP_PLUGIN = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f70162a;
+    public static int f62579a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f70163b;
+    public static int f62580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f70164c;
+    public static int f62581c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f70165d;
+    public static int f62582d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface IRequestPermissionCallBack {
         void isAllAgree(Boolean bool);
 
@@ -61,14 +61,14 @@ public final class BaiduWalletUtils {
         if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || context == null) {
             return;
         }
-        if (f70164c == 0 || f70165d == 0) {
-            f70164c = ResUtils.anim(context, "dxm_wallet_base_slide_from_left");
-            f70165d = ResUtils.anim(context, "dxm_wallet_base_slide_to_right");
+        if (f62581c == 0 || f62582d == 0) {
+            f62581c = ResUtils.anim(context, "dxm_wallet_base_slide_from_left");
+            f62582d = ResUtils.anim(context, "dxm_wallet_base_slide_to_right");
         }
         if ((context instanceof Activity) && BeanConstants.needActAnimation) {
-            ((Activity) context).overridePendingTransition(f70164c, f70165d);
+            ((Activity) context).overridePendingTransition(f62581c, f62582d);
         }
-        String str = "BaiduWalletUtils-finishActivityAnim-context:" + context + ", mCloseEnter:" + f70164c + ", mCloseExit:" + f70165d;
+        String str = "BaiduWalletUtils-finishActivityAnim-context:" + context + ", mCloseEnter:" + f62581c + ", mCloseExit:" + f62582d;
     }
 
     public static String getBaiduappVersionCode(Context context) {
@@ -165,12 +165,12 @@ public final class BaiduWalletUtils {
         if (!(interceptable == null || interceptable.invokeL(65547, null, context) == null) || context == null) {
             return;
         }
-        if (f70162a == 0 || f70163b == 0) {
-            f70162a = ResUtils.anim(context, "dxm_wallet_base_slide_from_right");
-            f70163b = ResUtils.anim(context, "dxm_wallet_base_slide_to_left");
+        if (f62579a == 0 || f62580b == 0) {
+            f62579a = ResUtils.anim(context, "dxm_wallet_base_slide_from_right");
+            f62580b = ResUtils.anim(context, "dxm_wallet_base_slide_to_left");
         }
         if ((context instanceof Activity) && BeanConstants.needActAnimation) {
-            ((Activity) context).overridePendingTransition(f70162a, f70163b);
+            ((Activity) context).overridePendingTransition(f62579a, f62580b);
         }
     }
 }

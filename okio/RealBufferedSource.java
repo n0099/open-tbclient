@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RealBufferedSource implements BufferedSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -196,29 +196,29 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public boolean rangeEquals(long j2, ByteString byteString) throws IOException {
+    public boolean rangeEquals(long j, ByteString byteString) throws IOException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048588, this, j2, byteString)) == null) ? rangeEquals(j2, byteString, 0, byteString.size()) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048588, this, j, byteString)) == null) ? rangeEquals(j, byteString, 0, byteString.size()) : invokeJL.booleanValue;
     }
 
     @Override // okio.Source
-    public long read(Buffer buffer, long j2) throws IOException {
+    public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048593, this, buffer, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048593, this, buffer, j)) == null) {
             if (buffer != null) {
-                if (j2 >= 0) {
+                if (j >= 0) {
                     if (!this.closed) {
                         Buffer buffer2 = this.buffer;
                         if (buffer2.size == 0 && this.source.read(buffer2, 8192L) == -1) {
                             return -1L;
                         }
-                        return this.buffer.read(buffer, Math.min(j2, this.buffer.size));
+                        return this.buffer.read(buffer, Math.min(j, this.buffer.size));
                     }
                     throw new IllegalStateException("closed");
                 }
-                throw new IllegalArgumentException("byteCount < 0: " + j2);
+                throw new IllegalArgumentException("byteCount < 0: " + j);
             }
             throw new IllegalArgumentException("sink == null");
         }
@@ -231,21 +231,21 @@ public final class RealBufferedSource implements BufferedSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, sink)) == null) {
             if (sink != null) {
-                long j2 = 0;
+                long j = 0;
                 while (this.source.read(this.buffer, 8192L) != -1) {
                     long completeSegmentByteCount = this.buffer.completeSegmentByteCount();
                     if (completeSegmentByteCount > 0) {
-                        j2 += completeSegmentByteCount;
+                        j += completeSegmentByteCount;
                         sink.write(this.buffer, completeSegmentByteCount);
                     }
                 }
                 if (this.buffer.size() > 0) {
-                    long size = j2 + this.buffer.size();
+                    long size = j + this.buffer.size();
                     Buffer buffer = this.buffer;
                     sink.write(buffer, buffer.size());
                     return size;
                 }
-                return j2;
+                return j;
             }
             throw new IllegalArgumentException("sink == null");
         }
@@ -325,9 +325,9 @@ public final class RealBufferedSource implements BufferedSource {
             int i2 = 0;
             while (true) {
                 Buffer buffer = this.buffer;
-                long j2 = buffer.size;
-                if (j2 > 0) {
-                    int read = buffer.read(bArr, i2, (int) j2);
+                long j = buffer.size;
+                if (j > 0) {
+                    int read = buffer.read(bArr, i2, (int) j);
                     if (read == -1) {
                         throw new AssertionError();
                     }
@@ -489,9 +489,9 @@ public final class RealBufferedSource implements BufferedSource {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             long indexOf = indexOf((byte) 10);
             if (indexOf == -1) {
-                long j2 = this.buffer.size;
-                if (j2 != 0) {
-                    return readUtf8(j2);
+                long j = this.buffer.size;
+                if (j != 0) {
+                    return readUtf8(j);
                 }
                 return null;
             }
@@ -508,16 +508,16 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public boolean request(long j2) throws IOException {
+    public boolean request(long j) throws IOException {
         InterceptResult invokeJ;
         Buffer buffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j2)) == null) {
-            if (j2 >= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j)) == null) {
+            if (j >= 0) {
                 if (!this.closed) {
                     do {
                         buffer = this.buffer;
-                        if (buffer.size >= j2) {
+                        if (buffer.size >= j) {
                             return true;
                         }
                     } while (this.source.read(buffer, 8192L) != -1);
@@ -525,15 +525,15 @@ public final class RealBufferedSource implements BufferedSource {
                 }
                 throw new IllegalStateException("closed");
             }
-            throw new IllegalArgumentException("byteCount < 0: " + j2);
+            throw new IllegalArgumentException("byteCount < 0: " + j);
         }
         return invokeJ.booleanValue;
     }
 
     @Override // okio.BufferedSource
-    public void require(long j2) throws IOException {
+    public void require(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048619, this, j2) == null) && !request(j2)) {
+        if ((interceptable == null || interceptable.invokeJ(1048619, this, j) == null) && !request(j)) {
             throw new EOFException();
         }
     }
@@ -562,20 +562,20 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public void skip(long j2) throws IOException {
+    public void skip(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048621, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048621, this, j) == null) {
             if (this.closed) {
                 throw new IllegalStateException("closed");
             }
-            while (j2 > 0) {
+            while (j > 0) {
                 Buffer buffer = this.buffer;
                 if (buffer.size == 0 && this.source.read(buffer, 8192L) == -1) {
                     throw new EOFException();
                 }
-                long min = Math.min(j2, this.buffer.size());
+                long min = Math.min(j, this.buffer.size());
                 this.buffer.skip(min);
-                j2 -= min;
+                j -= min;
             }
         }
     }
@@ -597,48 +597,48 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2, long j2) throws IOException {
+    public long indexOf(byte b2, long j) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j2)})) == null) ? indexOf(b2, j2, Long.MAX_VALUE) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j)})) == null) ? indexOf(b2, j, Long.MAX_VALUE) : invokeCommon.longValue;
     }
 
     @Override // okio.BufferedSource
-    public long indexOfElement(ByteString byteString, long j2) throws IOException {
+    public long indexOfElement(ByteString byteString, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(1048585, this, byteString, j2)) != null) {
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(1048585, this, byteString, j)) != null) {
             return invokeLJ.longValue;
         }
         if (this.closed) {
             throw new IllegalStateException("closed");
         }
         while (true) {
-            long indexOfElement = this.buffer.indexOfElement(byteString, j2);
+            long indexOfElement = this.buffer.indexOfElement(byteString, j);
             if (indexOfElement != -1) {
                 return indexOfElement;
             }
             Buffer buffer = this.buffer;
-            long j3 = buffer.size;
+            long j2 = buffer.size;
             if (this.source.read(buffer, 8192L) == -1) {
                 return -1L;
             }
-            j2 = Math.max(j2, j3);
+            j = Math.max(j, j2);
         }
     }
 
     @Override // okio.BufferedSource
-    public boolean rangeEquals(long j2, ByteString byteString, int i2, int i3) throws IOException {
+    public boolean rangeEquals(long j, ByteString byteString, int i2, int i3) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), byteString, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), byteString, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             if (!this.closed) {
-                if (j2 < 0 || i2 < 0 || i3 < 0 || byteString.size() - i2 < i3) {
+                if (j < 0 || i2 < 0 || i3 < 0 || byteString.size() - i2 < i3) {
                     return false;
                 }
                 for (int i4 = 0; i4 < i3; i4++) {
-                    long j3 = i4 + j2;
-                    if (!request(1 + j3) || this.buffer.getByte(j3) != byteString.getByte(i2 + i4)) {
+                    long j2 = i4 + j;
+                    if (!request(1 + j2) || this.buffer.getByte(j2) != byteString.getByte(i2 + i4)) {
                         return false;
                     }
                 }
@@ -650,49 +650,49 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public String readUtf8LineStrict(long j2) throws IOException {
+    public String readUtf8LineStrict(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048617, this, j2)) == null) {
-            if (j2 >= 0) {
-                long j3 = j2 == Long.MAX_VALUE ? Long.MAX_VALUE : j2 + 1;
-                long indexOf = indexOf((byte) 10, 0L, j3);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048617, this, j)) == null) {
+            if (j >= 0) {
+                long j2 = j == Long.MAX_VALUE ? Long.MAX_VALUE : j + 1;
+                long indexOf = indexOf((byte) 10, 0L, j2);
                 if (indexOf != -1) {
                     return this.buffer.readUtf8Line(indexOf);
                 }
-                if (j3 < Long.MAX_VALUE && request(j3) && this.buffer.getByte(j3 - 1) == 13 && request(1 + j3) && this.buffer.getByte(j3) == 10) {
-                    return this.buffer.readUtf8Line(j3);
+                if (j2 < Long.MAX_VALUE && request(j2) && this.buffer.getByte(j2 - 1) == 13 && request(1 + j2) && this.buffer.getByte(j2) == 10) {
+                    return this.buffer.readUtf8Line(j2);
                 }
                 Buffer buffer = new Buffer();
                 Buffer buffer2 = this.buffer;
                 buffer2.copyTo(buffer, 0L, Math.min(32L, buffer2.size()));
-                throw new EOFException("\\n not found: limit=" + Math.min(this.buffer.size(), j2) + " content=" + buffer.readByteString().hex() + Typography.ellipsis);
+                throw new EOFException("\\n not found: limit=" + Math.min(this.buffer.size(), j) + " content=" + buffer.readByteString().hex() + Typography.ellipsis);
             }
-            throw new IllegalArgumentException("limit < 0: " + j2);
+            throw new IllegalArgumentException("limit < 0: " + j);
         }
         return (String) invokeJ.objValue;
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2, long j2, long j3) throws IOException {
+    public long indexOf(byte b2, long j, long j2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (this.closed) {
                 throw new IllegalStateException("closed");
             }
-            if (j2 < 0 || j3 < j2) {
-                throw new IllegalArgumentException(String.format("fromIndex=%s toIndex=%s", Long.valueOf(j2), Long.valueOf(j3)));
+            if (j < 0 || j2 < j) {
+                throw new IllegalArgumentException(String.format("fromIndex=%s toIndex=%s", Long.valueOf(j), Long.valueOf(j2)));
             }
-            while (j2 < j3) {
-                long indexOf = this.buffer.indexOf(b2, j2, j3);
+            while (j < j2) {
+                long indexOf = this.buffer.indexOf(b2, j, j2);
                 if (indexOf == -1) {
                     Buffer buffer = this.buffer;
-                    long j4 = buffer.size;
-                    if (j4 >= j3 || this.source.read(buffer, 8192L) == -1) {
+                    long j3 = buffer.size;
+                    if (j3 >= j2 || this.source.read(buffer, 8192L) == -1) {
                         break;
                     }
-                    j2 = Math.max(j2, j4);
+                    j = Math.max(j, j3);
                 } else {
                     return indexOf;
                 }
@@ -703,46 +703,46 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public byte[] readByteArray(long j2) throws IOException {
+    public byte[] readByteArray(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j2)) == null) {
-            require(j2);
-            return this.buffer.readByteArray(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j)) == null) {
+            require(j);
+            return this.buffer.readByteArray(j);
         }
         return (byte[]) invokeJ.objValue;
     }
 
     @Override // okio.BufferedSource
-    public ByteString readByteString(long j2) throws IOException {
+    public ByteString readByteString(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j2)) == null) {
-            require(j2);
-            return this.buffer.readByteString(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j)) == null) {
+            require(j);
+            return this.buffer.readByteString(j);
         }
         return (ByteString) invokeJ.objValue;
     }
 
     @Override // okio.BufferedSource
-    public String readUtf8(long j2) throws IOException {
+    public String readUtf8(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048613, this, j2)) == null) {
-            require(j2);
-            return this.buffer.readUtf8(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048613, this, j)) == null) {
+            require(j);
+            return this.buffer.readUtf8(j);
         }
         return (String) invokeJ.objValue;
     }
 
     @Override // okio.BufferedSource
-    public String readString(long j2, Charset charset) throws IOException {
+    public String readString(long j, Charset charset) throws IOException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048610, this, j2, charset)) == null) {
-            require(j2);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048610, this, j, charset)) == null) {
+            require(j);
             if (charset != null) {
-                return this.buffer.readString(j2, charset);
+                return this.buffer.readString(j, charset);
             }
             throw new IllegalArgumentException("charset == null");
         }
@@ -750,12 +750,12 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public void readFully(Buffer buffer, long j2) throws IOException {
+    public void readFully(Buffer buffer, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048601, this, buffer, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048601, this, buffer, j) == null) {
             try {
-                require(j2);
-                this.buffer.readFully(buffer, j2);
+                require(j);
+                this.buffer.readFully(buffer, j);
             } catch (EOFException e2) {
                 buffer.writeAll(this.buffer);
                 throw e2;
@@ -775,13 +775,13 @@ public final class RealBufferedSource implements BufferedSource {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048592, this, bArr, i2, i3)) == null) {
-            long j2 = i3;
-            Util.checkOffsetAndCount(bArr.length, i2, j2);
+            long j = i3;
+            Util.checkOffsetAndCount(bArr.length, i2, j);
             Buffer buffer = this.buffer;
             if (buffer.size == 0 && this.source.read(buffer, 8192L) == -1) {
                 return -1;
             }
-            return this.buffer.read(bArr, i2, (int) Math.min(j2, this.buffer.size));
+            return this.buffer.read(bArr, i2, (int) Math.min(j, this.buffer.size));
         }
         return invokeLII.intValue;
     }
@@ -794,26 +794,26 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(ByteString byteString, long j2) throws IOException {
+    public long indexOf(ByteString byteString, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(1048583, this, byteString, j2)) != null) {
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(1048583, this, byteString, j)) != null) {
             return invokeLJ.longValue;
         }
         if (this.closed) {
             throw new IllegalStateException("closed");
         }
         while (true) {
-            long indexOf = this.buffer.indexOf(byteString, j2);
+            long indexOf = this.buffer.indexOf(byteString, j);
             if (indexOf != -1) {
                 return indexOf;
             }
             Buffer buffer = this.buffer;
-            long j3 = buffer.size;
+            long j2 = buffer.size;
             if (this.source.read(buffer, 8192L) == -1) {
                 return -1L;
             }
-            j2 = Math.max(j2, (j3 - byteString.size()) + 1);
+            j = Math.max(j, (j2 - byteString.size()) + 1);
         }
     }
 

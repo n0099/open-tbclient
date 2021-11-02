@@ -2,6 +2,7 @@ package com.baidu.webkit.sdk;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.pm.provider.BundleOpProvider;
@@ -21,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LoadErrorCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COLON = ":";
@@ -60,7 +61,7 @@ public class LoadErrorCode {
     public volatile StringBuilder mDetails;
     public volatile int mErrorCode;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class Statistics {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = true;
@@ -80,7 +81,7 @@ public class LoadErrorCode {
         public static volatile File sRecordFile;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public static class ErrorItem {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -504,7 +505,7 @@ public class LoadErrorCode {
                 for (int i2 = 0; i2 < bytes.length; i2++) {
                     byte b2 = bytes[i2];
                     if (b2 == 34) {
-                        bytes[i2] = 47;
+                        bytes[i2] = ExifInterface.WEBP_VP8L_SIGNATURE;
                     } else if (b2 == 91) {
                         bytes[i2] = 60;
                     } else if (b2 == 93) {

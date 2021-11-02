@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import org.aspectj.lang.reflect.InitializerSignature;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InitializerSignatureImpl extends CodeSignatureImpl implements InitializerSignature {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

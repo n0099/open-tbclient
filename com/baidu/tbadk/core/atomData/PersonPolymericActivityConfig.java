@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PersonPolymericActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_BIGV = "is_bigv";
@@ -54,12 +54,12 @@ public class PersonPolymericActivityConfig extends IntentConfig {
         return invokeV.booleanValue;
     }
 
-    public PersonPolymericActivityConfig createNormalConfig(long j2, boolean z, boolean z2) {
+    public PersonPolymericActivityConfig createNormalConfig(long j, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             Intent intent = getIntent();
-            intent.putExtra("user_id", j2);
+            intent.putExtra("user_id", j);
             intent.putExtra(IS_USER_SELF, z);
             intent.putExtra(IS_BIGV, z2);
             return this;
@@ -67,16 +67,23 @@ public class PersonPolymericActivityConfig extends IntentConfig {
         return (PersonPolymericActivityConfig) invokeCommon.objValue;
     }
 
-    public void setSourceNid(String str) {
+    public void setPortrait(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            getIntent().putExtra("portrait", str);
+        }
+    }
+
+    public void setSourceNid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             getIntent().putExtra("nid", str);
         }
     }
 
     public void setSourceTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             getIntent().putExtra("thread_id", str);
         }
     }
@@ -84,18 +91,18 @@ public class PersonPolymericActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, uri) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, uri) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(IntentConfig.KEY_URI, uri);
     }
 
-    public PersonPolymericActivityConfig createNormalConfig(long j2, boolean z, boolean z2, boolean z3, String str) {
+    public PersonPolymericActivityConfig createNormalConfig(long j, boolean z, boolean z2, boolean z3, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str})) == null) {
             Intent intent = getIntent();
-            intent.putExtra("user_id", j2);
+            intent.putExtra("user_id", j);
             intent.putExtra(IS_USER_SELF, z);
             intent.putExtra(IS_BIGV, z2);
             intent.putExtra(IntentConfig.IS_VIDEO_THREAD, z3);

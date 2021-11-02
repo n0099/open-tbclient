@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Dlna {
     public static /* synthetic */ Interceptable $ic = null;
     public static int DLNA_ERROR_CREATE_CTRL_POINT_TIMER_THREAD_FAIL = -1011;
@@ -38,21 +38,21 @@ public class Dlna {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DlnaProvider f39093a;
+    public DlnaProvider f37052a;
 
     /* renamed from: com.baidu.cyberplayer.sdk.dlna.Dlna$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Dlna f39094a;
+        public static final Dlna f37053a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -68,7 +68,7 @@ public class Dlna {
                     return;
                 }
             }
-            f39094a = new Dlna(null);
+            f37053a = new Dlna(null);
         }
     }
 
@@ -100,7 +100,7 @@ public class Dlna {
                 return;
             }
         }
-        this.f39093a = null;
+        this.f37052a = null;
     }
 
     public /* synthetic */ Dlna(AnonymousClass1 anonymousClass1) {
@@ -110,7 +110,7 @@ public class Dlna {
     public static Dlna getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f39094a : (Dlna) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f37053a : (Dlna) invokeV.objValue;
     }
 
     public synchronized PnPController getCtrlPoint(String str) {
@@ -118,8 +118,8 @@ public class Dlna {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
-                if (this.f39093a != null && str != null) {
-                    return new PnPController(str, this.f39093a);
+                if (this.f37052a != null && str != null) {
+                    return new PnPController(str, this.f37052a);
                 }
                 return null;
             }
@@ -131,13 +131,13 @@ public class Dlna {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dlnaSearchListener) == null) {
             synchronized (this) {
-                if (this.f39093a == null) {
-                    this.f39093a = d.f();
+                if (this.f37052a == null) {
+                    this.f37052a = d.f();
                 }
-                if (this.f39093a != null) {
-                    this.f39093a.stop();
+                if (this.f37052a != null) {
+                    this.f37052a.stop();
                     if (dlnaSearchListener != null) {
-                        this.f39093a.search(dlnaSearchListener);
+                        this.f37052a.search(dlnaSearchListener);
                     }
                 }
             }
@@ -148,8 +148,8 @@ public class Dlna {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f39093a != null) {
-                    this.f39093a.stop();
+                if (this.f37052a != null) {
+                    this.f37052a.stop();
                 } else {
                     CyberLog.d(TAG, "Dlna: provider == null");
                 }

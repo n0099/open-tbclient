@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c extends a<MessageV3> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -35,7 +35,7 @@ public class c extends a<MessageV3> {
             try {
                 return new JSONObject(selfDefineContentString).getString("package_name");
             } catch (JSONException unused) {
-                c.l.a.a.a.b("AbstractMessageHandler", "no quick json message");
+                b.l.a.a.a.b("AbstractMessageHandler", "no quick json message");
             }
         }
         return null;
@@ -58,7 +58,7 @@ public class c extends a<MessageV3> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        c.l.a.a.a.d("AbstractMessageHandler", "start MessageV3Handler match");
+        b.l.a.a.a.d("AbstractMessageHandler", "start MessageV3Handler match");
         if (a(0, g(intent))) {
             if (PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_SHOW_V3.equals(i(intent))) {
                 return true;
@@ -66,7 +66,7 @@ public class c extends a<MessageV3> {
             if (TextUtils.isEmpty(i(intent))) {
                 String stringExtra = intent.getStringExtra("message");
                 if (!TextUtils.isEmpty(stringExtra) && a(stringExtra)) {
-                    c.l.a.a.a.b("AbstractMessageHandler", "old cloud notification message");
+                    b.l.a.a.a.b("AbstractMessageHandler", "old cloud notification message");
                     return true;
                 }
             }
@@ -111,40 +111,40 @@ public class c extends a<MessageV3> {
             if (BaseStyleModel.FLYME.getCode() == baseStyle) {
                 int innerStyle = messageV3.getmNotificationStyle().getInnerStyle();
                 if (InnerStyleLayout.EXPANDABLE_STANDARD.getCode() == innerStyle) {
-                    c.l.a.a.a.d("AbstractMessageHandler", "show Standard Notification with Expandable disable");
+                    b.l.a.a.a.d("AbstractMessageHandler", "show Standard Notification with Expandable disable");
                     cVar = new com.meizu.cloud.pushsdk.notification.b.c(c(), pushNotificationBuilder);
                 } else if (InnerStyleLayout.EXPANDABLE_TEXT.getCode() == innerStyle) {
-                    c.l.a.a.a.d("AbstractMessageHandler", "show Standard Notification with Expandable Text");
+                    b.l.a.a.a.d("AbstractMessageHandler", "show Standard Notification with Expandable Text");
                     cVar = new com.meizu.cloud.pushsdk.notification.b.b(c(), pushNotificationBuilder);
                 } else if (InnerStyleLayout.EXPANDABLE_PIC.getCode() == innerStyle) {
-                    c.l.a.a.a.d("AbstractMessageHandler", "show Standard Notification with Expandable Picture");
+                    b.l.a.a.a.d("AbstractMessageHandler", "show Standard Notification with Expandable Picture");
                     cVar = new com.meizu.cloud.pushsdk.notification.b.a(c(), pushNotificationBuilder);
                 } else if (InnerStyleLayout.EXPANDABLE_VIDEO.getCode() == innerStyle) {
-                    c.l.a.a.a.d("AbstractMessageHandler", "show Flyme Video notification");
+                    b.l.a.a.a.d("AbstractMessageHandler", "show Flyme Video notification");
                     cVar = new com.meizu.cloud.pushsdk.notification.a.d(c(), pushNotificationBuilder);
                 }
             } else if (BaseStyleModel.PURE_PICTURE.getCode() == baseStyle) {
                 cVar = new com.meizu.cloud.pushsdk.notification.b(c(), pushNotificationBuilder);
-                c.l.a.a.a.d("AbstractMessageHandler", "show Pure Picture Notification");
+                b.l.a.a.a.d("AbstractMessageHandler", "show Pure Picture Notification");
             } else if (BaseStyleModel.ANDROID.getCode() == baseStyle) {
                 int innerStyle2 = messageV3.getmNotificationStyle().getInnerStyle();
                 if (InnerStyleLayout.EXPANDABLE_STANDARD.getCode() == innerStyle2) {
-                    c.l.a.a.a.d("AbstractMessageHandler", "show Android  Notification with Expandable disable");
+                    b.l.a.a.a.d("AbstractMessageHandler", "show Android  Notification with Expandable disable");
                     cVar = new com.meizu.cloud.pushsdk.notification.a.c(c(), pushNotificationBuilder);
                 } else if (InnerStyleLayout.EXPANDABLE_TEXT.getCode() == innerStyle2) {
-                    c.l.a.a.a.d("AbstractMessageHandler", "show Android  Notification with Expandable Text");
+                    b.l.a.a.a.d("AbstractMessageHandler", "show Android  Notification with Expandable Text");
                     cVar = new com.meizu.cloud.pushsdk.notification.a.b(c(), pushNotificationBuilder);
                 } else if (InnerStyleLayout.EXPANDABLE_PIC.getCode() == innerStyle2) {
-                    c.l.a.a.a.d("AbstractMessageHandler", "show Android  Notification with Expandable Picture");
+                    b.l.a.a.a.d("AbstractMessageHandler", "show Android  Notification with Expandable Picture");
                     cVar = new com.meizu.cloud.pushsdk.notification.a.a(c(), pushNotificationBuilder);
                 } else if (InnerStyleLayout.EXPANDABLE_VIDEO.getCode() == innerStyle2) {
-                    c.l.a.a.a.d("AbstractMessageHandler", "show Flyme Video notification");
+                    b.l.a.a.a.d("AbstractMessageHandler", "show Flyme Video notification");
                     cVar = new com.meizu.cloud.pushsdk.notification.a.d(c(), pushNotificationBuilder);
                 }
             }
         }
         if (cVar == null) {
-            c.l.a.a.a.b("AbstractMessageHandler", "use standard v2 notification");
+            b.l.a.a.a.b("AbstractMessageHandler", "use standard v2 notification");
             return new com.meizu.cloud.pushsdk.notification.d(c(), pushNotificationBuilder);
         }
         return cVar;
@@ -225,12 +225,12 @@ public class c extends a<MessageV3> {
         String startShowTime = messageV3.getmTimeDisplaySetting().getStartShowTime();
         String format = TextUtils.isEmpty(startShowTime) ? null : new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(Long.valueOf(startShowTime).longValue()));
         long longValue = Long.valueOf(startShowTime).longValue() - System.currentTimeMillis();
-        c.l.a.a.a.d("AbstractMessageHandler", "after " + (longValue / 1000) + " seconds Notification AlarmManager execute At " + format);
+        b.l.a.a.a.d("AbstractMessageHandler", "after " + (longValue / 1000) + " seconds Notification AlarmManager execute At " + format);
         if (Build.VERSION.SDK_INT < 19) {
             alarmManager.set(2, SystemClock.elapsedRealtime() + longValue, service);
             return;
         }
-        c.l.a.a.a.d("AbstractMessageHandler", "setAlarmManager setWindow ELAPSED_REALTIME_WAKEUP");
+        b.l.a.a.a.d("AbstractMessageHandler", "setAlarmManager setWindow ELAPSED_REALTIME_WAKEUP");
         alarmManager.setExact(2, SystemClock.elapsedRealtime() + longValue, service);
     }
 }

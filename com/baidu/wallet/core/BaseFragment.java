@@ -22,7 +22,7 @@ import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.FragmentResultReceiver;
 import com.baidu.wallet.core.utils.FragmentUtils;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaseFragment extends SDKBaseFragment implements FragmentResultReceiver.a, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

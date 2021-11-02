@@ -27,58 +27,58 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DangerousPermissionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DPU_SOURCE_LANGBRIDGE = "wallet_langbridge";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61126a = "dangerous_permission_utils";
+    public static final String f58016a = "dangerous_permission_utils";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, DangerousPermission> f61127b;
+    public Map<String, DangerousPermission> f58017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f61128c;
+    public WeakReference<Activity> f58018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String[] f61129d;
+    public String[] f58019d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61130e;
+    public int f58020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61131f;
+    public boolean f58021f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaiduWalletUtils.IRequestPermissionCallBack f61132g;
+    public BaiduWalletUtils.IRequestPermissionCallBack f58022g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DangerousPermissionDialog f61133h;
+    public DangerousPermissionDialog f58023h;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class DangerousPermission {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f61140a = "dp_";
+        public static final String f58030a = "dp_";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f61141b;
+        public Context f58031b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61142c;
+        public String f58032c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61143d;
+        public String f58033d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f61144e;
+        public String f58034e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f61145f;
+        public String f58035f;
 
         public DangerousPermission(Context context, String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -95,19 +95,19 @@ public class DangerousPermissionUtils {
                     return;
                 }
             }
-            this.f61141b = DxmApplicationContextImpl.getApplicationContext(context);
-            this.f61142c = str;
-            this.f61143d = str2;
-            this.f61144e = str3;
-            this.f61145f = str4;
+            this.f58031b = DxmApplicationContextImpl.getApplicationContext(context);
+            this.f58032c = str;
+            this.f58033d = str2;
+            this.f58034e = str3;
+            this.f58035f = str4;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Context context = this.f61141b;
-                return ((Boolean) SharedPreferencesUtils.getParam(context, DangerousPermissionUtils.f61126a, f61140a + this.f61142c, Boolean.FALSE)).booleanValue();
+                Context context = this.f58031b;
+                return ((Boolean) SharedPreferencesUtils.getParam(context, DangerousPermissionUtils.f58016a, f58030a + this.f58032c, Boolean.FALSE)).booleanValue();
             }
             return invokeV.booleanValue;
         }
@@ -115,8 +115,8 @@ public class DangerousPermissionUtils {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Context context = this.f61141b;
-                SharedPreferencesUtils.setParam(context, DangerousPermissionUtils.f61126a, f61140a + this.f61142c, Boolean.TRUE);
+                Context context = this.f58031b;
+                SharedPreferencesUtils.setParam(context, DangerousPermissionUtils.f58016a, f58030a + this.f58032c, Boolean.TRUE);
             }
         }
 
@@ -124,7 +124,7 @@ public class DangerousPermissionUtils {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return TextUtils.isEmpty(this.f61145f) ? ResUtils.getString(this.f61141b, this.f61144e) : this.f61145f;
+                return TextUtils.isEmpty(this.f58035f) ? ResUtils.getString(this.f58031b, this.f58034e) : this.f58035f;
             }
             return (String) invokeV.objValue;
         }
@@ -135,12 +135,12 @@ public class DangerousPermissionUtils {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 try {
-                    str = new JSONObject(this.f61143d).optString("positive");
+                    str = new JSONObject(this.f58033d).optString("positive");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = "";
                 }
-                return TextUtils.isEmpty(str) ? ResUtils.getString(this.f61141b, "wallet_base_permission_positive") : str;
+                return TextUtils.isEmpty(str) ? ResUtils.getString(this.f58031b, "wallet_base_permission_positive") : str;
             }
             return (String) invokeV.objValue;
         }
@@ -151,12 +151,12 @@ public class DangerousPermissionUtils {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 try {
-                    str = new JSONObject(this.f61143d).optString("negative");
+                    str = new JSONObject(this.f58033d).optString("negative");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = "";
                 }
-                return TextUtils.isEmpty(str) ? ResUtils.getString(this.f61141b, "wallet_base_permission_negative") : str;
+                return TextUtils.isEmpty(str) ? ResUtils.getString(this.f58031b, "wallet_base_permission_negative") : str;
             }
             return (String) invokeV.objValue;
         }
@@ -164,7 +164,7 @@ public class DangerousPermissionUtils {
         public String getPermission() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f61142c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f58032c : (String) invokeV.objValue;
         }
 
         public String getTitle() {
@@ -173,18 +173,18 @@ public class DangerousPermissionUtils {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 try {
-                    str = new JSONObject(this.f61143d).optString("title");
+                    str = new JSONObject(this.f58033d).optString("title");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = "";
                 }
-                return TextUtils.isEmpty(str) ? ResUtils.getString(this.f61141b, "wallet_base_permission_title") : str;
+                return TextUtils.isEmpty(str) ? ResUtils.getString(this.f58031b, "wallet_base_permission_title") : str;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class DangerousPermissionDialog extends PromptDialog {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,12 +232,12 @@ public class DangerousPermissionUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static DangerousPermissionUtils f61146a;
+        public static DangerousPermissionUtils f58036a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -253,7 +253,7 @@ public class DangerousPermissionUtils {
                     return;
                 }
             }
-            f61146a = new DangerousPermissionUtils();
+            f58036a = new DangerousPermissionUtils();
         }
 
         public a() {
@@ -274,7 +274,7 @@ public class DangerousPermissionUtils {
     public static DangerousPermissionUtils getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a.f61146a : (DangerousPermissionUtils) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a.f58036a : (DangerousPermissionUtils) invokeV.objValue;
     }
 
     public String getPermissionDialogDescription(Context context, String str) {
@@ -324,15 +324,15 @@ public class DangerousPermissionUtils {
                     if (c2 != 1) {
                         if (c2 != 2) {
                             if (c2 != 3) {
-                                return c2 != 4 ? "" : this.f61127b.get(PermissionRequest.RESOURCE_AUDIO_CAPTURE).c();
+                                return c2 != 4 ? "" : this.f58017b.get(PermissionRequest.RESOURCE_AUDIO_CAPTURE).c();
                             }
-                            return this.f61127b.get("android.permission.READ_EXTERNAL_STORAGE").c();
+                            return this.f58017b.get("android.permission.READ_EXTERNAL_STORAGE").c();
                         }
-                        return this.f61127b.get(PermissionRequest.RESOURCE_VIDEO_CAPTURE).c();
+                        return this.f58017b.get(PermissionRequest.RESOURCE_VIDEO_CAPTURE).c();
                     }
-                    return this.f61127b.get("android.permission.ACCESS_FINE_LOCATION").c();
+                    return this.f58017b.get("android.permission.ACCESS_FINE_LOCATION").c();
                 }
-                return this.f61127b.get("android.permission.READ_CONTACTS").c();
+                return this.f58017b.get("android.permission.READ_CONTACTS").c();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return "";
@@ -352,15 +352,15 @@ public class DangerousPermissionUtils {
                 }
                 return;
             }
-            this.f61128c = new WeakReference<>(activity);
-            this.f61129d = strArr;
-            this.f61130e = -1;
-            this.f61131f = true;
-            this.f61132g = iRequestPermissionCallBack;
-            DangerousPermissionDialog dangerousPermissionDialog = this.f61133h;
+            this.f58018c = new WeakReference<>(activity);
+            this.f58019d = strArr;
+            this.f58020e = -1;
+            this.f58021f = true;
+            this.f58022g = iRequestPermissionCallBack;
+            DangerousPermissionDialog dangerousPermissionDialog = this.f58023h;
             if (dangerousPermissionDialog != null) {
                 dangerousPermissionDialog.dismiss();
-                this.f61133h = null;
+                this.f58023h = null;
             }
             a();
         }
@@ -382,15 +382,15 @@ public class DangerousPermissionUtils {
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && this.f61127b == null && context != null) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && this.f58017b == null && context != null) {
             HashMap hashMap = new HashMap();
-            this.f61127b = hashMap;
+            this.f58017b = hashMap;
             hashMap.put("android.permission.READ_CONTACTS", new DangerousPermission(context, "android.permission.READ_CONTACTS", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_read_contacts", SdkInitResponse.getInstance().permission_dialog_contacts));
-            this.f61127b.put("android.permission.ACCESS_FINE_LOCATION", new DangerousPermission(context, "android.permission.ACCESS_FINE_LOCATION", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_access_fine_location", SdkInitResponse.getInstance().permission_dialog_location));
-            this.f61127b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new DangerousPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_access_camera", SdkInitResponse.getInstance().permission_dialog_camera));
-            this.f61127b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, new DangerousPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_record_audio", SdkInitResponse.getInstance().permission_dialog_audio));
-            this.f61127b.put("android.permission.WRITE_EXTERNAL_STORAGE", new DangerousPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_external_storage", SdkInitResponse.getInstance().permission_dialog_storage));
-            this.f61127b.put("android.permission.READ_EXTERNAL_STORAGE", new DangerousPermission(context, "android.permission.READ_EXTERNAL_STORAGE", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_external_storage", SdkInitResponse.getInstance().permission_dialog_storage));
+            this.f58017b.put("android.permission.ACCESS_FINE_LOCATION", new DangerousPermission(context, "android.permission.ACCESS_FINE_LOCATION", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_access_fine_location", SdkInitResponse.getInstance().permission_dialog_location));
+            this.f58017b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new DangerousPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_access_camera", SdkInitResponse.getInstance().permission_dialog_camera));
+            this.f58017b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, new DangerousPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE, SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_record_audio", SdkInitResponse.getInstance().permission_dialog_audio));
+            this.f58017b.put("android.permission.WRITE_EXTERNAL_STORAGE", new DangerousPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_external_storage", SdkInitResponse.getInstance().permission_dialog_storage));
+            this.f58017b.put("android.permission.READ_EXTERNAL_STORAGE", new DangerousPermission(context, "android.permission.READ_EXTERNAL_STORAGE", SdkInitResponse.getInstance().permission_dialog_info, "wallet_base_permission_dialog_external_storage", SdkInitResponse.getInstance().permission_dialog_storage));
         }
     }
 
@@ -416,19 +416,19 @@ public class DangerousPermissionUtils {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            int i2 = this.f61130e + 1;
-            this.f61130e = i2;
-            String[] strArr = this.f61129d;
+            int i2 = this.f58020e + 1;
+            this.f58020e = i2;
+            String[] strArr = this.f58019d;
             if (i2 >= strArr.length) {
                 a(true);
                 return;
             }
-            DangerousPermission dangerousPermission = this.f61127b.get(strArr[i2]);
+            DangerousPermission dangerousPermission = this.f58017b.get(strArr[i2]);
             if (dangerousPermission == null) {
                 a();
                 return;
             }
-            Activity activity = this.f61128c.get();
+            Activity activity = this.f58018c.get();
             if (activity == null) {
                 a(false);
                 return;
@@ -441,13 +441,13 @@ public class DangerousPermissionUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DangerousPermission f61134a;
+                public final /* synthetic */ DangerousPermission f58024a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DangerousPermissionDialog f61135b;
+                public final /* synthetic */ DangerousPermissionDialog f58025b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DangerousPermissionUtils f61136c;
+                public final /* synthetic */ DangerousPermissionUtils f58026c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -464,21 +464,21 @@ public class DangerousPermissionUtils {
                             return;
                         }
                     }
-                    this.f61136c = this;
-                    this.f61134a = dangerousPermission;
-                    this.f61135b = dangerousPermissionDialog;
+                    this.f58026c = this;
+                    this.f58024a = dangerousPermission;
+                    this.f58025b = dangerousPermissionDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f61136c.f61131f = false;
-                        if (this.f61136c.f61132g != null) {
-                            this.f61136c.f61132g.requestResult(this.f61134a.getPermission(), Boolean.FALSE);
+                        this.f58026c.f58021f = false;
+                        if (this.f58026c.f58022g != null) {
+                            this.f58026c.f58022g.requestResult(this.f58024a.getPermission(), Boolean.FALSE);
                         }
-                        this.f61135b.dismiss();
-                        this.f61136c.a();
+                        this.f58025b.dismiss();
+                        this.f58026c.a();
                     }
                 }
             });
@@ -487,13 +487,13 @@ public class DangerousPermissionUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DangerousPermission f61137a;
+                public final /* synthetic */ DangerousPermission f58027a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DangerousPermissionDialog f61138b;
+                public final /* synthetic */ DangerousPermissionDialog f58028b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DangerousPermissionUtils f61139c;
+                public final /* synthetic */ DangerousPermissionUtils f58029c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -510,26 +510,26 @@ public class DangerousPermissionUtils {
                             return;
                         }
                     }
-                    this.f61139c = this;
-                    this.f61137a = dangerousPermission;
-                    this.f61138b = dangerousPermissionDialog;
+                    this.f58029c = this;
+                    this.f58027a = dangerousPermission;
+                    this.f58028b = dangerousPermissionDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f61139c.f61132g != null) {
-                            this.f61139c.f61132g.requestResult(this.f61137a.getPermission(), Boolean.TRUE);
+                        if (this.f58029c.f58022g != null) {
+                            this.f58029c.f58022g.requestResult(this.f58027a.getPermission(), Boolean.TRUE);
                         }
-                        this.f61138b.dismiss();
-                        this.f61139c.a();
+                        this.f58028b.dismiss();
+                        this.f58029c.a();
                     }
                 }
             });
-            this.f61133h = dangerousPermissionDialog;
+            this.f58023h = dangerousPermissionDialog;
             dangerousPermissionDialog.show();
-            BaiduWalletUtils.IRequestPermissionCallBack iRequestPermissionCallBack = this.f61132g;
+            BaiduWalletUtils.IRequestPermissionCallBack iRequestPermissionCallBack = this.f58022g;
             if (iRequestPermissionCallBack != null) {
                 iRequestPermissionCallBack.isShow(dangerousPermission.getPermission(), Boolean.TRUE);
             }
@@ -539,12 +539,12 @@ public class DangerousPermissionUtils {
     private void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, this, z) == null) {
-            BaiduWalletUtils.IRequestPermissionCallBack iRequestPermissionCallBack = this.f61132g;
+            BaiduWalletUtils.IRequestPermissionCallBack iRequestPermissionCallBack = this.f58022g;
             if (iRequestPermissionCallBack != null) {
-                iRequestPermissionCallBack.isAllAgree(Boolean.valueOf(z && this.f61131f));
+                iRequestPermissionCallBack.isAllAgree(Boolean.valueOf(z && this.f58021f));
             }
-            this.f61133h = null;
-            this.f61132g = null;
+            this.f58023h = null;
+            this.f58022g = null;
         }
     }
 }

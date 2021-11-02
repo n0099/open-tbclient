@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class j implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f75822a;
+    public final AtomicInteger f68126a;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class j implements ThreadFactory {
                 return;
             }
         }
-        this.f75822a = new AtomicInteger(1);
+        this.f68126a = new AtomicInteger(1);
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -36,7 +36,7 @@ public final class j implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            return new Thread(runnable, "PriorityExecutor #" + this.f75822a.getAndIncrement());
+            return new Thread(runnable, "PriorityExecutor #" + this.f68126a.getAndIncrement());
         }
         return (Thread) invokeL.objValue;
     }

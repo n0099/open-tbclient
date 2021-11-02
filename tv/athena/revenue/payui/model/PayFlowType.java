@@ -8,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PayFlowType {
     public static final /* synthetic */ PayFlowType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final PayFlowType ACTIVITY_PAY_FLOW;
     public static final PayFlowType DIOALOG_PAY_FLOW;
+    public static final PayFlowType NO_PAY_FLOW;
     public transient /* synthetic */ FieldHolder $fh;
     public final int typeId;
     public final String typeName;
@@ -32,9 +33,10 @@ public final class PayFlowType {
             }
         }
         DIOALOG_PAY_FLOW = new PayFlowType("DIOALOG_PAY_FLOW", 0, 1, "半屏充值流程");
-        PayFlowType payFlowType = new PayFlowType("ACTIVITY_PAY_FLOW", 1, 2, "全屏钱包充值流程");
-        ACTIVITY_PAY_FLOW = payFlowType;
-        $VALUES = new PayFlowType[]{DIOALOG_PAY_FLOW, payFlowType};
+        ACTIVITY_PAY_FLOW = new PayFlowType("ACTIVITY_PAY_FLOW", 1, 2, "全屏钱包充值流程");
+        PayFlowType payFlowType = new PayFlowType("NO_PAY_FLOW", 2, 3, "支付流程结束状态");
+        NO_PAY_FLOW = payFlowType;
+        $VALUES = new PayFlowType[]{DIOALOG_PAY_FLOW, ACTIVITY_PAY_FLOW, payFlowType};
     }
 
     public PayFlowType(String str, int i2, int i3, String str2) {

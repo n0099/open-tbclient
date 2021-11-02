@@ -20,28 +20,28 @@ import java.io.StringWriter;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ExceptionAnalysis {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExceptionAnalysis f43044a;
+    public static ExceptionAnalysis f40847a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43045b;
+    public boolean f40848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f43046c;
+    public Context f40849c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HeadObject f43047d;
+    public HeadObject f40850d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43048e;
+    public String f40851e;
     public Callback mCallback;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
@@ -59,7 +59,7 @@ public class ExceptionAnalysis {
                 return;
             }
         }
-        f43044a = new ExceptionAnalysis();
+        f40847a = new ExceptionAnalysis();
     }
 
     public ExceptionAnalysis() {
@@ -75,8 +75,8 @@ public class ExceptionAnalysis {
                 return;
             }
         }
-        this.f43045b = false;
-        this.f43047d = new HeadObject();
+        this.f40848b = false;
+        this.f40850d = new HeadObject();
     }
 
     private JSONObject a() {
@@ -100,24 +100,24 @@ public class ExceptionAnalysis {
     public static ExceptionAnalysis getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f43044a : (ExceptionAnalysis) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f40847a : (ExceptionAnalysis) invokeV.objValue;
     }
 
     public void openExceptionAnalysis(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
             if (context != null) {
-                this.f43046c = context.getApplicationContext();
+                this.f40849c = context.getApplicationContext();
             }
-            if (this.f43046c == null || this.f43045b) {
+            if (this.f40849c == null || this.f40848b) {
                 return;
             }
-            this.f43045b = true;
-            ad.a().a(this.f43046c);
+            this.f40848b = true;
+            ad.a().a(this.f40849c);
             if (z) {
                 return;
             }
-            NativeCrashHandler.init(this.f43046c);
+            NativeCrashHandler.init(this.f40849c);
         }
     }
 
@@ -126,9 +126,9 @@ public class ExceptionAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, th, z) == null) {
             if (context != null) {
-                this.f43046c = context.getApplicationContext();
+                this.f40849c = context.getApplicationContext();
             }
-            if (this.f43046c == null) {
+            if (this.f40849c == null) {
                 return;
             }
             String th2 = th.toString();
@@ -151,7 +151,7 @@ public class ExceptionAnalysis {
             } else {
                 i2 = th instanceof Error ? 12 : 13;
             }
-            saveCrashInfo(this.f43046c, System.currentTimeMillis(), obj, str2, 0, i2);
+            saveCrashInfo(this.f40849c, System.currentTimeMillis(), obj, str2, 0, i2);
         }
     }
 
@@ -163,7 +163,7 @@ public class ExceptionAnalysis {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        this.f43048e = str;
+        this.f40851e = str;
     }
 
     public ExceptionAnalysis(Callback callback) {
@@ -181,8 +181,8 @@ public class ExceptionAnalysis {
                 return;
             }
         }
-        this.f43045b = false;
-        this.f43047d = new HeadObject();
+        this.f40848b = false;
+        this.f40850d = new HeadObject();
         this.mCallback = callback;
     }
 
@@ -211,21 +211,21 @@ public class ExceptionAnalysis {
         return (JSONObject) invokeL.objValue;
     }
 
-    public void saveCrashInfo(Context context, long j2, String str, String str2, int i2, int i3) {
+    public void saveCrashInfo(Context context, long j, String str, String str2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j2), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             BDStatCore.instance().autoTrackSessionEndTime(context);
             if (context != null && str != null && !str.trim().equals("")) {
                 try {
                     StringBuilder sb = new StringBuilder(str);
-                    if (!TextUtils.isEmpty(this.f43048e)) {
+                    if (!TextUtils.isEmpty(this.f40851e)) {
                         sb.append(StringUtils.LF);
                         sb.append("ExtraInfo:");
-                        sb.append(this.f43048e);
+                        sb.append(this.f40851e);
                     }
                     String appVersionName = CooperService.instance().getAppVersionName(context);
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("t", j2);
+                    jSONObject.put("t", j);
                     jSONObject.put("c", sb.toString());
                     jSONObject.put("y", str2);
                     jSONObject.put("v", appVersionName);
@@ -235,7 +235,7 @@ public class ExceptionAnalysis {
                     JSONArray jSONArray = new JSONArray();
                     jSONArray.put(jSONObject);
                     JSONObject jSONObject2 = new JSONObject();
-                    this.f43047d.installHeader(context, jSONObject2);
+                    this.f40850d.installHeader(context, jSONObject2);
                     jSONObject2.put("ss", 0);
                     jSONObject2.put("sq", 0);
                     JSONObject jSONObject3 = new JSONObject();

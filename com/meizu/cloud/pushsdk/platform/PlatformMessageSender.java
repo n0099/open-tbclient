@@ -14,10 +14,10 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PlatformMessageSender {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         String a();
 
@@ -28,7 +28,7 @@ public class PlatformMessageSender {
 
     public static void a(Context context, int i2, boolean z, String str) {
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
-        c.l.a.a.a.d("PlatformMessageSender", context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
+        b.l.a.a.a.d("PlatformMessageSender", context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
         if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("6")) {
             return;
         }
@@ -158,11 +158,11 @@ public class PlatformMessageSender {
             intent.setClassName(str, "com.meizu.cloud.pushsdk.NotificationService");
         }
         intent.putExtra("command_type", "reflect_receiver");
-        c.l.a.a.a.d("PlatformMessageSender", "start notification service " + parse);
+        b.l.a.a.a.d("PlatformMessageSender", "start notification service " + parse);
         try {
             context.startService(intent);
         } catch (Exception e2) {
-            c.l.a.a.a.b("PlatformMessageSender", "launchStartActivity error " + e2.getMessage());
+            b.l.a.a.a.b("PlatformMessageSender", "launchStartActivity error " + e2.getMessage());
         }
     }
 
@@ -180,10 +180,10 @@ public class PlatformMessageSender {
         intent.setClassName(context.getPackageName(), "com.meizu.cloud.pushsdk.NotificationService");
         intent.putExtra("command_type", "reflect_receiver");
         try {
-            c.l.a.a.a.b("PlatformMessageSender", "start noficationservice to show notification");
+            b.l.a.a.a.b("PlatformMessageSender", "start noficationservice to show notification");
             context.startService(intent);
         } catch (Exception e2) {
-            c.l.a.a.a.b("PlatformMessageSender", "showNotification error " + e2.getMessage());
+            b.l.a.a.a.b("PlatformMessageSender", "showNotification error " + e2.getMessage());
         }
     }
 }

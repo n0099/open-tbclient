@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class i extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f60111a;
+    public Paint f57027a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f60112b;
+    public Path f57028b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context) {
@@ -40,22 +40,22 @@ public final class i extends View {
             }
         }
         Paint paint = new Paint(1);
-        this.f60111a = paint;
+        this.f57027a = paint;
         paint.setColor(-3355444);
-        this.f60111a.setStyle(Paint.Style.STROKE);
-        this.f60111a.setStrokeWidth(3.0f);
-        this.f60112b = new Path();
-        this.f60111a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
+        this.f57027a.setStyle(Paint.Style.STROKE);
+        this.f57027a.setStrokeWidth(3.0f);
+        this.f57028b = new Path();
+        this.f57027a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
     }
 
     @Override // android.view.View
     public final void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f60112b.reset();
-            this.f60112b.moveTo(0.0f, 0.0f);
-            this.f60112b.lineTo(getWidth(), 0.0f);
-            canvas.drawPath(this.f60112b, this.f60111a);
+            this.f57028b.reset();
+            this.f57028b.moveTo(0.0f, 0.0f);
+            this.f57028b.lineTo(getWidth(), 0.0f);
+            canvas.drawPath(this.f57028b, this.f57027a);
         }
     }
 }

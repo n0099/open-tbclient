@@ -196,13 +196,13 @@ public class ActivityChooserModel extends DataSetObservable {
         public final float weight;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public HistoricalRecord(String str, long j2, float f2) {
-            this(ComponentName.unflattenFromString(str), j2, f2);
+        public HistoricalRecord(String str, long j, float f2) {
+            this(ComponentName.unflattenFromString(str), j, f2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j2), Float.valueOf(f2)};
+                Object[] objArr = {str, Long.valueOf(j), Float.valueOf(f2)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -246,8 +246,8 @@ public class ActivityChooserModel extends DataSetObservable {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 ComponentName componentName = this.activity;
                 int hashCode = componentName == null ? 0 : componentName.hashCode();
-                long j2 = this.time;
-                return ((((hashCode + 31) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + Float.floatToIntBits(this.weight);
+                long j = this.time;
+                return ((((hashCode + 31) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + Float.floatToIntBits(this.weight);
             }
             return invokeV.intValue;
         }
@@ -261,12 +261,12 @@ public class ActivityChooserModel extends DataSetObservable {
             return (String) invokeV.objValue;
         }
 
-        public HistoricalRecord(ComponentName componentName, long j2, float f2) {
+        public HistoricalRecord(ComponentName componentName, long j, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {componentName, Long.valueOf(j2), Float.valueOf(f2)};
+                Object[] objArr = {componentName, Long.valueOf(j), Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -277,7 +277,7 @@ public class ActivityChooserModel extends DataSetObservable {
                 }
             }
             this.activity = componentName;
-            this.time = j2;
+            this.time = j;
             this.weight = f2;
         }
     }
@@ -313,22 +313,22 @@ public class ActivityChooserModel extends DataSetObservable {
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, IPUT]}, finally: {[IGET, IPUT, IF] complete} */
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x0070, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x0071, code lost:
             if (r15 != null) goto L17;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0072, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0073, code lost:
             r15.close();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:19:0x0090, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:19:0x0091, code lost:
             if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x00ab, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x00ac, code lost:
             if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:27:0x00c6, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:27:0x00c7, code lost:
             if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x00c9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x00ca, code lost:
             return null;
          */
         @Override // android.os.AsyncTask

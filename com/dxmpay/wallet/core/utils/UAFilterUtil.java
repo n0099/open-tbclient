@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.BussinessUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UAFilterUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static UAFilterUtil f70195a;
+        public static UAFilterUtil f62612a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class UAFilterUtil {
                     return;
                 }
             }
-            f70195a = new UAFilterUtil(null);
+            f62612a = new UAFilterUtil(null);
         }
     }
 
@@ -53,7 +53,7 @@ public class UAFilterUtil {
     public static UAFilterUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f70195a : (UAFilterUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f62612a : (UAFilterUtil) invokeV.objValue;
     }
 
     public synchronized String getTrueUA(Context context) {

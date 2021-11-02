@@ -21,18 +21,18 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ag {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f78465a;
+    public static long f71404a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f889a;
+    public static ThreadPoolExecutor f890a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Pattern f890a;
+    public static final Pattern f891a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,9 +48,9 @@ public class ag {
                 return;
             }
         }
-        f890a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
-        f78465a = 0L;
-        f889a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        f891a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
+        f71404a = 0L;
+        f890a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
     public static String a(String str) {
@@ -96,8 +96,8 @@ public class ag {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if ((f889a.getActiveCount() <= 0 || currentTimeMillis - f78465a >= 1800000) && gx.m366a().m371a() && (m619a = bi.a().m619a()) != null && m619a.e() > 0) {
-                f78465a = currentTimeMillis;
+            if ((f890a.getActiveCount() <= 0 || currentTimeMillis - f71404a >= 1800000) && gx.m366a().m371a() && (m619a = bi.a().m619a()) != null && m619a.e() > 0) {
+                f71404a = currentTimeMillis;
                 a(m619a.a(), true);
             }
         }
@@ -106,7 +106,7 @@ public class ag {
     public static void a(List<String> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, list, z) == null) {
-            f889a.execute(new ah(list, z));
+            f890a.execute(new ah(list, z));
         }
     }
 

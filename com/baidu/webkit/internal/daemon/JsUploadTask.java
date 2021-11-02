@@ -21,7 +21,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class JsUploadTask implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONN_TIMEOUT = 5000;
@@ -82,7 +82,7 @@ public class JsUploadTask implements INoProGuard {
     public boolean responded;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class JumpType {
         public static final /* synthetic */ JumpType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -217,15 +217,15 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public static void addRawLogItem(StringBuilder sb, String str, long j2) {
+    public static void addRawLogItem(StringBuilder sb, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sb, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sb, str, Long.valueOf(j)}) == null) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append(str);
             sb.append("=");
-            sb.append(j2);
+            sb.append(j);
         }
     }
 
@@ -361,9 +361,9 @@ public class JsUploadTask implements INoProGuard {
                             CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
                             CloudSettings.NetRecordList.remove(0);
                             Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
-                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f64149c);
-                            jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f64147a);
-                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f64148b);
+                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f60992c);
+                            jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f60990a);
+                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f60991b);
                         }
                         if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                             jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);
@@ -638,10 +638,10 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public static void setPageFinishedTime(long j2) {
+    public static void setPageFinishedTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65571, null, j2) == null) {
-            mPageFinishedTime = j2;
+        if (interceptable == null || interceptable.invokeJ(65571, null, j) == null) {
+            mPageFinishedTime = j;
         }
     }
 
@@ -771,10 +771,10 @@ public class JsUploadTask implements INoProGuard {
         mCurEngine = i2;
     }
 
-    public void setFirstScreenTime(long j2) {
+    public void setFirstScreenTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            mFirstScreenTime = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            mFirstScreenTime = j;
         }
     }
 
@@ -794,10 +794,10 @@ public class JsUploadTask implements INoProGuard {
         mNetcode = i2;
     }
 
-    public void setPageStartTime(long j2) {
+    public void setPageStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            mPageStartTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            mPageStartTime = j;
         }
     }
 

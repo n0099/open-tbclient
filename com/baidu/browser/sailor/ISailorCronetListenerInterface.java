@@ -2,6 +2,6 @@ package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.ICronetListenerInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface ISailorCronetListenerInterface extends INoProGuard, ICronetListenerInterface {
 }

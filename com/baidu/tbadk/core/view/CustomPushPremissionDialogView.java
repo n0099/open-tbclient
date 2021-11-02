@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.e.e.p.l;
-import c.a.q0.s.f0.n.c;
+import b.a.e.e.p.l;
+import b.a.q0.s.g0.n.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,28 +23,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CustomPushPremissionDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f47650e;
+    public TextView f45237e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBLottieAnimationView f47651f;
+    public TBLottieAnimationView f45238f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f47652g;
+    public View f45239g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f47653h;
+    public View f45240h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f47654i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TBSpecificationBtn f47655j;
+    public TBSpecificationBtn f45241i;
+    public TBSpecificationBtn j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CustomPushPremissionDialogView(Context context) {
@@ -80,53 +78,53 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             setBackgroundDrawable(gradientDrawable);
             LinearLayout.inflate(context, R.layout.custom_push_premission_dialog_view, this);
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.custom_push_permission_dialog_animation_view);
-            this.f47651f = tBLottieAnimationView;
+            this.f45238f = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.f47651f.setFrame(0);
-            SkinManager.setLottieAnimation(this.f47651f, R.raw.lottie_push_permission_dialog_animation);
-            this.f47651f.playAnimation();
+            this.f45238f.setFrame(0);
+            SkinManager.setLottieAnimation(this.f45238f, R.raw.lottie_push_permission_dialog_animation);
+            this.f45238f.playAnimation();
             TextView textView = (TextView) findViewById(R.id.custom_push_permission_dialog_description_view);
-            this.f47650e = textView;
+            this.f45237e = textView;
             textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f47652g = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
+            this.f45239g = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                this.f47653h = findViewById(R.id.animation_layout);
-                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, l.g(getContext(), R.dimen.tbds22)).into(this.f47653h);
-                ViewGroup.LayoutParams layoutParams2 = this.f47652g.getLayoutParams();
+                this.f45240h = findViewById(R.id.animation_layout);
+                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, l.g(getContext(), R.dimen.tbds22)).into(this.f45240h);
+                ViewGroup.LayoutParams layoutParams2 = this.f45239g.getLayoutParams();
                 layoutParams2.width = l.g(context, R.dimen.tbds774);
-                this.f47652g.setLayoutParams(layoutParams2);
-                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.f47652g);
+                this.f45239g.setLayoutParams(layoutParams2);
+                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.f45239g);
             } else {
-                TBSelector.makeDrawableSelector().setShape(0).radius(l.g(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.f47652g);
+                TBSelector.makeDrawableSelector().setShape(0).radius(l.g(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.f45239g);
             }
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
-            this.f47654i = tBSpecificationBtn;
+            this.f45241i = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            this.f47654i.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
+            this.f45241i.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
             c cVar = new c();
             cVar.r(R.color.CAM_X0105);
-            this.f47654i.setConfig(cVar);
-            this.f47654i.changeSkinType();
+            this.f45241i.setConfig(cVar);
+            this.f45241i.changeSkinType();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
-            this.f47655j = tBSpecificationBtn2;
+            this.j = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
-            this.f47655j.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
+            this.j.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
             c cVar2 = new c();
             cVar2.p(R.color.CAM_X0302);
-            this.f47655j.setConfig(cVar2);
+            this.j.setConfig(cVar2);
         }
     }
 
     public TBSpecificationBtn getPushPermissionDialogCancelButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47654i : (TBSpecificationBtn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45241i : (TBSpecificationBtn) invokeV.objValue;
     }
 
     public TBSpecificationBtn getPushPermissionDialogConfirmButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47655j : (TBSpecificationBtn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (TBSpecificationBtn) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

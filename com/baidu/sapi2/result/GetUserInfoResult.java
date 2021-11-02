@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class GetUserInfoResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MSG_UNKNOWN = "用户信息获取失败";

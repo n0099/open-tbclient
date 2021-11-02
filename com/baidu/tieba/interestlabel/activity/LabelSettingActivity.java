@@ -2,8 +2,8 @@ package com.baidu.tieba.interestlabel.activity;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
-import c.a.e.e.p.j;
-import c.a.r0.o1.b.b;
+import b.a.e.e.p.j;
+import b.a.r0.o1.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements c.a.r0.o1.c.a {
+/* loaded from: classes9.dex */
+public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements b.a.r0.o1.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel mLabelSettingModel;
     public LabelSettingView mLabelSettingView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f53735a;
+        public static final /* synthetic */ int[] f50967a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,13 +48,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
                 }
             }
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f53735a = iArr;
+            f50967a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f53735a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f50967a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -74,14 +74,14 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         }
     }
 
-    @Override // c.a.r0.o1.c.a
+    @Override // b.a.r0.o1.c.a
     public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, bVar, i2) == null) {
-            int i3 = a.f53735a[labelRequestEnum.ordinal()];
+            int i3 = a.f50967a[labelRequestEnum.ordinal()];
             if (i3 != 1) {
                 if (i3 == 2 && i2 == 0) {
-                    c.a.q0.s.d0.b.j().t("set_recommend_label", true);
+                    b.a.q0.s.e0.b.j().t("set_recommend_label", true);
                     finish();
                     return;
                 }
@@ -97,7 +97,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         }
     }
 
-    @Override // c.a.r0.o1.c.a
+    @Override // b.a.r0.o1.c.a
     public void getLabel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -149,7 +149,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         return invokeIL.booleanValue;
     }
 
-    @Override // c.a.r0.o1.c.a
+    @Override // b.a.r0.o1.c.a
     public void subLabel(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {

@@ -18,17 +18,29 @@ public class Metrics {
     public long centerConnectionResolved;
     public long chainConnectionResolved;
     public long constraints;
+    public long determineGroups;
     public long errors;
     public long extravariables;
     public long fullySolved;
     public long graphOptimizer;
+    public long graphSolved;
+    public long grouping;
+    public long infeasibleDetermineGroups;
     public long iterations;
     public long lastTableSize;
+    public long layouts;
+    public long linearSolved;
     public long matchConnectionResolved;
     public long maxRows;
     public long maxTableSize;
     public long maxVariables;
+    public long measuredMatchWidgets;
+    public long measuredWidgets;
     public long measures;
+    public long measuresLayoutDuration;
+    public long measuresWidgetsDuration;
+    public long measuresWrap;
+    public long measuresWrapInfeasible;
     public long minimize;
     public long minimizeGoal;
     public long nonresolvedWidgets;
@@ -42,6 +54,7 @@ public class Metrics {
     public long slackvariables;
     public long tableSizeIncrease;
     public long variables;
+    public long widgets;
 
     public Metrics() {
         Interceptable interceptable = $ic;
@@ -63,6 +76,7 @@ public class Metrics {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.measures = 0L;
+            this.widgets = 0L;
             this.additionalMeasures = 0L;
             this.resolutions = 0L;
             this.tableSizeIncrease = 0L;
@@ -84,6 +98,7 @@ public class Metrics {
             this.extravariables = 0L;
             this.fullySolved = 0L;
             this.graphOptimizer = 0L;
+            this.graphSolved = 0L;
             this.resolvedWidgets = 0L;
             this.oldresolvedWidgets = 0L;
             this.nonresolvedWidgets = 0L;
@@ -99,7 +114,7 @@ public class Metrics {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "\n*** Metrics ***\nmeasures: " + this.measures + "\nadditionalMeasures: " + this.additionalMeasures + "\nresolutions passes: " + this.resolutions + "\ntable increases: " + this.tableSizeIncrease + "\nmaxTableSize: " + this.maxTableSize + "\nmaxVariables: " + this.maxVariables + "\nmaxRows: " + this.maxRows + "\n\nminimize: " + this.minimize + "\nminimizeGoal: " + this.minimizeGoal + "\nconstraints: " + this.constraints + "\nsimpleconstraints: " + this.simpleconstraints + "\noptimize: " + this.optimize + "\niterations: " + this.iterations + "\npivots: " + this.pivots + "\nbfs: " + this.bfs + "\nvariables: " + this.variables + "\nerrors: " + this.errors + "\nslackvariables: " + this.slackvariables + "\nextravariables: " + this.extravariables + "\nfullySolved: " + this.fullySolved + "\ngraphOptimizer: " + this.graphOptimizer + "\nresolvedWidgets: " + this.resolvedWidgets + "\noldresolvedWidgets: " + this.oldresolvedWidgets + "\nnonresolvedWidgets: " + this.nonresolvedWidgets + "\ncenterConnectionResolved: " + this.centerConnectionResolved + "\nmatchConnectionResolved: " + this.matchConnectionResolved + "\nchainConnectionResolved: " + this.chainConnectionResolved + "\nbarrierConnectionResolved: " + this.barrierConnectionResolved + "\nproblematicsLayouts: " + this.problematicLayouts + StringUtils.LF;
+            return "\n*** Metrics ***\nmeasures: " + this.measures + "\nmeasuresWrap: " + this.measuresWrap + "\nmeasuresWrapInfeasible: " + this.measuresWrapInfeasible + "\ndetermineGroups: " + this.determineGroups + "\ninfeasibleDetermineGroups: " + this.infeasibleDetermineGroups + "\ngraphOptimizer: " + this.graphOptimizer + "\nwidgets: " + this.widgets + "\ngraphSolved: " + this.graphSolved + "\nlinearSolved: " + this.linearSolved + StringUtils.LF;
         }
         return (String) invokeV.objValue;
     }

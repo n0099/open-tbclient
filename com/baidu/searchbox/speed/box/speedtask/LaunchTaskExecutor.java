@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class LaunchTaskExecutor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -23,7 +23,7 @@ public final class LaunchTaskExecutor {
     public static LinkedList<Task> sQueue;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,16 +149,16 @@ public final class LaunchTaskExecutor {
         }
     }
 
-    public static synchronized void execute(Runnable runnable, String str, long j2) {
+    public static synchronized void execute(Runnable runnable, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{runnable, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
             synchronized (LaunchTaskExecutor.class) {
                 if (sAppReady) {
                     if (DEBUG) {
                         String str2 = "app is ready, execute task :" + str;
                     }
-                    if (j2 > 0) {
-                        AsyncTaskAssistant.execute(runnable, str, j2);
+                    if (j > 0) {
+                        AsyncTaskAssistant.execute(runnable, str, j);
                     } else {
                         AsyncTaskAssistant.execute(runnable, str);
                     }
@@ -166,7 +166,7 @@ public final class LaunchTaskExecutor {
                     Task task = new Task();
                     task.runnable = runnable;
                     task.name = str;
-                    task.delay = j2;
+                    task.delay = j;
                     if (DEBUG) {
                         String str3 = "app not ready, add task to queue : " + str;
                     }

@@ -25,16 +25,16 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class k extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f44309b;
+    public SuggestAddrInfo f42071b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44310c;
+    public boolean f42072c;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class k extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f44309b = null;
+        this.f42071b = null;
     }
 
     private SuggestAddrInfo a(JSONObject jSONObject) {
@@ -213,7 +213,7 @@ public class k extends com.baidu.platform.base.d {
                     JSONObject optJSONObject = jSONObject.optJSONObject("result");
                     if (optJSONObject != null && optJSONObject.optInt("type") == 23 && optJSONObject.optInt("error") == 0) {
                         SuggestAddrInfo a2 = a(jSONObject);
-                        this.f44309b = a2;
+                        this.f42071b = a2;
                         return a2 != null;
                     }
                     return false;
@@ -238,15 +238,15 @@ public class k extends com.baidu.platform.base.d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             SearchType a2 = a();
             if (b(str)) {
-                this.f44310c = true;
+                this.f42072c = true;
             } else {
-                this.f44310c = false;
+                this.f42072c = false;
             }
-            int i2 = l.f44311a[a2.ordinal()];
+            int i2 = l.f42073a[a2.ordinal()];
             if (i2 == 1) {
                 TransitRouteResult transitRouteResult = new TransitRouteResult();
-                if (this.f44310c) {
-                    transitRouteResult.setSuggestAddrInfo(this.f44309b);
+                if (this.f42072c) {
+                    transitRouteResult.setSuggestAddrInfo(this.f42071b);
                     walkingRouteResult = transitRouteResult;
                     walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                     walkingRouteResult2 = walkingRouteResult;
@@ -256,8 +256,8 @@ public class k extends com.baidu.platform.base.d {
                 }
             } else if (i2 == 2) {
                 DrivingRouteResult drivingRouteResult = new DrivingRouteResult();
-                if (this.f44310c) {
-                    drivingRouteResult.setSuggestAddrInfo(this.f44309b);
+                if (this.f42072c) {
+                    drivingRouteResult.setSuggestAddrInfo(this.f42071b);
                     walkingRouteResult = drivingRouteResult;
                     walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                     walkingRouteResult2 = walkingRouteResult;
@@ -269,8 +269,8 @@ public class k extends com.baidu.platform.base.d {
                 return null;
             } else {
                 WalkingRouteResult walkingRouteResult3 = new WalkingRouteResult();
-                if (this.f44310c) {
-                    walkingRouteResult3.setSuggestAddrInfo(this.f44309b);
+                if (this.f42072c) {
+                    walkingRouteResult3.setSuggestAddrInfo(this.f42071b);
                     walkingRouteResult = walkingRouteResult3;
                     walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                     walkingRouteResult2 = walkingRouteResult;
@@ -289,7 +289,7 @@ public class k extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetRoutePlanResultListener)) {
             OnGetRoutePlanResultListener onGetRoutePlanResultListener = (OnGetRoutePlanResultListener) obj;
-            int i2 = l.f44311a[a().ordinal()];
+            int i2 = l.f42073a[a().ordinal()];
             if (i2 == 1) {
                 onGetRoutePlanResultListener.onGetTransitRouteResult((TransitRouteResult) searchResult);
             } else if (i2 == 2) {

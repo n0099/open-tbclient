@@ -15,7 +15,6 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
@@ -25,6 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -36,39 +36,37 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39913a = "armeabi";
+    public static final String f37840a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39914b = "armeabi-v7a";
+    public static final String f37841b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39915c = "x86";
+    public static final String f37842c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39916d = "arm64-v8a";
+    public static final String f37843d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39917e = 480;
+    public static final int f37844e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39918f = 480;
+    public static final int f37845f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f39919g = 192;
+    public static final int f37846g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f39920h = 480;
+    public static final int f37847h = 480;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f39921i = 620;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final int f39922j = 728;
+    public static final int f37848i = 620;
+    public static final int j = 728;
     public static final int k = 750;
     public static final int l = 1335;
     public static final String m = "SapiBiometricUtil";
@@ -95,10 +93,10 @@ public class h {
             canvas.drawColor(0, PorterDuff.Mode.CLEAR);
             Paint paint = new Paint();
             paint.setStrokeWidth(4.0f);
-            paint.setColor(-16711936);
+            paint.setColor(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(3.0f);
-            paint.setColor(-16711936);
+            paint.setColor(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
             for (int i2 = 0; i2 < iArr.length / 2; i2++) {
                 int i3 = i2 << 1;
                 canvas.drawCircle(iArr[i3], iArr[i3 + 1], 2.0f, paint);
@@ -107,12 +105,12 @@ public class h {
             canvas.drawRect(b2, paint);
             Point point = new Point();
             point.set(b2.centerX(), b2.centerY());
-            paint.setColor(SupportMenu.CATEGORY_MASK);
+            paint.setColor(-65536);
             canvas.drawCircle(point.x, point.y, 5.0f, paint);
             canvas.drawRect(a(new int[]{bitmap.getWidth(), bitmap.getHeight()}), paint);
             Point point2 = new Point();
             point2.set(bitmap.getWidth() / 2, (bitmap.getHeight() * 728) / 1335);
-            paint.setColor(SupportMenu.CATEGORY_MASK);
+            paint.setColor(-65536);
             canvas.drawCircle(point2.x, point2.y, 5.0f, paint);
             int width = ((bitmap.getWidth() * 480) / 750) / 2;
             int i4 = point2.x;
@@ -470,7 +468,7 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, context)) == null) {
-            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f39884a;
+            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f37811a;
         }
         return (String) invokeLL.objValue;
     }

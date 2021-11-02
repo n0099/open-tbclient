@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ShieldAndTopManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static int MSG_UPDATE_MAX_COUNT = 2;
@@ -178,42 +178,42 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void getOneShieldAndTopRequest(long j2, IGetShieldAndTopListener iGetShieldAndTopListener) {
+    public void getOneShieldAndTopRequest(long j, IGetShieldAndTopListener iGetShieldAndTopListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, iGetShieldAndTopListener) == null) {
-            IMGetOneShieldAndTopRequest iMGetOneShieldAndTopRequest = new IMGetOneShieldAndTopRequest(this.mContext, j2, iGetShieldAndTopListener != null ? ListenerManager.getInstance().addListener(iGetShieldAndTopListener) : "");
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, iGetShieldAndTopListener) == null) {
+            IMGetOneShieldAndTopRequest iMGetOneShieldAndTopRequest = new IMGetOneShieldAndTopRequest(this.mContext, j, iGetShieldAndTopListener != null ? ListenerManager.getInstance().addListener(iGetShieldAndTopListener) : "");
             HttpHelper.executor(this.mContext, iMGetOneShieldAndTopRequest, iMGetOneShieldAndTopRequest);
         }
     }
 
-    public void getServiceNotifyMenuStatus(long j2, List<Long> list, List<String> list2, String str, int i2, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
+    public void getServiceNotifyMenuStatus(long j, List<Long> list, List<String> list2, String str, int i2, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), list, list2, str, Integer.valueOf(i2), iGetServiceNotifyMenuListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), list, list2, str, Integer.valueOf(i2), iGetServiceNotifyMenuListener}) == null) {
             IMServiceNotifyMenuMergeListener iMServiceNotifyMenuMergeListener = new IMServiceNotifyMenuMergeListener(i2, iGetServiceNotifyMenuListener);
             if (i2 == 0) {
-                getOneShieldAndTopRequest(j2, iMServiceNotifyMenuMergeListener);
+                getOneShieldAndTopRequest(j, iMServiceNotifyMenuMergeListener);
             } else if (i2 != 1) {
-                getOneShieldAndTopRequest(j2, iMServiceNotifyMenuMergeListener);
-                getSubscription(j2, list, list2, str, iMServiceNotifyMenuMergeListener);
+                getOneShieldAndTopRequest(j, iMServiceNotifyMenuMergeListener);
+                getSubscription(j, list, list2, str, iMServiceNotifyMenuMergeListener);
             } else {
-                getSubscription(j2, list, list2, str, iMServiceNotifyMenuMergeListener);
+                getSubscription(j, list, list2, str, iMServiceNotifyMenuMergeListener);
             }
         }
     }
 
-    public void getSingleContacterSetting(long j2, int i2, IGetShieldAndTopListener iGetShieldAndTopListener) {
+    public void getSingleContacterSetting(long j, int i2, IGetShieldAndTopListener iGetShieldAndTopListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), iGetShieldAndTopListener}) == null) {
-            IMGetOneShieldAndTopRequest iMGetOneShieldAndTopRequest = new IMGetOneShieldAndTopRequest(this.mContext, j2, i2, iGetShieldAndTopListener != null ? ListenerManager.getInstance().addListener(iGetShieldAndTopListener) : "");
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), iGetShieldAndTopListener}) == null) {
+            IMGetOneShieldAndTopRequest iMGetOneShieldAndTopRequest = new IMGetOneShieldAndTopRequest(this.mContext, j, i2, iGetShieldAndTopListener != null ? ListenerManager.getInstance().addListener(iGetShieldAndTopListener) : "");
             HttpHelper.executor(this.mContext, iMGetOneShieldAndTopRequest, iMGetOneShieldAndTopRequest);
         }
     }
 
-    public void getSubscription(long j2, List<Long> list, List<String> list2, String str, IGetSubscriptionListener iGetSubscriptionListener) {
+    public void getSubscription(long j, List<Long> list, List<String> list2, String str, IGetSubscriptionListener iGetSubscriptionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), list, list2, str, iGetSubscriptionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), list, list2, str, iGetSubscriptionListener}) == null) {
             if ((list != null && list.size() > 0) || (list2 != null && list2.size() > 0)) {
-                IMGetSubscriptionRequest iMGetSubscriptionRequest = new IMGetSubscriptionRequest(this.mContext, j2, list, list2, str, iGetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iGetSubscriptionListener) : "");
+                IMGetSubscriptionRequest iMGetSubscriptionRequest = new IMGetSubscriptionRequest(this.mContext, j, list, list2, str, iGetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iGetSubscriptionListener) : "");
                 HttpHelper.executor(this.mContext, iMGetSubscriptionRequest, iMGetSubscriptionRequest);
                 return;
             }
@@ -645,10 +645,10 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void requestDisturbAndRemind(long j2, int i2, int i3, int i4, IStatusListener iStatusListener) {
+    public void requestDisturbAndRemind(long j, int i2, int i3, int i4, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iStatusListener}) == null) {
-            IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j2, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iStatusListener}) == null) {
+            IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, i2, i3, i4);
             HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
         }
     }
@@ -669,11 +669,11 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void setForbid(long j2, long j3, int i2, ISetForbidListener iSetForbidListener) {
+    public void setForbid(long j, long j2, int i2, ISetForbidListener iSetForbidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), iSetForbidListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), iSetForbidListener}) == null) {
             if (this.mContext != null) {
-                IMForbidRequest iMForbidRequest = new IMForbidRequest(this.mContext, j2, j3, i2, ListenerManager.getInstance().addListener(iSetForbidListener));
+                IMForbidRequest iMForbidRequest = new IMForbidRequest(this.mContext, j, j2, i2, ListenerManager.getInstance().addListener(iSetForbidListener));
                 HttpHelper.executor(this.mContext, iMForbidRequest, iMForbidRequest);
             } else if (iSetForbidListener != null) {
                 iSetForbidListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, true, "");
@@ -681,27 +681,27 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void setMarkTop(long j2, int i2, int i3, IStatusListener iStatusListener) {
+    public void setMarkTop(long j, int i2, int i3, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), iStatusListener}) == null) {
-            IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j2, 2, i2, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), iStatusListener}) == null) {
+            IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 2, i2, i3);
             HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
         }
     }
 
-    public void setShield(long j2, int i2, int i3, IStatusListener iStatusListener) {
+    public void setShield(long j, int i2, int i3, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), iStatusListener}) == null) {
-            IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j2, 1, i2, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), iStatusListener}) == null) {
+            IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 1, i2, i3);
             HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
         }
     }
 
-    public void setSubscription(long j2, List<Long> list, List<String> list2, int i2, String str, ISetSubscriptionListener iSetSubscriptionListener) {
+    public void setSubscription(long j, List<Long> list, List<String> list2, int i2, String str, ISetSubscriptionListener iSetSubscriptionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j2), list, list2, Integer.valueOf(i2), str, iSetSubscriptionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), list, list2, Integer.valueOf(i2), str, iSetSubscriptionListener}) == null) {
             if ((list != null && list.size() > 0) || (list2 != null && list2.size() > 0)) {
-                IMSetSubscriptionRequest iMSetSubscriptionRequest = new IMSetSubscriptionRequest(this.mContext, i2, j2, list, list2, str, iSetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iSetSubscriptionListener) : "");
+                IMSetSubscriptionRequest iMSetSubscriptionRequest = new IMSetSubscriptionRequest(this.mContext, i2, j, list, list2, str, iSetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iSetSubscriptionListener) : "");
                 HttpHelper.executor(this.mContext, iMSetSubscriptionRequest, iMSetSubscriptionRequest);
                 return;
             }

@@ -10,7 +10,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.t.c;
+import b.a.x0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SubTitleCreater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -241,16 +241,16 @@ public class SubTitleCreater {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMinRightPadding : invokeV.intValue;
     }
 
-    public SubTitleUnit getSubTitle(long j2) {
+    public SubTitleUnit getSubTitle(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
             List<SubTitleUnit> list = this.mSubTitleUnits;
             if (list == null) {
                 return getEmptySubTitle();
             }
             for (SubTitleUnit subTitleUnit : list) {
-                if (j2 >= subTitleUnit.startTime && j2 <= subTitleUnit.endTime) {
+                if (j >= subTitleUnit.startTime && j <= subTitleUnit.endTime) {
                     synchronized (this.mSubtitleCache) {
                         Bitmap bitmap = this.mSubtitleCache.get(getCacheKey(subTitleUnit));
                         if (bitmap != null && !bitmap.isRecycled()) {
@@ -271,7 +271,7 @@ public class SubTitleCreater {
                             arrayList.clear();
                         }
                         if (!this.mIsSync) {
-                            this.mHandler.post(new Runnable(this, subTitleUnit, j2) { // from class: com.baidu.ugc.editvideo.subtitle.SubTitleCreater.1
+                            this.mHandler.post(new Runnable(this, subTitleUnit, j) { // from class: com.baidu.ugc.editvideo.subtitle.SubTitleCreater.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ SubTitleCreater this$0;
@@ -283,7 +283,7 @@ public class SubTitleCreater {
                                     if (interceptable2 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, subTitleUnit, Long.valueOf(j2)};
+                                        Object[] objArr = {this, subTitleUnit, Long.valueOf(j)};
                                         interceptable2.invokeUnInit(65536, newInitContext);
                                         int i2 = newInitContext.flag;
                                         if ((i2 & 1) != 0) {
@@ -295,7 +295,7 @@ public class SubTitleCreater {
                                     }
                                     this.this$0 = this;
                                     this.val$subTitleUnit = subTitleUnit;
-                                    this.val$time = j2;
+                                    this.val$time = j;
                                 }
 
                                 @Override // java.lang.Runnable
@@ -316,7 +316,7 @@ public class SubTitleCreater {
                         Bitmap createSubtitleBitmap = createSubtitleBitmap(subTitleUnit);
                         if (createSubtitleBitmap != null && !createSubtitleBitmap.isRecycled()) {
                             this.mSubtitleCache.put(getCacheKey(subTitleUnit), createSubtitleBitmap);
-                            c.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j2);
+                            c.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
                         }
                         SubTitleUnit subTitleUnit3 = new SubTitleUnit();
                         subTitleUnit3.line = subTitleUnit.line;
@@ -358,17 +358,17 @@ public class SubTitleCreater {
         return (SubTitleConfig) invokeV.objValue;
     }
 
-    public SubTitleUnit getSubTitleSync(long j2) {
+    public SubTitleUnit getSubTitleSync(long j) {
         InterceptResult invokeJ;
         SubTitleUnit subTitleUnit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
             List<SubTitleUnit> list = this.mSubTitleUnits;
             if (list == null) {
                 return getEmptySubTitle();
             }
             for (SubTitleUnit subTitleUnit2 : list) {
-                if (j2 >= subTitleUnit2.startTime && j2 <= subTitleUnit2.endTime) {
+                if (j >= subTitleUnit2.startTime && j <= subTitleUnit2.endTime) {
                     Bitmap bitmap = this.mSubtitleCache.get(getCacheKey(subTitleUnit2));
                     if (bitmap == null || bitmap.isRecycled()) {
                         if (!this.mSubtitleCache.isEmpty()) {
@@ -385,7 +385,7 @@ public class SubTitleCreater {
                         bitmap = createSubtitleBitmap(subTitleUnit2);
                         if (bitmap != null && !bitmap.isRecycled()) {
                             this.mSubtitleCache.put(getCacheKey(subTitleUnit2), bitmap);
-                            c.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j2);
+                            c.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j);
                         }
                         subTitleUnit = new SubTitleUnit();
                     } else {

@@ -10,7 +10,7 @@ import java.util.Collection;
 import org.apache.http.cookie.CookieAttributeHandler;
 import org.apache.http.cookie.CookieSpec;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractCookieSpec implements CookieSpec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

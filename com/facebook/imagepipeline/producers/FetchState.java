@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.common.BytesRange;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FetchState {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,10 +67,10 @@ public class FetchState {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLastIntermediateResultTimeMs : invokeV.longValue;
     }
 
-    public ProducerListener getListener() {
+    public ProducerListener2 getListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContext.getListener() : (ProducerListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContext.getProducerListener() : (ProducerListener2) invokeV.objValue;
     }
 
     public String getLogTag() {
@@ -110,10 +110,10 @@ public class FetchState {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mContext.getImageRequest().getSourceUri() : (Uri) invokeV.objValue;
     }
 
-    public void setLastIntermediateResultTimeMs(long j2) {
+    public void setLastIntermediateResultTimeMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.mLastIntermediateResultTimeMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.mLastIntermediateResultTimeMs = j;
         }
     }
 

@@ -14,23 +14,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class c extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final AtomicInteger f72676b;
+    public static final AtomicInteger f65127b;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f72677a;
+    public final d f65128a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Timer f72678c;
+    public Timer f65129c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TimerTask f72679d;
+    public TimerTask f65130d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public abstract class c extends FrameLayout {
                 return;
             }
         }
-        f72676b = new AtomicInteger(0);
+        f65127b = new AtomicInteger(0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,7 +66,7 @@ public abstract class c extends FrameLayout {
                 return;
             }
         }
-        this.f72677a = dVar;
+        this.f65128a = dVar;
     }
 
     public abstract void a(int i2);
@@ -85,16 +85,16 @@ public abstract class c extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             k();
-            if (this.f72678c == null) {
-                this.f72678c = new Timer("ksad-IVideoPlayer-timer" + f72676b.getAndIncrement());
+            if (this.f65129c == null) {
+                this.f65129c = new Timer("ksad-IVideoPlayer-timer" + f65127b.getAndIncrement());
             }
-            if (this.f72679d == null) {
-                this.f72679d = new TimerTask(this) { // from class: com.kwad.sdk.core.video.videoview.c.1
+            if (this.f65130d == null) {
+                this.f65130d = new TimerTask(this) { // from class: com.kwad.sdk.core.video.videoview.c.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f72680a;
+                    public final /* synthetic */ c f65131a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -111,19 +111,19 @@ public abstract class c extends FrameLayout {
                                 return;
                             }
                         }
-                        this.f72680a = this;
+                        this.f65131a = this;
                     }
 
                     @Override // java.util.TimerTask, java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f72680a.post(new Runnable(this) { // from class: com.kwad.sdk.core.video.videoview.c.1.1
+                            this.f65131a.post(new Runnable(this) { // from class: com.kwad.sdk.core.video.videoview.c.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass1 f72681a;
+                                public final /* synthetic */ AnonymousClass1 f65132a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -140,14 +140,14 @@ public abstract class c extends FrameLayout {
                                             return;
                                         }
                                     }
-                                    this.f72681a = this;
+                                    this.f65132a = this;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f72681a.f72680a.h();
+                                        this.f65132a.f65131a.h();
                                     }
                                 }
                             });
@@ -155,22 +155,22 @@ public abstract class c extends FrameLayout {
                     }
                 };
             }
-            this.f72678c.schedule(this.f72679d, 0L, 1000L);
+            this.f65129c.schedule(this.f65130d, 0L, 1000L);
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Timer timer = this.f72678c;
+            Timer timer = this.f65129c;
             if (timer != null) {
                 timer.cancel();
-                this.f72678c = null;
+                this.f65129c = null;
             }
-            TimerTask timerTask = this.f72679d;
+            TimerTask timerTask = this.f65130d;
             if (timerTask != null) {
                 timerTask.cancel();
-                this.f72679d = null;
+                this.f65130d = null;
             }
         }
     }

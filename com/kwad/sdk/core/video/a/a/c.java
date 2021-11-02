@@ -13,25 +13,25 @@ import com.kwad.sdk.utils.q;
 import java.util.UUID;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72619b;
+    public String f65073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f72620c;
+    public String f65074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f72621d;
+    public long f65075d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f72622e;
+    public String f65076e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f72623f;
+    public long f65077f;
 
     public c(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -48,12 +48,12 @@ public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b
                 return;
             }
         }
-        this.f72550a = UUID.randomUUID().toString();
-        this.f72621d = System.currentTimeMillis();
-        this.f72622e = l.b();
-        this.f72623f = l.d();
-        this.f72619b = str;
-        this.f72620c = str2;
+        this.f65006a = UUID.randomUUID().toString();
+        this.f65075d = System.currentTimeMillis();
+        this.f65076e = l.b();
+        this.f65077f = l.d();
+        this.f65073b = str;
+        this.f65074c = str2;
     }
 
     @Override // com.kwad.sdk.core.response.a.a, com.kwad.sdk.core.b
@@ -65,19 +65,19 @@ public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b
                 return;
             }
             try {
-                this.f72621d = jSONObject.optLong("timestamp");
+                this.f65075d = jSONObject.optLong("timestamp");
                 if (jSONObject.has("actionId")) {
-                    this.f72550a = jSONObject.optString("actionId");
+                    this.f65006a = jSONObject.optString("actionId");
                 }
                 if (jSONObject.has("sessionId")) {
-                    this.f72622e = jSONObject.optString("sessionId");
+                    this.f65076e = jSONObject.optString("sessionId");
                 }
-                this.f72623f = jSONObject.optLong(IAdRequestParam.SEQ);
+                this.f65077f = jSONObject.optLong(IAdRequestParam.SEQ);
                 if (jSONObject.has("mediaPlayerAction")) {
-                    this.f72619b = jSONObject.optString("mediaPlayerAction");
+                    this.f65073b = jSONObject.optString("mediaPlayerAction");
                 }
                 if (jSONObject.has("mediaPlayerMsg")) {
-                    this.f72620c = jSONObject.optString("mediaPlayerMsg");
+                    this.f65074c = jSONObject.optString("mediaPlayerMsg");
                 }
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
@@ -91,12 +91,12 @@ public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject json = super.toJson();
-            q.a(json, "actionId", this.f72550a);
-            q.a(json, "timestamp", this.f72621d);
-            q.a(json, "sessionId", this.f72622e);
-            q.a(json, IAdRequestParam.SEQ, this.f72623f);
-            q.a(json, "mediaPlayerAction", this.f72619b);
-            q.a(json, "mediaPlayerMsg", this.f72620c);
+            q.a(json, "actionId", this.f65006a);
+            q.a(json, "timestamp", this.f65075d);
+            q.a(json, "sessionId", this.f65076e);
+            q.a(json, IAdRequestParam.SEQ, this.f65077f);
+            q.a(json, "mediaPlayerAction", this.f65073b);
+            q.a(json, "mediaPlayerMsg", this.f65074c);
             return json;
         }
         return (JSONObject) invokeV.objValue;
@@ -106,7 +106,7 @@ public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "MediaPlayerReportAction{actionId='" + this.f72550a + ExtendedMessageFormat.QUOTE + ", timestamp=" + this.f72621d + ", sessionId='" + this.f72622e + ExtendedMessageFormat.QUOTE + ", seq=" + this.f72623f + ", mediaPlayerAction='" + this.f72619b + ExtendedMessageFormat.QUOTE + ", mediaPlayerMsg='" + this.f72620c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "MediaPlayerReportAction{actionId='" + this.f65006a + ExtendedMessageFormat.QUOTE + ", timestamp=" + this.f65075d + ", sessionId='" + this.f65076e + ExtendedMessageFormat.QUOTE + ", seq=" + this.f65077f + ", mediaPlayerAction='" + this.f65073b + ExtendedMessageFormat.QUOTE + ", mediaPlayerMsg='" + this.f65074c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

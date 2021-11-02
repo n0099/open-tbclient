@@ -2,7 +2,7 @@ package com.baidu.swan.apps.media.chooser.listener;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.p0.a.i1.d.d.f;
+import b.a.p0.a.i1.d.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f46115a;
+    public f f43811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAppThumbnailAdapter f46116b;
+    public SwanAppThumbnailAdapter f43812b;
 
     public SwanAppThumbnailTouchCallback(f fVar, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 return;
             }
         }
-        this.f46115a = fVar;
-        this.f46116b = swanAppThumbnailAdapter;
+        this.f43811a = fVar;
+        this.f43812b = swanAppThumbnailAdapter;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -86,17 +86,17 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, recyclerView, viewHolder, viewHolder2)) == null) {
-            if (this.f46116b.getMediaModels() == null) {
+            if (this.f43812b.getMediaModels() == null) {
                 return false;
             }
             int adapterPosition = viewHolder.getAdapterPosition();
             int adapterPosition2 = viewHolder2.getAdapterPosition();
-            SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f46116b;
+            SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f43812b;
             if (swanAppThumbnailAdapter != null) {
                 Collections.swap(swanAppThumbnailAdapter.getMediaModels(), adapterPosition, adapterPosition2);
-                this.f46116b.notifyItemMoved(adapterPosition, adapterPosition2);
+                this.f43812b.notifyItemMoved(adapterPosition, adapterPosition2);
             }
-            f fVar = this.f46115a;
+            f fVar = this.f43811a;
             if (fVar != null) {
                 fVar.onMove(adapterPosition, adapterPosition2);
                 return true;

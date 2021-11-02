@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class q implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f60127a;
+    public final /* synthetic */ FeedbackEditActivity f57043a;
 
     public q(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class q implements View.OnClickListener {
                 return;
             }
         }
-        this.f60127a = feedbackEditActivity;
+        this.f57043a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -42,26 +42,26 @@ public final class q implements View.OnClickListener {
         List list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f60127a.v;
+            z = this.f57043a.v;
             if (z) {
                 return;
             }
-            list = this.f60127a.q;
+            list = this.f57043a.q;
             if (list.size() < 3) {
-                FeedbackEditActivity feedbackEditActivity = this.f60127a;
+                FeedbackEditActivity feedbackEditActivity = this.f57043a;
                 list2 = feedbackEditActivity.q;
                 list2.size();
                 FeedbackEditActivity.s(feedbackEditActivity);
                 return;
             }
             com.baidu.ufosdk.f.c.a("picShotLayout3 --> to browse picture!");
-            hashMap = this.f60127a.r;
+            hashMap = this.f57043a.r;
             String str = (String) hashMap.get("2");
             if (str != null && str.length() != 0) {
-                FeedbackEditActivity.a(this.f60127a, str, 2);
+                FeedbackEditActivity.a(this.f57043a, str, 2);
                 return;
             }
-            FeedbackEditActivity feedbackEditActivity2 = this.f60127a;
+            FeedbackEditActivity feedbackEditActivity2 = this.f57043a;
             list3 = feedbackEditActivity2.q;
             feedbackEditActivity2.a((byte[]) list3.get(2), false, 2);
         }

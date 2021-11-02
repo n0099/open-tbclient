@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface ISpeedContext {
     public static final ISpeedContext EMPTY = new ISpeedContext() { // from class: com.baidu.searchbox.performance.speed.ISpeedContext.1
         public static /* synthetic */ Interceptable $ic;
@@ -124,9 +124,9 @@ public interface ISpeedContext {
         }
 
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
-        public void launchTime(boolean z, long j2) {
+        public void launchTime(boolean z, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             }
         }
     };
@@ -151,5 +151,5 @@ public interface ISpeedContext {
 
     void launchData(HashMap<String, String> hashMap);
 
-    void launchTime(boolean z, long j2);
+    void launchTime(boolean z, long j);
 }

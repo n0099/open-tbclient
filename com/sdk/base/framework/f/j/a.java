@@ -14,15 +14,15 @@ import com.sdk.base.framework.f.i.e;
 import java.util.Map;
 import java.util.TreeMap;
 import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75956a = "com.sdk.base.framework.f.j.a";
+    public static final String f68257a = "com.sdk.base.framework.f.j.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f75957b;
+    public static boolean f68258b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f75957b = f.f75904b;
+        f68258b = f.f68206b;
     }
 
     public a() {
@@ -72,7 +72,7 @@ public class a extends com.sdk.base.framework.f.a {
                     String sb2 = sb.toString();
                     if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
                         stringBuffer.append(key);
-                        stringBuffer.append(com.alipay.sdk.encrypt.a.f36026h);
+                        stringBuffer.append(com.alipay.sdk.encrypt.a.f34124h);
                         stringBuffer.append(entry.getValue());
                         stringBuffer.append(Typography.amp);
                     }
@@ -82,7 +82,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return e.a(stringBuffer.toString());
             } catch (Exception e2) {
-                c.b(f75956a, e2.getMessage(), Boolean.valueOf(f75957b));
+                c.b(f68257a, e2.getMessage(), Boolean.valueOf(f68258b));
                 return null;
             }
         }

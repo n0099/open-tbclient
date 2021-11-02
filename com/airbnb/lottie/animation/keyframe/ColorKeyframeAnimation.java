@@ -5,7 +5,7 @@ import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ColorKeyframeAnimation extends KeyframeAnimation<Integer> {
     public ColorKeyframeAnimation(List<Keyframe<Integer>> list) {
         super(list);

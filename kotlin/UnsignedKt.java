@@ -6,7 +6,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.CharsKt__CharJVMKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0010\u0006\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0010\u000e\n\u0002\b\u0005\u001a\u001a\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u0000H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0003\u0010\u0004\u001a\u001a\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0001\u001a\u00020\u0000H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0007\u001a\u001f\u0010\u000b\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\bH\u0001¢\u0006\u0004\b\u000b\u0010\f\u001a\"\u0010\u000e\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\u00022\u0006\u0010\n\u001a\u00020\u0002H\u0001ø\u0001\u0000¢\u0006\u0004\b\r\u0010\f\u001a\"\u0010\u0010\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\u00022\u0006\u0010\n\u001a\u00020\u0002H\u0001ø\u0001\u0000¢\u0006\u0004\b\u000f\u0010\f\u001a\u0017\u0010\u0011\u001a\u00020\u00002\u0006\u0010\u0001\u001a\u00020\bH\u0001¢\u0006\u0004\b\u0011\u0010\u0012\u001a\u001f\u0010\u0014\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\u00132\u0006\u0010\n\u001a\u00020\u0013H\u0001¢\u0006\u0004\b\u0014\u0010\u0015\u001a\"\u0010\u0018\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\u00052\u0006\u0010\n\u001a\u00020\u0005H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0016\u0010\u0017\u001a\"\u0010\u001a\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\u00052\u0006\u0010\n\u001a\u00020\u0005H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u0017\u001a\u0017\u0010\u001b\u001a\u00020\u00002\u0006\u0010\u0001\u001a\u00020\u0013H\u0001¢\u0006\u0004\b\u001b\u0010\u001c\u001a\u0017\u0010\u001e\u001a\u00020\u001d2\u0006\u0010\u0001\u001a\u00020\u0013H\u0000¢\u0006\u0004\b\u001e\u0010\u001f\u001a\u001f\u0010\u001e\u001a\u00020\u001d2\u0006\u0010\u0001\u001a\u00020\u00132\u0006\u0010 \u001a\u00020\bH\u0000¢\u0006\u0004\b\u001e\u0010!\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\""}, d2 = {"", "v", "Lkotlin/UInt;", "doubleToUInt", "(D)I", "Lkotlin/ULong;", "doubleToULong", "(D)J", "", "v1", "v2", "uintCompare", "(II)I", "uintDivide-J1ME1BU", "uintDivide", "uintRemainder-J1ME1BU", "uintRemainder", "uintToDouble", "(I)D", "", "ulongCompare", "(JJ)I", "ulongDivide-eb3DHEI", "(JJ)J", "ulongDivide", "ulongRemainder-eb3DHEI", "ulongRemainder", "ulongToDouble", "(J)D", "", "ulongToString", "(J)Ljava/lang/String;", SchemeCollecter.CLASSIFY_BASE, "(JI)Ljava/lang/String;", "kotlin-stdlib"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @JvmName(name = "UnsignedKt")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class UnsignedKt {
     @PublishedApi
     public static final int doubleToUInt(double d2) {
@@ -60,66 +60,66 @@ public final class UnsignedKt {
     }
 
     @PublishedApi
-    public static final int ulongCompare(long j2, long j3) {
-        return ((j2 ^ Long.MIN_VALUE) > (j3 ^ Long.MIN_VALUE) ? 1 : ((j2 ^ Long.MIN_VALUE) == (j3 ^ Long.MIN_VALUE) ? 0 : -1));
+    public static final int ulongCompare(long j, long j2) {
+        return ((j ^ Long.MIN_VALUE) > (j2 ^ Long.MIN_VALUE) ? 1 : ((j ^ Long.MIN_VALUE) == (j2 ^ Long.MIN_VALUE) ? 0 : -1));
     }
 
     @PublishedApi
     /* renamed from: ulongDivide-eb3DHEI  reason: not valid java name */
-    public static final long m969ulongDivideeb3DHEI(long j2, long j3) {
-        if (j3 < 0) {
-            return ulongCompare(j2, j3) < 0 ? ULong.m808constructorimpl(0L) : ULong.m808constructorimpl(1L);
-        } else if (j2 >= 0) {
-            return ULong.m808constructorimpl(j2 / j3);
+    public static final long m969ulongDivideeb3DHEI(long j, long j2) {
+        if (j2 < 0) {
+            return ulongCompare(j, j2) < 0 ? ULong.m808constructorimpl(0L) : ULong.m808constructorimpl(1L);
+        } else if (j >= 0) {
+            return ULong.m808constructorimpl(j / j2);
         } else {
-            long j4 = ((j2 >>> 1) / j3) << 1;
-            return ULong.m808constructorimpl(j4 + (ulongCompare(ULong.m808constructorimpl(j2 - (j4 * j3)), ULong.m808constructorimpl(j3)) < 0 ? 0 : 1));
+            long j3 = ((j >>> 1) / j2) << 1;
+            return ULong.m808constructorimpl(j3 + (ulongCompare(ULong.m808constructorimpl(j - (j3 * j2)), ULong.m808constructorimpl(j2)) < 0 ? 0 : 1));
         }
     }
 
     @PublishedApi
     /* renamed from: ulongRemainder-eb3DHEI  reason: not valid java name */
-    public static final long m970ulongRemaindereb3DHEI(long j2, long j3) {
-        if (j3 < 0) {
-            return ulongCompare(j2, j3) < 0 ? j2 : ULong.m808constructorimpl(j2 - j3);
-        } else if (j2 >= 0) {
-            return ULong.m808constructorimpl(j2 % j3);
+    public static final long m970ulongRemaindereb3DHEI(long j, long j2) {
+        if (j2 < 0) {
+            return ulongCompare(j, j2) < 0 ? j : ULong.m808constructorimpl(j - j2);
+        } else if (j >= 0) {
+            return ULong.m808constructorimpl(j % j2);
         } else {
-            long j4 = j2 - ((((j2 >>> 1) / j3) << 1) * j3);
-            if (ulongCompare(ULong.m808constructorimpl(j4), ULong.m808constructorimpl(j3)) < 0) {
-                j3 = 0;
+            long j3 = j - ((((j >>> 1) / j2) << 1) * j2);
+            if (ulongCompare(ULong.m808constructorimpl(j3), ULong.m808constructorimpl(j2)) < 0) {
+                j2 = 0;
             }
-            return ULong.m808constructorimpl(j4 - j3);
+            return ULong.m808constructorimpl(j3 - j2);
         }
     }
 
     @PublishedApi
-    public static final double ulongToDouble(long j2) {
-        return ((j2 >>> 11) * 2048) + (j2 & 2047);
+    public static final double ulongToDouble(long j) {
+        return ((j >>> 11) * 2048) + (j & 2047);
     }
 
-    public static final String ulongToString(long j2) {
-        return ulongToString(j2, 10);
+    public static final String ulongToString(long j) {
+        return ulongToString(j, 10);
     }
 
-    public static final String ulongToString(long j2, int i2) {
-        if (j2 >= 0) {
-            String l = Long.toString(j2, CharsKt__CharJVMKt.checkRadix(i2));
+    public static final String ulongToString(long j, int i2) {
+        if (j >= 0) {
+            String l = Long.toString(j, CharsKt__CharJVMKt.checkRadix(i2));
             Intrinsics.checkNotNullExpressionValue(l, "java.lang.Long.toString(this, checkRadix(radix))");
             return l;
         }
-        long j3 = i2;
-        long j4 = ((j2 >>> 1) / j3) << 1;
-        long j5 = j2 - (j4 * j3);
-        if (j5 >= j3) {
-            j5 -= j3;
-            j4++;
+        long j2 = i2;
+        long j3 = ((j >>> 1) / j2) << 1;
+        long j4 = j - (j3 * j2);
+        if (j4 >= j2) {
+            j4 -= j2;
+            j3++;
         }
         StringBuilder sb = new StringBuilder();
-        String l2 = Long.toString(j4, CharsKt__CharJVMKt.checkRadix(i2));
+        String l2 = Long.toString(j3, CharsKt__CharJVMKt.checkRadix(i2));
         Intrinsics.checkNotNullExpressionValue(l2, "java.lang.Long.toString(this, checkRadix(radix))");
         sb.append(l2);
-        String l3 = Long.toString(j5, CharsKt__CharJVMKt.checkRadix(i2));
+        String l3 = Long.toString(j4, CharsKt__CharJVMKt.checkRadix(i2));
         Intrinsics.checkNotNullExpressionValue(l3, "java.lang.Long.toString(this, checkRadix(radix))");
         sb.append(l3);
         return sb.toString();

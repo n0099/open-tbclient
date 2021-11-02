@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class cn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77793a;
+    public int f70756a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f193a;
+    public long f194a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f194a;
+    public String f195a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f77794b;
+    public long f70757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f77795c;
+    public long f70758c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public cn() {
@@ -46,12 +46,12 @@ public class cn {
         }
     }
 
-    public cn(int i2, long j2, long j3, Exception exc) {
+    public cn(int i2, long j, long j2, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), exc};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), exc};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -61,30 +61,30 @@ public class cn {
                 return;
             }
         }
-        this.f77793a = i2;
-        this.f193a = j2;
-        this.f77795c = j3;
-        this.f77794b = System.currentTimeMillis();
+        this.f70756a = i2;
+        this.f194a = j;
+        this.f70758c = j2;
+        this.f70757b = System.currentTimeMillis();
         if (exc != null) {
-            this.f194a = exc.getClass().getSimpleName();
+            this.f195a = exc.getClass().getSimpleName();
         }
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77793a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70756a : invokeV.intValue;
     }
 
     public cn a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            this.f193a = jSONObject.getLong("cost");
-            this.f77795c = jSONObject.getLong("size");
-            this.f77794b = jSONObject.getLong("ts");
-            this.f77793a = jSONObject.getInt("wt");
-            this.f194a = jSONObject.optString("expt");
+            this.f194a = jSONObject.getLong("cost");
+            this.f70758c = jSONObject.getLong("size");
+            this.f70757b = jSONObject.getLong("ts");
+            this.f70756a = jSONObject.getInt("wt");
+            this.f195a = jSONObject.optString("expt");
             return this;
         }
         return (cn) invokeL.objValue;
@@ -96,11 +96,11 @@ public class cn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cost", this.f193a);
-            jSONObject.put("size", this.f77795c);
-            jSONObject.put("ts", this.f77794b);
-            jSONObject.put("wt", this.f77793a);
-            jSONObject.put("expt", this.f194a);
+            jSONObject.put("cost", this.f194a);
+            jSONObject.put("size", this.f70758c);
+            jSONObject.put("ts", this.f70757b);
+            jSONObject.put("wt", this.f70756a);
+            jSONObject.put("expt", this.f195a);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

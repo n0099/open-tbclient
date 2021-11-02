@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class aw implements av.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ av.b f78501a;
+    public final /* synthetic */ av.b f71440a;
 
     public aw(av.b bVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class aw implements av.b.a {
                 return;
             }
         }
-        this.f78501a = bVar;
+        this.f71440a = bVar;
     }
 
     @Override // com.xiaomi.push.service.av.b.a
@@ -38,14 +38,14 @@ public class aw implements av.b.a {
         XMPushService.b bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i2) == null) {
-            if (cVar2 == av.c.f78499b) {
-                XMPushService xMPushService = this.f78501a.f911a;
-                bVar2 = this.f78501a.f910a;
+            if (cVar2 == av.c.f71438b) {
+                XMPushService xMPushService = this.f71440a.f912a;
+                bVar2 = this.f71440a.f911a;
                 xMPushService.a(bVar2, 60000L);
                 return;
             }
-            XMPushService xMPushService2 = this.f78501a.f911a;
-            bVar = this.f78501a.f910a;
+            XMPushService xMPushService2 = this.f71440a.f912a;
+            bVar = this.f71440a.f911a;
             xMPushService2.b(bVar);
         }
     }

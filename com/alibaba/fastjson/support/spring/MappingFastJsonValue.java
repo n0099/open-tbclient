@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Type;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MappingFastJsonValue implements JSONSerializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BrowserSecureMask;

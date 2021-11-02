@@ -2,8 +2,8 @@ package com.baidu.tieba.newfaceshop.message;
 
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
-import c.a.r0.f2.f.a;
-import c.a.r0.f2.f.b;
+import b.a.r0.f2.f.a;
+import b.a.r0.f2.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,19 +71,19 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             }
             a aVar = new a();
             String optString = jSONObject.optString("id");
-            aVar.f17453a = optString;
+            aVar.f16427a = optString;
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
-            aVar.f17454b = jSONObject.optString("name");
+            aVar.f16428b = jSONObject.optString("name");
             jSONObject.optInt("type");
             jSONObject.optString("owner");
             jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
             jSONObject.optString("timestamp");
             jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            aVar.f17455c = jSONObject.optString("covername");
-            aVar.f17456d = jSONObject.optString("url");
-            aVar.f17457e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+            aVar.f16429c = jSONObject.optString("covername");
+            aVar.f16430d = jSONObject.optString("url");
+            aVar.f16431e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -101,13 +101,13 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     b bVar = new b();
-                    bVar.f17459f = jSONObject.optString("id");
+                    bVar.f16433f = jSONObject.optString("id");
                     jSONObject.optString("url");
                     jSONObject.optString("thumbnail");
-                    bVar.f17460g = jSONObject.optString("name");
-                    bVar.f17461h = jSONObject.optString("thumbname");
-                    bVar.f17463j = jSONObject.optInt("width");
-                    bVar.f17462i = jSONObject.optInt("height");
+                    bVar.f16434g = jSONObject.optString("name");
+                    bVar.f16435h = jSONObject.optString("thumbname");
+                    bVar.j = jSONObject.optInt("width");
+                    bVar.f16436i = jSONObject.optInt("height");
                     arrayList.add(bVar);
                 } catch (JSONException e2) {
                     e2.printStackTrace();

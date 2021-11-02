@@ -50,7 +50,7 @@ import com.baidu.wallet.utils.AccessibilityUtils;
 import java.io.File;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IdentityCardDetectionActivity extends CameraBaseActivity implements View.OnClickListener, IImageProcess {
     public static /* synthetic */ Interceptable $ic = null;
     public static int mSteps = 1;

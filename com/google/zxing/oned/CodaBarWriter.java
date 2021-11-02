@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CodaBarWriter extends OneDimensionalCodeWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] ALT_START_END_CHARS;

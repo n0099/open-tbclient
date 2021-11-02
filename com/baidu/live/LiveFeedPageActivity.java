@@ -3,15 +3,15 @@ package com.baidu.live;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import c.a.w.b.a;
-import c.a.w.e.g.b;
-import c.a.w.e.g.c;
+import b.a.w.b.a;
+import b.a.w.e.g.b;
+import b.a.w.e.g.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LiveFeedPageActivity extends AppCompatActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SOURCE = "source";
@@ -44,9 +44,9 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             String stringExtra = getIntent() != null ? getIntent().getStringExtra("source") : "";
             a aVar = new a(this, this.bdUniqueId, getSupportFragmentManager(), "immersion", stringExtra, false);
             this.mBaiduLiveTabContainer = aVar;
-            setContentView(aVar.v());
-            this.mBaiduLiveTabContainer.E();
-            c.a.w.b.c.a.r(this, stringExtra, "chenjinshi");
+            setContentView(aVar.u());
+            this.mBaiduLiveTabContainer.D();
+            b.a.w.b.c.a.r(this, stringExtra, "chenjinshi");
         }
     }
 
@@ -57,7 +57,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             super.onDestroy();
             a aVar = this.mBaiduLiveTabContainer;
             if (aVar != null) {
-                aVar.G();
+                aVar.F();
             }
         }
     }
@@ -69,8 +69,8 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             super.onPause();
             a aVar = this.mBaiduLiveTabContainer;
             if (aVar != null) {
-                aVar.K();
-                this.mBaiduLiveTabContainer.M(false);
+                aVar.J();
+                this.mBaiduLiveTabContainer.L(false);
             }
         }
     }
@@ -82,8 +82,8 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             super.onResume();
             a aVar = this.mBaiduLiveTabContainer;
             if (aVar != null) {
-                aVar.L();
-                this.mBaiduLiveTabContainer.M(true);
+                aVar.K();
+                this.mBaiduLiveTabContainer.L(true);
             }
         }
     }

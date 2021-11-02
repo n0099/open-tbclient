@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<UserAccountActionItem> CREATOR;
@@ -32,7 +33,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     public String mType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class UserAccountAction {
         public static final /* synthetic */ UserAccountAction[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,7 +104,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class UserAccountType {
         public static final /* synthetic */ UserAccountType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -132,7 +133,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             PLUGIN = new UserAccountType("PLUGIN", 1, "plugin");
             SHARE = new UserAccountType("SHARE", 2, "share");
             GUEST = new UserAccountType("GUEST", 3, "guest");
-            UserAccountType userAccountType = new UserAccountType("WEBVIEW", 4, "webview");
+            UserAccountType userAccountType = new UserAccountType("WEBVIEW", 4, AlbumActivityConfig.FROM_WEB_VIEW);
             WEBVIEW = userAccountType;
             $VALUES = new UserAccountType[]{NATIVE, PLUGIN, SHARE, GUEST, userAccountType};
         }

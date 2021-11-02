@@ -15,31 +15,31 @@ import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class TileOverlay {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f41694b = "TileOverlay";
+    public static final String f39534b = "TileOverlay";
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f41695f;
+    public static int f39535f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaiduMap f41696a;
+    public BaiduMap f39536a;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f41697c;
+    public ExecutorService f39537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Tile> f41698d;
+    public HashMap<String, Tile> f39538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashSet<String> f41699e;
+    public HashSet<String> f39539e;
 
     /* renamed from: g  reason: collision with root package name */
-    public TileProvider f41700g;
+    public TileProvider f39540g;
 
     static {
         InterceptResult invokeClinit;
@@ -71,11 +71,11 @@ public final class TileOverlay {
                 return;
             }
         }
-        this.f41696a = baiduMap;
-        this.f41700g = tileProvider;
-        this.f41698d = new HashMap<>();
-        this.f41699e = new HashSet<>();
-        this.f41697c = Executors.newFixedThreadPool(1);
+        this.f39536a = baiduMap;
+        this.f39540g = tileProvider;
+        this.f39538d = new HashMap<>();
+        this.f39539e = new HashSet<>();
+        this.f39537c = Executors.newFixedThreadPool(1);
     }
 
     private synchronized Tile a(String str) {
@@ -83,9 +83,9 @@ public final class TileOverlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             synchronized (this) {
-                if (this.f41698d.containsKey(str)) {
-                    Tile tile = this.f41698d.get(str);
-                    this.f41698d.remove(str);
+                if (this.f39538d.containsKey(str)) {
+                    Tile tile = this.f39538d.get(str);
+                    this.f39538d.remove(str);
                     return tile;
                 }
                 return null;
@@ -99,7 +99,7 @@ public final class TileOverlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, tile) == null) {
             synchronized (this) {
-                this.f41698d.put(str, tile);
+                this.f39538d.put(str, tile);
             }
         }
     }
@@ -110,7 +110,7 @@ public final class TileOverlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
             synchronized (this) {
-                contains = this.f41699e.contains(str);
+                contains = this.f39539e.contains(str);
             }
             return contains;
         }
@@ -121,7 +121,7 @@ public final class TileOverlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
             synchronized (this) {
-                this.f41699e.add(str);
+                this.f39539e.add(str);
             }
         }
     }
@@ -135,20 +135,20 @@ public final class TileOverlay {
             if (a2 != null) {
                 return a2;
             }
-            BaiduMap baiduMap = this.f41696a;
-            if (baiduMap != null && f41695f == 0) {
-                WinRound winRound = baiduMap.getMapStatus().f41540a.f42249j;
-                f41695f = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2);
+            BaiduMap baiduMap = this.f39536a;
+            if (baiduMap != null && f39535f == 0) {
+                WinRound winRound = baiduMap.getMapStatus().f39390a.j;
+                f39535f = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2);
             }
-            if (this.f41698d.size() > f41695f) {
+            if (this.f39538d.size() > f39535f) {
                 a();
             }
-            if (b(str) || this.f41697c.isShutdown()) {
+            if (b(str) || this.f39537c.isShutdown()) {
                 return null;
             }
             try {
                 c(str);
-                this.f41697c.execute(new w(this, i2, i3, i4, str));
+                this.f39537c.execute(new w(this, i2, i3, i4, str));
                 return null;
             } catch (RejectedExecutionException | Exception unused) {
                 return null;
@@ -161,9 +161,9 @@ public final class TileOverlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                Logger.logE(f41694b, "clearTaskSet");
-                this.f41699e.clear();
-                this.f41698d.clear();
+                Logger.logE(f39534b, "clearTaskSet");
+                this.f39539e.clear();
+                this.f39538d.clear();
             }
         }
     }
@@ -171,7 +171,7 @@ public final class TileOverlay {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f41697c.shutdownNow();
+            this.f39537c.shutdownNow();
         }
     }
 
@@ -179,7 +179,7 @@ public final class TileOverlay {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            BaiduMap baiduMap = this.f41696a;
+            BaiduMap baiduMap = this.f39536a;
             if (baiduMap == null) {
                 return false;
             }
@@ -191,7 +191,7 @@ public final class TileOverlay {
     public void removeTileOverlay() {
         BaiduMap baiduMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baiduMap = this.f41696a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baiduMap = this.f39536a) == null) {
             return;
         }
         baiduMap.a(this);

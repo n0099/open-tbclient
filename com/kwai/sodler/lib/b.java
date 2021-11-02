@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.a.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b implements com.kwai.sodler.lib.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a f74729a;
+    public b.a f67104a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b implements com.kwai.sodler.lib.a.b {
     public void a(com.kwai.sodler.lib.a.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            b.a aVar = this.f74729a;
+            b.a aVar = this.f67104a;
             if (aVar != null) {
                 fVar.a(aVar.a(fVar.i()));
             } else {

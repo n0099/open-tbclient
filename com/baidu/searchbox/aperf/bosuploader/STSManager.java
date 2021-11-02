@@ -19,7 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class STSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long RETRY_TIME_LIMIT_HOUR;

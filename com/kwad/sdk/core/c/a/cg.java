@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class cg implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.e> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class cg implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.e> 
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        eVar.f72804a = jSONObject.optBoolean("needPromopt");
-        eVar.f72805b = jSONObject.optBoolean("needReport");
-        eVar.f72806c = jSONObject.optInt("showTime");
+        eVar.f65254a = jSONObject.optBoolean("needPromopt");
+        eVar.f65255b = jSONObject.optBoolean("needReport");
+        eVar.f65256c = jSONObject.optInt("showTime");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,9 +47,9 @@ public class cg implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.e> 
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "needPromopt", eVar.f72804a);
-            com.kwad.sdk.utils.q.a(jSONObject, "needReport", eVar.f72805b);
-            com.kwad.sdk.utils.q.a(jSONObject, "showTime", eVar.f72806c);
+            com.kwad.sdk.utils.q.a(jSONObject, "needPromopt", eVar.f65254a);
+            com.kwad.sdk.utils.q.a(jSONObject, "needReport", eVar.f65255b);
+            com.kwad.sdk.utils.q.a(jSONObject, "showTime", eVar.f65256c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

@@ -2,13 +2,13 @@ package com.baidu.tieba.hottopic.holder;
 
 import android.view.View;
 import android.widget.TextView;
+import b.a.r0.j1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HotTopicIntervalItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class HotTopicIntervalItemHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.topDivilerLine = view.findViewById(R.id.top_divider_line);
-        this.moduleTheme = (TextView) view.findViewById(R.id.item_theme_title);
+        this.topDivilerLine = view.findViewById(e.top_divider_line);
+        this.moduleTheme = (TextView) view.findViewById(e.item_theme_title);
     }
 }

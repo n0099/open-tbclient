@@ -15,7 +15,7 @@ import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import com.baidubce.util.JoinerUtils;
 import java.net.InetAddress;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BceClientConfiguration {
     public static /* synthetic */ Interceptable $ic = null;
     public static String DEFAULT_ACCPET_ENCODING = null;
@@ -275,10 +275,10 @@ public class BceClientConfiguration {
         }
     }
 
-    public void setKeepAliveDuration(long j2) {
+    public void setKeepAliveDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            this.keepAliveDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            this.keepAliveDuration = j;
         }
     }
 
@@ -391,10 +391,10 @@ public class BceClientConfiguration {
         }
     }
 
-    public void setUploadSegmentPart(long j2) {
+    public void setUploadSegmentPart(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
-            this.uploadSegmentPart = (j2 < 1 || j2 > 8192) ? 2048L : 2048L;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            this.uploadSegmentPart = (j < 1 || j > 8192) ? 2048L : 2048L;
         }
     }
 

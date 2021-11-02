@@ -6,11 +6,11 @@ import android.os.Parcelable;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.r.e;
-import c.a.p0.r.l;
-import c.a.p0.r.n;
-import c.a.p0.r.r;
-import c.a.p0.s.d;
+import b.a.p0.r.e;
+import b.a.p0.r.l;
+import b.a.p0.r.n;
+import b.a.p0.r.r;
+import b.a.p0.s.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.live.interfaces.DI;
@@ -28,7 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SyntheticAccessor"})
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Flow implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<Flow> CREATOR;
@@ -45,7 +45,7 @@ public class Flow implements Parcelable {
     public l mUbcContext;
     public boolean mValid;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<Flow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class Flow implements Parcelable {
     public final void cancel() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mValid) {
-            if (c.a.h0.b.a.a.g()) {
+            if (b.a.h0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().c(this.mId, this.mHandle);
                 }
@@ -125,7 +125,7 @@ public class Flow implements Parcelable {
                 return;
             }
             try {
-                e.g().flowCancel(this);
+                e.f().flowCancel(this);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -145,7 +145,7 @@ public class Flow implements Parcelable {
     public final void end() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.mValid) {
-            if (c.a.h0.b.a.a.g()) {
+            if (b.a.h0.b.a.a.g()) {
                 JSONArray jSONArray = new JSONArray();
                 HashMap<String, Slot> hashMap = this.mSlotMaps;
                 if (hashMap != null && (r1 = hashMap.entrySet().iterator()) != null) {
@@ -171,7 +171,7 @@ public class Flow implements Parcelable {
                 return;
             }
             try {
-                e.g().flowEnd(this);
+                e.f().flowEnd(this);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -240,7 +240,7 @@ public class Flow implements Parcelable {
     public final void setValue(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && this.mValid) {
-            if (c.a.h0.b.a.a.g()) {
+            if (b.a.h0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().p(this.mId, this.mHandle, str);
                 }
@@ -252,7 +252,7 @@ public class Flow implements Parcelable {
                 return;
             }
             try {
-                e.g().flowSetValue(this, r.b(str));
+                e.f().flowSetValue(this, r.b(str));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -262,7 +262,7 @@ public class Flow implements Parcelable {
     public void setValueWithDuration(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && this.mValid) {
-            if (c.a.h0.b.a.a.g()) {
+            if (b.a.h0.b.a.a.g()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     float currentTimeMillis = ((float) (System.currentTimeMillis() - this.mStartTime)) / 1000.0f;
@@ -292,7 +292,7 @@ public class Flow implements Parcelable {
                 return;
             }
             try {
-                e.g().flowSetValueWithDuration(this, r.b(str));
+                e.f().flowSetValueWithDuration(this, r.b(str));
             } catch (RemoteException e3) {
                 e3.printStackTrace();
             }
@@ -340,7 +340,7 @@ public class Flow implements Parcelable {
         }
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.mUbcContext = e.h();
+        this.mUbcContext = e.g();
         this.mId = "";
         this.mHandle = -1;
         this.mOption = 0;
@@ -350,7 +350,7 @@ public class Flow implements Parcelable {
     public final void addEvent(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && this.mValid) {
-            if (c.a.h0.b.a.a.g()) {
+            if (b.a.h0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().m(this.mId, str, this.mHandle, str2, this.mOption);
                 }
@@ -362,7 +362,7 @@ public class Flow implements Parcelable {
                 return;
             }
             try {
-                e.g().flowAddEvent(this, str, str2);
+                e.f().flowAddEvent(this, str, str2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -400,29 +400,29 @@ public class Flow implements Parcelable {
         }
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.mUbcContext = e.h();
+        this.mUbcContext = e.g();
         this.mId = str;
         this.mHandle = i2;
         this.mOption = i3;
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public final void addEvent(String str, String str2, long j2) {
+    public final void addEvent(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) && this.mValid) {
-            if (c.a.h0.b.a.a.g()) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && this.mValid) {
+            if (b.a.h0.b.a.a.g()) {
                 if (d.a()) {
-                    n.f().n(this.mId, str, this.mHandle, str2, j2, this.mOption);
+                    n.f().n(this.mId, str, this.mHandle, str2, j, this.mOption);
                 }
                 l lVar = this.mUbcContext;
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.o(this.mId, str, this.mHandle, str2, j2, this.mOption);
+                lVar.o(this.mId, str, this.mHandle, str2, j, this.mOption);
                 return;
             }
             try {
-                e.g().flowAddEventWithTime(this, str, str2, j2);
+                e.f().flowAddEventWithTime(this, str, str2, j);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -446,7 +446,7 @@ public class Flow implements Parcelable {
         }
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.mUbcContext = e.h();
+        this.mUbcContext = e.g();
         this.mId = parcel.readString();
         this.mHandle = parcel.readInt();
         this.mOption = parcel.readInt();

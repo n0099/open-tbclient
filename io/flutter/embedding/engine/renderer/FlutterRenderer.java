@@ -22,7 +22,7 @@ import io.flutter.view.TextureRegistry;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicLong;
 @TargetApi(16)
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterRenderer implements TextureRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterRenderer";
@@ -37,7 +37,7 @@ public class FlutterRenderer implements TextureRegistry {
     @Nullable
     public Surface surface;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,12 +48,12 @@ public class FlutterRenderer implements TextureRegistry {
         public final SurfaceTexture surfaceTexture;
         public final /* synthetic */ FlutterRenderer this$0;
 
-        public SurfaceTextureRegistryEntry(FlutterRenderer flutterRenderer, @NonNull long j2, SurfaceTexture surfaceTexture) {
+        public SurfaceTextureRegistryEntry(FlutterRenderer flutterRenderer, @NonNull long j, SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {flutterRenderer, Long.valueOf(j2), surfaceTexture};
+                Object[] objArr = {flutterRenderer, Long.valueOf(j), surfaceTexture};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -98,7 +98,7 @@ public class FlutterRenderer implements TextureRegistry {
                 }
             };
             this.onFrameListener = onFrameAvailableListener;
-            this.id = j2;
+            this.id = j;
             this.surfaceTexture = surfaceTexture;
             if (Build.VERSION.SDK_INT >= 21) {
                 surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener, new Handler());
@@ -135,7 +135,7 @@ public class FlutterRenderer implements TextureRegistry {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ViewportMetrics {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -248,25 +248,25 @@ public class FlutterRenderer implements TextureRegistry {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void markTextureFrameAvailable(long j2) {
+    public void markTextureFrameAvailable(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
-            this.flutterJNI.markTextureFrameAvailable(j2);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            this.flutterJNI.markTextureFrameAvailable(j);
         }
     }
 
-    private void registerTexture(long j2, @NonNull SurfaceTexture surfaceTexture) {
+    private void registerTexture(long j, @NonNull SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(AdIconUtil.AD_TEXT_ID, this, j2, surfaceTexture) == null) {
-            this.flutterJNI.registerTexture(j2, surfaceTexture);
+        if (interceptable == null || interceptable.invokeJL(AdIconUtil.AD_TEXT_ID, this, j, surfaceTexture) == null) {
+            this.flutterJNI.registerTexture(j, surfaceTexture);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void unregisterTexture(long j2) {
+    public void unregisterTexture(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, this, j2) == null) {
-            this.flutterJNI.unregisterTexture(j2);
+        if (interceptable == null || interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, this, j) == null) {
+            this.flutterJNI.unregisterTexture(j);
         }
     }
 

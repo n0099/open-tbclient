@@ -4,11 +4,13 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DownloadManagerActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String CURRENT_TAB = "current_tab";
     public static final int FROM_GAME_CENTER = 2;
     public static final int FROM_MINE = 1;
     public static final int FROM_OTHER_TAB = 4;
@@ -39,5 +41,15 @@ public class DownloadManagerActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("source", i2);
+    }
+
+    public DownloadManagerActivityConfig setCurrentTab(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            getIntent().putExtra(CURRENT_TAB, i2);
+            return this;
+        }
+        return (DownloadManagerActivityConfig) invokeI.objValue;
     }
 }

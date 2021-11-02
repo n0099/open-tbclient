@@ -1,11 +1,14 @@
 package com.baidu.searchbox.net.update.v2;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.time.DateTimeUtil;
+import com.baidu.android.util.time.ServerDeltaChangeEvent;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.UpdateConstants;
@@ -30,7 +33,7 @@ import java.io.Reader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class GsonTool implements ICommandStatistics<ActionData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -55,7 +58,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public int mVersionFilterCount;
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -130,12 +133,12 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
-            long j2 = 0;
+            long j = 0;
             if (TextUtils.isEmpty(str2)) {
                 return 0L;
             }
             try {
-                j2 = Long.parseLong(str2);
+                j = Long.parseLong(str2);
                 if (DEBUG) {
                     String str3 = "action = " + str + " support imsdk long connect,new data version is  " + str2;
                 }
@@ -144,7 +147,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                     String str4 = "action = " + str + " support imsdk long connect,version is not right--> " + str2;
                 }
             }
-            return j2;
+            return j;
         }
         return invokeLL.longValue;
     }
@@ -189,9 +192,20 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         return invokeLLL.booleanValue;
     }
 
+    public static void setDeltaTimeAndPostEvent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            long delta = DateTimeUtil.getDelta();
+            DateTimeUtil.setDeltaTime(str);
+            if (delta != DateTimeUtil.getDelta()) {
+                BdEventBus.Companion.getDefault().post(new ServerDeltaChangeEvent());
+            }
+        }
+    }
+
     private void skipErrorAction(JsonReader jsonReader, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, this, jsonReader, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65544, this, jsonReader, str) == null) {
             if (jsonReader.getPath().equals(str)) {
                 jsonReader.skipValue();
                 return;
@@ -275,6 +289,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void read(Reader reader, int i2, JSONObject jSONObject) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048581, this, reader, i2, jSONObject) == null) {
@@ -296,7 +311,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                     String nextString2 = jsonReader.nextString();
                     this.mTimeStamp = nextString2;
                     if (i2 == 0) {
-                        DateTimeUtil.setDeltaTime(nextString2);
+                        setDeltaTimeAndPostEvent(nextString2);
                     }
                 } else {
                     jsonReader.skipValue();

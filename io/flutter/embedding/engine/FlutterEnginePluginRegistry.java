@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityControlSurface, ServiceControlSurface, BroadcastReceiverControlSurface, ContentProviderControlSurface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterEnginePluginRegistry";
@@ -78,13 +78,13 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     public FlutterEngineServicePluginBinding servicePluginBinding;
 
     /* renamed from: io.flutter.embedding.engine.FlutterEnginePluginRegistry$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class DefaultFlutterAssets implements FlutterPlugin.FlutterAssets {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class FlutterEngineActivityPluginBinding implements ActivityPluginBinding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -347,7 +347,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class FlutterEngineBroadcastReceiverPluginBinding implements BroadcastReceiverPluginBinding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -381,7 +381,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class FlutterEngineContentProviderPluginBinding implements ContentProviderPluginBinding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -415,7 +415,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class FlutterEngineServicePluginBinding implements ServicePluginBinding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,8 +1,8 @@
 package com.google.android.exoplayer2.audio;
 
 import androidx.annotation.Nullable;
-import c.i.b.a.p;
-import c.i.b.a.x.b;
+import b.i.b.a.p;
+import b.i.b.a.x.b;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface AudioSink {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class ConfigurationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class InitializationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class WriteException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,11 +115,11 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(int i2);
 
-        void b(int i2, long j2, long j3);
+        void b(int i2, long j, long j2);
 
         void c();
     }
@@ -134,7 +134,7 @@ public interface AudioSink {
 
     void e(b bVar);
 
-    boolean f(ByteBuffer byteBuffer, long j2) throws InitializationException, WriteException;
+    boolean f(ByteBuffer byteBuffer, long j) throws InitializationException, WriteException;
 
     void g(int i2);
 

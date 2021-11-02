@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class l extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f73522h;
+    public double f65941h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(com.kwad.sdk.pngencrypt.k kVar) {
@@ -38,8 +38,8 @@ public class l extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f73494a == 4) {
-                this.f73522h = com.kwad.sdk.pngencrypt.n.c(dVar.f73497d, 0) / 100000.0d;
+            if (dVar.f65917a == 4) {
+                this.f65941h = com.kwad.sdk.pngencrypt.n.c(dVar.f65920d, 0) / 100000.0d;
                 return;
             }
             throw new PngjException("bad chunk " + dVar);

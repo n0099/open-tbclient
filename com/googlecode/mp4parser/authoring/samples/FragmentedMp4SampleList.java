@@ -25,7 +25,7 @@ import java.util.AbstractList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FragmentedMp4SampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,12 +37,12 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
     public TrackBox trackBox;
     public TrackExtendsBox trex;
 
-    public FragmentedMp4SampleList(long j2, Container container, IsoFile... isoFileArr) {
+    public FragmentedMp4SampleList(long j, Container container, IsoFile... isoFileArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), container, isoFileArr};
+            Object[] objArr = {Long.valueOf(j), container, isoFileArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -58,7 +58,7 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
         this.topLevel = container;
         this.fragments = isoFileArr;
         for (TrackBox trackBox : ((MovieBox) container.getBoxes(MovieBox.class).get(0)).getBoxes(TrackBox.class)) {
-            if (trackBox.getTrackHeaderBox().getTrackId() == j2) {
+            if (trackBox.getTrackHeaderBox().getTrackId() == j) {
                 this.trackBox = trackBox;
             }
         }
@@ -73,7 +73,7 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
             this.sampleCache = (SoftReference[]) Array.newInstance(SoftReference.class, size());
             return;
         }
-        throw new RuntimeException("This MP4 does not contain track " + j2);
+        throw new RuntimeException("This MP4 does not contain track " + j);
     }
 
     private List<TrackFragmentBox> allFragments() {
@@ -175,7 +175,7 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
                         } else {
                             offset = movieFragmentBox.getOffset();
                         }
-                        long j2 = dataOffset + offset;
+                        long j = dataOffset + offset;
                         for (int i6 = 0; i6 < i5; i6++) {
                             if (trackRunBox.isSampleSizePresent()) {
                                 defaultSampleSize2 = entries.get(i6).getSampleSize();
@@ -189,7 +189,7 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
                                     throw new RuntimeException("File doesn't contain trex box but track fragments aren't fully self contained. Cannot determine sample size.");
                                 }
                             }
-                            j2 += defaultSampleSize2;
+                            j += defaultSampleSize2;
                         }
                         if (trackRunBox.isSampleSizePresent()) {
                             defaultSampleSize = entries.get(i5).getSampleSize();
@@ -203,7 +203,7 @@ public class FragmentedMp4SampleList extends AbstractList<Sample> {
                                 throw new RuntimeException("File doesn't contain trex box but track fragments aren't fully self contained. Cannot determine sample size.");
                             }
                         }
-                        SampleImpl sampleImpl = new SampleImpl(j2, defaultSampleSize, movieFragmentBox.getParent());
+                        SampleImpl sampleImpl = new SampleImpl(j, defaultSampleSize, movieFragmentBox.getParent());
                         this.sampleCache[i2] = new SoftReference<>(sampleImpl);
                         return sampleImpl;
                     }

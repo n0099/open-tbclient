@@ -25,7 +25,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableZip<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableZip<T, R> extends Flowable<R> {
     public final Iterable<? extends Publisher<? extends T>> sourcesIterable;
     public final Function<? super Object[], ? extends R> zipper;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipCoordinator<T, R> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2434867452883857743L;
@@ -240,10 +240,10 @@ public final class FlowableZip<T, R> extends Flowable<R> {
                 Object[] objArr = this.current;
                 int i2 = 1;
                 do {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
+                    long j = this.requested.get();
+                    long j2 = 0;
                     while (true) {
-                        int i3 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+                        int i3 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
                         if (i3 == 0) {
                             break;
                         } else if (this.cancelled) {
@@ -293,7 +293,7 @@ public final class FlowableZip<T, R> extends Flowable<R> {
                             }
                             try {
                                 subscriber.onNext((Object) ObjectHelper.requireNonNull(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
-                                j3++;
+                                j2++;
                                 Arrays.fill(objArr, (Object) null);
                             } catch (Throwable th2) {
                                 Exceptions.throwIfFatal(th2);
@@ -321,10 +321,10 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
@@ -343,7 +343,7 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipSubscriber<T, R> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4627193790118206028L;
@@ -438,18 +438,18 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) || this.sourceMode == 1) {
+            if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || this.sourceMode == 1) {
                 return;
             }
-            long j3 = this.produced + j2;
-            if (j3 >= this.limit) {
+            long j2 = this.produced + j;
+            if (j2 >= this.limit) {
                 this.produced = 0L;
-                get().request(j3);
+                get().request(j2);
                 return;
             }
-            this.produced = j3;
+            this.produced = j2;
         }
     }
 

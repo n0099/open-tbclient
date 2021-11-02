@@ -63,4 +63,11 @@ public class FragmentViewLifecycleOwner implements LifecycleOwner {
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLifecycleRegistry != null : invokeV.booleanValue;
     }
+
+    public void setCurrentState(@NonNull Lifecycle.State state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, state) == null) {
+            this.mLifecycleRegistry.setCurrentState(state);
+        }
+    }
 }

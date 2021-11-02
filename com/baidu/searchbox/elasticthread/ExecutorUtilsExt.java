@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ExecutorUtilsExt {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -39,10 +39,10 @@ public class ExecutorUtilsExt {
         }
     }
 
-    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2, long j2) {
+    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2, long j) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || runnable == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || runnable == null) {
             return;
         }
         if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) {
@@ -53,22 +53,22 @@ public class ExecutorUtilsExt {
         }
         ElasticConfig.updateConfig();
         if (ElasticConfig.elasticExecutorDisabled()) {
-            BackupExecutors.getInstance().postThreadPoolTask(runnable, j2);
+            BackupExecutors.getInstance().postThreadPoolTask(runnable, j);
         } else {
-            ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i3, j2);
+            ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i3, j);
         }
     }
 
-    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j2) {
+    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, str, Long.valueOf(j2)}) == null) || runnable == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) || runnable == null) {
             return;
         }
         ElasticConfig.updateConfig();
         if (ElasticConfig.elasticExecutorDisabled()) {
-            BackupExecutors.getInstance().postSerialTask(runnable, j2);
+            BackupExecutors.getInstance().postSerialTask(runnable, j);
         } else {
-            ElasticTaskScheduler.getInstance().postSerialTaskDelay(runnable, getStandardTaskName(str, SERIAL_TASK_NAME_PREFIX), 4, j2);
+            ElasticTaskScheduler.getInstance().postSerialTaskDelay(runnable, getStandardTaskName(str, SERIAL_TASK_NAME_PREFIX), 4, j);
         }
     }
 

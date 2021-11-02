@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PageElemInfo extends ParamableElem implements Elem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5734456734934257499L;
@@ -143,17 +143,17 @@ public class PageElemInfo extends ParamableElem implements Elem {
         }
     }
 
-    public void setDtime(long j2) {
+    public void setDtime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.dtime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.dtime = j;
         }
     }
 
-    public void setLtime(long j2) {
+    public void setLtime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.ltime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.ltime = j;
         }
     }
 
@@ -164,10 +164,10 @@ public class PageElemInfo extends ParamableElem implements Elem {
         }
     }
 
-    public void setStime(long j2) {
+    public void setStime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.stime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.stime = j;
         }
     }
 
@@ -180,12 +180,12 @@ public class PageElemInfo extends ParamableElem implements Elem {
         return (String) invokeV.objValue;
     }
 
-    public PageElemInfo(String str, String str2, long j2, long j3, long j4) {
+    public PageElemInfo(String str, String str2, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+            Object[] objArr = {str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -197,8 +197,8 @@ public class PageElemInfo extends ParamableElem implements Elem {
         }
         this.page = str;
         this.npage = str2;
-        this.ltime = j2;
-        this.dtime = j3;
-        this.stime = j4;
+        this.ltime = j;
+        this.dtime = j2;
+        this.stime = j3;
     }
 }

@@ -1,6 +1,7 @@
 package com.alibaba.fastjson.serializer;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
@@ -28,7 +29,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class JSONSerializer extends SerializeFilterable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -379,7 +380,7 @@ public class JSONSerializer extends SerializeFilterable {
                             try {
                                 dateFormat = generateDateFormat(str);
                             } catch (IllegalArgumentException unused) {
-                                dateFormat = generateDateFormat(str.replaceAll("T", "'T'"));
+                                dateFormat = generateDateFormat(str.replaceAll(ExifInterface.GPS_DIRECTION_TRUE, "'T'"));
                             }
                         } else {
                             String str2 = this.fastJsonConfigDateFormatPattern;
@@ -416,11 +417,11 @@ public class JSONSerializer extends SerializeFilterable {
                         gZIPOutputStream2.write(bArr);
                         gZIPOutputStream2.finish();
                         this.out.writeByteArray(byteArrayOutputStream.toByteArray());
-                    } catch (IOException e2) {
-                        throw new JSONException("write gzipBytes error", e2);
+                    } finally {
+                        IOUtils.close(gZIPOutputStream2);
                     }
-                } finally {
-                    IOUtils.close(gZIPOutputStream2);
+                } catch (IOException e2) {
+                    throw new JSONException("write gzipBytes error", e2);
                 }
             } else if (obj instanceof Collection) {
                 Collection collection = (Collection) obj;

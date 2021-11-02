@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.channels.WritableByteChannel;
 @DoNotParseDetail
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class IsoFile extends BasicContainer implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;

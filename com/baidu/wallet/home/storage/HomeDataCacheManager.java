@@ -27,33 +27,33 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class HomeDataCacheManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f61413c;
+    public static String f58300c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f61414a;
+    public final String f58301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f61415b;
+    public final String f58302b;
 
     /* renamed from: com.baidu.wallet.home.storage.HomeDataCacheManager$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static HomeDataCacheManager f61416a;
+        public static HomeDataCacheManager f58303a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -69,7 +69,7 @@ public class HomeDataCacheManager {
                     return;
                 }
             }
-            f61416a = new HomeDataCacheManager(null);
+            f58303a = new HomeDataCacheManager(null);
         }
     }
 
@@ -177,7 +177,7 @@ public class HomeDataCacheManager {
     public static HomeDataCacheManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f61416a : (HomeDataCacheManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f58303a : (HomeDataCacheManager) invokeV.objValue;
     }
 
     public synchronized String getPpKey(Context context) {
@@ -186,10 +186,10 @@ public class HomeDataCacheManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             synchronized (this) {
-                if (TextUtils.isEmpty(f61413c)) {
-                    f61413c = PayPreferenceManager.getNewPpKey(context);
+                if (TextUtils.isEmpty(f58300c)) {
+                    f58300c = PayPreferenceManager.getNewPpKey(context);
                 }
-                str = f61413c;
+                str = f58300c;
             }
             return str;
         }
@@ -459,7 +459,7 @@ public class HomeDataCacheManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             synchronized (this) {
-                f61413c = PayPreferenceManager.getNewPpKey(context);
+                f58300c = PayPreferenceManager.getNewPpKey(context);
             }
         }
     }
@@ -477,7 +477,7 @@ public class HomeDataCacheManager {
                 return;
             }
         }
-        this.f61414a = "wallet_home_";
-        this.f61415b = StringUtil.NULL_STRING;
+        this.f58301a = "wallet_home_";
+        this.f58302b = StringUtil.NULL_STRING;
     }
 }

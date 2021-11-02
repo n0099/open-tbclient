@@ -20,7 +20,7 @@ import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SapiDeviceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

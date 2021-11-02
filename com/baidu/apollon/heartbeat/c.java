@@ -11,30 +11,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37985a;
+    public static final String f36003a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37986b = "last_cfg_request_time";
+    public static final String f36004b = "last_cfg_request_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37987c = "heartbeat_cfg_fingerprint";
+    public static final String f36005c = "heartbeat_cfg_fingerprint";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f37988d = 300;
+    public static final int f36006d = 300;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37989e = "HeartBeatSP";
+    public static final String f36007e = "HeartBeatSP";
 
     /* renamed from: f  reason: collision with root package name */
-    public static SharedPreferences f37990f;
+    public static SharedPreferences f36008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SharedPreferences.Editor f37991g;
+    public static SharedPreferences.Editor f36009g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,7 +50,7 @@ public final class c {
                 return;
             }
         }
-        f37985a = c.class.getClass().getSimpleName();
+        f36003a = c.class.getClass().getSimpleName();
     }
 
     public c() {
@@ -69,19 +69,19 @@ public final class c {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f37990f == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(f37989e, 0);
-            f37990f = sharedPreferences;
-            f37991g = sharedPreferences.edit();
+        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f36008f == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences(f36007e, 0);
+            f36008f = sharedPreferences;
+            f36009g = sharedPreferences.edit();
         }
     }
 
-    public static long b(Context context, String str, long j2) {
+    public static long b(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             a(context);
-            return f37990f.getLong(str, j2);
+            return f36008f.getLong(str, j);
         }
         return invokeCommon.longValue;
     }
@@ -91,17 +91,17 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, str2)) == null) {
             a(context);
-            return f37990f.getString(str, str2);
+            return f36008f.getString(str, str2);
         }
         return (String) invokeLLL.objValue;
     }
 
-    public static void a(Context context, String str, long j2) {
+    public static void a(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
             a(context);
-            f37991g.putLong(str, j2);
-            f37991g.commit();
+            f36009g.putLong(str, j);
+            f36009g.commit();
         }
     }
 
@@ -109,8 +109,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2) == null) {
             a(context);
-            f37991g.putString(str, str2);
-            f37991g.commit();
+            f36009g.putString(str, str2);
+            f36009g.commit();
         }
     }
 
@@ -118,8 +118,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
             a(context);
-            f37991g.remove(str);
-            f37991g.commit();
+            f36009g.remove(str);
+            f36009g.commit();
         }
     }
 }

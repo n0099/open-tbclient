@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.p0.n.c;
-import c.a.p0.n.g.e.b;
+import b.a.p0.n.c;
+import b.a.p0.n.g.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PMSDBProviderProxy";
@@ -45,10 +45,10 @@ public class PMSDBProviderProxy extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
+            SQLiteDatabase writableDatabase = getProvider().a().getWritableDatabase();
             try {
                 try {
-                    boolean z = c.f11864a;
+                    boolean z = c.f11048a;
                     writableDatabase.beginTransaction();
                     ContentProviderResult[] applyBatch = super.applyBatch(arrayList);
                     for (ContentProviderResult contentProviderResult : applyBatch) {
@@ -59,16 +59,16 @@ public class PMSDBProviderProxy extends ContentProvider {
                     writableDatabase.setTransactionSuccessful();
                     return applyBatch;
                 } catch (Exception e2) {
-                    if (c.f11864a) {
+                    if (c.f11048a) {
                         String str = "applyBatch Exception:" + e2.getMessage();
                     }
                     writableDatabase.endTransaction();
-                    boolean z2 = c.f11864a;
+                    boolean z2 = c.f11048a;
                     return new ContentProviderResult[0];
                 }
             } finally {
                 writableDatabase.endTransaction();
-                boolean z3 = c.f11864a;
+                boolean z3 = c.f11048a;
             }
         }
         return (ContentProviderResult[]) invokeL.objValue;
@@ -78,7 +78,7 @@ public class PMSDBProviderProxy extends ContentProvider {
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) ? getProvider().a(uri, str, strArr) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) ? getProvider().delete(uri, str, strArr) : invokeLLL.intValue;
     }
 
     public b getProvider() {
@@ -102,7 +102,7 @@ public class PMSDBProviderProxy extends ContentProvider {
     public String getType(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) ? getProvider().d(uri) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) ? getProvider().getType(uri) : (String) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
@@ -110,7 +110,7 @@ public class PMSDBProviderProxy extends ContentProvider {
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, uri, contentValues)) == null) ? getProvider().e(uri, contentValues) : (Uri) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, uri, contentValues)) == null) ? getProvider().insert(uri, contentValues) : (Uri) invokeLL.objValue;
     }
 
     @Override // android.content.ContentProvider
@@ -128,13 +128,13 @@ public class PMSDBProviderProxy extends ContentProvider {
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) ? getProvider().f(uri, strArr, str, strArr2, str2) : (Cursor) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) ? getProvider().query(uri, strArr, str, strArr2, str2) : (Cursor) invokeLLLLL.objValue;
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) ? getProvider().h(uri, contentValues, str, strArr) : invokeLLLL.intValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) ? getProvider().update(uri, contentValues, str, strArr) : invokeLLLL.intValue;
     }
 }

@@ -9,13 +9,13 @@ import com.xiaomi.push.du;
 import com.xiaomi.push.fm;
 import com.xiaomi.push.fp;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bw extends fm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f78543a;
+    public final /* synthetic */ XMPushService f71481a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bw(XMPushService xMPushService, Map map, int i2, String str, fp fpVar) {
@@ -36,7 +36,7 @@ public class bw extends fm {
                 return;
             }
         }
-        this.f78543a = xMPushService;
+        this.f71481a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fm

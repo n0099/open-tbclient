@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.i.a.b;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,13 +17,13 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class k extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<String> f37233d;
+    public ArrayList<String> f35273d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(i iVar, Context context) {
@@ -43,7 +44,7 @@ public class k extends c {
                 return;
             }
         }
-        this.f37233d = new ArrayList<>();
+        this.f35273d = new ArrayList<>();
     }
 
     @Override // com.baidu.android.pushservice.d.a
@@ -51,23 +52,23 @@ public class k extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bArr) == null) {
             Intent intent = new Intent();
-            intent.setAction(((a) this).f37204b.f37219a.equals("method_list_sdk_tags") ? "com.baidu.android.pushservice.action.sdk.RECEIVE" : "com.baidu.android.pushservice.action.RECEIVE");
-            intent.putExtra("method", ((a) this).f37204b.f37219a);
-            intent.putExtra("error_msg", i2);
+            intent.setAction(((a) this).f35245b.f35260a.equals("method_list_sdk_tags") ? "com.baidu.android.pushservice.action.sdk.RECEIVE" : "com.baidu.android.pushservice.action.RECEIVE");
+            intent.putExtra("method", ((a) this).f35245b.f35260a);
+            intent.putExtra(GameCodeGetResponseMsg.PARAM_ERROR_MSG, i2);
             intent.putExtra("content", bArr);
-            if (!this.f37233d.isEmpty()) {
-                intent.putStringArrayListExtra("tags_list", this.f37233d);
+            if (!this.f35273d.isEmpty()) {
+                intent.putStringArrayListExtra("tags_list", this.f35273d);
             }
             intent.setFlags(32);
             a(intent);
-            if (TextUtils.isEmpty(((a) this).f37204b.f37222d)) {
-                if (!((a) this).f37204b.f37219a.equals("method_list_sdk_tags")) {
+            if (TextUtils.isEmpty(((a) this).f35245b.f35263d)) {
+                if (!((a) this).f35245b.f35260a.equals("method_list_sdk_tags")) {
                     return;
                 }
-            } else if (!((a) this).f37204b.f37219a.equals("method_list_sdk_tags")) {
-                intent.setPackage(((a) this).f37204b.f37222d);
+            } else if (!((a) this).f35245b.f35260a.equals("method_list_sdk_tags")) {
+                intent.setPackage(((a) this).f35245b.f35263d);
             }
-            com.baidu.android.pushservice.j.m.b(((a) this).f37203a, intent, intent.getAction(), intent.getPackage());
+            com.baidu.android.pushservice.j.m.b(((a) this).f35244a, intent, intent.getAction(), intent.getPackage());
         }
     }
 
@@ -80,10 +81,10 @@ public class k extends c {
             try {
                 JSONArray jSONArray = new JSONObject(b2).getJSONObject("response_params").getJSONArray("groups");
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    this.f37233d.add(jSONArray.getJSONObject(i2).getString("name"));
+                    this.f35273d.add(jSONArray.getJSONObject(i2).getString("name"));
                 }
             } catch (JSONException e2) {
-                new b.c(((a) this).f37203a).a(Log.getStackTraceString(e2)).a();
+                new b.c(((a) this).f35244a).a(Log.getStackTraceString(e2)).a();
             }
             return b2;
         }

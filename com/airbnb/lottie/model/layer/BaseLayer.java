@@ -32,7 +32,7 @@ import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation.AnimationListener, KeyPathElement {
     public static final int CLIP_SAVE_FLAG = 2;
     public static final int CLIP_TO_LAYER_SAVE_FLAG = 16;
@@ -67,7 +67,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     public boolean visible = true;
 
     /* renamed from: com.airbnb.lottie.model.layer.BaseLayer$2  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode;
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$LayerType;

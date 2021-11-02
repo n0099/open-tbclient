@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AdStateInstance {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,12 +23,12 @@ public class AdStateInstance {
     public String mProdType;
     public long mRequestTimeMillis;
 
-    public AdStateInstance(long j2, String str, IXAdInstanceInfo iXAdInstanceInfo) {
+    public AdStateInstance(long j, String str, IXAdInstanceInfo iXAdInstanceInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, iXAdInstanceInfo};
+            Object[] objArr = {Long.valueOf(j), str, iXAdInstanceInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -42,7 +42,7 @@ public class AdStateInstance {
         this.isHasSend = new AtomicBoolean(false);
         this.mExtraInfo = new HashMap<>();
         this.mEventList = new StringBuilder();
-        this.mRequestTimeMillis = j2;
+        this.mRequestTimeMillis = j;
         this.mProdType = str;
         this.mAdInstanceInfo = iXAdInstanceInfo;
     }

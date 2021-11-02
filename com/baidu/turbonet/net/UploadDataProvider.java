@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class UploadDataProvider implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,16 +26,16 @@ public abstract class UploadDataProvider implements Closeable {
         }
     }
 
+    public abstract long a() throws IOException;
+
+    public abstract void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) throws IOException;
+
+    public abstract void c(UploadDataSink uploadDataSink) throws IOException;
+
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
-
-    public abstract long g() throws IOException;
-
-    public abstract void h(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) throws IOException;
-
-    public abstract void i(UploadDataSink uploadDataSink) throws IOException;
 }

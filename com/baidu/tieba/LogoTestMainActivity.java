@@ -3,23 +3,23 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.e.e.m.e;
+import b.a.e.e.m.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LogoTestMainActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoTestMainActivity f49090e;
+        public final /* synthetic */ LogoTestMainActivity f46568e;
 
         public a(LogoTestMainActivity logoTestMainActivity) {
             Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class LogoTestMainActivity extends Activity {
                     return;
                 }
             }
-            this.f49090e = logoTestMainActivity;
+            this.f46568e = logoTestMainActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.r0.y0.a.i().w(this.f49090e)) {
-                this.f49090e.overridePendingTransition(0, 0);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && b.a.r0.y0.a.i().w(this.f46568e)) {
+                this.f46568e.overridePendingTransition(0, 0);
             }
         }
     }

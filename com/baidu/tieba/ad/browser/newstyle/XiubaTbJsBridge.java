@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.w.c;
+import b.a.q0.w.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -29,8 +28,8 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
+/* loaded from: classes9.dex */
+public class XiubaTbJsBridge implements b.a.r0.l3.n0.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -45,13 +44,13 @@ public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
     public final CustomMessageListener installListener;
     public final TbPageContext<?> mTbPageContext;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f49190a;
+        public final /* synthetic */ XiubaTbJsBridge f46665a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -71,7 +70,7 @@ public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
                     return;
                 }
             }
-            this.f49190a = xiubaTbJsBridge;
+            this.f46665a = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,21 +79,21 @@ public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
             Object data;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (data = customResponsedMessage.getData()) != null && (data instanceof Intent) && "com.xiu8.baidu.activity".equals(XiubaTbJsBridge.getPackageName((Intent) data))) {
-                this.f49190a.callInstallListener();
+                this.f46665a.callInstallListener();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f49191a;
+        public boolean f46666a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f49192b;
+        public final /* synthetic */ XiubaTbJsBridge f46667b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -114,7 +113,7 @@ public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
                     return;
                 }
             }
-            this.f49192b = xiubaTbJsBridge;
+            this.f46667b = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,16 +128,16 @@ public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
-                            if (!this.f49191a) {
-                                this.f49191a = true;
-                                this.f49192b.callDownloadListener(1);
+                            if (!this.f46666a) {
+                                this.f46666a = true;
+                                this.f46667b.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.f49192b.callDownloadListener(2);
-                            this.f49191a = false;
+                            this.f46667b.callDownloadListener(2);
+                            this.f46666a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
-                            this.f49192b.callDownloadListener(0);
-                            this.f49191a = false;
+                            this.f46667b.callDownloadListener(0);
+                            this.f46666a = false;
                         }
                     }
                 }
@@ -205,12 +204,12 @@ public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
         }
     }
 
-    private JSONObject checkAPKInstall(String str, long j2, String str2) {
+    private JSONObject checkAPKInstall(String str, long j, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, Long.valueOf(j2), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, Long.valueOf(j), str2})) == null) {
             if (str != null && str2 != null) {
-                String substring = md5(md5(JSResultData.AUTH_KEY + str + j2).substring(0, 16)).substring(8, 24);
+                String substring = md5(md5(JSResultData.AUTH_KEY + str + j).substring(0, 16)).substring(8, 24);
                 JSResultData jSResultData = new JSResultData();
                 if (!TextUtils.isEmpty(str2) && str2.equals(substring)) {
                     jSResultData.setStatus(1);
@@ -239,12 +238,12 @@ public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
         return (JSONObject) invokeCommon.objValue;
     }
 
-    private String downLoadAPK(String str, long j2, String str2) {
+    private String downLoadAPK(String str, long j, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{str, Long.valueOf(j2), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{str, Long.valueOf(j), str2})) == null) {
             if (str != null && str2 != null) {
-                String substring = md5(md5(JSResultData.AUTH_KEY + str + j2).substring(0, 16)).substring(8, 24);
+                String substring = md5(md5(JSResultData.AUTH_KEY + str + j).substring(0, 16)).substring(8, 24);
                 JSResultData jSResultData = new JSResultData();
                 if (!TextUtils.isEmpty(str2) && str2.equals(substring) && validateGameUrl(str)) {
                     startDownload(str);
@@ -288,12 +287,12 @@ public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
-            if (!StringUtils.isNull(str) && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length != 0) {
-                int e2 = c.a.e.e.m.b.e(split[0], 0);
+            if (!StringUtils.isNull(str) && (split = str.split("\\.")) != null && split.length != 0) {
+                int e2 = b.a.e.e.m.b.e(split[0], 0);
                 if (e2 > 3) {
                     return true;
                 }
-                if (split.length >= 2 && e2 == 3 && c.a.e.e.m.b.e(split[1], 0) >= 2) {
+                if (split.length >= 2 && e2 == 3 && b.a.e.e.m.b.e(split[1], 0) >= 2) {
                     return true;
                 }
             }
@@ -362,7 +361,7 @@ public class XiubaTbJsBridge implements c.a.r0.k3.m0.b {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.r0.k3.m0.b
+    @Override // b.a.r0.l3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

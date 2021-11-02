@@ -1,9 +1,9 @@
 package com.baidu.tieba.themeCenter.bubble.list;
 
 import android.os.Bundle;
-import c.a.q0.o0.d;
-import c.a.q0.s.f0.f;
-import c.a.r0.q3.h.e;
+import b.a.q0.o0.d;
+import b.a.q0.s.g0.f;
+import b.a.r0.r3.h.e;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -15,24 +15,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListModel.c mCallback;
-    public c.a.r0.q3.f.a.a mItemController;
+    public b.a.r0.r3.f.a.a mItemController;
     public BubbleListModel mModel;
     public final f.g mOnPullRefreshListener;
     public BdListView.p mScrollToBottomListener;
-    public c.a.r0.q3.f.c.b mView;
+    public b.a.r0.r3.f.c.b mView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements BubbleListModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f57515a;
+        public final /* synthetic */ BubbleListActivity f54568a;
 
         public a(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
@@ -49,33 +49,33 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     return;
                 }
             }
-            this.f57515a = bubbleListActivity;
+            this.f54568a = bubbleListActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.c
         public void a(int i2, String str, e eVar, List<DressItemData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                this.f57515a.mView.j();
-                BubbleListActivity bubbleListActivity = this.f57515a;
+                this.f54568a.mView.j();
+                BubbleListActivity bubbleListActivity = this.f54568a;
                 bubbleListActivity.hideLoadingView(bubbleListActivity.mView.c());
                 if (i2 == 0) {
-                    this.f57515a.mView.i(eVar, list, this.f57515a.mModel.L());
+                    this.f54568a.mView.i(eVar, list, this.f54568a.mModel.L());
                     return;
                 }
-                this.f57515a.showToast(str);
-                this.f57515a.mView.h();
+                this.f54568a.showToast(str);
+                this.f54568a.mView.h();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f57516e;
+        public final /* synthetic */ BubbleListActivity f54569e;
 
         public b(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
@@ -92,26 +92,26 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     return;
                 }
             }
-            this.f57516e = bubbleListActivity;
+            this.f54569e = bubbleListActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f57516e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54569e.mModel == null) {
                 return;
             }
-            this.f57516e.mModel.w();
+            this.f54569e.mModel.w();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f57517e;
+        public final /* synthetic */ BubbleListActivity f54570e;
 
         public c(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
@@ -128,16 +128,16 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     return;
                 }
             }
-            this.f57517e = bubbleListActivity;
+            this.f54570e = bubbleListActivity;
         }
 
-        @Override // c.a.q0.s.f0.f.g
+        @Override // b.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f57517e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f54570e.mModel == null) {
                 return;
             }
-            this.f57517e.mModel.loadData();
+            this.f54570e.mModel.loadData();
         }
     }
 
@@ -159,7 +159,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         this.mOnPullRefreshListener = new c(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.o0.a
+    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -173,7 +173,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f13644a = true;
+                pageStayDurationItem.f12779a = true;
             }
             return pageStayDurationItem;
         }
@@ -185,7 +185,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.r0.q3.f.c.b bVar = this.mView;
+            b.a.r0.r3.f.c.b bVar = this.mView;
             if (bVar != null) {
                 bVar.d();
             }
@@ -200,9 +200,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             BubbleListModel bubbleListModel = new BubbleListModel(this);
             this.mModel = bubbleListModel;
             bubbleListModel.N(this.mCallback);
-            c.a.r0.q3.f.a.a aVar = new c.a.r0.q3.f.a.a(getPageContext());
+            b.a.r0.r3.f.a.a aVar = new b.a.r0.r3.f.a.a(getPageContext());
             this.mItemController = aVar;
-            c.a.r0.q3.f.c.b bVar = new c.a.r0.q3.f.c.b(this, aVar);
+            b.a.r0.r3.f.c.b bVar = new b.a.r0.r3.f.c.b(this, aVar);
             this.mView = bVar;
             bVar.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
             showLoadingView(this.mView.c());
@@ -220,7 +220,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        c.a.r0.q3.f.c.b bVar;
+        b.a.r0.r3.f.c.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mModel == null || (bVar = this.mView) == null) {
             return;

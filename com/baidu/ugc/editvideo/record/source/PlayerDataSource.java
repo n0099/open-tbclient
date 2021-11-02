@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
-import c.a.x0.t.w;
+import b.a.x0.t.c;
+import b.a.x0.t.h;
+import b.a.x0.t.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import com.baidu.ugc.editvideo.record.source.IMediaDataSource;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_IDLE = 0;
@@ -45,7 +45,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public int mVideoWidth;
     public OnPlayStateListener onPlayStateListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnPlayStateListener {
         void pause();
 
@@ -594,28 +594,28 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void seekTo(long j2) {
+    public void seekTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
             if (isInPlaybackState()) {
-                this.mMediaPlayer.seekTo(j2);
+                this.mMediaPlayer.seekTo(j);
                 this.mSeekWhenPrepared = 0L;
                 return;
             }
-            this.mSeekWhenPrepared = j2;
+            this.mSeekWhenPrepared = j;
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void seekToForce(long j2) {
+    public void seekToForce(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             if (isInPlaybackState()) {
-                this.mMediaPlayer.seekToForce(j2);
+                this.mMediaPlayer.seekToForce(j);
                 this.mSeekWhenPrepared = 0L;
                 return;
             }
-            this.mSeekWhenPrepared = j2;
+            this.mSeekWhenPrepared = j;
         }
     }
 

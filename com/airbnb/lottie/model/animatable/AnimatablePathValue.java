@@ -7,7 +7,7 @@ import com.airbnb.lottie.animation.keyframe.PointKeyframeAnimation;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AnimatablePathValue implements AnimatableValue<PointF, PointF> {
     public final List<Keyframe<PointF>> keyframes;
 

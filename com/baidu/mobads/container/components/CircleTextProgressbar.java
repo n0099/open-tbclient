@@ -14,6 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.executor.BaseTask;
 import com.baidu.mobads.container.executor.TaskScheduler;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CircleTextProgressbar extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +44,7 @@ public class CircleTextProgressbar extends TextView {
     public long timeMillis;
 
     /* renamed from: com.baidu.mobads.container.components.CircleTextProgressbar$2  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$mobads$container$components$CircleTextProgressbar$ProgressType;
         public static /* synthetic */ Interceptable $ic;
@@ -75,7 +76,7 @@ public class CircleTextProgressbar extends TextView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnCountdownProgressListener {
         void onEnd();
 
@@ -83,7 +84,7 @@ public class CircleTextProgressbar extends TextView {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ProgressType {
         public static final /* synthetic */ ProgressType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -424,10 +425,10 @@ public class CircleTextProgressbar extends TextView {
         }
     }
 
-    public void setTimeMillis(long j2) {
+    public void setTimeMillis(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.timeMillis = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.timeMillis = j;
             invalidate();
         }
     }
@@ -501,7 +502,7 @@ public class CircleTextProgressbar extends TextView {
         this.outLineColor = -16777216;
         this.outLineWidth = 2;
         this.inCircleColors = ColorStateList.valueOf(0);
-        this.progressLineColor = -16776961;
+        this.progressLineColor = BaseAnimatedElement.DEBUG_PAINT_COLOR;
         this.progressLineWidth = 8;
         this.mPaint = new Paint();
         this.mArcRect = new RectF();

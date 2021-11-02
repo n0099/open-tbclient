@@ -1,5 +1,5 @@
 package com.facebook.drawee.debug.listener;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface ImageLoadingTimeListener {
-    void onFinalImageSet(long j2);
+    void onFinalImageSet(long j);
 }

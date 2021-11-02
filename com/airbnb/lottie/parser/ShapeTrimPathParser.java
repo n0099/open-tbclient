@@ -6,7 +6,7 @@ import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ShapeTrimPathParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("s", "e", "o", SearchView.IME_OPTION_NO_MICROPHONE, "m", "hd");
 

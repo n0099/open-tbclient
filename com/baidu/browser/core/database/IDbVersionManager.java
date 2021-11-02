@@ -2,7 +2,7 @@ package com.baidu.browser.core.database;
 
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.browser.core.INoProGuard;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IDbVersionManager extends INoProGuard {
     int getVersionCode();
 

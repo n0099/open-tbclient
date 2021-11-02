@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class hc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class hc {
     public static void a(Context context, hj hjVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, hjVar) == null) {
-            if (hjVar.f488a) {
+            if (hjVar.f489a) {
                 hjVar.a("push_sdk_channel");
             }
             if (TextUtils.isEmpty(hjVar.d())) {

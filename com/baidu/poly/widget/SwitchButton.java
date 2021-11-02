@@ -26,7 +26,7 @@ import android.view.ViewParent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.j;
+import b.a.e0.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SwitchButton extends CompoundButton {
     public static /* synthetic */ Interceptable $ic;
     public static int[] o0;
@@ -70,23 +70,21 @@ public class SwitchButton extends CompoundButton {
     public int c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f44332e;
+    public Drawable f42093e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f44333f;
+    public Drawable f42094f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ColorStateList f44334g;
+    public ColorStateList f42095g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ColorStateList f44335h;
+    public ColorStateList f42096h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f44336i;
+    public float f42097i;
     public int i0;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f44337j;
+    public float j;
     public int j0;
     public RectF k;
     public boolean k0;
@@ -109,7 +107,7 @@ public class SwitchButton extends CompoundButton {
     public Drawable y;
     public Drawable z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<a> CREATOR;
@@ -118,12 +116,12 @@ public class SwitchButton extends CompoundButton {
         public CharSequence s;
 
         /* renamed from: com.baidu.poly.widget.SwitchButton$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C1694a implements Parcelable.Creator<a> {
+        /* loaded from: classes7.dex */
+        public static class C1651a implements Parcelable.Creator<a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1694a() {
+            public C1651a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,7 +167,7 @@ public class SwitchButton extends CompoundButton {
                     return;
                 }
             }
-            CREATOR = new C1694a();
+            CREATOR = new C1651a();
         }
 
         public /* synthetic */ a(Parcel parcel, b bVar) {
@@ -229,7 +227,7 @@ public class SwitchButton extends CompoundButton {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -464,41 +462,41 @@ public class SwitchButton extends CompoundButton {
             this.c0 = i4;
             this.i0 = i3;
             this.j0 = i2;
-            this.f44332e = drawable2;
-            this.f44335h = colorStateList;
+            this.f42093e = drawable2;
+            this.f42096h = colorStateList;
             this.G = drawable2 != null;
             this.o = i5;
             if (i5 == 0) {
                 new TypedValue();
                 this.o = 3309506;
             }
-            if (!this.G && this.f44335h == null) {
-                ColorStateList b2 = c.a.e0.p.b.b(this.o);
-                this.f44335h = b2;
+            if (!this.G && this.f42096h == null) {
+                ColorStateList b2 = b.a.e0.p.b.b(this.o);
+                this.f42096h = b2;
                 this.t = b2.getDefaultColor();
             }
             this.p = c(f3);
             this.q = c(f5);
-            this.f44333f = drawable;
-            this.f44334g = colorStateList3;
+            this.f42094f = drawable;
+            this.f42095g = colorStateList3;
             boolean z5 = drawable != null;
             this.H = z5;
-            if (!z5 && this.f44334g == null) {
-                ColorStateList a2 = c.a.e0.p.b.a(this.o);
-                this.f44334g = a2;
+            if (!z5 && this.f42095g == null) {
+                ColorStateList a2 = b.a.e0.p.b.a(this.o);
+                this.f42095g = a2;
                 int defaultColor = a2.getDefaultColor();
                 this.u = defaultColor;
-                this.v = this.f44334g.getColorForState(o0, defaultColor);
+                this.v = this.f42095g.getColorForState(o0, defaultColor);
             }
             this.k.set(f10, f12, f11, f9);
             float f15 = f8;
             this.l = this.k.width() >= 0.0f ? Math.max(f15, 1.0f) : f15;
-            this.f44336i = f7;
-            this.f44337j = f6;
-            long j2 = i6;
-            this.m = j2;
+            this.f42097i = f7;
+            this.j = f6;
+            long j = i6;
+            this.m = j;
             this.n = z;
-            this.J.setDuration(j2);
+            this.J.setDuration(j);
             if (isChecked()) {
                 setProgress(1.0f);
             }
@@ -521,7 +519,7 @@ public class SwitchButton extends CompoundButton {
             int size = View.MeasureSpec.getSize(i2);
             int mode = View.MeasureSpec.getMode(i2);
             if (this.q == 0 && this.G) {
-                this.q = this.f44332e.getIntrinsicHeight();
+                this.q = this.f42093e.getIntrinsicHeight();
             }
             if (mode == 1073741824) {
                 if (this.q != 0) {
@@ -579,10 +577,10 @@ public class SwitchButton extends CompoundButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.drawableStateChanged();
-            if (!this.G && (colorStateList2 = this.f44335h) != null) {
+            if (!this.G && (colorStateList2 = this.f42096h) != null) {
                 this.t = colorStateList2.getColorForState(getDrawableState(), this.t);
             } else {
-                setDrawableState(this.f44332e);
+                setDrawableState(this.f42093e);
             }
             int[] iArr = isChecked() ? p0 : o0;
             ColorStateList textColors = getTextColors();
@@ -591,21 +589,21 @@ public class SwitchButton extends CompoundButton {
                 this.w = textColors.getColorForState(o0, defaultColor);
                 this.x = textColors.getColorForState(p0, defaultColor);
             }
-            if (!this.H && (colorStateList = this.f44334g) != null) {
+            if (!this.H && (colorStateList = this.f42095g) != null) {
                 int colorForState = colorStateList.getColorForState(getDrawableState(), this.u);
                 this.u = colorForState;
-                this.v = this.f44334g.getColorForState(iArr, colorForState);
+                this.v = this.f42095g.getColorForState(iArr, colorForState);
                 return;
             }
-            Drawable drawable = this.f44333f;
+            Drawable drawable = this.f42094f;
             if ((drawable instanceof StateListDrawable) && this.n) {
                 drawable.setState(iArr);
-                this.z = this.f44333f.getCurrent().mutate();
+                this.z = this.f42094f.getCurrent().mutate();
             } else {
                 this.z = null;
             }
-            setDrawableState(this.f44333f);
-            Drawable drawable2 = this.f44333f;
+            setDrawableState(this.f42094f);
+            Drawable drawable2 = this.f42094f;
             if (drawable2 != null) {
                 this.y = drawable2.getCurrent().mutate();
             }
@@ -620,7 +618,7 @@ public class SwitchButton extends CompoundButton {
             int size = View.MeasureSpec.getSize(i2);
             int mode = View.MeasureSpec.getMode(i2);
             if (this.p == 0 && this.G) {
-                this.p = this.f44332e.getIntrinsicWidth();
+                this.p = this.f42093e.getIntrinsicWidth();
             }
             int c2 = c(this.a0);
             if (this.l == 0.0f) {
@@ -720,11 +718,11 @@ public class SwitchButton extends CompoundButton {
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (i2 = this.p) == 0 || (i3 = this.q) == 0 || this.r == 0 || this.s == 0) {
             return;
         }
-        if (this.f44336i == -1.0f) {
-            this.f44336i = Math.min(i2, i3) / 2;
+        if (this.f42097i == -1.0f) {
+            this.f42097i = Math.min(i2, i3) / 2;
         }
-        if (this.f44337j == -1.0f) {
-            this.f44337j = Math.min(this.r, this.s) / 2;
+        if (this.j == -1.0f) {
+            this.j = Math.min(this.r, this.s) / 2;
         }
         int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
         int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
@@ -751,8 +749,8 @@ public class SwitchButton extends CompoundButton {
         RectF rectF4 = this.C;
         RectF rectF5 = this.A;
         rectF4.set(rectF5.left, 0.0f, (this.B.right - this.k.right) - rectF5.width(), 0.0f);
-        this.f44337j = Math.min(Math.min(this.B.width(), this.B.height()) / 2.0f, this.f44337j);
-        Drawable drawable = this.f44333f;
+        this.j = Math.min(Math.min(this.B.width(), this.B.height()) / 2.0f, this.j);
+        Drawable drawable = this.f42094f;
         if (drawable != null) {
             RectF rectF6 = this.B;
             drawable.setBounds((int) rectF6.left, (int) rectF6.top, c(rectF6.right), c(this.B.bottom));
@@ -783,19 +781,19 @@ public class SwitchButton extends CompoundButton {
     public ColorStateList getBackColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f44334g : (ColorStateList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f42095g : (ColorStateList) invokeV.objValue;
     }
 
     public Drawable getBackDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f44333f : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f42094f : (Drawable) invokeV.objValue;
     }
 
     public float getBackRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f44337j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.j : invokeV.floatValue;
     }
 
     public PointF getBackSizeF() {
@@ -819,13 +817,13 @@ public class SwitchButton extends CompoundButton {
     public ColorStateList getThumbColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f44335h : (ColorStateList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f42096h : (ColorStateList) invokeV.objValue;
     }
 
     public Drawable getThumbDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f44332e : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f42093e : (Drawable) invokeV.objValue;
     }
 
     public float getThumbHeight() {
@@ -843,7 +841,7 @@ public class SwitchButton extends CompoundButton {
     public float getThumbRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f44336i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f42097i : invokeV.floatValue;
     }
 
     public float getThumbRangeRatio() {
@@ -897,8 +895,8 @@ public class SwitchButton extends CompoundButton {
                         drawable2.setAlpha(255 - progress2);
                         drawable2.draw(canvas);
                     } else {
-                        this.f44333f.setAlpha(255);
-                        this.f44333f.draw(canvas);
+                        this.f42094f.setAlpha(255);
+                        this.f42094f.draw(canvas);
                     }
                 } else if (this.n) {
                     int i2 = isChecked() ? this.u : this.v;
@@ -906,17 +904,17 @@ public class SwitchButton extends CompoundButton {
                     int progress3 = (int) (getProgress() * 255.0f);
                     this.F.setARGB((Color.alpha(i2) * progress3) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
                     RectF rectF = this.B;
-                    float f2 = this.f44337j;
+                    float f2 = this.j;
                     canvas.drawRoundRect(rectF, f2, f2, this.F);
                     this.F.setARGB((Color.alpha(i3) * (255 - progress3)) / 255, Color.red(i3), Color.green(i3), Color.blue(i3));
                     RectF rectF2 = this.B;
-                    float f3 = this.f44337j;
+                    float f3 = this.j;
                     canvas.drawRoundRect(rectF2, f3, f3, this.F);
                     this.F.setAlpha(255);
                 } else {
                     this.F.setColor(this.u);
                     RectF rectF3 = this.B;
-                    float f4 = this.f44337j;
+                    float f4 = this.j;
                     canvas.drawRoundRect(rectF3, f4, f4, this.F);
                 }
                 Layout layout = ((double) getProgress()) > 0.5d ? this.V : this.W;
@@ -938,14 +936,14 @@ public class SwitchButton extends CompoundButton {
                 this.L.set(this.A);
                 this.L.offset(this.K * this.C.width(), 0.0f);
                 if (this.G) {
-                    Drawable drawable3 = this.f44332e;
+                    Drawable drawable3 = this.f42093e;
                     RectF rectF5 = this.L;
                     drawable3.setBounds((int) rectF5.left, (int) rectF5.top, c(rectF5.right), c(this.L.bottom));
-                    this.f44332e.draw(canvas);
+                    this.f42093e.draw(canvas);
                 } else {
                     this.F.setColor(this.t);
                     RectF rectF6 = this.L;
-                    float f5 = this.f44336i;
+                    float f5 = this.f42097i;
                     canvas.drawRoundRect(rectF6, f5, f5, this.F);
                 }
                 if (this.I) {
@@ -1100,17 +1098,17 @@ public class SwitchButton extends CompoundButton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? super.performClick() : invokeV.booleanValue;
     }
 
-    public void setAnimationDuration(long j2) {
+    public void setAnimationDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048610, this, j2) == null) {
-            this.m = j2;
+        if (interceptable == null || interceptable.invokeJ(1048610, this, j) == null) {
+            this.m = j;
         }
     }
 
     public void setBackColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, colorStateList) == null) {
-            this.f44334g = colorStateList;
+            this.f42095g = colorStateList;
             if (colorStateList != null) {
                 setBackDrawable(null);
             }
@@ -1128,7 +1126,7 @@ public class SwitchButton extends CompoundButton {
     public void setBackDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, drawable) == null) {
-            this.f44333f = drawable;
+            this.f42094f = drawable;
             this.H = drawable != null;
             refreshDrawableState();
             this.l0 = false;
@@ -1147,7 +1145,7 @@ public class SwitchButton extends CompoundButton {
     public void setBackRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048615, this, f2) == null) {
-            this.f44337j = f2;
+            this.j = f2;
             if (this.H) {
                 return;
             }
@@ -1266,7 +1264,7 @@ public class SwitchButton extends CompoundButton {
     public void setThumbColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048626, this, colorStateList) == null) {
-            this.f44335h = colorStateList;
+            this.f42096h = colorStateList;
             if (colorStateList != null) {
                 setThumbDrawable(null);
             }
@@ -1284,7 +1282,7 @@ public class SwitchButton extends CompoundButton {
     public void setThumbDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, drawable) == null) {
-            this.f44332e = drawable;
+            this.f42093e = drawable;
             this.G = drawable != null;
             refreshDrawableState();
             this.l0 = false;
@@ -1314,7 +1312,7 @@ public class SwitchButton extends CompoundButton {
     public void setThumbRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048631, this, f2) == null) {
-            this.f44336i = f2;
+            this.f42097i = f2;
             if (this.G) {
                 return;
             }
@@ -1335,8 +1333,8 @@ public class SwitchButton extends CompoundButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
             this.o = i2;
-            this.f44335h = c.a.e0.p.b.b(i2);
-            this.f44334g = c.a.e0.p.b.a(this.o);
+            this.f42096h = b.a.e0.p.b.b(i2);
+            this.f42095g = b.a.e0.p.b.a(this.o);
             this.H = false;
             this.G = false;
             refreshDrawableState();

@@ -56,7 +56,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ArdUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_2G = 1;
@@ -902,9 +902,9 @@ public class ArdUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            long j2 = mTotalInternalStorgeSize;
-            if (j2 != 0) {
-                return j2;
+            long j = mTotalInternalStorgeSize;
+            if (j != 0) {
+                return j;
             }
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
@@ -924,9 +924,9 @@ public class ArdUtil {
         if (interceptable != null && (invokeV = interceptable.invokeV(65573, null)) != null) {
             return invokeV.longValue;
         }
-        long j2 = mTotal;
-        if (j2 != 0) {
-            return j2;
+        long j = mTotal;
+        if (j != 0) {
+            return j;
         }
         BufferedReader bufferedReader2 = null;
         try {
@@ -974,7 +974,7 @@ public class ArdUtil {
             return invokeV.longValue;
         }
         try {
-            randomAccessFile = new RandomAccessFile("/proc/meminfo", r.f42346a);
+            randomAccessFile = new RandomAccessFile("/proc/meminfo", r.f40168a);
             try {
                 Matcher matcher = Pattern.compile("(\\d+)").matcher(randomAccessFile.readLine());
                 String str = "";
@@ -1277,9 +1277,9 @@ public class ArdUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, context)) == null) {
-            long j2 = mTotalMem;
-            if (j2 != 0) {
-                return j2;
+            long j = mTotalMem;
+            if (j != 0) {
+                return j;
             }
             if (Build.VERSION.SDK_INT >= 16 && context != null) {
                 try {

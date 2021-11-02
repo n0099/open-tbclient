@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.chosen.net.zan;
 
-import c.a.q0.d1.z;
+import b.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ExcZan.DataReq;
 import tbclient.ExcZan.ExcZanReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ChosenZanNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,24 +70,24 @@ public class ChosenZanNetMessage extends NetMessage {
         }
     }
 
-    public void setExcId(long j2) {
+    public void setExcId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.excId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.excId = j;
         }
     }
 
-    public void setPostId(long j2) {
+    public void setPostId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.postId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.postId = j;
         }
     }
 
-    public void setThreadId(long j2) {
+    public void setThreadId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.threadId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.threadId = j;
         }
     }
 }

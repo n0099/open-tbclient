@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,12 +87,12 @@ public final class g {
             try {
                 com.baidu.sofire.h.a a4 = com.baidu.sofire.h.a.a(context);
                 long currentTimeMillis = System.currentTimeMillis();
-                long j2 = a4.f45340a.getLong("pu_cl_fd", 0L);
-                if (j2 == 0) {
-                    j2 = System.currentTimeMillis();
+                long j = a4.f43070a.getLong("pu_cl_fd", 0L);
+                if (j == 0) {
+                    j = System.currentTimeMillis();
                     a4.f();
                 }
-                if (currentTimeMillis - j2 > 86400000) {
+                if (currentTimeMillis - j > 86400000) {
                     HashMap hashMap = new HashMap();
                     if (c.e(context)) {
                         hashMap.put("0", Integer.valueOf(a4.h() + 1));
@@ -101,10 +101,10 @@ public final class g {
                         hashMap.put("0", Integer.valueOf(a4.h()));
                         hashMap.put("1", Integer.valueOf(a4.i() + 1));
                     }
-                    a4.f45341b.putInt("mo_fa_pu_cl", 0);
-                    a4.f45341b.commit();
-                    a4.f45341b.putInt("wi_fa_pu_cl", 0);
-                    a4.f45341b.commit();
+                    a4.f43071b.putInt("mo_fa_pu_cl", 0);
+                    a4.f43071b.commit();
+                    a4.f43071b.putInt("wi_fa_pu_cl", 0);
+                    a4.f43071b.commit();
                     a4.f();
                     c.a(context, "1003112", (Map<String, Object>) hashMap, false);
                 } else if (c.e(context)) {

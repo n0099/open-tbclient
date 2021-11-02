@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HeightListView extends ListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46658e;
+    public int f44315e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeightListView(Context context) {
@@ -35,14 +35,14 @@ public class HeightListView extends ListView {
                 return;
             }
         }
-        this.f46658e = -1;
+        this.f44315e = -1;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            int i4 = this.f46658e;
+            int i4 = this.f44315e;
             if (i4 > -1) {
                 i3 = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
             }
@@ -53,7 +53,7 @@ public class HeightListView extends ListView {
     public void setListViewHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f46658e = i2;
+            this.f44315e = i2;
         }
     }
 
@@ -76,7 +76,7 @@ public class HeightListView extends ListView {
                 return;
             }
         }
-        this.f46658e = -1;
+        this.f44315e = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,6 +98,6 @@ public class HeightListView extends ListView {
                 return;
             }
         }
-        this.f46658e = -1;
+        this.f44315e = -1;
     }
 }

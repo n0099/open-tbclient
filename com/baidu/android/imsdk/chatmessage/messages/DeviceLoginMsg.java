@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DeviceLoginMsg> CREATOR;
@@ -110,7 +109,7 @@ public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
             try {
                 JSONObject jSONObject = new JSONObject(getMsgContent());
                 this.time = jSONObject.optLong("time");
-                this.deviceType = jSONObject.optString(HttpConstants.DEVICE_TYPE);
+                this.deviceType = jSONObject.optString("device_type");
                 return true;
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "parseJsonString", e2);

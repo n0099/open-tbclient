@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class e extends LinkedList {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f59763a;
+    public final int f56689a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class e extends LinkedList {
                 return;
             }
         }
-        this.f59763a = 2000;
+        this.f56689a = 2000;
     }
 
     @Override // java.util.LinkedList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List, java.util.Deque, java.util.Queue
@@ -37,7 +37,7 @@ public final class e extends LinkedList {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (size() == this.f59763a) {
+            if (size() == this.f56689a) {
                 removeFirst();
             }
             return super.add(obj);

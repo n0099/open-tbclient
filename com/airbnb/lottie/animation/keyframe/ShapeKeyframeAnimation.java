@@ -5,7 +5,7 @@ import com.airbnb.lottie.model.content.ShapeData;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ShapeKeyframeAnimation extends BaseKeyframeAnimation<ShapeData, Path> {
     public final Path tempPath;
     public final ShapeData tempShapeData;

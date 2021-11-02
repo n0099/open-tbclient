@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e implements View.OnKeyListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardEditText f39796a;
+    public final /* synthetic */ SafeKeyBoardEditText f37727a;
 
     public e(SafeKeyBoardEditText safeKeyBoardEditText) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class e implements View.OnKeyListener {
                 return;
             }
         }
-        this.f39796a = safeKeyBoardEditText;
+        this.f37727a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnKeyListener
@@ -43,14 +43,14 @@ public class e implements View.OnKeyListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
             if (keyEvent.getAction() == 0 && i2 == 4) {
-                z = this.f39796a.o;
+                z = this.f37727a.o;
                 if (z) {
-                    safeScrollView = this.f39796a.f39757g;
+                    safeScrollView = this.f37727a.f37692g;
                     if (safeScrollView != null) {
-                        safeScrollView2 = this.f39796a.f39757g;
+                        safeScrollView2 = this.f37727a.f37692g;
                         if (safeScrollView2.isPopupWindowShowing()) {
-                            safeScrollView3 = this.f39796a.f39757g;
-                            safeScrollView3.dismissKeyBoard(this.f39796a);
+                            safeScrollView3 = this.f37727a.f37692g;
+                            safeScrollView3.dismissKeyBoard(this.f37727a);
                             return true;
                         }
                     }

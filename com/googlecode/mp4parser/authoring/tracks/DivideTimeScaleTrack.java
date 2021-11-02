@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DivideTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,11 +74,11 @@ public class DivideTimeScaleTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = 0;
-            for (long j3 : getSampleDurations()) {
-                j2 += j3;
+            long j = 0;
+            for (long j2 : getSampleDurations()) {
+                j += j2;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

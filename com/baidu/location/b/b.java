@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f41074a;
+    public static Object f38945a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f41075b;
+    public static b f38946b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41076c;
+    public int f38947c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class b {
                 return;
             }
         }
-        f41074a = new Object();
+        f38945a = new Object();
     }
 
     public b() {
@@ -51,7 +51,7 @@ public class b {
                 return;
             }
         }
-        this.f41076c = -1;
+        this.f38947c = -1;
     }
 
     public static b a() {
@@ -59,11 +59,11 @@ public class b {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f41074a) {
-                if (f41075b == null) {
-                    f41075b = new b();
+            synchronized (f38945a) {
+                if (f38946b == null) {
+                    f38946b = new b();
                 }
-                bVar = f41075b;
+                bVar = f38946b;
             }
             return bVar;
         }
@@ -72,10 +72,10 @@ public class b {
 
     public void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f41076c) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f38947c) {
             return;
         }
-        this.f41076c = i3;
+        this.f38947c = i3;
         Bundle bundle = new Bundle();
         bundle.putInt("loctype", i2);
         bundle.putInt("diagtype", i3);

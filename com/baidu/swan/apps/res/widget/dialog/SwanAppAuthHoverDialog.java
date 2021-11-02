@@ -3,14 +3,14 @@ package com.baidu.swan.apps.res.widget.dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
-import c.a.p0.a.e;
-import c.a.p0.a.i;
+import b.a.p0.a.e;
+import b.a.p0.a.i;
 import com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanAppAuthHoverDialog extends SwanAppAlertDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AUTH_NOT_TIP = "request_draw_overlays_deny";

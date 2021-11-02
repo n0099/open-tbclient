@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractCircuitBreaker<T> implements CircuitBreaker<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPERTY_NAME = "open";
@@ -21,14 +21,14 @@ public abstract class AbstractCircuitBreaker<T> implements CircuitBreaker<T> {
     public final AtomicReference<State> state;
 
     /* renamed from: org.apache.commons.lang3.concurrent.AbstractCircuitBreaker$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

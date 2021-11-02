@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ec {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ec f77917a;
+    public static final ec f70877a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ec[] f322a;
+    public static final /* synthetic */ ec[] f323a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ec f77918b;
+    public static final ec f70878b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ec f77919c;
+    public static final ec f70879c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ec f77920d;
+    public static final ec f70880d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f323a;
+    public String f324a;
 
     static {
         InterceptResult invokeClinit;
@@ -44,12 +44,12 @@ public final class ec {
                 return;
             }
         }
-        f77917a = new ec("ACTIVITY", 0, "activity");
-        f77918b = new ec("SERVICE_ACTION", 1, "service_action");
-        f77919c = new ec("SERVICE_COMPONENT", 2, "service_component");
+        f70877a = new ec("ACTIVITY", 0, "activity");
+        f70878b = new ec("SERVICE_ACTION", 1, "service_action");
+        f70879c = new ec("SERVICE_COMPONENT", 2, "service_component");
         ec ecVar = new ec("PROVIDER", 3, "provider");
-        f77920d = ecVar;
-        f322a = new ec[]{f77917a, f77918b, f77919c, ecVar};
+        f70880d = ecVar;
+        f323a = new ec[]{f70877a, f70878b, f70879c, ecVar};
     }
 
     public ec(String str, int i2, String str2) {
@@ -70,7 +70,7 @@ public final class ec {
                 return;
             }
         }
-        this.f323a = str2;
+        this.f324a = str2;
     }
 
     public static ec valueOf(String str) {
@@ -82,6 +82,6 @@ public final class ec {
     public static ec[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ec[]) f322a.clone() : (ec[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ec[]) f323a.clone() : (ec[]) invokeV.objValue;
     }
 }

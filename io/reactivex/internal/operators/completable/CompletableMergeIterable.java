@@ -16,13 +16,13 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class CompletableMergeIterable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Iterable<? extends CompletableSource> sources;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class MergeCompletableObserver extends AtomicBoolean implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7730517613164279224L;

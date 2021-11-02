@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BreakpointRemoteCheck {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -134,10 +134,10 @@ public class BreakpointRemoteCheck {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.resumable : invokeV.booleanValue;
     }
 
-    public boolean isTrialSpecialPass(int i2, long j2, boolean z) {
+    public boolean isTrialSpecialPass(int i2, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? i2 == 416 && j2 >= 0 && z : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z)})) == null) ? i2 == 416 && j >= 0 && z : invokeCommon.booleanValue;
     }
 
     public String toString() {

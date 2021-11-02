@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class UMALogger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UMALogger";
@@ -94,9 +94,9 @@ public abstract class UMALogger {
                         }
 
                         @Override // com.baidu.webkit.sdk.performance.UMALogger
-                        public void addTimesHistogramSample(String str, long j2) {
+                        public void addTimesHistogramSample(String str, long j) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLJ(1048581, this, str, j2) == null) {
+                            if (interceptable2 == null || interceptable2.invokeLJ(1048581, this, str, j) == null) {
                             }
                         }
                     };
@@ -119,7 +119,7 @@ public abstract class UMALogger {
 
     public abstract void addSpareHistogramSample(String str, int i2);
 
-    public abstract void addTimesHistogramSample(String str, long j2);
+    public abstract void addTimesHistogramSample(String str, long j);
 
     public void record(JSONObject jSONObject, List<String> list, String str) {
         Interceptable interceptable = $ic;
@@ -133,9 +133,9 @@ public abstract class UMALogger {
             if (list == null || !list.contains(next)) {
                 String str2 = str + next;
                 try {
-                    long j2 = jSONObject.getLong(next);
-                    Log.i(TAG, "adding " + str2 + "=" + j2);
-                    addTimesHistogramSample(str2, j2);
+                    long j = jSONObject.getLong(next);
+                    Log.i(TAG, "adding " + str2 + "=" + j);
+                    addTimesHistogramSample(str2, j);
                 } catch (JSONException e2) {
                     Log.e(TAG, "failed to get long for ".concat(String.valueOf(next)), e2);
                 }

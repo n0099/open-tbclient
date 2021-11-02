@@ -16,14 +16,14 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Iterator;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableZipIterable<T, U, V> extends AbstractFlowableWithUpstream<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Iterable<U> other;
     public final BiFunction<? super T, ? super U, ? extends V> zipper;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipIterableSubscriber<T, U, V> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,10 +131,10 @@ public final class FlowableZipIterable<T, U, V> extends AbstractFlowableWithUpst
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                this.s.request(j);
             }
         }
     }

@@ -21,7 +21,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OpenAppUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_WTAI_MC = "wtai://wp/mc;";

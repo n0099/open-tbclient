@@ -4,10 +4,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import b.a.r0.j1.b;
+import b.a.r0.j1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HotThreadItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,36 +65,36 @@ public class HotThreadItemHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.skinType = 3;
-        this.hotThreadItemRoot = (LinearLayout) view.findViewById(R.id.hot_thread_item_root);
-        this.hot_thread_theme_area = (LinearLayout) view.findViewById(R.id.hot_thread_theme_area);
-        this.hotThreadThemeTopDivilerLine = view.findViewById(R.id.hot_thread_theme_top_divider_line);
-        this.hotThreadThemeTitle = (TextView) view.findViewById(R.id.hot_thread_theme_title);
-        this.hotThreadThemeBottomDivilerLine = view.findViewById(R.id.hot_thread_theme_bottom_divider_line);
-        this.hotThreadNoneThemeArea = (FrameLayout) view.findViewById(R.id.hot_thread_none_theme);
-        this.mUserLayout = (LinearLayout) view.findViewById(R.id.hot_thread_item_user_info_view);
-        this.hotThreadTopLayout = (LinearLayout) view.findViewById(R.id.hot_thread_item_top_linear_layout);
-        this.mPhoto = (HeadImageView) view.findViewById(R.id.hot_thread_photo);
-        this.mTShowIcon = (UserIconBox) view.findViewById(R.id.hot_thread_user_tshow_icon_box);
-        this.mUserIcon = (UserIconBox) view.findViewById(R.id.hot_thread_user_icon_box);
-        this.mAuthor = (TextView) view.findViewById(R.id.hot_thread_lv_author);
-        this.mReplyTime = (TextView) view.findViewById(R.id.hot_thread_lv_reply_time);
-        this.mTitle = (TextView) view.findViewById(R.id.hot_thread_lv_title);
-        this.abstractTextView = (TextView) view.findViewById(R.id.abstract_text);
-        this.mVoice = (PlayVoiceBnt) view.findViewById(R.id.abstract_voice);
-        this.mImageLayout = (FrsCommonImageLayout) view.findViewById(R.id.abstract_img_layout);
-        this.mPraiseNum = (TextView) view.findViewById(R.id.hot_thread_praise_num);
-        this.mActionButton = (TextView) view.findViewById(R.id.action_button);
-        this.mReplyNum = (TextView) view.findViewById(R.id.hot_thread_reply_num);
-        this.mMoreAbtract = (TextView) view.findViewById(R.id.frs_more_abstract);
-        this.locationAddress = (TextView) view.findViewById(R.id.hot_thread_item_location_address);
-        this.locationSepView = view.findViewById(R.id.hot_thread_item_location_sep);
-        this.itemDivilerLine = view.findViewById(R.id.hot_thread_item_divider_line);
-        this.hotThreadItemRoot.setBackgroundResource(R.color.transparent);
+        this.hotThreadItemRoot = (LinearLayout) view.findViewById(e.hot_thread_item_root);
+        this.hot_thread_theme_area = (LinearLayout) view.findViewById(e.hot_thread_theme_area);
+        this.hotThreadThemeTopDivilerLine = view.findViewById(e.hot_thread_theme_top_divider_line);
+        this.hotThreadThemeTitle = (TextView) view.findViewById(e.hot_thread_theme_title);
+        this.hotThreadThemeBottomDivilerLine = view.findViewById(e.hot_thread_theme_bottom_divider_line);
+        this.hotThreadNoneThemeArea = (FrameLayout) view.findViewById(e.hot_thread_none_theme);
+        this.mUserLayout = (LinearLayout) view.findViewById(e.hot_thread_item_user_info_view);
+        this.hotThreadTopLayout = (LinearLayout) view.findViewById(e.hot_thread_item_top_linear_layout);
+        this.mPhoto = (HeadImageView) view.findViewById(e.hot_thread_photo);
+        this.mTShowIcon = (UserIconBox) view.findViewById(e.hot_thread_user_tshow_icon_box);
+        this.mUserIcon = (UserIconBox) view.findViewById(e.hot_thread_user_icon_box);
+        this.mAuthor = (TextView) view.findViewById(e.hot_thread_lv_author);
+        this.mReplyTime = (TextView) view.findViewById(e.hot_thread_lv_reply_time);
+        this.mTitle = (TextView) view.findViewById(e.hot_thread_lv_title);
+        this.abstractTextView = (TextView) view.findViewById(e.abstract_text);
+        this.mVoice = (PlayVoiceBnt) view.findViewById(e.abstract_voice);
+        this.mImageLayout = (FrsCommonImageLayout) view.findViewById(e.abstract_img_layout);
+        this.mPraiseNum = (TextView) view.findViewById(e.hot_thread_praise_num);
+        this.mActionButton = (TextView) view.findViewById(e.action_button);
+        this.mReplyNum = (TextView) view.findViewById(e.hot_thread_reply_num);
+        this.mMoreAbtract = (TextView) view.findViewById(e.frs_more_abstract);
+        this.locationAddress = (TextView) view.findViewById(e.hot_thread_item_location_address);
+        this.locationSepView = view.findViewById(e.hot_thread_item_location_sep);
+        this.itemDivilerLine = view.findViewById(e.hot_thread_item_divider_line);
+        this.hotThreadItemRoot.setBackgroundResource(b.transparent);
     }
 
     public static int getUserIconId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? R.id.hot_thread_user_icon_box : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? e.hot_thread_user_icon_box : invokeV.intValue;
     }
 }

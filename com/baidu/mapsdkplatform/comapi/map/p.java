@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class p extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,8 +23,8 @@ public class p extends d {
                 return;
             }
         }
-        this.f42286c = 10;
-        this.f42285b = "its";
-        this.f42287d = TiebaStatic.MAX_COST_VALUE;
+        this.f40111c = 10;
+        this.f40110b = "its";
+        this.f40112d = TiebaStatic.MAX_COST_VALUE;
     }
 }

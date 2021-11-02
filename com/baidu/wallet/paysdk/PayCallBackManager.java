@@ -31,13 +31,13 @@ import com.dxmpay.wallet.utils.StatHelper;
 import com.google.protobuf.CodedInputStream;
 import com.tencent.connect.common.Constants;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class PayCallBackManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isClientDead;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class PayStateModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;

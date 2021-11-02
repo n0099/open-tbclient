@@ -8,11 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.r0.c4.d;
-import c.a.r0.y.b.e;
-import c.a.r0.y.b.f;
-import c.a.r0.y.e.c;
+import b.a.e.e.p.l;
+import b.a.r0.c4.d;
+import b.a.r0.y.b.e;
+import b.a.r0.y.b.f;
+import b.a.r0.y.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -22,28 +22,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class VoteStatusCard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49965e;
+    public Context f47380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49966f;
+    public int f47381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f49967g;
+    public f f47382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f49968h;
+    public e f47383h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49969i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public VoteStatusView f49970j;
+    public TextView f47384i;
+    public VoteStatusView j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -56,13 +54,13 @@ public class VoteStatusCard extends LinearLayout {
     public b t;
     public NewVoteCountDownView.b u;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements NewVoteCountDownView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VoteStatusCard f49971a;
+        public final /* synthetic */ VoteStatusCard f47385a;
 
         public a(VoteStatusCard voteStatusCard) {
             Interceptable interceptable = $ic;
@@ -79,20 +77,20 @@ public class VoteStatusCard extends LinearLayout {
                     return;
                 }
             }
-            this.f49971a = voteStatusCard;
+            this.f47385a = voteStatusCard;
         }
 
         @Override // com.baidu.tieba.view.NewVoteCountDownView.b
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49971a.t == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47385a.t == null) {
                 return;
             }
-            this.f49971a.t.onRefresh();
+            this.f47385a.t.onRefresh();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void onRefresh();
     }
@@ -121,8 +119,8 @@ public class VoteStatusCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f49969i = (TextView) findViewById(R.id.bar_maneger_apply_title);
-            this.f49970j = (VoteStatusView) findViewById(R.id.vote_status_view);
+            this.f47384i = (TextView) findViewById(R.id.bar_maneger_apply_title);
+            this.j = (VoteStatusView) findViewById(R.id.vote_status_view);
             this.k = (TextView) findViewById(R.id.apply_title);
             this.l = (TextView) findViewById(R.id.apply_start_time);
             this.m = (TextView) findViewById(R.id.vote_title);
@@ -154,13 +152,13 @@ public class VoteStatusCard extends LinearLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f49965e = getContext();
+            this.f47380e = getContext();
             setOrientation(1);
             setMinimumHeight(l.g(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setBackgroundResource(R.drawable.bar_select_bg_shadow_and_radius);
-            int g2 = l.g(this.f49965e, R.dimen.tbds56);
-            int g3 = l.g(this.f49965e, R.dimen.tbds52);
+            int g2 = l.g(this.f47380e, R.dimen.tbds56);
+            int g3 = l.g(this.f47380e, R.dimen.tbds52);
             setPadding(g2, g3, g2, g3);
             LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
             b();
@@ -188,20 +186,20 @@ public class VoteStatusCard extends LinearLayout {
             }
             TextView textView2 = this.m;
             if (textView2 != null) {
-                textView2.setTextColor(this.f49966f > c.f28494a ? color : color2);
+                textView2.setTextColor(this.f47381f > c.f27224a ? color : color2);
             }
             TextView textView3 = this.o;
             if (textView3 != null) {
-                if (this.f49966f <= c.f28495b) {
+                if (this.f47381f <= c.f27225b) {
                     color = color2;
                 }
                 textView3.setTextColor(color);
             }
-            VoteStatusView voteStatusView = this.f49970j;
+            VoteStatusView voteStatusView = this.j;
             if (voteStatusView != null) {
                 voteStatusView.onSkinChange(i2);
             }
-            SkinManager.setViewTextColor(this.f49969i, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f47384i, R.color.CAM_X0105, 1, i2);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1, i2);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1, i2);
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1, i2);
@@ -220,18 +218,18 @@ public class VoteStatusCard extends LinearLayout {
     public void setData(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f49967g = fVar;
+            this.f47382g = fVar;
             if (fVar != null && fVar.a() != null) {
-                e a2 = this.f49967g.a();
-                this.f49968h = a2;
+                e a2 = this.f47382g.a();
+                this.f47383h = a2;
                 int g2 = a2.g();
-                this.f49966f = g2;
-                this.f49970j.setStatus(g2);
-                long f2 = this.f49968h.f() * 1000;
-                this.l.setText(StringHelper.getDateStringMd(this.f49968h.c() * 1000));
-                this.n.setText(StringHelper.getDateStringMdHm(this.f49968h.h() * 1000));
-                this.p.setText(StringHelper.getDateStringMdHm(this.f49968h.d() * 1000));
-                if (this.f49966f == c.f28495b) {
+                this.f47381f = g2;
+                this.j.setStatus(g2);
+                long f2 = this.f47383h.f() * 1000;
+                this.l.setText(StringHelper.getDateStringMd(this.f47383h.c() * 1000));
+                this.n.setText(StringHelper.getDateStringMdHm(this.f47383h.h() * 1000));
+                this.p.setText(StringHelper.getDateStringMdHm(this.f47383h.d() * 1000));
+                if (this.f47381f == c.f27225b) {
                     this.r.setVisibility(0);
                     NewVoteCountDownView.b bVar = this.u;
                     if (bVar != null) {
@@ -273,7 +271,7 @@ public class VoteStatusCard extends LinearLayout {
                 return;
             }
         }
-        this.f49966f = c.f28495b;
+        this.f47381f = c.f27225b;
         this.u = new a(this);
         d();
     }

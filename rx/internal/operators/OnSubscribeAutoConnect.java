@@ -4,14 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.j;
-import i.k;
-import i.n.b;
-import i.p.a;
-import i.q.f;
+import h.d;
+import h.j;
+import h.k;
+import h.n.b;
+import h.p.a;
+import h.q.f;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    @Override // i.n.b
+    @Override // h.d.a, h.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }
@@ -51,9 +51,9 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.
     public void call(j<? super T> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            this.source.I(f.c(jVar));
+            this.source.D(f.c(jVar));
             if (incrementAndGet() == this.numberOfSubscribers) {
-                this.source.J(this.connection);
+                this.source.E(this.connection);
             }
         }
     }

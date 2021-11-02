@@ -4,11 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class QuickPersistConfigConst {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CRASH_LOGGER_SYNC_SWITCHER = "crash_upload_sync_switcher";
     public static final String CRASH_NATIVE_LOGGER_SYNC_SWITCHER = "crash_native_upload_sync_switcher";
+    public static final String KEY_ACTIVE_EXP_ID = "active_optimize_exp_id";
     public static final String KEY_ACTIVITY_TRACE_ENABLE = "activity_trace_enable";
     public static final String KEY_BUNDLE_PRESET = "rn_bundle_preset_installed";
     public static final String KEY_BUNDLE_PRESET_VERSION = "rn_bundle_last_preset_version";

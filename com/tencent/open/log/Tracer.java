@@ -7,23 +7,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class Tracer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f76725a;
+    public volatile int f70078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f76726b;
+    public volatile boolean f70079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f76727c;
+    public g f70080c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Tracer() {
-        this(c.f76748a, true, g.f76764a);
+        this(c.f70099a, true, g.f70114a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,25 +40,25 @@ public abstract class Tracer {
         }
     }
 
-    public void a(int i2, Thread thread, long j2, String str, String str2, Throwable th) {
+    public void a(int i2, Thread thread, long j, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j2), str, str2, th}) == null) && d() && d.a.a(this.f76725a, i2)) {
-            doTrace(i2, thread, j2, str, str2, th);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j), str, str2, th}) == null) && d() && d.a.a(this.f70078a, i2)) {
+            doTrace(i2, thread, j, str, str2, th);
         }
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f76726b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70079b : invokeV.booleanValue;
     }
 
-    public abstract void doTrace(int i2, Thread thread, long j2, String str, String str2, Throwable th);
+    public abstract void doTrace(int i2, Thread thread, long j, String str, String str2, Throwable th);
 
     public g e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f76727c : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f70080c : (g) invokeV.objValue;
     }
 
     public Tracer(int i2, boolean z, g gVar) {
@@ -76,9 +76,9 @@ public abstract class Tracer {
                 return;
             }
         }
-        this.f76725a = c.f76748a;
-        this.f76726b = true;
-        this.f76727c = g.f76764a;
+        this.f70078a = c.f70099a;
+        this.f70079b = true;
+        this.f70080c = g.f70114a;
         a(i2);
         a(z);
         a(gVar);
@@ -87,21 +87,21 @@ public abstract class Tracer {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f76725a = i2;
+            this.f70078a = i2;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f76726b = z;
+            this.f70079b = z;
         }
     }
 
     public void a(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f76727c = gVar;
+            this.f70080c = gVar;
         }
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.alasquare.subtablist.view;
 
 import android.view.View;
-import c.a.r0.w.f.h.d.a;
+import b.a.r0.w.f.h.d.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AlaSubListGameDoubleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +15,7 @@ public class AlaSubListGameDoubleViewHolder extends TypeAdapter.ViewHolder {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSubListGameDoubleViewHolder(a aVar) {
-        super(aVar.j());
+        super(aVar.i());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

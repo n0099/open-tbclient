@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface MultiMediaTimelineUpdateListener {
-    void onTimelineUpdate(long j2, long j3);
+    void onTimelineUpdate(long j, long j2);
 }

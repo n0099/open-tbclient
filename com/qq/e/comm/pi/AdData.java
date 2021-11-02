@@ -1,8 +1,10 @@
 package com.qq.e.comm.pi;
-/* loaded from: classes10.dex */
+
+import java.util.Map;
+/* loaded from: classes2.dex */
 public interface AdData {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface VideoPlayer {
         int getCurrentPosition();
 
@@ -21,6 +23,8 @@ public interface AdData {
 
     String getECPMLevel();
 
+    Map<String, Object> getExtraInfo();
+
     <T> T getProperty(Class<T> cls);
 
     String getProperty(String str);
@@ -28,4 +32,6 @@ public interface AdData {
     String getTitle();
 
     int getVideoDuration();
+
+    void setECPMLevel(String str);
 }

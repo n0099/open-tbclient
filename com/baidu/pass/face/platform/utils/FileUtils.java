@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern RESERVED_CHARS_PATTERN;
@@ -94,7 +94,7 @@ public final class FileUtils {
         long computeFolderSize;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
-            long j2 = 0;
+            long j = 0;
             if (file == null) {
                 return 0L;
             }
@@ -104,13 +104,13 @@ public final class FileUtils {
                     if (file2.isFile()) {
                         computeFolderSize = file2.length();
                     } else if (file2.isDirectory()) {
-                        j2 += file2.length();
+                        j += file2.length();
                         computeFolderSize = computeFolderSize(file2);
                     }
-                    j2 += computeFolderSize;
+                    j += computeFolderSize;
                 }
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }

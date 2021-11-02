@@ -17,18 +17,18 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Enumeration;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PatchReplaceMethodHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends ClassLoader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DexFile f36413a;
+        public final /* synthetic */ DexFile f34489a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ClassLoader classLoader, DexFile dexFile) {
@@ -48,7 +48,7 @@ public class PatchReplaceMethodHelper {
                     return;
                 }
             }
-            this.f36413a = dexFile;
+            this.f34489a = dexFile;
         }
 
         @Override // java.lang.ClassLoader
@@ -56,7 +56,7 @@ public class PatchReplaceMethodHelper {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                Class<?> loadClass = this.f36413a.loadClass(str, this);
+                Class<?> loadClass = this.f34489a.loadClass(str, this);
                 if (loadClass == null && str.startsWith("com.baidu.adp.plugin.PluginPatchAnnotation")) {
                     return Class.forName(str);
                 }
@@ -109,11 +109,11 @@ public class PatchReplaceMethodHelper {
                         setFieldsFlag(cls);
                     }
                 } catch (IOException e2) {
-                    c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
+                    b.a.e.h.h.a b2 = b.a.e.h.h.a.b();
                     b2.r("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
                     e2.printStackTrace();
                 } catch (ClassNotFoundException e3) {
-                    c.a.e.h.h.a b3 = c.a.e.h.h.a.b();
+                    b.a.e.h.h.a b3 = b.a.e.h.h.a.b();
                     b3.r("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
                     e3.printStackTrace();
                 }

@@ -7,40 +7,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f37078a;
+    public long f35123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f37079b;
+    public long f35124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37080c;
+    public String f35125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37081d;
+    public String f35126d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37082e;
+    public String f35127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37083f;
+    public String f35128f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37084g;
+    public String f35129g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f37085h;
+    public String f35130h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f37086i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f37087j;
+    public String f35131i;
+    public String j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -55,16 +53,16 @@ public class b {
                 return;
             }
         }
-        this.f37078a = 0L;
-        this.f37079b = 0L;
-        this.f37080c = "";
-        this.f37081d = "";
-        this.f37082e = "";
-        this.f37083f = "";
-        this.f37084g = "";
-        this.f37085h = "";
-        this.f37086i = "";
-        this.f37087j = "";
+        this.f35123a = 0L;
+        this.f35124b = 0L;
+        this.f35125c = "";
+        this.f35126d = "";
+        this.f35127e = "";
+        this.f35128f = "";
+        this.f35129g = "";
+        this.f35130h = "";
+        this.f35131i = "";
+        this.j = "";
     }
 
     public JSONObject a() throws JSONException {
@@ -72,22 +70,22 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            long j2 = this.f37078a;
+            long j = this.f35123a;
+            if (j > -1) {
+                jSONObject.put("push_priority", j);
+            }
+            long j2 = this.f35124b;
             if (j2 > -1) {
-                jSONObject.put("push_priority", j2);
+                jSONObject.put("push_version", j2);
             }
-            long j3 = this.f37079b;
-            if (j3 > -1) {
-                jSONObject.put("push_version", j3);
-            }
-            jSONObject.put("push_channelid", this.f37080c);
-            jSONObject.put("push_newchannelid", this.f37081d);
-            jSONObject.put("push_curpkgname", this.f37082e);
-            jSONObject.put("push_webappbindinfo", this.f37083f);
-            jSONObject.put("push_lightappbindinfo", this.f37084g);
-            jSONObject.put("push_sdkclientbindinfo", this.f37085h);
-            jSONObject.put("push_clientsbindinfo", this.f37086i);
-            jSONObject.put("push_selfbindinfo", this.f37087j);
+            jSONObject.put("push_channelid", this.f35125c);
+            jSONObject.put("push_newchannelid", this.f35126d);
+            jSONObject.put("push_curpkgname", this.f35127e);
+            jSONObject.put("push_webappbindinfo", this.f35128f);
+            jSONObject.put("push_lightappbindinfo", this.f35129g);
+            jSONObject.put("push_sdkclientbindinfo", this.f35130h);
+            jSONObject.put("push_clientsbindinfo", this.f35131i);
+            jSONObject.put("push_selfbindinfo", this.j);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

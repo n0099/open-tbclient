@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ListIterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CameraUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f40308a = 307200;
+    public static final int f38217a = 307200;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f40309b = 2073600;
+    public static final int f38218b = 2073600;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CameraUtils() {

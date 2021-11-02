@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.AccessibleObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PreJava9ReflectionAccessor extends ReflectionAccessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -78,9 +78,9 @@ public interface SupportSQLiteDatabase extends Closeable {
 
     void setMaxSqlCacheSize(int i2);
 
-    long setMaximumSize(long j2);
+    long setMaximumSize(long j);
 
-    void setPageSize(long j2);
+    void setPageSize(long j);
 
     void setTransactionSuccessful();
 
@@ -90,5 +90,5 @@ public interface SupportSQLiteDatabase extends Closeable {
 
     boolean yieldIfContendedSafely();
 
-    boolean yieldIfContendedSafely(long j2);
+    boolean yieldIfContendedSafely(long j);
 }

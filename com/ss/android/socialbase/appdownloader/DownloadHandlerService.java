@@ -9,10 +9,6 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.p.a.e.a.d;
-import c.p.a.e.b.f.j;
-import c.p.a.e.b.g.e;
-import c.p.a.e.b.l.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,119 +19,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity;
+import com.ss.android.socialbase.downloader.depend.af;
+import com.ss.android.socialbase.downloader.depend.z;
+import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DownloadHandlerService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f76076a;
+    public static final String f68877a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes10.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadHandlerService f76077e;
-
-        public a(DownloadHandlerService downloadHandlerService) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {downloadHandlerService};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76077e = downloadHandlerService;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add("application/vnd.android.package-archive");
-                    arrayList.add("mime_type_plg");
-                    c.p.a.e.b.g.a.H(e.n()).z(arrayList);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f76078e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.f f76079f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.e.b.f.e f76080g;
-
-        public b(DownloadInfo downloadInfo, d.f fVar, c.p.a.e.b.f.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {downloadInfo, fVar, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76078e = downloadInfo;
-            this.f76079f = fVar;
-            this.f76080g = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            PackageInfo i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    File file = new File(this.f76078e.getSavePath(), this.f76078e.getName());
-                    if (file.exists()) {
-                        try {
-                            String str = (e.n() == null || (i2 = d.i(this.f76078e, file)) == null) ? "" : i2.packageName;
-                            if (this.f76079f != null) {
-                                this.f76079f.b(this.f76078e.getId(), 3, str, -3, this.f76078e.getDownloadTime());
-                            }
-                            if (this.f76080g != null) {
-                                this.f76080g.a(3, this.f76078e, str, "");
-                            }
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -150,7 +46,7 @@ public class DownloadHandlerService extends Service {
                 return;
             }
         }
-        f76076a = DownloadHandlerService.class.getSimpleName();
+        f68877a = DownloadHandlerService.class.getSimpleName();
     }
 
     public DownloadHandlerService() {
@@ -180,37 +76,76 @@ public class DownloadHandlerService extends Service {
             }
             int intExtra = intent.getIntExtra("extra_click_download_ids", 0);
             intent.getIntExtra("extra_click_download_type", 0);
-            d.f u = c.p.a.e.a.e.G().u();
-            c.p.a.e.b.f.e i2 = c.p.a.e.b.g.a.H(this).i(intExtra);
+            com.ss.android.socialbase.appdownloader.c.d b2 = d.j().b();
+            z downloadNotificationEventListener = Downloader.getInstance(this).getDownloadNotificationEventListener(intExtra);
             boolean z = true;
-            if (intent.getBooleanExtra("extra_from_notification", false) && c.p.a.e.b.j.a.d(intExtra).m("notification_opt_2") == 1) {
-                c.p.a.e.b.p.b.a().m(intExtra);
+            if (intent.getBooleanExtra("extra_from_notification", false) && com.ss.android.socialbase.downloader.g.a.a(intExtra).b("notification_opt_2") == 1) {
+                com.ss.android.socialbase.downloader.notification.b.a().f(intExtra);
             }
-            DownloadInfo f2 = c.p.a.e.b.g.a.H(this).f(intExtra);
-            if (f2 == null) {
+            DownloadInfo downloadInfo = Downloader.getInstance(this).getDownloadInfo(intExtra);
+            if (downloadInfo == null) {
                 return false;
             }
             if (action.equals("android.ss.intent.action.DOWNLOAD_CLICK_CONTENT")) {
-                a(f2, u, i2);
+                a(downloadInfo, b2, downloadNotificationEventListener);
             } else if (action.equals("android.ss.intent.action.DOWNLOAD_OPEN")) {
-                a(this, f2, u, i2);
+                a(this, downloadInfo, b2, downloadNotificationEventListener);
             } else if (action.equals("android.ss.intent.action.DOWNLOAD_CLICK_BTN")) {
-                if (f2.getStatus() == 0) {
+                if (downloadInfo.getStatus() == 0) {
                     return false;
                 }
-                a(this, f2, u, i2);
-                if (f2.isDownloadOverStatus() && c.p.a.e.b.j.a.d(intExtra).b("no_hide_notification", 0) == 0) {
-                    if (!((c.p.a.e.b.j.a.d(intExtra).m("enable_notification_ui") < 2 || f2.getStatus() != -1) ? false : false)) {
-                        c.p.a.e.b.p.b.a().b(intExtra);
-                        c.p.a.e.b.p.b.a().m(intExtra);
+                a(this, downloadInfo, b2, downloadNotificationEventListener);
+                if (downloadInfo.isDownloadOverStatus() && com.ss.android.socialbase.downloader.g.a.a(intExtra).a("no_hide_notification", 0) == 0) {
+                    if (!((com.ss.android.socialbase.downloader.g.a.a(intExtra).b("enable_notification_ui") < 2 || downloadInfo.getStatus() != -1) ? false : false)) {
+                        com.ss.android.socialbase.downloader.notification.b.a().a(intExtra);
+                        com.ss.android.socialbase.downloader.notification.b.a().f(intExtra);
                     }
                 }
             } else if (action.equals("android.ss.intent.action.DOWNLOAD_DELETE")) {
-                b(f2, u, i2);
+                b(downloadInfo, b2, downloadNotificationEventListener);
             } else if (action.equals("android.ss.intent.action.DOWNLOAD_HIDE")) {
-                c.p.a.e.b.p.b.a().b(intExtra);
+                com.ss.android.socialbase.downloader.notification.b.a().a(intExtra);
             } else if (action.equals("android.intent.action.BOOT_COMPLETED") || action.equals("android.intent.action.MEDIA_MOUNTED")) {
-                e.A0().execute(new a(this));
+                com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this) { // from class: com.ss.android.socialbase.appdownloader.DownloadHandlerService.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ DownloadHandlerService f68878a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f68878a = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                ArrayList arrayList = new ArrayList();
+                                arrayList.add("application/vnd.android.package-archive");
+                                arrayList.add("mime_type_plg");
+                                Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).restartAllFailedDownloadTasks(arrayList);
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                    }
+                });
                 return true;
             }
             return false;
@@ -218,21 +153,21 @@ public class DownloadHandlerService extends Service {
         return invokeL.booleanValue;
     }
 
-    private void b(@NonNull DownloadInfo downloadInfo, d.f fVar, c.p.a.e.b.f.e eVar) {
+    private void b(@NonNull DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.c.d dVar, z zVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, this, downloadInfo, fVar, eVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65544, this, downloadInfo, dVar, zVar) == null) {
             int id = downloadInfo.getId();
             Intent intent = new Intent(this, DownloadTaskDeleteActivity.class);
             intent.putExtra("extra_click_download_ids", id);
             intent.addFlags(268435456);
             startActivity(intent);
-            c.p.a.e.b.p.b.a().b(id);
+            com.ss.android.socialbase.downloader.notification.b.a().a(id);
             downloadInfo.updateDownloadTime();
-            if (fVar != null) {
-                fVar.b(id, 7, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
+            if (dVar != null) {
+                dVar.a(id, 7, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
             }
-            if (eVar != null) {
-                eVar.a(7, downloadInfo, "", "");
+            if (zVar != null) {
+                zVar.a(7, downloadInfo, "", "");
             }
         }
     }
@@ -252,7 +187,7 @@ public class DownloadHandlerService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            e.C(this);
+            com.ss.android.socialbase.downloader.downloader.c.a(this);
         }
     }
 
@@ -262,8 +197,8 @@ public class DownloadHandlerService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
             super.onStartCommand(intent, i2, i3);
-            if (c.p.a.e.b.c.a.e()) {
-                c.p.a.e.b.c.a.g(f76076a, "onStartCommand");
+            if (com.ss.android.socialbase.downloader.c.a.a()) {
+                com.ss.android.socialbase.downloader.c.a.b(f68877a, "onStartCommand");
             }
             a(intent);
             stopSelf();
@@ -274,21 +209,79 @@ public class DownloadHandlerService extends Service {
 
     public static void a(Context context, DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, downloadInfo) == null) && f.g0(context.getApplicationContext()) && downloadInfo.isPauseReserveOnWifi()) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, downloadInfo) == null) && com.ss.android.socialbase.downloader.i.f.b(context.getApplicationContext()) && downloadInfo.isPauseReserveOnWifi()) {
             downloadInfo.stopPauseReserveOnWifi();
         }
     }
 
-    public static void a(Context context, d.f fVar, DownloadInfo downloadInfo) {
+    public static void a(Context context, com.ss.android.socialbase.appdownloader.c.d dVar, DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, fVar, downloadInfo) == null) || downloadInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, dVar, downloadInfo) == null) || downloadInfo == null) {
             return;
         }
-        c.p.a.e.b.f.e i2 = c.p.a.e.b.g.a.H(context).i(downloadInfo.getId());
-        if (fVar == null && i2 == null) {
+        z downloadNotificationEventListener = Downloader.getInstance(context).getDownloadNotificationEventListener(downloadInfo.getId());
+        if (dVar == null && downloadNotificationEventListener == null) {
             return;
         }
-        e.A0().execute(new b(downloadInfo, fVar, i2));
+        com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(downloadInfo, dVar, downloadNotificationEventListener) { // from class: com.ss.android.socialbase.appdownloader.DownloadHandlerService.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ DownloadInfo f68879a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ com.ss.android.socialbase.appdownloader.c.d f68880b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ z f68881c;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {downloadInfo, dVar, downloadNotificationEventListener};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f68879a = downloadInfo;
+                this.f68880b = dVar;
+                this.f68881c = downloadNotificationEventListener;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                PackageInfo a2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    try {
+                        File file = new File(this.f68879a.getSavePath(), this.f68879a.getName());
+                        if (file.exists()) {
+                            try {
+                                String str = (com.ss.android.socialbase.downloader.downloader.c.N() == null || (a2 = c.a(this.f68879a, file)) == null) ? "" : a2.packageName;
+                                if (this.f68880b != null) {
+                                    this.f68880b.a(this.f68879a.getId(), 3, str, -3, this.f68879a.getDownloadTime());
+                                }
+                                if (this.f68881c != null) {
+                                    this.f68881c.a(3, this.f68879a, str, "");
+                                }
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x001e  */
@@ -296,17 +289,17 @@ public class DownloadHandlerService extends Service {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(@NonNull DownloadInfo downloadInfo, d.f fVar, c.p.a.e.b.f.e eVar) {
+    private void a(@NonNull DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.c.d dVar, z zVar) {
         boolean a2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, downloadInfo, fVar, eVar) != null) {
+        if (interceptable != null && interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, downloadInfo, dVar, zVar) != null) {
             return;
         }
         int id = downloadInfo.getId();
-        j I = c.p.a.e.b.g.f.c().I(id);
-        if (I != null) {
+        af m = com.ss.android.socialbase.downloader.downloader.d.a().m(id);
+        if (m != null) {
             try {
-                a2 = I.a(downloadInfo);
+                a2 = m.a(downloadInfo);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -315,13 +308,13 @@ public class DownloadHandlerService extends Service {
                 intent.putExtra("extra_click_download_ids", id);
                 intent.addFlags(268435456);
                 startActivity(intent);
-                c.p.a.e.b.p.b.a().b(id);
+                com.ss.android.socialbase.downloader.notification.b.a().a(id);
                 downloadInfo.updateDownloadTime();
-                if (fVar != null) {
-                    fVar.b(id, 7, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
+                if (dVar != null) {
+                    dVar.a(id, 7, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
                 }
-                if (eVar != null) {
-                    eVar.a(7, downloadInfo, "", "");
+                if (zVar != null) {
+                    zVar.a(7, downloadInfo, "", "");
                     return;
                 }
                 return;
@@ -335,19 +328,19 @@ public class DownloadHandlerService extends Service {
 
     public static void a(Context context, int i2, boolean z) {
         boolean z2;
-        j I;
-        DownloadInfo f2;
+        af m;
+        DownloadInfo downloadInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            if (z && (I = c.p.a.e.b.g.f.c().I(i2)) != null) {
+            if (z && (m = com.ss.android.socialbase.downloader.downloader.d.a().m(i2)) != null) {
                 try {
-                    f2 = c.p.a.e.b.g.a.H(context).f(i2);
+                    downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
-                if (f2 != null) {
-                    z2 = I.b(f2);
-                    if (z2 && d.d(context, i2, true) == 0) {
+                if (downloadInfo != null) {
+                    z2 = m.b(downloadInfo);
+                    if (z2 && c.a(context, i2, true) == 0) {
                         Toast.makeText(context, "Open Fail!", 0).show();
                     }
                     return;
@@ -361,49 +354,49 @@ public class DownloadHandlerService extends Service {
         }
     }
 
-    public static void a(Context context, DownloadInfo downloadInfo, d.f fVar, c.p.a.e.b.f.e eVar) {
-        c.p.a.e.b.p.a l;
+    public static void a(Context context, DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.c.d dVar, z zVar) {
+        com.ss.android.socialbase.downloader.notification.a e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, context, downloadInfo, fVar, eVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, context, downloadInfo, dVar, zVar) == null) {
             int id = downloadInfo.getId();
-            j I = c.p.a.e.b.g.f.c().I(id);
-            if ("application/vnd.android.package-archive".equals(downloadInfo.getMimeType()) && I != null && d.v(context, downloadInfo) && I.c(downloadInfo)) {
+            af m = com.ss.android.socialbase.downloader.downloader.d.a().m(id);
+            if ("application/vnd.android.package-archive".equals(downloadInfo.getMimeType()) && m != null && c.a(context, downloadInfo) && m.c(downloadInfo)) {
                 return;
             }
             boolean z = false;
             switch (downloadInfo.getStatus()) {
                 case -4:
                 case -1:
-                    if (c.p.a.e.b.j.a.d(id).m("enable_notification_ui") >= 2 && downloadInfo.isOnlyWifi()) {
+                    if (com.ss.android.socialbase.downloader.g.a.a(id).b("enable_notification_ui") >= 2 && downloadInfo.isOnlyWifi()) {
                         downloadInfo.setOnlyWifi(false);
                     }
-                    c.p.a.e.b.g.a.H(context).y(id);
+                    Downloader.getInstance(context).restart(id);
                     return;
                 case -3:
-                    a(e.n(), id, true);
-                    a(context, fVar, downloadInfo);
-                    if (c.p.a.e.b.j.a.d(id).b("notification_click_install_auto_cancel", 1) != 0 || (l = c.p.a.e.b.p.b.a().l(id)) == null) {
+                    a(com.ss.android.socialbase.downloader.downloader.c.N(), id, true);
+                    a(context, dVar, downloadInfo);
+                    if (com.ss.android.socialbase.downloader.g.a.a(id).a("notification_click_install_auto_cancel", 1) != 0 || (e2 = com.ss.android.socialbase.downloader.notification.b.a().e(id)) == null) {
                         z = true;
                     } else {
-                        l.p();
-                        l.c(-3, null, false, true);
+                        e2.g();
+                        e2.a(-3, null, false, true);
                     }
                     if (z) {
-                        c.p.a.e.b.p.b.a().b(id);
+                        com.ss.android.socialbase.downloader.notification.b.a().a(id);
                         return;
                     }
                     return;
                 case -2:
-                    if (c.p.a.e.b.g.f.c().B(id)) {
-                        c.p.a.e.b.g.a.H(context).B(id);
+                    if (com.ss.android.socialbase.downloader.downloader.d.a().e(id)) {
+                        Downloader.getInstance(context).resume(id);
                     } else {
-                        d.s(downloadInfo, true, false);
+                        c.a(downloadInfo, true, false);
                     }
-                    if (fVar != null) {
-                        fVar.b(id, 6, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
+                    if (dVar != null) {
+                        dVar.a(id, 6, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
                     }
-                    if (eVar != null) {
-                        eVar.a(6, downloadInfo, "", "");
+                    if (zVar != null) {
+                        zVar.a(6, downloadInfo, "", "");
                         return;
                     }
                     return;
@@ -415,13 +408,13 @@ public class DownloadHandlerService extends Service {
                 case 3:
                 case 4:
                 case 5:
-                    c.p.a.e.b.g.a.H(context).u(id);
+                    Downloader.getInstance(context).pause(id);
                     a(context, downloadInfo);
-                    if (fVar != null) {
-                        fVar.b(id, 5, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
+                    if (dVar != null) {
+                        dVar.a(id, 5, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
                     }
-                    if (eVar != null) {
-                        eVar.a(5, downloadInfo, "", "");
+                    if (zVar != null) {
+                        zVar.a(5, downloadInfo, "", "");
                         return;
                     }
                     return;

@@ -12,31 +12,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bc implements ar {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f77740a = "content://com.vivo.vms.IdProvider/IdentifierId/";
+    public static String f70703a = "content://com.vivo.vms.IdProvider/IdentifierId/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f77741b;
+    public static String f70704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f77742c;
+    public static String f70705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f77743d;
+    public static String f70706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f77744e;
+    public static String f70707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f77745f;
+    public static String f70708f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f152a;
+    public Context f153a;
 
     static {
         InterceptResult invokeClinit;
@@ -51,11 +51,11 @@ public class bc implements ar {
                 return;
             }
         }
-        f77741b = f77740a + "OAID";
-        f77742c = f77740a + "VAID_";
-        f77743d = f77740a + "AAID_";
-        f77744e = f77740a + "OAIDSTATUS";
-        f77745f = "persist.sys.identifierid.supported";
+        f70704b = f70703a + "OAID";
+        f70705c = f70703a + "VAID_";
+        f70706d = f70703a + "AAID_";
+        f70707e = f70703a + "OAIDSTATUS";
+        f70708f = "persist.sys.identifierid.supported";
     }
 
     public bc(Context context) {
@@ -73,7 +73,7 @@ public class bc implements ar {
                 return;
             }
         }
-        this.f152a = context;
+        this.f153a = context;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
@@ -101,7 +101,7 @@ public class bc implements ar {
         }
         String str2 = null;
         try {
-            cursor = this.f152a.getContentResolver().query(Uri.parse(str), null, null, null, null);
+            cursor = this.f153a.getContentResolver().query(Uri.parse(str), null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToNext()) {
@@ -129,7 +129,7 @@ public class bc implements ar {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(Uri.parse(f77740a).getAuthority(), 128);
+                ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(Uri.parse(f70703a).getAuthority(), 128);
                 if (resolveContentProvider != null) {
                     if ((resolveContentProvider.applicationInfo.flags & 1) != 0) {
                         return true;
@@ -156,7 +156,7 @@ public class bc implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f77745f, "0")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f70708f, "0")) : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
@@ -164,7 +164,7 @@ public class bc implements ar {
     public String mo152b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f77741b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f70704b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar

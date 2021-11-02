@@ -26,41 +26,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Button f39761a;
+    public Button f37695a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Button f39762b;
+    public Button f37696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f39763c;
+    public Button f37697c;
     public View contentView;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f39764d;
+    public Button f37698d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f39765e;
+    public Button f37699e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f39766f;
+    public Button f37700f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f39767g;
+    public Button f37701g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f39768h;
+    public Button f37702h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f39769i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Button f39770j;
+    public Button f37703i;
+    public Button j;
     public ImageButton k;
     public a l;
     public boolean m;
@@ -69,13 +67,13 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     public SafeScrollView mSafeScrollView;
     public SafeKeyBoardEditText mySafeEditText;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<SafeKeyBoardPopupWindow> f39771a;
+        public WeakReference<SafeKeyBoardPopupWindow> f37704a;
 
         public a(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
             Interceptable interceptable = $ic;
@@ -92,7 +90,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
                     return;
                 }
             }
-            this.f39771a = new WeakReference<>(safeKeyBoardPopupWindow);
+            this.f37704a = new WeakReference<>(safeKeyBoardPopupWindow);
         }
 
         @Override // android.os.Handler
@@ -104,7 +102,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f39771a.get();
+                SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f37704a.get();
                 if (safeKeyBoardPopupWindow == null) {
                     return;
                 }
@@ -246,28 +244,28 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             setWidth(-1);
             setBackgroundDrawable(new BitmapDrawable());
             setAnimationStyle(ResUtils.style(this.mContext, "rim_base_safekeyboard_popwindown_anim"));
-            this.f39770j = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn0"));
-            this.f39761a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
-            this.f39762b = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
-            this.f39763c = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
-            this.f39764d = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
-            this.f39765e = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn5"));
-            this.f39766f = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn6"));
-            this.f39767g = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn7"));
-            this.f39768h = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn8"));
-            this.f39769i = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn9"));
+            this.j = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn0"));
+            this.f37695a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
+            this.f37696b = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
+            this.f37697c = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
+            this.f37698d = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
+            this.f37699e = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn5"));
+            this.f37700f = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn6"));
+            this.f37701g = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn7"));
+            this.f37702h = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn8"));
+            this.f37703i = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn9"));
             this.mButtonX = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_x"));
             this.k = (ImageButton) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_del"));
-            this.f39770j.setOnClickListener(this);
-            this.f39761a.setOnClickListener(this);
-            this.f39762b.setOnClickListener(this);
-            this.f39763c.setOnClickListener(this);
-            this.f39764d.setOnClickListener(this);
-            this.f39765e.setOnClickListener(this);
-            this.f39766f.setOnClickListener(this);
-            this.f39767g.setOnClickListener(this);
-            this.f39768h.setOnClickListener(this);
-            this.f39769i.setOnClickListener(this);
+            this.j.setOnClickListener(this);
+            this.f37695a.setOnClickListener(this);
+            this.f37696b.setOnClickListener(this);
+            this.f37697c.setOnClickListener(this);
+            this.f37698d.setOnClickListener(this);
+            this.f37699e.setOnClickListener(this);
+            this.f37700f.setOnClickListener(this);
+            this.f37701g.setOnClickListener(this);
+            this.f37702h.setOnClickListener(this);
+            this.f37703i.setOnClickListener(this);
             this.mButtonX.setOnClickListener(this);
             this.k.setOnFocusChangeListener(new f(this));
             this.k.setOnTouchListener(new g(this));
@@ -295,36 +293,36 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             int[] a2 = a(z);
-            Button button2 = this.f39770j;
+            Button button2 = this.j;
             button2.setText("" + a2[0]);
-            this.f39770j.setTag(Integer.valueOf(a2[0]));
-            Button button3 = this.f39761a;
+            this.j.setTag(Integer.valueOf(a2[0]));
+            Button button3 = this.f37695a;
             button3.setText("" + a2[1]);
-            this.f39761a.setTag(Integer.valueOf(a2[1]));
-            Button button4 = this.f39762b;
+            this.f37695a.setTag(Integer.valueOf(a2[1]));
+            Button button4 = this.f37696b;
             button4.setText("" + a2[2]);
-            this.f39762b.setTag(Integer.valueOf(a2[2]));
-            Button button5 = this.f39763c;
+            this.f37696b.setTag(Integer.valueOf(a2[2]));
+            Button button5 = this.f37697c;
             button5.setText("" + a2[3]);
-            this.f39763c.setTag(Integer.valueOf(a2[3]));
-            Button button6 = this.f39764d;
+            this.f37697c.setTag(Integer.valueOf(a2[3]));
+            Button button6 = this.f37698d;
             button6.setText("" + a2[4]);
-            this.f39764d.setTag(Integer.valueOf(a2[4]));
-            Button button7 = this.f39765e;
+            this.f37698d.setTag(Integer.valueOf(a2[4]));
+            Button button7 = this.f37699e;
             button7.setText("" + a2[5]);
-            this.f39765e.setTag(Integer.valueOf(a2[5]));
-            Button button8 = this.f39766f;
+            this.f37699e.setTag(Integer.valueOf(a2[5]));
+            Button button8 = this.f37700f;
             button8.setText("" + a2[6]);
-            this.f39766f.setTag(Integer.valueOf(a2[6]));
-            Button button9 = this.f39767g;
+            this.f37700f.setTag(Integer.valueOf(a2[6]));
+            Button button9 = this.f37701g;
             button9.setText("" + a2[7]);
-            this.f39767g.setTag(Integer.valueOf(a2[7]));
-            Button button10 = this.f39768h;
+            this.f37701g.setTag(Integer.valueOf(a2[7]));
+            Button button10 = this.f37702h;
             button10.setText("" + a2[8]);
-            this.f39768h.setTag(Integer.valueOf(a2[8]));
-            Button button11 = this.f39769i;
+            this.f37702h.setTag(Integer.valueOf(a2[8]));
+            Button button11 = this.f37703i;
             button11.setText("" + a2[9]);
-            this.f39769i.setTag(Integer.valueOf(a2[9]));
+            this.f37703i.setTag(Integer.valueOf(a2[9]));
             if (this.mySafeEditText.getUseKeyX()) {
                 this.mButtonX.setEnabled(true);
                 this.mButtonX.setBackgroundResource(ResUtils.drawable(this.mContext, "rim_base_safekeyboard_numkey_selector"));

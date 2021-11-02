@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocationClient f41055a;
+    public final /* synthetic */ LocationClient f38927a;
 
     public b(LocationClient locationClient) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class b implements ServiceConnection {
                 return;
             }
         }
-        this.f41055a = locationClient;
+        this.f38927a = locationClient;
     }
 
     @Override // android.content.ServiceConnection
@@ -45,27 +45,27 @@ public class b implements ServiceConnection {
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.f41055a.f41041g = new Messenger(iBinder);
-            if (this.f41055a.f41041g == null) {
+            this.f38927a.f38914g = new Messenger(iBinder);
+            if (this.f38927a.f38914g == null) {
                 return;
             }
-            this.f41055a.f41039e = true;
-            z = this.f41055a.x;
+            this.f38927a.f38912e = true;
+            z = this.f38927a.x;
             if (z) {
-                this.f41055a.f41042h.obtainMessage(2).sendToTarget();
+                this.f38927a.f38915h.obtainMessage(2).sendToTarget();
                 return;
             }
             try {
                 Message obtain = Message.obtain((Handler) null, 11);
-                obtain.replyTo = this.f41055a.f41043i;
-                c2 = this.f41055a.c();
+                obtain.replyTo = this.f38927a.f38916i;
+                c2 = this.f38927a.c();
                 obtain.setData(c2);
-                this.f41055a.f41041g.send(obtain);
-                this.f41055a.f41039e = true;
-                if (this.f41055a.f41037c != null) {
-                    bool = this.f41055a.A;
+                this.f38927a.f38914g.send(obtain);
+                this.f38927a.f38912e = true;
+                if (this.f38927a.f38910c != null) {
+                    bool = this.f38927a.A;
                     bool.booleanValue();
-                    this.f41055a.f41042h.obtainMessage(4).sendToTarget();
+                    this.f38927a.f38915h.obtainMessage(4).sendToTarget();
                 }
             } catch (Exception unused) {
             }
@@ -76,8 +76,8 @@ public class b implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f41055a.f41041g = null;
-            this.f41055a.f41039e = false;
+            this.f38927a.f38914g = null;
+            this.f38927a.f38912e = false;
         }
     }
 }

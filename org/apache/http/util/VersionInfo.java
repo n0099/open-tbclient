@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VersionInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPERTY_MODULE = "info.module";

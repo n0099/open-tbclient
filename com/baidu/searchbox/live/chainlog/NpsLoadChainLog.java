@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NpsLoadChainLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERR_CODE_UNUSED = Integer.MIN_VALUE;
@@ -41,7 +41,7 @@ public class NpsLoadChainLog {
     public String sessionId;
     public UBCManager ubcManager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final NpsLoadChainLog INSTANCE;
@@ -197,10 +197,10 @@ public class NpsLoadChainLog {
         }
     }
 
-    public void endDownloadLiveNps(long j2, long j3) {
+    public void endDownloadLiveNps(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            postTask(new Runnable(this, j2, j3) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.6
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            postTask(new Runnable(this, j, j2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -212,7 +212,7 @@ public class NpsLoadChainLog {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j2), Long.valueOf(j3)};
+                        Object[] objArr = {this, Long.valueOf(j), Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -223,8 +223,8 @@ public class NpsLoadChainLog {
                         }
                     }
                     this.this$0 = this;
-                    this.val$downloadSize = j2;
-                    this.val$totalSize = j3;
+                    this.val$downloadSize = j;
+                    this.val$totalSize = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -1044,14 +1044,14 @@ public class NpsLoadChainLog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject genNodeJsonObj(int i2, int i3, long j2, long j3) {
+    public JSONObject genNodeJsonObj(int i2, int i3, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)})) == null) {
             JSONObject genNodeJsonObj = genNodeJsonObj(i2, i3);
             try {
-                genNodeJsonObj.put("downloadSize", j2);
-                genNodeJsonObj.put("totalSize", j3);
+                genNodeJsonObj.put("downloadSize", j);
+                genNodeJsonObj.put("totalSize", j2);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

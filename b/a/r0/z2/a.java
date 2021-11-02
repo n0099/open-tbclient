@@ -1,0 +1,495 @@
+package b.a.r0.z2;
+
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import b.a.q0.s.q.c2;
+import b.a.q0.s.q.o0;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.GoodsInfo;
+/* loaded from: classes6.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: b.a.r0.z2.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static class C1362a implements Comparator<o0> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public C1362a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(o0 o0Var, o0 o0Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o0Var, o0Var2)) == null) {
+                if (o0Var.c() && o0Var2.c()) {
+                    return o0Var.f() - o0Var2.f();
+                }
+                if (o0Var.c() || o0Var2.c()) {
+                    return o0Var.c() ? -1 : 1;
+                }
+                return (o0Var.m() == null ? -1 : a.g(o0Var.m())) - (o0Var2.m() != null ? a.g(o0Var2.m()) : -1);
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    public static Set<b.a.e.l.e.n> a(List<b.a.e.l.e.n> list, int i2, String str) {
+        InterceptResult invokeLIL;
+        AdvertAppInfo m;
+        AdvertAppInfo m2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, list, i2, str)) == null) {
+            HashSet hashSet = new HashSet();
+            if (b.a.r0.q1.o.k.a.e(list)) {
+                return hashSet;
+            }
+            Set<b.a.e.l.e.n> a2 = b.a.r0.z2.l0.a.a(str);
+            if (a2 == null) {
+                a2 = new HashSet();
+            }
+            for (b.a.e.l.e.n nVar : list) {
+                if (nVar != null) {
+                    for (b.a.e.l.e.n nVar2 : a2) {
+                        if ((nVar instanceof o0) && (m2 = ((o0) nVar).m()) != null && nVar2.hashCode() == m2.hashCode()) {
+                            m2.g4 = ((AdvertAppInfo) nVar2).g4;
+                        }
+                    }
+                    if ((nVar instanceof o0) && (m = ((o0) nVar).m()) != null && m.g4 == null) {
+                        b.a.q0.s.q.e eVar = new b.a.q0.s.q.e();
+                        m.g4 = eVar;
+                        eVar.f13276a = str;
+                        eVar.f13277b = i2;
+                        eVar.f13283h = m.e4;
+                        eVar.f13284i = false;
+                        hashSet.add(m);
+                    }
+                }
+            }
+            a2.addAll(hashSet);
+            b.a.r0.z2.l0.a.b(str, a2);
+            return hashSet;
+        }
+        return (Set) invokeLIL.objValue;
+    }
+
+    public static int b(@NonNull List<b.a.e.l.e.n> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            int i2 = 0;
+            if (b.a.r0.q1.o.k.a.e(list)) {
+                return 0;
+            }
+            int i3 = -1;
+            for (int k = b.a.r0.q1.o.k.a.k(list) - 1; k >= 0 && !(b.a.r0.q1.o.k.a.d(list, k) instanceof o0); k--) {
+                if (b.a.r0.q1.o.k.a.d(list, k) instanceof c2) {
+                    int i4 = ((c2) b.a.r0.q1.o.k.a.d(list, k)).position;
+                    if (i4 != i3) {
+                        i2++;
+                        i3 = i4;
+                    }
+                } else {
+                    i2++;
+                }
+            }
+            return i2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void c(List<b.a.e.l.e.n> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || b.a.r0.q1.o.k.a.e(list)) {
+            return;
+        }
+        Iterator<b.a.e.l.e.n> it = list.iterator();
+        while (it.hasNext()) {
+            if (it.next() instanceof o0) {
+                it.remove();
+            }
+        }
+    }
+
+    public static void d(String str, List list) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) || TextUtils.isEmpty(str) || b.a.r0.q1.o.k.a.e(list)) {
+            return;
+        }
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            Object next = it.next();
+            boolean z = next instanceof o0;
+            if (z || (next instanceof App)) {
+                if (next instanceof App) {
+                    str2 = c.a((App) next);
+                } else {
+                    if (z) {
+                        o0 o0Var = (o0) next;
+                        if (o0Var.m() != null) {
+                            str2 = o0Var.m().X3;
+                        }
+                    }
+                    str2 = "";
+                }
+                if (TextUtils.equals(str, str2)) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public static String e(List<b.a.e.l.e.n> list, boolean z) {
+        InterceptResult invokeLZ;
+        o0 o0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, list, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!z && !b.a.r0.q1.o.k.a.e(list)) {
+                int i2 = 0;
+                for (int k = b.a.r0.q1.o.k.a.k(list) - 1; k >= 0 && i2 < 6; k--) {
+                    if ((b.a.r0.q1.o.k.a.d(list, k) instanceof o0) && (o0Var = (o0) b.a.r0.q1.o.k.a.d(list, k)) != null && !n(o0Var.m())) {
+                        sb.append(o0Var.f() + 1);
+                        sb.append(",");
+                        i2++;
+                    }
+                }
+                if (sb.length() <= 1) {
+                    return sb.toString();
+                }
+                sb.deleteCharAt(sb.length() - 1);
+                return sb.toString();
+            }
+            return sb.toString();
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public static String f(@NonNull AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, advertAppInfo)) == null) {
+            return "#Nad=" + advertAppInfo.e4;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int g(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, advertAppInfo)) == null) {
+            if (advertAppInfo == null) {
+                return 0;
+            }
+            if (TextUtils.isEmpty(advertAppInfo.d4)) {
+                return -1;
+            }
+            return b.a.e.e.m.b.e(advertAppInfo.d4, -1);
+        }
+        return invokeL.intValue;
+    }
+
+    public static List<o0> h(List<App> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (b.a.r0.q1.o.k.a.e(list)) {
+                return arrayList;
+            }
+            String str2 = "src ad list size " + list.size();
+            for (App app : list) {
+                AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+                advertAppInfo.W4(app);
+                advertAppInfo.h4 = str;
+                int m = m(advertAppInfo);
+                if (m != 0) {
+                    r(advertAppInfo, m);
+                } else {
+                    arrayList.add(advertAppInfo);
+                }
+            }
+            String str3 = "src ad jiaoyan size " + arrayList.size();
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static int i(@NonNull App app) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            if (list == null) {
+                return -1001;
+            }
+            for (GoodsInfo goodsInfo : list) {
+                if (goodsInfo != null) {
+                    return goodsInfo.goods_style.intValue();
+                }
+            }
+            return -1001;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean j(App app, BannerList bannerList) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, app, bannerList)) == null) {
+            if (app != null && bannerList != null) {
+                if (p(app, bannerList.pb_banner_ad)) {
+                    return true;
+                }
+                List<App> list = bannerList.video_recommend_ad;
+                if (!b.a.r0.q1.o.k.a.e(list)) {
+                    for (App app2 : list) {
+                        if (p(app, app2)) {
+                            return true;
+                        }
+                    }
+                }
+                List<App> list2 = bannerList.app;
+                if (!b.a.r0.q1.o.k.a.e(list2)) {
+                    for (App app3 : list2) {
+                        if (p(app, app3)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static List<o0> k(List<o0> list, List<b.a.e.l.e.n> list2, int i2) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, list, list2, i2)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (b.a.r0.q1.o.k.a.e(list)) {
+                return arrayList;
+            }
+            t(list);
+            int i3 = 0;
+            for (int i4 = 0; i4 < list.size(); i4++) {
+                o0 o0Var = (o0) b.a.r0.q1.o.k.a.d(list, i4);
+                if (o0Var != null && o0Var.m() != null) {
+                    int k = b.a.r0.q1.o.k.a.k(list2);
+                    int g2 = g(o0Var.m()) - 1;
+                    if (g2 < 0) {
+                        s(o0Var.m());
+                    } else {
+                        int f2 = o0Var.c() ? o0Var.f() : g2 + i2;
+                        if (f2 > k) {
+                            s(o0Var.m());
+                        } else {
+                            o0Var.setPosition(f2);
+                            b.a.r0.q1.o.k.a.b(list2, o0Var, f2);
+                            arrayList.add(o0Var);
+                        }
+                    }
+                }
+            }
+            while (i2 < b.a.r0.q1.o.k.a.k(list2)) {
+                b.a.e.l.e.n nVar = list2.get(i2);
+                if (nVar instanceof o0) {
+                    i3++;
+                } else if (nVar instanceof BaseCardInfo) {
+                    ((BaseCardInfo) nVar).position += i3;
+                }
+                i2++;
+            }
+            return arrayList;
+        }
+        return (List) invokeLLI.objValue;
+    }
+
+    public static boolean l(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.startsWith("#Nad=");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int m(@Nullable AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, advertAppInfo)) == null) {
+            int U4 = advertAppInfo.U4();
+            if (g(advertAppInfo) < 0) {
+                return 23;
+            }
+            return U4;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean n(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, advertAppInfo)) == null) ? advertAppInfo.d() : invokeL.booleanValue;
+    }
+
+    public static boolean o(@NonNull App app) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            if (list == null) {
+                return false;
+            }
+            for (GoodsInfo goodsInfo : list) {
+                if (goodsInfo != null && goodsInfo.goods_style.intValue() == 1001) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean p(App app, App app2) {
+        InterceptResult invokeLL;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, app, app2)) == null) {
+            if (app != null && app2 != null && !b.a.r0.q1.o.k.a.e(app.goods_info) && !b.a.r0.q1.o.k.a.e(app2.goods_info)) {
+                Iterator<GoodsInfo> it = app.goods_info.iterator();
+                while (true) {
+                    str = null;
+                    if (!it.hasNext()) {
+                        str2 = null;
+                        break;
+                    }
+                    GoodsInfo next = it.next();
+                    if (next != null) {
+                        str2 = next.lego_card;
+                        break;
+                    }
+                }
+                Iterator<GoodsInfo> it2 = app2.goods_info.iterator();
+                while (true) {
+                    if (!it2.hasNext()) {
+                        break;
+                    }
+                    GoodsInfo next2 = it2.next();
+                    if (next2 != null) {
+                        str = next2.lego_card;
+                        break;
+                    }
+                }
+                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                    try {
+                        if (TextUtils.equals(new JSONObject(str2).optString("download_key"), new JSONObject(str).optString("download_key"))) {
+                            return true;
+                        }
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean q(@NonNull App app) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            if (list == null) {
+                return false;
+            }
+            for (GoodsInfo goodsInfo : list) {
+                if (goodsInfo != null && !TextUtils.isEmpty(goodsInfo.lego_card)) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("vertical_video_style");
+                        if (optJSONObject != null && !TextUtils.isEmpty(optJSONObject.optString("bottom_picture", ""))) {
+                            return true;
+                        }
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void r(AdvertAppInfo advertAppInfo, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65553, null, advertAppInfo, i2) == null) {
+            b.a.r0.z2.l0.e.b().d(b.a.r0.z2.l0.g.i(advertAppInfo, 5, 1, i2));
+        }
+    }
+
+    public static void s(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65554, null, advertAppInfo) == null) {
+            r(advertAppInfo, 23);
+        }
+    }
+
+    public static void t(List<o0> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, list) == null) {
+            Collections.sort(list, new C1362a());
+        }
+    }
+
+    public static void u(List<b.a.e.l.e.n> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, null, list) == null) {
+            for (int i2 = 0; i2 < b.a.r0.q1.o.k.a.k(list); i2++) {
+                if (b.a.r0.q1.o.k.a.d(list, i2) instanceof o0) {
+                    ((o0) b.a.r0.q1.o.k.a.d(list, i2)).setPosition(i2);
+                }
+            }
+        }
+    }
+}

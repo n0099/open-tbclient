@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.contract.PwdPayContract;
 import com.baidu.wallet.paysdk.ui.PwdPayActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PwdPayPresenterFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PWDPAYACTIVITY_FROM_AUTHORIZE = 3;

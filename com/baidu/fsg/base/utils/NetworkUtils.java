@@ -17,7 +17,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class NetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_2G = 2;
@@ -30,7 +30,7 @@ public final class NetworkUtils {
     public static final int NETWORK_WIFI = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39645a = "NetworkUtils";
+    public static final String f37586a = "NetworkUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public NetworkUtils() {

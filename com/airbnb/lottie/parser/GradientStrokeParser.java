@@ -15,9 +15,9 @@ import com.baidu.fsg.base.statistics.k;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GradientStrokeParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "w", k.f39586h, "lj", "ml", "hd", "d");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "w", k.f37528h, "lj", "ml", "hd", "d");
     public static final JsonReader.Options GRADIENT_NAMES = JsonReader.Options.of("p", "k");
     public static final JsonReader.Options DASH_PATTERN_NAMES = JsonReader.Options.of("n", "v");
 

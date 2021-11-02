@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<j> f35718a;
+    public static List<j> f33825a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,14 +31,14 @@ public final class f {
             }
         }
         ArrayList arrayList = new ArrayList();
-        f35718a = arrayList;
+        f33825a = arrayList;
         arrayList.add(new l());
-        f35718a.add(new d());
-        f35718a.add(new c());
-        f35718a.add(new h());
-        f35718a.add(new b());
-        f35718a.add(new a());
-        f35718a.add(new g());
+        f33825a.add(new d());
+        f33825a.add(new c());
+        f33825a.add(new h());
+        f33825a.add(new b());
+        f33825a.add(new a());
+        f33825a.add(new g());
     }
 
     public static String a(Object obj) {
@@ -71,7 +71,7 @@ public final class f {
             if (obj == null) {
                 return null;
             }
-            for (j jVar : f35718a) {
+            for (j jVar : f33825a) {
                 if (jVar.a(obj.getClass()) && (a2 = jVar.a(obj)) != null) {
                     return a2;
                 }

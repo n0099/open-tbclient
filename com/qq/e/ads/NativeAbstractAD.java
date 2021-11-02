@@ -10,15 +10,15 @@ import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.pi.ADI;
 import com.qq.e.comm.util.AdError;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public DownAPPConfirmPolicy f75462b;
+    /* renamed from: f  reason: collision with root package name */
+    public DownAPPConfirmPolicy f67815f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface BasicADListener {
         void onNoAD(AdError adError);
     }
@@ -40,7 +40,7 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public void a(T t) {
         DownAPPConfirmPolicy downAPPConfirmPolicy;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (downAPPConfirmPolicy = this.f75462b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (downAPPConfirmPolicy = this.f67815f) == null) {
             return;
         }
         setDownAPPConfirmPolicy(downAPPConfirmPolicy);
@@ -64,8 +64,8 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, downAPPConfirmPolicy) == null) {
-            this.f75462b = downAPPConfirmPolicy;
-            T t = this.f75446a;
+            this.f67815f = downAPPConfirmPolicy;
+            T t = this.f67799a;
             if (t == 0 || downAPPConfirmPolicy == null) {
                 return;
             }

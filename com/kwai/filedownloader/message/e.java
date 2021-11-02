@@ -8,23 +8,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile g f74647a;
+    public volatile g f67023a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile b f74648b;
+    public volatile b f67024b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f74649a;
+        public static final e f67025a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,11 +40,11 @@ public class e {
                     return;
                 }
             }
-            f74649a = new e();
+            f67025a = new e();
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(MessageSnapshot messageSnapshot);
     }
@@ -66,18 +66,18 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f74649a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f67025a : (e) invokeV.objValue;
     }
 
     public void a(MessageSnapshot messageSnapshot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             if (messageSnapshot instanceof com.kwai.filedownloader.message.b) {
-                if (this.f74648b != null) {
-                    this.f74648b.a(messageSnapshot);
+                if (this.f67024b != null) {
+                    this.f67024b.a(messageSnapshot);
                 }
-            } else if (this.f74647a != null) {
-                this.f74647a.a(messageSnapshot);
+            } else if (this.f67023a != null) {
+                this.f67023a.a(messageSnapshot);
             }
         }
     }
@@ -85,11 +85,11 @@ public class e {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f74648b = bVar;
+            this.f67024b = bVar;
             if (bVar == null) {
-                this.f74647a = null;
+                this.f67023a = null;
             } else {
-                this.f74647a = new g(5, bVar);
+                this.f67023a = new g(5, bVar);
             }
         }
     }

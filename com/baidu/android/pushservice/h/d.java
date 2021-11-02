@@ -9,24 +9,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f37348a;
+    public static a f35384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f37349b;
+    public static d f35385b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f37350c;
+    public static final int f35386c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f37351d;
+    public static final int f35387d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f37352e;
+    public static final int f35388e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,9 +43,9 @@ public class d {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f37350c = availableProcessors;
-        f37351d = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f37352e = f37350c << 3;
+        f35386c = availableProcessors;
+        f35387d = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f35388e = f35386c << 3;
     }
 
     public d() {
@@ -66,7 +66,7 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f37353a;
+            public final /* synthetic */ d f35389a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -83,19 +83,19 @@ public class d {
                         return;
                     }
                 }
-                this.f37353a = this;
+                this.f35389a = this;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f37353a.b();
+                    this.f35389a.b();
                 }
             }
         });
-        a aVar = new a(f37351d, f37352e, 2L, TimeUnit.MINUTES, new b());
-        f37348a = aVar;
+        a aVar = new a(f35387d, f35388e, 2L, TimeUnit.MINUTES, new b());
+        f35384a = aVar;
         aVar.allowCoreThreadTimeOut(true);
     }
 
@@ -104,10 +104,10 @@ public class d {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f37349b == null || (aVar = f37348a) == null || aVar.isShutdown() || f37348a.isTerminated()) {
-                f37349b = new d();
+            if (f35385b == null || (aVar = f35384a) == null || aVar.isShutdown() || f35384a.isTerminated()) {
+                f35385b = new d();
             }
-            return f37349b;
+            return f35385b;
         }
         return (d) invokeV.objValue;
     }
@@ -117,12 +117,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
             try {
-                f37348a.submit(cVar);
+                f35384a.submit(cVar);
                 return true;
             } catch (Exception unused) {
-                a aVar = f37348a;
-                if (aVar == null || aVar.getCorePoolSize() == 0 || f37348a.getPoolSize() == 0) {
-                    f37348a = new a(f37351d, f37352e, 2L, TimeUnit.MINUTES, new b());
+                a aVar = f35384a;
+                if (aVar == null || aVar.getCorePoolSize() == 0 || f35384a.getPoolSize() == 0) {
+                    f35384a = new a(f35387d, f35388e, 2L, TimeUnit.MINUTES, new b());
                     return false;
                 }
                 return false;
@@ -134,12 +134,12 @@ public class d {
     public void b() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = f37348a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = f35384a) == null) {
             return;
         }
         try {
             aVar.getQueue().clear();
-            f37348a.shutdown();
+            f35384a.shutdown();
         } catch (Exception unused) {
         }
     }

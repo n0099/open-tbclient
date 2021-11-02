@@ -28,7 +28,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_RAW = 0;
@@ -51,7 +51,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public int _width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class MethodIndex {
         public static final /* synthetic */ MethodIndex[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,12 +112,12 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f60426a;
+        public static CameraCtrl f57339a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -133,7 +133,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                     return;
                 }
             }
-            f60426a = new CameraCtrl();
+            f57339a = new CameraCtrl();
         }
 
         public a() {
@@ -226,7 +226,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static CameraCtrl getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f60426a : (CameraCtrl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f57339a : (CameraCtrl) invokeV.objValue;
     }
 
     private Camera.Size getSimilarRatioSize(int i2, int i3, List<Camera.Size> list, int i4) {
@@ -316,7 +316,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 try {
                     this._cameraProxy = b.a();
                     if (-1 != i2 && isSupportMultiCamera()) {
-                        this._cameraProxy.f60433a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
+                        this._cameraProxy.f57346a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
                         Camera.Parameters d2 = this._cameraProxy.d();
                         focusMode = d2.getFocusMode();
                         if (!focusMode.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO) && !focusMode.equals("macro")) {
@@ -353,7 +353,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                                     Method method = this._newVersionMethods[MethodIndex.setDisplayOrientation.ordinal()];
                                     if (method != null) {
                                         try {
-                                            method.invoke(this._cameraProxy.f60433a, Integer.valueOf(i5));
+                                            method.invoke(this._cameraProxy.f57346a, Integer.valueOf(i5));
                                             this._rotation = i5;
                                         } catch (Exception e2) {
                                             LogUtil.e(Tag, "", e2);
@@ -437,7 +437,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CameraCtrl f60425a;
+                public final /* synthetic */ CameraCtrl f57338a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -454,7 +454,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                             return;
                         }
                     }
-                    this.f60425a = this;
+                    this.f57338a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */

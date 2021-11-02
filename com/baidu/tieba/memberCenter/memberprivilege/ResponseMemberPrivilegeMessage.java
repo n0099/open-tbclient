@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.memberprivilege;
 
-import c.a.q0.s.l.c;
-import c.a.r0.y1.g.a;
+import b.a.q0.s.l.c;
+import b.a.r0.y1.g.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,12 +63,12 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             super.afterDispatchInBackGround(i2, (int) bArr);
             a aVar = this.mData;
-            if (aVar == null || (eVar = aVar.f28886a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f28900a)) {
+            if (aVar == null || (eVar = aVar.f27603a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f27617a)) {
                 return;
             }
-            a.b bVar = eVar.f28903d;
-            if (bVar != null && bVar.f28893b > bVar.f28894c && !StringUtils.isNull(bVar.f28895d)) {
-                currentAccountObj.setMemberIconUrl(bVar.f28895d);
+            a.b bVar = eVar.f27620d;
+            if (bVar != null && bVar.f27610b > bVar.f27611c && !StringUtils.isNull(bVar.f27612d)) {
+                currentAccountObj.setMemberIconUrl(bVar.f27612d);
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }

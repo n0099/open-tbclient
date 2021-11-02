@@ -19,12 +19,12 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f75945a = "RSA/ECB/PKCS1Padding";
+    public static String f68246a = "RSA/ECB/PKCS1Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class b extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        boolean z = f.f75904b;
+        boolean z = f.f68206b;
     }
 
     public b() {
@@ -76,7 +76,7 @@ public class b extends com.sdk.base.framework.f.a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, rSAPublicKey, bArr)) == null) {
             if (rSAPublicKey != null) {
                 try {
-                    Cipher cipher = Cipher.getInstance(f75945a);
+                    Cipher cipher = Cipher.getInstance(f68246a);
                     cipher.init(2, rSAPublicKey);
                     return cipher.doFinal(bArr);
                 } catch (InvalidKeyException unused) {
@@ -101,7 +101,7 @@ public class b extends com.sdk.base.framework.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             PublicKey a2 = a.a(str);
-            Cipher cipher = Cipher.getInstance(f75945a);
+            Cipher cipher = Cipher.getInstance(f68246a);
             cipher.init(1, a2);
             return com.sdk.base.framework.f.i.c.a(cipher.doFinal(str2.getBytes(Charset.defaultCharset()))).toString();
         }

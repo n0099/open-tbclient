@@ -14,12 +14,12 @@ import com.baidu.wallet.core.utils.LogUtil;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class NetUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f64080a = "NetUtils";
+    public static final String f60923a = "NetUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public NetUtils() {

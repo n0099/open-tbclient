@@ -8,7 +8,7 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ShapeGroupParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "hd", AdvanceSetting.NETWORK_TYPE);
 

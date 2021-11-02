@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SdkLiveInfoData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_CHUSHOU_GAME_LIVE = 1;
@@ -42,7 +42,7 @@ public class SdkLiveInfoData {
     public String title;
     public UiTransParam uiTransParam;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class AlaLiveInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class LiveAuthor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class UiTransParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,13 +189,14 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class YYExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int isYYGame;
         public String sid;
         public String ssid;
+        public String streamInfo;
         public String templateId;
         public String yyUid;
 
@@ -223,6 +224,7 @@ public class SdkLiveInfoData {
             this.templateId = jSONObject.optString("template_id");
             this.yyUid = jSONObject.optString("yy_uid");
             this.isYYGame = jSONObject.optInt("is_yy_game");
+            this.streamInfo = jSONObject.optString("stream_info");
         }
 
         public YyExtData toYyExtData(String str) {
@@ -236,6 +238,7 @@ public class SdkLiveInfoData {
                 yyExtData.mYyUid = this.yyUid;
                 yyExtData.isYyGame = this.isYYGame == 1;
                 yyExtData.liveId = str;
+                yyExtData.streamInfo = this.streamInfo;
                 return yyExtData;
             }
             return (YyExtData) invokeL.objValue;

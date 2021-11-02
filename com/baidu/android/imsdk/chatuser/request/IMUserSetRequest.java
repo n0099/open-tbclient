@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMUserSetRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +28,12 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
     public String mKey;
     public long mUserUk;
 
-    public IMUserSetRequest(Context context, String str, long j2, long j3, int i2, int i3) {
+    public IMUserSetRequest(Context context, String str, long j, long j2, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -43,11 +44,11 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mUserUk = j2;
+        this.mUserUk = j;
         this.mKey = str;
         this.mDisturb = i2;
         this.mBlack = i3;
-        this.mAppid = j3;
+        this.mAppid = j2;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -108,10 +109,10 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
                 JSONObject jSONObject = new JSONObject(new String(bArr));
                 if (jSONObject.has("response_params")) {
                     i4 = jSONObject.getJSONObject("response_params").getInt("error_code");
-                    optString = jSONObject.optString("error_msg", Constants.ERROR_MSG_SUCCESS);
+                    optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, Constants.ERROR_MSG_SUCCESS);
                 } else {
                     i4 = jSONObject.getInt("error_code");
-                    optString = jSONObject.optString("error_msg", "");
+                    optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
                 i3 = i4;
                 str = optString;

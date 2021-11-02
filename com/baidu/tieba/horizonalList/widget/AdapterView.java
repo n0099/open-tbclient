@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long INVALID_COL_ID = Long.MIN_VALUE;
@@ -68,26 +68,26 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public int mSyncPosition;
     public long mSyncWidth;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b implements ContextMenu.ContextMenuInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f52674a;
+        public View f49954a;
 
-        public b(View view, int i2, long j2) {
+        public b(View view, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {view, Integer.valueOf(i2), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -97,20 +97,20 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f52674a = view;
+            this.f49954a = view;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Parcelable f52675a;
+        public Parcelable f49955a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AdapterView f52676b;
+        public final /* synthetic */ AdapterView f49956b;
 
         public c(AdapterView adapterView) {
             Interceptable interceptable = $ic;
@@ -127,8 +127,8 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f52676b = adapterView;
-            this.f52675a = null;
+            this.f49956b = adapterView;
+            this.f49955a = null;
         }
 
         @Override // android.database.DataSetObserver
@@ -136,22 +136,22 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             Parcelable parcelable;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AdapterView adapterView = this.f52676b;
+                AdapterView adapterView = this.f49956b;
                 adapterView.mDataChanged = true;
                 adapterView.mOldItemCount = adapterView.mItemCount;
                 adapterView.mItemCount = adapterView.getAdapter().getCount();
-                if (this.f52676b.getAdapter().hasStableIds() && (parcelable = this.f52675a) != null) {
-                    AdapterView adapterView2 = this.f52676b;
+                if (this.f49956b.getAdapter().hasStableIds() && (parcelable = this.f49955a) != null) {
+                    AdapterView adapterView2 = this.f49956b;
                     if (adapterView2.mOldItemCount == 0 && adapterView2.mItemCount > 0) {
                         adapterView2.onRestoreInstanceState(parcelable);
-                        this.f52675a = null;
-                        this.f52676b.checkFocus();
-                        this.f52676b.requestLayout();
+                        this.f49955a = null;
+                        this.f49956b.checkFocus();
+                        this.f49956b.requestLayout();
                     }
                 }
-                this.f52676b.rememberSyncState();
-                this.f52676b.checkFocus();
-                this.f52676b.requestLayout();
+                this.f49956b.rememberSyncState();
+                this.f49956b.checkFocus();
+                this.f49956b.requestLayout();
             }
         }
 
@@ -159,12 +159,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                AdapterView adapterView = this.f52676b;
+                AdapterView adapterView = this.f49956b;
                 adapterView.mDataChanged = true;
                 if (adapterView.getAdapter().hasStableIds()) {
-                    this.f52675a = this.f52676b.onSaveInstanceState();
+                    this.f49955a = this.f49956b.onSaveInstanceState();
                 }
-                AdapterView adapterView2 = this.f52676b;
+                AdapterView adapterView2 = this.f49956b;
                 adapterView2.mOldItemCount = adapterView2.mItemCount;
                 adapterView2.mItemCount = 0;
                 adapterView2.mSelectedPosition = -1;
@@ -173,35 +173,35 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                 adapterView2.mNextSelectedColId = Long.MIN_VALUE;
                 adapterView2.mNeedSync = false;
                 adapterView2.checkFocus();
-                this.f52676b.requestLayout();
+                this.f49956b.requestLayout();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface d {
-        void a(AdapterView<?> adapterView, View view, int i2, long j2);
+        void a(AdapterView<?> adapterView, View view, int i2, long j);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface e {
-        boolean a(AdapterView<?> adapterView, View view, int i2, long j2);
+        boolean a(AdapterView<?> adapterView, View view, int i2, long j);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface f {
-        void a(AdapterView<?> adapterView, View view, int i2, long j2);
+        void a(AdapterView<?> adapterView, View view, int i2, long j);
 
         void b(AdapterView<?> adapterView);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdapterView f52677e;
+        public final /* synthetic */ AdapterView f49957e;
 
         public g(AdapterView adapterView) {
             Interceptable interceptable = $ic;
@@ -218,19 +218,19 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f52677e = adapterView;
+            this.f49957e = adapterView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AdapterView adapterView = this.f52677e;
+                AdapterView adapterView = this.f49957e;
                 if (!adapterView.mDataChanged) {
                     adapterView.fireOnSelected();
-                    this.f52677e.performAccessibilityActionsOnSelected();
+                    this.f49957e.performAccessibilityActionsOnSelected();
                 } else if (adapterView.getAdapter() != null) {
-                    this.f52677e.post(this);
+                    this.f49957e.post(this);
                 }
             }
         }
@@ -412,9 +412,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             if (i2 == 0) {
                 return -1;
             }
-            long j2 = this.mSyncColId;
+            long j = this.mSyncColId;
             int i3 = this.mSyncPosition;
-            if (j2 == Long.MIN_VALUE) {
+            if (j == Long.MIN_VALUE) {
                 return -1;
             }
             int i4 = i2 - 1;
@@ -429,7 +429,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             loop0: while (true) {
                 boolean z = false;
                 while (SystemClock.uptimeMillis() <= uptimeMillis) {
-                    if (adapter.getItemId(min) != j2) {
+                    if (adapter.getItemId(min) != j) {
                         boolean z2 = i5 == i4;
                         boolean z3 = i6 == 0;
                         if (z2 && z3) {
@@ -719,16 +719,16 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         return invokeLL.booleanValue;
     }
 
-    public boolean performItemClick(View view, int i2, long j2) {
+    public boolean performItemClick(View view, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             if (this.mOnItemClickListener != null) {
                 playSoundEffect(0);
                 if (view != null) {
                     view.sendAccessibilityEvent(1);
                 }
-                this.mOnItemClickListener.a(this, view, i2, j2);
+                this.mOnItemClickListener.a(this, view, i2, j);
                 return true;
             }
             return false;

@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HttpDnsService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpDnsService";
@@ -42,7 +42,7 @@ public class HttpDnsService {
     public DegradationFilter mDegradationFilter;
     public AtomicBoolean mInit;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface DegradationFilter {
         boolean shouldDegradeHttpDNS(String str);
     }
@@ -313,10 +313,10 @@ public class HttpDnsService {
         }
     }
 
-    public void setReport(String str, String str2, long j2) {
+    public void setReport(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) && QualityDetectFlow.getInstance().canReport(str)) {
-            QualityDetectFlow.getInstance().addReportData(str, str2, j2);
+        if ((interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && QualityDetectFlow.getInstance().canReport(str)) {
+            QualityDetectFlow.getInstance().addReportData(str, str2, j);
         }
     }
 
@@ -346,9 +346,9 @@ public class HttpDnsService {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) ? getIpsByHostAsync(str, z, true) : (DnsResultInfo) invokeLZ.objValue;
     }
 
-    public void setPreResolveHosts(ArrayList<String> arrayList, long j2) {
+    public void setPreResolveHosts(ArrayList<String> arrayList, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048609, this, arrayList, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048609, this, arrayList, j) == null) {
             AsynTaskMgr.INSTANCE.postDelayed(new Runnable(this, arrayList) { // from class: com.yy.gslbsdk.HttpDnsService.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -381,7 +381,7 @@ public class HttpDnsService {
                         DnsResolveFlow.getInstance().updateHostList(this.val$hostList, true);
                     }
                 }
-            }, j2);
+            }, j);
         }
     }
 

@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class i<T extends c> implements h<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, T> f72557a;
+    public Map<String, T> f65013a;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public class i<T extends c> implements h<T> {
                 return;
             }
         }
-        this.f72557a = new LinkedHashMap();
+        this.f65013a = new LinkedHashMap();
     }
 
     @Override // com.kwad.sdk.core.report.h
     public synchronized long a() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                int size = this.f72557a.size();
+                int size = this.f65013a.size();
                 com.kwad.sdk.core.d.a.a("MemReportCache", "size() = " + size);
-                j2 = size;
+                j = size;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -56,7 +56,7 @@ public class i<T extends c> implements h<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             synchronized (this) {
-                this.f72557a.put(t.f72550a, t);
+                this.f65013a.put(t.f65006a, t);
             }
         }
     }
@@ -74,7 +74,7 @@ public class i<T extends c> implements h<T> {
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             synchronized (this) {
                 for (T t : list) {
-                    this.f72557a.remove(t.f72550a);
+                    this.f65013a.remove(t.f65006a);
                 }
             }
         }
@@ -87,8 +87,8 @@ public class i<T extends c> implements h<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                arrayList = new ArrayList(this.f72557a.size());
-                for (Map.Entry<String, T> entry : this.f72557a.entrySet()) {
+                arrayList = new ArrayList(this.f65013a.size());
+                for (Map.Entry<String, T> entry : this.f65013a.entrySet()) {
                     arrayList.add(entry.getValue());
                 }
             }

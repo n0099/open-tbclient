@@ -3,16 +3,15 @@ package com.qq.e.comm.net;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.plugin.PM;
-import com.qq.e.comm.managers.setting.SM;
 import com.qq.e.comm.managers.status.APPStatus;
 import com.qq.e.comm.managers.status.DeviceStatus;
 import com.qq.e.comm.managers.status.SDKStatus;
@@ -20,37 +19,15 @@ import com.qq.e.comm.util.StringUtil;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public final class a {
+/* loaded from: classes2.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x002e: INVOKE  (r0v6 int A[REMOVE]) = 
-      (wrap: android.telephony.TelephonyManager : 0x0027: CHECK_CAST (r0v5 android.telephony.TelephonyManager A[REMOVE]) = (android.telephony.TelephonyManager) (wrap: java.lang.Object : 0x0023: INVOKE  (r0v4 java.lang.Object A[REMOVE]) = (r0v3 android.content.Context), ("phone") type: VIRTUAL call: android.content.Context.getSystemService(java.lang.String):java.lang.Object))
-     type: VIRTUAL call: android.telephony.TelephonyManager.getNetworkType():int)] */
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context appContext = GDTADManager.getInstance().getAppContext();
-            try {
-                NetworkInfo activeNetworkInfo = ((ConnectivityManager) appContext.getSystemService("connectivity")).getActiveNetworkInfo();
-                if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(((TelephonyManager) appContext.getSystemService("phone")).getNetworkType());
-                    return sb.toString();
-                }
-            } catch (Exception unused) {
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
 
     public static JSONObject a(PM pm) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pm)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pm)) == null) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.putOpt("sdkv", SDKStatus.getSDKVersion());
             jSONObject.putOpt("pv", Integer.valueOf(pm.getPluginVersion()));
@@ -67,24 +44,10 @@ public final class a {
         return (JSONObject) invokeL.objValue;
     }
 
-    public static JSONObject a(SM sm) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sm)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (sm != null) {
-                jSONObject.putOpt("suid", sm.getSuid());
-                jSONObject.putOpt("sid", sm.getSid());
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
     public static JSONObject a(APPStatus aPPStatus) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aPPStatus)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aPPStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (aPPStatus != null) {
                 jSONObject.putOpt(com.alipay.sdk.sys.a.r, aPPStatus.getAPPName());
@@ -97,23 +60,66 @@ public final class a {
         return (JSONObject) invokeL.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:16:0x005e  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0087 A[LOOP:0: B:18:0x0081->B:20:0x0087, LOOP_END] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static JSONObject a(DeviceStatus deviceStatus) throws JSONException {
         InterceptResult invokeL;
+        Context appContext;
+        String str;
+        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, deviceStatus)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, deviceStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (deviceStatus != null) {
                 jSONObject.putOpt("so", deviceStatus.getScreenOrientation());
                 jSONObject.putOpt("dn", deviceStatus.getDataNet());
-                String a2 = a();
-                if (!StringUtil.isEmpty(a2)) {
-                    jSONObject.putOpt("cell_native", a2);
+                try {
+                    activeNetworkInfo = ((ConnectivityManager) GDTADManager.getInstance().getAppContext().getSystemService("connectivity")).getActiveNetworkInfo();
+                } catch (Exception unused) {
+                }
+                if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
+                    str = "" + ((TelephonyManager) appContext.getSystemService("phone")).getNetworkType();
+                    if (!StringUtil.isEmpty(str)) {
+                        jSONObject.putOpt("cell_native", str);
+                    }
+                    jSONObject.putOpt(SuggestAddrField.KEY_LAT, deviceStatus.getLat());
+                    jSONObject.putOpt(SuggestAddrField.KEY_LNG, deviceStatus.getLng());
+                    for (Map.Entry<String, String> entry : deviceStatus.getLacAndCeilId().entrySet()) {
+                        jSONObject.putOpt(entry.getKey(), entry.getValue());
+                    }
+                }
+                str = null;
+                if (!StringUtil.isEmpty(str)) {
                 }
                 jSONObject.putOpt(SuggestAddrField.KEY_LAT, deviceStatus.getLat());
                 jSONObject.putOpt(SuggestAddrField.KEY_LNG, deviceStatus.getLng());
-                for (Map.Entry<String, String> entry : deviceStatus.getLacAndCeilId().entrySet()) {
-                    jSONObject.putOpt(entry.getKey(), entry.getValue());
+                while (r4.hasNext()) {
                 }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject b(DeviceStatus deviceStatus) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, deviceStatus)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (deviceStatus != null) {
+                jSONObject.putOpt("did", deviceStatus.getDeviceId());
+                jSONObject.putOpt("md", deviceStatus.model);
+                jSONObject.putOpt("lg", deviceStatus.getLanguage());
+                jSONObject.putOpt("w", Integer.valueOf(deviceStatus.getDeviceWidth()));
+                jSONObject.putOpt("h", Integer.valueOf(deviceStatus.getDeviceHeight()));
+                jSONObject.putOpt("dd", Integer.valueOf(deviceStatus.getDeviceDensity()));
+                jSONObject.putOpt("apil", Integer.valueOf(deviceStatus.getVersion()));
+                jSONObject.putOpt("os", "android");
+                jSONObject.putOpt("op", deviceStatus.getOperator());
+                jSONObject.putOpt("mf", Build.MANUFACTURER);
             }
             return jSONObject;
         }

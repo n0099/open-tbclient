@@ -11,7 +11,7 @@ import com.kwad.sdk.core.response.model.PhotoInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bl implements com.kwad.sdk.core.d<NewsInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

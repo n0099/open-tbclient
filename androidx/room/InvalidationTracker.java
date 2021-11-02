@@ -144,9 +144,9 @@ public class InvalidationTracker {
                 synchronized (this) {
                     z = false;
                     for (int i2 : iArr) {
-                        long j2 = this.mTableObservers[i2];
-                        this.mTableObservers[i2] = 1 + j2;
-                        if (j2 == 0) {
+                        long j = this.mTableObservers[i2];
+                        this.mTableObservers[i2] = 1 + j;
+                        if (j == 0) {
                             this.mNeedsSync = true;
                             z = true;
                         }
@@ -165,9 +165,9 @@ public class InvalidationTracker {
                 synchronized (this) {
                     z = false;
                     for (int i2 : iArr) {
-                        long j2 = this.mTableObservers[i2];
-                        this.mTableObservers[i2] = j2 - 1;
-                        if (j2 == 1) {
+                        long j = this.mTableObservers[i2];
+                        this.mTableObservers[i2] = j - 1;
+                        if (j == 1) {
                             this.mNeedsSync = true;
                             z = true;
                         }
@@ -232,10 +232,10 @@ public class InvalidationTracker {
                 int length = this.mTableIds.length;
                 Set<String> set = null;
                 for (int i2 = 0; i2 < length; i2++) {
-                    long j2 = jArr[this.mTableIds[i2]];
+                    long j = jArr[this.mTableIds[i2]];
                     long[] jArr2 = this.mVersions;
-                    if (jArr2[i2] < j2) {
-                        jArr2[i2] = j2;
+                    if (jArr2[i2] < j) {
+                        jArr2[i2] = j;
                         if (length == 1) {
                             set = this.mSingleTableSet;
                         } else {
@@ -365,9 +365,9 @@ public class InvalidationTracker {
                     boolean z = false;
                     while (query.moveToNext()) {
                         try {
-                            long j2 = query.getLong(0);
-                            this.this$0.mTableVersions[query.getInt(1)] = j2;
-                            this.this$0.mMaxVersion = j2;
+                            long j = query.getLong(0);
+                            this.this$0.mTableVersions[query.getInt(1)] = j;
+                            this.this$0.mMaxVersion = j;
                             z = true;
                         } finally {
                             query.close();

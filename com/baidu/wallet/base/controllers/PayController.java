@@ -59,7 +59,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class PayController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEY_CHECK_PWD_COMPLETE_CARD = 0;
@@ -70,25 +70,25 @@ public final class PayController {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f60467a;
+    public a f57379a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IModifyPayTypeCallback f60468b;
+    public IModifyPayTypeCallback f57380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayCallBack f60469c;
+    public PayCallBack f57381c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f60470d;
+    public Context f57382d;
 
     /* renamed from: com.baidu.wallet.base.controllers.PayController$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class PayResultWrapper implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,17 +117,17 @@ public final class PayController {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayController f60471a;
+        public static PayController f57383a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -143,7 +143,7 @@ public final class PayController {
                     return;
                 }
             }
-            f60471a = new PayController(null);
+            f57383a = new PayController(null);
         }
     }
 
@@ -186,7 +186,7 @@ public final class PayController {
     public static PayController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? b.f60471a : (PayController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? b.f57383a : (PayController) invokeV.objValue;
     }
 
     public static BigDecimal priceToBigDecimal(String str) {
@@ -284,10 +284,10 @@ public final class PayController {
 
     public void clearPreModifiedCallBack() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f60468b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f57380b == null) {
             return;
         }
-        this.f60468b = null;
+        this.f57380b = null;
     }
 
     public void completeCardPay(Context context, CardData.BondCard bondCard) {
@@ -310,13 +310,13 @@ public final class PayController {
     public a getIConfirmPayCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60467a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f57379a : (a) invokeV.objValue;
     }
 
     public IModifyPayTypeCallback getModifyPayTypeCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60468b : (IModifyPayTypeCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f57380b : (IModifyPayTypeCallback) invokeV.objValue;
     }
 
     public void gotoDiscountPage(BaseActivity baseActivity) {
@@ -390,31 +390,31 @@ public final class PayController {
     public void onConfirmPay() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (aVar = this.f60467a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (aVar = this.f57379a) == null) {
             return;
         }
         aVar.a();
-        this.f60467a = null;
+        this.f57379a = null;
     }
 
     public void onPreModifiedPayType(PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData) {
         IModifyPayTypeCallback iModifyPayTypeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, precashierModifyPayTypeDefaultData) == null) || (iModifyPayTypeCallback = this.f60468b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, precashierModifyPayTypeDefaultData) == null) || (iModifyPayTypeCallback = this.f57380b) == null) {
             return;
         }
         iModifyPayTypeCallback.onPayTypeModified(precashierModifyPayTypeDefaultData);
-        this.f60468b = null;
+        this.f57380b = null;
     }
 
     public void onPrePayMethodSetted() {
         IModifyPayTypeCallback iModifyPayTypeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (iModifyPayTypeCallback = this.f60468b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (iModifyPayTypeCallback = this.f57380b) == null) {
             return;
         }
         iModifyPayTypeCallback.onPayTypeSetted();
-        this.f60468b = null;
+        this.f57380b = null;
     }
 
     public void payPaying(BaseActivity baseActivity, PayResultContent payResultContent, int i2) {
@@ -457,15 +457,15 @@ public final class PayController {
     public void setMiniPayCallback(PayCallBack payCallBack, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, payCallBack, context) == null) {
-            this.f60469c = payCallBack;
-            this.f60470d = context;
+            this.f57381c = payCallBack;
+            this.f57382d = context;
         }
     }
 
     public void setModifyPayTypeCallback(IModifyPayTypeCallback iModifyPayTypeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, iModifyPayTypeCallback) == null) {
-            this.f60468b = iModifyPayTypeCallback;
+            this.f57380b = iModifyPayTypeCallback;
         }
     }
 
@@ -513,8 +513,8 @@ public final class PayController {
                 return;
             }
         }
-        this.f60469c = null;
-        this.f60470d = null;
+        this.f57381c = null;
+        this.f57382d = null;
     }
 
     private void a(BaseActivity baseActivity, Bundle bundle, Class<?> cls) {

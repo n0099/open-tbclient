@@ -26,7 +26,7 @@ import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.sdk.modelpay.PayResp;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class WXApiImplV10 implements IWXAPI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.WXApiImplV10";
@@ -110,11 +110,11 @@ public final class WXApiImplV10 implements IWXAPI {
                     return false;
                 }
             }
-            a.C2093a c2093a = new a.C2093a();
-            c2093a.k = bundle;
-            c2093a.f76617h = "com.tencent.mm";
-            c2093a.f76618i = wxappPayEntryClassname;
-            return com.tencent.mm.sdk.a.a.a(context, c2093a);
+            a.C2020a c2020a = new a.C2020a();
+            c2020a.k = bundle;
+            c2020a.f69974h = "com.tencent.mm";
+            c2020a.f69975i = wxappPayEntryClassname;
+            return com.tencent.mm.sdk.a.a.a(context, c2020a);
         }
         return invokeLL.booleanValue;
     }
@@ -273,11 +273,11 @@ public final class WXApiImplV10 implements IWXAPI {
                 this.appId = str;
             }
             com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-            a.C2094a c2094a = new a.C2094a();
-            c2094a.l = "com.tencent.mm";
-            c2094a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-            c2094a.f76620j = "weixin://registerapp?appid=" + this.appId;
-            return com.tencent.mm.sdk.a.a.a.a(this.context, c2094a);
+            a.C2021a c2021a = new a.C2021a();
+            c2021a.l = "com.tencent.mm";
+            c2021a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+            c2021a.j = "weixin://registerapp?appid=" + this.appId;
+            return com.tencent.mm.sdk.a.a.a.a(this.context, c2021a);
         }
         return invokeL.booleanValue;
     }
@@ -300,12 +300,12 @@ public final class WXApiImplV10 implements IWXAPI {
                 if (baseReq.getType() == 5) {
                     return sendPayReq(this.context, bundle);
                 }
-                a.C2093a c2093a = new a.C2093a();
-                c2093a.k = bundle;
-                c2093a.f76619j = "weixin://sendreq?appid=" + this.appId;
-                c2093a.f76617h = "com.tencent.mm";
-                c2093a.f76618i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
-                return com.tencent.mm.sdk.a.a.a(this.context, c2093a);
+                a.C2020a c2020a = new a.C2020a();
+                c2020a.k = bundle;
+                c2020a.j = "weixin://sendreq?appid=" + this.appId;
+                c2020a.f69974h = "com.tencent.mm";
+                c2020a.f69975i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
+                return com.tencent.mm.sdk.a.a.a(this.context, c2020a);
             } else {
                 str = "sendReq checkArgs fail";
             }
@@ -329,12 +329,12 @@ public final class WXApiImplV10 implements IWXAPI {
             } else if (baseResp.checkArgs()) {
                 Bundle bundle = new Bundle();
                 baseResp.toBundle(bundle);
-                a.C2093a c2093a = new a.C2093a();
-                c2093a.k = bundle;
-                c2093a.f76619j = "weixin://sendresp?appid=" + this.appId;
-                c2093a.f76617h = "com.tencent.mm";
-                c2093a.f76618i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
-                return com.tencent.mm.sdk.a.a.a(this.context, c2093a);
+                a.C2020a c2020a = new a.C2020a();
+                c2020a.k = bundle;
+                c2020a.j = "weixin://sendresp?appid=" + this.appId;
+                c2020a.f69974h = "com.tencent.mm";
+                c2020a.f69975i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
+                return com.tencent.mm.sdk.a.a.a(this.context, c2020a);
             } else {
                 str = "sendResp checkArgs fail";
             }
@@ -362,11 +362,11 @@ public final class WXApiImplV10 implements IWXAPI {
                 return;
             }
             com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-            a.C2094a c2094a = new a.C2094a();
-            c2094a.l = "com.tencent.mm";
-            c2094a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-            c2094a.f76620j = "weixin://unregisterapp?appid=" + this.appId;
-            com.tencent.mm.sdk.a.a.a.a(this.context, c2094a);
+            a.C2021a c2021a = new a.C2021a();
+            c2021a.l = "com.tencent.mm";
+            c2021a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+            c2021a.j = "weixin://unregisterapp?appid=" + this.appId;
+            com.tencent.mm.sdk.a.a.a.a(this.context, c2021a);
         }
     }
 }

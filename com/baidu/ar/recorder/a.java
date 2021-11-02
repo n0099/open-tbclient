@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,12 +15,12 @@ public class a {
     public int uy;
     public long uz;
 
-    public a(long j2) {
+    public a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -34,7 +34,7 @@ public class a {
         this.uz = 0L;
         this.uA = 0L;
         this.iO = false;
-        this.uz = j2;
+        this.uz = j;
     }
 
     public boolean fI() {
@@ -43,25 +43,25 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.iO : invokeV.booleanValue;
     }
 
-    public void t(long j2) {
+    public void t(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.uA = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.uA = j;
             this.iO = true;
         }
     }
 
-    public int u(long j2) {
+    public int u(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            long j3 = this.uz;
-            if (j3 != 0) {
-                long j4 = this.uA;
-                if (j4 == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            long j2 = this.uz;
+            if (j2 != 0) {
+                long j3 = this.uA;
+                if (j3 == 0) {
                     return 0;
                 }
-                return (int) (((j2 - j4) * this.uy) / j3);
+                return (int) (((j - j3) * this.uy) / j2);
             }
             return 0;
         }

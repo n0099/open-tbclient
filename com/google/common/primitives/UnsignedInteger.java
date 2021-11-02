@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
+import b.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UnsignedInteger extends Number implements Comparable<UnsignedInteger> {
     public static /* synthetic */ Interceptable $ic;
     public static final UnsignedInteger MAX_VALUE;
@@ -63,12 +63,12 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
         return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? new UnsignedInteger(i2) : (UnsignedInteger) invokeI.objValue;
     }
 
-    public static UnsignedInteger valueOf(long j2) {
+    public static UnsignedInteger valueOf(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
-            n.h((4294967295L & j2) == j2, "value (%s) is outside the range for an unsigned integer value", j2);
-            return fromIntBits((int) j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            n.h((4294967295L & j) == j, "value (%s) is outside the range for an unsigned integer value", j);
+            return fromIntBits((int) j);
         }
         return (UnsignedInteger) invokeJ.objValue;
     }

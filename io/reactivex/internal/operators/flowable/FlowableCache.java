@@ -21,14 +21,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean once;
     public final CacheState<T> state;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class CacheState<T> extends LinkedArrayList implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public static final ReplaySubscription[] EMPTY;
@@ -201,7 +201,7 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ReplaySubscription<T> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long CANCELLED = Long.MIN_VALUE;
@@ -251,12 +251,12 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
             }
             Subscriber<? super T> subscriber = this.child;
             AtomicLong atomicLong = this.requested;
-            long j2 = this.emitted;
+            long j = this.emitted;
             int i2 = 1;
             int i3 = 1;
             while (true) {
-                long j3 = atomicLong.get();
-                if (j3 == Long.MIN_VALUE) {
+                long j2 = atomicLong.get();
+                if (j2 == Long.MIN_VALUE) {
                     return;
                 }
                 int size = this.state.size();
@@ -269,7 +269,7 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
                     int length = objArr.length - i2;
                     int i4 = this.index;
                     int i5 = this.currentIndexInBuffer;
-                    while (i4 < size && j2 != j3) {
+                    while (i4 < size && j != j2) {
                         if (atomicLong.get() == Long.MIN_VALUE) {
                             return;
                         }
@@ -282,12 +282,12 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
                         }
                         i5++;
                         i4++;
-                        j2++;
+                        j++;
                     }
                     if (atomicLong.get() == Long.MIN_VALUE) {
                         return;
                     }
-                    if (j3 == j2) {
+                    if (j2 == j) {
                         Object obj = objArr[i5];
                         if (NotificationLite.isComplete(obj)) {
                             subscriber.onComplete();
@@ -301,7 +301,7 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
                     this.currentIndexInBuffer = i5;
                     this.currentBuffer = objArr;
                 }
-                this.emitted = j2;
+                this.emitted = j;
                 i3 = addAndGet(-i3);
                 if (i3 == 0) {
                     return;
@@ -311,10 +311,10 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.addCancel(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.addCancel(this.requested, j);
                 replay();
             }
         }

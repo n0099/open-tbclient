@@ -7,7 +7,7 @@ import com.airbnb.lottie.model.layer.BaseLayer;
 import java.util.Arrays;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ShapeGroup implements ContentModel {
     public final boolean hidden;
     public final List<ContentModel> items;

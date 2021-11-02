@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ActivityLifeObserver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ActivityLifeObserver f43505b;
+    public static final ActivityLifeObserver f41293b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f43506a;
+    public boolean f41294a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<IActivityLifeCallback> f43507c;
+    public Set<IActivityLifeCallback> f41295c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface IActivityLifeCallback {
         void onActivityCreated(Activity activity, Bundle bundle);
 
@@ -60,7 +60,7 @@ public class ActivityLifeObserver {
                 return;
             }
         }
-        f43505b = new ActivityLifeObserver();
+        f41293b = new ActivityLifeObserver();
     }
 
     public ActivityLifeObserver() {
@@ -76,20 +76,20 @@ public class ActivityLifeObserver {
                 return;
             }
         }
-        this.f43507c = new LinkedHashSet();
+        this.f41295c = new LinkedHashSet();
     }
 
     public static ActivityLifeObserver instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f43505b : (ActivityLifeObserver) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f41293b : (ActivityLifeObserver) invokeV.objValue;
     }
 
     public void addObserver(IActivityLifeCallback iActivityLifeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iActivityLifeCallback) == null) {
-            synchronized (this.f43507c) {
-                this.f43507c.add(iActivityLifeCallback);
+            synchronized (this.f41295c) {
+                this.f41295c.add(iActivityLifeCallback);
             }
         }
     }
@@ -97,8 +97,8 @@ public class ActivityLifeObserver {
     public void clearObservers() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f43507c) {
-                this.f43507c.clear();
+            synchronized (this.f41295c) {
+                this.f41295c.clear();
             }
         }
     }
@@ -113,7 +113,7 @@ public class ActivityLifeObserver {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ ActivityLifeObserver f43508a;
+                    public final /* synthetic */ ActivityLifeObserver f41296a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -130,15 +130,15 @@ public class ActivityLifeObserver {
                                 return;
                             }
                         }
-                        this.f43508a = this;
+                        this.f41296a = this;
                     }
 
                     @Override // android.app.Application.ActivityLifecycleCallbacks
                     public void onActivityCreated(Activity activity, Bundle bundle) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, bundle) == null) {
-                            synchronized (this.f43508a.f43507c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.f43508a.f43507c) {
+                            synchronized (this.f41296a.f41295c) {
+                                for (IActivityLifeCallback iActivityLifeCallback : this.f41296a.f41295c) {
                                     iActivityLifeCallback.onActivityCreated(activity, bundle);
                                 }
                             }
@@ -149,8 +149,8 @@ public class ActivityLifeObserver {
                     public void onActivityDestroyed(Activity activity) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                            synchronized (this.f43508a.f43507c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.f43508a.f43507c) {
+                            synchronized (this.f41296a.f41295c) {
+                                for (IActivityLifeCallback iActivityLifeCallback : this.f41296a.f41295c) {
                                     iActivityLifeCallback.onActivityDestroyed(activity);
                                 }
                             }
@@ -161,8 +161,8 @@ public class ActivityLifeObserver {
                     public void onActivityPaused(Activity activity) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                            synchronized (this.f43508a.f43507c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.f43508a.f43507c) {
+                            synchronized (this.f41296a.f41295c) {
+                                for (IActivityLifeCallback iActivityLifeCallback : this.f41296a.f41295c) {
                                     iActivityLifeCallback.onActivityPaused(activity);
                                 }
                             }
@@ -173,8 +173,8 @@ public class ActivityLifeObserver {
                     public void onActivityResumed(Activity activity) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
-                            synchronized (this.f43508a.f43507c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.f43508a.f43507c) {
+                            synchronized (this.f41296a.f41295c) {
+                                for (IActivityLifeCallback iActivityLifeCallback : this.f41296a.f41295c) {
                                     iActivityLifeCallback.onActivityResumed(activity);
                                 }
                             }
@@ -185,8 +185,8 @@ public class ActivityLifeObserver {
                     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048580, this, activity, bundle) == null) {
-                            synchronized (this.f43508a.f43507c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.f43508a.f43507c) {
+                            synchronized (this.f41296a.f41295c) {
+                                for (IActivityLifeCallback iActivityLifeCallback : this.f41296a.f41295c) {
                                     iActivityLifeCallback.onActivitySaveInstanceState(activity, bundle);
                                 }
                             }
@@ -197,8 +197,8 @@ public class ActivityLifeObserver {
                     public void onActivityStarted(Activity activity) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                            synchronized (this.f43508a.f43507c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.f43508a.f43507c) {
+                            synchronized (this.f41296a.f41295c) {
+                                for (IActivityLifeCallback iActivityLifeCallback : this.f41296a.f41295c) {
                                     iActivityLifeCallback.onActivityStarted(activity);
                                 }
                             }
@@ -209,8 +209,8 @@ public class ActivityLifeObserver {
                     public void onActivityStopped(Activity activity) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
-                            synchronized (this.f43508a.f43507c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.f43508a.f43507c) {
+                            synchronized (this.f41296a.f41295c) {
+                                for (IActivityLifeCallback iActivityLifeCallback : this.f41296a.f41295c) {
                                     iActivityLifeCallback.onActivityStopped(activity);
                                 }
                             }
@@ -225,18 +225,18 @@ public class ActivityLifeObserver {
 
     public void registerActivityLifeCallback(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || this.f43506a || Build.VERSION.SDK_INT < 14) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || this.f41294a || Build.VERSION.SDK_INT < 14) {
             return;
         }
         doRegister(context);
-        this.f43506a = true;
+        this.f41294a = true;
     }
 
     public void removeObserver(IActivityLifeCallback iActivityLifeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iActivityLifeCallback) == null) {
-            synchronized (this.f43507c) {
-                this.f43507c.remove(iActivityLifeCallback);
+            synchronized (this.f41295c) {
+                this.f41295c.remove(iActivityLifeCallback);
             }
         }
     }

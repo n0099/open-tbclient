@@ -297,17 +297,17 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public long setMaximumSize(long j2) {
+    public long setMaximumSize(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048608, this, j2)) == null) ? this.mDelegate.setMaximumSize(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048608, this, j)) == null) ? this.mDelegate.setMaximumSize(j) : invokeJ.longValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public void setPageSize(long j2) {
+    public void setPageSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048609, this, j2) == null) {
-            this.mDelegate.setPageSize(j2);
+        if (interceptable == null || interceptable.invokeJ(1048609, this, j) == null) {
+            this.mDelegate.setPageSize(j);
         }
     }
 
@@ -390,10 +390,10 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public boolean yieldIfContendedSafely(long j2) {
+    public boolean yieldIfContendedSafely(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048614, this, j2)) == null) ? this.mDelegate.yieldIfContendedSafely(j2) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048614, this, j)) == null) ? this.mDelegate.yieldIfContendedSafely(j) : invokeJ.booleanValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase

@@ -33,48 +33,48 @@ import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.av;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends com.kwad.sdk.core.page.recycle.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f72375a;
+    public AdTemplate f64836a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f72376b;
+    public WebView f64837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f72377c;
+    public k f64838c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f72378d;
+    public com.kwad.sdk.core.download.b.b f64839d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f72379e;
+    public LinearLayout f64840e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f72380f;
+    public TextView f64841f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f72381g;
+    public ImageView f64842g;
 
     /* renamed from: com.kwad.sdk.core.page.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1997a extends d {
+    /* loaded from: classes2.dex */
+    public static class C1907a extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AdTemplate f72386a;
+        public AdTemplate f64847a;
 
         /* renamed from: b  reason: collision with root package name */
-        public e f72387b;
+        public e f64848b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f72388c;
+        public Context f64849c;
 
-        public C1997a(AdTemplate adTemplate, Context context, e eVar) {
+        public C1907a(AdTemplate adTemplate, Context context, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,9 +89,9 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
                     return;
                 }
             }
-            this.f72386a = adTemplate;
-            this.f72388c = context;
-            this.f72387b = eVar;
+            this.f64847a = adTemplate;
+            this.f64849c = context;
+            this.f64848b = eVar;
         }
 
         @Override // com.kwad.sdk.core.page.recycle.d
@@ -100,19 +100,19 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i2)) == null) {
                 if (i2 == 1) {
-                    View inflate = LayoutInflater.from(this.f72388c).inflate(R.layout.ksad_datail_webview_container, viewGroup, false);
+                    View inflate = LayoutInflater.from(this.f64849c).inflate(R.layout.ksad_datail_webview_container, viewGroup, false);
                     Presenter presenter = new Presenter();
                     presenter.a((Presenter) new com.kwad.sdk.core.page.a.b());
-                    return new c(inflate, presenter, this.f72387b);
+                    return new c(inflate, presenter, this.f64848b);
                 } else if (i2 != 0) {
                     View view = new View(viewGroup.getContext());
                     view.setLayoutParams(new ViewGroup.LayoutParams(-1, av.a(viewGroup.getContext(), 64.0f)));
-                    return new c(view, new Presenter(), this.f72387b);
+                    return new c(view, new Presenter(), this.f64848b);
                 } else {
                     k kVar = new k(viewGroup.getContext());
                     Presenter presenter2 = new Presenter();
                     presenter2.a((Presenter) new com.kwad.sdk.core.page.a.a());
-                    return new c(kVar, presenter2, this.f72387b);
+                    return new c(kVar, presenter2, this.f64848b);
                 }
             }
             return (c) invokeLI.objValue;
@@ -132,7 +132,7 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.b.a.v(com.kwad.sdk.core.response.b.c.i(this.f72386a)) ? 3 : 2 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.b.a.v(com.kwad.sdk.core.response.b.c.i(this.f64847a)) ? 3 : 2 : invokeV.intValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -175,16 +175,16 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, view) == null) {
-            this.f72379e = (LinearLayout) view.findViewById(R.id.ksad_web_tip_bar);
-            this.f72380f = (TextView) view.findViewById(R.id.ksad_web_tip_bar_textview);
+            this.f64840e = (LinearLayout) view.findViewById(R.id.ksad_web_tip_bar);
+            this.f64841f = (TextView) view.findViewById(R.id.ksad_web_tip_bar_textview);
             ImageView imageView = (ImageView) view.findViewById(R.id.ksad_web_tip_close_btn);
-            this.f72381g = imageView;
+            this.f64842g = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.page.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f72382a;
+                public final /* synthetic */ a f64843a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -201,27 +201,27 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
                             return;
                         }
                     }
-                    this.f72382a = this;
+                    this.f64843a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.f72382a.f72379e.setVisibility(8);
+                        this.f64843a.f64840e.setVisibility(8);
                     }
                 }
             });
-            AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f72375a);
+            AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f64836a);
             boolean W = com.kwad.sdk.core.response.b.a.W(i2);
             String U = com.kwad.sdk.core.response.b.a.U(i2);
             if (!W) {
-                this.f72379e.setVisibility(8);
+                this.f64840e.setVisibility(8);
                 return;
             }
-            this.f72379e.setVisibility(0);
-            this.f72380f.setText(U);
-            this.f72380f.setSelected(true);
+            this.f64840e.setVisibility(0);
+            this.f64841f.setText(U);
+            this.f64841f.setSelected(true);
         }
     }
 
@@ -229,13 +229,13 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
     public d a(RecyclerView recyclerView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, recyclerView)) == null) ? new C1997a(this.f72375a, recyclerView.getContext(), new e(this.f72375a, this.f72378d, recyclerView)) : (d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, recyclerView)) == null) ? new C1907a(this.f64836a, recyclerView.getContext(), new e(this.f64836a, this.f64839d, recyclerView)) : (d) invokeL.objValue;
     }
 
     public void a(com.kwad.sdk.core.download.b.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f72378d = bVar;
+            this.f64839d = bVar;
         }
     }
 
@@ -244,12 +244,12 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WebView webView = this.f72376b;
+            WebView webView = this.f64837b;
             if (webView != null && webView.canGoBack()) {
-                this.f72376b.goBack();
+                this.f64837b.goBack();
                 return true;
             }
-            k kVar = this.f72377c;
+            k kVar = this.f64838c;
             if (kVar != null) {
                 return kVar.d();
             }
@@ -279,7 +279,7 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
                     com.kwad.sdk.core.d.a.a(e2);
                 }
             }
-            this.f72375a = adTemplate;
+            this.f64836a = adTemplate;
             adTemplate.mPvReported = getArguments().getBoolean("key_report", false);
         }
     }
@@ -296,10 +296,10 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DetailWebRecycleView f72383a;
+                public final /* synthetic */ DetailWebRecycleView f64844a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f72384b;
+                public final /* synthetic */ a f64845b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -316,31 +316,31 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
                             return;
                         }
                     }
-                    this.f72384b = this;
-                    this.f72383a = detailWebRecycleView;
+                    this.f64845b = this;
+                    this.f64844a = detailWebRecycleView;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f72383a.getChildCount() > 0) {
-                            RecyclerView.ViewHolder findViewHolderForAdapterPosition = this.f72383a.findViewHolderForAdapterPosition(0);
+                        if (this.f64844a.getChildCount() > 0) {
+                            RecyclerView.ViewHolder findViewHolderForAdapterPosition = this.f64844a.findViewHolderForAdapterPosition(0);
                             int height = findViewHolderForAdapterPosition.itemView.getHeight();
                             com.kwad.sdk.core.d.a.a("AdRecycleWebFragment", "recycleView.setTopViewHeight(" + height + SmallTailInfo.EMOTION_SUFFIX);
-                            this.f72383a.setTopViewHeight(findViewHolderForAdapterPosition.itemView.getHeight());
-                            View view2 = this.f72383a.findViewHolderForAdapterPosition(0).itemView;
+                            this.f64844a.setTopViewHeight(findViewHolderForAdapterPosition.itemView.getHeight());
+                            View view2 = this.f64844a.findViewHolderForAdapterPosition(0).itemView;
                             if (view2 instanceof k) {
-                                this.f72384b.f72377c = (k) view2;
+                                this.f64845b.f64838c = (k) view2;
                             }
                         }
-                        if (this.f72383a.getChildCount() > 1) {
-                            View view3 = this.f72383a.findViewHolderForAdapterPosition(1).itemView;
-                            this.f72384b.f72376b = (WebView) view3.findViewById(R.id.ksad_video_webView);
-                            this.f72384b.a(view3);
+                        if (this.f64844a.getChildCount() > 1) {
+                            View view3 = this.f64844a.findViewHolderForAdapterPosition(1).itemView;
+                            this.f64845b.f64837b = (WebView) view3.findViewById(R.id.ksad_video_webView);
+                            this.f64845b.a(view3);
                         }
                         com.kwad.sdk.core.d.a.a("AdRecycleWebFragment", "onGlobalLayout");
-                        this.f72383a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        this.f64844a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 }
             });

@@ -20,7 +20,7 @@ import io.reactivex.parallel.ParallelFlowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ParallelFilterTry<T> extends ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class ParallelFilterTry<T> extends ParallelFlowable<T> {
     public final ParallelFlowable<T> source;
 
     /* renamed from: io.reactivex.internal.operators.parallel.ParallelFilterTry$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$parallel$ParallelFailureHandling;
         public static /* synthetic */ Interceptable $ic;
@@ -65,7 +65,7 @@ public final class ParallelFilterTry<T> extends ParallelFlowable<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static abstract class BaseFilterSubscriber<T> implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,15 +111,15 @@ public final class ParallelFilterTry<T> extends ParallelFlowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j2) {
+        public final void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+                this.s.request(j);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ParallelFilterConditionalSubscriber<T> extends BaseFilterSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,15 +190,15 @@ public final class ParallelFilterTry<T> extends ParallelFlowable<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 if (!this.done) {
-                    long j2 = 0;
+                    long j = 0;
                     do {
                         try {
                             return this.predicate.test(t) && this.actual.tryOnNext(t);
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
                             try {
-                                j2++;
-                                i2 = AnonymousClass1.$SwitchMap$io$reactivex$parallel$ParallelFailureHandling[((ParallelFailureHandling) ObjectHelper.requireNonNull(this.errorHandler.apply(Long.valueOf(j2), th), "The errorHandler returned a null item")).ordinal()];
+                                j++;
+                                i2 = AnonymousClass1.$SwitchMap$io$reactivex$parallel$ParallelFailureHandling[((ParallelFailureHandling) ObjectHelper.requireNonNull(this.errorHandler.apply(Long.valueOf(j), th), "The errorHandler returned a null item")).ordinal()];
                                 if (i2 != 1) {
                                     if (i2 != 2) {
                                     }
@@ -228,7 +228,7 @@ public final class ParallelFilterTry<T> extends ParallelFlowable<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ParallelFilterSubscriber<T> extends BaseFilterSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -299,7 +299,7 @@ public final class ParallelFilterTry<T> extends ParallelFlowable<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 if (!this.done) {
-                    long j2 = 0;
+                    long j = 0;
                     do {
                         try {
                             if (this.predicate.test(t)) {
@@ -310,8 +310,8 @@ public final class ParallelFilterTry<T> extends ParallelFlowable<T> {
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
                             try {
-                                j2++;
-                                i2 = AnonymousClass1.$SwitchMap$io$reactivex$parallel$ParallelFailureHandling[((ParallelFailureHandling) ObjectHelper.requireNonNull(this.errorHandler.apply(Long.valueOf(j2), th), "The errorHandler returned a null item")).ordinal()];
+                                j++;
+                                i2 = AnonymousClass1.$SwitchMap$io$reactivex$parallel$ParallelFailureHandling[((ParallelFailureHandling) ObjectHelper.requireNonNull(this.errorHandler.apply(Long.valueOf(j), th), "The errorHandler returned a null item")).ordinal()];
                                 if (i2 != 1) {
                                     if (i2 != 2) {
                                     }

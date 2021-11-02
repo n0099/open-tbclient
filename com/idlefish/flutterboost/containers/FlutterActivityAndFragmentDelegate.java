@@ -17,11 +17,12 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
-import c.a.r0.p3.a;
+import b.a.r0.q3.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
+import com.baidu.tbadk.switchs.FlutterFragmentFixonAppearSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +48,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
@@ -66,7 +67,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Nullable
     public XPlatformPlugin platformPlugin;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface Host extends SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
 
@@ -489,6 +490,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
                 aVar.setFlutterPath("onResume1" + getContainerUrl());
             }
             a.getInstance().setLastFlutterPage(getContainerUrl());
+            if (this.mSyncer == null && FlutterFragmentFixonAppearSwitch.getIsOn()) {
+                onCreateView(null, null, null);
+            }
             this.mSyncer.onAppear();
             Log.v("FlutterActivityAndFragmentDelegate", "onResume()");
             ensureAlive();

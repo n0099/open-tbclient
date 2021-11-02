@@ -10,7 +10,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TaskScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "TaskScheduler";
@@ -21,7 +21,7 @@ public class TaskScheduler {
     public ThreadPoolExecutor mMiddlePoolExecutor;
     public ScheduledThreadPoolExecutor mScheduledPoolExecutor;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface ThreadType {
         public static final int THREAD_TYPE_DOWNLOAD = 3;
         public static final int THREAD_TYPE_HIGH = 1;
@@ -93,28 +93,28 @@ public class TaskScheduler {
         }
     }
 
-    public void submitAtFixedRate(BaseTask baseTask, long j2, long j3, TimeUnit timeUnit) {
+    public void submitAtFixedRate(BaseTask baseTask, long j, long j2, TimeUnit timeUnit) {
         ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{baseTask, Long.valueOf(j2), Long.valueOf(j3), timeUnit}) == null) || baseTask == null || (scheduledThreadPoolExecutor = this.mScheduledPoolExecutor) == null || scheduledThreadPoolExecutor.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{baseTask, Long.valueOf(j), Long.valueOf(j2), timeUnit}) == null) || baseTask == null || (scheduledThreadPoolExecutor = this.mScheduledPoolExecutor) == null || scheduledThreadPoolExecutor.isShutdown()) {
             return;
         }
         try {
             baseTask.setTaskAddTime(System.currentTimeMillis());
-            baseTask.setTask(this.mScheduledPoolExecutor.scheduleAtFixedRate(baseTask, j2, j3, timeUnit));
+            baseTask.setTask(this.mScheduledPoolExecutor.scheduleAtFixedRate(baseTask, j, j2, timeUnit));
         } catch (Throwable unused) {
         }
     }
 
-    public void submitWithDelay(BaseTask baseTask, long j2, TimeUnit timeUnit) {
+    public void submitWithDelay(BaseTask baseTask, long j, TimeUnit timeUnit) {
         ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{baseTask, Long.valueOf(j2), timeUnit}) == null) || baseTask == null || (scheduledThreadPoolExecutor = this.mScheduledPoolExecutor) == null || scheduledThreadPoolExecutor.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{baseTask, Long.valueOf(j), timeUnit}) == null) || baseTask == null || (scheduledThreadPoolExecutor = this.mScheduledPoolExecutor) == null || scheduledThreadPoolExecutor.isShutdown()) {
             return;
         }
         try {
             baseTask.setTaskAddTime(System.currentTimeMillis());
-            baseTask.setTask(this.mScheduledPoolExecutor.schedule(baseTask, j2, timeUnit));
+            baseTask.setTask(this.mScheduledPoolExecutor.schedule(baseTask, j, timeUnit));
         } catch (Throwable unused) {
         }
     }

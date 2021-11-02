@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.c.d0;
-import c.i.d.c.e0;
-import c.i.d.c.j0;
-import c.i.d.c.k0;
-import c.i.d.c.m1;
-import c.i.d.c.o1;
+import b.i.d.c.d0;
+import b.i.d.c.e0;
+import b.i.d.c.j0;
+import b.i.d.c.k0;
+import b.i.d.c.m1;
+import b.i.d.c.o1;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -41,19 +41,19 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class Maps {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class BiMapConverter<A, B> extends Converter<A, B> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
-        public final c.i.d.c.k<A, B> bimap;
+        public final b.i.d.c.k<A, B> bimap;
 
-        public BiMapConverter(c.i.d.c.k<A, B> kVar) {
+        public BiMapConverter(b.i.d.c.k<A, B> kVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,16 +68,16 @@ public final class Maps {
                     return;
                 }
             }
-            c.i.d.a.n.p(kVar);
+            b.i.d.a.n.p(kVar);
             this.bimap = kVar;
         }
 
-        public static <X, Y> Y convert(c.i.d.c.k<X, Y> kVar, X x) {
+        public static <X, Y> Y convert(b.i.d.c.k<X, Y> kVar, X x) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, kVar, x)) == null) {
                 Y y = kVar.get(x);
-                c.i.d.a.n.k(y != null, "No non-null mapping present for input: %s", x);
+                b.i.d.a.n.k(y != null, "No non-null mapping present for input: %s", x);
                 return y;
             }
             return (Y) invokeLL.objValue;
@@ -97,7 +97,7 @@ public final class Maps {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a2)) == null) ? (B) convert(this.bimap, a2) : (B) invokeL.objValue;
         }
 
-        @Override // com.google.common.base.Converter, c.i.d.a.g
+        @Override // com.google.common.base.Converter, b.i.d.a.g
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -127,8 +127,8 @@ public final class Maps {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static abstract class EntryFunction implements c.i.d.a.g<Map.Entry<?, ?>, Object> {
+    /* loaded from: classes2.dex */
+    public static abstract class EntryFunction implements b.i.d.a.g<Map.Entry<?, ?>, Object> {
         public static final /* synthetic */ EntryFunction[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final EntryFunction KEY;
@@ -174,7 +174,7 @@ public final class Maps {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.google.common.collect.Maps.EntryFunction, c.i.d.a.g
+                @Override // com.google.common.collect.Maps.EntryFunction, b.i.d.a.g
                 public Object apply(Map.Entry<?, ?> entry) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -207,7 +207,7 @@ public final class Maps {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.google.common.collect.Maps.EntryFunction, c.i.d.a.g
+                @Override // com.google.common.collect.Maps.EntryFunction, b.i.d.a.g
                 public Object apply(Map.Entry<?, ?> entry) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -249,7 +249,7 @@ public final class Maps {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (EntryFunction[]) $VALUES.clone() : (EntryFunction[]) invokeV.objValue;
         }
 
-        @Override // c.i.d.a.g
+        @Override // b.i.d.a.g
         public abstract /* synthetic */ T apply(F f2);
 
         public /* synthetic */ EntryFunction(String str, int i2, c cVar) {
@@ -257,17 +257,17 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class UnmodifiableBiMap<K, V> extends d0<K, V> implements c.i.d.c.k<K, V>, Serializable {
+    /* loaded from: classes2.dex */
+    public static class UnmodifiableBiMap<K, V> extends d0<K, V> implements b.i.d.c.k<K, V>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
-        public final c.i.d.c.k<? extends K, ? extends V> delegate;
-        public c.i.d.c.k<V, K> inverse;
+        public final b.i.d.c.k<? extends K, ? extends V> delegate;
+        public b.i.d.c.k<V, K> inverse;
         public final Map<K, V> unmodifiableMap;
         public transient Set<V> values;
 
-        public UnmodifiableBiMap(c.i.d.c.k<? extends K, ? extends V> kVar, c.i.d.c.k<V, K> kVar2) {
+        public UnmodifiableBiMap(b.i.d.c.k<? extends K, ? extends V> kVar, b.i.d.c.k<V, K> kVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -287,7 +287,7 @@ public final class Maps {
             this.inverse = kVar2;
         }
 
-        @Override // c.i.d.c.k
+        @Override // b.i.d.c.k
         public V forcePut(K k, V v) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -297,12 +297,12 @@ public final class Maps {
             return (V) invokeLL.objValue;
         }
 
-        @Override // c.i.d.c.k
-        public c.i.d.c.k<V, K> inverse() {
+        @Override // b.i.d.c.k
+        public b.i.d.c.k<V, K> inverse() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                c.i.d.c.k<V, K> kVar = this.inverse;
+                b.i.d.c.k<V, K> kVar = this.inverse;
                 if (kVar == null) {
                     UnmodifiableBiMap unmodifiableBiMap = new UnmodifiableBiMap(this.delegate.inverse(), this);
                     this.inverse = unmodifiableBiMap;
@@ -310,11 +310,11 @@ public final class Maps {
                 }
                 return kVar;
             }
-            return (c.i.d.c.k) invokeV.objValue;
+            return (b.i.d.c.k) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.d0, c.i.d.c.h0
+        @Override // b.i.d.c.d0, b.i.d.c.h0
         public Map<K, V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -322,7 +322,7 @@ public final class Maps {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.d0, java.util.Map
+        @Override // b.i.d.c.d0, java.util.Map
         public Set<V> values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -339,7 +339,7 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class UnmodifiableNavigableMap<K, V> extends k0<K, V> implements NavigableMap<K, V>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -422,7 +422,7 @@ public final class Maps {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k)) == null) ? this.delegate.floorKey(k) : (K) invokeL.objValue;
         }
 
-        @Override // c.i.d.c.k0, java.util.SortedMap
+        @Override // b.i.d.c.k0, java.util.SortedMap
         public SortedMap<K, V> headMap(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -443,7 +443,7 @@ public final class Maps {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, k)) == null) ? this.delegate.higherKey(k) : (K) invokeL.objValue;
         }
 
-        @Override // c.i.d.c.d0, java.util.Map
+        @Override // b.i.d.c.d0, java.util.Map
         public Set<K> keySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -498,14 +498,14 @@ public final class Maps {
             return (Map.Entry) invokeV.objValue;
         }
 
-        @Override // c.i.d.c.k0, java.util.SortedMap
+        @Override // b.i.d.c.k0, java.util.SortedMap
         public SortedMap<K, V> subMap(K k, K k2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, k, k2)) == null) ? subMap(k, true, k2, false) : (SortedMap) invokeLL.objValue;
         }
 
-        @Override // c.i.d.c.k0, java.util.SortedMap
+        @Override // b.i.d.c.k0, java.util.SortedMap
         public SortedMap<K, V> tailMap(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -553,7 +553,7 @@ public final class Maps {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.k0, c.i.d.c.d0, c.i.d.c.h0
+        @Override // b.i.d.c.k0, b.i.d.c.d0, b.i.d.c.h0
         public SortedMap<K, V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -561,16 +561,16 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class a extends c.i.d.c.b<K, V2> {
+    /* loaded from: classes2.dex */
+    public static class a extends b.i.d.c.b<K, V2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map.Entry f70994e;
+        public final /* synthetic */ Map.Entry f63488e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l f70995f;
+        public final /* synthetic */ l f63489f;
 
         public a(Map.Entry entry, l lVar) {
             Interceptable interceptable = $ic;
@@ -587,36 +587,36 @@ public final class Maps {
                     return;
                 }
             }
-            this.f70994e = entry;
-            this.f70995f = lVar;
+            this.f63488e = entry;
+            this.f63489f = lVar;
         }
 
         /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Object, K] */
         /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, K] */
-        @Override // c.i.d.c.b, java.util.Map.Entry
+        @Override // b.i.d.c.b, java.util.Map.Entry
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70994e.getKey() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63488e.getKey() : invokeV.objValue;
         }
 
         /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Object, V2] */
         /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, V2] */
-        @Override // c.i.d.c.b, java.util.Map.Entry
+        @Override // b.i.d.c.b, java.util.Map.Entry
         public V2 getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70995f.a(this.f70994e.getKey(), this.f70994e.getValue()) : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63489f.a(this.f63488e.getKey(), this.f63488e.getValue()) : invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class b implements c.i.d.a.g<Map.Entry<K, V1>, Map.Entry<K, V2>> {
+    /* loaded from: classes2.dex */
+    public static class b implements b.i.d.a.g<Map.Entry<K, V1>, Map.Entry<K, V2>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f70996e;
+        public final /* synthetic */ l f63490e;
 
         public b(l lVar) {
             Interceptable interceptable = $ic;
@@ -633,20 +633,20 @@ public final class Maps {
                     return;
                 }
             }
-            this.f70996e = lVar;
+            this.f63490e = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.g
+        @Override // b.i.d.a.g
         /* renamed from: a */
         public Map.Entry<K, V2> apply(Map.Entry<K, V1> entry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? Maps.F(this.f70996e, entry) : (Map.Entry) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? Maps.F(this.f63490e, entry) : (Map.Entry) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class c extends m1<Map.Entry<K, V>, K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -674,7 +674,7 @@ public final class Maps {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, K] */
         /* JADX WARN: Type inference failed for: r5v1, types: [java.lang.Object, K] */
-        @Override // c.i.d.c.m1
+        @Override // b.i.d.c.m1
         /* renamed from: b */
         public K a(Map.Entry<K, V> entry) {
             InterceptResult invokeL;
@@ -683,7 +683,7 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class d extends m1<Map.Entry<K, V>, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -711,7 +711,7 @@ public final class Maps {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Type inference failed for: r1v0, types: [V, java.lang.Object] */
         /* JADX WARN: Type inference failed for: r5v1, types: [V, java.lang.Object] */
-        @Override // c.i.d.c.m1
+        @Override // b.i.d.c.m1
         /* renamed from: b */
         public V a(Map.Entry<K, V> entry) {
             InterceptResult invokeL;
@@ -720,16 +720,16 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class e extends m1<K, Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.i.d.a.g f70997f;
+        public final /* synthetic */ b.i.d.a.g f63491f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(Iterator it, c.i.d.a.g gVar) {
+        public e(Iterator it, b.i.d.a.g gVar) {
             super(it);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -746,26 +746,26 @@ public final class Maps {
                     return;
                 }
             }
-            this.f70997f = gVar;
+            this.f63491f = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.m1
+        @Override // b.i.d.c.m1
         /* renamed from: b */
         public Map.Entry<K, V> a(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? Maps.l(k, this.f70997f.apply(k)) : (Map.Entry) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? Maps.l(k, this.f63491f.apply(k)) : (Map.Entry) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class f extends c.i.d.c.b<K, V> {
+    /* loaded from: classes2.dex */
+    public static class f extends b.i.d.c.b<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map.Entry f70998e;
+        public final /* synthetic */ Map.Entry f63492e;
 
         public f(Map.Entry entry) {
             Interceptable interceptable = $ic;
@@ -782,35 +782,35 @@ public final class Maps {
                     return;
                 }
             }
-            this.f70998e = entry;
+            this.f63492e = entry;
         }
 
         /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Object, K] */
         /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, K] */
-        @Override // c.i.d.c.b, java.util.Map.Entry
+        @Override // b.i.d.c.b, java.util.Map.Entry
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70998e.getKey() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63492e.getKey() : invokeV.objValue;
         }
 
         /* JADX WARN: Type inference failed for: r0v3, types: [V, java.lang.Object] */
         /* JADX WARN: Type inference failed for: r1v0, types: [V, java.lang.Object] */
-        @Override // c.i.d.c.b, java.util.Map.Entry
+        @Override // b.i.d.c.b, java.util.Map.Entry
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70998e.getValue() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63492e.getValue() : invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class g extends o1<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterator f70999e;
+        public final /* synthetic */ Iterator f63493e;
 
         public g(Iterator it) {
             Interceptable interceptable = $ic;
@@ -827,7 +827,7 @@ public final class Maps {
                     return;
                 }
             }
-            this.f70999e = it;
+            this.f63493e = it;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -836,26 +836,26 @@ public final class Maps {
         public Map.Entry<K, V> next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Maps.I((Map.Entry) this.f70999e.next()) : (Map.Entry) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Maps.I((Map.Entry) this.f63493e.next()) : (Map.Entry) invokeV.objValue;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70999e.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63493e.hasNext() : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class h implements l<K, V1, V2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.i.d.a.g f71000a;
+        public final /* synthetic */ b.i.d.a.g f63494a;
 
-        public h(c.i.d.a.g gVar) {
+        public h(b.i.d.a.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -870,7 +870,7 @@ public final class Maps {
                     return;
                 }
             }
-            this.f71000a = gVar;
+            this.f63494a = gVar;
         }
 
         /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, V2] */
@@ -879,22 +879,22 @@ public final class Maps {
         public V2 a(K k, V1 v1) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, v1)) == null) ? this.f71000a.apply(v1) : invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, v1)) == null) ? this.f63494a.apply(v1) : invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class i<K, V> extends y<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Map<K, V> f71001h;
+        public final Map<K, V> f63495h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final c.i.d.a.o<? super Map.Entry<K, V>> f71002i;
+        public final b.i.d.a.o<? super Map.Entry<K, V>> f63496i;
 
-        public i(Map<K, V> map, c.i.d.a.o<? super Map.Entry<K, V>> oVar) {
+        public i(Map<K, V> map, b.i.d.a.o<? super Map.Entry<K, V>> oVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -909,28 +909,28 @@ public final class Maps {
                     return;
                 }
             }
-            this.f71001h = map;
-            this.f71002i = oVar;
+            this.f63495h = map;
+            this.f63496i = oVar;
         }
 
         @Override // com.google.common.collect.Maps.y
         public Collection<V> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new o(this, this.f71001h, this.f71002i) : (Collection) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new o(this, this.f63495h, this.f63496i) : (Collection) invokeV.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f71001h.containsKey(obj) && d(obj, this.f71001h.get(obj)) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f63495h.containsKey(obj) && d(obj, this.f63495h.get(obj)) : invokeL.booleanValue;
         }
 
         public boolean d(Object obj, V v) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, v)) == null) ? this.f71002i.apply(Maps.l(obj, v)) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, v)) == null) ? this.f63496i.apply(Maps.l(obj, v)) : invokeLL.booleanValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
@@ -938,7 +938,7 @@ public final class Maps {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                V v = this.f71001h.get(obj);
+                V v = this.f63495h.get(obj);
                 if (v == null || !d(obj, v)) {
                     return null;
                 }
@@ -959,8 +959,8 @@ public final class Maps {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, v)) == null) {
-                c.i.d.a.n.d(d(k, v));
-                return this.f71001h.put(k, v);
+                b.i.d.a.n.d(d(k, v));
+                return this.f63495h.put(k, v);
             }
             return (V) invokeLL.objValue;
         }
@@ -970,9 +970,9 @@ public final class Maps {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
                 for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-                    c.i.d.a.n.d(d(entry.getKey(), entry.getValue()));
+                    b.i.d.a.n.d(d(entry.getKey(), entry.getValue()));
                 }
-                this.f71001h.putAll(map);
+                this.f63495h.putAll(map);
             }
         }
 
@@ -982,7 +982,7 @@ public final class Maps {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
                 if (containsKey(obj)) {
-                    return this.f71001h.remove(obj);
+                    return this.f63495h.remove(obj);
                 }
                 return null;
             }
@@ -990,27 +990,27 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class j<K, V> extends d0<K, V> implements NavigableMap<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Comparator<? super K> f71003e;
+        public transient Comparator<? super K> f63497e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient Set<Map.Entry<K, V>> f71004f;
+        public transient Set<Map.Entry<K, V>> f63498f;
 
         /* renamed from: g  reason: collision with root package name */
-        public transient NavigableSet<K> f71005g;
+        public transient NavigableSet<K> f63499g;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public class a extends k<K, V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ j f71006e;
+            public final /* synthetic */ j f63500e;
 
             public a(j jVar) {
                 Interceptable interceptable = $ic;
@@ -1027,21 +1027,21 @@ public final class Maps {
                         return;
                     }
                 }
-                this.f71006e = jVar;
+                this.f63500e = jVar;
             }
 
             @Override // com.google.common.collect.Maps.k
             public Map<K, V> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71006e : (Map) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63500e : (Map) invokeV.objValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<Map.Entry<K, V>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71006e.e() : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63500e.e() : (Iterator) invokeV.objValue;
             }
         }
 
@@ -1084,14 +1084,14 @@ public final class Maps {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                Comparator<? super K> comparator = this.f71003e;
+                Comparator<? super K> comparator = this.f63497e;
                 if (comparator == null) {
                     Comparator<? super K> comparator2 = f().comparator();
                     if (comparator2 == null) {
                         comparator2 = Ordering.natural();
                     }
                     Ordering g2 = g(comparator2);
-                    this.f71003e = g2;
+                    this.f63497e = g2;
                     return g2;
                 }
                 return comparator;
@@ -1121,15 +1121,15 @@ public final class Maps {
 
         public abstract Iterator<Map.Entry<K, V>> e();
 
-        @Override // c.i.d.c.d0, java.util.Map
+        @Override // b.i.d.c.d0, java.util.Map
         public Set<Map.Entry<K, V>> entrySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                Set<Map.Entry<K, V>> set = this.f71004f;
+                Set<Map.Entry<K, V>> set = this.f63498f;
                 if (set == null) {
                     Set<Map.Entry<K, V>> d2 = d();
-                    this.f71004f = d2;
+                    this.f63498f = d2;
                     return d2;
                 }
                 return set;
@@ -1188,7 +1188,7 @@ public final class Maps {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, k)) == null) ? f().lowerKey(k) : (K) invokeL.objValue;
         }
 
-        @Override // c.i.d.c.d0, java.util.Map
+        @Override // b.i.d.c.d0, java.util.Map
         public Set<K> keySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1228,10 +1228,10 @@ public final class Maps {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-                NavigableSet<K> navigableSet = this.f71005g;
+                NavigableSet<K> navigableSet = this.f63499g;
                 if (navigableSet == null) {
                     r rVar = new r(this);
-                    this.f71005g = rVar;
+                    this.f63499g = rVar;
                     return rVar;
                 }
                 return navigableSet;
@@ -1267,14 +1267,14 @@ public final class Maps {
             return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048605, this, k, z)) == null) ? f().headMap(k, z).descendingMap() : (NavigableMap) invokeLZ.objValue;
         }
 
-        @Override // c.i.d.c.h0, java.lang.Object
+        @Override // b.i.d.c.h0, java.lang.Object
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? standardToString() : (String) invokeV.objValue;
         }
 
-        @Override // c.i.d.c.d0, java.util.Map
+        @Override // b.i.d.c.d0, java.util.Map
         public Collection<V> values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1282,7 +1282,7 @@ public final class Maps {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.d0, c.i.d.c.h0
+        @Override // b.i.d.c.d0, b.i.d.c.h0
         public final Map<K, V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1311,7 +1311,7 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class k<K, V> extends Sets.c<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1349,7 +1349,7 @@ public final class Maps {
                     Map.Entry entry = (Map.Entry) obj;
                     Object key = entry.getKey();
                     Object A = Maps.A(b(), key);
-                    if (c.i.d.a.k.a(A, entry.getValue())) {
+                    if (b.i.d.a.k.a(A, entry.getValue())) {
                         return A != null || b().containsKey(key);
                     }
                     return false;
@@ -1385,7 +1385,7 @@ public final class Maps {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
                 try {
-                    c.i.d.a.n.p(collection);
+                    b.i.d.a.n.p(collection);
                     return super.removeAll(collection);
                 } catch (UnsupportedOperationException unused) {
                     return Sets.l(this, collection.iterator());
@@ -1400,7 +1400,7 @@ public final class Maps {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) {
                 try {
-                    c.i.d.a.n.p(collection);
+                    b.i.d.a.n.p(collection);
                     return super.retainAll(collection);
                 } catch (UnsupportedOperationException unused) {
                     HashSet g2 = Sets.g(collection.size());
@@ -1423,54 +1423,52 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface l<K, V1, V2> {
         V2 a(K k, V1 v1);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class m<K, V> extends i<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final Set<Map.Entry<K, V>> j;
 
-        /* renamed from: j  reason: collision with root package name */
-        public final Set<Map.Entry<K, V>> f71007j;
-
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public class a extends j0<Map.Entry<K, V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ m f71008e;
+            public final /* synthetic */ m f63501e;
 
             /* renamed from: com.google.common.collect.Maps$m$a$a  reason: collision with other inner class name */
-            /* loaded from: classes9.dex */
-            public class C1961a extends m1<Map.Entry<K, V>, Map.Entry<K, V>> {
+            /* loaded from: classes2.dex */
+            public class C1870a extends m1<Map.Entry<K, V>, Map.Entry<K, V>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ a f71009f;
+                public final /* synthetic */ a f63502f;
 
                 /* renamed from: com.google.common.collect.Maps$m$a$a$a  reason: collision with other inner class name */
-                /* loaded from: classes9.dex */
-                public class C1962a extends e0<K, V> {
+                /* loaded from: classes2.dex */
+                public class C1871a extends e0<K, V> {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Map.Entry f71010e;
+                    public final /* synthetic */ Map.Entry f63503e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ C1961a f71011f;
+                    public final /* synthetic */ C1870a f63504f;
 
-                    public C1962a(C1961a c1961a, Map.Entry entry) {
+                    public C1871a(C1870a c1870a, Map.Entry entry) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1961a, entry};
+                            Object[] objArr = {c1870a, entry};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -1480,25 +1478,25 @@ public final class Maps {
                                 return;
                             }
                         }
-                        this.f71011f = c1961a;
-                        this.f71010e = entry;
+                        this.f63504f = c1870a;
+                        this.f63503e = entry;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // c.i.d.c.h0
+                    @Override // b.i.d.c.h0
                     /* renamed from: d */
                     public Map.Entry<K, V> delegate() {
                         InterceptResult invokeV;
                         Interceptable interceptable = $ic;
-                        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71010e : (Map.Entry) invokeV.objValue;
+                        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63503e : (Map.Entry) invokeV.objValue;
                     }
 
-                    @Override // c.i.d.c.e0, java.util.Map.Entry
+                    @Override // b.i.d.c.e0, java.util.Map.Entry
                     public V setValue(V v) {
                         InterceptResult invokeL;
                         Interceptable interceptable = $ic;
                         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v)) == null) {
-                            c.i.d.a.n.d(this.f71011f.f71009f.f71008e.d(getKey(), v));
+                            b.i.d.a.n.d(this.f63504f.f63502f.f63501e.d(getKey(), v));
                             return (V) super.setValue(v);
                         }
                         return (V) invokeL.objValue;
@@ -1506,7 +1504,7 @@ public final class Maps {
                 }
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public C1961a(a aVar, Iterator it) {
+                public C1870a(a aVar, Iterator it) {
                     super(it);
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
@@ -1523,16 +1521,16 @@ public final class Maps {
                             return;
                         }
                     }
-                    this.f71009f = aVar;
+                    this.f63502f = aVar;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.i.d.c.m1
+                @Override // b.i.d.c.m1
                 /* renamed from: b */
                 public Map.Entry<K, V> a(Map.Entry<K, V> entry) {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C1962a(this, entry) : (Map.Entry) invokeL.objValue;
+                    return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C1871a(this, entry) : (Map.Entry) invokeL.objValue;
                 }
             }
 
@@ -1551,14 +1549,14 @@ public final class Maps {
                         return;
                     }
                 }
-                this.f71008e = mVar;
+                this.f63501e = mVar;
             }
 
-            @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
+            @Override // b.i.d.c.y, java.util.Collection, java.lang.Iterable, b.i.d.c.s0
             public Iterator<Map.Entry<K, V>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new C1961a(this, this.f71008e.f71007j.iterator()) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new C1870a(this, this.f63501e.j.iterator()) : (Iterator) invokeV.objValue;
             }
 
             public /* synthetic */ a(m mVar, c cVar) {
@@ -1566,21 +1564,21 @@ public final class Maps {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.i.d.c.j0, c.i.d.c.y, c.i.d.c.h0
+            @Override // b.i.d.c.j0, b.i.d.c.y, b.i.d.c.h0
             public Set<Map.Entry<K, V>> delegate() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71008e.f71007j : (Set) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63501e.j : (Set) invokeV.objValue;
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public class b extends q<K, V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ m f71012f;
+            public final /* synthetic */ m f63505f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(m mVar) {
@@ -1600,7 +1598,7 @@ public final class Maps {
                         return;
                     }
                 }
-                this.f71012f = mVar;
+                this.f63505f = mVar;
             }
 
             @Override // com.google.common.collect.Maps.q, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -1608,8 +1606,8 @@ public final class Maps {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                    if (this.f71012f.containsKey(obj)) {
-                        this.f71012f.f71001h.remove(obj);
+                    if (this.f63505f.containsKey(obj)) {
+                        this.f63505f.f63495h.remove(obj);
                         return true;
                     }
                     return false;
@@ -1622,8 +1620,8 @@ public final class Maps {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
-                    m mVar = this.f71012f;
-                    return m.e(mVar.f71001h, mVar.f71002i, collection);
+                    m mVar = this.f63505f;
+                    return m.e(mVar.f63495h, mVar.f63496i, collection);
                 }
                 return invokeL.booleanValue;
             }
@@ -1633,8 +1631,8 @@ public final class Maps {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
-                    m mVar = this.f71012f;
-                    return m.f(mVar.f71001h, mVar.f71002i, collection);
+                    m mVar = this.f63505f;
+                    return m.f(mVar.f63495h, mVar.f63496i, collection);
                 }
                 return invokeL.booleanValue;
             }
@@ -1655,7 +1653,7 @@ public final class Maps {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public m(Map<K, V> map, c.i.d.a.o<? super Map.Entry<K, V>> oVar) {
+        public m(Map<K, V> map, b.i.d.a.o<? super Map.Entry<K, V>> oVar) {
             super(map, oVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1667,16 +1665,16 @@ public final class Maps {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((Map) objArr2[0], (c.i.d.a.o) objArr2[1]);
+                    super((Map) objArr2[0], (b.i.d.a.o) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f71007j = Sets.b(map.entrySet(), this.f71002i);
+            this.j = Sets.b(map.entrySet(), this.f63496i);
         }
 
-        public static <K, V> boolean e(Map<K, V> map, c.i.d.a.o<? super Map.Entry<K, V>> oVar, Collection<?> collection) {
+        public static <K, V> boolean e(Map<K, V> map, b.i.d.a.o<? super Map.Entry<K, V>> oVar, Collection<?> collection) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, map, oVar, collection)) == null) {
@@ -1694,7 +1692,7 @@ public final class Maps {
             return invokeLLL.booleanValue;
         }
 
-        public static <K, V> boolean f(Map<K, V> map, c.i.d.a.o<? super Map.Entry<K, V>> oVar, Collection<?> collection) {
+        public static <K, V> boolean f(Map<K, V> map, b.i.d.a.o<? super Map.Entry<K, V>> oVar, Collection<?> collection) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, map, oVar, collection)) == null) {
@@ -1727,16 +1725,14 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class n<K, V> extends i<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: j  reason: collision with root package name */
-        public final c.i.d.a.o<? super K> f71013j;
+        public final b.i.d.a.o<? super K> j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public n(Map<K, V> map, c.i.d.a.o<? super K> oVar, c.i.d.a.o<? super Map.Entry<K, V>> oVar2) {
+        public n(Map<K, V> map, b.i.d.a.o<? super K> oVar, b.i.d.a.o<? super Map.Entry<K, V>> oVar2) {
             super(map, oVar2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1748,50 +1744,50 @@ public final class Maps {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((Map) objArr2[0], (c.i.d.a.o) objArr2[1]);
+                    super((Map) objArr2[0], (b.i.d.a.o) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f71013j = oVar;
+            this.j = oVar;
         }
 
         @Override // com.google.common.collect.Maps.y
         public Set<Map.Entry<K, V>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Sets.b(this.f71001h.entrySet(), this.f71002i) : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Sets.b(this.f63495h.entrySet(), this.f63496i) : (Set) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.Maps.y
         public Set<K> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Sets.b(this.f71001h.keySet(), this.f71013j) : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Sets.b(this.f63495h.keySet(), this.j) : (Set) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.Maps.i, java.util.AbstractMap, java.util.Map
         public boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f71001h.containsKey(obj) && this.f71013j.apply(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f63495h.containsKey(obj) && this.j.apply(obj) : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class o<K, V> extends x<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Map<K, V> f71014f;
+        public final Map<K, V> f63506f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c.i.d.a.o<? super Map.Entry<K, V>> f71015g;
+        public final b.i.d.a.o<? super Map.Entry<K, V>> f63507g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public o(Map<K, V> map, Map<K, V> map2, c.i.d.a.o<? super Map.Entry<K, V>> oVar) {
+        public o(Map<K, V> map, Map<K, V> map2, b.i.d.a.o<? super Map.Entry<K, V>> oVar) {
             super(map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1808,8 +1804,8 @@ public final class Maps {
                     return;
                 }
             }
-            this.f71014f = map2;
-            this.f71015g = oVar;
+            this.f63506f = map2;
+            this.f63507g = oVar;
         }
 
         @Override // com.google.common.collect.Maps.x, java.util.AbstractCollection, java.util.Collection
@@ -1817,10 +1813,10 @@ public final class Maps {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                Iterator<Map.Entry<K, V>> it = this.f71014f.entrySet().iterator();
+                Iterator<Map.Entry<K, V>> it = this.f63506f.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry<K, V> next = it.next();
-                    if (this.f71015g.apply(next) && c.i.d.a.k.a(next.getValue(), obj)) {
+                    if (this.f63507g.apply(next) && b.i.d.a.k.a(next.getValue(), obj)) {
                         it.remove();
                         return true;
                     }
@@ -1835,11 +1831,11 @@ public final class Maps {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
-                Iterator<Map.Entry<K, V>> it = this.f71014f.entrySet().iterator();
+                Iterator<Map.Entry<K, V>> it = this.f63506f.entrySet().iterator();
                 boolean z = false;
                 while (it.hasNext()) {
                     Map.Entry<K, V> next = it.next();
-                    if (this.f71015g.apply(next) && collection.contains(next.getValue())) {
+                    if (this.f63507g.apply(next) && collection.contains(next.getValue())) {
                         it.remove();
                         z = true;
                     }
@@ -1854,11 +1850,11 @@ public final class Maps {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
-                Iterator<Map.Entry<K, V>> it = this.f71014f.entrySet().iterator();
+                Iterator<Map.Entry<K, V>> it = this.f63506f.entrySet().iterator();
                 boolean z = false;
                 while (it.hasNext()) {
                     Map.Entry<K, V> next = it.next();
-                    if (this.f71015g.apply(next) && !collection.contains(next.getValue())) {
+                    if (this.f63507g.apply(next) && !collection.contains(next.getValue())) {
                         it.remove();
                         z = true;
                     }
@@ -1883,18 +1879,18 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class p<K, V> extends AbstractMap<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public class a extends k<K, V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ p f71016e;
+            public final /* synthetic */ p f63508e;
 
             public a(p pVar) {
                 Interceptable interceptable = $ic;
@@ -1911,21 +1907,21 @@ public final class Maps {
                         return;
                     }
                 }
-                this.f71016e = pVar;
+                this.f63508e = pVar;
             }
 
             @Override // com.google.common.collect.Maps.k
             public Map<K, V> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71016e : (Map) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63508e : (Map) invokeV.objValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<Map.Entry<K, V>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71016e.a() : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63508e.a() : (Iterator) invokeV.objValue;
             }
         }
 
@@ -1961,13 +1957,13 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class q<K, V> extends Sets.c<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map<K, V> f71017e;
+        public final Map<K, V> f63509e;
 
         public q(Map<K, V> map) {
             Interceptable interceptable = $ic;
@@ -1984,14 +1980,14 @@ public final class Maps {
                     return;
                 }
             }
-            c.i.d.a.n.p(map);
-            this.f71017e = map;
+            b.i.d.a.n.p(map);
+            this.f63509e = map;
         }
 
         public Map<K, V> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71017e : (Map) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63509e : (Map) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -2045,7 +2041,7 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class r<K, V> extends s<K, V> implements NavigableSet<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2083,7 +2079,7 @@ public final class Maps {
         public NavigableMap<K, V> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (NavigableMap) this.f71017e : (NavigableMap) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (NavigableMap) this.f63509e : (NavigableMap) invokeV.objValue;
         }
 
         @Override // java.util.NavigableSet
@@ -2178,7 +2174,7 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class s<K, V> extends q<K, V> implements SortedSet<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2252,16 +2248,16 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class t<K, V1, V2> extends p<K, V2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map<K, V1> f71018e;
+        public final Map<K, V1> f63510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final l<? super K, ? super V1, V2> f71019f;
+        public final l<? super K, ? super V1, V2> f63511f;
 
         public t(Map<K, V1> map, l<? super K, ? super V1, V2> lVar) {
             Interceptable interceptable = $ic;
@@ -2278,24 +2274,24 @@ public final class Maps {
                     return;
                 }
             }
-            c.i.d.a.n.p(map);
-            this.f71018e = map;
-            c.i.d.a.n.p(lVar);
-            this.f71019f = lVar;
+            b.i.d.a.n.p(map);
+            this.f63510e = map;
+            b.i.d.a.n.p(lVar);
+            this.f63511f = lVar;
         }
 
         @Override // com.google.common.collect.Maps.p
         public Iterator<Map.Entry<K, V2>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Iterators.A(this.f71018e.entrySet().iterator(), Maps.b(this.f71019f)) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Iterators.A(this.f63510e.entrySet().iterator(), Maps.b(this.f63511f)) : (Iterator) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.Maps.p, java.util.AbstractMap, java.util.Map
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f71018e.clear();
+                this.f63510e.clear();
             }
         }
 
@@ -2303,7 +2299,7 @@ public final class Maps {
         public boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f71018e.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f63510e.containsKey(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
@@ -2311,9 +2307,9 @@ public final class Maps {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                V1 v1 = this.f71018e.get(obj);
-                if (v1 != null || this.f71018e.containsKey(obj)) {
-                    return this.f71019f.a(obj, v1);
+                V1 v1 = this.f63510e.get(obj);
+                if (v1 != null || this.f63510e.containsKey(obj)) {
+                    return this.f63511f.a(obj, v1);
                 }
                 return null;
             }
@@ -2324,7 +2320,7 @@ public final class Maps {
         public Set<K> keySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71018e.keySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63510e.keySet() : (Set) invokeV.objValue;
         }
 
         /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: V1, ? super V1 */
@@ -2333,8 +2329,8 @@ public final class Maps {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                if (this.f71018e.containsKey(obj)) {
-                    return this.f71019f.a(obj, (V1) this.f71018e.remove(obj));
+                if (this.f63510e.containsKey(obj)) {
+                    return this.f63511f.a(obj, (V1) this.f63510e.remove(obj));
                 }
                 return null;
             }
@@ -2345,7 +2341,7 @@ public final class Maps {
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71018e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63510e.size() : invokeV.intValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
@@ -2356,7 +2352,7 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class u<K, V1, V2> extends t<K, V1, V2> implements SortedMap<K, V2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2385,7 +2381,7 @@ public final class Maps {
         public SortedMap<K, V1> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (SortedMap) this.f71018e : (SortedMap) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (SortedMap) this.f63510e : (SortedMap) invokeV.objValue;
         }
 
         @Override // java.util.SortedMap
@@ -2406,7 +2402,7 @@ public final class Maps {
         public SortedMap<K, V2> headMap(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) ? Maps.E(b().headMap(k), this.f71019f) : (SortedMap) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) ? Maps.E(b().headMap(k), this.f63511f) : (SortedMap) invokeL.objValue;
         }
 
         @Override // java.util.SortedMap
@@ -2420,24 +2416,24 @@ public final class Maps {
         public SortedMap<K, V2> subMap(K k, K k2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, k2)) == null) ? Maps.E(b().subMap(k, k2), this.f71019f) : (SortedMap) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, k2)) == null) ? Maps.E(b().subMap(k, k2), this.f63511f) : (SortedMap) invokeLL.objValue;
         }
 
         @Override // java.util.SortedMap
         public SortedMap<K, V2> tailMap(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) ? Maps.E(b().tailMap(k), this.f71019f) : (SortedMap) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) ? Maps.E(b().tailMap(k), this.f63511f) : (SortedMap) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class v<K, V> extends c.i.d.c.y<Map.Entry<K, V>> {
+    /* loaded from: classes2.dex */
+    public static class v<K, V> extends b.i.d.c.y<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Collection<Map.Entry<K, V>> f71020e;
+        public final Collection<Map.Entry<K, V>> f63512e;
 
         public v(Collection<Map.Entry<K, V>> collection) {
             Interceptable interceptable = $ic;
@@ -2454,17 +2450,17 @@ public final class Maps {
                     return;
                 }
             }
-            this.f71020e = collection;
+            this.f63512e = collection;
         }
 
-        @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
+        @Override // b.i.d.c.y, java.util.Collection, java.lang.Iterable, b.i.d.c.s0
         public Iterator<Map.Entry<K, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Maps.J(this.f71020e.iterator()) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Maps.J(this.f63512e.iterator()) : (Iterator) invokeV.objValue;
         }
 
-        @Override // c.i.d.c.y, java.util.Collection
+        @Override // b.i.d.c.y, java.util.Collection
         public Object[] toArray() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2472,14 +2468,14 @@ public final class Maps {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.y, c.i.d.c.h0
+        @Override // b.i.d.c.y, b.i.d.c.h0
         public Collection<Map.Entry<K, V>> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71020e : (Collection) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63512e : (Collection) invokeV.objValue;
         }
 
-        @Override // c.i.d.c.y, java.util.Collection
+        @Override // b.i.d.c.y, java.util.Collection
         public <T> T[] toArray(T[] tArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -2487,7 +2483,7 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class w<K, V> extends v<K, V> implements Set<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2527,13 +2523,13 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class x<K, V> extends AbstractCollection<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map<K, V> f71021e;
+        public final Map<K, V> f63513e;
 
         public x(Map<K, V> map) {
             Interceptable interceptable = $ic;
@@ -2550,14 +2546,14 @@ public final class Maps {
                     return;
                 }
             }
-            c.i.d.a.n.p(map);
-            this.f71021e = map;
+            b.i.d.a.n.p(map);
+            this.f63513e = map;
         }
 
         public final Map<K, V> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71021e : (Map) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63513e : (Map) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -2598,7 +2594,7 @@ public final class Maps {
                     return super.remove(obj);
                 } catch (UnsupportedOperationException unused) {
                     for (Map.Entry<K, V> entry : b().entrySet()) {
-                        if (c.i.d.a.k.a(obj, entry.getValue())) {
+                        if (b.i.d.a.k.a(obj, entry.getValue())) {
                             b().remove(entry.getKey());
                             return true;
                         }
@@ -2615,7 +2611,7 @@ public final class Maps {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) {
                 try {
-                    c.i.d.a.n.p(collection);
+                    b.i.d.a.n.p(collection);
                     return super.removeAll(collection);
                 } catch (UnsupportedOperationException unused) {
                     HashSet f2 = Sets.f();
@@ -2636,7 +2632,7 @@ public final class Maps {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, collection)) == null) {
                 try {
-                    c.i.d.a.n.p(collection);
+                    b.i.d.a.n.p(collection);
                     return super.retainAll(collection);
                 } catch (UnsupportedOperationException unused) {
                     HashSet f2 = Sets.f();
@@ -2659,19 +2655,19 @@ public final class Maps {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class y<K, V> extends AbstractMap<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Set<Map.Entry<K, V>> f71022e;
+        public transient Set<Map.Entry<K, V>> f63514e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient Set<K> f71023f;
+        public transient Set<K> f63515f;
 
         /* renamed from: g  reason: collision with root package name */
-        public transient Collection<V> f71024g;
+        public transient Collection<V> f63516g;
 
         public y() {
             Interceptable interceptable = $ic;
@@ -2706,10 +2702,10 @@ public final class Maps {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                Set<Map.Entry<K, V>> set = this.f71022e;
+                Set<Map.Entry<K, V>> set = this.f63514e;
                 if (set == null) {
                     Set<Map.Entry<K, V>> a2 = a();
-                    this.f71022e = a2;
+                    this.f63514e = a2;
                     return a2;
                 }
                 return set;
@@ -2722,10 +2718,10 @@ public final class Maps {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                Set<K> set = this.f71023f;
+                Set<K> set = this.f63515f;
                 if (set == null) {
                     Set<K> b2 = b();
-                    this.f71023f = b2;
+                    this.f63515f = b2;
                     return b2;
                 }
                 return set;
@@ -2738,10 +2734,10 @@ public final class Maps {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                Collection<V> collection = this.f71024g;
+                Collection<V> collection = this.f63516g;
                 if (collection == null) {
                     Collection<V> c2 = c();
-                    this.f71024g = c2;
+                    this.f63516g = c2;
                     return c2;
                 }
                 return collection;
@@ -2754,7 +2750,7 @@ public final class Maps {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, map, obj)) == null) {
-            c.i.d.a.n.p(map);
+            b.i.d.a.n.p(map);
             try {
                 return map.get(obj);
             } catch (ClassCastException | NullPointerException unused) {
@@ -2768,7 +2764,7 @@ public final class Maps {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, obj)) == null) {
-            c.i.d.a.n.p(map);
+            b.i.d.a.n.p(map);
             try {
                 return map.remove(obj);
             } catch (ClassCastException | NullPointerException unused) {
@@ -2782,7 +2778,7 @@ public final class Maps {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            StringBuilder d2 = c.i.d.c.n.d(map.size());
+            StringBuilder d2 = b.i.d.c.n.d(map.size());
             d2.append(ExtendedMessageFormat.START_FE);
             boolean z = true;
             for (Map.Entry<?, ?> entry : map.entrySet()) {
@@ -2791,7 +2787,7 @@ public final class Maps {
                 }
                 z = false;
                 d2.append(entry.getKey());
-                d2.append(com.alipay.sdk.encrypt.a.f36026h);
+                d2.append(com.alipay.sdk.encrypt.a.f34124h);
                 d2.append(entry.getValue());
             }
             d2.append(ExtendedMessageFormat.END_FE);
@@ -2816,20 +2812,20 @@ public final class Maps {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, lVar, entry)) == null) {
-            c.i.d.a.n.p(lVar);
-            c.i.d.a.n.p(entry);
+            b.i.d.a.n.p(lVar);
+            b.i.d.a.n.p(entry);
             return new a(entry, lVar);
         }
         return (Map.Entry) invokeLL.objValue;
     }
 
-    public static <K, V1, V2> Map<K, V2> G(Map<K, V1> map, c.i.d.a.g<? super V1, V2> gVar) {
+    public static <K, V1, V2> Map<K, V2> G(Map<K, V1> map, b.i.d.a.g<? super V1, V2> gVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, map, gVar)) == null) ? D(map, c(gVar)) : (Map) invokeLL.objValue;
     }
 
-    public static <K, V1, V2> SortedMap<K, V2> H(SortedMap<K, V1> sortedMap, c.i.d.a.g<? super V1, V2> gVar) {
+    public static <K, V1, V2> SortedMap<K, V2> H(SortedMap<K, V1> sortedMap, b.i.d.a.g<? super V1, V2> gVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, sortedMap, gVar)) == null) ? E(sortedMap, c(gVar)) : (SortedMap) invokeLL.objValue;
@@ -2839,7 +2835,7 @@ public final class Maps {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, entry)) == null) {
-            c.i.d.a.n.p(entry);
+            b.i.d.a.n.p(entry);
             return new f(entry);
         }
         return (Map.Entry) invokeL.objValue;
@@ -2863,7 +2859,7 @@ public final class Maps {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, navigableMap)) == null) {
-            c.i.d.a.n.p(navigableMap);
+            b.i.d.a.n.p(navigableMap);
             return navigableMap instanceof UnmodifiableNavigableMap ? navigableMap : new UnmodifiableNavigableMap(navigableMap);
         }
         return (NavigableMap) invokeL.objValue;
@@ -2881,10 +2877,10 @@ public final class Maps {
         return (Map.Entry) invokeL.objValue;
     }
 
-    public static <V> c.i.d.a.g<Map.Entry<?, V>, V> N() {
+    public static <V> b.i.d.a.g<Map.Entry<?, V>, V> N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? EntryFunction.VALUE : (c.i.d.a.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? EntryFunction.VALUE : (b.i.d.a.g) invokeV.objValue;
     }
 
     public static <K, V> Iterator<V> O(Iterator<Map.Entry<K, V>> it) {
@@ -2905,33 +2901,33 @@ public final class Maps {
         return (V) invokeL.objValue;
     }
 
-    public static <V> c.i.d.a.o<Map.Entry<?, V>> Q(c.i.d.a.o<? super V> oVar) {
+    public static <V> b.i.d.a.o<Map.Entry<?, V>> Q(b.i.d.a.o<? super V> oVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, oVar)) == null) ? Predicates.e(oVar, N()) : (c.i.d.a.o) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, oVar)) == null) ? Predicates.e(oVar, N()) : (b.i.d.a.o) invokeL.objValue;
     }
 
-    public static <K, V1, V2> c.i.d.a.g<Map.Entry<K, V1>, Map.Entry<K, V2>> b(l<? super K, ? super V1, V2> lVar) {
+    public static <K, V1, V2> b.i.d.a.g<Map.Entry<K, V1>, Map.Entry<K, V2>> b(l<? super K, ? super V1, V2> lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, lVar)) == null) {
-            c.i.d.a.n.p(lVar);
+            b.i.d.a.n.p(lVar);
             return new b(lVar);
         }
-        return (c.i.d.a.g) invokeL.objValue;
+        return (b.i.d.a.g) invokeL.objValue;
     }
 
-    public static <K, V1, V2> l<K, V1, V2> c(c.i.d.a.g<? super V1, V2> gVar) {
+    public static <K, V1, V2> l<K, V1, V2> c(b.i.d.a.g<? super V1, V2> gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, gVar)) == null) {
-            c.i.d.a.n.p(gVar);
+            b.i.d.a.n.p(gVar);
             return new h(gVar);
         }
         return (l) invokeL.objValue;
     }
 
-    public static <K, V> Iterator<Map.Entry<K, V>> d(Set<K> set, c.i.d.a.g<? super K, V> gVar) {
+    public static <K, V> Iterator<Map.Entry<K, V>> d(Set<K> set, b.i.d.a.g<? super K, V> gVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, set, gVar)) == null) ? new e(set.iterator(), gVar) : (Iterator) invokeLL.objValue;
@@ -2942,7 +2938,7 @@ public final class Maps {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) {
             if (i2 < 3) {
-                c.i.d.c.m.b(i2, "expectedSize");
+                b.i.d.c.m.b(i2, "expectedSize");
                 return i2 + 1;
             } else if (i2 < 1073741824) {
                 return (int) ((i2 / 0.75f) + 1.0f);
@@ -2992,22 +2988,22 @@ public final class Maps {
         return invokeLL.booleanValue;
     }
 
-    public static <K, V> Map<K, V> j(i<K, V> iVar, c.i.d.a.o<? super Map.Entry<K, V>> oVar) {
+    public static <K, V> Map<K, V> j(i<K, V> iVar, b.i.d.a.o<? super Map.Entry<K, V>> oVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, iVar, oVar)) == null) ? new m(iVar.f71001h, Predicates.c(iVar.f71002i, oVar)) : (Map) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, iVar, oVar)) == null) ? new m(iVar.f63495h, Predicates.c(iVar.f63496i, oVar)) : (Map) invokeLL.objValue;
     }
 
-    public static <K, V> Map<K, V> k(Map<K, V> map, c.i.d.a.o<? super K> oVar) {
+    public static <K, V> Map<K, V> k(Map<K, V> map, b.i.d.a.o<? super K> oVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, map, oVar)) == null) {
-            c.i.d.a.n.p(oVar);
-            c.i.d.a.o q2 = q(oVar);
+            b.i.d.a.n.p(oVar);
+            b.i.d.a.o q2 = q(oVar);
             if (map instanceof i) {
                 return j((i) map, q2);
             }
-            c.i.d.a.n.p(map);
+            b.i.d.a.n.p(map);
             return new n(map, oVar, q2);
         }
         return (Map) invokeLL.objValue;
@@ -3034,10 +3030,10 @@ public final class Maps {
         return (ImmutableMap) invokeL.objValue;
     }
 
-    public static <K> c.i.d.a.g<Map.Entry<K, ?>, K> n() {
+    public static <K> b.i.d.a.g<Map.Entry<K, ?>, K> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? EntryFunction.KEY : (c.i.d.a.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? EntryFunction.KEY : (b.i.d.a.g) invokeV.objValue;
     }
 
     public static <K, V> Iterator<K> o(Iterator<Map.Entry<K, V>> it) {
@@ -3058,17 +3054,17 @@ public final class Maps {
         return (K) invokeL.objValue;
     }
 
-    public static <K> c.i.d.a.o<Map.Entry<K, ?>> q(c.i.d.a.o<? super K> oVar) {
+    public static <K> b.i.d.a.o<Map.Entry<K, ?>> q(b.i.d.a.o<? super K> oVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, oVar)) == null) ? Predicates.e(oVar, n()) : (c.i.d.a.o) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, oVar)) == null) ? Predicates.e(oVar, n()) : (b.i.d.a.o) invokeL.objValue;
     }
 
     public static <K extends Enum<K>, V> EnumMap<K, V> r(Class<K> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, cls)) == null) {
-            c.i.d.a.n.p(cls);
+            b.i.d.a.n.p(cls);
             return new EnumMap<>(cls);
         }
         return (EnumMap) invokeL.objValue;
@@ -3129,7 +3125,7 @@ public final class Maps {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65578, null, map, obj)) == null) {
-            c.i.d.a.n.p(map);
+            b.i.d.a.n.p(map);
             try {
                 return map.containsKey(obj);
             } catch (ClassCastException | NullPointerException unused) {

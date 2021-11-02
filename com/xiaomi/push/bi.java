@@ -9,30 +9,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedList<a> f77756a;
+    public LinkedList<a> f70719a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final bi f77757a;
+        public static final bi f70720a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public int f157a;
+        public int f158a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f158a;
+        public Object f159a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f159a;
+        public String f160a;
 
         static {
             InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class bi {
                     return;
                 }
             }
-            f77757a = new bi();
+            f70720a = new bi();
         }
 
         public a(int i2, Object obj) {
@@ -65,8 +65,8 @@ public class bi {
                     return;
                 }
             }
-            this.f157a = i2;
-            this.f158a = obj;
+            this.f158a = i2;
+            this.f159a = obj;
         }
     }
 
@@ -83,22 +83,22 @@ public class bi {
                 return;
             }
         }
-        this.f77756a = new LinkedList<>();
+        this.f70719a = new LinkedList<>();
     }
 
     public static bi a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f77757a : (bi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f70720a : (bi) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     private void m180a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f77756a.size() <= 100) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f70719a.size() <= 100) {
             return;
         }
-        this.f77756a.removeFirst();
+        this.f70719a.removeFirst();
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -108,7 +108,7 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                size = this.f77756a.size();
+                size = this.f70719a.size();
             }
             return size;
         }
@@ -122,8 +122,8 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                linkedList = this.f77756a;
-                this.f77756a = new LinkedList<>();
+                linkedList = this.f70719a;
+                this.f70719a = new LinkedList<>();
             }
             return linkedList;
         }
@@ -134,7 +134,7 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             synchronized (this) {
-                this.f77756a.add(new a(0, obj));
+                this.f70719a.add(new a(0, obj));
                 m180a();
             }
         }

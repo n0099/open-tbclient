@@ -1,7 +1,7 @@
 package com.airbnb.lottie.value;
 
 import androidx.annotation.RestrictTo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LottieFrameInfo<T> {
     public float endFrame;
     public T endValue;

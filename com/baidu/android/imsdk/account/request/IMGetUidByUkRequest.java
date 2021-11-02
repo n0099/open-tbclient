@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +21,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -175,8 +176,8 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                         TreeMap treeMap3 = new TreeMap();
                         try {
                             JSONObject jSONObject3 = jSONObject2.getJSONObject("info");
-                            for (long j2 : this.mUks) {
-                                treeMap3.put(Long.valueOf(j2), Long.valueOf(jSONObject3.optLong("" + j2, -1L)));
+                            for (long j : this.mUks) {
+                                treeMap3.put(Long.valueOf(j), Long.valueOf(jSONObject3.optLong("" + j, -1L)));
                             }
                             treeMap2 = treeMap3;
                         } catch (JSONException e2) {
@@ -193,7 +194,7 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                     string = Constants.ERROR_MSG_SUCCESS;
                 } else {
                     i4 = jSONObject.getInt("error_code");
-                    string = jSONObject.getString("error_msg");
+                    string = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 }
                 str = string;
                 i3 = i4;

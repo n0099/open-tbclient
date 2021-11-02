@@ -9,6 +9,7 @@ import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.m0;
+import g.c.m0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -30,7 +31,7 @@ import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HardwareVideoEncoder implements VideoEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
@@ -81,7 +82,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     public final YuvFormat yuvFormat;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class YuvFormat {
         public static final /* synthetic */ YuvFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -395,7 +396,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
                             c2 = 1;
                         }
                         createVideoFormat.setInteger("profile", 8);
-                        createVideoFormat.setInteger("level", 256);
+                        createVideoFormat.setInteger(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 256);
                     }
                     Logging.d(TAG, "Format: " + createVideoFormat);
                     this.codec.configure(createVideoFormat, null, null, 1);
@@ -448,15 +449,15 @@ public class HardwareVideoEncoder implements VideoEncoder {
         }
     }
 
-    private void requestKeyFrame(long j2) {
+    private void requestKeyFrame(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65545, this, j) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
             try {
                 Bundle bundle = new Bundle();
                 bundle.putInt("request-sync", 0);
                 this.codec.setParameters(bundle);
-                this.lastKeyFrameNs = j2;
+                this.lastKeyFrameNs = j;
             } catch (IllegalStateException e2) {
                 Logging.e(TAG, "requestKeyFrame failed", e2);
             }
@@ -480,13 +481,13 @@ public class HardwareVideoEncoder implements VideoEncoder {
         return (VideoCodecStatus) invokeCommon.objValue;
     }
 
-    private boolean shouldForceKeyFrame(long j2) {
+    private boolean shouldForceKeyFrame(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
-            long j3 = this.forcedKeyFrameNs;
-            return j3 > 0 && j2 > this.lastKeyFrameNs + j3;
+            long j2 = this.forcedKeyFrameNs;
+            return j2 > 0 && j > this.lastKeyFrameNs + j2;
         }
         return invokeJ.booleanValue;
     }

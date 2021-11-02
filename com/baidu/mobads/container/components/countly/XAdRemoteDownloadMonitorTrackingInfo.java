@@ -1,7 +1,6 @@
 package com.baidu.mobads.container.components.countly;
 
 import android.content.Context;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.mobads.container.landingpage.XAdRemoteAbstractTrackingInfo;
 import com.baidu.mobads.container.util.DeviceUtils;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdRemoteDownloadMonitorTrackingInfo extends XAdRemoteAbstractTrackingInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +73,7 @@ public class XAdRemoteDownloadMonitorTrackingInfo extends XAdRemoteAbstractTrack
                 hashMap.put("typeProcId", str2);
                 hashMap.put("url2", "");
                 hashMap.putAll(this.mExtraInfo.mExtras);
-                hashMap.put(IAdRequestParam.SN, DeviceUtils.getInstance().getEncodedSN(this.mContext));
+                hashMap.put("sn", DeviceUtils.getInstance().getEncodedSN(this.mContext));
             } catch (Exception e2) {
                 RemoteXAdLogger.getInstance().d(e2);
             }

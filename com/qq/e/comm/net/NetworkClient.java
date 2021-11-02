@@ -11,11 +11,11 @@ import com.qq.e.comm.net.rr.Request;
 import com.qq.e.comm.net.rr.Response;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface NetworkClient {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Priority {
         public static /* synthetic */ Interceptable $ic;
         public static final Priority High;
@@ -23,11 +23,11 @@ public interface NetworkClient {
         public static final Priority Mid;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ Priority[] f75743b;
+        public static final /* synthetic */ Priority[] f68048b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f75744a;
+        public int f68049a;
 
         static {
             InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public interface NetworkClient {
             Mid = new Priority("Mid", 1, 2);
             Priority priority = new Priority("Low", 2, 3);
             Low = priority;
-            f75743b = new Priority[]{High, Mid, priority};
+            f68048b = new Priority[]{High, Mid, priority};
         }
 
         public Priority(String str, int i2, int i3) {
@@ -67,7 +67,7 @@ public interface NetworkClient {
                     return;
                 }
             }
-            this.f75744a = i3;
+            this.f68049a = i3;
         }
 
         public static Priority valueOf(String str) {
@@ -79,13 +79,13 @@ public interface NetworkClient {
         public static Priority[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) f75743b.clone() : (Priority[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) f68048b.clone() : (Priority[]) invokeV.objValue;
         }
 
-        public final int value() {
+        public int value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75744a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68049a : invokeV.intValue;
         }
     }
 

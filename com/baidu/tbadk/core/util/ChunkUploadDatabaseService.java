@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.util;
 
 import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.k.b;
-import c.a.e.e.m.a;
-import c.a.q0.t.c.q;
+import b.a.e.a.k.b;
+import b.a.e.e.m.a;
+import b.a.q0.t.c.r;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ChunkUploadDatabaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,16 +53,16 @@ public class ChunkUploadDatabaseService {
         mainDBDatabaseManager.e("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
     }
 
-    public static q getChunkUploadDataByMd5(String str) {
+    public static r getChunkUploadDataByMd5(String str) {
         InterceptResult invokeL;
-        q qVar;
-        Cursor j2;
+        r rVar;
+        Cursor j;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
-            return (q) invokeL.objValue;
+            return (r) invokeL.objValue;
         }
         Cursor cursor = null;
-        q qVar2 = null;
+        r rVar2 = null;
         cursor = null;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return null;
@@ -70,59 +70,59 @@ public class ChunkUploadDatabaseService {
         b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         try {
             try {
-                j2 = mainDBDatabaseManager.j("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+                j = mainDBDatabaseManager.j("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             } catch (Throwable th) {
                 th = th;
             }
             try {
                 try {
-                    if (j2.moveToFirst()) {
-                        qVar = new q();
+                    if (j.moveToFirst()) {
+                        rVar = new r();
                         try {
-                            qVar.e(str);
-                            qVar.d(j2.getInt(3));
-                            qVar.f(j2.getLong(2));
-                            qVar2 = qVar;
+                            rVar.e(str);
+                            rVar.d(j.getInt(3));
+                            rVar.f(j.getLong(2));
+                            rVar2 = rVar;
                         } catch (Exception e2) {
                             e = e2;
-                            cursor = j2;
+                            cursor = j;
                             mainDBDatabaseManager.i(e, "getChunkUploadDataByMd5");
                             a.a(cursor);
-                            return qVar;
+                            return rVar;
                         }
                     }
-                    a.a(j2);
-                    return qVar2;
+                    a.a(j);
+                    return rVar2;
                 } catch (Exception e3) {
                     e = e3;
-                    qVar = null;
+                    rVar = null;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                cursor = j2;
+                cursor = j;
                 a.a(cursor);
                 throw th;
             }
         } catch (Exception e4) {
             e = e4;
-            qVar = null;
+            rVar = null;
         }
     }
 
-    public static boolean saveChunkUploadData(q qVar) {
+    public static boolean saveChunkUploadData(r rVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, qVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, rVar)) == null) {
             if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             }
             b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             Date date = new Date();
-            if (qVar == null || mainDBDatabaseManager == null) {
+            if (rVar == null || mainDBDatabaseManager == null) {
                 return false;
             }
-            mainDBDatabaseManager.e("delete from chunk_upload_data where md5=? and account=?", new String[]{qVar.b(), TbadkCoreApplication.getCurrentAccount()});
-            return mainDBDatabaseManager.e("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{qVar.b(), Long.valueOf(qVar.c()), Integer.valueOf(qVar.a()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+            mainDBDatabaseManager.e("delete from chunk_upload_data where md5=? and account=?", new String[]{rVar.b(), TbadkCoreApplication.getCurrentAccount()});
+            return mainDBDatabaseManager.e("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{rVar.b(), Long.valueOf(rVar.c()), Integer.valueOf(rVar.a()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
         }
         return invokeL.booleanValue;
     }

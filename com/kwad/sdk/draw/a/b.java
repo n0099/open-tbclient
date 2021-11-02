@@ -10,38 +10,38 @@ import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.d.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b extends com.kwad.sdk.core.e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public KsDrawAd.AdInteractionListener f73121a;
+    public KsDrawAd.AdInteractionListener f65562a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f73122b;
+    public AdBaseFrameLayout f65563b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f73123c;
+    public AdTemplate f65564c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f73124d;
+    public com.kwad.sdk.core.download.b.b f65565d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.draw.c.a f73125e;
+    public com.kwad.sdk.draw.c.a f65566e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.draw.b.b.a f73126f;
+    public com.kwad.sdk.draw.b.b.a f65567f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public c f73127g;
+    public c f65568g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -61,11 +61,11 @@ public class b extends com.kwad.sdk.core.e.b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.kwad.sdk.core.download.b.b bVar = this.f73124d;
+            com.kwad.sdk.core.download.b.b bVar = this.f65565d;
             if (bVar != null) {
                 bVar.f();
             }
-            this.f73125e.e();
+            this.f65566e.e();
         }
     }
 }

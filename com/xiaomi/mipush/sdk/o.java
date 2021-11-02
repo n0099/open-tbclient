@@ -19,7 +19,7 @@ import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,19 +38,19 @@ public class o {
         }
         if ((context instanceof Activity) && intent != null) {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f77917a;
+            ecVar = ec.f70877a;
         } else if (!(context instanceof Service) || intent == null) {
             if (uri == null || TextUtils.isEmpty(uri.toString())) {
                 return;
             }
-            ea.a(context.getApplicationContext()).a(ec.f77920d, context, (Intent) null, uri.toString());
+            ea.a(context.getApplicationContext()).a(ec.f70880d, context, (Intent) null, uri.toString());
             return;
         } else if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f77919c;
+            ecVar = ec.f70879c;
         } else {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f77918b;
+            ecVar = ec.f70878b;
         }
         a2.a(ecVar, context, intent, (String) null);
     }
@@ -102,9 +102,9 @@ public class o {
             ie ieVar = new ie();
             ieVar.b(b.m114a(context).m115a());
             ieVar.d(context.getPackageName());
-            ieVar.c(hp.I.f513a);
+            ieVar.c(hp.I.f514a);
             ieVar.a(com.xiaomi.push.service.at.a());
-            ieVar.f654a = hashMap;
+            ieVar.f655a = hashMap;
             a(context, ieVar);
         }
     }

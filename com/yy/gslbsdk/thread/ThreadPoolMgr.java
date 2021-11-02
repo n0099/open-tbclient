@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ThreadPoolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ThreadPoolMgr";
@@ -28,7 +28,7 @@ public class ThreadPoolMgr {
     public boolean mReleaseAble;
     public HashMap<String, String> mThreadName;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class CustomThreadPoolExecutor implements ITaskExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,12 +99,12 @@ public class ThreadPoolMgr {
         }
 
         @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
-        public void shutdownNow(long j2) {
+        public void shutdownNow(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
                 try {
                     this.mExcutorSvc.shutdownNow();
-                    this.mExcutorSvc.awaitTermination(j2, TimeUnit.MILLISECONDS);
+                    this.mExcutorSvc.awaitTermination(j, TimeUnit.MILLISECONDS);
                 } catch (InterruptedException e2) {
                     LogTools.printWarning(ThreadPoolMgr.TAG, e2);
                 }
@@ -112,7 +112,7 @@ public class ThreadPoolMgr {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +157,7 @@ public class ThreadPoolMgr {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface ITaskExecutor {
         boolean addTask(Runnable runnable);
 
@@ -169,7 +169,7 @@ public class ThreadPoolMgr {
 
         boolean isTerminated();
 
-        void shutdownNow(long j2);
+        void shutdownNow(long j);
     }
 
     static {
@@ -314,10 +314,10 @@ public class ThreadPoolMgr {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.mExecutorSvc.isShutdown() : invokeV.booleanValue;
     }
 
-    public void stop(long j2) {
+    public void stop(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && this.mReleaseAble) {
-            this.mExecutorSvc.shutdownNow(j2);
+        if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && this.mReleaseAble) {
+            this.mExecutorSvc.shutdownNow(j);
         }
     }
 

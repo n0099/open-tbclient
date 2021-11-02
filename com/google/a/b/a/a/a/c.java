@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class c extends com.google.a.a.a implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,8 +42,8 @@ public final class c extends com.google.a.a.a implements a {
             Parcel a2 = a();
             a2.writeString(str);
             a2.writeTypedList(list);
-            c.i.a.a.a.c(a2, bundle);
-            c.i.a.a.a.b(a2, dVar);
+            b.i.a.a.a.c(a2, bundle);
+            b.i.a.a.a.b(a2, dVar);
             b(1, a2);
         }
     }
@@ -54,8 +54,8 @@ public final class c extends com.google.a.a.a implements a {
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, dVar) == null) {
             Parcel a2 = a();
             a2.writeString(str);
-            c.i.a.a.a.c(a2, bundle);
-            c.i.a.a.a.b(a2, dVar);
+            b.i.a.a.a.c(a2, bundle);
+            b.i.a.a.a.b(a2, dVar);
             b(2, a2);
         }
     }

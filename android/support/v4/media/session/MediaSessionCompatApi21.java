@@ -54,7 +54,7 @@ public class MediaSessionCompatApi21 {
 
         void onRewind();
 
-        void onSeekTo(long j2);
+        void onSeekTo(long j);
 
         void onSetRating(Object obj);
 
@@ -64,7 +64,7 @@ public class MediaSessionCompatApi21 {
 
         void onSkipToPrevious();
 
-        void onSkipToQueueItem(long j2);
+        void onSkipToQueueItem(long j);
 
         void onStop();
     }
@@ -169,10 +169,10 @@ public class MediaSessionCompatApi21 {
         }
 
         @Override // android.media.session.MediaSession.Callback
-        public void onSeekTo(long j2) {
+        public void onSeekTo(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                this.mCallback.onSeekTo(j2);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.mCallback.onSeekTo(j);
             }
         }
 
@@ -201,10 +201,10 @@ public class MediaSessionCompatApi21 {
         }
 
         @Override // android.media.session.MediaSession.Callback
-        public void onSkipToQueueItem(long j2) {
+        public void onSkipToQueueItem(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-                this.mCallback.onSkipToQueueItem(j2);
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+                this.mCallback.onSkipToQueueItem(j);
             }
         }
 
@@ -236,10 +236,10 @@ public class MediaSessionCompatApi21 {
             }
         }
 
-        public static Object createItem(Object obj, long j2) {
+        public static Object createItem(Object obj, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, obj, j2)) == null) ? new MediaSession.QueueItem((MediaDescription) obj, j2) : invokeLJ.objValue;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, obj, j)) == null) ? new MediaSession.QueueItem((MediaDescription) obj, j) : invokeLJ.objValue;
         }
 
         public static Object getDescription(Object obj) {

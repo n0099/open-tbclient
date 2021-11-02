@@ -1,5 +1,6 @@
 package com.idlefish.flutterboost.log;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ILog {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class LogLevelEnum {
         public static final /* synthetic */ LogLevelEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -38,11 +39,11 @@ public interface ILog {
                     return;
                 }
             }
-            VERBOSE = new LogLevelEnum("VERBOSE", 0, 0, "V");
+            VERBOSE = new LogLevelEnum("VERBOSE", 0, 0, ExifInterface.GPS_MEASUREMENT_INTERRUPTED);
             DEBUG = new LogLevelEnum("DEBUG", 1, 1, "D");
             INFO = new LogLevelEnum("INFO", 2, 2, "I");
-            WARNING = new LogLevelEnum("WARNING", 3, 3, "W");
-            LogLevelEnum logLevelEnum = new LogLevelEnum("ERROR", 4, 4, "E");
+            WARNING = new LogLevelEnum("WARNING", 3, 3, ExifInterface.LONGITUDE_WEST);
+            LogLevelEnum logLevelEnum = new LogLevelEnum("ERROR", 4, 4, ExifInterface.LONGITUDE_EAST);
             ERROR = logLevelEnum;
             $VALUES = new LogLevelEnum[]{VERBOSE, DEBUG, INFO, WARNING, logLevelEnum};
         }

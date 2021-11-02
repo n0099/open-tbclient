@@ -35,7 +35,6 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,39 +63,37 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f38314a;
+    public static final Pattern f36321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f38315b;
+    public static final Pattern f36322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f38316c;
+    public static final Pattern f36323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f38317d;
+    public static final Pattern f36324d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38318e = "PhoneUtils";
+    public static final String f36325e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38319f = "_pay.preferences";
+    public static final String f36326f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38320g = "cuid_1";
+    public static final String f36327g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38321h = "cuid_2";
+    public static final String f36328h = "cuid_2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38322i = "wime";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f38323j = "identity_code";
+    public static final String f36329i = "wime";
+    public static final String j = "identity_code";
     public static final String k = "phone_number";
     public static final String l = "card_no";
     public static final String m = "valid_date";
@@ -110,7 +107,7 @@ public final class PhoneUtils {
     public static String u;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -122,10 +119,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f38324a = "processor";
+        public static final String f36330a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f38325b = "features";
+        public static final String f36331b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -154,7 +151,7 @@ public final class PhoneUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,10 +192,10 @@ public final class PhoneUtils {
             }
         }
         q = new ArrayList<>();
-        f38314a = Pattern.compile("((\\d|[A-F]){32}).*");
-        f38315b = Pattern.compile("((\\d|[a-f]){32}).*");
-        f38316c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f38317d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f36321a = Pattern.compile("((\\d|[A-F]){32}).*");
+        f36322b = Pattern.compile("((\\d|[a-f]){32}).*");
+        f36323c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f36324d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
         q.add("card_no");
         q.add("valid_date");
         q.add("cvv2");
@@ -352,11 +349,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f38316c.matcher(cuid).matches()) {
+            if (f36323c.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f38317d.matcher(cuid).matches()) {
+                if (f36324d.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -865,7 +862,7 @@ public final class PhoneUtils {
             if (i2 >= 9) {
                 if (!TextUtils.isEmpty(str)) {
                     intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                    intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, str, null));
+                    intent.setData(Uri.fromParts("package", str, null));
                 } else {
                     intent.setAction("android.settings.MANAGE_APPLICATIONS_SETTINGS");
                 }
@@ -893,10 +890,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f38314a.matcher(deviceID);
+            Matcher matcher = f36321a.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f38315b.matcher(deviceID);
+                Matcher matcher2 = f36322b.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;

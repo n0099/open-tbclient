@@ -1,14 +1,14 @@
 package com.baidu.turbonet.net;
 
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class OkHttpVersionUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class OkHttpVersionUtil {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (b()) {
                 try {
-                    return (String) Class.forName("okhttp3.internal.Version").getMethod("userAgent", new Class[0]).invoke(null, new Object[0]);
+                    return (String) Class.forName("okhttp3.internal.Version").getMethod(TTDownloadField.TT_USERAGENT, new Class[0]).invoke(null, new Object[0]);
                 } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
                 }
             }
@@ -64,7 +64,7 @@ public class OkHttpVersionUtil {
             if (!a2.isEmpty()) {
                 String[] split = a2.split("/");
                 if (split.length == 2) {
-                    String[] split2 = split[1].split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    String[] split2 = split[1].split("\\.");
                     if (split2.length == 3) {
                         try {
                             if (Integer.parseInt(split2[0]) == 3) {

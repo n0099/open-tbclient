@@ -1,40 +1,37 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.s.b.a.b;
-import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import b.a.a.a.x.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.Glide;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.R;
+import com.fun.ad.sdk.channel.csj.R;
+import com.fun.ad.sdk.internal.api.utils.GlideHelper;
+import com.fun.module.csj.e0;
 import java.util.List;
-/* loaded from: classes9.dex */
-public final class CSJNativeAdGroupImgView extends b {
+/* loaded from: classes11.dex */
+public final class CSJNativeAdGroupImgView extends e0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f70296f;
+    public LinearLayout f62747f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f70297g;
+    public ImageView f62748g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f70298h;
+    public ImageView f62749h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f70299i;
+    public ImageView f62750i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdGroupImgView(Context context) {
@@ -98,82 +95,40 @@ public final class CSJNativeAdGroupImgView extends b {
         }
     }
 
-    @Override // a.a.a.a.s.b.a.b
-    public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
+    @Override // com.fun.module.csj.e0
+    public void a(TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, tTNativeAd, adInteractionListener) == null) {
-            super.a(activity, tTNativeAd, adInteractionListener);
+        if (interceptable == null || interceptable.invokeL(1048576, this, tTNativeAd) == null) {
+            super.a(tTNativeAd);
             List<TTImage> imageList = tTNativeAd.getImageList();
             if (imageList == null || imageList.size() < 3) {
                 return;
             }
             TTImage tTImage = imageList.get(0);
             if (tTImage != null && tTImage.isValid()) {
-                Context context = getContext();
-                String imageUrl = tTImage.getImageUrl();
-                ImageView imageView = this.f70297g;
-                if (context == null) {
-                    d.f("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
-                } else if (context instanceof Activity) {
-                    Activity activity2 = (Activity) context;
-                    if (activity2.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity2.isDestroyed())) {
-                        d.f("GlideHelper: activity is destroyed when load: " + imageUrl, new Object[0]);
-                    } else {
-                        Glide.with(activity2).load(imageUrl).into(imageView);
-                    }
-                } else {
-                    Glide.with(context).load(imageUrl).into(imageView);
-                }
+                GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f62748g);
             }
             TTImage tTImage2 = imageList.get(1);
             if (tTImage2 != null && tTImage2.isValid()) {
-                Context context2 = getContext();
-                String imageUrl2 = tTImage2.getImageUrl();
-                ImageView imageView2 = this.f70298h;
-                if (context2 == null) {
-                    d.f("GlideHelper: context is null when load: " + imageUrl2, new Object[0]);
-                } else if (context2 instanceof Activity) {
-                    Activity activity3 = (Activity) context2;
-                    if (activity3.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity3.isDestroyed())) {
-                        d.f("GlideHelper: activity is destroyed when load: " + imageUrl2, new Object[0]);
-                    } else {
-                        Glide.with(activity3).load(imageUrl2).into(imageView2);
-                    }
-                } else {
-                    Glide.with(context2).load(imageUrl2).into(imageView2);
-                }
+                GlideHelper.get().load(getContext(), tTImage2.getImageUrl(), this.f62749h);
             }
             TTImage tTImage3 = imageList.get(2);
             if (tTImage3 == null || !tTImage3.isValid()) {
                 return;
             }
-            Context context3 = getContext();
-            String imageUrl3 = tTImage3.getImageUrl();
-            ImageView imageView3 = this.f70299i;
-            if (context3 == null) {
-                d.f("GlideHelper: context is null when load: " + imageUrl3, new Object[0]);
-            } else if (context3 instanceof Activity) {
-                Activity activity4 = (Activity) context3;
-                if (!activity4.isFinishing() && (Build.VERSION.SDK_INT <= 17 || !activity4.isDestroyed())) {
-                    Glide.with(activity4).load(imageUrl3).into(imageView3);
-                    return;
-                }
-                d.f("GlideHelper: activity is destroyed when load: " + imageUrl3, new Object[0]);
-            } else {
-                Glide.with(context3).load(imageUrl3).into(imageView3);
-            }
+            GlideHelper.get().load(getContext(), tTImage3.getImageUrl(), this.f62750i);
         }
     }
 
-    @Override // a.a.a.a.s.b.a.b, android.view.View
+    @Override // com.fun.module.csj.e0, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f70296f = (LinearLayout) findViewById(R.id.ad_img_container);
-            this.f70297g = (ImageView) findViewById(R.id.ad_img_1);
-            this.f70298h = (ImageView) findViewById(R.id.ad_img_2);
-            this.f70299i = (ImageView) findViewById(R.id.ad_img_3);
+            this.f62747f = (LinearLayout) findViewById(R.id.ad_img_container);
+            this.f62748g = (ImageView) findViewById(R.id.ad_img_1);
+            this.f62749h = (ImageView) findViewById(R.id.ad_img_2);
+            this.f62750i = (ImageView) findViewById(R.id.ad_img_3);
         }
     }
 
@@ -182,14 +137,14 @@ public final class CSJNativeAdGroupImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f70296f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62747f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f70297g.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f70298h.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f70299i.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f62748g.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f62749h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f62750i.getLayoutParams();
             layoutParams.width = i6;
             layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.52f);
-            this.f70296f.setLayoutParams(layoutParams);
+            this.f62747f.setLayoutParams(layoutParams);
         }
     }
 }

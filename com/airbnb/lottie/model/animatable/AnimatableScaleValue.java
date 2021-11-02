@@ -5,7 +5,7 @@ import com.airbnb.lottie.animation.keyframe.ScaleKeyframeAnimation;
 import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.ScaleXY;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AnimatableScaleValue extends BaseAnimatableValue<ScaleXY, ScaleXY> {
     public AnimatableScaleValue() {
         this(new ScaleXY(1.0f, 1.0f));

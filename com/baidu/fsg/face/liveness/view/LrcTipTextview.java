@@ -15,30 +15,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LrcTipTextview extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f40467a;
+    public boolean f38368a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f40468b;
+    public TextView f38369b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f40469c;
+    public TextView f38370c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f40470d;
+    public TextView f38371d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40471e;
+    public int f38372e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40472f;
+    public int f38373f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
     }
@@ -72,10 +72,10 @@ public class LrcTipTextview extends LinearLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LrcView.a f40473a;
+                public final /* synthetic */ LrcView.a f38374a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LrcTipTextview f40474b;
+                public final /* synthetic */ LrcTipTextview f38375b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -92,36 +92,36 @@ public class LrcTipTextview extends LinearLayout {
                             return;
                         }
                     }
-                    this.f40474b = this;
-                    this.f40473a = aVar;
+                    this.f38375b = this;
+                    this.f38374a = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f40474b.f40468b.setVisibility(8);
-                        int top = this.f40474b.getTop() + this.f40474b.getPaddingTop();
-                        int dimensionPixelOffset = this.f40474b.getResources().getDimensionPixelOffset(R.dimen.liveness_video_lrc_tip_margintop_afteranim);
+                        this.f38375b.f38369b.setVisibility(8);
+                        int top = this.f38375b.getTop() + this.f38375b.getPaddingTop();
+                        int dimensionPixelOffset = this.f38375b.getResources().getDimensionPixelOffset(R.dimen.liveness_video_lrc_tip_margintop_afteranim);
                         ValueAnimator ofInt = ValueAnimator.ofInt(1, 100);
-                        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, (RelativeLayout.LayoutParams) this.f40474b.getLayoutParams(), top, dimensionPixelOffset) { // from class: com.baidu.fsg.face.liveness.view.LrcTipTextview.1.1
+                        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, (RelativeLayout.LayoutParams) this.f38375b.getLayoutParams(), top, dimensionPixelOffset) { // from class: com.baidu.fsg.face.liveness.view.LrcTipTextview.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ RelativeLayout.LayoutParams f40475a;
+                            public final /* synthetic */ RelativeLayout.LayoutParams f38376a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ int f40476b;
+                            public final /* synthetic */ int f38377b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ int f40477c;
+                            public final /* synthetic */ int f38378c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f40478d;
+                            public final /* synthetic */ AnonymousClass1 f38379d;
 
                             /* renamed from: e  reason: collision with root package name */
-                            public IntEvaluator f40479e;
+                            public IntEvaluator f38380e;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -138,11 +138,11 @@ public class LrcTipTextview extends LinearLayout {
                                         return;
                                     }
                                 }
-                                this.f40478d = this;
-                                this.f40475a = r7;
-                                this.f40476b = top;
-                                this.f40477c = dimensionPixelOffset;
-                                this.f40479e = new IntEvaluator();
+                                this.f38379d = this;
+                                this.f38376a = r7;
+                                this.f38377b = top;
+                                this.f38378c = dimensionPixelOffset;
+                                this.f38380e = new IntEvaluator();
                             }
 
                             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -151,14 +151,14 @@ public class LrcTipTextview extends LinearLayout {
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, valueAnimator) == null) {
                                     int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                                     float f2 = intValue / 100.0f;
-                                    this.f40475a.topMargin = this.f40479e.evaluate(f2, Integer.valueOf(this.f40476b), Integer.valueOf(this.f40477c)).intValue();
-                                    int intValue2 = this.f40479e.evaluate(f2, (Integer) 255, (Integer) 51).intValue();
-                                    this.f40478d.f40474b.f40469c.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
-                                    this.f40478d.f40474b.f40470d.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
-                                    this.f40478d.f40474b.f40469c.setTextSize(0, this.f40479e.evaluate(f2, Integer.valueOf(this.f40478d.f40474b.f40471e), Integer.valueOf(this.f40478d.f40474b.f40472f)).intValue());
-                                    this.f40478d.f40474b.requestLayout();
+                                    this.f38376a.topMargin = this.f38380e.evaluate(f2, Integer.valueOf(this.f38377b), Integer.valueOf(this.f38378c)).intValue();
+                                    int intValue2 = this.f38380e.evaluate(f2, (Integer) 255, (Integer) 51).intValue();
+                                    this.f38379d.f38375b.f38370c.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
+                                    this.f38379d.f38375b.f38371d.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
+                                    this.f38379d.f38375b.f38370c.setTextSize(0, this.f38380e.evaluate(f2, Integer.valueOf(this.f38379d.f38375b.f38372e), Integer.valueOf(this.f38379d.f38375b.f38373f)).intValue());
+                                    this.f38379d.f38375b.requestLayout();
                                     if (intValue == 100) {
-                                        this.f40478d.f40473a.a();
+                                        this.f38379d.f38374a.a();
                                     }
                                 }
                             }
@@ -176,33 +176,33 @@ public class LrcTipTextview extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            this.f40471e = getResources().getDimensionPixelSize(R.dimen.rim_text_size_16);
-            this.f40472f = getResources().getDimensionPixelSize(R.dimen.rim_text_size_24);
+            this.f38372e = getResources().getDimensionPixelSize(R.dimen.rim_text_size_16);
+            this.f38373f = getResources().getDimensionPixelSize(R.dimen.rim_text_size_24);
             TextView textView = new TextView(getContext());
-            this.f40468b = textView;
+            this.f38369b = textView;
             textView.setTextColor(Color.rgb(255, 255, 255));
-            this.f40468b.setTextSize(0, this.f40472f);
-            this.f40468b.setText(getContext().getString(R.string.rim_face_video_tips_start_resocrd));
+            this.f38369b.setTextSize(0, this.f38373f);
+            this.f38369b.setText(getContext().getString(R.string.rim_face_video_tips_start_resocrd));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.setMargins(0, 0, 0, getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_lrc_tip_text01_gap));
-            this.f40468b.setLayoutParams(layoutParams2);
+            this.f38369b.setLayoutParams(layoutParams2);
             TextView textView2 = new TextView(getContext());
-            this.f40469c = textView2;
+            this.f38370c = textView2;
             textView2.setTextColor(Color.rgb(255, 255, 255));
-            this.f40469c.setTextSize(0, this.f40471e);
-            this.f40469c.setText(getContext().getString(R.string.rim_face_video_tips_read_content));
+            this.f38370c.setTextSize(0, this.f38372e);
+            this.f38370c.setText(getContext().getString(R.string.rim_face_video_tips_read_content));
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams3.setMargins(0, 0, 0, getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_lrc_tip_text12_gap));
-            this.f40469c.setLayoutParams(layoutParams3);
+            this.f38370c.setLayoutParams(layoutParams3);
             TextView textView3 = new TextView(getContext());
-            this.f40470d = textView3;
+            this.f38371d = textView3;
             textView3.setTextColor(Color.rgb(255, 255, 255));
-            this.f40470d.setTextSize(0, this.f40471e);
-            this.f40470d.setText(getContext().getString(R.string.rim_face_video_tips_keep_face_in_box));
-            this.f40470d.setLayoutParams(layoutParams);
-            addView(this.f40468b);
-            addView(this.f40469c);
-            addView(this.f40470d);
+            this.f38371d.setTextSize(0, this.f38372e);
+            this.f38371d.setText(getContext().getString(R.string.rim_face_video_tips_keep_face_in_box));
+            this.f38371d.setLayoutParams(layoutParams);
+            addView(this.f38369b);
+            addView(this.f38370c);
+            addView(this.f38371d);
         }
     }
 

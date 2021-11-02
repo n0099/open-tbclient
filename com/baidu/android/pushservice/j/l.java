@@ -7,13 +7,12 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +24,7 @@ public class l {
             Intent intent = new Intent("com.baidu.android.pushservice.action.METHOD");
             intent.addFlags(32);
             try {
-                intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, context.getPackageName());
+                intent.putExtra("pkg_name", context.getPackageName());
                 intent.putExtra("method_version", "V2");
                 intent.putExtra(!m.o(context) ? "priority2" : "priority3", 0);
             } catch (Exception e2) {
@@ -98,7 +97,7 @@ public class l {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Context f37693a;
+                        public final /* synthetic */ Context f35717a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -115,15 +114,15 @@ public class l {
                                     return;
                                 }
                             }
-                            this.f37693a = context;
+                            this.f35717a = context;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                com.baidu.android.pushservice.job.a.a(this.f37693a);
-                                com.baidu.android.pushservice.job.a.a(this.f37693a, true);
+                                com.baidu.android.pushservice.job.a.a(this.f35717a);
+                                com.baidu.android.pushservice.job.a.a(this.f35717a, true);
                             }
                         }
                     }, com.baidu.android.pushservice.b.d.h() * 1000);
@@ -133,7 +132,7 @@ public class l {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f37694a;
+                    public final /* synthetic */ Context f35718a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -154,14 +153,14 @@ public class l {
                                 return;
                             }
                         }
-                        this.f37694a = r10;
+                        this.f35718a = r10;
                     }
 
                     @Override // com.baidu.android.pushservice.h.c
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            l.a(this.f37694a, new Intent());
+                            l.a(this.f35718a, new Intent());
                         }
                     }
                 });

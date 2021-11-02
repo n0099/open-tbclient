@@ -1,0 +1,100 @@
+package com.baidu.searchbox.ui.dialog;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.widget.TextView;
+import com.baidu.android.common.ui.R;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class BdLoadingDialog extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context mContext;
+    public String mMessage;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BdLoadingDialog(Context context) {
+        super(context, R.style.BdWaitingDialog);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mContext = context;
+    }
+
+    public static BdLoadingDialog show(Context context, CharSequence charSequence) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, charSequence)) == null) ? show(context, charSequence, false) : (BdLoadingDialog) invokeLL.objValue;
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.novel_loading_layout);
+            ((TextView) findViewById(R.id.message)).setText(this.mMessage);
+        }
+    }
+
+    public void setMessage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.mMessage = str;
+        }
+    }
+
+    public static BdLoadingDialog show(Context context, CharSequence charSequence, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, charSequence, z)) == null) ? show(context, charSequence, z, null) : (BdLoadingDialog) invokeLLZ.objValue;
+    }
+
+    public void setMessage(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
+            this.mMessage = charSequence.toString();
+        }
+    }
+
+    public static BdLoadingDialog show(Context context, CharSequence charSequence, boolean z, DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, charSequence, Boolean.valueOf(z), onCancelListener})) == null) {
+            BdLoadingDialog bdLoadingDialog = new BdLoadingDialog(context);
+            bdLoadingDialog.setMessage(charSequence);
+            bdLoadingDialog.setCancelable(z);
+            bdLoadingDialog.setOnCancelListener(onCancelListener);
+            bdLoadingDialog.show();
+            return bdLoadingDialog;
+        }
+        return (BdLoadingDialog) invokeCommon.objValue;
+    }
+
+    public void setMessage(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.mMessage = this.mContext.getResources().getString(i2);
+        }
+    }
+}

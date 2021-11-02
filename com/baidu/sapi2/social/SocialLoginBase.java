@@ -2,8 +2,8 @@ package com.baidu.sapi2.social;
 
 import android.os.Bundle;
 import android.widget.RelativeLayout;
-import c.a.c0.a.e;
-import c.a.c0.a.f;
+import b.a.c0.a.e;
+import b.a.c0.a.f;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SocialLoginBase extends BaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static WXInvokeCallback t;

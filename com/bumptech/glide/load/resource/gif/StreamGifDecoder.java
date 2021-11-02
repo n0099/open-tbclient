@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StreamGifDecoder";

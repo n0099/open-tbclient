@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import com.tencent.connect.auth.c;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.open.TDialog;
 import com.tencent.open.utils.l;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class IM extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHAT_TYPE_AIO = "thirdparty2c";
@@ -73,13 +72,13 @@ public class IM extends BaseApi {
                     }
                     if (l.d(activity)) {
                         Intent intent = new Intent("android.intent.action.VIEW");
-                        intent.setData(Uri.parse(String.format("mqqapi://im/chat?chat_type=%1$s&uin=%2$s&version=1&src_type=app&open_id=%3$s&app_id=%4$s&app_pkg_name=%5$s", str, str2, l.l(this.f76562c.getOpenId()), l.l(this.f76562c.getAppId()), l.l(str3))));
-                        intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, str3);
+                        intent.setData(Uri.parse(String.format("mqqapi://im/chat?chat_type=%1$s&uin=%2$s&version=1&src_type=app&open_id=%3$s&app_id=%4$s&app_pkg_name=%5$s", str, str2, l.l(this.f69920c.getOpenId()), l.l(this.f69920c.getAppId()), l.l(str3))));
+                        intent.putExtra("pkg_name", str3);
                         activity.startActivity(intent);
                         return 0;
                     }
                     try {
-                        new TDialog(activity, "", a(""), null, this.f76562c).show();
+                        new TDialog(activity, "", a(""), null, this.f69920c).show();
                         return -2;
                     } catch (RuntimeException e2) {
                         e2.printStackTrace();

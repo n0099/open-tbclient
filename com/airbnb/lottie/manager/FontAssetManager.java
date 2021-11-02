@@ -10,7 +10,7 @@ import com.airbnb.lottie.model.MutablePair;
 import com.airbnb.lottie.utils.Logger;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FontAssetManager {
     public final AssetManager assetManager;
     @Nullable

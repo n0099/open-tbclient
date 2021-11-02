@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ARPScriptEnvironment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AR_KEY = "ar_key";
@@ -203,7 +203,7 @@ public class ARPScriptEnvironment {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             nativeGetSharedEnvironment();
             String str = "getSharedEnvironmentValue(KEY_AR_KEY) :" + getSharedEnvironmentValue("ar_key");
-            getSharedEnvironmentValue(com.baidu.fsg.base.a.f39363g);
+            getSharedEnvironmentValue(com.baidu.fsg.base.a.f37312g);
         }
     }
 }

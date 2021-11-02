@@ -37,7 +37,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -960,7 +959,7 @@ public abstract class Transition implements Cloneable {
             ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
             SparseIntArray sparseIntArray = new SparseIntArray();
             int size = arrayList.size();
-            long j2 = Long.MAX_VALUE;
+            long j = Long.MAX_VALUE;
             int i4 = 0;
             while (i4 < size) {
                 TransitionValues transitionValues3 = arrayList.get(i4);
@@ -1024,11 +1023,11 @@ public abstract class Transition implements Cloneable {
                             if (transitionPropagation != null) {
                                 long startDelay = transitionPropagation.getStartDelay(viewGroup, this, transitionValues3, transitionValues4);
                                 sparseIntArray.put(this.mAnimators.size(), (int) startDelay);
-                                j2 = Math.min(startDelay, j2);
+                                j = Math.min(startDelay, j);
                             }
                             runningAnimators.put(animator, new AnimationInfo(view, getName(), this, ViewUtils.getWindowId(viewGroup), transitionValues));
                             this.mAnimators.add(animator);
-                            j2 = j2;
+                            j = j;
                         }
                         i4 = i3 + 1;
                         size = i2;
@@ -1042,7 +1041,7 @@ public abstract class Transition implements Cloneable {
             if (sparseIntArray.size() != 0) {
                 for (int i7 = 0; i7 < sparseIntArray.size(); i7++) {
                     Animator animator3 = this.mAnimators.get(sparseIntArray.keyAt(i7));
-                    animator3.setStartDelay((sparseIntArray.valueAt(i7) - j2) + animator3.getStartDelay());
+                    animator3.setStartDelay((sparseIntArray.valueAt(i7) - j) + animator3.getStartDelay());
                 }
             }
         }
@@ -1487,11 +1486,11 @@ public abstract class Transition implements Cloneable {
     }
 
     @NonNull
-    public Transition setDuration(long j2) {
+    public Transition setDuration(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) {
-            this.mDuration = j2;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) {
+            this.mDuration = j;
             return this;
         }
         return (Transition) invokeJ.objValue;
@@ -1564,11 +1563,11 @@ public abstract class Transition implements Cloneable {
     }
 
     @NonNull
-    public Transition setStartDelay(long j2) {
+    public Transition setStartDelay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j2)) == null) {
-            this.mStartDelay = j2;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j)) == null) {
+            this.mStartDelay = j;
             return this;
         }
         return (Transition) invokeJ.objValue;
@@ -1672,7 +1671,7 @@ public abstract class Transition implements Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
-            String str2 = str + getClass().getSimpleName() + TNCManager.TNC_PROBE_HEADER_SECEPTOR + Integer.toHexString(hashCode()) + ": ";
+            String str2 = str + getClass().getSimpleName() + "@" + Integer.toHexString(hashCode()) + ": ";
             if (this.mDuration != -1) {
                 str2 = str2 + "dur(" + this.mDuration + ") ";
             }

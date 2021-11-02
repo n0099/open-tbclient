@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PathKeyframe extends Keyframe<PointF> {
     @Nullable
     public Path path;

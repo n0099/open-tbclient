@@ -4,9 +4,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import b.a.r0.j1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.view.TopicVideoControllerView;
 import com.baidu.tieba.hottopic.view.TopicVideoProgressView;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TopicMediaHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,21 +54,21 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
         if (view == null) {
             return;
         }
-        this.mTopicLayoutVideoView = (RelativeLayout) view.findViewById(R.id.topic_layout_video_view);
-        this.mThumbnailImage = (ForeDrawableImageView) view.findViewById(R.id.topic_list_video_item_thumbnail);
+        this.mTopicLayoutVideoView = (RelativeLayout) view.findViewById(e.topic_layout_video_view);
+        this.mThumbnailImage = (ForeDrawableImageView) view.findViewById(e.topic_list_video_item_thumbnail);
         TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(view.getContext());
         this.mVideoView = tbCyberVideoView;
         tbCyberVideoView.setStageType(null);
         a();
-        this.mControllerView = (TopicVideoControllerView) view.findViewById(R.id.topic_video_controller);
-        this.mVideoProgressView = (TopicVideoProgressView) view.findViewById(R.id.topic_video_progress_view);
-        this.mReplayLayout = view.findViewById(R.id.topic_replay_layout);
-        this.mBtnReplay = (TextView) view.findViewById(R.id.textview_topic_replay);
-        this.mBtnPausePlay = (ImageView) view.findViewById(R.id.topic_img_pause_play);
-        this.mLoadingLayout = view.findViewById(R.id.topic_layout_loading);
-        this.mCoverView = view.findViewById(R.id.topic_video_cover_view);
-        this.mVedioTitle = (TextView) view.findViewById(R.id.topic_vedio_title);
-        this.mVedioLine = view.findViewById(R.id.topic_vedio_line);
+        this.mControllerView = (TopicVideoControllerView) view.findViewById(e.topic_video_controller);
+        this.mVideoProgressView = (TopicVideoProgressView) view.findViewById(e.topic_video_progress_view);
+        this.mReplayLayout = view.findViewById(e.topic_replay_layout);
+        this.mBtnReplay = (TextView) view.findViewById(e.textview_topic_replay);
+        this.mBtnPausePlay = (ImageView) view.findViewById(e.topic_img_pause_play);
+        this.mLoadingLayout = view.findViewById(e.topic_layout_loading);
+        this.mCoverView = view.findViewById(e.topic_video_cover_view);
+        this.mVedioTitle = (TextView) view.findViewById(e.topic_vedio_title);
+        this.mVedioLine = view.findViewById(e.topic_vedio_line);
     }
 
     public final void a() {

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CacheEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_DISK_CACHE = 50000000;
@@ -31,14 +31,14 @@ public class CacheEngine {
     public String mPicDir;
     public final LruCache<String, CacheResource<?>> memoryCache;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface CacheListener {
         void onCacheComplete();
 
         void onCacheFailed();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface Parser<T> {
         T parseFromBytes(byte[] bArr);
 

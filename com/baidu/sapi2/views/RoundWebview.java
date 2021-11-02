@@ -9,47 +9,45 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import c.a.c0.a.i;
+import b.a.c0.a.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RoundWebview extends SapiWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f44920a;
+    public float f42667a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f44921b;
+    public float f42668b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f44922c;
+    public float f42669c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f44923d;
+    public float f42670d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44924e;
+    public int f42671e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44925f;
+    public int f42672f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44926g;
+    public int f42673g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f44927h;
+    public int f42674h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f44928i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Paint f44929j;
+    public Paint f42675i;
+    public Paint j;
     public float[] k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,10 +69,10 @@ public class RoundWebview extends SapiWebView {
                 return;
             }
         }
-        this.f44920a = 0.0f;
-        this.f44921b = 0.0f;
-        this.f44922c = 0.0f;
-        this.f44923d = 0.0f;
+        this.f42667a = 0.0f;
+        this.f42668b = 0.0f;
+        this.f42669c = 0.0f;
+        this.f42670d = 0.0f;
         this.k = new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
         a(context, attributeSet);
     }
@@ -83,20 +81,20 @@ public class RoundWebview extends SapiWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, attributeSet) == null) {
             Paint paint = new Paint();
-            this.f44928i = paint;
+            this.f42675i = paint;
             paint.setColor(-1);
-            this.f44928i.setAntiAlias(true);
-            this.f44928i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+            this.f42675i.setAntiAlias(true);
+            this.f42675i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
             Paint paint2 = new Paint();
-            this.f44929j = paint2;
+            this.j = paint2;
             paint2.setXfermode(null);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.sapi_sdk_RoundWebview);
-            this.f44920a = obtainStyledAttributes.getDimension(i.sapi_sdk_RoundWebview_sapi_sdk_top_left, 0.0f);
-            this.f44921b = obtainStyledAttributes.getDimension(i.sapi_sdk_RoundWebview_sapi_sdk_top_right, 0.0f);
-            this.f44922c = obtainStyledAttributes.getDimension(i.sapi_sdk_RoundWebview_sapi_sdk_bottom_left, 0.0f);
+            this.f42667a = obtainStyledAttributes.getDimension(i.sapi_sdk_RoundWebview_sapi_sdk_top_left, 0.0f);
+            this.f42668b = obtainStyledAttributes.getDimension(i.sapi_sdk_RoundWebview_sapi_sdk_top_right, 0.0f);
+            this.f42669c = obtainStyledAttributes.getDimension(i.sapi_sdk_RoundWebview_sapi_sdk_bottom_left, 0.0f);
             float dimension = obtainStyledAttributes.getDimension(i.sapi_sdk_RoundWebview_sapi_sdk_bottom_right, 0.0f);
-            this.f44923d = dimension;
-            a(this.f44920a, this.f44921b, dimension, this.f44922c);
+            this.f42670d = dimension;
+            a(this.f42667a, this.f42668b, dimension, this.f42669c);
         }
     }
 
@@ -104,11 +102,11 @@ public class RoundWebview extends SapiWebView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f44926g = getScrollX();
-            this.f44927h = getScrollY();
+            this.f42673g = getScrollX();
+            this.f42674h = getScrollY();
             Path path = new Path();
-            int i2 = this.f44927h;
-            path.addRoundRect(new RectF(0.0f, i2, this.f44926g + this.f44924e, i2 + this.f44925f), this.k, Path.Direction.CW);
+            int i2 = this.f42674h;
+            path.addRoundRect(new RectF(0.0f, i2, this.f42673g + this.f42671e, i2 + this.f42672f), this.k, Path.Direction.CW);
             canvas.clipPath(path);
             super.onDraw(canvas);
         }
@@ -119,8 +117,8 @@ public class RoundWebview extends SapiWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f44924e = getMeasuredWidth();
-            this.f44925f = getMeasuredHeight();
+            this.f42671e = getMeasuredWidth();
+            this.f42672f = getMeasuredHeight();
         }
     }
 
@@ -143,10 +141,10 @@ public class RoundWebview extends SapiWebView {
                 return;
             }
         }
-        this.f44920a = 0.0f;
-        this.f44921b = 0.0f;
-        this.f44922c = 0.0f;
-        this.f44923d = 0.0f;
+        this.f42667a = 0.0f;
+        this.f42668b = 0.0f;
+        this.f42669c = 0.0f;
+        this.f42670d = 0.0f;
         this.k = new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
         a(context, attributeSet);
     }

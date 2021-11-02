@@ -17,30 +17,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownloadManagerNotLoginLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50110e;
+    public Context f47513e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f50111f;
+    public ImageView f47514f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50112g;
+    public TextView f47515g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f50113h;
+    public TBSpecificationBtn f47516h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadManagerNotLoginLayout f50114e;
+        public final /* synthetic */ DownloadManagerNotLoginLayout f47517e;
 
         public a(DownloadManagerNotLoginLayout downloadManagerNotLoginLayout) {
             Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f50114e = downloadManagerNotLoginLayout;
+            this.f47517e = downloadManagerNotLoginLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ViewHelper.checkUpIsLogin(this.f50114e.f50110e);
+                ViewHelper.checkUpIsLogin(this.f47517e.f47513e);
             }
         }
     }
@@ -94,25 +94,25 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.download_manager_not_login_layout, (ViewGroup) this, true);
-            this.f50110e = context;
-            this.f50111f = (ImageView) inflate.findViewById(R.id.download_manager_not_login_emotion_pic);
-            this.f50112g = (TextView) inflate.findViewById(R.id.download_manager_not_login_tv);
-            this.f50113h = (TBSpecificationBtn) inflate.findViewById(R.id.download_manager_login_btn);
-            c.a.q0.s.f0.n.a aVar = new c.a.q0.s.f0.n.a();
-            this.f50113h.setText(context.getResources().getString(R.string.click_me_login));
-            this.f50113h.setTextSize(R.dimen.T_X06);
-            this.f50113h.setTextHorizontalCenter(true);
-            this.f50113h.setConfig(aVar);
-            this.f50113h.setOnClickListener(new a(this));
+            this.f47513e = context;
+            this.f47514f = (ImageView) inflate.findViewById(R.id.download_manager_not_login_emotion_pic);
+            this.f47515g = (TextView) inflate.findViewById(R.id.download_manager_not_login_tv);
+            this.f47516h = (TBSpecificationBtn) inflate.findViewById(R.id.download_manager_login_btn);
+            b.a.q0.s.g0.n.a aVar = new b.a.q0.s.g0.n.a();
+            this.f47516h.setText(context.getResources().getString(R.string.click_me_login));
+            this.f47516h.setTextSize(R.dimen.T_X06);
+            this.f47516h.setTextHorizontalCenter(true);
+            this.f47516h.setConfig(aVar);
+            this.f47516h.setOnClickListener(new a(this));
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.f50111f, R.drawable.new_pic_emotion_09);
-            SkinManager.setViewTextColor(this.f50112g, R.color.CAM_X0107);
-            TBSpecificationBtn tBSpecificationBtn = this.f50113h;
+            SkinManager.setImageResource(this.f47514f, R.drawable.new_pic_emotion_09);
+            SkinManager.setViewTextColor(this.f47515g, R.color.CAM_X0107);
+            TBSpecificationBtn tBSpecificationBtn = this.f47516h;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }

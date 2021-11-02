@@ -10,31 +10,31 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.e0.b;
-import c.a.e0.f;
-import c.a.e0.g;
-import c.a.e0.j;
+import b.a.e0.b;
+import b.a.e0.f;
+import b.a.e0.g;
+import b.a.e0.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ProgressButton extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f44328e;
+    public TextView f42089e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f44329f;
+    public ImageView f42090f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f44330g;
+    public Animation f42091g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f44331h;
+    public boolean f42092h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ProgressButton(Context context) {
@@ -61,11 +61,11 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             LayoutInflater.from(context).inflate(g.button_progress, (ViewGroup) this, true);
-            this.f44328e = (TextView) findViewById(f.text_view);
-            this.f44329f = (ImageView) findViewById(f.progress_bar);
-            this.f44330g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+            this.f42089e = (TextView) findViewById(f.text_view);
+            this.f42090f = (ImageView) findViewById(f.progress_bar);
+            this.f42091g = AnimationUtils.loadAnimation(context, b.loading_rotate);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.ProgressButton);
-            this.f44328e.setTextColor(obtainStyledAttributes.getColor(j.ProgressButton_textColor, -1));
+            this.f42089e.setTextColor(obtainStyledAttributes.getColor(j.ProgressButton_textColor, -1));
             obtainStyledAttributes.recycle();
         }
     }
@@ -74,7 +74,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             super.setEnabled(z);
-            this.f44331h = z;
+            this.f42092h = z;
         }
     }
 
@@ -83,7 +83,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             super.setPressed(z);
-            if (this.f44331h) {
+            if (this.f42092h) {
                 setAlpha(z ? 0.2f : 1.0f);
             } else {
                 setAlpha(0.2f);
@@ -94,18 +94,18 @@ public class ProgressButton extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f44328e.setText(str);
-            this.f44329f.setVisibility(4);
-            this.f44328e.setVisibility(0);
+            this.f42089e.setText(str);
+            this.f42090f.setVisibility(4);
+            this.f42089e.setVisibility(0);
         }
     }
 
     public void startLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f44329f.setVisibility(0);
-            this.f44329f.startAnimation(this.f44330g);
-            this.f44328e.setVisibility(4);
+            this.f42090f.setVisibility(0);
+            this.f42090f.startAnimation(this.f42091g);
+            this.f42089e.setVisibility(4);
         }
     }
 

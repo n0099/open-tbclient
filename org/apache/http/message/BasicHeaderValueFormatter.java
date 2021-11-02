@@ -14,7 +14,7 @@ import org.apache.http.HeaderElement;
 import org.apache.http.NameValuePair;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BasicHeaderValueFormatter implements HeaderValueFormatter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BasicHeaderValueFormatter DEFAULT = null;

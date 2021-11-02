@@ -1,6 +1,7 @@
 package com.ss.android.socialbase.appdownloader.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,159 +10,40 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.p.a.e.a.d;
-import c.p.a.e.a.e;
-import c.p.a.e.a.k;
-import c.p.a.e.a.l;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ss.android.socialbase.appdownloader.b;
+import com.ss.android.socialbase.appdownloader.c;
+import com.ss.android.socialbase.appdownloader.c.k;
+import com.ss.android.socialbase.appdownloader.c.l;
+import com.ss.android.socialbase.appdownloader.d;
+import com.ss.android.socialbase.appdownloader.h;
+import com.ss.android.socialbase.appdownloader.i;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JumpUnknownSourceActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.m f76112a;
+    public k f69064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f76113b;
+    public Intent f69065b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public Intent f76114c;
+    public Intent f69066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f76115d;
+    public int f69067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f76116e;
-
-    /* loaded from: classes10.dex */
-    public class a implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JumpUnknownSourceActivity f76117e;
-
-        public a(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jumpUnknownSourceActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76117e = jumpUnknownSourceActivity;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f76117e.f76114c != null) {
-                    JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f76117e;
-                    c.p.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f76114c, true);
-                }
-                c.p.a.e.a.c.w(this.f76117e.f76115d, this.f76117e.f76116e);
-                this.f76117e.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JumpUnknownSourceActivity f76118e;
-
-        public b(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jumpUnknownSourceActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76118e = jumpUnknownSourceActivity;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                if (this.f76118e.f76114c != null) {
-                    JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f76118e;
-                    c.p.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f76114c, true);
-                }
-                c.p.a.e.a.c.w(this.f76118e.f76115d, this.f76118e.f76116e);
-                this.f76118e.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class c implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JumpUnknownSourceActivity f76119e;
-
-        public c(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jumpUnknownSourceActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76119e = jumpUnknownSourceActivity;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f76119e;
-                if (c.p.a.e.a.c.n(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f76114c, this.f76119e.f76115d, this.f76119e.f76116e)) {
-                    c.p.a.e.a.c.B(this.f76119e.f76115d, this.f76119e.f76116e);
-                } else {
-                    JumpUnknownSourceActivity jumpUnknownSourceActivity2 = this.f76119e;
-                    c.p.a.e.a.c.p(jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f76114c, true);
-                }
-                c.p.a.e.a.c.f(this.f76119e.f76115d, this.f76119e.f76116e);
-                this.f76119e.finish();
-            }
-        }
-    }
+    public JSONObject f69068e;
 
     public JumpUnknownSourceActivity() {
         Interceptable interceptable = $ic;
@@ -183,7 +65,7 @@ public class JumpUnknownSourceActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             a();
-            k.d().f(this);
+            h.a().a(this);
         }
     }
 
@@ -193,7 +75,7 @@ public class JumpUnknownSourceActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
             super.onNewIntent(intent);
             setIntent(intent);
-            k.d().f(this);
+            h.a().a(this);
         }
     }
 
@@ -203,25 +85,25 @@ public class JumpUnknownSourceActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onResume();
             Intent intent = getIntent();
-            this.f76113b = intent;
+            this.f69065b = intent;
             if (intent != null) {
-                this.f76114c = (Intent) intent.getParcelableExtra("intent");
-                this.f76115d = intent.getIntExtra("id", -1);
+                this.f69066c = (Intent) intent.getParcelableExtra("intent");
+                this.f69067d = intent.getIntExtra("id", -1);
                 try {
-                    this.f76116e = new JSONObject(intent.getStringExtra("config"));
+                    this.f69068e = new JSONObject(intent.getStringExtra(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            if (this.f76116e == null) {
-                d.q(this);
+            if (this.f69068e == null) {
+                c.a((Activity) this);
                 return;
             }
             b();
-            d.m mVar = this.f76112a;
-            if (mVar != null && !mVar.b()) {
-                this.f76112a.a();
-            } else if (this.f76112a == null) {
+            k kVar = this.f69064a;
+            if (kVar != null && !kVar.b()) {
+                this.f69064a.a();
+            } else if (this.f69064a == null) {
                 finish();
             }
         }
@@ -239,22 +121,136 @@ public class JumpUnknownSourceActivity extends Activity {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f76112a == null && this.f76113b != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f69064a == null && this.f69065b != null) {
             try {
-                d.e b2 = e.G().b();
-                d.n a2 = b2 != null ? b2.a(this) : null;
-                if (a2 == null) {
-                    a2 = new e.C1545e(this);
+                com.ss.android.socialbase.appdownloader.c.c a2 = d.j().a();
+                l a3 = a2 != null ? a2.a(this) : null;
+                if (a3 == null) {
+                    a3 = new com.ss.android.socialbase.appdownloader.d.a(this);
                 }
-                int a3 = l.a(this, "tt_appdownloader_tip");
-                int a4 = l.a(this, "tt_appdownloader_label_ok");
-                int a5 = l.a(this, "tt_appdownloader_label_cancel");
-                String optString = this.f76116e.optString("jump_unknown_source_tips");
+                int a4 = i.a(this, "tt_appdownloader_tip");
+                int a5 = i.a(this, "tt_appdownloader_label_ok");
+                int a6 = i.a(this, "tt_appdownloader_label_cancel");
+                String optString = this.f69068e.optString("jump_unknown_source_tips");
                 if (TextUtils.isEmpty(optString)) {
-                    optString = getString(l.a(this, "tt_appdownloader_jump_unknown_source_tips"));
+                    optString = getString(i.a(this, "tt_appdownloader_jump_unknown_source_tips"));
                 }
-                a2.a(a3).a(optString).b(a4, new c(this)).a(a5, new b(this)).c(new a(this)).a(false);
-                this.f76112a = a2.a();
+                a3.a(a4).a(optString).a(a5, new DialogInterface.OnClickListener(this) { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ JumpUnknownSourceActivity f69071a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f69071a = this;
+                    }
+
+                    @Override // android.content.DialogInterface.OnClickListener
+                    public void onClick(DialogInterface dialogInterface, int i2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                            JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f69071a;
+                            if (b.a(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f69066c, this.f69071a.f69067d, this.f69071a.f69068e)) {
+                                b.c(this.f69071a.f69067d, this.f69071a.f69068e);
+                            } else {
+                                JumpUnknownSourceActivity jumpUnknownSourceActivity2 = this.f69071a;
+                                b.a((Context) jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f69066c, true);
+                            }
+                            b.a(this.f69071a.f69067d, this.f69071a.f69068e);
+                            this.f69071a.finish();
+                        }
+                    }
+                }).b(a6, new DialogInterface.OnClickListener(this) { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ JumpUnknownSourceActivity f69070a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f69070a = this;
+                    }
+
+                    @Override // android.content.DialogInterface.OnClickListener
+                    public void onClick(DialogInterface dialogInterface, int i2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                            if (this.f69070a.f69066c != null) {
+                                JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f69070a;
+                                b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.f69066c, true);
+                            }
+                            b.b(this.f69070a.f69067d, this.f69070a.f69068e);
+                            this.f69070a.finish();
+                        }
+                    }
+                }).a(new DialogInterface.OnCancelListener(this) { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ JumpUnknownSourceActivity f69069a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f69069a = this;
+                    }
+
+                    @Override // android.content.DialogInterface.OnCancelListener
+                    public void onCancel(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            if (this.f69069a.f69066c != null) {
+                                JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f69069a;
+                                b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.f69066c, true);
+                            }
+                            b.b(this.f69069a.f69067d, this.f69069a.f69068e);
+                            this.f69069a.finish();
+                        }
+                    }
+                }).a(false);
+                this.f69064a = a3.a();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

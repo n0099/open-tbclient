@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOG_MESSAGE = "当前是移动网络,是否继续下载?";
@@ -39,7 +39,7 @@ public class CommonUtils {
     public static final String TAG = "CommonUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface DialogOperation {
         void onClickButton(boolean z);
     }

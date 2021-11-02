@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class MessageAdapter<M extends Message> {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
@@ -773,7 +773,7 @@ public final class MessageAdapter<M extends Message> {
         Message.Label label;
         Message.Datatype datatype;
         Extension<ExtendableMessage<?>, ?> extension;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, wireInput)) != null) {
             return (M) invokeL.objValue;
@@ -818,8 +818,8 @@ public final class MessageAdapter<M extends Message> {
                     long position = wireInput.getPosition();
                     int pushLimit = wireInput.pushLimit(readVarint32);
                     while (true) {
-                        j2 = readVarint32 + position;
-                        if (wireInput.getPosition() >= j2) {
+                        j = readVarint32 + position;
+                        if (wireInput.getPosition() >= j) {
                             break;
                         }
                         Object readValue = readValue(wireInput, i2, datatype);
@@ -830,7 +830,7 @@ public final class MessageAdapter<M extends Message> {
                         }
                     }
                     wireInput.popLimit(pushLimit);
-                    if (wireInput.getPosition() != j2) {
+                    if (wireInput.getPosition() != j) {
                         throw new IOException("Packed data had wrong length!");
                     }
                 } else {
@@ -937,7 +937,7 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Storage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1001,7 +1001,7 @@ public final class MessageAdapter<M extends Message> {
         return (Extension) invokeL.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class FieldInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

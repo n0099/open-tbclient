@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class AccountManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_PREFERENCE_ACCOUNT = "account";
@@ -39,7 +39,7 @@ public final class AccountManager implements NoProguard {
     public final SharedPreferences mPreferences;
     public String mbfbToken;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class User implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -196,7 +196,7 @@ public final class AccountManager implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AccountManager f60472a;
+                    public final /* synthetic */ AccountManager f57384a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -213,7 +213,7 @@ public final class AccountManager implements NoProguard {
                                 return;
                             }
                         }
-                        this.f60472a = this;
+                        this.f57384a = this;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback

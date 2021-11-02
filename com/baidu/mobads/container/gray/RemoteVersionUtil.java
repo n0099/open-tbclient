@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.jar.JarFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RemoteVersionUtil {
     public static /* synthetic */ Interceptable $ic;
     public static volatile RemoteVersionUtil instance;

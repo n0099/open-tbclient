@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_ATTACH = "appAttach";
@@ -101,31 +101,31 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
                 return true;
             }
             long appLaunchStartTimeStamp = SpeedStatsManager.getInstance().getAppLaunchStartTimeStamp();
-            long j2 = this.mAppCreateStartTime;
-            long j3 = j2 - appLaunchStartTimeStamp;
-            long j4 = this.mAttachBaseContextStartTimeStamp;
-            long j5 = j4 - appLaunchStartTimeStamp;
-            long j6 = this.mMultiDexinstallEndTimeStamp;
-            long j7 = j6 - j4;
-            long j8 = this.mAiappsRuntimeEndTimeStamp;
-            long j9 = j8 - j6;
-            long j10 = this.mNpsInitEndTimeStamp;
-            long j11 = j10 - j8;
-            long j12 = this.mTiTanInitEndTimeStamp - j10;
-            long j13 = this.mAppAttachContextEndTimeStamp;
-            long j14 = j13 - j4;
-            long j15 = j2 - j13;
-            if (j3 < 0 || j3 > 60000 || j5 < 0 || j5 > 60000 || j7 < 0 || j7 > 60000 || j9 < 0 || j9 > 60000 || j12 < 0 || j12 > 60000 || j11 < 0 || j11 > 60000 || j15 < 0 || j15 > 60000) {
+            long j = this.mAppCreateStartTime;
+            long j2 = j - appLaunchStartTimeStamp;
+            long j3 = this.mAttachBaseContextStartTimeStamp;
+            long j4 = j3 - appLaunchStartTimeStamp;
+            long j5 = this.mMultiDexinstallEndTimeStamp;
+            long j6 = j5 - j3;
+            long j7 = this.mAiappsRuntimeEndTimeStamp;
+            long j8 = j7 - j5;
+            long j9 = this.mNpsInitEndTimeStamp;
+            long j10 = j9 - j7;
+            long j11 = this.mTiTanInitEndTimeStamp - j9;
+            long j12 = this.mAppAttachContextEndTimeStamp;
+            long j13 = j12 - j3;
+            long j14 = j - j12;
+            if (j2 < 0 || j2 > 60000 || j4 < 0 || j4 > 60000 || j6 < 0 || j6 > 60000 || j8 < 0 || j8 > 60000 || j11 < 0 || j11 > 60000 || j10 < 0 || j10 > 60000 || j14 < 0 || j14 > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(APP_ATTACH, String.valueOf(j14));
-            hashMap.put(MULTIDEX_INSTALL, String.valueOf(j7));
-            hashMap.put(APP_RUNTIME_INIT, String.valueOf(j9));
-            hashMap.put(TITAN_INIT, String.valueOf(j12));
-            hashMap.put(NPS_INIT, String.valueOf(j11));
-            hashMap.put(INSTALL_CONTENT_PROVIDER, String.valueOf(j15));
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
+            hashMap.put(APP_ATTACH, String.valueOf(j13));
+            hashMap.put(MULTIDEX_INSTALL, String.valueOf(j6));
+            hashMap.put(APP_RUNTIME_INIT, String.valueOf(j8));
+            hashMap.put(TITAN_INIT, String.valueOf(j11));
+            hashMap.put(NPS_INIT, String.valueOf(j10));
+            hashMap.put(INSTALL_CONTENT_PROVIDER, String.valueOf(j14));
+            JSONObject jsonData = SpeedStatsUtils.getJsonData(j2, hashMap);
             if (jsonData != null) {
                 try {
                     jSONObject.put(SpeedStatsMainTable.BEFORE_APP_CREATE_STAGE, jsonData);
@@ -159,38 +159,38 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2, long j2) {
+    public void addStatsTimeStamp(int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            super.addStatsTimeStamp(i2, j2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.addStatsTimeStamp(i2, j);
             if (i2 != 2000) {
                 switch (i2) {
                     case 1002:
-                        this.mAttachBaseContextStartTimeStamp = j2;
+                        this.mAttachBaseContextStartTimeStamp = j;
                         return;
                     case 1003:
-                        this.mMultiDexinstallEndTimeStamp = j2;
+                        this.mMultiDexinstallEndTimeStamp = j;
                         return;
                     case 1004:
-                        this.mAiappsRuntimeEndTimeStamp = j2;
+                        this.mAiappsRuntimeEndTimeStamp = j;
                         return;
                     default:
                         switch (i2) {
                             case 1010:
-                                this.mAppAttachContextEndTimeStamp = j2;
+                                this.mAppAttachContextEndTimeStamp = j;
                                 return;
                             case 1011:
-                                this.mNpsInitEndTimeStamp = j2;
+                                this.mNpsInitEndTimeStamp = j;
                                 return;
                             case 1012:
-                                this.mTiTanInitEndTimeStamp = j2;
+                                this.mTiTanInitEndTimeStamp = j;
                                 return;
                             default:
                                 return;
                         }
                 }
             }
-            this.mAppCreateStartTime = j2;
+            this.mAppCreateStartTime = j;
         }
     }
 }

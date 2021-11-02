@@ -21,7 +21,7 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RequestBodyHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "UTF-8";
@@ -169,10 +169,10 @@ public class RequestBodyHelper {
             StringBuffer stringBuffer = new StringBuffer();
             for (int i2 = 1; i2 < 12; i2++) {
                 long currentTimeMillis = System.currentTimeMillis() + i2;
-                long j2 = currentTimeMillis % 3;
-                if (j2 == 0) {
+                long j = currentTimeMillis % 3;
+                if (j == 0) {
                     stringBuffer.append(((char) currentTimeMillis) % '\t');
-                } else if (j2 == 1) {
+                } else if (j == 1) {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
                 } else {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 97));

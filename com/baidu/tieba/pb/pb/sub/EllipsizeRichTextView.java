@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EllipsizeRichTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableStringBuilder f55402e;
+    public SpannableStringBuilder f52581e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EllipsizeRichTextView(Context context) {
@@ -41,7 +41,7 @@ public class EllipsizeRichTextView extends TextView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f55402e = new SpannableStringBuilder();
+            this.f52581e = new SpannableStringBuilder();
         }
     }
 
@@ -62,16 +62,16 @@ public class EllipsizeRichTextView extends TextView {
             if (text == null || text.length() <= lineVisibleEnd) {
                 return;
             }
-            SpannableStringBuilder spannableStringBuilder = this.f55402e;
+            SpannableStringBuilder spannableStringBuilder = this.f52581e;
             if (spannableStringBuilder == null) {
                 a();
             } else {
                 spannableStringBuilder.clear();
             }
-            SpannableStringBuilder spannableStringBuilder2 = this.f55402e;
+            SpannableStringBuilder spannableStringBuilder2 = this.f52581e;
             if (spannableStringBuilder2 != null) {
                 spannableStringBuilder2.append(text.subSequence(0, lineVisibleEnd));
-                setText(this.f55402e);
+                setText(this.f52581e);
             }
         }
     }

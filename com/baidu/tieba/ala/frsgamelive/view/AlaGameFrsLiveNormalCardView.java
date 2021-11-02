@@ -2,10 +2,10 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.q0.s.q.d2;
-import c.a.r0.b0.b;
-import c.a.r0.w.e;
-import c.a.r0.w.g.b.c;
+import b.a.q0.s.q.d2;
+import b.a.r0.b0.b;
+import b.a.r0.w.e;
+import b.a.r0.w.g.b.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AlaGameFrsLiveNormalCardView extends b<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
-    public c.a.r0.w.g.d.b n;
+    public b.a.r0.w.g.d.b n;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaGameFrsNormalViewHolder(AlaGameFrsLiveNormalCardView alaGameFrsLiveNormalCardView) {
-            super(alaGameFrsLiveNormalCardView.j());
+            super(alaGameFrsLiveNormalCardView.i());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,19 +69,19 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
             }
         }
         this.m = tbPageContext;
-        p();
+        o();
     }
 
-    @Override // c.a.r0.b0.b
-    public int f() {
+    @Override // b.a.r0.b0.b
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_sub_list_game_live : invokeV.intValue;
     }
 
-    @Override // c.a.r0.b0.b
-    public void l(TbPageContext<?> tbPageContext, int i2) {
-        c.a.r0.w.g.d.b bVar;
+    @Override // b.a.r0.b0.b
+    public void k(TbPageContext<?> tbPageContext, int i2) {
+        b.a.r0.w.g.d.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || (bVar = this.n) == null) {
             return;
@@ -89,36 +89,36 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
         bVar.e(tbPageContext, i2);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.n = new b.a.r0.w.g.d.b(this.m);
+            ((ViewGroup) i()).addView(this.n.c());
         }
     }
 
-    public final void p() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.n = new c.a.r0.w.g.d.b(this.m);
-            ((ViewGroup) j()).addView(this.n.c());
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.b0.b
-    /* renamed from: q */
-    public void k(c cVar) {
+    @Override // b.a.r0.b0.b
+    /* renamed from: p */
+    public void j(c cVar) {
         d2 d2Var;
-        c.a.r0.w.g.d.b bVar;
+        b.a.r0.w.g.d.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (d2Var = cVar.f26147e) == null || (bVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (d2Var = cVar.f24992e) == null || (bVar = this.n) == null) {
             return;
         }
         bVar.d(d2Var);
     }
 
-    public void s(e eVar) {
-        c.a.r0.w.g.d.b bVar;
+    public void q(e eVar) {
+        b.a.r0.w.g.d.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) || (bVar = this.n) == null) {
             return;

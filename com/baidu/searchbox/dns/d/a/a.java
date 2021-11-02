@@ -18,24 +18,24 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int B;
     public String C;
     public long D;
-    public String R;
-    public List<String> S;
-    public String T;
-    public List<String> m;
+    public String Q;
+    public List<String> R;
+    public String S;
+    public List<String> l;
 
-    public a(String str, int i2, String str2, long j2, List<String> list, List<String> list2) {
+    public a(String str, int i2, String str2, long j, List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, Long.valueOf(j2), list, list2};
+            Object[] objArr = {str, Integer.valueOf(i2), str2, Long.valueOf(j), list, list2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -47,17 +47,40 @@ public class a {
         }
         this.C = str;
         this.B = i2;
-        this.R = str2;
-        this.D = j2;
-        this.m = list;
-        this.S = list2;
-        this.T = z();
+        this.Q = str2;
+        this.D = j;
+        this.l = list;
+        this.R = list2;
+        this.S = A();
+    }
+
+    private String A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                JSONArray jSONArray = new JSONArray((Collection) this.l);
+                JSONArray jSONArray2 = new JSONArray((Collection) this.R);
+                jSONObject.put("msg", this.C);
+                jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.Q);
+                jSONObject.put(ResultTB.TTL, this.B);
+                jSONObject.put("cachetime", this.D);
+                jSONObject.put("ip", jSONArray);
+                jSONObject.put(HttpDnsCacheForHost.JSON_KEY_IPV6, jSONArray2);
+                return jSONObject.toString();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String b(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
             if (list == null) {
                 return null;
             }
@@ -76,38 +99,15 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    private String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                JSONArray jSONArray = new JSONArray((Collection) this.m);
-                JSONArray jSONArray2 = new JSONArray((Collection) this.S);
-                jSONObject.put("msg", this.C);
-                jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.R);
-                jSONObject.put(ResultTB.TTL, this.B);
-                jSONObject.put("cachetime", this.D);
-                jSONObject.put("ip", jSONArray);
-                jSONObject.put(HttpDnsCacheForHost.JSON_KEY_IPV6, jSONArray2);
-                return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
     public List<String> getIpList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.m != null) {
+            if (this.l != null) {
                 if (DnsUtil.DEBUG) {
-                    String str = " getIp v4 List: " + b(this.m);
+                    String str = " getIp v4 List: " + b(this.l);
                 }
-                return Collections.unmodifiableList(this.m);
+                return Collections.unmodifiableList(this.l);
             }
             return null;
         }
@@ -117,7 +117,22 @@ public class a {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.T : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.S : (String) invokeV.objValue;
+    }
+
+    public List<String> z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.R != null) {
+                if (DnsUtil.DEBUG) {
+                    String str = " getIp v6 List: " + b(this.R);
+                }
+                return Collections.unmodifiableList(this.R);
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
     }
 
     public a(String str) {
@@ -135,28 +150,28 @@ public class a {
                 return;
             }
         }
-        this.T = str;
+        this.S = str;
         if (TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            JSONObject jSONObject = new JSONObject(this.T);
+            JSONObject jSONObject = new JSONObject(this.S);
             this.C = jSONObject.optString("msg", "error");
-            this.R = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+            this.Q = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
             this.B = jSONObject.optInt(ResultTB.TTL, -1);
             this.D = jSONObject.optLong("cachetime", -1L);
             JSONArray optJSONArray = jSONObject.optJSONArray("ip");
-            this.m = new ArrayList(optJSONArray.length());
+            this.l = new ArrayList(optJSONArray.length());
             for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                this.m.add(optJSONArray.getString(i4));
+                this.l.add(optJSONArray.getString(i4));
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
             if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
                 return;
             }
-            this.S = new ArrayList(optJSONArray2.length());
+            this.R = new ArrayList(optJSONArray2.length());
             for (int i5 = 0; i5 < optJSONArray2.length(); i5++) {
-                this.S.add(optJSONArray2.getString(i5));
+                this.R.add(optJSONArray2.getString(i5));
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

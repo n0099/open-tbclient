@@ -10,49 +10,50 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.r0.k3.j;
+import b.a.r0.l3.j;
+import b.a.r0.x0.c1;
+import b.a.r0.x0.e1;
+import b.a.r0.x0.f1;
+import b.a.r0.x0.h1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsAdCommentScrollView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f51019e;
+    public TextView f48374e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51020f;
+    public TextView f48375f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f51021g;
+    public FrameLayout f48376g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f51022h;
+    public FrameLayout f48377h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f51023i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ValueAnimator f51024j;
+    public Handler f48378i;
+    public ValueAnimator j;
     public List<j> k;
     public int l;
     public Runnable m;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsAdCommentScrollView f51025e;
+        public final /* synthetic */ FrsAdCommentScrollView f48379e;
 
         public a(FrsAdCommentScrollView frsAdCommentScrollView) {
             Interceptable interceptable = $ic;
@@ -69,29 +70,29 @@ public class FrsAdCommentScrollView extends LinearLayout {
                     return;
                 }
             }
-            this.f51025e = frsAdCommentScrollView;
+            this.f48379e = frsAdCommentScrollView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f51025e.l();
-                this.f51025e.f51023i.postDelayed(this, 5000L);
+                this.f48379e.l();
+                this.f48379e.f48378i.postDelayed(this, 5000L);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f51026e;
+        public final /* synthetic */ float f48380e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsAdCommentScrollView f51027f;
+        public final /* synthetic */ FrsAdCommentScrollView f48381f;
 
         public b(FrsAdCommentScrollView frsAdCommentScrollView, float f2) {
             Interceptable interceptable = $ic;
@@ -108,8 +109,8 @@ public class FrsAdCommentScrollView extends LinearLayout {
                     return;
                 }
             }
-            this.f51027f = frsAdCommentScrollView;
-            this.f51026e = f2;
+            this.f48381f = frsAdCommentScrollView;
+            this.f48380e = f2;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -117,19 +118,19 @@ public class FrsAdCommentScrollView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                this.f51027f.f51021g.setY(-floatValue);
-                this.f51027f.f51022h.setY(this.f51026e - floatValue);
+                this.f48381f.f48376g.setY(-floatValue);
+                this.f48381f.f48377h.setY(this.f48380e - floatValue);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsAdCommentScrollView f51028e;
+        public final /* synthetic */ FrsAdCommentScrollView f48382e;
 
         public c(FrsAdCommentScrollView frsAdCommentScrollView) {
             Interceptable interceptable = $ic;
@@ -146,7 +147,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
                     return;
                 }
             }
-            this.f51028e = frsAdCommentScrollView;
+            this.f48382e = frsAdCommentScrollView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -160,16 +161,16 @@ public class FrsAdCommentScrollView extends LinearLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                FrsAdCommentScrollView.i(this.f51028e);
-                if (this.f51028e.l == this.f51028e.k.size()) {
-                    this.f51028e.l = 0;
+                FrsAdCommentScrollView.i(this.f48382e);
+                if (this.f48382e.l == this.f48382e.k.size()) {
+                    this.f48382e.l = 0;
                 }
-                FrameLayout frameLayout = this.f51028e.f51021g;
-                FrsAdCommentScrollView frsAdCommentScrollView = this.f51028e;
-                frsAdCommentScrollView.f51021g = frsAdCommentScrollView.f51022h;
-                this.f51028e.f51022h = frameLayout;
-                this.f51028e.f51022h.setY(this.f51028e.getContext().getResources().getDimensionPixelSize(R.dimen.tbds99));
-                this.f51028e.o();
+                FrameLayout frameLayout = this.f48382e.f48376g;
+                FrsAdCommentScrollView frsAdCommentScrollView = this.f48382e;
+                frsAdCommentScrollView.f48376g = frsAdCommentScrollView.f48377h;
+                this.f48382e.f48377h = frameLayout;
+                this.f48382e.f48377h.setY(this.f48382e.getContext().getResources().getDimensionPixelSize(c1.tbds99));
+                this.f48382e.o();
             }
         }
 
@@ -206,7 +207,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
                 return;
             }
         }
-        this.f51023i = new Handler();
+        this.f48378i = new Handler();
         this.l = 0;
         this.m = new a(this);
         m();
@@ -222,7 +223,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
-                this.f51023i.removeCallbacks(this.m);
+                this.f48378i.removeCallbacks(this.m);
                 setVisibility(8);
                 return;
             }
@@ -238,12 +239,12 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            float y = this.f51022h.getY();
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, this.f51021g.getMeasuredHeight());
-            this.f51024j = ofFloat;
+            float y = this.f48377h.getY();
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, this.f48376g.getMeasuredHeight());
+            this.j = ofFloat;
             ofFloat.addUpdateListener(new b(this, y));
-            this.f51024j.addListener(new c(this));
-            this.f51024j.start();
+            this.j.addListener(new c(this));
+            this.j.start();
         }
     }
 
@@ -252,24 +253,24 @@ public class FrsAdCommentScrollView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.k = new LinkedList();
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.frs_ad_comment_scroll_view, this);
-            this.f51019e = (TextView) findViewById(R.id.cur_display_view);
-            this.f51020f = (TextView) findViewById(R.id.next_display_view);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.cur_display_layout);
-            this.f51021g = frameLayout;
-            frameLayout.setTag(this.f51019e);
-            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.next_display_layout);
-            this.f51022h = frameLayout2;
-            frameLayout2.setTag(this.f51020f);
+            LayoutInflater.from(getContext()).inflate(f1.frs_ad_comment_scroll_view, this);
+            this.f48374e = (TextView) findViewById(e1.cur_display_view);
+            this.f48375f = (TextView) findViewById(e1.next_display_view);
+            FrameLayout frameLayout = (FrameLayout) findViewById(e1.cur_display_layout);
+            this.f48376g = frameLayout;
+            frameLayout.setTag(this.f48374e);
+            FrameLayout frameLayout2 = (FrameLayout) findViewById(e1.next_display_layout);
+            this.f48377h = frameLayout2;
+            frameLayout2.setTag(this.f48375f);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f51023i.removeCallbacks(this.m);
+            this.f48378i.removeCallbacks(this.m);
             if (ListUtils.getCount(this.k) >= 2) {
-                this.f51023i.postDelayed(this.m, 5000L);
+                this.f48378i.postDelayed(this.m, 5000L);
             }
         }
     }
@@ -284,29 +285,29 @@ public class FrsAdCommentScrollView extends LinearLayout {
             } else {
                 jVar = (j) ListUtils.getItem(this.k, this.l + 1);
             }
-            if ((this.f51021g.getTag() instanceof TextView) && jVar2 != null) {
+            if ((this.f48376g.getTag() instanceof TextView) && jVar2 != null) {
                 String a2 = jVar2.a();
                 if (jVar2.b()) {
-                    a2 = getContext().getString(R.string.frs_top_ad_lz_reply, a2);
+                    a2 = getContext().getString(h1.frs_top_ad_lz_reply, a2);
                 }
-                ((TextView) this.f51021g.getTag()).setText(a2);
+                ((TextView) this.f48376g.getTag()).setText(a2);
             }
-            if (!(this.f51022h.getTag() instanceof TextView) || jVar == null) {
+            if (!(this.f48377h.getTag() instanceof TextView) || jVar == null) {
                 return;
             }
             String a3 = jVar.a();
             if (jVar.b()) {
-                a3 = getContext().getString(R.string.frs_top_ad_lz_reply, a3);
+                a3 = getContext().getString(h1.frs_top_ad_lz_reply, a3);
             }
-            ((TextView) this.f51022h.getTag()).setText(a3);
+            ((TextView) this.f48377h.getTag()).setText(a3);
         }
     }
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f51023i.removeCallbacks(this.m);
-            ValueAnimator valueAnimator = this.f51024j;
+            this.f48378i.removeCallbacks(this.m);
+            ValueAnimator valueAnimator = this.j;
             if (valueAnimator != null) {
                 valueAnimator.cancel();
             }
@@ -339,7 +340,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
                 return;
             }
         }
-        this.f51023i = new Handler();
+        this.f48378i = new Handler();
         this.l = 0;
         this.m = new a(this);
         m();
@@ -364,7 +365,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
                 return;
             }
         }
-        this.f51023i = new Handler();
+        this.f48378i = new Handler();
         this.l = 0;
         this.m = new a(this);
         m();

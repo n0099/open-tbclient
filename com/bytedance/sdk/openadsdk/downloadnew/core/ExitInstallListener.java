@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.downloadnew.core;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface ExitInstallListener {
     void onExitInstall();
 }

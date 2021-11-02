@@ -22,15 +22,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class GlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f38294a = null;
+    public static LayoutInflater f36301a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f38295b = null;
+    public static WeakReference<Toast> f36302b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -112,10 +112,10 @@ public final class GlobalUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f38296a;
+                public final /* synthetic */ Context f36303a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f38297b;
+                public final /* synthetic */ View f36304b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,15 +132,15 @@ public final class GlobalUtils {
                             return;
                         }
                     }
-                    this.f38296a = context;
-                    this.f38297b = view;
+                    this.f36303a = context;
+                    this.f36304b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.f38296a.getSystemService("input_method")).showSoftInput(this.f38297b, 0);
+                        ((InputMethodManager) this.f36303a.getSystemService("input_method")).showSoftInput(this.f36304b, 0);
                     }
                 }
             }, 100L);
@@ -175,14 +175,14 @@ public final class GlobalUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f38295b;
+            WeakReference<Toast> weakReference = f36302b;
             if (weakReference != null && weakReference.get() != null) {
-                f38295b.get().cancel();
+                f36302b.get().cancel();
             }
-            if (f38294a == null) {
-                f38294a = LayoutInflater.from(applicationContext);
+            if (f36301a == null) {
+                f36301a = LayoutInflater.from(applicationContext);
             }
-            View inflate = f38294a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
+            View inflate = f36301a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
             if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
                 return;
             }
@@ -196,7 +196,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f38295b = new WeakReference<>(toast);
+            f36302b = new WeakReference<>(toast);
             toast.show();
         }
     }

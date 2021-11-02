@@ -21,7 +21,7 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -351,10 +351,10 @@ public class e {
             for (com.xiaomi.clientreport.data.a aVar : aVarArr) {
                 if (aVar != null) {
                     String a2 = a((PerfClientReport) aVar);
-                    long j2 = ((PerfClientReport) aVar).perfCounts;
-                    long j3 = ((PerfClientReport) aVar).perfLatencies;
-                    if (!TextUtils.isEmpty(a2) && j2 > 0 && j3 >= 0) {
-                        a(m83a, a2, j2, j3);
+                    long j = ((PerfClientReport) aVar).perfCounts;
+                    long j2 = ((PerfClientReport) aVar).perfLatencies;
+                    if (!TextUtils.isEmpty(a2) && j > 0 && j2 >= 0) {
+                        a(m83a, a2, j, j2);
                     }
                 }
             }
@@ -396,10 +396,10 @@ public class e {
         y.a(randomAccessFile);
     }
 
-    public static void a(HashMap<String, String> hashMap, String str, long j2, long j3) {
+    public static void a(HashMap<String, String> hashMap, String str, long j, long j2) {
         StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{hashMap, str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{hashMap, str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             String str2 = hashMap.get(str);
             if (TextUtils.isEmpty(str2)) {
                 sb = new StringBuilder();
@@ -408,14 +408,14 @@ public class e {
                 if (m84a == null || m84a[0] <= 0 || m84a[1] < 0) {
                     sb = new StringBuilder();
                 } else {
-                    j2 += m84a[0];
-                    j3 += m84a[1];
+                    j += m84a[0];
+                    j2 += m84a[1];
                     sb = new StringBuilder();
                 }
             }
-            sb.append(j2);
+            sb.append(j);
             sb.append("#");
-            sb.append(j3);
+            sb.append(j2);
             hashMap.put(str, sb.toString());
         }
     }

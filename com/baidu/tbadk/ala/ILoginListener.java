@@ -1,7 +1,7 @@
 package com.baidu.tbadk.ala;
 
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface ILoginListener extends Serializable {
     void onCancel();
 

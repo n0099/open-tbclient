@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f37880a;
+    public static a f35900a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, ArrayList<ApollonBean<?>>> f37881b;
+    public final HashMap<String, ArrayList<ApollonBean<?>>> f35901b;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public final class a {
                 return;
             }
         }
-        this.f37881b = new HashMap<>();
+        this.f35901b = new HashMap<>();
     }
 
     public static synchronized a a() {
@@ -59,10 +59,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f37880a == null) {
-                    f37880a = new a();
+                if (f35900a == null) {
+                    f35900a = new a();
                 }
-                aVar = f37880a;
+                aVar = f35900a;
             }
             return aVar;
         }
@@ -73,10 +73,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, apollonBean) == null) {
             synchronized (this) {
-                ArrayList<ApollonBean<?>> arrayList = this.f37881b.get(str);
+                ArrayList<ApollonBean<?>> arrayList = this.f35901b.get(str);
                 if (arrayList == null) {
                     arrayList = new ArrayList<>();
-                    this.f37881b.put(str, arrayList);
+                    this.f35901b.put(str, arrayList);
                 }
                 arrayList.add(apollonBean);
             }
@@ -87,8 +87,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, apollonBean) == null) {
             synchronized (this) {
-                for (String str : this.f37881b.keySet()) {
-                    ArrayList<ApollonBean<?>> arrayList = this.f37881b.get(str);
+                for (String str : this.f35901b.keySet()) {
+                    ArrayList<ApollonBean<?>> arrayList = this.f35901b.get(str);
                     Iterator<ApollonBean<?>> it = arrayList.iterator();
                     while (true) {
                         if (it.hasNext()) {
@@ -110,13 +110,13 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             synchronized (this) {
-                ArrayList<ApollonBean<?>> arrayList = this.f37881b.get(str);
+                ArrayList<ApollonBean<?>> arrayList = this.f35901b.get(str);
                 if (arrayList != null) {
                     Iterator<ApollonBean<?>> it = arrayList.iterator();
                     while (it.hasNext()) {
                         it.next().destroyBean();
                     }
-                    this.f37881b.remove(str);
+                    this.f35901b.remove(str);
                 }
             }
         }

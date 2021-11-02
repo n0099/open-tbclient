@@ -13,51 +13,49 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.k.f;
-import c.a.p0.k.g;
-import c.a.p0.k.h;
-import c.a.p0.k.i;
-import c.a.p0.k.j;
-import c.a.p0.k.o;
+import b.a.p0.k.f;
+import b.a.p0.k.g;
+import b.a.p0.k.h;
+import b.a.p0.k.i;
+import b.a.p0.k.j;
+import b.a.p0.k.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanAppMenuItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f47210e;
+    public ImageView f44831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47211f;
+    public TextView f44832f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47212g;
+    public TextView f44833g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f47213h;
+    public ImageView f44834h;
 
     /* renamed from: i  reason: collision with root package name */
-    public o f47214i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f47215j;
+    public o f44835i;
+    public int j;
     public int k;
     public boolean l;
     public Runnable m;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuItemView f47216e;
+        public final /* synthetic */ SwanAppMenuItemView f44836e;
 
         public a(SwanAppMenuItemView swanAppMenuItemView) {
             Interceptable interceptable = $ic;
@@ -74,18 +72,18 @@ public class SwanAppMenuItemView extends RelativeLayout {
                     return;
                 }
             }
-            this.f47216e = swanAppMenuItemView;
+            this.f44836e = swanAppMenuItemView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             o oVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (oVar = this.f47216e.f47214i) == null || oVar.d() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (oVar = this.f44836e.f44835i) == null || oVar.d() == null) {
                 return;
             }
-            SwanAppMenuItemView swanAppMenuItemView = this.f47216e;
-            swanAppMenuItemView.l = swanAppMenuItemView.f47214i.d().a(this.f47216e.f47214i);
+            SwanAppMenuItemView swanAppMenuItemView = this.f44836e;
+            swanAppMenuItemView.l = swanAppMenuItemView.f44835i.d().a(this.f44836e.f44835i);
         }
     }
 
@@ -115,16 +113,16 @@ public class SwanAppMenuItemView extends RelativeLayout {
     private void setAllPressed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
-            this.f47210e.setPressed(z);
-            this.f47211f.setPressed(z);
+            this.f44831e.setPressed(z);
+            this.f44832f.setPressed(z);
             setPressed(z);
         }
     }
 
-    public final String a(long j2) {
+    public final String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 <= 99 ? String.valueOf(j2) : "99+" : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j <= 99 ? String.valueOf(j) : "99+" : (String) invokeJ.objValue;
     }
 
     public final Drawable b(o oVar) {
@@ -148,10 +146,10 @@ public class SwanAppMenuItemView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setGravity(49);
             LayoutInflater.from(getContext()).inflate(j.aiapp_menu_item_view_layout, this);
-            this.f47210e = (ImageView) findViewById(i.aiapp_menu_item_icon);
-            this.f47211f = (TextView) findViewById(i.aiapp_menu_item_title);
-            this.f47212g = (TextView) findViewById(i.aiapp_menu_item_new_tips);
-            this.f47213h = (ImageView) findViewById(i.aiapp_menu_item_new_dot);
+            this.f44831e = (ImageView) findViewById(i.aiapp_menu_item_icon);
+            this.f44832f = (TextView) findViewById(i.aiapp_menu_item_title);
+            this.f44833g = (TextView) findViewById(i.aiapp_menu_item_new_tips);
+            this.f44834h = (ImageView) findViewById(i.aiapp_menu_item_new_dot);
             setBackgroundResource(0);
         }
     }
@@ -159,11 +157,11 @@ public class SwanAppMenuItemView extends RelativeLayout {
     public final void e(o oVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, oVar, i2) == null) {
-            this.f47211f.setEllipsize(TextUtils.TruncateAt.END);
-            this.f47211f.setAlpha(oVar.i() ? 1.0f : 0.3f);
-            this.f47210e.setEnabled(oVar.i());
-            this.f47210e.setScaleType(ImageView.ScaleType.CENTER);
-            this.f47210e.setVisibility(0);
+            this.f44832f.setEllipsize(TextUtils.TruncateAt.END);
+            this.f44832f.setAlpha(oVar.i() ? 1.0f : 0.3f);
+            this.f44831e.setEnabled(oVar.i());
+            this.f44831e.setScaleType(ImageView.ScaleType.CENTER);
+            this.f44831e.setVisibility(0);
             g(oVar);
             f(oVar, i2);
         }
@@ -176,27 +174,27 @@ public class SwanAppMenuItemView extends RelativeLayout {
         }
         int f2 = oVar.f();
         if (f2 == 0) {
-            this.f47212g.setVisibility(8);
-            this.f47212g.setVisibility(8);
+            this.f44833g.setVisibility(8);
+            this.f44833g.setVisibility(8);
         } else if (f2 != 1) {
             if (f2 != 2) {
-                this.f47212g.setVisibility(8);
-                this.f47213h.setVisibility(8);
+                this.f44833g.setVisibility(8);
+                this.f44834h.setVisibility(8);
                 return;
             }
-            this.f47212g.setVisibility(8);
-            this.f47213h.setImageDrawable(getResources().getDrawable(h.swan_app_menu_new_dot));
-            this.f47213h.setVisibility(0);
+            this.f44833g.setVisibility(8);
+            this.f44834h.setImageDrawable(getResources().getDrawable(h.swan_app_menu_new_dot));
+            this.f44834h.setVisibility(0);
         } else if (i2 <= 0) {
         } else {
-            this.f47213h.setVisibility(8);
-            this.f47212g.setText(a(oVar.e()));
-            this.f47212g.setTextColor(getResources().getColor(f.swan_app_menu_item_tip_text));
-            this.f47212g.setBackground(getResources().getDrawable(h.swan_app_menu_new_bg));
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f47212g.getLayoutParams();
+            this.f44834h.setVisibility(8);
+            this.f44833g.setText(a(oVar.e()));
+            this.f44833g.setTextColor(getResources().getColor(f.swan_app_menu_item_tip_text));
+            this.f44833g.setBackground(getResources().getDrawable(h.swan_app_menu_new_bg));
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f44833g.getLayoutParams();
             marginLayoutParams.leftMargin = c(i2);
-            this.f47212g.setLayoutParams(marginLayoutParams);
-            this.f47212g.setVisibility(0);
+            this.f44833g.setLayoutParams(marginLayoutParams);
+            this.f44833g.setVisibility(0);
         }
     }
 
@@ -206,11 +204,11 @@ public class SwanAppMenuItemView extends RelativeLayout {
             return;
         }
         setAlpha(1.0f);
-        this.f47211f.setText(oVar.h(getContext()));
+        this.f44832f.setText(oVar.h(getContext()));
         Drawable b2 = b(oVar);
         if (b2 != null) {
-            this.f47210e.setImageDrawable(b2);
-            this.f47210e.setImageLevel(oVar.b());
+            this.f44831e.setImageDrawable(b2);
+            this.f44831e.setImageLevel(oVar.b());
         }
     }
 
@@ -220,7 +218,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
             return;
         }
         e(oVar, i2);
-        this.f47214i = oVar;
+        this.f44835i = oVar;
     }
 
     @Override // android.view.View
@@ -233,11 +231,11 @@ public class SwanAppMenuItemView extends RelativeLayout {
             int y = (int) motionEvent.getY();
             int action = motionEvent.getAction();
             if (action == 0) {
-                o oVar = this.f47214i;
+                o oVar = this.f44835i;
                 if (oVar != null && oVar.d() != null) {
                     removeCallbacks(this.m);
                     this.l = false;
-                    this.f47215j = x;
+                    this.j = x;
                     this.k = y;
                     postDelayed(this.m, 3000L);
                     setAllPressed(true);
@@ -246,8 +244,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
                 }
             } else if (action == 1) {
                 removeCallbacks(this.m);
-                if (!this.l && this.f47214i.g() != null) {
-                    this.f47214i.g().b(this, this.f47214i);
+                if (!this.l && this.f44835i.g() != null) {
+                    this.f44835i.g().b(this, this.f44835i);
                 }
                 this.l = false;
                 setAllPressed(false);
@@ -259,7 +257,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
                     setAllPressed(false);
                     return super.onTouchEvent(motionEvent);
                 }
-            } else if (Math.abs(this.f47215j - x) > 10 || Math.abs(this.k - y) > 10) {
+            } else if (Math.abs(this.j - x) > 10 || Math.abs(this.k - y) > 10) {
                 removeCallbacks(this.m);
                 this.l = false;
             }

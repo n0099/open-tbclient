@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.TimeZone;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpDateGenerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TimeZone GMT = null;

@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,6 +9,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +38,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public transient /* synthetic */ FieldHolder $fh;
     public int mBackStackId;
     public boolean mCancelable;
+    public boolean mCreatingDialog;
     @Nullable
     public Dialog mDialog;
     public Runnable mDismissRunnable;
@@ -86,11 +89,11 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             }
 
             @Override // java.lang.Runnable
+            @SuppressLint({"SyntheticAccessor"})
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    DialogFragment dialogFragment = this.this$0;
-                    dialogFragment.mOnDismissListener.onDismiss(dialogFragment.mDialog);
+                    this.this$0.mOnDismissListener.onDismiss(this.this$0.mDialog);
                 }
             }
         };
@@ -118,14 +121,14 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
+            @SuppressLint({"SyntheticAccessor"})
             public void onCancel(@Nullable DialogInterface dialogInterface) {
-                DialogFragment dialogFragment;
-                Dialog dialog;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (dialog = (dialogFragment = this.this$0).mDialog) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || this.this$0.mDialog == null) {
                     return;
                 }
-                dialogFragment.onCancel(dialog);
+                DialogFragment dialogFragment = this.this$0;
+                dialogFragment.onCancel(dialogFragment.mDialog);
             }
         };
         this.mOnDismissListener = new DialogInterface.OnDismissListener(this) { // from class: androidx.fragment.app.DialogFragment.3
@@ -152,14 +155,14 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             }
 
             @Override // android.content.DialogInterface.OnDismissListener
+            @SuppressLint({"SyntheticAccessor"})
             public void onDismiss(@Nullable DialogInterface dialogInterface) {
-                DialogFragment dialogFragment;
-                Dialog dialog;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (dialog = (dialogFragment = this.this$0).mDialog) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || this.this$0.mDialog == null) {
                     return;
                 }
-                dialogFragment.onDismiss(dialog);
+                DialogFragment dialogFragment = this.this$0;
+                dialogFragment.onDismiss(dialogFragment.mDialog);
             }
         };
         this.mStyle = 0;
@@ -169,23 +172,9 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         this.mBackStackId = -1;
     }
 
-    public void dismiss() {
+    private void dismissInternal(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dismissInternal(false, false);
-        }
-    }
-
-    public void dismissAllowingStateLoss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dismissInternal(true, false);
-        }
-    }
-
-    public void dismissInternal(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.mDismissed) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.mDismissed) {
             return;
         }
         this.mDismissed = true;
@@ -217,30 +206,44 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         }
     }
 
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            dismissInternal(false, false);
+        }
+    }
+
+    public void dismissAllowingStateLoss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            dismissInternal(true, false);
+        }
+    }
+
     @Nullable
     public Dialog getDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDialog : (Dialog) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDialog : (Dialog) invokeV.objValue;
     }
 
     public boolean getShowsDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mShowsDialog : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mShowsDialog : invokeV.booleanValue;
     }
 
     @StyleRes
     public int getTheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTheme : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTheme : invokeV.intValue;
     }
 
     public boolean isCancelable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mCancelable : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mCancelable : invokeV.booleanValue;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -248,28 +251,30 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public void onActivityCreated(@Nullable Bundle bundle) {
         Bundle bundle2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
             if (this.mShowsDialog) {
                 View view = getView();
-                if (view != null) {
-                    if (view.getParent() == null) {
-                        this.mDialog.setContentView(view);
-                    } else {
-                        throw new IllegalStateException("DialogFragment can not be attached to a container view");
+                if (this.mDialog != null) {
+                    if (view != null) {
+                        if (view.getParent() == null) {
+                            this.mDialog.setContentView(view);
+                        } else {
+                            throw new IllegalStateException("DialogFragment can not be attached to a container view");
+                        }
                     }
+                    FragmentActivity activity = getActivity();
+                    if (activity != null) {
+                        this.mDialog.setOwnerActivity(activity);
+                    }
+                    this.mDialog.setCancelable(this.mCancelable);
+                    this.mDialog.setOnCancelListener(this.mOnCancelListener);
+                    this.mDialog.setOnDismissListener(this.mOnDismissListener);
+                    if (bundle == null || (bundle2 = bundle.getBundle("android:savedDialogState")) == null) {
+                        return;
+                    }
+                    this.mDialog.onRestoreInstanceState(bundle2);
                 }
-                FragmentActivity activity = getActivity();
-                if (activity != null) {
-                    this.mDialog.setOwnerActivity(activity);
-                }
-                this.mDialog.setCancelable(this.mCancelable);
-                this.mDialog.setOnCancelListener(this.mOnCancelListener);
-                this.mDialog.setOnDismissListener(this.mOnDismissListener);
-                if (bundle == null || (bundle2 = bundle.getBundle("android:savedDialogState")) == null) {
-                    return;
-                }
-                this.mDialog.onRestoreInstanceState(bundle2);
             }
         }
     }
@@ -278,7 +283,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @MainThread
     public void onAttach(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
             super.onAttach(context);
             if (this.mShownByMe) {
                 return;
@@ -290,7 +295,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(@NonNull DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, dialogInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialogInterface) == null) {
         }
     }
 
@@ -298,7 +303,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @MainThread
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
             this.mHandler = new Handler();
             this.mShowsDialog = this.mContainerId == 0;
@@ -317,14 +322,14 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public Dialog onCreateDialog(@Nullable Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bundle)) == null) ? new Dialog(requireContext(), getTheme()) : (Dialog) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bundle)) == null) ? new Dialog(requireContext(), getTheme()) : (Dialog) invokeL.objValue;
     }
 
     @Override // androidx.fragment.app.Fragment
     @MainThread
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroyView();
             Dialog dialog = this.mDialog;
             if (dialog != null) {
@@ -343,7 +348,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @MainThread
     public void onDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetach();
             if (this.mShownByMe || this.mDismissed) {
                 return;
@@ -355,7 +360,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(@NonNull DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, dialogInterface) == null) || this.mViewDestroyed) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, dialogInterface) == null) || this.mViewDestroyed) {
             return;
         }
         dismissInternal(true, true);
@@ -366,17 +371,22 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public LayoutInflater onGetLayoutInflater(@Nullable Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, bundle)) == null) {
-            if (!this.mShowsDialog) {
-                return super.onGetLayoutInflater(bundle);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bundle)) == null) {
+            LayoutInflater onGetLayoutInflater = super.onGetLayoutInflater(bundle);
+            if (!this.mShowsDialog || this.mCreatingDialog) {
+                return onGetLayoutInflater;
             }
-            Dialog onCreateDialog = onCreateDialog(bundle);
-            this.mDialog = onCreateDialog;
-            if (onCreateDialog != null) {
+            try {
+                this.mCreatingDialog = true;
+                Dialog onCreateDialog = onCreateDialog(bundle);
+                this.mDialog = onCreateDialog;
                 setupDialog(onCreateDialog, this.mStyle);
-                return (LayoutInflater) this.mDialog.getContext().getSystemService("layout_inflater");
+                this.mCreatingDialog = false;
+                return onGetLayoutInflater.cloneInContext(requireDialog().getContext());
+            } catch (Throwable th) {
+                this.mCreatingDialog = false;
+                throw th;
             }
-            return (LayoutInflater) this.mHost.getContext().getSystemService("layout_inflater");
         }
         return (LayoutInflater) invokeL.objValue;
     }
@@ -384,13 +394,12 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @Override // androidx.fragment.app.Fragment
     @MainThread
     public void onSaveInstanceState(@NonNull Bundle bundle) {
-        Bundle onSaveInstanceState;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             Dialog dialog = this.mDialog;
-            if (dialog != null && (onSaveInstanceState = dialog.onSaveInstanceState()) != null) {
-                bundle.putBundle("android:savedDialogState", onSaveInstanceState);
+            if (dialog != null) {
+                bundle.putBundle("android:savedDialogState", dialog.onSaveInstanceState());
             }
             int i2 = this.mStyle;
             if (i2 != 0) {
@@ -419,7 +428,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @MainThread
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onStart();
             Dialog dialog = this.mDialog;
             if (dialog != null) {
@@ -433,7 +442,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @MainThread
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStop();
             Dialog dialog = this.mDialog;
             if (dialog != null) {
@@ -446,7 +455,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public final Dialog requireDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             Dialog dialog = getDialog();
             if (dialog != null) {
                 return dialog;
@@ -458,7 +467,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
 
     public void setCancelable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             this.mCancelable = z;
             Dialog dialog = this.mDialog;
             if (dialog != null) {
@@ -469,14 +478,14 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
 
     public void setShowsDialog(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.mShowsDialog = z;
         }
     }
 
     public void setStyle(int i2, @StyleRes int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048598, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048597, this, i2, i3) == null) {
             this.mStyle = i2;
             if (i2 == 2 || i2 == 3) {
                 this.mTheme = 16973913;
@@ -490,12 +499,15 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setupDialog(@NonNull Dialog dialog, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048599, this, dialog, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048598, this, dialog, i2) == null) {
             if (i2 != 1 && i2 != 2) {
                 if (i2 != 3) {
                     return;
                 }
-                dialog.getWindow().addFlags(24);
+                Window window = dialog.getWindow();
+                if (window != null) {
+                    window.addFlags(24);
+                }
             }
             dialog.requestWindowFeature(1);
         }
@@ -503,7 +515,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
 
     public void show(@NonNull FragmentManager fragmentManager, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, fragmentManager, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048600, this, fragmentManager, str) == null) {
             this.mDismissed = false;
             this.mShownByMe = true;
             FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
@@ -514,7 +526,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
 
     public void showNow(@NonNull FragmentManager fragmentManager, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, fragmentManager, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048601, this, fragmentManager, str) == null) {
             this.mDismissed = false;
             this.mShownByMe = true;
             FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
@@ -526,7 +538,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public int show(@NonNull FragmentTransaction fragmentTransaction, @Nullable String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, fragmentTransaction, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, fragmentTransaction, str)) == null) {
             this.mDismissed = false;
             this.mShownByMe = true;
             fragmentTransaction.add(this, str);

@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SapiCoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CUSTOM_THEME_SCHEMA = "file:///android_asset/";
@@ -528,7 +528,7 @@ public class SapiCoreUtil {
                 return null;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(r.f42346a, 4);
+            hashMap.put(r.f40168a, 4);
             hashMap.put("w", 2);
             int i2 = 1;
             hashMap.put("x", 1);

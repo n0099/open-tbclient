@@ -60,7 +60,7 @@ import okio.Okio;
 import okio.Source;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_TUNNEL_ATTEMPTS = 21;
@@ -300,13 +300,13 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
     }
 
-    public static RealConnection testConnection(ConnectionPool connectionPool, Route route, Socket socket, long j2) {
+    public static RealConnection testConnection(ConnectionPool connectionPool, Route route, Socket socket, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{connectionPool, route, socket, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{connectionPool, route, socket, Long.valueOf(j)})) == null) {
             RealConnection realConnection = new RealConnection(connectionPool, route);
             realConnection.socket = socket;
-            realConnection.idleAtNanos = j2;
+            realConnection.idleAtNanos = j;
             return realConnection;
         }
         return (RealConnection) invokeCommon.objValue;

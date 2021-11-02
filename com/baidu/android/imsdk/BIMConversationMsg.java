@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BIMConversationMsg extends BIMConversation {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "BIMConversation";
@@ -36,7 +36,7 @@ public class BIMConversationMsg extends BIMConversation {
     public ChatMsg mLastChatMsg;
 
     /* renamed from: com.baidu.android.imsdk.BIMConversationMsg$4  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE;
         public static /* synthetic */ Interceptable $ic;

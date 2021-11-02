@@ -24,7 +24,7 @@ import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 @TargetApi(18)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EglBase14 implements EglBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CURRENT_SDK_VERSION;
@@ -37,7 +37,7 @@ public class EglBase14 implements EglBase {
     public EGLDisplay eglDisplay;
     public EGLSurface eglSurface;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Context implements EglBase.Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -368,13 +368,13 @@ public class EglBase14 implements EglBase {
     }
 
     @Override // org.webrtc.EglBase
-    public void swapBuffers(long j2) {
+    public void swapBuffers(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             checkIsNotReleased();
             if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
                 synchronized (EglBase.lock) {
-                    EGLExt.eglPresentationTimeANDROID(this.eglDisplay, this.eglSurface, j2);
+                    EGLExt.eglPresentationTimeANDROID(this.eglDisplay, this.eglSurface, j);
                     EGL14.eglSwapBuffers(this.eglDisplay, this.eglSurface);
                 }
                 return;

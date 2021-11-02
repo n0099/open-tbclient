@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class TransRecord implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TRANS_STATE_CANCELED = 5;

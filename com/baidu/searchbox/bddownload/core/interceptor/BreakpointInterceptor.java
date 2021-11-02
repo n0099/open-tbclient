@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.Fetch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CONTENT_RANGE_RIGHT_VALUE;
@@ -84,7 +84,7 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
     */
     public long getExactContentLengthRangeFrom0(@NonNull DownloadConnection.Connected connected) {
         InterceptResult invokeL;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, connected)) != null) {
             return invokeL.longValue;
@@ -93,16 +93,16 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
         if (!Util.isEmpty(responseHeaderField)) {
             long rangeRightFromContentRange = getRangeRightFromContentRange(responseHeaderField);
             if (rangeRightFromContentRange > 0) {
-                j2 = rangeRightFromContentRange + 1;
-                if (j2 >= 0) {
+                j = rangeRightFromContentRange + 1;
+                if (j >= 0) {
                     String responseHeaderField2 = connected.getResponseHeaderField("Content-Length");
-                    return !Util.isEmpty(responseHeaderField2) ? Long.parseLong(responseHeaderField2) : j2;
+                    return !Util.isEmpty(responseHeaderField2) ? Long.parseLong(responseHeaderField2) : j;
                 }
-                return j2;
+                return j;
             }
         }
-        j2 = -1;
-        if (j2 >= 0) {
+        j = -1;
+        if (j >= 0) {
         }
     }
 
@@ -154,7 +154,7 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
             long responseContentLength = downloadChain.getResponseContentLength();
             int blockIndex = downloadChain.getBlockIndex();
             boolean z = responseContentLength != -1;
-            long j2 = 0;
+            long j = 0;
             MultiPointOutputStream outputStream = downloadChain.getOutputStream();
             while (true) {
                 try {
@@ -162,7 +162,7 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
                     if (loopFetch == -1) {
                         break;
                     }
-                    j2 += loopFetch;
+                    j += loopFetch;
                 } finally {
                     downloadChain.flushNoCallbackIncreaseBytes();
                     if (!downloadChain.getCache().isUserCanceled()) {
@@ -172,11 +172,11 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
             }
             if (z) {
                 outputStream.inspectComplete(blockIndex);
-                if (j2 != responseContentLength) {
-                    throw new IOException("Fetch-length isn't equal to the response content-length, " + j2 + "!= " + responseContentLength);
+                if (j != responseContentLength) {
+                    throw new IOException("Fetch-length isn't equal to the response content-length, " + j + "!= " + responseContentLength);
                 }
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }

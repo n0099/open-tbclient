@@ -8,14 +8,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.BitmapMemoryCacheGetProducer;
 import com.facebook.imagepipeline.producers.BitmapMemoryCacheProducer;
 import com.facebook.imagepipeline.producers.DataFetchProducer;
+import com.facebook.imagepipeline.producers.DiskCacheReadProducer;
 import com.facebook.imagepipeline.producers.EncodedMemoryCacheProducer;
 import com.facebook.imagepipeline.producers.LocalAssetFetchProducer;
 import com.facebook.imagepipeline.producers.LocalContentUriFetchProducer;
 import com.facebook.imagepipeline.producers.LocalContentUriThumbnailFetchProducer;
 import com.facebook.imagepipeline.producers.LocalFileFetchProducer;
 import com.facebook.imagepipeline.producers.LocalResourceFetchProducer;
+import com.facebook.imagepipeline.producers.LocalVideoThumbnailProducer;
 import com.facebook.imagepipeline.producers.NetworkFetchProducer;
-/* loaded from: classes9.dex */
+import com.facebook.imagepipeline.producers.PartialDiskCacheProducer;
+import com.facebook.imagepipeline.producers.PostprocessedBitmapMemoryCacheProducer;
+import com.facebook.imagepipeline.producers.QualifiedResourceFetchProducer;
+import org.apache.commons.lang3.CharUtils;
+/* loaded from: classes11.dex */
 public class ImageOriginUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,6 +47,13 @@ public class ImageOriginUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             switch (str.hashCode()) {
+                case -1917159454:
+                    if (str.equals(QualifiedResourceFetchProducer.PRODUCER_NAME)) {
+                        c2 = 14;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
                 case -1914072202:
                     if (str.equals(BitmapMemoryCacheGetProducer.PRODUCER_NAME)) {
                         c2 = 0;
@@ -50,35 +63,42 @@ public class ImageOriginUtils {
                     break;
                 case -1683996557:
                     if (str.equals(LocalResourceFetchProducer.PRODUCER_NAME)) {
-                        c2 = 7;
+                        c2 = '\f';
                         break;
                     }
                     c2 = 65535;
                     break;
                 case -1579985851:
                     if (str.equals(LocalFileFetchProducer.PRODUCER_NAME)) {
-                        c2 = 6;
+                        c2 = 11;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case -1307634203:
                     if (str.equals(EncodedMemoryCacheProducer.PRODUCER_NAME)) {
-                        c2 = 2;
+                        c2 = 3;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case -1224383234:
                     if (str.equals(NetworkFetchProducer.PRODUCER_NAME)) {
-                        c2 = 4;
+                        c2 = 6;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 473552259:
+                    if (str.equals(LocalVideoThumbnailProducer.PRODUCER_NAME)) {
+                        c2 = CharUtils.CR;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case 656304759:
-                    if (str.equals("DiskCacheProducer")) {
-                        c2 = 3;
+                    if (str.equals(DiskCacheReadProducer.PRODUCER_NAME)) {
+                        c2 = 4;
                         break;
                     }
                     c2 = 65535;
@@ -97,9 +117,16 @@ public class ImageOriginUtils {
                     }
                     c2 = 65535;
                     break;
+                case 1023071510:
+                    if (str.equals(PostprocessedBitmapMemoryCacheProducer.PRODUCER_NAME)) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
                 case 1721672898:
                     if (str.equals(DataFetchProducer.PRODUCER_NAME)) {
-                        c2 = 5;
+                        c2 = 7;
                         break;
                     }
                     c2 = 65535;
@@ -107,6 +134,13 @@ public class ImageOriginUtils {
                 case 1793127518:
                     if (str.equals(LocalContentUriThumbnailFetchProducer.PRODUCER_NAME)) {
                         c2 = '\n';
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 2109593398:
+                    if (str.equals(PartialDiskCacheProducer.PRODUCER_NAME)) {
+                        c2 = 5;
                         break;
                     }
                     c2 = 65535;
@@ -125,20 +159,24 @@ public class ImageOriginUtils {
             switch (c2) {
                 case 0:
                 case 1:
-                    return 5;
                 case 2:
-                    return 4;
+                    return 5;
                 case 3:
-                    return 3;
+                    return 4;
                 case 4:
-                    return 2;
                 case 5:
+                    return 3;
                 case 6:
+                    return 2;
                 case 7:
                 case '\b':
                 case '\t':
                 case '\n':
-                    return 6;
+                case 11:
+                case '\f':
+                case '\r':
+                case 14:
+                    return 7;
                 default:
                     return 1;
             }
@@ -149,6 +187,24 @@ public class ImageOriginUtils {
     public static String toString(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 6 ? "unknown" : "local" : "memory_bitmap" : "memory_encoded" : "disk" : "network" : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            switch (i2) {
+                case 2:
+                    return "network";
+                case 3:
+                    return "disk";
+                case 4:
+                    return "memory_encoded";
+                case 5:
+                    return "memory_bitmap";
+                case 6:
+                    return "memory_bitmap_shortcut";
+                case 7:
+                    return "local";
+                default:
+                    return "unknown";
+            }
+        }
+        return (String) invokeI.objValue;
     }
 }

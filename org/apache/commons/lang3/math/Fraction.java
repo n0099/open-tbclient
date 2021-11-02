@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Fraction extends Number implements Comparable<Fraction> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Fraction FOUR_FIFTHS;
@@ -87,11 +87,11 @@ public final class Fraction extends Number implements Comparable<Fraction> {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
-            long j2 = i2 + i3;
-            if (j2 < -2147483648L || j2 > 2147483647L) {
+            long j = i2 + i3;
+            if (j < -2147483648L || j > 2147483647L) {
                 throw new ArithmeticException("overflow: add");
             }
-            return (int) j2;
+            return (int) j;
         }
         return invokeII.intValue;
     }
@@ -249,11 +249,11 @@ public final class Fraction extends Number implements Comparable<Fraction> {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i2, i3)) == null) {
-            long j2 = i2 * i3;
-            if (j2 < -2147483648L || j2 > 2147483647L) {
+            long j = i2 * i3;
+            if (j < -2147483648L || j > 2147483647L) {
                 throw new ArithmeticException("overflow: mul");
             }
-            return (int) j2;
+            return (int) j;
         }
         return invokeII.intValue;
     }
@@ -262,9 +262,9 @@ public final class Fraction extends Number implements Comparable<Fraction> {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65547, null, i2, i3)) == null) {
-            long j2 = i2 * i3;
-            if (j2 <= 2147483647L) {
-                return (int) j2;
+            long j = i2 * i3;
+            if (j <= 2147483647L) {
+                return (int) j;
             }
             throw new ArithmeticException("overflow: mulPos");
         }
@@ -275,11 +275,11 @@ public final class Fraction extends Number implements Comparable<Fraction> {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i2, i3)) == null) {
-            long j2 = i2 - i3;
-            if (j2 < -2147483648L || j2 > 2147483647L) {
+            long j = i2 - i3;
+            if (j < -2147483648L || j > 2147483647L) {
                 throw new ArithmeticException("overflow: add");
             }
-            return (int) j2;
+            return (int) j;
         }
         return invokeII.intValue;
     }
@@ -559,9 +559,9 @@ public final class Fraction extends Number implements Comparable<Fraction> {
             if (i4 != 0) {
                 if (i4 >= 0) {
                     if (i3 >= 0) {
-                        long j2 = i2 < 0 ? (i2 * i4) - i3 : (i2 * i4) + i3;
-                        if (j2 >= -2147483648L && j2 <= 2147483647L) {
-                            return new Fraction((int) j2, i4);
+                        long j = i2 < 0 ? (i2 * i4) - i3 : (i2 * i4) + i3;
+                        if (j >= -2147483648L && j <= 2147483647L) {
+                            return new Fraction((int) j, i4);
                         }
                         throw new ArithmeticException("Numerator too large to represent as an Integer.");
                     }

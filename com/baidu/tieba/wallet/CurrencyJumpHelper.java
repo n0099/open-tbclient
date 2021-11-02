@@ -3,8 +3,8 @@ package com.baidu.tieba.wallet;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.p0.b;
-import c.a.q0.p0.f;
+import b.a.q0.p0.b;
+import b.a.q0.p0.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CurrencyJumpHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,16 +54,16 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void gotoBuyTBeanPage(Context context, long j2) {
+    public static void gotoBuyTBeanPage(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65543, null, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65543, null, context, j) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context);
                 return;
             }
             BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0.0f);
             buyTBeanActivityConfig.setFromDecreaseGiftStepStrategy(2);
-            buyTBeanActivityConfig.setTBeanLeftToBuyGift(j2);
+            buyTBeanActivityConfig.setTBeanLeftToBuyGift(j);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
         }
     }

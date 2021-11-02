@@ -2,7 +2,7 @@ package com.facebook.drawee.drawable;
 
 import android.graphics.Matrix;
 import android.graphics.RectF;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface TransformCallback {
     void getRootBounds(RectF rectF);
 

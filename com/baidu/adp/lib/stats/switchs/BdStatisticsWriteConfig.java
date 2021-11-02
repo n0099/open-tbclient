@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BdStatisticsWriteConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7184457133962107119L;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<String, BdStatisticsWriteConfigItem> item;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class BdStatisticsWriteChildItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2371610422804472309L;
@@ -46,7 +46,7 @@ public class BdStatisticsWriteConfig implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class BdStatisticsWriteConfigItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4440010439026244319L;

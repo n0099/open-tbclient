@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements Serializable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final Comparator<Comparable> NATURAL_ORDER = new Comparator<Comparable>() { // from class: com.airbnb.lottie.parser.moshi.LinkedHashTreeMap.1
@@ -31,7 +31,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public Node<K, V>[] table;
     public int threshold;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class AvlBuilder<K, V> {
         public int leavesSkipped;
         public int leavesToSkip;
@@ -111,7 +111,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class AvlIterator<K, V> {
         public Node<K, V> stackTop;
 
@@ -147,7 +147,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public final class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         public EntrySet() {
         }
@@ -193,7 +193,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public final class KeySet extends AbstractSet<K> {
         public KeySet() {
         }
@@ -233,7 +233,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
         public int expectedModCount;
         public Node<K, V> lastReturned;
@@ -674,7 +674,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return nodeArr2;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Node<K, V> implements Map.Entry<K, V> {
         public final int hash;
         public int height;

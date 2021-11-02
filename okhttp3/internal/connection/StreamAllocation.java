@@ -29,7 +29,7 @@ import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import okhttp3.internal.http2.ErrorCode;
 import okhttp3.internal.http2.StreamResetException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class StreamAllocation {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -49,7 +49,7 @@ public final class StreamAllocation {
     public RouteSelector.Selection routeSelection;
     public final RouteSelector routeSelector;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -507,13 +507,13 @@ public final class StreamAllocation {
         }
     }
 
-    public void streamFinished(boolean z, HttpCodec httpCodec, long j2, IOException iOException) {
+    public void streamFinished(boolean z, HttpCodec httpCodec, long j, IOException iOException) {
         RealConnection realConnection;
         Socket deallocate;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), httpCodec, Long.valueOf(j2), iOException}) == null) {
-            this.eventListener.responseBodyEnd(this.call, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), httpCodec, Long.valueOf(j), iOException}) == null) {
+            this.eventListener.responseBodyEnd(this.call, j);
             synchronized (this.connectionPool) {
                 if (httpCodec != null) {
                     if (httpCodec == this.codec) {

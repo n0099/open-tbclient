@@ -6,15 +6,15 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.text.TextUtils;
-import c.a.q0.s.q.d2;
-import c.a.r0.g.e.e;
-import c.a.r0.z2.a0;
-import c.a.r0.z2.f;
-import c.a.r0.z2.h;
-import c.a.r0.z2.j;
-import c.a.r0.z2.l;
-import c.a.r0.z2.x;
-import c.a.r0.z2.y;
+import b.a.q0.s.q.d2;
+import b.a.r0.g.e.e;
+import b.a.r0.z2.a0;
+import b.a.r0.z2.f;
+import b.a.r0.z2.h;
+import b.a.r0.z2.j;
+import b.a.r0.z2.l;
+import b.a.r0.z2.x;
+import b.a.r0.z2.y;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RecAppStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a implements l.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class RecAppStatic {
             }
         }
 
-        @Override // c.a.r0.z2.l.a
+        @Override // b.a.r0.z2.l.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class RecAppStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,10 +142,10 @@ public class RecAppStatic {
                 return;
             }
         }
-        y.f29859a.set(new a0());
-        c.a.r0.z2.g0.a.f29671a.set(new x());
+        y.f28261a.set(new a0());
+        b.a.r0.z2.g0.a.f28084a.set(new x());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        c.a.r0.r.a.l().e(new a());
+        b.a.r0.r.a.l().e(new a());
         e.b().c(1, new j());
         e.b().c(2, new h());
         d2.N3.set(true);
@@ -157,7 +157,7 @@ public class RecAppStatic {
         inst.registerReceiver(bVar, intentFilter);
         f.t().b();
         f.t().f();
-        c.a.r0.r.e.i.a.f24325a.set(new c.a.r0.z2.f0.b());
+        b.a.r0.r.e.i.a.f22996a.set(new b.a.r0.z2.f0.b());
     }
 
     public RecAppStatic() {

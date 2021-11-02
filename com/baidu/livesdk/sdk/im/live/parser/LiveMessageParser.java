@@ -21,14 +21,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LiveMessageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -140,7 +139,7 @@ public class LiveMessageParser {
         return (LiveMessageBean) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0038 A[Catch: Exception -> 0x0032, TryCatch #2 {Exception -> 0x0032, blocks: (B:6:0x001b, B:8:0x0027, B:16:0x0038, B:17:0x0054, B:26:0x0077, B:28:0x0087, B:29:0x008d, B:31:0x009f, B:32:0x00a5, B:34:0x00ab, B:35:0x00b1, B:37:0x00d9, B:38:0x00df, B:40:0x00e9, B:41:0x00ef, B:43:0x00f9, B:44:0x00ff, B:46:0x012f, B:47:0x0135, B:49:0x013d, B:19:0x005a, B:21:0x0066, B:24:0x0073, B:11:0x002e), top: B:61:0x001b, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0038 A[Catch: Exception -> 0x0032, TryCatch #2 {Exception -> 0x0032, blocks: (B:6:0x001b, B:8:0x0027, B:16:0x0038, B:17:0x0056, B:26:0x007a, B:28:0x008a, B:29:0x0090, B:31:0x00a2, B:32:0x00a8, B:34:0x00ae, B:35:0x00b4, B:37:0x00dc, B:38:0x00e2, B:40:0x00ec, B:41:0x00f2, B:43:0x00fc, B:44:0x0102, B:46:0x0132, B:47:0x0138, B:49:0x0140, B:19:0x005d, B:21:0x0069, B:24:0x0076, B:11:0x002e), top: B:61:0x001b, inners: #0, #1 }] */
     /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -494,7 +493,7 @@ public class LiveMessageParser {
                             jSONObject6.put("width", messageBody2.pic.thumbnail.width);
                             jSONObject6.put("height", messageBody2.pic.thumbnail.height);
                             jSONObject6.put("url", messageBody2.pic.thumbnail.url);
-                            jSONObject4.put(FilterValue.DEFAULT_FILTER_VALUE, jSONObject5);
+                            jSONObject4.put("origin", jSONObject5);
                             jSONObject4.put("thumbnail", jSONObject6);
                             jSONObject2.put("pic", jSONObject4);
                         } else {
@@ -539,7 +538,7 @@ public class LiveMessageParser {
                                 jSONObject11.put("width", messageBody3.pic.origin.width);
                                 jSONObject11.put("height", messageBody3.pic.origin.height);
                                 jSONObject11.put("url", messageBody3.pic.origin.url);
-                                jSONObject10.put(FilterValue.DEFAULT_FILTER_VALUE, jSONObject11);
+                                jSONObject10.put("origin", jSONObject11);
                             }
                             if (messageBody3.pic.thumbnail != null) {
                                 JSONObject jSONObject12 = new JSONObject();
@@ -645,7 +644,7 @@ public class LiveMessageParser {
                         e6.printStackTrace();
                     }
                     if (jSONObject5 != null) {
-                        String optString7 = jSONObject5.optString(FilterValue.DEFAULT_FILTER_VALUE);
+                        String optString7 = jSONObject5.optString("origin");
                         String optString8 = jSONObject5.optString("thumbnail");
                         LiveMessageBean.Pic pic = new LiveMessageBean.Pic();
                         try {

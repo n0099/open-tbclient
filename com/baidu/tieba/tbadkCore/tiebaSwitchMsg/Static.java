@@ -1,14 +1,13 @@
 package com.baidu.tieba.tbadkCore.tiebaSwitchMsg;
 
 import android.text.TextUtils;
-import c.a.e.h.j.g.d;
+import b.a.e.h.j.g.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.adp.plugin.util.Util;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
@@ -21,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +73,7 @@ public class Static {
                 if (TextUtils.isEmpty(M)) {
                     return;
                 }
-                String[] split = M.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = M.split("\\.");
                 if (split.length != 0 && split.length != 3) {
                     String str = "";
                     for (int i2 = 0; i2 < split.length && i2 < 3; i2++) {
@@ -85,7 +84,7 @@ public class Static {
                 if (Util.c(string, M) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                     PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
                     PluginNetConfigInfos.PluginConfig R = PluginPackageManager.O().R(pluginConfig.package_name);
-                    c.a.e.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
+                    b.a.e.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
                     if (R == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
                         return;

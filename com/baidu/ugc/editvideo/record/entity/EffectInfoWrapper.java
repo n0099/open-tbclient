@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class EffectInfoWrapper implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_BLOCKBUSTER = 0;

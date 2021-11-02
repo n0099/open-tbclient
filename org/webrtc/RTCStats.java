@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RTCStats {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,12 +17,12 @@ public class RTCStats {
     public final long timestampUs;
     public final String type;
 
-    public RTCStats(long j2, String str, String str2, Map<String, Object> map) {
+    public RTCStats(long j, String str, String str2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, str2, map};
+            Object[] objArr = {Long.valueOf(j), str, str2, map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,7 +32,7 @@ public class RTCStats {
                 return;
             }
         }
-        this.timestampUs = j2;
+        this.timestampUs = j;
         this.type = str;
         this.id = str2;
         this.members = map;
@@ -62,10 +62,10 @@ public class RTCStats {
     }
 
     @CalledByNative
-    public static RTCStats create(long j2, String str, String str2, Map map) {
+    public static RTCStats create(long j, String str, String str2, Map map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), str, str2, map})) == null) ? new RTCStats(j2, str, str2, map) : (RTCStats) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), str, str2, map})) == null) ? new RTCStats(j, str, str2, map) : (RTCStats) invokeCommon.objValue;
     }
 
     public String getId() {

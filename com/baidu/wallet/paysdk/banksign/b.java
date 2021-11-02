@@ -21,7 +21,7 @@ import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.baidu.wallet.paysdk.ui.PostWebviewActivity;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,12 +56,12 @@ public class b implements a {
         }
         String i2 = com.baidu.wallet.paysdk.banksign.a.a.a().i();
         byte[] k = com.baidu.wallet.paysdk.banksign.a.a.a().k();
-        String j2 = com.baidu.wallet.paysdk.banksign.a.a.a().j();
-        if (TextUtils.isEmpty(j2)) {
-            j2 = ResUtils.getString(context, "dxmpay_banksign_web_title");
+        String j = com.baidu.wallet.paysdk.banksign.a.a.a().j();
+        if (TextUtils.isEmpty(j)) {
+            j = ResUtils.getString(context, "dxmpay_banksign_web_title");
         }
         StatisticManager.onEvent("enterBankSign");
-        PostWebviewActivity.startPostWebview(context, i2, k, j2);
+        PostWebviewActivity.startPostWebview(context, i2, k, j);
     }
 
     @Override // com.baidu.wallet.paysdk.banksign.a

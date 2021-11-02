@@ -16,18 +16,18 @@ import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ek {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f77921a;
+    public static a f70881a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, hp> f324a;
+    public static Map<String, hp> f325a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void uploader(Context context, hj hjVar);
     }
@@ -88,14 +88,14 @@ public class ek {
         return (Config) invokeL.objValue;
     }
 
-    public static EventClientReport a(Context context, String str, String str2, int i2, long j2, String str3) {
+    public static EventClientReport a(Context context, String str, String str2, int i2, long j, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i2), Long.valueOf(j2), str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i2), Long.valueOf(j), str3})) == null) {
             EventClientReport a2 = a(str);
             a2.eventId = str2;
             a2.eventType = i2;
-            a2.eventTime = j2;
+            a2.eventTime = j;
             a2.eventContent = str3;
             return a2;
         }
@@ -128,14 +128,14 @@ public class ek {
         return (PerfClientReport) invokeV.objValue;
     }
 
-    public static PerfClientReport a(Context context, int i2, long j2, long j3) {
+    public static PerfClientReport a(Context context, int i2, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
             PerfClientReport a2 = a();
             a2.code = i2;
-            a2.perfCounts = j2;
-            a2.perfLatencies = j3;
+            a2.perfCounts = j;
+            a2.perfLatencies = j2;
             return a2;
         }
         return (PerfClientReport) invokeCommon.objValue;
@@ -170,18 +170,18 @@ public class ek {
         hp[] values;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (f324a == null) {
+            if (f325a == null) {
                 synchronized (hp.class) {
-                    if (f324a == null) {
-                        f324a = new HashMap();
+                    if (f325a == null) {
+                        f325a = new HashMap();
                         for (hp hpVar : hp.values()) {
-                            f324a.put(hpVar.f513a.toLowerCase(), hpVar);
+                            f325a.put(hpVar.f514a.toLowerCase(), hpVar);
                         }
                     }
                 }
             }
-            hp hpVar2 = f324a.get(str.toLowerCase());
-            return hpVar2 != null ? hpVar2 : hp.f78171a;
+            hp hpVar2 = f325a.get(str.toLowerCase());
+            return hpVar2 != null ? hpVar2 : hp.f71122a;
         }
         return (hp) invokeL.objValue;
     }
@@ -215,7 +215,7 @@ public class ek {
                 com.xiaomi.push.service.bn.a(context.getApplicationContext(), hjVar);
                 return;
             }
-            a aVar = f77921a;
+            a aVar = f70881a;
             if (aVar != null) {
                 aVar.uploader(context, hjVar);
             }
@@ -242,7 +242,7 @@ public class ek {
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, aVar) == null) {
-            f77921a = aVar;
+            f70881a = aVar;
         }
     }
 

@@ -27,7 +27,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class GlideExecutor implements ExecutorService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANIMATION_EXECUTOR_NAME = "animation";
@@ -42,7 +42,7 @@ public final class GlideExecutor implements ExecutorService {
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService delegate;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_PRIORITY = 9;
@@ -130,7 +130,7 @@ public final class GlideExecutor implements ExecutorService {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface UncaughtThrowableStrategy {
         public static final UncaughtThrowableStrategy IGNORE = new UncaughtThrowableStrategy() { // from class: com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy.1
             public static /* synthetic */ Interceptable $ic;
@@ -290,10 +290,10 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j2, @NonNull TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long j, @NonNull TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) ? this.delegate.awaitTermination(j2, timeUnit) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) ? this.delegate.awaitTermination(j, timeUnit) : invokeJL.booleanValue;
     }
 
     @Override // java.util.concurrent.Executor
@@ -372,17 +372,17 @@ public final class GlideExecutor implements ExecutorService {
 
     @Override // java.util.concurrent.ExecutorService
     @NonNull
-    public <T> List<Future<T>> invokeAll(@NonNull Collection<? extends Callable<T>> collection, long j2, @NonNull TimeUnit timeUnit) throws InterruptedException {
+    public <T> List<Future<T>> invokeAll(@NonNull Collection<? extends Callable<T>> collection, long j, @NonNull TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{collection, Long.valueOf(j2), timeUnit})) == null) ? this.delegate.invokeAll(collection, j2, timeUnit) : (List) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) ? this.delegate.invokeAll(collection, j, timeUnit) : (List) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public <T> T invokeAny(@NonNull Collection<? extends Callable<T>> collection, long j2, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public <T> T invokeAny(@NonNull Collection<? extends Callable<T>> collection, long j, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{collection, Long.valueOf(j2), timeUnit})) == null) ? (T) this.delegate.invokeAny(collection, j2, timeUnit) : (T) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) ? (T) this.delegate.invokeAny(collection, j, timeUnit) : (T) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService

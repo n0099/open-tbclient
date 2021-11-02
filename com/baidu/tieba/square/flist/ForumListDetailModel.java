@@ -1,7 +1,7 @@
 package com.baidu.tieba.square.flist;
 
-import c.a.e.a.f;
-import c.a.e.e.d.l;
+import b.a.e.a.f;
+import b.a.e.e.d.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -16,36 +16,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<ForumListActivity> f56961e;
+    public TbPageContext<ForumListActivity> f54054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ForumListModel.RequestParams f56962f;
+    public ForumListModel.RequestParams f54055f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f56963g;
+    public b f54056g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f56964h;
+    public c f54057h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f56965i;
+    public boolean f54058i;
+    public boolean j;
 
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f56966j;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(boolean z, int i2, ForumListModel forumListModel, String str, boolean z2);
     }
@@ -68,23 +66,23 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
                 return;
             }
         }
-        this.f56965i = true;
-        this.f56966j = false;
-        this.f56961e = tbPageContext;
-        this.f56962f = requestParams;
+        this.f54058i = true;
+        this.j = false;
+        this.f54054e = tbPageContext;
+        this.f54055f = requestParams;
     }
 
     public void D(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f56963g = bVar;
+            this.f54056g = bVar;
         }
     }
 
     public void E(ForumListModel.RequestParams requestParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, requestParams) == null) {
-            this.f56962f = requestParams;
+            this.f54055f = requestParams;
         }
     }
 
@@ -93,7 +91,7 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c cVar = this.f56964h;
+            c cVar = this.f54057h;
             if (cVar == null) {
                 return false;
             }
@@ -109,23 +107,23 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             c cVar = new c(this, null);
-            this.f56964h = cVar;
+            this.f54057h = cVar;
             cVar.execute(new Void[0]);
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c extends BdAsyncTask<Void, Void, ForumListModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ForumListModel f56967a;
+        public ForumListModel f54059a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ForumListDetailModel f56968b;
+        public final /* synthetic */ ForumListDetailModel f54060b;
 
         public c(ForumListDetailModel forumListDetailModel) {
             Interceptable interceptable = $ic;
@@ -142,8 +140,8 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
                     return;
                 }
             }
-            this.f56968b = forumListDetailModel;
-            this.f56967a = new ForumListModel(this.f56968b.f56961e);
+            this.f54060b = forumListDetailModel;
+            this.f54059a = new ForumListModel(this.f54060b.f54054e);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,25 +153,25 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
-                    if (this.f56968b.f56965i) {
-                        c.a.q0.s.r.a.f();
-                        l<String> g2 = c.a.q0.s.r.a.g("tb.my_posts");
+                    if (this.f54060b.f54058i) {
+                        b.a.q0.s.r.a.f();
+                        l<String> g2 = b.a.q0.s.r.a.g("tb.my_posts");
                         if (g2 != null) {
-                            str = g2.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.f56968b.f56962f.menu_name + ForumListModel.KEY);
+                            str = g2.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.f54060b.f54055f.menu_name + ForumListModel.KEY);
                         } else {
                             str = null;
                         }
                         if (str != null) {
                             ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(str, ForumListModel.class);
-                            this.f56967a = forumListModel;
+                            this.f54059a = forumListModel;
                             if (forumListModel != null) {
                                 publishProgress(new Void[0]);
                             }
-                            this.f56968b.f56966j = true;
+                            this.f54060b.j = true;
                         }
                     }
-                    this.f56968b.f56965i = false;
-                    return ForumListModel.new_fetch(this.f56968b.f56962f);
+                    this.f54060b.f54058i = false;
+                    return ForumListModel.new_fetch(this.f54060b.f54055f);
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                     return null;
@@ -189,9 +187,9 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumListModel) == null) {
                 if (forumListModel != null && forumListModel.isOk()) {
-                    this.f56968b.f56963g.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), this.f56968b.f56966j);
+                    this.f54060b.f54056g.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), this.f54060b.j);
                 } else {
-                    this.f56968b.f56963g.a(false, 0, forumListModel, this.f56968b.f56961e.getString(R.string.neterror), this.f56968b.f56966j);
+                    this.f54060b.f54056g.a(false, 0, forumListModel, this.f54060b.f54054e.getString(R.string.neterror), this.f54060b.j);
                 }
             }
         }
@@ -203,11 +201,11 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr) == null) {
                 super.onProgressUpdate(voidArr);
-                if (this.f56967a != null) {
-                    b bVar = this.f56968b.f56963g;
-                    int errorCode = this.f56967a.getErrorCode();
-                    ForumListModel forumListModel = this.f56967a;
-                    bVar.a(true, errorCode, forumListModel, forumListModel.getErrorString(), this.f56968b.f56966j);
+                if (this.f54059a != null) {
+                    b bVar = this.f54060b.f54056g;
+                    int errorCode = this.f54059a.getErrorCode();
+                    ForumListModel forumListModel = this.f54059a;
+                    bVar.a(true, errorCode, forumListModel, forumListModel.getErrorString(), this.f54060b.j);
                 }
             }
         }

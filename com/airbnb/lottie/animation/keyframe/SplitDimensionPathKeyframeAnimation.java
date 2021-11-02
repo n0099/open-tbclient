@@ -3,7 +3,7 @@ package com.airbnb.lottie.animation.keyframe;
 import android.graphics.PointF;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SplitDimensionPathKeyframeAnimation extends BaseKeyframeAnimation<PointF, PointF> {
     public final PointF point;
     public final BaseKeyframeAnimation<Float, Float> xAnimation;

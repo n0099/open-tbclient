@@ -1,7 +1,7 @@
 package com.baidu.ala.refresh;
 
 import android.os.Bundle;
-import c.a.e.c.g.a;
+import b.a.e.c.g.a;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AlaAutoRefreshFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GET_CLOSE_ONSCROLL_STOP_DELAY_MILLIS = 2000;
@@ -63,7 +63,7 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
                 this.this$0 = this;
             }
 
-            @Override // c.a.e.c.g.a
+            @Override // b.a.e.c.g.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == this.this$0.getUniqueId()) {

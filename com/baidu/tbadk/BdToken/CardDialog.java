@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.e.a.f;
-import c.a.e.e.m.b;
-import c.a.e.e.m.g;
+import b.a.e.a.f;
+import b.a.e.e.m.b;
+import b.a.e.e.m.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -21,28 +21,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CardDialog extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47301e;
+    public Context f44914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f47302f;
+    public f f44915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f47303g;
+    public float f44916g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f47304h;
+    public ViewGroup f44917h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RoundRelativeLayout f47305i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public View f47306j;
+    public RoundRelativeLayout f44918i;
+    public View j;
     public ImageView k;
     public ImageView l;
     public Drawable m;
@@ -66,15 +64,15 @@ public class CardDialog extends Dialog implements View.OnClickListener {
                 return;
             }
         }
-        this.f47303g = 0.33f;
-        this.f47302f = fVar;
-        this.f47301e = fVar.getPageActivity();
+        this.f44916g = 0.33f;
+        this.f44915f = fVar;
+        this.f44914e = fVar.getPageActivity();
     }
 
     public void dismissDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g.b(this, this.f47302f);
+            g.b(this, this.f44915f);
         }
     }
 
@@ -93,29 +91,29 @@ public class CardDialog extends Dialog implements View.OnClickListener {
             super.onCreate(bundle);
             requestWindowFeature(1);
             setContentView(R.layout.dialog_card_main);
-            Display defaultDisplay = ((WindowManager) this.f47301e.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) this.f44914e.getSystemService("window")).getDefaultDisplay();
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = defaultDisplay.getWidth();
             attributes.height = defaultDisplay.getHeight();
             getWindow().setAttributes(attributes);
             getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.f47303g);
+            getWindow().setDimAmount(this.f44916g);
             getWindow().setGravity(80);
             getWindow().setWindowAnimations(0);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
-            this.f47304h = (ViewGroup) findViewById(R.id.card_root_layout);
+            this.f44917h = (ViewGroup) findViewById(R.id.card_root_layout);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
-            this.f47305i = roundRelativeLayout;
+            this.f44918i = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(b.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
-            ViewGroup.LayoutParams layoutParams = this.f47306j.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.j.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = -1;
                 layoutParams.width = -1;
             } else {
                 layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             }
-            this.f47305i.addView(this.f47306j, layoutParams);
+            this.f44918i.addView(this.j, layoutParams);
             ImageView imageView = (ImageView) findViewById(R.id.img_bg);
             this.k = imageView;
             imageView.setImageDrawable(this.m);
@@ -135,7 +133,7 @@ public class CardDialog extends Dialog implements View.OnClickListener {
     public void setRealView(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) {
-            this.f47306j = viewGroup;
+            this.j = viewGroup;
         }
     }
 
@@ -143,9 +141,9 @@ public class CardDialog extends Dialog implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (isShowing()) {
-                g.b(this, this.f47302f);
+                g.b(this, this.f44915f);
             }
-            g.j(this, this.f47302f);
+            g.j(this, this.f44915f);
         }
     }
 }

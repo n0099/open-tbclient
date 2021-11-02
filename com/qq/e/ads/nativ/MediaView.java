@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class MediaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public final class MediaView extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     @SuppressLint({"NewApi"})
-    public final void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             GDTLogger.d("onAttachedToWindow");

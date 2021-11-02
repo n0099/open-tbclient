@@ -15,12 +15,12 @@ import java.net.UnknownHostException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f45111a;
+    public static final Charset f42845a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class b {
                 return;
             }
         }
-        f45111a = Charset.forName("UTF-8");
+        f42845a = Charset.forName("UTF-8");
     }
 
     public static int a(char c2) {
@@ -58,10 +58,10 @@ public final class b {
         return invokeCommon.intValue;
     }
 
-    public static void a(long j2, long j3, long j4) {
+    public static void a(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
                 throw new ArrayIndexOutOfBoundsException();
             }
         }

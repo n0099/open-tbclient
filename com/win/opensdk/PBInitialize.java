@@ -2,14 +2,14 @@ package com.win.opensdk;
 
 import android.content.Context;
 import android.content.IntentFilter;
+import b.q.a.i0;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.downloader.WinDReceiver;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PBInitialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,12 +37,12 @@ public class PBInitialize {
             try {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-                intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
+                intentFilter.addDataScheme("package");
                 context.registerReceiver(new WinDReceiver(), intentFilter);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            E1.a().a(context, str);
+            i0.a().b(context, str);
         }
     }
 }

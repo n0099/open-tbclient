@@ -8,11 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.j;
-import c.a.e.l.e.n;
-import c.a.q0.s.f0.f;
-import c.a.r0.h1.k.b.a;
-import c.a.r0.x0.n0;
+import b.a.e.e.p.j;
+import b.a.e.l.e.n;
+import b.a.q0.s.g0.f;
+import b.a.r0.h1.k.b.a;
+import b.a.r0.x0.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
@@ -32,19 +32,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TopicFragment extends BaseFragment implements n0, f.g, a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TopicModel f52595e;
+    public TopicModel f49878e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TopicListView f52596f;
+    public TopicListView f49879f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f52597g;
+    public boolean f49880g;
 
     public TopicFragment() {
         Interceptable interceptable = $ic;
@@ -59,10 +59,10 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
                 return;
             }
         }
-        this.f52597g = false;
+        this.f49880g = false;
     }
 
-    @Override // c.a.r0.x0.n0
+    @Override // b.a.r0.x0.n0
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -73,18 +73,18 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
     public void forceRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f52596f.forceRefresh();
+            this.f49879f.forceRefresh();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.o0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, b.a.q0.o0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a021" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.o0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, b.a.q0.o0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -103,30 +103,30 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
         return (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.h1.k.b.a
+    @Override // b.a.r0.h1.k.b.a
     public void loadData() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && j.z()) {
-            this.f52596f.hideNetRefreshView();
-            this.f52596f.showLoadingView(false);
-            this.f52595e.B();
+            this.f49879f.hideNetRefreshView();
+            this.f49879f.showLoadingView(false);
+            this.f49878e.B();
         }
     }
 
-    @Override // c.a.r0.h1.k.b.a
+    @Override // b.a.r0.h1.k.b.a
     public void netCallback(int i2, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, list) == null) {
-            this.f52596f.hideLoadingView();
-            this.f52596f.stopPullRefresh();
+            this.f49879f.hideLoadingView();
+            this.f49879f.stopPullRefresh();
             if (i2 == 0 && !ListUtils.isEmpty(list)) {
-                this.f52596f.hideNetRefreshView();
-                this.f52596f.showListView();
-                this.f52596f.setData(list);
-                this.f52596f.showNoMoreView();
+                this.f49879f.hideNetRefreshView();
+                this.f49879f.showListView();
+                this.f49879f.setData(list);
+                this.f49879f.showNoMoreView();
                 return;
             }
-            this.f52596f.showNetRefreshView(false);
+            this.f49879f.showNetRefreshView(false);
         }
     }
 
@@ -134,7 +134,7 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f52596f.onChangeSkinType();
+            this.f49879f.onChangeSkinType();
         }
     }
 
@@ -143,11 +143,11 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f52595e.C(this);
-            this.f52595e.setUniqueId(getUniqueId());
-            this.f52596f.setPresenter(this);
-            this.f52596f.setListPullRefreshListener(this);
-            this.f52596f.setPageUniqueId(getUniqueId());
+            this.f49878e.C(this);
+            this.f49878e.setUniqueId(getUniqueId());
+            this.f49879f.setPresenter(this);
+            this.f49879f.setListPullRefreshListener(this);
+            this.f49879f.setPageUniqueId(getUniqueId());
         }
     }
 
@@ -157,14 +157,14 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f52596f.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f52596f.getParent()).removeView(this.f52596f);
+            if (this.f49879f.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f49879f.getParent()).removeView(this.f49879f);
             }
-            if (this.f52597g) {
-                this.f52596f.initListeners();
-                this.f52597g = false;
+            if (this.f49880g) {
+                this.f49879f.initListeners();
+                this.f49880g = false;
             }
-            return this.f52596f;
+            return this.f49879f;
         }
         return (View) invokeLLL.objValue;
     }
@@ -174,9 +174,9 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroyView();
-            this.f52596f.destroy();
-            this.f52595e.onDestroy();
-            this.f52597g = true;
+            this.f49879f.destroy();
+            this.f49878e.onDestroy();
+            this.f49880g = true;
         }
     }
 
@@ -184,27 +184,27 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f52596f.showLoadingView(false);
-            this.f52595e.B();
+            this.f49879f.showLoadingView(false);
+            this.f49878e.B();
         }
     }
 
-    @Override // c.a.q0.s.f0.f.g
+    @Override // b.a.q0.s.g0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f52595e.B();
+            this.f49878e.B();
         }
     }
 
-    @Override // c.a.r0.x0.n0
+    @Override // b.a.r0.x0.n0
     public void onPageOutEnd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
-    @Override // c.a.r0.x0.n0
+    @Override // b.a.r0.x0.n0
     public void onPageStartIn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -217,24 +217,24 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                this.f52596f.setViewForeground();
+                this.f49879f.setViewForeground();
                 TiebaStatic.log(new StatisticItem("c13349"));
             }
         }
     }
 
-    @Override // c.a.r0.x0.n0
+    @Override // b.a.r0.x0.n0
     public void refreshPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f52596f.reload();
+            this.f49879f.reload();
         }
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
         TopicListView topicListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, scrollFragmentTabHost) == null) || (topicListView = this.f52596f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, scrollFragmentTabHost) == null) || (topicListView = this.f49879f) == null) {
             return;
         }
         topicListView.setScrollFragmentTabHost(scrollFragmentTabHost);
@@ -261,11 +261,11 @@ public class TopicFragment extends BaseFragment implements n0, f.g, a {
                 return;
             }
         }
-        this.f52597g = false;
+        this.f49880g = false;
         TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-        this.f52595e = new TopicModel(pageContext);
+        this.f49878e = new TopicModel(pageContext);
         TopicListView topicListView = new TopicListView(pageContext);
-        this.f52596f = topicListView;
+        this.f49879f = topicListView;
         topicListView.initListeners();
     }
 }

@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util.bdapp;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,8 +13,9 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
+@SuppressLint({"BDThrowableCheck"})
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Base64InputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 2048;
@@ -145,10 +147,10 @@ public class Base64InputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j2) throws IOException {
+    public long skip(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
             if (this.outputStart >= this.outputEnd) {
                 refill();
             }
@@ -157,7 +159,7 @@ public class Base64InputStream extends FilterInputStream {
             if (i2 >= i3) {
                 return 0L;
             }
-            long min = Math.min(j2, i3 - i2);
+            long min = Math.min(j, i3 - i2);
             this.outputStart = (int) (this.outputStart + min);
             return min;
         }

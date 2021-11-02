@@ -28,70 +28,70 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.PackageInstallUtil;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UiEventType;
-import j.a.a.e.e;
-import j.a.a.e.n.h;
-import j.a.a.e.n.i;
+import i.a.a.e.e;
+import i.a.a.e.k.i;
+import i.a.a.e.l.f;
+import i.a.a.e.n.l;
+import i.a.a.e.n.n;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PaySource;
+import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class YYPayWayView extends LinearLayout implements IYYPayWayView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<j.a.a.e.l.c> f80324e;
+    public List<f> f73174e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GridView f80325f;
+    public GridView f73175f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j.a.a.e.o.b.b f80326g;
+    public i.a.a.e.o.e.c f73176g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f80327h;
+    public View f73177h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f80328i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f80329j;
+    public ImageView f73178i;
+    public int j;
     public int k;
     public IYYPayWayView.a l;
-    public j.a.a.e.l.c m;
+    public f m;
     public Button n;
-    public j.a.a.e.l.a o;
+    public i.a.a.e.l.c o;
     public IYYPayWayView.b p;
     public Context q;
     public TextView r;
-    public j.a.a.e.k.c s;
+    public PayUIKitConfig s;
     public String t;
     public AppCustomExpand u;
-    public j.a.a.e.k.a v;
+    public i.a.a.e.l.b v;
+    public TextView w;
+    public TextView x;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f80330e;
+        public final /* synthetic */ YYPayWayView f73179e;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ YYPayWayView f80331f;
-
-        public a(YYPayWayView yYPayWayView, Context context) {
+        public a(YYPayWayView yYPayWayView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yYPayWayView, context};
+                Object[] objArr = {yYPayWayView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -101,51 +101,32 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                     return;
                 }
             }
-            this.f80331f = yYPayWayView;
-            this.f80330e = context;
+            this.f73179e = yYPayWayView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                YYPayWayView yYPayWayView = this.f80331f;
-                yYPayWayView.m = yYPayWayView.f80326g.getItem(i2);
-                if (this.f80331f.f80326g.b() != i2) {
-                    this.f80331f.f80326g.c(i2);
-                    this.f80331f.f80326g.notifyDataSetChanged();
-                }
-                j.a.a.e.m.a.d(this.f80331f.f80329j, this.f80331f.k, (this.f80331f.p == null || this.f80331f.p.f80300f != PaySource.WALLET) ? "6" : "13", this.f80331f.m.f79520a.getChannel(), this.f80331f.m.f79520a.getMethod(), String.valueOf((this.f80331f.o == null || this.f80331f.o.f79513a == null) ? 0 : this.f80331f.o.f79513a.cid));
-                RLog.info("YYPayWayView", "choose paychannel:" + this.f80331f.m.f79520a.getChannel() + " paymethod:" + this.f80331f.m.f79520a.getMethod());
-                if (this.f80331f.m.f79520a != PayType.WECHAT_PAY || PackageInstallUtil.isInstallWechat(this.f80330e)) {
-                    if (this.f80331f.m.f79520a != PayType.QQ_PAY || PackageInstallUtil.isInstallQQ(this.f80330e)) {
-                        return;
-                    }
-                    Toast.makeText(this.f80330e, "未安装QQ", 1).show();
-                    return;
-                }
-                Toast.makeText(this.f80330e, "未安装微信", 1).show();
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                this.f73179e.h(i2);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class b extends j.a.a.e.q.a {
+    /* loaded from: classes3.dex */
+    public class b extends i.a.a.e.q.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f80332f;
+        public final /* synthetic */ YYPayWayView f73180f;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ YYPayWayView f80333g;
-
-        public b(YYPayWayView yYPayWayView, Context context) {
+        public b(YYPayWayView yYPayWayView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yYPayWayView, context};
+                Object[] objArr = {yYPayWayView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -155,54 +136,25 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                     return;
                 }
             }
-            this.f80333g = yYPayWayView;
-            this.f80332f = context;
+            this.f73180f = yYPayWayView;
         }
 
-        @Override // j.a.a.e.q.a
+        @Override // i.a.a.e.q.a
         public void a(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int i2 = 0;
-                if (this.f80333g.m != null) {
-                    if (this.f80333g.m.f79520a != PayType.WECHAT_PAY || PackageInstallUtil.isInstallWechat(this.f80332f)) {
-                        if (this.f80333g.m.f79520a == PayType.QQ_PAY && !PackageInstallUtil.isInstallQQ(this.f80332f)) {
-                            Toast.makeText(this.f80332f, "未安装QQ", 1).show();
-                            return;
-                        }
-                        if (Env.instance().isTestEnv() && this.f80333g.m.f79520a == PayType.MOCK_TEST_PAY && this.f80333g.o != null && this.f80333g.o.f79513a.srcAmount.doubleValue() > 10.0d) {
-                            this.f80333g.o.f79513a.srcAmount = Double.valueOf(10.0d);
-                            this.f80333g.o.f79513a.destAmount = 1000L;
-                        }
-                        if (this.f80333g.l != null && this.f80333g.o != null && this.f80333g.o.f79513a != null) {
-                            this.f80333g.l.a(this.f80333g.m, this.f80333g.o, this.f80333g.u);
-                            j.a.a.e.m.a.c(this.f80333g.f80329j, this.f80333g.k, UiEventType.paypagepaybt, String.valueOf(this.f80333g.o.f79513a.srcAmount));
-                            RLog.warn("YYPayWayView", "paypagepaybt amount:" + this.f80333g.o.f79513a.srcAmount);
-                        } else {
-                            RLog.error("YYPayWayView", "mCallback or mPayAmount or productInfo null", new Object[0]);
-                        }
-                        if (this.f80333g.o != null && this.f80333g.o.f79513a != null) {
-                            i2 = this.f80333g.o.f79513a.cid;
-                        }
-                        j.a.a.e.m.a.d(this.f80333g.f80329j, this.f80333g.k, (this.f80333g.p == null || this.f80333g.p.f80300f != PaySource.WALLET) ? "5" : "12", this.f80333g.m.f79520a.getChannel(), this.f80333g.m.f79520a.getMethod(), String.valueOf(i2));
-                        RLog.info("YYPayWayView", "comfirm paychannel:" + this.f80333g.m.f79520a.getChannel() + " paymethod:" + this.f80333g.m.f79520a.getMethod());
-                        return;
-                    }
-                    Toast.makeText(this.f80332f, "未安装微信", 1).show();
-                    return;
-                }
-                RLog.error("YYPayWayView", "mPayWay null", new Object[0]);
+                this.f73180f.confirmPayBtnClick();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YYPayWayView f80334e;
+        public final /* synthetic */ YYPayWayView f73181e;
 
         public c(YYPayWayView yYPayWayView) {
             Interceptable interceptable = $ic;
@@ -219,34 +171,25 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                     return;
                 }
             }
-            this.f80334e = yYPayWayView;
+            this.f73181e = yYPayWayView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f80334e.s == null || this.f80334e.s.getPayUIKitConfig() == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f73181e.k();
             }
-            String d2 = j.a.a.e.l.b.d(this.f80334e.s.getPayUIKitConfig());
-            RLog.debug("YYPayWayView", "agreeUrl:" + d2);
-            if (this.f80334e.q instanceof Activity) {
-                this.f80334e.s.j((Activity) this.f80334e.q, d2, "Y币充值协议");
-            } else {
-                RLog.error("YYPayWayView", "mContext not Activity", new Object[0]);
-            }
-            j.a.a.e.m.a.b(this.f80334e.f80329j, this.f80334e.k, UiEventType.paypageprotocol);
-            RLog.warn("YYPayWayView", UiEventType.paypageprotocol);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements IResult<ProductListResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayWayView f80335a;
+        public final /* synthetic */ YYPayWayView f73182a;
 
         public d(YYPayWayView yYPayWayView) {
             Interceptable interceptable = $ic;
@@ -263,7 +206,7 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                     return;
                 }
             }
-            this.f80335a = yYPayWayView;
+            this.f73182a = yYPayWayView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -273,17 +216,12 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) {
                 if (productListResult != null && productListResult.getPayWayInfoList() != null) {
-                    this.f80335a.q(productListResult.getPayWayInfoList());
+                    this.f73182a.o(productListResult.getPayWayInfoList());
                 } else {
-                    RLog.error("YYPayWayView", "onSuccess but result null", new Object[0]);
-                    if (i.f79529a.a(this.f80335a.q)) {
-                        Toast.makeText(this.f80335a.q, "网络不给力，请稍后重试", 1).show();
-                    }
-                    if (this.f80335a.l != null) {
-                        this.f80335a.l.onRefreshViewFail(-1, "onSuccess but null");
-                    }
+                    RLog.error("YYPayWayView", "server payway list empty", new Object[0]);
+                    this.f73182a.i(1021);
                 }
-                this.f80335a.n();
+                this.f73182a.g();
             }
         }
 
@@ -292,25 +230,20 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) {
                 RLog.error("YYPayWayView", "onFail code:" + i2 + " failReason:" + str, new Object[0]);
-                if (i.f79529a.a(this.f80335a.q)) {
-                    Toast.makeText(this.f80335a.q, "网络不给力，请稍后重试", 1).show();
-                }
-                if (this.f80335a.l != null) {
-                    this.f80335a.l.onRefreshViewFail(i2, str);
-                }
-                this.f80335a.n();
+                this.f73182a.j(1021, i2, str);
+                this.f73182a.g();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public YYPayWayView(Context context, int i2, int i3, IYYPayWayView.b bVar, j.a.a.e.k.a aVar, j.a.a.e.k.c cVar) {
-        super(context);
+    public YYPayWayView(Activity activity, int i2, int i3, IYYPayWayView.b bVar, i.a.a.e.l.b bVar2, PayUIKitConfig payUIKitConfig, i iVar) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), bVar, aVar, cVar};
+            Object[] objArr = {activity, Integer.valueOf(i2), Integer.valueOf(i3), bVar, bVar2, payUIKitConfig, iVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -321,149 +254,300 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                 return;
             }
         }
-        this.f80324e = new ArrayList();
+        this.f73174e = new ArrayList();
         this.t = "";
         if (bVar == null) {
             RLog.error("YYPayWayView", "YYPayWayView construct error viewParams null", new Object[0]);
         }
-        PayUIKitConfig payUIKitConfig = cVar != null ? cVar.getPayUIKitConfig() : null;
-        LayoutInflater.from(new ContextThemeWrapper(context, h.f79528a.a(payUIKitConfig))).inflate(e.pay_ui_layout_pay_way_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, l.f72366a.a(payUIKitConfig))).inflate(e.pay_ui_layout_pay_way_view, (ViewGroup) this, true);
         this.p = bVar;
-        this.o = bVar.f80296b;
-        this.q = context;
-        this.s = cVar;
-        this.f80329j = i2;
+        this.o = bVar.f73131b;
+        this.q = activity;
+        this.s = payUIKitConfig;
+        this.j = i2;
         this.k = i3;
-        this.v = aVar;
-        this.u = bVar.f80297c;
-        this.f80326g = new j.a.a.e.o.b.b(context, payUIKitConfig, this.f80324e);
-        GridView gridView = (GridView) findViewById(j.a.a.e.d.grid_recharge_way);
-        this.f80325f = gridView;
-        gridView.setSelector(j.a.a.e.c.pay_ui_selector_transparent);
-        this.f80325f.setAdapter((ListAdapter) this.f80326g);
-        this.f80325f.setOnItemClickListener(new a(this, context));
-        Button button = (Button) findViewById(j.a.a.e.d.btn_confirm_recharge);
+        this.v = bVar2;
+        this.u = bVar.f73132c;
+        this.f73176g = new i.a.a.e.o.e.c(activity, payUIKitConfig, this.f73174e);
+        GridView gridView = (GridView) findViewById(i.a.a.e.d.grid_recharge_way);
+        this.f73175f = gridView;
+        gridView.setSelector(i.a.a.e.c.pay_ui_selector_transparent);
+        this.f73175f.setAdapter((ListAdapter) this.f73176g);
+        this.f73175f.setOnItemClickListener(new a(this));
+        Button button = (Button) findViewById(i.a.a.e.d.btn_confirm_recharge);
         this.n = button;
-        button.setOnClickListener(new b(this, context));
-        TextView textView = (TextView) findViewById(j.a.a.e.d.tv_total_src_amount);
-        TextView textView2 = (TextView) findViewById(j.a.a.e.d.tv_total_dst_amount);
-        IYYPayWayView.b bVar2 = this.p;
-        if (bVar2 != null && bVar2.f80296b != null) {
-            String str = "0.00";
-            DecimalFormat decimalFormat = new DecimalFormat("0.00");
-            Double b2 = this.p.f80296b.b();
-            if (b2 != null) {
-                str = decimalFormat.format(b2);
-                textView.setText(str);
-            } else {
-                textView.setText("0.00");
-            }
-            textView2.setText(decimalFormat.format(this.p.f80296b.a()));
-            this.n.setText("确认支付 " + str + "元");
-        }
-        TextView textView3 = (TextView) findViewById(j.a.a.e.d.tv_use_item);
-        this.r = textView3;
-        textView3.setOnClickListener(new c(this));
-        this.f80327h = findViewById(j.a.a.e.d.root_loading);
-        this.f80328i = (ImageView) findViewById(j.a.a.e.d.iv_loading_circle);
+        button.setOnClickListener(new b(this));
+        this.w = (TextView) findViewById(i.a.a.e.d.tv_total_src_amount);
+        this.x = (TextView) findViewById(i.a.a.e.d.tv_total_dst_amount);
+        TextView textView = (TextView) findViewById(i.a.a.e.d.tv_use_item);
+        this.r = textView;
+        textView.setOnClickListener(new c(this));
+        this.f73177h = findViewById(i.a.a.e.d.root_loading);
+        this.f73178i = (ImageView) findViewById(i.a.a.e.d.iv_loading_circle);
         IYYPayWayView.b bVar3 = this.p;
-        j.a.a.e.m.a.d(this.f80329j, this.k, (bVar3 == null || bVar3.f80300f != PaySource.WALLET) ? "4" : "11", "", "", "");
-        q(this.p.f80295a);
+        i.a.a.e.m.b.d(this.j, this.k, (bVar3 != null ? bVar3.f73135f : null) == PayFlowType.ACTIVITY_PAY_FLOW ? "11" : "4", "", "", "");
+        m();
+        o(this.p.f73130a);
     }
 
-    public List<j.a.a.e.l.c> createRechargeWayList(List<PayWayInfo> list) {
+    public void confirmPayBtnClick() {
+        ProductInfo productInfo;
+        i.a.a.e.l.c cVar;
+        i.a.a.e.l.c cVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            f fVar = this.m;
+            int i2 = 0;
+            if (fVar == null) {
+                RLog.error("YYPayWayView", "mPayWay null", new Object[0]);
+            } else if (fVar.f72357a == PayType.WECHAT_PAY && !PackageInstallUtil.isInstallWechat(this.q)) {
+                Toast.makeText(this.q, "未安装微信", 1).show();
+            } else if (this.m.f72357a == PayType.QQ_PAY && !PackageInstallUtil.isInstallQQ(this.q)) {
+                Toast.makeText(this.q, "未安装QQ", 1).show();
+            } else {
+                if (Env.instance().isTestEnv() && this.m.f72357a == PayType.MOCK_TEST_PAY && (cVar2 = this.o) != null) {
+                    ProductInfo productInfo2 = cVar2.f72347a;
+                    if (productInfo2.srcAmount > 10.0d) {
+                        productInfo2.srcAmount = 10.0d;
+                        productInfo2.destAmount = 1000L;
+                    }
+                }
+                IYYPayWayView.a aVar = this.l;
+                if (aVar != null && (cVar = this.o) != null && cVar.f72347a != null) {
+                    aVar.a(this.m, cVar, this.u);
+                    i.a.a.e.m.b.c(this.j, this.k, UiEventType.paypagepaybt, String.valueOf(this.o.f72347a.srcAmount));
+                    RLog.warn("YYPayWayView", "paypagepaybt amount:" + this.o.f72347a.srcAmount);
+                } else {
+                    RLog.error("YYPayWayView", "mCallback or mPayAmount or productInfo null", new Object[0]);
+                }
+                i.a.a.e.l.c cVar3 = this.o;
+                if (cVar3 != null && (productInfo = cVar3.f72347a) != null) {
+                    i2 = productInfo.cid;
+                }
+                IYYPayWayView.b bVar = this.p;
+                i.a.a.e.m.b.d(this.j, this.k, (bVar != null ? bVar.f73135f : null) == PayFlowType.ACTIVITY_PAY_FLOW ? "12" : "5", this.m.f72357a.getChannel(), this.m.f72357a.getMethod(), String.valueOf(i2));
+                RLog.info("YYPayWayView", "comfirm paychannel:" + this.m.f72357a.getChannel() + " paymethod:" + this.m.f72357a.getMethod());
+            }
+        }
+    }
+
+    public List<f> createRechargeWayList(List<PayWayInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
             if (list != null && list.size() != 0) {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     PayWayInfo payWayInfo = list.get(i2);
                     if (PayType.ALI_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.ALI_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new j.a.a.e.l.c(PayType.ALI_PAY, payWayInfo.name, payWayInfo.tips));
+                        arrayList.add(new f(PayType.ALI_PAY, payWayInfo.name, payWayInfo.tips));
                     } else if (PayType.WECHAT_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.WECHAT_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new j.a.a.e.l.c(PayType.WECHAT_PAY, payWayInfo.name, payWayInfo.tips));
+                        arrayList.add(new f(PayType.WECHAT_PAY, payWayInfo.name, payWayInfo.tips));
                     } else if (PayType.DXM_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new j.a.a.e.l.c(PayType.DXM_PAY, payWayInfo.name, payWayInfo.tips));
+                        arrayList.add(new f(PayType.DXM_PAY, payWayInfo.name, payWayInfo.tips));
                     } else if (PayType.DXM_PAY_KJ.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY_KJ.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new j.a.a.e.l.c(PayType.DXM_PAY_KJ, payWayInfo.name, payWayInfo.tips));
+                        arrayList.add(new f(PayType.DXM_PAY_KJ, payWayInfo.name, payWayInfo.tips));
                     } else if (PayType.QQ_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.QQ_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new j.a.a.e.l.c(PayType.QQ_PAY, payWayInfo.name, payWayInfo.tips));
+                        arrayList.add(new f(PayType.QQ_PAY, payWayInfo.name, payWayInfo.tips));
                     } else if (PayType.UNION_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.UNION_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new j.a.a.e.l.c(PayType.UNION_PAY, payWayInfo.name, payWayInfo.tips));
+                        arrayList.add(new f(PayType.UNION_PAY, payWayInfo.name, payWayInfo.tips));
                     }
                 }
                 return arrayList;
             }
-            RLog.error("YYPayWayView", "createRechargeWayList error mPayWayInfoList null", new Object[0]);
+            RLog.info("YYPayWayView", "createRechargeWayList but mPayWayInfoList null");
             return arrayList;
         }
         return (List) invokeL.objValue;
     }
 
-    @Override // j.a.a.e.o.a
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            i.a.a.e.n.e.a(this.f73177h, this.f73178i);
+        }
+    }
+
+    @Override // i.a.a.e.o.a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
+    }
+
+    public final void h(int i2) {
+        ProductInfo productInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.m = this.f73176g.getItem(i2);
+            if (this.f73176g.b() != i2) {
+                this.f73176g.c(i2);
+                this.f73176g.notifyDataSetChanged();
+            }
+            i.a.a.e.l.c cVar = this.o;
+            int i3 = (cVar == null || (productInfo = cVar.f72347a) == null) ? 0 : productInfo.cid;
+            IYYPayWayView.b bVar = this.p;
+            i.a.a.e.m.b.d(this.j, this.k, (bVar != null ? bVar.f73135f : null) == PayFlowType.ACTIVITY_PAY_FLOW ? "13" : "6", this.m.f72357a.getChannel(), this.m.f72357a.getMethod(), String.valueOf(i3));
+            RLog.info("YYPayWayView", "choose paychannel:" + this.m.f72357a.getChannel() + " paymethod:" + this.m.f72357a.getMethod());
+            if (this.m.f72357a == PayType.WECHAT_PAY && !PackageInstallUtil.isInstallWechat(this.q)) {
+                Toast.makeText(this.q, "未安装微信", 1).show();
+            } else if (this.m.f72357a != PayType.QQ_PAY || PackageInstallUtil.isInstallQQ(this.q)) {
+            } else {
+                Toast.makeText(this.q, "未安装QQ", 1).show();
+            }
+        }
+    }
+
+    public final void i(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            if (n.f72367a.a(this.q)) {
+                Toast.makeText(this.q, "请求服务失败(" + i2 + "e)", 1).show();
+            }
+            IYYPayWayView.a aVar = this.l;
+            if (aVar != null) {
+                aVar.onRefreshViewFail(-1, "server payway list empty");
+            }
+        }
+    }
+
+    public void interruptePayFlow() {
+        IYYPayWayView.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.l) == null) {
+            return;
+        }
+        aVar.b();
+    }
+
+    public final void j(int i2, int i3, String str) {
+        StringBuilder sb;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, str) == null) {
+            if (n.f72367a.a(this.q)) {
+                if (i3 == -500) {
+                    sb = new StringBuilder();
+                    sb.append("网络不给力,请稍后重试(");
+                    sb.append(i2);
+                    sb.append("w)");
+                } else {
+                    sb = new StringBuilder();
+                    sb.append("请求服务失败(");
+                    sb.append(i2);
+                    sb.append("w) code:");
+                    sb.append(i3);
+                    sb.append(" failReason:");
+                    sb.append(str);
+                }
+                Toast.makeText(this.q, sb.toString(), 1).show();
+            }
+            IYYPayWayView.a aVar = this.l;
+            if (aVar != null) {
+                aVar.onRefreshViewFail(i3, str);
+            }
+        }
+    }
+
+    public final void k() {
+        PayUIKitConfig payUIKitConfig;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (payUIKitConfig = this.s) == null) {
+            return;
+        }
+        String d2 = i.a.a.e.l.e.d(payUIKitConfig);
+        RLog.debug("YYPayWayView", "agreeUrl:" + d2);
+        Context context = this.q;
+        if (context instanceof Activity) {
+            i.a.a.e.n.f.a(this.j, this.k, this.s, (Activity) context, d2, "Y币充值协议");
+        } else {
+            RLog.error("YYPayWayView", "mContext not Activity", new Object[0]);
+        }
+        i.a.a.e.m.b.b(this.j, this.k, UiEventType.paypageprotocol);
+        RLog.warn("YYPayWayView", UiEventType.paypageprotocol);
+    }
+
+    public final void l() {
+        GridView gridView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f73174e.size() <= 4 || (gridView = this.f73175f) == null) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
+        layoutParams.height += i.a.a.e.n.c.a(24.0f);
+        this.f73175f.setLayoutParams(layoutParams);
+    }
+
+    public final void m() {
+        IYYPayWayView.b bVar;
+        i.a.a.e.l.c cVar;
+        String format;
+        String format2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (bVar = this.p) == null || (cVar = bVar.f73131b) == null) {
+            return;
+        }
+        double b2 = cVar.b();
+        if (b2 == ((double) ((long) b2))) {
+            format = new DecimalFormat("0").format(b2);
+        } else {
+            format = new DecimalFormat("0.00").format(b2);
+        }
+        this.w.setText(format);
+        double a2 = this.p.f73131b.a();
+        if (a2 == ((double) ((long) a2))) {
+            format2 = new DecimalFormat("0").format(a2);
+        } else {
+            format2 = new DecimalFormat("0.00").format(a2);
+        }
+        TextView textView = this.x;
+        textView.setText(format2 + "Y币");
+        this.n.setText("确认支付 " + format2 + "元");
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j.a.a.e.n.e.a(this.f80327h, this.f80328i);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            i.a.a.e.n.e.b(this.f73177h, this.f73178i);
         }
     }
 
-    public final void o() {
-        GridView gridView;
+    public final void o(List<PayWayInfo> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f80324e.size() <= 4 || (gridView = this.f80325f) == null) {
-            return;
-        }
-        ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
-        layoutParams.height += j.a.a.e.n.c.a(24.0f);
-        this.f80325f.setLayoutParams(layoutParams);
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            j.a.a.e.n.e.b(this.f80327h, this.f80328i);
-        }
-    }
-
-    public final void q(List<PayWayInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f80324e.clear();
-            this.f80324e.addAll(createRechargeWayList(list));
-            if (this.f80324e.size() > 0) {
-                this.m = this.f80324e.get(0);
-                this.f80326g.c(0);
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.f73174e.clear();
+            this.f73174e.addAll(createRechargeWayList(list));
+            if (this.f73174e.size() > 0) {
+                this.m = this.f73174e.get(0);
+                this.f73176g.c(0);
             }
-            if (Env.instance().isTestEnv() && this.f80324e.size() > 0) {
-                this.f80324e.add(new j.a.a.e.l.c(PayType.MOCK_TEST_PAY, "MOCK支付", ""));
+            if (Env.instance().isTestEnv() && this.f73174e.size() > 0) {
+                this.f73174e.add(new f(PayType.MOCK_TEST_PAY, "MOCK支付", ""));
             }
-            this.f80326g.notifyDataSetChanged();
-            o();
+            this.f73176g.notifyDataSetChanged();
+            l();
         }
     }
 
-    @Override // j.a.a.e.o.a
+    @Override // i.a.a.e.o.a
     public void refreshView() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f80324e.size() > 0 || this.s == null || this.v == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.f73174e.size() > 0 || this.v == null) {
+                z = false;
+            } else {
+                n();
+                i.a.a.e.l.d.c(this.v.d(), new d(this));
+                z = true;
+            }
+            RLog.info("YYPayWayView", "refreshView isQueryProductList:" + z);
         }
-        p();
-        this.s.queryProductList(this.v.c(), new d(this));
     }
 
     @Override // tv.athena.revenue.payui.view.IYYPayWayView
     public void setCallback(IYYPayWayView.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
             this.l = aVar;
         }
     }
@@ -471,9 +555,9 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
     @Override // tv.athena.revenue.payui.view.IYYPayWayView
     public void setViewState(IYYPayWayView.PayViewState payViewState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, payViewState) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, payViewState) == null) {
             if (payViewState == IYYPayWayView.PayViewState.WAITING_VIEW_STATE) {
-                RLog.info("YYPayWayView", "setViewState waiting");
+                RLog.debug("YYPayWayView", "setViewState waiting");
                 Button button = this.n;
                 if (button == null) {
                     return;
@@ -482,7 +566,7 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                 this.n.setText("等待支付结果...");
                 this.n.setClickable(false);
             } else if (payViewState == IYYPayWayView.PayViewState.SELECTING_VIEW_STATE) {
-                RLog.info("YYPayWayView", "setViewState selecting");
+                RLog.debug("YYPayWayView", "setViewState selecting");
                 Button button2 = this.n;
                 if (button2 == null) {
                     return;

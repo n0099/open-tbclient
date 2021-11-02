@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INPUT_IMAGE_FORMAT = "Image format";
@@ -48,7 +48,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public final boolean mIsResizingEnabled;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class TransformingConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
         public void doTransform(EncodedImage encodedImage, int i2, ImageTranscoder imageTranscoder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(65543, this, encodedImage, i2, imageTranscoder) == null) {
-                this.mProducerContext.getListener().onProducerStart(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME);
+                this.mProducerContext.getProducerListener().onProducerStart(this.mProducerContext, ResizeAndRotateProducer.PRODUCER_NAME);
                 ImageRequest imageRequest = this.mProducerContext.getImageRequest();
                 PooledByteBufferOutputStream newOutputStream = this.this$0.mPooledByteBufferFactory.newOutputStream();
                 try {
@@ -180,7 +180,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                             EncodedImage encodedImage2 = new EncodedImage(of);
                             encodedImage2.setImageFormat(DefaultImageFormats.JPEG);
                             encodedImage2.parseMetaData();
-                            this.mProducerContext.getListener().onProducerFinishWithSuccess(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, extraMap);
+                            this.mProducerContext.getProducerListener().onProducerFinishWithSuccess(this.mProducerContext, ResizeAndRotateProducer.PRODUCER_NAME, extraMap);
                             if (transcode.getTranscodeStatus() != 1) {
                                 i2 |= 16;
                             }
@@ -193,7 +193,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                     }
                     throw new RuntimeException("Error while transcoding the image");
                 } catch (Exception e2) {
-                    this.mProducerContext.getListener().onProducerFinishWithFailure(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, e2, null);
+                    this.mProducerContext.getProducerListener().onProducerFinishWithFailure(this.mProducerContext, ResizeAndRotateProducer.PRODUCER_NAME, e2, null);
                     if (BaseConsumer.isLast(i2)) {
                         getConsumer().onFailure(e2);
                     }
@@ -222,7 +222,6 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, this, encodedImage, i2)) == null) {
                 EncodedImage cloneOrNull = EncodedImage.cloneOrNull(encodedImage);
-                encodedImage.close();
                 if (cloneOrNull != null) {
                     cloneOrNull.setRotationAngle(i2);
                 }
@@ -237,7 +236,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
             String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, this, encodedImage, resizeOptions, imageTranscodeResult, str)) == null) {
-                if (this.mProducerContext.getListener().requiresExtraMap(this.mProducerContext.getId())) {
+                if (this.mProducerContext.getProducerListener().requiresExtraMap(this.mProducerContext, ResizeAndRotateProducer.PRODUCER_NAME)) {
                     String str3 = encodedImage.getWidth() + "x" + encodedImage.getHeight();
                     if (resizeOptions != null) {
                         str2 = resizeOptions.width + "x" + resizeOptions.height;

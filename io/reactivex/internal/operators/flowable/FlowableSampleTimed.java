@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class SampleTimedEmitLast<T> extends SampleTimedSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
@@ -38,13 +38,13 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedEmitLast(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-            super(subscriber, j2, timeUnit, scheduler);
+        public SampleTimedEmitLast(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
+            super(subscriber, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r8;
-                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -82,20 +82,20 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class SampleTimedNoLast<T> extends SampleTimedSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedNoLast(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-            super(subscriber, j2, timeUnit, scheduler);
+        public SampleTimedNoLast(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
+            super(subscriber, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r8;
-                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -126,7 +126,7 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static abstract class SampleTimedSubscriber<T> extends AtomicReference<T> implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3517602651313910099L;
@@ -139,12 +139,12 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
         public final SequentialDisposable timer;
         public final TimeUnit unit;
 
-        public SampleTimedSubscriber(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -157,7 +157,7 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
             this.requested = new AtomicLong();
             this.timer = new SequentialDisposable();
             this.actual = subscriber;
-            this.period = j2;
+            this.period = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -229,29 +229,29 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
                 this.actual.onSubscribe(this);
                 SequentialDisposable sequentialDisposable = this.timer;
                 Scheduler scheduler = this.scheduler;
-                long j2 = this.period;
-                sequentialDisposable.replace(scheduler.schedulePeriodicallyDirect(this, j2, j2, this.unit));
+                long j = this.period;
+                sequentialDisposable.replace(scheduler.schedulePeriodicallyDirect(this, j, j, this.unit));
                 subscription.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSampleTimed(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public FlowableSampleTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)};
+            Object[] objArr = {flowable, Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -262,7 +262,7 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
                 return;
             }
         }
-        this.period = j2;
+        this.period = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.emitLast = z;

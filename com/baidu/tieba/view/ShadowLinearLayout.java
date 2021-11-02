@@ -8,7 +8,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -16,28 +16,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShadowLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58402e;
+    public int f55397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58403f;
+    public int f55398f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f58404g;
+    public float f55399g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f58405h;
+    public float f55400h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f58406i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f58407j;
+    public float f55401i;
+    public float j;
     public float k;
     public float l;
     public Paint m;
@@ -80,8 +78,8 @@ public class ShadowLinearLayout extends LinearLayout {
             this.k = l.g(context, R.dimen.ds20);
             float g2 = l.g(context, R.dimen.ds25);
             this.l = g2;
-            this.f58404g = g2;
-            this.f58405h = g2;
+            this.f55399g = g2;
+            this.f55400h = g2;
             this.n = new Path();
             setLayerType(1, this.m);
             onChangeSkinType();
@@ -91,42 +89,42 @@ public class ShadowLinearLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f58402e <= 0 || this.f58403f <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f55397e <= 0 || this.f55398f <= 0) {
             return;
         }
-        this.n.moveTo(this.f58404g, this.f58405h + this.k);
+        this.n.moveTo(this.f55399g, this.f55400h + this.k);
         if (this.o == null) {
-            float f2 = this.f58404g;
-            float f3 = this.f58405h;
+            float f2 = this.f55399g;
+            float f3 = this.f55400h;
             float f4 = this.k;
             this.o = new RectF(f2, f3, (f4 * 2.0f) + f2, (f4 * 2.0f) + f3);
         }
         this.n.arcTo(this.o, 180.0f, 90.0f, false);
-        this.n.lineTo(this.f58406i - this.k, this.f58405h);
+        this.n.lineTo(this.f55401i - this.k, this.f55400h);
         if (this.p == null) {
-            float f5 = this.f58406i;
+            float f5 = this.f55401i;
             float f6 = this.k;
-            float f7 = this.f58405h;
+            float f7 = this.f55400h;
             this.p = new RectF(f5 - (f6 * 2.0f), f7, f5, (f6 * 2.0f) + f7);
         }
         this.n.arcTo(this.p, 270.0f, 90.0f, false);
-        this.n.lineTo(this.f58406i, this.f58407j - this.k);
+        this.n.lineTo(this.f55401i, this.j - this.k);
         if (this.q == null) {
-            float f8 = this.f58406i;
+            float f8 = this.f55401i;
             float f9 = this.k;
-            float f10 = this.f58407j;
+            float f10 = this.j;
             this.q = new RectF(f8 - (f9 * 2.0f), f10 - (f9 * 2.0f), f8, f10);
         }
         this.n.arcTo(this.q, 0.0f, 90.0f, false);
-        this.n.lineTo(this.f58404g + this.k, this.f58407j);
+        this.n.lineTo(this.f55399g + this.k, this.j);
         if (this.r == null) {
-            float f11 = this.f58404g;
-            float f12 = this.f58407j;
+            float f11 = this.f55399g;
+            float f12 = this.j;
             float f13 = this.k;
             this.r = new RectF(f11, f12 - (f13 * 2.0f), (f13 * 2.0f) + f11, f12);
         }
         this.n.arcTo(this.r, 90.0f, 90.0f, false);
-        this.n.lineTo(this.f58404g, this.f58405h + this.k);
+        this.n.lineTo(this.f55399g, this.f55400h + this.k);
         canvas.drawPath(this.n, this.m);
         super.dispatchDraw(canvas);
     }
@@ -144,16 +142,16 @@ public class ShadowLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f58402e = getMeasuredWidth();
+            this.f55397e = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            this.f58403f = measuredHeight;
-            int i4 = this.f58402e;
+            this.f55398f = measuredHeight;
+            int i4 = this.f55397e;
             if (i4 <= 0 || measuredHeight <= 0) {
                 return;
             }
             float f2 = this.l;
-            this.f58406i = i4 - f2;
-            this.f58407j = measuredHeight - f2;
+            this.f55401i = i4 - f2;
+            this.j = measuredHeight - f2;
         }
     }
 

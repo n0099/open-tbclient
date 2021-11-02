@@ -18,7 +18,7 @@ import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BaseImageDecoder implements ImageDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_CANT_DECODE_IMAGE = "Image can't be decoded [%s]";
@@ -30,7 +30,7 @@ public class BaseImageDecoder implements ImageDecoder {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean loggingEnabled;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class ExifInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class BaseImageDecoder implements ImageDecoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class ImageFileInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,7 +214,7 @@ public class BaseImageDecoder implements ImageDecoder {
             } catch (IOException unused) {
                 L.w("Can't read EXIF tags from file [%s]", str);
             }
-            switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt("Orientation", 1)) {
+            switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1)) {
                 case 1:
                 default:
                     z = 0;

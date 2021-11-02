@@ -497,9 +497,9 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j2) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) {
                         this.this$1.this$0.setSelection(i5);
                         if (this.this$1.this$0.getOnItemClickListener() != null) {
                             DropdownPopup dropdownPopup = this.this$1;

@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -476,7 +475,7 @@ public class TableInfo {
             Cursor query = supportSQLiteDatabase.query("PRAGMA index_list(`" + str + "`)");
             try {
                 int columnIndex = query.getColumnIndex("name");
-                int columnIndex2 = query.getColumnIndex(FilterValue.DEFAULT_FILTER_VALUE);
+                int columnIndex2 = query.getColumnIndex("origin");
                 int columnIndex3 = query.getColumnIndex("unique");
                 if (columnIndex != -1 && columnIndex2 != -1 && columnIndex3 != -1) {
                     HashSet hashSet = new HashSet();

@@ -1,21 +1,21 @@
 package com.google.android.exoplayer2.extractor.flv;
 
-import c.i.b.a.a0.m;
-import c.i.b.a.i0.l;
+import b.i.b.a.a0.m;
+import b.i.b.a.i0.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f70447a;
+    public final m f62967a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class UnsupportedFormatException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,17 +56,17 @@ public abstract class TagPayloadReader {
                 return;
             }
         }
-        this.f70447a = mVar;
+        this.f62967a = mVar;
     }
 
-    public final void a(l lVar, long j2) throws ParserException {
+    public final void a(l lVar, long j) throws ParserException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048576, this, lVar, j2) == null) && b(lVar)) {
-            c(lVar, j2);
+        if ((interceptable == null || interceptable.invokeLJ(1048576, this, lVar, j) == null) && b(lVar)) {
+            c(lVar, j);
         }
     }
 
     public abstract boolean b(l lVar) throws ParserException;
 
-    public abstract void c(l lVar, long j2) throws ParserException;
+    public abstract void c(l lVar, long j) throws ParserException;
 }

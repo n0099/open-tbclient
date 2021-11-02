@@ -15,37 +15,37 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75237a = "e";
+    public static final String f67595a = "e";
 
     public static long a(String str) {
-        long j2;
-        long j3 = 0;
+        long j;
+        long j2 = 0;
         int i2 = 0;
         while (i2 < str.length()) {
             char charAt = str.charAt(i2);
             if (charAt <= 127) {
-                j2 = 1;
+                j = 1;
             } else if (charAt <= 2047) {
-                j2 = 2;
+                j = 2;
             } else {
                 if (charAt >= 55296 && charAt <= 57343) {
-                    j3 += 4;
+                    j2 += 4;
                     i2++;
                 } else if (charAt < 65535) {
-                    j2 = 3;
+                    j = 3;
                 } else {
-                    j3 += 4;
+                    j2 += 4;
                 }
                 i2++;
             }
-            j3 += j2;
+            j2 += j;
             i2++;
         }
-        return j3;
+        return j2;
     }
 
     public static Object a(Object obj) {
@@ -99,26 +99,26 @@ public class e {
             try {
                 jSONObject.put(str, a2);
             } catch (JSONException e2) {
-                c.a(f75237a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e2);
+                c.a(f67595a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e2);
                 e2.printStackTrace();
             }
         }
         return jSONObject;
     }
 
-    public static boolean a(long j2, long j3, long j4) {
-        return j2 > j3 - j4;
+    public static boolean a(long j, long j2, long j3) {
+        return j > j2 - j3;
     }
 
     public static boolean a(Context context) {
         try {
-            c.c(f75237a, "Checking tracker internet connectivity.", new Object[0]);
+            c.c(f67595a, "Checking tracker internet connectivity.", new Object[0]);
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             boolean z = activeNetworkInfo != null && activeNetworkInfo.isConnected();
-            c.b(f75237a, "Tracker connection online: %s", Boolean.valueOf(z));
+            c.b(f67595a, "Tracker connection online: %s", Boolean.valueOf(z));
             return z;
         } catch (Exception e2) {
-            c.a(f75237a, "Security exception checking connection: %s", e2.toString());
+            c.a(f67595a, "Security exception checking connection: %s", e2.toString());
             return true;
         }
     }
@@ -135,7 +135,7 @@ public class e {
             }
             return null;
         } catch (Exception e2) {
-            c.a(f75237a, "getCarrier: %s", e2.toString());
+            c.a(f67595a, "getCarrier: %s", e2.toString());
             return null;
         }
     }
@@ -144,7 +144,7 @@ public class e {
         try {
             LocationManager locationManager = (LocationManager) context.getSystemService("location");
             if (locationManager == null) {
-                c.a(f75237a, "Location Manager is null.", new Object[0]);
+                c.a(f67595a, "Location Manager is null.", new Object[0]);
                 return null;
             }
             Criteria criteria = new Criteria();
@@ -152,14 +152,14 @@ public class e {
             criteria.setAccuracy(2);
             String bestProvider = locationManager.getBestProvider(criteria, true);
             if (bestProvider == null) {
-                c.a(f75237a, "Location Manager provider is null.", new Object[0]);
+                c.a(f67595a, "Location Manager provider is null.", new Object[0]);
                 return null;
             }
             Location lastKnownLocation = locationManager.getLastKnownLocation(bestProvider);
-            c.b(f75237a, "Location found: %s", lastKnownLocation);
+            c.b(f67595a, "Location found: %s", lastKnownLocation);
             return lastKnownLocation;
         } catch (Exception e2) {
-            c.a(f75237a, "Failed to retrieve location: %s", e2.toString());
+            c.a(f67595a, "Failed to retrieve location: %s", e2.toString());
             return null;
         }
     }

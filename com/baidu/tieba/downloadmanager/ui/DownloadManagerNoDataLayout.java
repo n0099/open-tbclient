@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.e.e.p.l;
-import c.a.q0.s.u.c;
+import b.a.e.e.p.l;
+import b.a.q0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownloadManagerNoDataLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f50107e;
+    public ImageView f47510e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f50108f;
+    public TextView f47511f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50109g;
+    public String f47512g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DownloadManagerNoDataLayout(@NonNull Context context) {
@@ -58,17 +58,18 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
             setOrientation(1);
             setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(context, R.dimen.tbds496)));
             ImageView imageView = new ImageView(context);
-            this.f50107e = imageView;
+            this.f47510e = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(l.g(context, R.dimen.tbds177), l.g(context, R.dimen.tbds177));
-            layoutParams.setMargins(l.g(context, R.dimen.tbds450), l.g(context, R.dimen.tbds133), l.g(context, R.dimen.tbds450), 0);
-            addView(this.f50107e, layoutParams);
-            this.f50108f = new TextView(context);
+            layoutParams.setMargins(0, l.g(context, R.dimen.tbds133), 0, 0);
+            layoutParams.gravity = 1;
+            addView(this.f47510e, layoutParams);
+            this.f47511f = new TextView(context);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
             layoutParams2.setMargins(0, l.g(context, R.dimen.tbds34), 0, 0);
-            this.f50108f.setGravity(17);
-            addView(this.f50108f, layoutParams2);
-            this.f50109g = TbadkCoreApplication.getInst().getString(R.string.content_no_data);
+            this.f47511f.setGravity(17);
+            addView(this.f47511f, layoutParams2);
+            this.f47512g = TbadkCoreApplication.getInst().getString(R.string.content_no_data);
             onChangeSkinType();
         }
     }
@@ -77,8 +78,8 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(null);
-            SkinManager.setImageResource(this.f50107e, R.drawable.im_no_data_icon);
-            c d2 = c.d(this.f50108f);
+            SkinManager.setImageResource(this.f47510e, R.drawable.im_no_data_icon);
+            c d2 = c.d(this.f47511f);
             d2.v(R.color.CAM_X0110);
             d2.z(R.dimen.T_X08);
         }
@@ -87,7 +88,7 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
     public void setNoDataText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f50108f.setText(String.format(this.f50109g, TbadkCoreApplication.getInst().getString(i2)));
+            this.f47511f.setText(String.format(this.f47512g, TbadkCoreApplication.getInst().getString(i2)));
         }
     }
 

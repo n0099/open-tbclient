@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BasicHttpEntity extends AbstractHttpEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,9 +86,9 @@ public class BasicHttpEntity extends AbstractHttpEntity {
         }
     }
 
-    public void setContentLength(long j2) {
+    public void setContentLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             throw new RuntimeException("Stub!");
         }
     }

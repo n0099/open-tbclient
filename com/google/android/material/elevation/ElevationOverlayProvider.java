@@ -17,7 +17,7 @@ import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ElevationOverlayProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float FORMULA_MULTIPLIER = 4.5f;

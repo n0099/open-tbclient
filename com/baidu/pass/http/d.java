@@ -25,24 +25,24 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44217a = "d";
+    public static final String f41981a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44218b = "Set-Cookie";
+    public static final String f41982b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f44219c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f41983c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f44220d = "Cookie";
+    public static final String f41984d = "Cookie";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f44221e = "https://";
+    public static final String f41985e = "https://";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -74,12 +74,12 @@ public class d {
         }
     }
 
-    public static String a(String str, String str2, String str3, long j2, boolean z) {
+    public static String a(String str, String str2, String str3, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j2);
+            calendar.setTimeInMillis(j);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
             StringBuilder sb = new StringBuilder();
@@ -110,12 +110,12 @@ public class d {
                 sb.append("https://");
                 sb.append(uri.getHost());
                 String cookie = cookieManager.getCookie(sb.toString());
-                String str = f44217a;
+                String str = f41981a;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("asyncCookie");
                 sb2.append(passHttpParamDTO.asyncCookie);
                 e.a(str, sb2.toString());
-                String str2 = f44217a;
+                String str2 = f41981a;
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("webviewCookies");
                 sb3.append(cookie);
@@ -144,7 +144,7 @@ public class d {
                                 if (!httpCookie.hasExpired()) {
                                     str3 = str3 + httpCookie.getName() + "=" + httpCookie.getValue() + ";";
                                 }
-                                String str5 = f44217a;
+                                String str5 = f41981a;
                                 StringBuilder sb4 = new StringBuilder();
                                 sb4.append("httpCookie webview item name:");
                                 sb4.append(httpCookie.getName());
@@ -166,14 +166,14 @@ public class d {
                     return;
                 }
                 String substring = str3.substring(0, str3.length() - 1);
-                String str6 = f44217a;
+                String str6 = f41981a;
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append("cookieStr");
                 sb5.append(substring);
                 e.a(str6, sb5.toString());
                 httpURLConnection.setRequestProperty("Cookie", substring);
             } catch (Exception e2) {
-                e.a(f44217a, "asyncWebviewCookie2NA:" + e2.toString());
+                e.a(f41981a, "asyncWebviewCookie2NA:" + e2.toString());
             }
         }
     }
@@ -185,7 +185,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, context, httpURLConnection, passHttpParamDTO) == null) {
             try {
-                String str = f44217a;
+                String str = f41981a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("asyncCookie");
                 sb.append(passHttpParamDTO.asyncCookie);
@@ -226,7 +226,7 @@ public class d {
                     }
                 }
             } catch (Exception e2) {
-                String str3 = f44217a;
+                String str3 = f41981a;
                 e.a(str3, "asyncNaCookie2Webview:" + e2.toString());
             }
         }

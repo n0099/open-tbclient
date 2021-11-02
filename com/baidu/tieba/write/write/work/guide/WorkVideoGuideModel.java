@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.guide;
 
-import c.a.e.a.f;
+import b.a.e.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WorkVideoGuideModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.d4.u.p.b.a f59278e;
+    public b.a.r0.d4.u.p.b.a f56222e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkVideoGuideModel f59279a;
+        public final /* synthetic */ WorkVideoGuideModel f56223a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(WorkVideoGuideModel workVideoGuideModel, int i2) {
@@ -50,7 +50,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f59279a = workVideoGuideModel;
+            this.f56223a = workVideoGuideModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,13 +58,13 @@ public class WorkVideoGuideModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpWorkVIdeoGuideMessage)) {
-                this.f59279a.f59278e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                this.f56223a.f56222e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WorkVideoGuideModel(TbPageContext<?> tbPageContext, c.a.r0.d4.u.p.b.a aVar) {
+    public WorkVideoGuideModel(TbPageContext<?> tbPageContext, b.a.r0.d4.u.p.b.a aVar) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,7 +81,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
                 return;
             }
         }
-        this.f59278e = aVar;
+        this.f56222e = aVar;
         x();
     }
 
@@ -109,7 +109,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE));
-            c.a.r0.k3.e0.a.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
+            b.a.r0.l3.f0.a.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
         }
     }
 

@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35642a = "e";
+    public static final String f33750a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f35643b;
+    public static final char[] f33751b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class e {
                 return;
             }
         }
-        f35643b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f33751b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public e() {
@@ -59,8 +59,8 @@ public class e {
             }
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < bArr.length; i2++) {
-                sb.append(f35643b[(bArr[i2] >> 4) & 15]);
-                sb.append(f35643b[bArr[i2] & 15]);
+                sb.append(f33751b[(bArr[i2] >> 4) & 15]);
+                sb.append(f33751b[bArr[i2] & 15]);
             }
             return sb.toString();
         }
@@ -98,7 +98,7 @@ public class e {
             try {
                 return str.getBytes("UTF-8");
             } catch (Throwable th) {
-                CtAuth.warn(f35642a, "getBytes error", th);
+                CtAuth.warn(f33750a, "getBytes error", th);
                 return bArr;
             }
         }

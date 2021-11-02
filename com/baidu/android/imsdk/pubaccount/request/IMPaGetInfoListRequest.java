@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,14 +21,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetInfoListRequest";
@@ -53,12 +52,12 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         }
     }
 
-    public IMPaGetInfoListRequest(Context context, List<Long> list, long j2, long j3, GetPaInfoSliceListener getPaInfoSliceListener) {
+    public IMPaGetInfoListRequest(Context context, List<Long> list, long j, long j2, GetPaInfoSliceListener getPaInfoSliceListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Long.valueOf(j2), Long.valueOf(j3), getPaInfoSliceListener};
+            Object[] objArr = {context, list, Long.valueOf(j), Long.valueOf(j2), getPaInfoSliceListener};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -69,8 +68,8 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
-        this.mUk = j3;
+        this.mAppid = j;
+        this.mUk = j2;
         this.mPaids = list;
         this.sliceListener = getPaInfoSliceListener;
     }
@@ -128,8 +127,8 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                 jSONObject.put("sign", getSignByMd5Error(bduss, currentTimeMillis, this.mAppid, md5));
                 jSONObject.put("account_type", AccountManagerImpl.getInstance(this.mContext).getLoginType());
                 jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("device_type", 2);
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
                 if (AccountManager.isCuidLogin(this.mContext)) {
                     jSONObject.put("token", AccountManager.getToken(this.mContext));
@@ -154,7 +153,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x01a1  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x01a5  */
     /* JADX WARN: Removed duplicated region for block: B:48:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
@@ -173,7 +172,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i3 = jSONObject.getInt("error_code");
-                str = jSONObject.optString("error_msg", "");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 if (i3 == 0 && jSONObject.has("response_params")) {
                     JSONArray jSONArray = jSONObject.getJSONArray("response_params");
                     ArrayList arrayList2 = new ArrayList();

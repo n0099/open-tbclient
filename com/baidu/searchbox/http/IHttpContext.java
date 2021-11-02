@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.EventListener;
 import okhttp3.Request;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IHttpContext {
     public static final IHttpContext EMPTY = new IHttpContext() { // from class: com.baidu.searchbox.http.IHttpContext.1
         public static /* synthetic */ Interceptable $ic;

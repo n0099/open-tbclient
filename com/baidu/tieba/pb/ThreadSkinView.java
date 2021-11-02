@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import c.a.e.e.m.b;
-import c.a.e.e.p.l;
-import c.a.r0.k3.k0.a;
+import b.a.e.e.m.b;
+import b.a.e.e.p.l;
+import b.a.r0.l3.l0.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SkinInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,9 +66,9 @@ public class ThreadSkinView extends TbImageView {
         }
         a.b bVar = this.R;
         if (bVar != null) {
-            bVar.c(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.R.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-            this.R.f();
+            bVar.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.R.d(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+            this.R.e();
         }
         UrlManager.getInstance().dealOneLink(this.P, new String[]{this.Q.url});
     }
@@ -80,12 +80,12 @@ public class ThreadSkinView extends TbImageView {
                 this.P = tbPageContext;
                 if (this.Q != skinInfo && bVar != null) {
                     this.R = bVar;
-                    bVar.c(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                    this.R.e("obj_id", skinInfo.obj_id);
-                    this.R.e(TiebaStatic.Params.OBJ_URL, skinInfo.url);
-                    this.R.e("obj_name", skinInfo.monitor_id);
-                    this.R.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-                    this.R.f();
+                    bVar.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                    this.R.d("obj_id", skinInfo.obj_id);
+                    this.R.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
+                    this.R.d("obj_name", skinInfo.monitor_id);
+                    this.R.d(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+                    this.R.e();
                 }
                 this.Q = skinInfo;
                 int k = l.k(tbPageContext.getPageActivity());

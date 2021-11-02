@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f37913a;
+    public final e f35932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f37914b;
+    public final b f35933b;
 
     public a(b bVar) {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f37914b = bVar;
-        this.f37913a = new e();
+        this.f35933b = bVar;
+        this.f35932a = new e();
     }
 
     public void a(g gVar, EventBus.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, gVar, event) == null) {
-            this.f37913a.a(d.a(gVar, event));
+            this.f35932a.a(d.a(gVar, event));
             TaskManager taskManager = TaskManager.getInstance("EBTaskManager");
             taskManager.getClass();
             taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, "AsyncPost_" + System.currentTimeMillis(), this), "AsyncPost");
@@ -51,9 +51,9 @@ public class a implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d a2 = this.f37913a.a();
+            d a2 = this.f35932a.a();
             if (a2 != null) {
-                this.f37914b.a(a2);
+                this.f35933b.a(a2);
                 return;
             }
             throw new IllegalStateException("No pending post available");

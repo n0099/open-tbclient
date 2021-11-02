@@ -16,7 +16,7 @@ import tbclient.GetWorksTags.Category;
 import tbclient.GetWorksTags.DataRes;
 import tbclient.GetWorksTags.GetWorksTagsResIdl;
 import tbclient.GetWorksTags.Tag;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39523a = "logsender";
+    public static final String f37467a = "logsender";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f39524b;
+    public ConcurrentHashMap<String, Long> f37468b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ETag {
         public static final /* synthetic */ ETag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -88,12 +88,12 @@ public class StatService {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f39525a;
+        public static StatService f37469a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -109,7 +109,7 @@ public class StatService {
                     return;
                 }
             }
-            f39525a = new StatService(null);
+            f37469a = new StatService(null);
         }
 
         public a() {
@@ -140,7 +140,7 @@ public class StatService {
                 return;
             }
         }
-        this.f39524b = new ConcurrentHashMap<>();
+        this.f37468b = new ConcurrentHashMap<>();
     }
 
     public /* synthetic */ StatService(q qVar) {
@@ -150,7 +150,7 @@ public class StatService {
     public static StatService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f39525a : (StatService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f37469a : (StatService) invokeV.objValue;
     }
 
     public static ArrayList<String> a(String str, String str2) {
@@ -158,12 +158,12 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            Long l = a().f39524b.get(str);
+            Long l = a().f37468b.get(str);
             if (l == null) {
                 return null;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f39524b.remove(str);
+            a().f37468b.remove(str);
             arrayList.add(Long.toString(valueOf.longValue()));
             arrayList.add(str2);
             return arrayList;
@@ -174,7 +174,7 @@ public class StatService {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a().f39524b.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().f37468b.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
@@ -197,17 +197,17 @@ public class StatService {
         a(str, str2, str3, System.currentTimeMillis());
     }
 
-    public static void a(String str, String str2, String str3, long j2) {
+    public static void a(String str, String str2, String str3, long j) {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) {
             if (str3 != null) {
                 arrayList = new ArrayList(1);
                 arrayList.add(str3);
             } else {
                 arrayList = null;
             }
-            a(str, str2, arrayList, j2);
+            a(str, str2, arrayList, j);
         }
     }
 
@@ -219,10 +219,10 @@ public class StatService {
         a(str, str2, collection, System.currentTimeMillis());
     }
 
-    public static void a(String str, String str2, Collection<String> collection, long j2) {
+    public static void a(String str, String str2, Collection<String> collection, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, collection, Long.valueOf(j2)}) == null) {
-            i.a(RimStatisticsUtil.getAppContext()).a(h.a(str, j2, str2, com.baidu.fsg.base.statistics.a.a(), collection));
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, collection, Long.valueOf(j)}) == null) {
+            i.a(RimStatisticsUtil.getAppContext()).a(h.a(str, j, str2, com.baidu.fsg.base.statistics.a.a(), collection));
             if (i.a(RimStatisticsUtil.getAppContext()).getCount() >= 200) {
                 n.a().b("normal_log");
             }

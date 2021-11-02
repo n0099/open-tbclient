@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class ed implements ey {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f60037a;
+    public final /* synthetic */ FeedbackReportActivity f56955a;
 
     public ed(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class ed implements ey {
                 return;
             }
         }
-        this.f60037a = feedbackReportActivity;
+        this.f56955a = feedbackReportActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.ey
@@ -36,8 +36,8 @@ public final class ed implements ey {
         Button button;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f60037a.F = str;
-            button = this.f60037a.m;
+            this.f56955a.F = str;
+            button = this.f56955a.m;
             int i2 = com.baidu.ufosdk.b.v;
             int i3 = com.baidu.ufosdk.b.y;
             int i4 = com.baidu.ufosdk.b.v;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class InputAwareWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InputAwareWebView";
@@ -24,7 +24,7 @@ public final class InputAwareWebView extends WebView {
     public ThreadedInputConnectionProxyAdapterView proxyAdapterView;
     public View threadedInputConnectionProxyView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface OnScrollChangedCallback {
         void onScroll(int i2, int i3, int i4, int i5);
     }

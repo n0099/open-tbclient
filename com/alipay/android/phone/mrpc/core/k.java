@@ -13,30 +13,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f35754a;
+    public static final Pattern f33861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f35755b;
+    public static final Pattern f33862b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f35756a;
+        public int f33863a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f35757b;
+        public int f33864b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f35758c;
+        public int f33865c;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public final class k {
                     return;
                 }
             }
-            this.f35756a = i2;
-            this.f35757b = i3;
-            this.f35758c = i4;
+            this.f33863a = i2;
+            this.f33864b = i3;
+            this.f33865c = i4;
         }
     }
 
@@ -72,8 +72,8 @@ public final class k {
                 return;
             }
         }
-        f35754a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        f35755b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+        f33861a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
+        f33862b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
     }
 
     public static long a(String str) {
@@ -87,14 +87,14 @@ public final class k {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Matcher matcher = f35754a.matcher(str);
+            Matcher matcher = f33861a.matcher(str);
             if (matcher.find()) {
                 i2 = b(matcher.group(1));
                 c2 = c(matcher.group(2));
                 d2 = d(matcher.group(3));
                 aVar = e(matcher.group(4));
             } else {
-                Matcher matcher2 = f35755b.matcher(str);
+                Matcher matcher2 = f33862b.matcher(str);
                 if (!matcher2.find()) {
                     throw new IllegalArgumentException();
                 }
@@ -115,7 +115,7 @@ public final class k {
                 i5 = d2;
             }
             Time time = new Time("UTC");
-            time.set(aVar.f35758c, aVar.f35757b, aVar.f35756a, i3, i4, i5);
+            time.set(aVar.f33865c, aVar.f33864b, aVar.f33863a, i3, i4, i5);
             return time.toMillis(false);
         }
         return invokeL.longValue;

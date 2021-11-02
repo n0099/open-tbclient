@@ -1,7 +1,7 @@
 package com.qq.e.comm.pi;
 
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ADI {
     @Deprecated
     void setBrowserType(int i2);

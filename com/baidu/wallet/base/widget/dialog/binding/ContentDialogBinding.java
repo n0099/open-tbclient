@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.model.ContentDialogModel;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ContentDialogBinding extends BaseDialogBinding {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TextView f60881a;
+    public final TextView f57777a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ContentDialogBinding(View view) {
@@ -37,7 +37,7 @@ public class ContentDialogBinding extends BaseDialogBinding {
                 return;
             }
         }
-        this.f60881a = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
+        this.f57777a = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.binding.BaseDialogBinding, com.baidu.wallet.base.widget.dialog.binding.BaseBinding
@@ -47,30 +47,30 @@ public class ContentDialogBinding extends BaseDialogBinding {
             super.executeBindings();
             ContentDialogModel contentDialogModel = (ContentDialogModel) getViewModel();
             if (contentDialogModel.hideMessage) {
-                this.f60881a.setVisibility(8);
+                this.f57777a.setVisibility(8);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.titleText.getLayoutParams();
-                layoutParams.bottomMargin += ((LinearLayout.LayoutParams) this.f60881a.getLayoutParams()).bottomMargin;
+                layoutParams.bottomMargin += ((LinearLayout.LayoutParams) this.f57777a.getLayoutParams()).bottomMargin;
                 this.titleText.setLayoutParams(layoutParams);
                 return;
             }
             int i2 = contentDialogModel.messageId;
             if (i2 != 0) {
-                this.f60881a.setText(i2);
+                this.f57777a.setText(i2);
             } else if (!TextUtils.isEmpty(contentDialogModel.message)) {
-                this.f60881a.setText(contentDialogModel.message);
+                this.f57777a.setText(contentDialogModel.message);
             }
-            this.f60881a.setMovementMethod(LinkMovementMethod.getInstance());
+            this.f57777a.setMovementMethod(LinkMovementMethod.getInstance());
             int i3 = contentDialogModel.messageColor;
             if (i3 != 0) {
-                this.f60881a.setTextColor(i3);
+                this.f57777a.setTextColor(i3);
             }
             int i4 = contentDialogModel.backgroundColor;
             if (i4 != 0) {
-                this.f60881a.setBackgroundColor(i4);
+                this.f57777a.setBackgroundColor(i4);
             }
             int i5 = contentDialogModel.messageSize;
             if (i5 != 0) {
-                this.f60881a.setTextSize(i5);
+                this.f57777a.setTextSize(i5);
             }
         }
     }

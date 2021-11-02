@@ -6,18 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class GetPopularPortraitsInfoResult extends SapiResult implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<PopularPortraitsInfo> popularPortraitsInfoList;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class PopularPortraitsInfo implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String category;
         public String color;
+        public String gifUrl;
         public int myItem;
         public int num;
         public String serie;

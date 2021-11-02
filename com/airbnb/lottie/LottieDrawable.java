@@ -39,7 +39,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LottieDrawable extends Drawable implements Drawable.Callback, Animatable {
     public static final int INFINITE = -1;
     public static final int RESTART = 1;
@@ -77,7 +77,7 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
     public final Set<ColorFilterData> colorFilterData = new HashSet();
     public final ArrayList<LazyCompositionTask> lazyCompositionTasks = new ArrayList<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ColorFilterData {
         @Nullable
         public final ColorFilter colorFilter;
@@ -110,13 +110,13 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface LazyCompositionTask {
         void run(LottieComposition lottieComposition);
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public @interface RepeatMode {
     }
 
@@ -587,12 +587,12 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
         Drawable.Callback callback = getCallback();
         if (callback == null) {
             return;
         }
-        callback.scheduleDrawable(this, runnable, j2);
+        callback.scheduleDrawable(this, runnable, j);
     }
 
     @Override // android.graphics.drawable.Drawable

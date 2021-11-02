@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ExpandViewRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIRECTION_DOWN = 1;
@@ -18,21 +18,21 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f57614e;
+    public a f54660e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57615f;
+    public boolean f54661f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f57616g;
+    public float f54662g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f57617h;
+    public float f54663h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f57618i;
+    public boolean f54664i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         boolean a(float f2, float f3, int i2);
 
@@ -67,7 +67,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f57618i = true;
+            this.f54664i = true;
         }
     }
 
@@ -77,9 +77,9 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f57616g = motionEvent.getY();
-                this.f57617h = motionEvent.getY();
-                a aVar = this.f57614e;
+                this.f54662g = motionEvent.getY();
+                this.f54663h = motionEvent.getY();
+                a aVar = this.f54660e;
                 if (aVar != null) {
                     aVar.c(motionEvent.getY());
                 }
@@ -96,17 +96,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action != 0) {
-                if (action == 2 && this.f57614e != null) {
-                    this.f57616g = motionEvent.getY();
-                    boolean a2 = this.f57614e.a(motionEvent.getY() - this.f57616g, motionEvent.getY(), motionEvent.getY() - this.f57617h > 0.0f ? 1 : 2);
-                    this.f57615f = a2;
+                if (action == 2 && this.f54660e != null) {
+                    this.f54662g = motionEvent.getY();
+                    boolean a2 = this.f54660e.a(motionEvent.getY() - this.f54662g, motionEvent.getY(), motionEvent.getY() - this.f54663h > 0.0f ? 1 : 2);
+                    this.f54661f = a2;
                     return a2;
                 }
             } else {
-                a aVar = this.f57614e;
+                a aVar = this.f54660e;
                 if (aVar != null) {
                     boolean a3 = aVar.a(0.0f, motionEvent.getY(), 0);
-                    this.f57615f = a3;
+                    this.f54661f = a3;
                     return a3;
                 }
             }
@@ -118,7 +118,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && this.f57618i) {
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && this.f54664i) {
             super.onLayout(z, i2, i3, i4, i5);
         }
     }
@@ -132,16 +132,16 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
             int action = motionEvent.getAction();
             if (action != 1) {
                 if (action == 2) {
-                    float y = motionEvent.getY() - this.f57616g;
-                    int i2 = motionEvent.getY() - this.f57617h > 0.0f ? 1 : 2;
-                    if (this.f57615f && (aVar = this.f57614e) != null) {
+                    float y = motionEvent.getY() - this.f54662g;
+                    int i2 = motionEvent.getY() - this.f54663h > 0.0f ? 1 : 2;
+                    if (this.f54661f && (aVar = this.f54660e) != null) {
                         aVar.d(motionEvent.getY(), y, i2);
                         return true;
                     }
                 }
             } else {
-                this.f57615f = false;
-                a aVar2 = this.f57614e;
+                this.f54661f = false;
+                a aVar2 = this.f54660e;
                 if (aVar2 != null) {
                     aVar2.b();
                 }
@@ -162,14 +162,14 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public void setIsCanLayout(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f57618i = z;
+            this.f54664i = z;
         }
     }
 
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f57614e = aVar;
+            this.f54660e = aVar;
         }
     }
 

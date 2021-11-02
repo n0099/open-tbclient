@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ErrorData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2582050549890612990L;
@@ -96,7 +97,7 @@ public class ErrorData implements Serializable {
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             if (optJSONObject == null) {
                 this.error_code = jSONObject.optInt("error_code", 0);
-                this.error_msg = jSONObject.optString("error_msg");
+                this.error_msg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 this.error_data = jSONObject.optString("error_data");
             } else {
                 this.error_code = optJSONObject.optInt("errno", 0);

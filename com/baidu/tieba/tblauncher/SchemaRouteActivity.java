@@ -8,18 +8,17 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.b;
-import c.a.q0.a.d;
-import c.a.q0.a.g;
-import c.a.q0.a.w;
-import c.a.r0.k3.i0.n;
+import b.a.e.a.b;
+import b.a.q0.a.d;
+import b.a.q0.a.g;
+import b.a.q0.a.w;
+import b.a.r0.l3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.GrowthStatsUtil;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
@@ -37,7 +36,6 @@ import com.baidu.tbadk.core.atomData.TopicDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageLightActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.util.ItemClickJumpUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
@@ -53,19 +51,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SchemaRouteActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final g.b mOnSchemeParsedCallback;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SchemaRouteActivity f57364a;
+        public final /* synthetic */ SchemaRouteActivity f54430a;
 
         public a(SchemaRouteActivity schemaRouteActivity) {
             Interceptable interceptable = $ic;
@@ -82,17 +80,17 @@ public class SchemaRouteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f57364a = schemaRouteActivity;
+            this.f54430a = schemaRouteActivity;
         }
 
-        @Override // c.a.q0.a.g.b
+        @Override // b.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.w) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f57364a.getActivity(), null, (String) hashMap.get(g.w), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.z) instanceof String)) {
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f54430a.getActivity(), null, (String) hashMap.get(g.z), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
-                tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.K));
-                this.f57364a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.N));
+                this.f54430a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
     }
@@ -184,20 +182,18 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12610b + g.k)) {
+                if (dataString.contains(g.f11778b + g.k)) {
                     Uri parse = Uri.parse(dataString);
-                    String queryParameter = parse.getQueryParameter(g.F);
-                    String queryParameter2 = parse.getQueryParameter(g.G);
-                    UrlManager urlManager = UrlManager.getInstance();
-                    TbPageContext<?> pageContext = getPageContext();
-                    urlManager.dealOneLink(pageContext, new String[]{"tiebachushou://liveroom?roomid=" + queryParameter2 + "&livetype=" + queryParameter});
+                    String queryParameter = parse.getQueryParameter(g.I);
+                    String queryParameter2 = parse.getQueryParameter(g.J);
+                    UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + queryParameter2 + "&livetype=" + queryParameter});
                     d.y().L(true);
                     return;
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12610b + g.l)) {
-                    String queryParameter3 = Uri.parse(dataString).getQueryParameter(g.H);
+                if (dataString.contains(g.f11778b + g.l)) {
+                    String queryParameter3 = Uri.parse(dataString).getQueryParameter(g.K);
                     if (queryParameter3 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter3.getBytes(), 2))});
                         d.y().L(true);
@@ -221,16 +217,16 @@ public class SchemaRouteActivity extends BaseActivity {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
             } else {
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/forumRuleDetail")) {
-                    sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this, Uri.parse(dataString).getQueryParameter(g.L), ForumRulesShowActivityConfig.FORUM_RULE_H5_FROM_SHOW)));
+                    sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this, Uri.parse(dataString).getQueryParameter(g.O), ForumRulesShowActivityConfig.FORUM_RULE_H5_FROM_SHOW)));
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("/categorylist")) {
                     Uri parse2 = Uri.parse(dataString);
-                    String queryParameter4 = parse2.getQueryParameter(g.N);
-                    String queryParameter5 = parse2.getQueryParameter(g.S);
-                    String queryParameter6 = parse2.getQueryParameter(g.O);
-                    String queryParameter7 = parse2.getQueryParameter(g.P);
-                    String queryParameter8 = parse2.getQueryParameter(g.Q);
-                    String queryParameter9 = parse2.getQueryParameter(g.R);
+                    String queryParameter4 = parse2.getQueryParameter(g.Q);
+                    String queryParameter5 = parse2.getQueryParameter(g.V);
+                    String queryParameter6 = parse2.getQueryParameter(g.R);
+                    String queryParameter7 = parse2.getQueryParameter(g.S);
+                    String queryParameter8 = parse2.getQueryParameter(g.T);
+                    String queryParameter9 = parse2.getQueryParameter(g.U);
                     HashMap hashMap = new HashMap();
                     hashMap.put("item_id", queryParameter4);
                     hashMap.put("tab_id", queryParameter5);
@@ -242,19 +238,23 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("/itemDetailsPage")) {
                     Uri parse3 = Uri.parse(dataString);
-                    String queryParameter10 = parse3.getQueryParameter(g.V);
+                    String queryParameter10 = parse3.getQueryParameter(g.Y);
                     if (!StringUtils.isNull(queryParameter10)) {
                         setSearchSource(dataString);
-                        ItemClickJumpUtil.itemClickJump(queryParameter10, "", 0);
+                        String str8 = "com.baidu.tieba://unidispatch/itemDetailsPage?name=" + queryParameter10 + "&from=" + FrsActivityConfig.FRS_FROM_ITEM;
+                        FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(getActivity());
+                        frsActivityConfig2.setUri(Uri.parse(str8));
+                        sendMessage(new CustomMessage(2003000, frsActivityConfig2));
+                        d.y().L(true);
                     } else {
-                        String queryParameter11 = parse3.getQueryParameter(g.N);
+                        String queryParameter11 = parse3.getQueryParameter(g.Q);
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put("itemID", String.valueOf(queryParameter11));
                         sendMessage(new CustomMessage(2002015, new n(this, "GameItemDetailsPage", hashMap2)));
                     }
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/item") && !dataString.contains("/itemDetailsPage")) {
-                    String queryParameter12 = Uri.parse(dataString).getQueryParameter(g.M);
+                    String queryParameter12 = Uri.parse(dataString).getQueryParameter(g.P);
                     HashMap hashMap3 = new HashMap();
                     hashMap3.put("itemID", String.valueOf(queryParameter12));
                     sendMessage(new CustomMessage(2002015, new n(this, "GameItemDetailsPage", hashMap3)));
@@ -269,8 +269,8 @@ public class SchemaRouteActivity extends BaseActivity {
                     str4 = "author_name";
                 } else {
                     Uri parse4 = Uri.parse(dataString);
-                    String queryParameter13 = parse4.getQueryParameter(g.p);
-                    String queryParameter14 = parse4.getQueryParameter(g.L);
+                    String queryParameter13 = parse4.getQueryParameter(g.s);
+                    String queryParameter14 = parse4.getQueryParameter(g.O);
                     String queryParameter15 = parse4.getQueryParameter("title");
                     String queryParameter16 = parse4.getQueryParameter("author_name");
                     str4 = "author_name";
@@ -312,8 +312,8 @@ public class SchemaRouteActivity extends BaseActivity {
                     str7 = "author_nick_name";
                 } else {
                     Uri parse5 = Uri.parse(dataString);
-                    String queryParameter23 = parse5.getQueryParameter(g.p);
-                    String queryParameter24 = parse5.getQueryParameter(g.L);
+                    String queryParameter23 = parse5.getQueryParameter(g.s);
+                    String queryParameter24 = parse5.getQueryParameter(g.O);
                     String queryParameter25 = parse5.getQueryParameter("title");
                     str6 = str4;
                     String queryParameter26 = parse5.getQueryParameter(str6);
@@ -350,8 +350,8 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/video_middle_vertical_page_qa")) {
                     Uri parse6 = Uri.parse(dataString);
-                    String queryParameter33 = parse6.getQueryParameter(g.p);
-                    String queryParameter34 = parse6.getQueryParameter(g.L);
+                    String queryParameter33 = parse6.getQueryParameter(g.s);
+                    String queryParameter34 = parse6.getQueryParameter(g.O);
                     String queryParameter35 = parse6.getQueryParameter("title");
                     String queryParameter36 = parse6.getQueryParameter("author_uid");
                     String queryParameter37 = parse6.getQueryParameter(str6);
@@ -405,7 +405,7 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(65539, this, uri) == null) || uri == null) {
             return;
         }
-        c.a.q0.d1.g.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
+        b.a.q0.d1.g.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
     }
 
     private void setSearchSource(String str) {
@@ -413,14 +413,14 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        String queryParameter = Uri.parse(str).getQueryParameter(g.U);
+        String queryParameter = Uri.parse(str).getQueryParameter(g.X);
         if (StringUtils.isNull(queryParameter)) {
             return;
         }
         TbSingleton.getInstance().setFromWhichSearchSource(queryParameter);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.o0.a
+    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -432,7 +432,7 @@ public class SchemaRouteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
-                c.a.q0.b0.a.f12798a = true;
+                b.a.q0.b0.a.f11962a = true;
             }
             super.onCreate(bundle);
             checkSchema(getIntent());

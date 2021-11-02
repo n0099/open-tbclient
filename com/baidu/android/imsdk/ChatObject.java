@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ChatObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_PAID = -1;
@@ -22,12 +22,12 @@ public class ChatObject {
     public long mPaid;
     public int mType;
 
-    public ChatObject(Context context, int i2, long j2, long j3, int i3) {
+    public ChatObject(Context context, int i2, long j, long j2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -41,8 +41,8 @@ public class ChatObject {
         this.mType = -1;
         this.mContext = context;
         this.mCategory = i2;
-        this.mContacter = j2;
-        this.mPaid = j3;
+        this.mContacter = j;
+        this.mPaid = j2;
         this.mType = i3;
     }
 
@@ -101,10 +101,10 @@ public class ChatObject {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((((this.mCategory + 31) * 31) + ((int) this.mContacter)) * 31) + ((int) this.mPaid)) * 31) + this.mType : invokeV.intValue;
     }
 
-    public void setPaid(long j2) {
+    public void setPaid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.mPaid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.mPaid = j;
         }
     }
 
@@ -124,12 +124,12 @@ public class ChatObject {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getToken() : (String) invokeV.objValue;
     }
 
-    public ChatObject(Context context, int i2, long j2) {
+    public ChatObject(Context context, int i2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -143,6 +143,6 @@ public class ChatObject {
         this.mType = -1;
         this.mContext = context;
         this.mCategory = i2;
-        this.mContacter = j2;
+        this.mContacter = j;
     }
 }

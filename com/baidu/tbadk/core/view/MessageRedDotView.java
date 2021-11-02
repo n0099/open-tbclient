@@ -15,8 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.k;
-import c.a.e.e.p.l;
+import b.a.e.e.p.k;
+import b.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.TbadkApplication;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MessageRedDotView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String THREE_DOT_STR = "...";
@@ -38,22 +38,20 @@ public class MessageRedDotView extends View {
     public int B;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f47705e;
+    public Drawable f45289e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47706f;
+    public int f45290f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47707g;
+    public boolean f45291g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f47708h;
+    public String f45292h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47709i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Paint f47710j;
+    public int f45293i;
+    public Paint j;
     public Rect k;
     public int l;
     public int m;
@@ -89,7 +87,7 @@ public class MessageRedDotView extends View {
                 return;
             }
         }
-        this.f47709i = 1;
+        this.f45293i = 1;
         this.y = false;
         this.z = false;
         this.B = 3;
@@ -110,23 +108,23 @@ public class MessageRedDotView extends View {
 
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || k.isEmpty(this.f47708h) || this.f47705e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || k.isEmpty(this.f45292h) || this.f45289e == null) {
             return;
         }
-        Paint paint = this.f47710j;
-        String str = this.f47708h;
+        Paint paint = this.j;
+        String str = this.f45292h;
         paint.getTextBounds(str, 0, str.length(), this.k);
-        Paint.FontMetrics fontMetrics = this.f47710j.getFontMetrics();
-        int intrinsicWidth = (this.f47705e.getIntrinsicWidth() / 2) + this.s;
+        Paint.FontMetrics fontMetrics = this.j.getFontMetrics();
+        int intrinsicWidth = (this.f45289e.getIntrinsicWidth() / 2) + this.s;
         float yOffset = (getYOffset() + fontMetrics.bottom) - fontMetrics.ascent;
         if (this.y) {
-            Rect bounds = this.f47705e.getBounds();
+            Rect bounds = this.f45289e.getBounds();
             float f2 = fontMetrics.descent;
             float height = this.A + ((bounds.height() / 2) - (f2 - (((-fontMetrics.ascent) + f2) / 2.0f)));
             intrinsicWidth = bounds.width() / 2;
             yOffset = height;
         }
-        canvas.drawText(this.f47708h, intrinsicWidth, yOffset, this.f47710j);
+        canvas.drawText(this.f45292h, intrinsicWidth, yOffset, this.j);
     }
 
     public final void b(Canvas canvas) {
@@ -134,13 +132,13 @@ public class MessageRedDotView extends View {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || (drawable = this.f47705e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || (drawable = this.f45289e) == null) {
             return;
         }
         int intrinsicWidth = (drawable.getIntrinsicWidth() / 2) + this.s;
-        int intrinsicHeight = (this.f47705e.getIntrinsicHeight() / 2) + this.s;
+        int intrinsicHeight = (this.f45289e.getIntrinsicHeight() / 2) + this.s;
         if (this.y) {
-            Rect bounds = this.f47705e.getBounds();
+            Rect bounds = this.f45289e.getBounds();
             int width = bounds.width() / 2;
             intrinsicHeight = bounds.height() / 2;
             intrinsicWidth = width;
@@ -176,16 +174,16 @@ public class MessageRedDotView extends View {
             setLayerType(1, null);
             c();
             Paint paint = new Paint(1);
-            this.f47710j = paint;
+            this.j = paint;
             paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
             if (!this.y && this.z) {
-                this.f47710j.setTextSize(l.g(getContext(), R.dimen.tbfontsize26));
-                this.f47710j.setTypeface(Typeface.MONOSPACE);
+                this.j.setTextSize(l.g(getContext(), R.dimen.tbfontsize26));
+                this.j.setTypeface(Typeface.MONOSPACE);
             } else {
-                this.f47710j.setTextSize(l.g(getContext(), R.dimen.tbfontsize28));
-                this.f47710j.setTypeface(Typeface.DEFAULT_BOLD);
+                this.j.setTextSize(l.g(getContext(), R.dimen.tbfontsize28));
+                this.j.setTypeface(Typeface.DEFAULT_BOLD);
             }
-            this.f47710j.setTextAlign(Paint.Align.CENTER);
+            this.j.setTextAlign(Paint.Align.CENTER);
             this.k = new Rect();
             this.l = l.g(getContext(), R.dimen.tbds13);
             this.m = l.g(getContext(), R.dimen.tbds42);
@@ -215,30 +213,30 @@ public class MessageRedDotView extends View {
     public String getRedNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f47708h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f45292h : (String) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.B = TbadkApplication.getInst().getSkinType();
-            int i2 = this.f47706f;
+            int i2 = this.f45290f;
             if (i2 > 0) {
-                this.f47705e = SkinManager.getDrawable(i2);
+                this.f45289e = SkinManager.getDrawable(i2);
             } else {
-                Drawable drawable = this.f47705e;
+                Drawable drawable = this.f45289e;
                 if (drawable instanceof GradientDrawable) {
                     ((GradientDrawable) drawable).setColor(SkinManager.getColor(R.color.CAM_X0301));
                 }
             }
             this.w.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            Paint paint = this.f47710j;
+            Paint paint = this.j;
             if (paint != null) {
                 paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
             }
             this.n.setShadowLayer(this.q, this.o, this.p, SkinManager.getColor(R.color.cp_cont_h_alpha66));
-            if (this.f47707g) {
-                this.f47707g = false;
+            if (this.f45291g) {
+                this.f45291g = false;
                 requestLayout();
             }
             invalidate();
@@ -250,18 +248,18 @@ public class MessageRedDotView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             super.onDraw(canvas);
-            Drawable drawable = this.f47705e;
+            Drawable drawable = this.f45289e;
             if (drawable != null) {
                 int intrinsicWidth = drawable.getIntrinsicWidth();
-                int intrinsicHeight = this.f47705e.getIntrinsicHeight();
+                int intrinsicHeight = this.f45289e.getIntrinsicHeight();
                 if (this.y) {
-                    this.f47705e.setBounds(0, this.A, l.g(getContext(), R.dimen.tbds4) + intrinsicWidth, l.g(getContext(), R.dimen.tbds4) + intrinsicHeight + this.A);
+                    this.f45289e.setBounds(0, this.A, l.g(getContext(), R.dimen.tbds4) + intrinsicWidth, l.g(getContext(), R.dimen.tbds4) + intrinsicHeight + this.A);
                 } else {
-                    Drawable drawable2 = this.f47705e;
+                    Drawable drawable2 = this.f45289e;
                     int i2 = this.s;
                     drawable2.setBounds(i2, i2, intrinsicWidth + i2, intrinsicHeight + i2);
                 }
-                this.f47705e.draw(canvas);
+                this.f45289e.draw(canvas);
                 if (!this.y && this.z) {
                     RectF rectF = this.r;
                     int i3 = this.s;
@@ -274,10 +272,10 @@ public class MessageRedDotView extends View {
                         canvas.drawOval(this.r, this.n);
                     }
                 }
-                if (k.isEmpty(this.f47708h)) {
+                if (k.isEmpty(this.f45292h)) {
                     return;
                 }
-                if (this.f47708h.equals("...")) {
+                if (this.f45292h.equals("...")) {
                     b(canvas);
                 } else {
                     a(canvas);
@@ -290,11 +288,11 @@ public class MessageRedDotView extends View {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            if (this.f47705e != null) {
+            if (this.f45289e != null) {
                 int i4 = this.o;
                 int i5 = this.p;
                 this.s = i4 >= i5 ? this.q + i4 : i5 + this.q;
-                setMeasuredDimension(this.f47705e.getIntrinsicWidth() + (this.s * 2), this.f47705e.getIntrinsicHeight() + (this.s * 2));
+                setMeasuredDimension(this.f45289e.getIntrinsicWidth() + (this.s * 2), this.f45289e.getIntrinsicHeight() + (this.s * 2));
                 return;
             }
             setMeasuredDimension(0, 0);
@@ -308,31 +306,31 @@ public class MessageRedDotView extends View {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             if (i2 <= 0) {
                 i3 = R.drawable.icon_news_red_dot;
-                this.f47708h = null;
+                this.f45292h = null;
             } else if (i2 < 10) {
-                this.f47708h = String.valueOf(i2);
+                this.f45292h = String.valueOf(i2);
                 i3 = R.drawable.icon_news_red_dot_one_number;
             } else if (i2 < 100) {
-                this.f47708h = String.valueOf(i2);
+                this.f45292h = String.valueOf(i2);
                 i3 = R.drawable.icon_news_red_dot_two_number;
             } else {
-                int i4 = this.f47709i;
+                int i4 = this.f45293i;
                 if (i4 == 1) {
-                    this.f47708h = "...";
+                    this.f45292h = "...";
                     i3 = R.drawable.icon_news_red_dot_three_dot_number;
                 } else if (i4 == 2) {
-                    this.f47708h = "99+";
+                    this.f45292h = "99+";
                     i3 = R.drawable.icon_news_red_dot_three_number;
                 } else {
                     i3 = 0;
                 }
             }
-            if (i3 != this.f47706f) {
-                this.f47707g = true;
+            if (i3 != this.f45290f) {
+                this.f45291g = true;
             } else {
-                this.f47707g = false;
+                this.f45291g = false;
             }
-            this.f47706f = i3;
+            this.f45290f = i3;
             onChangeSkinType();
         }
     }
@@ -361,14 +359,14 @@ public class MessageRedDotView extends View {
     public void setTextTypeface(Typeface typeface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, typeface) == null) {
-            this.f47710j.setTypeface(typeface);
+            this.j.setTypeface(typeface);
         }
     }
 
     public void setThreeDotMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f47709i = i2;
+            this.f45293i = i2;
         }
     }
 
@@ -391,7 +389,7 @@ public class MessageRedDotView extends View {
                 return;
             }
         }
-        this.f47709i = 1;
+        this.f45293i = 1;
         this.y = false;
         this.z = false;
         this.B = 3;
@@ -417,7 +415,7 @@ public class MessageRedDotView extends View {
                 return;
             }
         }
-        this.f47709i = 1;
+        this.f45293i = 1;
         this.y = false;
         this.z = false;
         this.B = 3;
@@ -429,20 +427,20 @@ public class MessageRedDotView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) {
             if (z) {
-                this.f47708h = "...";
+                this.f45292h = "...";
                 i2 = R.drawable.icon_news_red_dot_three_dot_number;
             } else if (k.isEmpty(str)) {
                 i2 = R.drawable.icon_news_red_dot;
-                this.f47708h = null;
+                this.f45292h = null;
             } else {
-                int measureText = (int) this.f47710j.measureText(str);
-                Drawable drawable = this.f47705e;
+                int measureText = (int) this.j.measureText(str);
+                Drawable drawable = this.f45289e;
                 if (drawable != null && drawable.getIntrinsicWidth() - (this.l * 2) == measureText) {
                     if (this.B != TbadkApplication.getInst().getSkinType()) {
-                        Drawable drawable2 = this.f47705e;
+                        Drawable drawable2 = this.f45289e;
                         if (drawable2 instanceof GradientDrawable) {
                             ((GradientDrawable) drawable2).setColor(SkinManager.getColor(R.color.CAM_X0301));
-                            this.f47707g = false;
+                            this.f45291g = false;
                         }
                     }
                 } else {
@@ -450,21 +448,21 @@ public class MessageRedDotView extends View {
                     gradientDrawable.setShape(0);
                     gradientDrawable.setCornerRadius(this.t);
                     gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0301));
-                    gradientDrawable.setSize(((int) this.f47710j.measureText(str)) + (this.l * 2), this.m);
-                    this.f47705e = gradientDrawable;
-                    this.f47707g = true;
+                    gradientDrawable.setSize(((int) this.j.measureText(str)) + (this.l * 2), this.m);
+                    this.f45289e = gradientDrawable;
+                    this.f45291g = true;
                 }
-                this.f47708h = str;
-                this.f47706f = 0;
+                this.f45292h = str;
+                this.f45290f = 0;
                 onChangeSkinType();
                 return;
             }
-            if (i2 != this.f47706f) {
-                this.f47707g = true;
+            if (i2 != this.f45290f) {
+                this.f45291g = true;
             } else {
-                this.f47707g = false;
+                this.f45291g = false;
             }
-            this.f47706f = i2;
+            this.f45290f = i2;
             onChangeSkinType();
         }
     }
@@ -489,7 +487,7 @@ public class MessageRedDotView extends View {
                 return;
             }
         }
-        this.f47709i = 1;
+        this.f45293i = 1;
         this.y = false;
         this.z = false;
         this.B = 3;

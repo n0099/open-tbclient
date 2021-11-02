@@ -19,25 +19,25 @@ import com.kwad.sdk.core.webview.jshandler.j;
 import com.kwad.sdk.core.webview.jshandler.m;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ay;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f72393a;
+    public g f64854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f72394b;
+    public com.kwad.sdk.core.webview.a f64855b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NestedScrollWebView f72395c;
+    public NestedScrollWebView f64856c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f72396d;
+    public AdTemplate f64857d;
 
     /* renamed from: e  reason: collision with root package name */
-    public m.b f72397e;
+    public m.b f64858e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -52,12 +52,12 @@ public class b extends Presenter {
                 return;
             }
         }
-        this.f72397e = new m.b(this) { // from class: com.kwad.sdk.core.page.a.b.1
+        this.f64858e = new m.b(this) { // from class: com.kwad.sdk.core.page.a.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f72398a;
+            public final /* synthetic */ b f64859a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -74,7 +74,7 @@ public class b extends Presenter {
                         return;
                     }
                 }
-                this.f72398a = this;
+                this.f64859a = this;
             }
 
             @Override // com.kwad.sdk.core.webview.jshandler.m.b
@@ -90,10 +90,10 @@ public class b extends Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, gVar) == null) {
             gVar.a(new d());
-            gVar.a(new e(this.f72394b));
-            gVar.a(new f(this.f72394b));
-            gVar.a(new m(this.f72397e));
-            gVar.a(new j(this.f72394b));
+            gVar.a(new e(this.f64855b));
+            gVar.a(new f(this.f64855b));
+            gVar.a(new m(this.f64858e));
+            gVar.a(new j(this.f64855b));
         }
     }
 
@@ -102,32 +102,32 @@ public class b extends Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             f();
-            ay.a(this.f72395c);
-            g gVar = new g(this.f72395c);
-            this.f72393a = gVar;
+            ay.a(this.f64856c);
+            g gVar = new g(this.f64856c);
+            this.f64854a = gVar;
             a(gVar);
-            this.f72395c.addJavascriptInterface(this.f72393a, "KwaiAd");
+            this.f64856c.addJavascriptInterface(this.f64854a, "KwaiAd");
         }
     }
 
     private void f() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (gVar = this.f72393a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (gVar = this.f64854a) == null) {
             return;
         }
         gVar.a();
-        this.f72393a = null;
+        this.f64854a = null;
     }
 
     private void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-            this.f72394b = aVar;
-            aVar.f72777b = this.f72396d;
-            aVar.f72776a = 0;
-            aVar.f72781f = this.f72395c;
+            this.f64855b = aVar;
+            aVar.f65227b = this.f64857d;
+            aVar.f65226a = 0;
+            aVar.f65231f = this.f64856c;
         }
     }
 
@@ -136,15 +136,15 @@ public class b extends Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f72396d = ((com.kwad.sdk.core.page.recycle.e) l()).f72456c;
+            this.f64857d = ((com.kwad.sdk.core.page.recycle.e) l()).f64914c;
             NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) j().findViewById(R.id.ksad_video_webView);
-            this.f72395c = nestedScrollWebView;
-            nestedScrollWebView.setTemplateData(this.f72396d);
-            this.f72395c.setNestedScrollingEnabled(true);
+            this.f64856c = nestedScrollWebView;
+            nestedScrollWebView.setTemplateData(this.f64857d);
+            this.f64856c.setNestedScrollingEnabled(true);
             n();
             e();
-            this.f72395c.loadUrl(com.kwad.sdk.core.response.b.a.y(c.i(this.f72396d)));
-            this.f72395c.a();
+            this.f64856c.loadUrl(com.kwad.sdk.core.response.b.a.y(c.i(this.f64857d)));
+            this.f64856c.a();
         }
     }
 
@@ -154,7 +154,7 @@ public class b extends Presenter {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.d();
             f();
-            this.f72395c.b();
+            this.f64856c.b();
         }
     }
 }

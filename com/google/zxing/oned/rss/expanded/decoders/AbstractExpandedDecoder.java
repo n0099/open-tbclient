@@ -1,5 +1,6 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,8 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-import com.tencent.connect.common.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractExpandedDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,9 +66,9 @@ public abstract class AbstractExpandedDecoder {
                                 case 61:
                                     return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "15");
                                 case 62:
-                                    return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_START_GROUP);
+                                    return new AI013x0x1xDecoder(bitArray, "310", "17");
                                 case 63:
-                                    return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_START_GROUP);
+                                    return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "17");
                                 default:
                                     throw new IllegalStateException("unknown decoder: " + bitArray);
                             }
@@ -93,7 +93,7 @@ public abstract class AbstractExpandedDecoder {
     public final BitArray getInformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.information : (BitArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.information : (BitArray) invokeV.objValue;
     }
 
     public abstract String parseInformation() throws NotFoundException, FormatException;

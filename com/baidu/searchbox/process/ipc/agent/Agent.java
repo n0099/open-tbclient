@@ -1,5 +1,5 @@
 package com.baidu.searchbox.process.ipc.agent;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface Agent {
     void exit();
 }

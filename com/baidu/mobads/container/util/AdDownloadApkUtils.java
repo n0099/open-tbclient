@@ -16,7 +16,6 @@ import com.baidu.mobads.container.components.controller.InstallReceiver;
 import com.baidu.mobads.container.components.monitor.RemoteInstallApkTask;
 import com.baidu.mobads.container.components.monitor.RemoteScheduledMonitor;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AdDownloadApkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DL_STATUS_DONE = "DONE";
@@ -240,7 +239,7 @@ public class AdDownloadApkUtils {
                 xAdRemoteAPKDownloadExtraInfo.autoOpen = true;
                 InstallReceiver installReceiver = new InstallReceiver(xAdRemoteAPKDownloadExtraInfo);
                 IntentFilter intentFilter = new IntentFilter(PackageChangedReceiver.ACTION_INSTALL);
-                intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
+                intentFilter.addDataScheme("package");
                 context.registerReceiver(installReceiver, intentFilter);
             } catch (Exception e2) {
                 RemoteXAdLogger.getInstance().d(e2);

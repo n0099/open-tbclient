@@ -871,17 +871,17 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
 
         public abstract void runPendingAnimations();
 
-        public void setAddDuration(long j2) {
+        public void setAddDuration(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-                this.mAddDuration = j2;
+            if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+                this.mAddDuration = j;
             }
         }
 
-        public void setChangeDuration(long j2) {
+        public void setChangeDuration(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-                this.mChangeDuration = j2;
+            if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+                this.mChangeDuration = j;
             }
         }
 
@@ -892,17 +892,17 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void setMoveDuration(long j2) {
+        public void setMoveDuration(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
-                this.mMoveDuration = j2;
+            if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+                this.mMoveDuration = j;
             }
         }
 
-        public void setRemoveDuration(long j2) {
+        public void setRemoveDuration(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
-                this.mRemoveDuration = j2;
+            if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+                this.mRemoveDuration = j;
             }
         }
     }
@@ -3102,19 +3102,19 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void factorInBindTime(int i2, long j2) {
+        public void factorInBindTime(int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                 ScrapData scrapDataForType = getScrapDataForType(i2);
-                scrapDataForType.mBindRunningAverageNs = runningAverage(scrapDataForType.mBindRunningAverageNs, j2);
+                scrapDataForType.mBindRunningAverageNs = runningAverage(scrapDataForType.mBindRunningAverageNs, j);
             }
         }
 
-        public void factorInCreateTime(int i2, long j2) {
+        public void factorInCreateTime(int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                 ScrapData scrapDataForType = getScrapDataForType(i2);
-                scrapDataForType.mCreateRunningAverageNs = runningAverage(scrapDataForType.mCreateRunningAverageNs, j2);
+                scrapDataForType.mCreateRunningAverageNs = runningAverage(scrapDataForType.mCreateRunningAverageNs, j);
             }
         }
 
@@ -3172,10 +3172,10 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public long runningAverage(long j2, long j3) {
+        public long runningAverage(long j, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 == 0 ? j3 : ((j2 / 4) * 3) + (j3 / 4) : invokeCommon.longValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j == 0 ? j2 : ((j / 4) * 3) + (j2 / 4) : invokeCommon.longValue;
         }
 
         public void setMaxRecycledViews(int i2, int i3) {
@@ -3206,22 +3206,22 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
-        public boolean willBindInTime(int i2, long j2, long j3) {
+        public boolean willBindInTime(int i2, long j, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-                long j4 = getScrapDataForType(i2).mBindRunningAverageNs;
-                return j4 == 0 || j2 + j4 < j3;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                long j3 = getScrapDataForType(i2).mBindRunningAverageNs;
+                return j3 == 0 || j + j3 < j2;
             }
             return invokeCommon.booleanValue;
         }
 
-        public boolean willCreateInTime(int i2, long j2, long j3) {
+        public boolean willCreateInTime(int i2, long j, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-                long j4 = getScrapDataForType(i2).mCreateRunningAverageNs;
-                return j4 == 0 || j2 + j4 < j3;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                long j3 = getScrapDataForType(i2).mCreateRunningAverageNs;
+                return j3 == 0 || j + j3 < j2;
             }
             return invokeCommon.booleanValue;
         }
@@ -3295,14 +3295,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        private boolean tryBindViewHolderByDeadline(@NonNull ViewHolder viewHolder, int i2, int i3, long j2) {
+        private boolean tryBindViewHolderByDeadline(@NonNull ViewHolder viewHolder, int i2, int i3, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{viewHolder, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{viewHolder, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
                 viewHolder.mOwnerRecyclerView = this.this$0;
                 int itemViewType = viewHolder.getItemViewType();
                 long nanoTime = this.this$0.getNanoTime();
-                if (j2 == Long.MAX_VALUE || this.mRecyclerPool.willBindInTime(itemViewType, nanoTime, j2)) {
+                if (j == Long.MAX_VALUE || this.mRecyclerPool.willBindInTime(itemViewType, nanoTime, j)) {
                     this.this$0.mAdapter.bindViewHolder(viewHolder, i2);
                     this.mRecyclerPool.factorInBindTime(viewHolder.getItemViewType(), this.this$0.getNanoTime() - nanoTime);
                     attachAccessibilityDelegateOnBind(viewHolder);
@@ -3491,15 +3491,15 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mUnmodifiableAttachedScrap : (List) invokeV.objValue;
         }
 
-        public ViewHolder getScrapOrCachedViewForId(long j2, int i2, boolean z) {
+        public ViewHolder getScrapOrCachedViewForId(long j, int i2, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
+            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
                 return (ViewHolder) invokeCommon.objValue;
             }
             for (int size = this.mAttachedScrap.size() - 1; size >= 0; size--) {
                 ViewHolder viewHolder = this.mAttachedScrap.get(size);
-                if (viewHolder.getItemId() == j2 && !viewHolder.wasReturnedFromScrap()) {
+                if (viewHolder.getItemId() == j && !viewHolder.wasReturnedFromScrap()) {
                     if (i2 == viewHolder.getItemViewType()) {
                         viewHolder.addFlags(32);
                         if (viewHolder.isRemoved() && !this.this$0.mState.isPreLayout()) {
@@ -3520,7 +3520,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                     return null;
                 }
                 ViewHolder viewHolder2 = this.mCachedViews.get(size2);
-                if (viewHolder2.getItemId() == j2 && !viewHolder2.isAttachedToTransitionOverlay()) {
+                if (viewHolder2.getItemId() == j && !viewHolder2.isAttachedToTransitionOverlay()) {
                     if (i2 == viewHolder2.getItemViewType()) {
                         if (!z) {
                             this.mCachedViews.remove(size2);
@@ -3868,7 +3868,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public ViewHolder tryGetViewHolderForPositionByDeadline(int i2, boolean z, long j2) {
+        public ViewHolder tryGetViewHolderForPositionByDeadline(int i2, boolean z, long j) {
             InterceptResult invokeCommon;
             ViewHolder viewHolder;
             boolean z2;
@@ -3881,7 +3881,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             ViewCacheExtension viewCacheExtension;
             View viewForPositionAndType;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j)})) == null) {
                 if (i2 >= 0 && i2 < this.this$0.mState.getItemCount()) {
                     boolean z4 = true;
                     if (this.this$0.mState.isPreLayout()) {
@@ -3935,7 +3935,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                                     }
                                     if (viewHolder == null) {
                                         long nanoTime = this.this$0.getNanoTime();
-                                        if (j2 == Long.MAX_VALUE || this.mRecyclerPool.willCreateInTime(itemViewType, nanoTime, j2)) {
+                                        if (j == Long.MAX_VALUE || this.mRecyclerPool.willCreateInTime(itemViewType, nanoTime, j)) {
                                             RecyclerView recyclerView = this.this$0;
                                             ViewHolder createViewHolder = recyclerView.mAdapter.createViewHolder(recyclerView, itemViewType);
                                             if (RecyclerView.ALLOW_THREAD_GAP_WORK && (findNestedRecyclerView = RecyclerView.findNestedRecyclerView(createViewHolder.itemView)) != null) {
@@ -3954,7 +3954,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                                             if (!this.this$0.mState.isPreLayout() && viewHolder2.isBound()) {
                                                 viewHolder2.mPreLayoutPosition = i2;
                                             } else if (viewHolder2.isBound() || viewHolder2.needsUpdate() || viewHolder2.isInvalid()) {
-                                                tryBindViewHolderByDeadline = tryBindViewHolderByDeadline(viewHolder2, this.this$0.mAdapterHelper.findPositionOffset(i2), i2, j2);
+                                                tryBindViewHolderByDeadline = tryBindViewHolderByDeadline(viewHolder2, this.this$0.mAdapterHelper.findPositionOffset(i2), i2, j);
                                                 layoutParams = viewHolder2.itemView.getLayoutParams();
                                                 if (layoutParams != null) {
                                                     layoutParams2 = (LayoutParams) this.this$0.generateDefaultLayoutParams();
@@ -3994,7 +3994,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                             }
                             if (viewHolder2.isBound()) {
                             }
-                            tryBindViewHolderByDeadline = tryBindViewHolderByDeadline(viewHolder2, this.this$0.mAdapterHelper.findPositionOffset(i2), i2, j2);
+                            tryBindViewHolderByDeadline = tryBindViewHolderByDeadline(viewHolder2, this.this$0.mAdapterHelper.findPositionOffset(i2), i2, j);
                             layoutParams = viewHolder2.itemView.getLayoutParams();
                             if (layoutParams != null) {
                             }
@@ -4020,7 +4020,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                     }
                     if (viewHolder2.isBound()) {
                     }
-                    tryBindViewHolderByDeadline = tryBindViewHolderByDeadline(viewHolder2, this.this$0.mAdapterHelper.findPositionOffset(i2), i2, j2);
+                    tryBindViewHolderByDeadline = tryBindViewHolderByDeadline(viewHolder2, this.this$0.mAdapterHelper.findPositionOffset(i2), i2, j);
                     layoutParams = viewHolder2.itemView.getLayoutParams();
                     if (layoutParams != null) {
                     }
@@ -6153,13 +6153,13 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (NestedScrollingChildHelper) invokeV.objValue;
     }
 
-    private void handleMissingPreInfoForChangeError(long j2, ViewHolder viewHolder, ViewHolder viewHolder2) {
+    private void handleMissingPreInfoForChangeError(long j, ViewHolder viewHolder, ViewHolder viewHolder2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65564, this, new Object[]{Long.valueOf(j2), viewHolder, viewHolder2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65564, this, new Object[]{Long.valueOf(j), viewHolder, viewHolder2}) == null) {
             int childCount = this.mChildHelper.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 ViewHolder childViewHolderInt = getChildViewHolderInt(this.mChildHelper.getChildAt(i2));
-                if (childViewHolderInt != viewHolder && getChangedHolderKey(childViewHolderInt) == j2) {
+                if (childViewHolderInt != viewHolder && getChangedHolderKey(childViewHolderInt) == j) {
                     Adapter adapter = this.mAdapter;
                     if (adapter != null && adapter.hasStableIds()) {
                         throw new IllegalStateException("Two different ViewHolders have the same stable ID. Stable IDs in your adapter MUST BE unique and SHOULD NOT change.\n ViewHolder 1:" + childViewHolderInt + " \n View Holder 2:" + viewHolder + exceptionLabel());
@@ -7248,10 +7248,10 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j2) {
+    public boolean drawChild(Canvas canvas, View view, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) ? super.drawChild(canvas, view, j2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) ? super.drawChild(canvas, view, j) : invokeCommon.booleanValue;
     }
 
     public void ensureBottomGlow() {
@@ -7406,17 +7406,17 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (ViewHolder) invokeI.objValue;
     }
 
-    public ViewHolder findViewHolderForItemId(long j2) {
+    public ViewHolder findViewHolderForItemId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048629, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048629, this, j)) == null) {
             Adapter adapter = this.mAdapter;
             ViewHolder viewHolder = null;
             if (adapter != null && adapter.hasStableIds()) {
                 int unfilteredChildCount = this.mChildHelper.getUnfilteredChildCount();
                 for (int i2 = 0; i2 < unfilteredChildCount; i2++) {
                     ViewHolder childViewHolderInt = getChildViewHolderInt(this.mChildHelper.getUnfilteredChildAt(i2));
-                    if (childViewHolderInt != null && !childViewHolderInt.isRemoved() && childViewHolderInt.getItemId() == j2) {
+                    if (childViewHolderInt != null && !childViewHolderInt.isRemoved() && childViewHolderInt.getItemId() == j) {
                         if (!this.mChildHelper.isHidden(childViewHolderInt.itemView)) {
                             return childViewHolderInt;
                         }

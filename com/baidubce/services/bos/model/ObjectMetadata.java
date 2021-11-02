@@ -11,7 +11,7 @@ import com.baidubce.util.CheckUtils;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ObjectMetadata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -173,10 +173,10 @@ public class ObjectMetadata {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.userMetadata : (Map) invokeV.objValue;
     }
 
-    public void setAppendOffset(long j2) {
+    public void setAppendOffset(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.appendOffset = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.appendOffset = j;
         }
     }
 
@@ -208,10 +208,10 @@ public class ObjectMetadata {
         }
     }
 
-    public void setContentLength(long j2) {
+    public void setContentLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.contentLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.contentLength = j;
         }
     }
 
@@ -257,10 +257,10 @@ public class ObjectMetadata {
         }
     }
 
-    public void setInstanceLength(long j2) {
+    public void setInstanceLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
-            this.instanceLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+            this.instanceLength = j;
         }
     }
 

@@ -25,18 +25,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ba extends bi.a implements cs.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f78515a;
+    public long f71453a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f926a;
+    public XMPushService f927a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a implements cs.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class ba extends bi.a implements cs.a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class b extends cs {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class ba extends bi.a implements cs.a {
                     }
                     return super.a(arrayList, str, str2, z);
                 } catch (IOException e2) {
-                    gz.a(0, ew.u.a(), 1, null, com.xiaomi.push.bg.c(cs.f77808a) ? 1 : 0);
+                    gz.a(0, ew.u.a(), 1, null, com.xiaomi.push.bg.c(cs.f70770a) ? 1 : 0);
                     throw e2;
                 }
             }
@@ -144,7 +144,7 @@ public class ba extends bi.a implements cs.a {
                 return;
             }
         }
-        this.f926a = xMPushService;
+        this.f927a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -177,13 +177,13 @@ public class ba extends bi.a implements cs.a {
     public void a(du.b bVar) {
         co b2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.b() && bVar.a() && System.currentTimeMillis() - this.f78515a > 3600000) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.b() && bVar.a() && System.currentTimeMillis() - this.f71453a > 3600000) {
             com.xiaomi.channel.commonutils.logger.b.m73a("fetch bucket :" + bVar.a());
-            this.f78515a = System.currentTimeMillis();
+            this.f71453a = System.currentTimeMillis();
             cs a2 = cs.a();
             a2.m234a();
             a2.m237b();
-            fl m563a = this.f926a.m563a();
+            fl m563a = this.f927a.m563a();
             if (m563a == null || (b2 = a2.b(m563a.m323a().c())) == null) {
                 return;
             }
@@ -202,8 +202,8 @@ public class ba extends bi.a implements cs.a {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.m73a("bucket changed, force reconnect");
-            this.f926a.a(0, (Exception) null);
-            this.f926a.a(false);
+            this.f927a.a(0, (Exception) null);
+            this.f927a.a(false);
         }
     }
 }

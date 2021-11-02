@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -26,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";
@@ -103,8 +104,8 @@ public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHan
             registerJavaScriptChannelNames((List) map.get(JS_CHANNEL_NAMES_FIELD));
         }
         updateAutoMediaPlaybackPolicy(((Integer) map.get("autoMediaPlaybackPolicy")).intValue());
-        if (map.containsKey("userAgent")) {
-            updateUserAgent((String) map.get("userAgent"));
+        if (map.containsKey(TTDownloadField.TT_USERAGENT)) {
+            updateUserAgent((String) map.get(TTDownloadField.TT_USERAGENT));
         }
         if (map.containsKey("initialUrl")) {
             this.webView.loadUrl((String) map.get("initialUrl"));
@@ -138,7 +139,7 @@ public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHan
                         }
                         break;
                     case 311430650:
-                        if (str.equals("userAgent")) {
+                        if (str.equals(TTDownloadField.TT_USERAGENT)) {
                             c2 = 4;
                             break;
                         }

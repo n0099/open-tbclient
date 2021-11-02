@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class InitDelayThread extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InitDelayCallback mCallback;
     public WeakReference<Context> mContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface InitDelayCallback extends NoProguard {
         void callBack();
     }
@@ -54,13 +54,13 @@ public class InitDelayThread extends Thread {
                 return;
             }
             String rimAllConfig = BdWalletUtils.getRimAllConfig(this.mContext.get());
-            long j2 = 0;
+            long j = 0;
             if (!TextUtils.isEmpty(rimAllConfig)) {
                 try {
                     GetFPResponse.RimConfig rimConfig = (GetFPResponse.RimConfig) JsonUtils.fromJson(rimAllConfig, GetFPResponse.RimConfig.class);
-                    if (rimConfig != null && rimConfig.f39469common != null) {
+                    if (rimConfig != null && rimConfig.f37415common != null) {
                         try {
-                            j2 = Long.parseLong(rimConfig.f39469common.init_delay);
+                            j = Long.parseLong(rimConfig.f37415common.init_delay);
                         } catch (NumberFormatException e2) {
                             e2.printStackTrace();
                         }
@@ -69,7 +69,7 @@ public class InitDelayThread extends Thread {
                     e3.printStackTrace();
                 }
             }
-            new Handler(Looper.myLooper()).postDelayed(new b(this), j2);
+            new Handler(Looper.myLooper()).postDelayed(new b(this), j);
         }
     }
 }

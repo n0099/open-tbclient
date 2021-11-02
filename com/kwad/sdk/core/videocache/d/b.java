@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.videocache.d;
 
 import com.kwad.sdk.core.videocache.n;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface b {
     n a(String str);
 

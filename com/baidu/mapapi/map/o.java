@@ -13,24 +13,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class o<T extends a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f41749a;
+    public final h f39587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f41750b;
+    public final int f39588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<T> f41751c;
+    public List<T> f39589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<o<T>> f41752d;
+    public List<o<T>> f39590d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,29 +109,29 @@ public class o<T extends a> {
                 return;
             }
         }
-        this.f41752d = null;
-        this.f41749a = hVar;
-        this.f41750b = i2;
+        this.f39590d = null;
+        this.f39587a = hVar;
+        this.f39588b = i2;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             ArrayList arrayList = new ArrayList(4);
-            this.f41752d = arrayList;
-            h hVar = this.f41749a;
-            arrayList.add(new o(hVar.f41736a, hVar.f41740e, hVar.f41737b, hVar.f41741f, this.f41750b + 1));
-            List<o<T>> list = this.f41752d;
-            h hVar2 = this.f41749a;
-            list.add(new o<>(hVar2.f41740e, hVar2.f41738c, hVar2.f41737b, hVar2.f41741f, this.f41750b + 1));
-            List<o<T>> list2 = this.f41752d;
-            h hVar3 = this.f41749a;
-            list2.add(new o<>(hVar3.f41736a, hVar3.f41740e, hVar3.f41741f, hVar3.f41739d, this.f41750b + 1));
-            List<o<T>> list3 = this.f41752d;
-            h hVar4 = this.f41749a;
-            list3.add(new o<>(hVar4.f41740e, hVar4.f41738c, hVar4.f41741f, hVar4.f41739d, this.f41750b + 1));
-            List<T> list4 = this.f41751c;
-            this.f41751c = null;
+            this.f39590d = arrayList;
+            h hVar = this.f39587a;
+            arrayList.add(new o(hVar.f39574a, hVar.f39578e, hVar.f39575b, hVar.f39579f, this.f39588b + 1));
+            List<o<T>> list = this.f39590d;
+            h hVar2 = this.f39587a;
+            list.add(new o<>(hVar2.f39578e, hVar2.f39576c, hVar2.f39575b, hVar2.f39579f, this.f39588b + 1));
+            List<o<T>> list2 = this.f39590d;
+            h hVar3 = this.f39587a;
+            list2.add(new o<>(hVar3.f39574a, hVar3.f39578e, hVar3.f39579f, hVar3.f39577d, this.f39588b + 1));
+            List<o<T>> list3 = this.f39590d;
+            h hVar4 = this.f39587a;
+            list3.add(new o<>(hVar4.f39578e, hVar4.f39576c, hVar4.f39579f, hVar4.f39577d, this.f39588b + 1));
+            List<T> list4 = this.f39589c;
+            this.f39589c = null;
             for (T t : list4) {
                 a(t.a().x, t.a().y, t);
             }
@@ -141,19 +141,19 @@ public class o<T extends a> {
     private void a(double d2, double d3, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), t}) == null) {
-            List<o<T>> list = this.f41752d;
+            List<o<T>> list = this.f39590d;
             if (list != null) {
-                h hVar = this.f41749a;
-                int i2 = (d3 > hVar.f41741f ? 1 : (d3 == hVar.f41741f ? 0 : -1));
-                int i3 = (d2 > hVar.f41740e ? 1 : (d2 == hVar.f41740e ? 0 : -1));
+                h hVar = this.f39587a;
+                int i2 = (d3 > hVar.f39579f ? 1 : (d3 == hVar.f39579f ? 0 : -1));
+                int i3 = (d2 > hVar.f39578e ? 1 : (d2 == hVar.f39578e ? 0 : -1));
                 list.get(i2 < 0 ? i3 < 0 ? 0 : 1 : i3 < 0 ? 2 : 3).a(d2, d3, t);
                 return;
             }
-            if (this.f41751c == null) {
-                this.f41751c = new ArrayList();
+            if (this.f39589c == null) {
+                this.f39589c = new ArrayList();
             }
-            this.f41751c.add(t);
-            if (this.f41751c.size() <= 40 || this.f41750b >= 40) {
+            this.f39589c.add(t);
+            if (this.f39589c.size() <= 40 || this.f39588b >= 40) {
                 return;
             }
             a();
@@ -162,18 +162,18 @@ public class o<T extends a> {
 
     private void a(h hVar, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, hVar, collection) == null) && this.f41749a.a(hVar)) {
-            List<o<T>> list = this.f41752d;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, hVar, collection) == null) && this.f39587a.a(hVar)) {
+            List<o<T>> list = this.f39590d;
             if (list != null) {
                 for (o<T> oVar : list) {
                     oVar.a(hVar, collection);
                 }
-            } else if (this.f41751c != null) {
-                if (hVar.b(this.f41749a)) {
-                    collection.addAll(this.f41751c);
+            } else if (this.f39589c != null) {
+                if (hVar.b(this.f39587a)) {
+                    collection.addAll(this.f39589c);
                     return;
                 }
-                for (T t : this.f41751c) {
+                for (T t : this.f39589c) {
                     if (hVar.a(t.a())) {
                         collection.add(t);
                     }
@@ -197,7 +197,7 @@ public class o<T extends a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             Point a2 = t.a();
-            if (this.f41749a.a(a2.x, a2.y)) {
+            if (this.f39587a.a(a2.x, a2.y)) {
                 a(a2.x, a2.y, t);
             }
         }

@@ -1,11 +1,11 @@
 package com.baidu.tbadk;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.d0.b;
-import c.a.r0.l1.c;
-import c.a.r0.l1.v.a.d;
-import c.a.r0.l1.v.a.e;
-import c.a.r0.l1.v.a.f;
+import b.a.q0.s.e0.b;
+import b.a.r0.l1.c;
+import b.a.r0.l1.v.a.d;
+import b.a.r0.l1.v.a.e;
+import b.a.r0.l1.v.a.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TbLaunchStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Tag = "tag";

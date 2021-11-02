@@ -8,32 +8,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
-import com.facebook.imagepipeline.listener.RequestListener;
+import com.facebook.imagepipeline.listener.RequestListener2;
 import com.facebook.imagepipeline.producers.Producer;
+import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.producers.SettableProducerContext;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToDataSourceAdapter<CloseableReference<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CloseableProducerToDataSourceAdapter(Producer<CloseableReference<T>> producer, SettableProducerContext settableProducerContext, RequestListener requestListener) {
-        super(producer, settableProducerContext, requestListener);
+    public CloseableProducerToDataSourceAdapter(Producer<CloseableReference<T>> producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
+        super(producer, settableProducerContext, requestListener2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {producer, settableProducerContext, requestListener};
+            Object[] objArr = {producer, settableProducerContext, requestListener2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Producer) objArr2[0], (SettableProducerContext) objArr2[1], (RequestListener) objArr2[2]);
+                super((Producer) objArr2[0], (SettableProducerContext) objArr2[1], (RequestListener2) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,14 +42,14 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
         }
     }
 
-    public static <T> DataSource<CloseableReference<T>> create(Producer<CloseableReference<T>> producer, SettableProducerContext settableProducerContext, RequestListener requestListener) {
+    public static <T> DataSource<CloseableReference<T>> create(Producer<CloseableReference<T>> producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, producer, settableProducerContext, requestListener)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, producer, settableProducerContext, requestListener2)) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("CloseableProducerToDataSourceAdapter#create");
             }
-            CloseableProducerToDataSourceAdapter closeableProducerToDataSourceAdapter = new CloseableProducerToDataSourceAdapter(producer, settableProducerContext, requestListener);
+            CloseableProducerToDataSourceAdapter closeableProducerToDataSourceAdapter = new CloseableProducerToDataSourceAdapter(producer, settableProducerContext, requestListener2);
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.endSection();
             }
@@ -63,8 +64,8 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
     }
 
     @Override // com.facebook.imagepipeline.datasource.AbstractProducerToDataSourceAdapter
-    public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i2) {
-        onNewResultImpl((CloseableReference) ((CloseableReference) obj), i2);
+    public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i2, ProducerContext producerContext) {
+        onNewResultImpl((CloseableReference) ((CloseableReference) obj), i2, producerContext);
     }
 
     public void closeResult(CloseableReference<T> closeableReference) {
@@ -83,10 +84,10 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CloseableReference.cloneOrNull((CloseableReference) super.getResult()) : (CloseableReference) invokeV.objValue;
     }
 
-    public void onNewResultImpl(CloseableReference<T> closeableReference, int i2) {
+    public void onNewResultImpl(CloseableReference<T> closeableReference, int i2, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, closeableReference, i2) == null) {
-            super.onNewResultImpl((CloseableProducerToDataSourceAdapter<T>) CloseableReference.cloneOrNull(closeableReference), i2);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, closeableReference, i2, producerContext) == null) {
+            super.onNewResultImpl((CloseableProducerToDataSourceAdapter<T>) CloseableReference.cloneOrNull(closeableReference), i2, producerContext);
         }
     }
 }

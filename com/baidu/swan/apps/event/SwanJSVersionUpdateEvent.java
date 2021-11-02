@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.event;
 
 import androidx.annotation.Keep;
-import c.a.p0.a.c1.a;
-import c.a.p0.a.k;
-import c.a.p0.a.m2.b;
+import b.a.p0.a.c1.a;
+import b.a.p0.a.k;
+import b.a.p0.a.m2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanJSVersionUpdateEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -37,7 +37,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = k.f7085a;
+        DEBUG = k.f6397a;
     }
 
     public SwanJSVersionUpdateEvent() {
@@ -63,16 +63,16 @@ public class SwanJSVersionUpdateEvent {
         this.mVersionName = null;
     }
 
-    public static void sendEvent(long j2) {
+    public static void sendEvent(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
             SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
             if (swanJSVersionUpdateEvent.mVersionName == null) {
                 return;
             }
             a.I().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
-                String str = "send SwanJSVersionUpdateEvent, downVersion:" + j2 + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX;
+                String str = "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX;
             }
         }
     }

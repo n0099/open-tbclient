@@ -6,11 +6,11 @@ import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.e;
-import c.a.a0.b.a.j;
-import c.a.x0.b;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
+import b.a.a0.b.a.e;
+import b.a.a0.b.a.j;
+import b.a.x0.b;
+import b.a.x0.t.c;
+import b.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -60,7 +60,7 @@ import java.util.List;
 import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEventListener, EffectChangeObserver, MediaTrackChangeObserver, IMultiMediaDataSourceView, OnDrawUpdateTextureListener, OnPreRunnableTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     public j mVlogEditCore;
     public OnMultiMediaDataTextureListener onMultiMediaDataTextureListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMultiMediaDataTextureListener {
         void onFrameAvailable(SurfaceTexture surfaceTexture);
     }
@@ -356,15 +356,15 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnMultiMediaCaptureCallback
-    public void capture(int i2, long j2, int i3, int i4) {
+    public void capture(int i2, long j, int i3, int i4) {
         MultiMediaPreGlRenderer multiMediaPreGlRenderer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
             return;
         }
         try {
-            onDrawFrame(i2, j2);
-            int onPreProcess = multiMediaPreGlRenderer.onPreProcess(i2, j2);
+            onDrawFrame(i2, j);
+            int onPreProcess = multiMediaPreGlRenderer.onPreProcess(i2, j);
             int i5 = this.mUpdateTextureId;
             int i6 = this.mUpdateTextureMode;
             float[] fArr = this.mUpdateMatrix;
@@ -736,13 +736,13 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void onDrawFrame(int i2, long j2) {
+    public void onDrawFrame(int i2, long j) {
         OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null) {
             return;
         }
-        onDrawUpdateTextureListener.onDrawFrame(i2, j2);
+        onDrawUpdateTextureListener.onDrawFrame(i2, j);
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -973,9 +973,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
-    public void seek(long j2) {
+    public void seek(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048611, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048611, this, j) == null) {
             this.mSeeking = true;
         }
     }
@@ -1051,7 +1051,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
             }
             j jVar = new j();
             this.mVlogEditCore = jVar;
-            jVar.j(b.d().b());
+            jVar.j(b.c().getContext());
             onDrawUpdateTextureListener.setVlogCore(this.mVlogEditCore);
         }
     }

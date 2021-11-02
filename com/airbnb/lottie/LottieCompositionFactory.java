@@ -13,7 +13,7 @@ import com.airbnb.lottie.network.NetworkFetcher;
 import com.airbnb.lottie.parser.LottieCompositionMoshiParser;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Utils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,7 +25,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import okio.Okio;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LottieCompositionFactory {
     public static final Map<String, LottieTask<LottieComposition>> taskCache = new HashMap();
 
@@ -236,7 +236,7 @@ public class LottieCompositionFactory {
                 } else if (nextEntry.getName().contains(".json")) {
                     lottieComposition = fromJsonReaderSyncInternal(JsonReader.of(Okio.buffer(Okio.source(zipInputStream))), null, false).getValue();
                 } else {
-                    if (!name.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) && !name.contains(".webp")) {
+                    if (!name.contains(".png") && !name.contains(ComboPraiseProvider.RES_NAME_PRAISE_WEBP_SUFFIX)) {
                         zipInputStream.closeEntry();
                     }
                     hashMap.put(name.split("/")[split.length - 1], BitmapFactory.decodeStream(zipInputStream));

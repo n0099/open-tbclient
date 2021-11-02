@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f76259a;
+    public static final h f69311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f76260b;
+    public static final h f69312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ h[] f76261c;
+    public static final /* synthetic */ h[] f69313c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,10 +35,10 @@ public final class h {
                 return;
             }
         }
-        f76259a = new h("RETURN", 0);
+        f69311a = new h("RETURN", 0);
         h hVar = new h("CONTINUE", 1);
-        f76260b = hVar;
-        f76261c = new h[]{f76259a, hVar};
+        f69312b = hVar;
+        f69313c = new h[]{f69311a, hVar};
     }
 
     public h(String str, int i2) {
@@ -69,6 +69,6 @@ public final class h {
     public static h[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f76261c.clone() : (h[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f69313c.clone() : (h[]) invokeV.objValue;
     }
 }

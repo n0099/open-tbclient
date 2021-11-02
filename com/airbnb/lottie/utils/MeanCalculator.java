@@ -1,5 +1,5 @@
 package com.airbnb.lottie.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MeanCalculator {
     public int n;
     public float sum;

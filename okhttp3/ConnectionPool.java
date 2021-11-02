@@ -25,7 +25,7 @@ import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ConnectionPool {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -73,10 +73,10 @@ public final class ConnectionPool {
         }
     }
 
-    private int pruneAndGetAllocationCount(RealConnection realConnection, long j2) {
+    private int pruneAndGetAllocationCount(RealConnection realConnection, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, this, realConnection, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, this, realConnection, j)) == null) {
             List<Reference<StreamAllocation>> list = realConnection.allocations;
             int i2 = 0;
             while (i2 < list.size()) {
@@ -88,7 +88,7 @@ public final class ConnectionPool {
                     list.remove(i2);
                     realConnection.noNewStreams = true;
                     if (list.isEmpty()) {
-                        realConnection.idleAtNanos = j2 - this.keepAliveDurationNs;
+                        realConnection.idleAtNanos = j - this.keepAliveDurationNs;
                         return 0;
                     }
                 }
@@ -98,30 +98,30 @@ public final class ConnectionPool {
         return invokeLJ.intValue;
     }
 
-    public long cleanup(long j2) {
+    public long cleanup(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             synchronized (this) {
                 RealConnection realConnection = null;
-                long j3 = Long.MIN_VALUE;
+                long j2 = Long.MIN_VALUE;
                 int i2 = 0;
                 int i3 = 0;
                 for (RealConnection realConnection2 : this.connections) {
-                    if (pruneAndGetAllocationCount(realConnection2, j2) > 0) {
+                    if (pruneAndGetAllocationCount(realConnection2, j) > 0) {
                         i3++;
                     } else {
                         i2++;
-                        long j4 = j2 - realConnection2.idleAtNanos;
-                        if (j4 > j3) {
+                        long j3 = j - realConnection2.idleAtNanos;
+                        if (j3 > j2) {
                             realConnection = realConnection2;
-                            j3 = j4;
+                            j2 = j3;
                         }
                     }
                 }
-                if (j3 < this.keepAliveDurationNs && i2 <= this.maxIdleConnections) {
+                if (j2 < this.keepAliveDurationNs && i2 <= this.maxIdleConnections) {
                     if (i2 > 0) {
-                        return this.keepAliveDurationNs - j3;
+                        return this.keepAliveDurationNs - j2;
                     }
                     if (i3 > 0) {
                         return this.keepAliveDurationNs;
@@ -245,12 +245,12 @@ public final class ConnectionPool {
         }
     }
 
-    public ConnectionPool(int i2, long j2, TimeUnit timeUnit) {
+    public ConnectionPool(int i2, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), timeUnit};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -295,11 +295,11 @@ public final class ConnectionPool {
                         return;
                     }
                     if (cleanup > 0) {
-                        long j3 = cleanup / 1000000;
-                        long j4 = cleanup - (1000000 * j3);
+                        long j2 = cleanup / 1000000;
+                        long j3 = cleanup - (1000000 * j2);
                         synchronized (this.this$0) {
                             try {
-                                this.this$0.wait(j3, (int) j4);
+                                this.this$0.wait(j2, (int) j3);
                             } catch (InterruptedException unused) {
                             }
                         }
@@ -310,10 +310,10 @@ public final class ConnectionPool {
         this.connections = new ArrayDeque();
         this.routeDatabase = new RouteDatabase();
         this.maxIdleConnections = i2;
-        this.keepAliveDurationNs = timeUnit.toNanos(j2);
-        if (j2 > 0) {
+        this.keepAliveDurationNs = timeUnit.toNanos(j);
+        if (j > 0) {
             return;
         }
-        throw new IllegalArgumentException("keepAliveDuration <= 0: " + j2);
+        throw new IllegalArgumentException("keepAliveDuration <= 0: " + j);
     }
 }

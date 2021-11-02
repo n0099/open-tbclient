@@ -1,9 +1,9 @@
 package com.baidu.tieba.newinterest.activity;
 
 import android.os.Bundle;
-import c.a.q0.b.d;
-import c.a.q0.s.d0.b;
-import c.a.r0.g2.h.a;
+import b.a.q0.b.d;
+import b.a.q0.s.e0.b;
+import b.a.r0.g2.h.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             sb.append(p);
             sb.append(StringUtils.isNull(p) ? "" : ",");
             String sb2 = sb.toString();
-            b j2 = b.j();
-            j2.x("key_interest_guide_show", sb2 + System.currentTimeMillis());
+            b j = b.j();
+            j.x("key_interest_guide_show", sb2 + System.currentTimeMillis());
         }
     }
 

@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.alasquare.live.message;
 
-import c.a.e.e.p.j;
-import c.a.e.e.p.l;
-import c.a.q0.d1.z;
+import b.a.e.e.p.j;
+import b.a.e.e.p.l;
+import b.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AlaSquareLiveRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

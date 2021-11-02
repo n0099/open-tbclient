@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.AddMsgRecord.AddMsgRecordResIdl;
 import tbclient.AddMsgRecord.DataRes;
 import tbclient.Error;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AddMsgRecordSocketResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

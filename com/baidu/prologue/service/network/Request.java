@@ -2,10 +2,10 @@ package com.baidu.prologue.service.network;
 
 import android.content.Context;
 import android.os.Handler;
-import c.a.f0.a.c.g;
-import c.a.f0.d.a.e;
-import c.a.f0.d.a.k;
-import c.a.f0.d.a.l;
+import b.a.f0.a.c.g;
+import b.a.f0.d.a.e;
+import b.a.f0.d.a.k;
+import b.a.f0.d.a.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,42 +22,40 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Request {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final URL f44398a;
+    public final URL f42154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f44399b;
+    public final String f42155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f44400c;
+    public final Map<String, String> f42156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, String> f44401d;
+    public final Map<String, String> f42157d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f44402e;
+    public final Object f42158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f44403f;
+    public final Context f42159f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final e f44404g;
+    public final e f42160g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f44405h;
+    public final Handler f42161h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final RequestError f44406i;
+    public final RequestError f42162i;
+    public boolean j;
 
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f44407j;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class RequestError extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,16 +122,16 @@ public final class Request {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f44408e;
+        public final /* synthetic */ l f42163e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Request f44409f;
+        public final /* synthetic */ Request f42164f;
 
         public a(Request request, l lVar) {
             Interceptable interceptable = $ic;
@@ -150,40 +148,40 @@ public final class Request {
                     return;
                 }
             }
-            this.f44409f = request;
-            this.f44408e = lVar;
+            this.f42164f = request;
+            this.f42163e = lVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44408e.a(this.f44409f.f44406i);
+                this.f42163e.a(this.f42164f.f42162i);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f44410a;
+        public final /* synthetic */ l f42165a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Request f44411b;
+        public final /* synthetic */ Request f42166b;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f44412e;
+            public final /* synthetic */ String f42167e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f44413f;
+            public final /* synthetic */ b f42168f;
 
             public a(b bVar, String str) {
                 Interceptable interceptable = $ic;
@@ -200,32 +198,32 @@ public final class Request {
                         return;
                     }
                 }
-                this.f44413f = bVar;
-                this.f44412e = str;
+                this.f42168f = bVar;
+                this.f42167e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f44413f.f44410a.onResponse(this.f44412e);
+                    this.f42168f.f42165a.onResponse(this.f42167e);
                 }
             }
         }
 
         /* renamed from: com.baidu.prologue.service.network.Request$b$b  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC1696b implements Runnable {
+        /* loaded from: classes7.dex */
+        public class RunnableC1653b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Throwable f44414e;
+            public final /* synthetic */ Throwable f42169e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f44415f;
+            public final /* synthetic */ b f42170f;
 
-            public RunnableC1696b(b bVar, Throwable th) {
+            public RunnableC1653b(b bVar, Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -240,15 +238,15 @@ public final class Request {
                         return;
                     }
                 }
-                this.f44415f = bVar;
-                this.f44414e = th;
+                this.f42170f = bVar;
+                this.f42169e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f44415f.f44410a.a(this.f44414e);
+                    this.f42170f.f42165a.a(this.f42169e);
                 }
             }
         }
@@ -268,61 +266,59 @@ public final class Request {
                     return;
                 }
             }
-            this.f44411b = request;
-            this.f44410a = lVar;
+            this.f42166b = request;
+            this.f42165a = lVar;
         }
 
-        @Override // c.a.f0.d.a.k
+        @Override // b.a.f0.d.a.k
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.f44411b.g(new RunnableC1696b(this, th));
+                this.f42166b.g(new RunnableC1653b(this, th));
             }
         }
 
-        @Override // c.a.f0.d.a.k
-        public void b(long j2, InputStream inputStream) {
+        @Override // b.a.f0.d.a.k
+        public void b(long j, InputStream inputStream) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, inputStream) == null) {
-                this.f44411b.g(new a(this, new String(Request.h(inputStream))));
+            if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, inputStream) == null) {
+                this.f42166b.g(new a(this, new String(Request.h(inputStream))));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f44416a;
+        public final Context f42171a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f44417b;
+        public final String f42172b;
 
         /* renamed from: c  reason: collision with root package name */
-        public URL f44418c;
+        public URL f42173c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44419d;
+        public String f42174d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map<String, String> f44420e;
+        public Map<String, String> f42175e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Map<String, String> f44421f;
+        public Map<String, String> f42176f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f44422g;
+        public boolean f42177g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Object f44423h;
+        public Object f42178h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f44424i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public RequestError f44425j;
+        public boolean f42179i;
+        public RequestError j;
 
         public c(Context context, String str) {
             Interceptable interceptable = $ic;
@@ -339,18 +335,18 @@ public final class Request {
                     return;
                 }
             }
-            this.f44416a = context.getApplicationContext();
-            this.f44417b = str;
+            this.f42171a = context.getApplicationContext();
+            this.f42172b = str;
         }
 
         public c j(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                if (this.f44421f == null) {
-                    this.f44421f = new HashMap();
+                if (this.f42176f == null) {
+                    this.f42176f = new HashMap();
                 }
-                this.f44421f.put(str, str2);
+                this.f42176f.put(str, str2);
                 return this;
             }
             return (c) invokeLL.objValue;
@@ -360,10 +356,10 @@ public final class Request {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                if (this.f44420e == null) {
-                    this.f44420e = new HashMap();
+                if (this.f42175e == null) {
+                    this.f42175e = new HashMap();
                 }
-                this.f44420e.put(str, str2.trim());
+                this.f42175e.put(str, str2.trim());
                 return this;
             }
             return (c) invokeLL.objValue;
@@ -373,16 +369,16 @@ public final class Request {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f44419d == null) {
+                if (this.f42174d == null) {
                     m();
                 }
-                if ("GET".equals(this.f44419d)) {
+                if ("GET".equals(this.f42174d)) {
                     try {
-                        this.f44418c = new URL(c.a.f0.d.a.b.b(this.f44418c.toString(), this.f44421f));
+                        this.f42173c = new URL(b.a.f0.d.a.b.b(this.f42173c.toString(), this.f42176f));
                     } catch (MalformedURLException e2) {
-                        this.f44425j = new RequestError("Failed to create url", e2);
+                        this.j = new RequestError("Failed to create url", e2);
                     } catch (URISyntaxException e3) {
-                        this.f44425j = new RequestError("Failed to add parameters to url", e3);
+                        this.j = new RequestError("Failed to add parameters to url", e3);
                     }
                 }
                 return new Request(this, null);
@@ -394,15 +390,15 @@ public final class Request {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f44418c != null) {
-                    this.f44425j = new RequestError("Method called twice");
+                if (this.f42173c != null) {
+                    this.j = new RequestError("Method called twice");
                 }
                 try {
-                    this.f44418c = new URL(this.f44417b);
+                    this.f42173c = new URL(this.f42172b);
                 } catch (MalformedURLException e2) {
-                    this.f44425j = new RequestError(e2);
+                    this.j = new RequestError(e2);
                 }
-                this.f44419d = "GET";
+                this.f42174d = "GET";
                 return this;
             }
             return (c) invokeV.objValue;
@@ -412,15 +408,15 @@ public final class Request {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.f44418c != null) {
-                    this.f44425j = new RequestError("Method called twice");
+                if (this.f42173c != null) {
+                    this.j = new RequestError("Method called twice");
                 }
                 try {
-                    this.f44418c = new URL(this.f44417b);
+                    this.f42173c = new URL(this.f42172b);
                 } catch (MalformedURLException e2) {
-                    this.f44425j = new RequestError(e2);
+                    this.j = new RequestError(e2);
                 }
-                this.f44419d = "POST";
+                this.f42174d = "POST";
                 return this;
             }
             return (c) invokeV.objValue;
@@ -430,7 +426,7 @@ public final class Request {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f44424i = z;
+                this.f42179i = z;
                 return this;
             }
             return (c) invokeZ.objValue;
@@ -459,12 +455,12 @@ public final class Request {
                         }
                         byteArrayOutputStream.write(bArr, 0, read);
                     } catch (IOException e2) {
-                        g.f3352a.e(SingleRequest.TAG, "failed to read is", e2);
+                        g.f2795a.e(SingleRequest.TAG, "failed to read is", e2);
                     }
                 }
                 return byteArrayOutputStream.toByteArray();
             } finally {
-                c.a.f0.a.c.k.a(byteArrayOutputStream);
+                b.a.f0.a.c.k.a(byteArrayOutputStream);
             }
         }
         return (byte[]) invokeL.objValue;
@@ -473,17 +469,17 @@ public final class Request {
     public void d(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
-            this.f44404g.a(this, kVar);
+            this.f42160g.a(this, kVar);
         }
     }
 
     public void e(l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-            if (this.f44406i != null) {
+            if (this.f42162i != null) {
                 g(new a(this, lVar));
             } else {
-                this.f44404g.a(this, new b(this, lVar));
+                this.f42160g.a(this, new b(this, lVar));
             }
         }
     }
@@ -492,7 +488,7 @@ public final class Request {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Map<String, String> map = this.f44401d;
+            Map<String, String> map = this.f42157d;
             return map != null && map.size() > 0;
         }
         return invokeV.booleanValue;
@@ -501,7 +497,7 @@ public final class Request {
     public final void g(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
-            this.f44405h.post(runnable);
+            this.f42161h.post(runnable);
         }
     }
 
@@ -520,16 +516,16 @@ public final class Request {
                 return;
             }
         }
-        this.f44406i = cVar.f44425j;
-        this.f44403f = cVar.f44416a;
-        this.f44405h = new Handler(this.f44403f.getMainLooper());
-        this.f44398a = cVar.f44418c;
-        this.f44399b = cVar.f44419d;
-        this.f44400c = cVar.f44420e;
-        this.f44401d = cVar.f44421f;
-        boolean unused = cVar.f44422g;
-        this.f44402e = cVar.f44423h != null ? cVar.f44423h : this;
-        this.f44404g = c.a.f0.d.a.c.c(this.f44403f);
-        this.f44407j = cVar.f44424i;
+        this.f42162i = cVar.j;
+        this.f42159f = cVar.f42171a;
+        this.f42161h = new Handler(this.f42159f.getMainLooper());
+        this.f42154a = cVar.f42173c;
+        this.f42155b = cVar.f42174d;
+        this.f42156c = cVar.f42175e;
+        this.f42157d = cVar.f42176f;
+        boolean unused = cVar.f42177g;
+        this.f42158e = cVar.f42178h != null ? cVar.f42178h : this;
+        this.f42160g = b.a.f0.d.a.c.c(this.f42159f);
+        this.j = cVar.f42179i;
     }
 }

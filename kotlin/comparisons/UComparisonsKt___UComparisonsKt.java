@@ -8,7 +8,7 @@ import kotlin.UnsignedKt;
 import kotlin.internal.InlineOnly;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0010\u001a\"\u0010\u0005\u001a\u00020\u00002\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u0000H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0003\u0010\u0004\u001a+\u0010\u0005\u001a\u00020\u00002\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u00002\u0006\u0010\u0006\u001a\u00020\u0000H\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0007\u0010\b\u001a&\u0010\u0005\u001a\u00020\u00002\u0006\u0010\u0001\u001a\u00020\u00002\n\u0010\n\u001a\u00020\t\"\u00020\u0000H\u0007ø\u0001\u0000¢\u0006\u0004\b\u000b\u0010\f\u001a\"\u0010\u0005\u001a\u00020\r2\u0006\u0010\u0001\u001a\u00020\r2\u0006\u0010\u0002\u001a\u00020\rH\u0007ø\u0001\u0000¢\u0006\u0004\b\u000e\u0010\u000f\u001a+\u0010\u0005\u001a\u00020\r2\u0006\u0010\u0001\u001a\u00020\r2\u0006\u0010\u0002\u001a\u00020\r2\u0006\u0010\u0006\u001a\u00020\rH\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u0011\u001a&\u0010\u0005\u001a\u00020\r2\u0006\u0010\u0001\u001a\u00020\r2\n\u0010\n\u001a\u00020\u0012\"\u00020\rH\u0007ø\u0001\u0000¢\u0006\u0004\b\u0013\u0010\u0014\u001a\"\u0010\u0005\u001a\u00020\u00152\u0006\u0010\u0001\u001a\u00020\u00152\u0006\u0010\u0002\u001a\u00020\u0015H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0016\u0010\u0017\u001a+\u0010\u0005\u001a\u00020\u00152\u0006\u0010\u0001\u001a\u00020\u00152\u0006\u0010\u0002\u001a\u00020\u00152\u0006\u0010\u0006\u001a\u00020\u0015H\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0018\u0010\u0019\u001a&\u0010\u0005\u001a\u00020\u00152\u0006\u0010\u0001\u001a\u00020\u00152\n\u0010\n\u001a\u00020\u001a\"\u00020\u0015H\u0007ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u001c\u001a\"\u0010\u0005\u001a\u00020\u001d2\u0006\u0010\u0001\u001a\u00020\u001d2\u0006\u0010\u0002\u001a\u00020\u001dH\u0007ø\u0001\u0000¢\u0006\u0004\b\u001e\u0010\u001f\u001a+\u0010\u0005\u001a\u00020\u001d2\u0006\u0010\u0001\u001a\u00020\u001d2\u0006\u0010\u0002\u001a\u00020\u001d2\u0006\u0010\u0006\u001a\u00020\u001dH\u0087\bø\u0001\u0000¢\u0006\u0004\b \u0010!\u001a&\u0010\u0005\u001a\u00020\u001d2\u0006\u0010\u0001\u001a\u00020\u001d2\n\u0010\n\u001a\u00020\"\"\u00020\u001dH\u0007ø\u0001\u0000¢\u0006\u0004\b#\u0010$\u001a\"\u0010&\u001a\u00020\u00002\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u0000H\u0007ø\u0001\u0000¢\u0006\u0004\b%\u0010\u0004\u001a+\u0010&\u001a\u00020\u00002\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u00002\u0006\u0010\u0006\u001a\u00020\u0000H\u0087\bø\u0001\u0000¢\u0006\u0004\b'\u0010\b\u001a&\u0010&\u001a\u00020\u00002\u0006\u0010\u0001\u001a\u00020\u00002\n\u0010\n\u001a\u00020\t\"\u00020\u0000H\u0007ø\u0001\u0000¢\u0006\u0004\b(\u0010\f\u001a\"\u0010&\u001a\u00020\r2\u0006\u0010\u0001\u001a\u00020\r2\u0006\u0010\u0002\u001a\u00020\rH\u0007ø\u0001\u0000¢\u0006\u0004\b)\u0010\u000f\u001a+\u0010&\u001a\u00020\r2\u0006\u0010\u0001\u001a\u00020\r2\u0006\u0010\u0002\u001a\u00020\r2\u0006\u0010\u0006\u001a\u00020\rH\u0087\bø\u0001\u0000¢\u0006\u0004\b*\u0010\u0011\u001a&\u0010&\u001a\u00020\r2\u0006\u0010\u0001\u001a\u00020\r2\n\u0010\n\u001a\u00020\u0012\"\u00020\rH\u0007ø\u0001\u0000¢\u0006\u0004\b+\u0010\u0014\u001a\"\u0010&\u001a\u00020\u00152\u0006\u0010\u0001\u001a\u00020\u00152\u0006\u0010\u0002\u001a\u00020\u0015H\u0007ø\u0001\u0000¢\u0006\u0004\b,\u0010\u0017\u001a+\u0010&\u001a\u00020\u00152\u0006\u0010\u0001\u001a\u00020\u00152\u0006\u0010\u0002\u001a\u00020\u00152\u0006\u0010\u0006\u001a\u00020\u0015H\u0087\bø\u0001\u0000¢\u0006\u0004\b-\u0010\u0019\u001a&\u0010&\u001a\u00020\u00152\u0006\u0010\u0001\u001a\u00020\u00152\n\u0010\n\u001a\u00020\u001a\"\u00020\u0015H\u0007ø\u0001\u0000¢\u0006\u0004\b.\u0010\u001c\u001a\"\u0010&\u001a\u00020\u001d2\u0006\u0010\u0001\u001a\u00020\u001d2\u0006\u0010\u0002\u001a\u00020\u001dH\u0007ø\u0001\u0000¢\u0006\u0004\b/\u0010\u001f\u001a+\u0010&\u001a\u00020\u001d2\u0006\u0010\u0001\u001a\u00020\u001d2\u0006\u0010\u0002\u001a\u00020\u001d2\u0006\u0010\u0006\u001a\u00020\u001dH\u0087\bø\u0001\u0000¢\u0006\u0004\b0\u0010!\u001a&\u0010&\u001a\u00020\u001d2\u0006\u0010\u0001\u001a\u00020\u001d2\n\u0010\n\u001a\u00020\"\"\u00020\u001dH\u0007ø\u0001\u0000¢\u0006\u0004\b1\u0010$\u0082\u0002\u0004\n\u0002\b\u0019¨\u00062"}, d2 = {"Lkotlin/UByte;", "a", "b", "maxOf-Kr8caGY", "(BB)B", "maxOf", "c", "maxOf-b33U2AM", "(BBB)B", "Lkotlin/UByteArray;", "other", "maxOf-Wr6uiD8", "(B[B)B", "Lkotlin/UInt;", "maxOf-J1ME1BU", "(II)I", "maxOf-WZ9TVnA", "(III)I", "Lkotlin/UIntArray;", "maxOf-Md2H83M", "(I[I)I", "Lkotlin/ULong;", "maxOf-eb3DHEI", "(JJ)J", "maxOf-sambcqE", "(JJJ)J", "Lkotlin/ULongArray;", "maxOf-R03FKyM", "(J[J)J", "Lkotlin/UShort;", "maxOf-5PvTz6A", "(SS)S", "maxOf-VKSA0NQ", "(SSS)S", "Lkotlin/UShortArray;", "maxOf-t1qELG4", "(S[S)S", "minOf-Kr8caGY", "minOf", "minOf-b33U2AM", "minOf-Wr6uiD8", "minOf-J1ME1BU", "minOf-WZ9TVnA", "minOf-Md2H83M", "minOf-eb3DHEI", "minOf-sambcqE", "minOf-R03FKyM", "minOf-5PvTz6A", "minOf-VKSA0NQ", "minOf-t1qELG4", "kotlin-stdlib"}, k = 5, mv = {1, 1, 15}, pn = "", xi = 0, xs = "kotlin/comparisons/UComparisonsKt")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
@@ -45,12 +45,12 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-R03FKyM  reason: not valid java name */
-    public static final long m1795maxOfR03FKyM(long j2, long... other) {
+    public static final long m1795maxOfR03FKyM(long j, long... other) {
         Intrinsics.checkNotNullParameter(other, "other");
-        for (long j3 : other) {
-            j2 = m1800maxOfeb3DHEI(j2, j3);
+        for (long j2 : other) {
+            j = m1800maxOfeb3DHEI(j, j2);
         }
-        return j2;
+        return j;
     }
 
     @SinceKotlin(version = "1.3")
@@ -91,16 +91,16 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-eb3DHEI  reason: not valid java name */
-    public static final long m1800maxOfeb3DHEI(long j2, long j3) {
-        return UnsignedKt.ulongCompare(j2, j3) >= 0 ? j2 : j3;
+    public static final long m1800maxOfeb3DHEI(long j, long j2) {
+        return UnsignedKt.ulongCompare(j, j2) >= 0 ? j : j2;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: maxOf-sambcqE  reason: not valid java name */
-    public static final long m1801maxOfsambcqE(long j2, long j3, long j4) {
-        return m1800maxOfeb3DHEI(j2, m1800maxOfeb3DHEI(j3, j4));
+    public static final long m1801maxOfsambcqE(long j, long j2, long j3) {
+        return m1800maxOfeb3DHEI(j, m1800maxOfeb3DHEI(j2, j3));
     }
 
     @SinceKotlin(version = "1.4")
@@ -149,12 +149,12 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-R03FKyM  reason: not valid java name */
-    public static final long m1807minOfR03FKyM(long j2, long... other) {
+    public static final long m1807minOfR03FKyM(long j, long... other) {
         Intrinsics.checkNotNullParameter(other, "other");
-        for (long j3 : other) {
-            j2 = m1812minOfeb3DHEI(j2, j3);
+        for (long j2 : other) {
+            j = m1812minOfeb3DHEI(j, j2);
         }
-        return j2;
+        return j;
     }
 
     @SinceKotlin(version = "1.3")
@@ -195,16 +195,16 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-eb3DHEI  reason: not valid java name */
-    public static final long m1812minOfeb3DHEI(long j2, long j3) {
-        return UnsignedKt.ulongCompare(j2, j3) <= 0 ? j2 : j3;
+    public static final long m1812minOfeb3DHEI(long j, long j2) {
+        return UnsignedKt.ulongCompare(j, j2) <= 0 ? j : j2;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: minOf-sambcqE  reason: not valid java name */
-    public static final long m1813minOfsambcqE(long j2, long j3, long j4) {
-        return m1812minOfeb3DHEI(j2, m1812minOfeb3DHEI(j3, j4));
+    public static final long m1813minOfsambcqE(long j, long j2, long j3) {
+        return m1812minOfeb3DHEI(j, m1812minOfeb3DHEI(j2, j3));
     }
 
     @SinceKotlin(version = "1.4")

@@ -1980,11 +1980,11 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setTimeoutAfter(long j2) {
+        public Builder setTimeoutAfter(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j2)) == null) {
-                this.mTimeout = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j)) == null) {
+                this.mTimeout = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -2020,11 +2020,11 @@ public class NotificationCompat {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setWhen(long j2) {
+        public Builder setWhen(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048643, this, j2)) == null) {
-                this.mNotification.when = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048643, this, j)) == null) {
+                this.mNotification.when = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -3755,11 +3755,11 @@ public class NotificationCompat {
                     return (UnreadConversation) invokeV.objValue;
                 }
 
-                public Builder setLatestTimestamp(long j2) {
+                public Builder setLatestTimestamp(long j) {
                     InterceptResult invokeJ;
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                        this.mLatestTimestamp = j2;
+                    if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                        this.mLatestTimestamp = j;
                         return this;
                     }
                     return (Builder) invokeJ.objValue;
@@ -3787,12 +3787,12 @@ public class NotificationCompat {
                 }
             }
 
-            public UnreadConversation(String[] strArr, RemoteInput remoteInput, PendingIntent pendingIntent, PendingIntent pendingIntent2, String[] strArr2, long j2) {
+            public UnreadConversation(String[] strArr, RemoteInput remoteInput, PendingIntent pendingIntent, PendingIntent pendingIntent2, String[] strArr2, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {strArr, remoteInput, pendingIntent, pendingIntent2, strArr2, Long.valueOf(j2)};
+                    Object[] objArr = {strArr, remoteInput, pendingIntent, pendingIntent2, strArr2, Long.valueOf(j)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -3807,7 +3807,7 @@ public class NotificationCompat {
                 this.mReadPendingIntent = pendingIntent2;
                 this.mReplyPendingIntent = pendingIntent;
                 this.mParticipants = strArr2;
-                this.mLatestTimestamp = j2;
+                this.mLatestTimestamp = j;
             }
 
             public long getLatestTimestamp() {
@@ -4284,11 +4284,11 @@ public class NotificationCompat {
         }
 
         @Deprecated
-        public MessagingStyle addMessage(CharSequence charSequence, long j2, CharSequence charSequence2) {
+        public MessagingStyle addMessage(CharSequence charSequence, long j, CharSequence charSequence2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Long.valueOf(j2), charSequence2})) == null) {
-                this.mMessages.add(new Message(charSequence, j2, new Person.Builder().setName(charSequence2).build()));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Long.valueOf(j), charSequence2})) == null) {
+                this.mMessages.add(new Message(charSequence, j, new Person.Builder().setName(charSequence2).build()));
                 if (this.mMessages.size() > 25) {
                     this.mMessages.remove(0);
                 }
@@ -4499,12 +4499,12 @@ public class NotificationCompat {
             public final CharSequence mText;
             public final long mTimestamp;
 
-            public Message(CharSequence charSequence, long j2, @Nullable Person person) {
+            public Message(CharSequence charSequence, long j, @Nullable Person person) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {charSequence, Long.valueOf(j2), person};
+                    Object[] objArr = {charSequence, Long.valueOf(j), person};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -4516,7 +4516,7 @@ public class NotificationCompat {
                 }
                 this.mExtras = new Bundle();
                 this.mText = charSequence;
-                this.mTimestamp = j2;
+                this.mTimestamp = j;
                 this.mPerson = person;
             }
 
@@ -4688,13 +4688,13 @@ public class NotificationCompat {
 
             /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
             @Deprecated
-            public Message(CharSequence charSequence, long j2, CharSequence charSequence2) {
-                this(charSequence, j2, new Person.Builder().setName(charSequence2).build());
+            public Message(CharSequence charSequence, long j, CharSequence charSequence2) {
+                this(charSequence, j, new Person.Builder().setName(charSequence2).build());
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {charSequence, Long.valueOf(j2), charSequence2};
+                    Object[] objArr = {charSequence, Long.valueOf(j), charSequence2};
                     interceptable.invokeUnInit(65537, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -4732,11 +4732,11 @@ public class NotificationCompat {
             throw new IllegalArgumentException("User's name must not be empty.");
         }
 
-        public MessagingStyle addMessage(CharSequence charSequence, long j2, Person person) {
+        public MessagingStyle addMessage(CharSequence charSequence, long j, Person person) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Long.valueOf(j2), person})) == null) {
-                addMessage(new Message(charSequence, j2, person));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Long.valueOf(j), person})) == null) {
+                addMessage(new Message(charSequence, j, person));
                 return this;
             }
             return (MessagingStyle) invokeCommon.objValue;

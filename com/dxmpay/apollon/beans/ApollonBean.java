@@ -15,30 +15,30 @@ import com.dxmpay.apollon.taskmanager.TaskManager;
 import com.dxmpay.apollon.utils.JsonUtils;
 import com.dxmpay.apollon.utils.NetworkUtils;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f69644a;
+    public String f62083a;
     public Context mContext;
     public RestTemplate mRestTemplate;
     public IBeanResponseCallback mRspCallback;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f69645e;
+        public final /* synthetic */ Class f62084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Class f69646f;
+        public final /* synthetic */ Class f62085f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ApollonBean f69647g;
+        public final /* synthetic */ ApollonBean f62086g;
 
         public a(ApollonBean apollonBean, Class cls, Class cls2) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public abstract class ApollonBean<T> {
                     return;
                 }
             }
-            this.f69647g = apollonBean;
-            this.f69645e = cls;
-            this.f69646f = cls2;
+            this.f62086g = apollonBean;
+            this.f62084e = cls;
+            this.f62085f = cls2;
         }
 
         @Override // java.lang.Runnable
@@ -66,13 +66,13 @@ public abstract class ApollonBean<T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     try {
-                        this.f69647g.prepareRestTemplate();
-                        this.f69647g.executeAndHandleResponse(this.f69645e, this.f69646f);
+                        this.f62086g.prepareRestTemplate();
+                        this.f62086g.executeAndHandleResponse(this.f62084e, this.f62085f);
                     } catch (Exception e2) {
-                        this.f69647g.handleCommonErrors(e2);
+                        this.f62086g.handleCommonErrors(e2);
                     }
                 } finally {
-                    this.f69647g.mRspCallback = null;
+                    this.f62086g.mRspCallback = null;
                 }
             }
         }
@@ -93,7 +93,7 @@ public abstract class ApollonBean<T> {
                 return;
             }
         }
-        this.f69644a = "";
+        this.f62083a = "";
         this.mContext = context.getApplicationContext();
         getClass().getName();
     }
@@ -102,7 +102,7 @@ public abstract class ApollonBean<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mRspCallback = null;
-            TaskManager.getInstance("DxmBeanTaskManager").cancelTask("DxmApollonBeanTask", this.f69644a);
+            TaskManager.getInstance("DxmBeanTaskManager").cancelTask("DxmApollonBeanTask", this.f62083a);
             RestTemplate restTemplate = this.mRestTemplate;
             if (restTemplate != null) {
                 restTemplate.setRequestInterceptor(null);
@@ -190,9 +190,9 @@ public abstract class ApollonBean<T> {
                 return;
             }
             TaskManager taskManager = TaskManager.getInstance("DxmBeanTaskManager");
-            this.f69644a = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
+            this.f62083a = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
             taskManager.getClass();
-            taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, this.f69644a, aVar), "DxmApollonBeanTask");
+            taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, this.f62083a, aVar), "DxmApollonBeanTask");
         }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.net.rr.a;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class S2SSResponse extends AbstractResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class S2SSResponse extends AbstractResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return a.b(super.getBytesContent());
+                return a.d(super.getBytesContent());
             } catch (a.b e2) {
                 e2.printStackTrace();
                 return null;

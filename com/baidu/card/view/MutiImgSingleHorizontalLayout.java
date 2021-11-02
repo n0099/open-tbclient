@@ -11,13 +11,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import c.a.l.p;
-import c.a.q0.b.g.b;
-import c.a.q0.s.k;
-import c.a.q0.s.q.a;
-import c.a.q0.s.q.d2;
-import c.a.r0.b0.c0;
+import b.a.e.e.p.l;
+import b.a.l.p;
+import b.a.q0.b.g.b;
+import b.a.q0.s.k;
+import b.a.q0.s.q.a;
+import b.a.q0.s.q.d2;
+import b.a.r0.b0.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
@@ -36,28 +36,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f38793g;
+    public static final int f36768g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38794h;
+    public static final int f36769h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38795i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final int f38796j;
+    public static final int f36770i;
+    public static final int j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38797e;
+    public boolean f36771e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c0<a> f38798f;
+    public c0<a> f36772f;
     public ImageView mPlayIcon;
     public TextView mTitle;
     public TbImageView singalImg;
@@ -75,12 +73,12 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
                 return;
             }
         }
-        f38793g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+        f36768g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds88);
         int k = l.k(TbadkCoreApplication.getInst());
-        f38794h = k;
-        int i2 = k - f38793g;
-        f38795i = i2;
-        f38796j = i2 / 2;
+        f36769h = k;
+        int i2 = k - f36768g;
+        f36770i = i2;
+        j = i2 / 2;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -158,7 +156,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_h_layout, (ViewGroup) this, true);
             setOrientation(1);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, f38796j));
+            setLayoutParams(new ViewGroup.LayoutParams(-1, j));
             TextView textView = (TextView) findViewById(R.id.thread_card_title);
             this.mTitle = textView;
             b.m(textView, R.dimen.tbds7, R.dimen.tbds10);
@@ -173,7 +171,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaData, tbImageView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i2)}) == null) {
             String a2 = a(mediaData);
-            int i3 = this.f38797e ? 46 : 47;
+            int i3 = this.f36771e ? 46 : 47;
             if (!StringHelper.equals(a2, tbImageView.getUrl())) {
                 tbImageView.reset();
             }
@@ -192,7 +190,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public c0<a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38798f : (c0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36772f : (c0) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -206,7 +204,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f38797e = z;
+            this.f36771e = z;
         }
     }
 
@@ -221,7 +219,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         }
     }
 
-    public void setPreloadSizeReadyCallback(c.a.e.l.c.b bVar) {
+    public void setPreloadSizeReadyCallback(b.a.e.l.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
         }
@@ -230,7 +228,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public void setSubClickListener(c0<a> c0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, c0Var) == null) {
-            this.f38798f = c0Var;
+            this.f36772f = c0Var;
         }
     }
 
@@ -253,12 +251,12 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
                 return;
             }
         }
-        this.f38797e = true;
+        this.f36771e = true;
         b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.l.p
+    @Override // b.a.l.p
     public void onBindDataToView(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {

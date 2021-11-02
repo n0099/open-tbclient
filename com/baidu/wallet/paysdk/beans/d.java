@@ -22,28 +22,28 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d extends BaseBean<CalcPaymentResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DirectPayContentResponse f62711a;
+    public DirectPayContentResponse f59580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequest f62712b;
+    public PayRequest f59581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62713c;
+    public int f59582c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f62714d;
+    public int f59583d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62715e;
+    public String f59584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PayTypeItemView.PayTypeItemViewData f62716f;
+    public PayTypeItemView.PayTypeItemViewData f59585f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -63,18 +63,18 @@ public class d extends BaseBean<CalcPaymentResponse> {
                 return;
             }
         }
-        this.f62711a = PayDataCache.getInstance().getPayResponse();
-        this.f62712b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f59580a = PayDataCache.getInstance().getPayResponse();
+        this.f59581b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     private String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (2 == this.f62713c) {
-                return this.f62712b.getCalcPayment().getCouponJsonParams(this.f62714d, this.f62715e);
+            if (2 == this.f59582c) {
+                return this.f59581b.getCalcPayment().getCouponJsonParams(this.f59583d, this.f59584e);
             }
-            return this.f62712b.getCalcPayment().getCouponJsonParams();
+            return this.f59581b.getCalcPayment().getCouponJsonParams();
         }
         return (String) invokeV.objValue;
     }
@@ -82,7 +82,7 @@ public class d extends BaseBean<CalcPaymentResponse> {
     public void a(PayTypeItemView.PayTypeItemViewData payTypeItemViewData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payTypeItemViewData) == null) {
-            this.f62716f = payTypeItemViewData;
+            this.f59585f = payTypeItemViewData;
         }
     }
 
@@ -102,14 +102,14 @@ public class d extends BaseBean<CalcPaymentResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f62711a != null && this.f62712b != null) {
+            if (this.f59580a != null && this.f59581b != null) {
                 arrayList.add(new RestNameValuePair("source_flag", "3"));
-                arrayList.add(new RestNameValuePair("first_sp_id_tpl", this.f62712b.mSpNO));
+                arrayList.add(new RestNameValuePair("first_sp_id_tpl", this.f59581b.mSpNO));
                 arrayList.add(new RestNameValuePair("trans_need_to_pay", PayDataCache.getInstance().getInsideTransOrder()));
                 arrayList.add(new RestNameValuePair("seller_user_id", PayDataCache.getInstance().getSellerUserId()));
-                arrayList.add(new RestNameValuePair("total_amount", this.f62712b.getOrderPrice()));
+                arrayList.add(new RestNameValuePair("total_amount", this.f59581b.getOrderPrice()));
                 CardData.BondCard bondCard = null;
-                if (this.f62712b.hasDiscountOrCoupon()) {
+                if (this.f59581b.hasDiscountOrCoupon()) {
                     str = a();
                     if (!TextUtils.isEmpty(b())) {
                         arrayList.add(new RestNameValuePair("coupon_list", b()));
@@ -117,17 +117,17 @@ public class d extends BaseBean<CalcPaymentResponse> {
                 } else {
                     str = null;
                 }
-                UserData.UserModel userModel = this.f62711a.user;
+                UserData.UserModel userModel = this.f59580a.user;
                 String str2 = "0";
                 if (userModel != null && userModel.isSupportBalance()) {
-                    PayData.DirectPayPay directPayPay = this.f62711a.pay;
+                    PayData.DirectPayPay directPayPay = this.f59580a.pay;
                     if (directPayPay != null && (directPayBalance = directPayPay.balance) != null) {
                         arrayList.add(new RestNameValuePair("balance_amount", directPayBalance.balance_trans_amount));
                     }
                 } else {
                     arrayList.add(new RestNameValuePair("balance_amount", "0"));
                 }
-                PayTypeItemView.PayTypeItemViewData payTypeItemViewData = this.f62716f;
+                PayTypeItemView.PayTypeItemViewData payTypeItemViewData = this.f59585f;
                 String str3 = "1";
                 if (payTypeItemViewData != null) {
                     PayTypeItemView.ItemViewType itemViewType = payTypeItemViewData.type;
@@ -139,23 +139,23 @@ public class d extends BaseBean<CalcPaymentResponse> {
                         str3 = "0";
                     }
                 } else {
-                    str2 = this.f62712b.getBalanceSelectStatus();
-                    str3 = this.f62712b.getCreditPaySelectStatus();
-                    bondCard = this.f62712b.mBondCard;
+                    str2 = this.f59581b.getBalanceSelectStatus();
+                    str3 = this.f59581b.getCreditPaySelectStatus();
+                    bondCard = this.f59581b.mBondCard;
                 }
                 arrayList.add(new RestNameValuePair("need_calc_balance", str2));
                 if (!TextUtils.isEmpty(str)) {
                     arrayList.add(new RestNameValuePair("activity_list", str));
                 }
                 arrayList.add(new RestNameValuePair("need_calc_umoney", str3));
-                arrayList.add(new RestNameValuePair("umoney_amount", this.f62712b.getCreditTotalAmount()));
+                arrayList.add(new RestNameValuePair("umoney_amount", this.f59581b.getCreditTotalAmount()));
                 if (bondCard != null) {
                     arrayList.add(new RestNameValuePair("card_no", bondCard.account_no));
                     arrayList.add(new RestNameValuePair("pay_bank_code", bondCard.account_bank_code));
                     arrayList.add(new RestNameValuePair("easypay_channel", bondCard.bank_code));
                 }
-                if (this.f62712b.getCalcPayment() != null) {
-                    arrayList.add(new RestNameValuePair("activity_map", this.f62712b.getCalcPayment().getDiscountMapJsonParams()));
+                if (this.f59581b.getCalcPayment() != null) {
+                    arrayList.add(new RestNameValuePair("activity_map", this.f59581b.getCalcPayment().getDiscountMapJsonParams()));
                 }
             }
             return arrayList;
@@ -189,9 +189,9 @@ public class d extends BaseBean<CalcPaymentResponse> {
     public void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            this.f62713c = i2;
-            this.f62714d = i3;
-            this.f62715e = str;
+            this.f59582c = i2;
+            this.f59583d = i3;
+            this.f59584e = str;
         }
     }
 
@@ -199,10 +199,10 @@ public class d extends BaseBean<CalcPaymentResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (1 == this.f62713c) {
-                return this.f62712b.getCalcPayment().getActivitiesJsonParams(this.f62714d, this.f62715e);
+            if (1 == this.f59582c) {
+                return this.f59581b.getCalcPayment().getActivitiesJsonParams(this.f59583d, this.f59584e);
             }
-            return this.f62712b.getCalcPayment().getActivitiesJsonParams();
+            return this.f59581b.getCalcPayment().getActivitiesJsonParams();
         }
         return (String) invokeV.objValue;
     }

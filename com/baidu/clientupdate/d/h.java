@@ -1,14 +1,14 @@
 package com.baidu.clientupdate.d;
 
-import androidx.core.app.NotificationCompatJellybean;
 import com.baidu.clientupdate.appinfo.AppInfo;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class h {
             } else {
                 RuleInfo ruleInfo2 = new RuleInfo();
                 ruleInfo2.mUpgradeid = jSONObject.optString("upgradeid");
-                ruleInfo2.mLevel = jSONObject.optString("level");
+                ruleInfo2.mLevel = jSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
                 ruleInfo2.mSilentDown = jSONObject.optString("silent_down");
                 ruleInfo2.mCategory = jSONObject.optString("category");
                 ruleInfo2.mRemind = jSONObject.optString("remind");
@@ -50,7 +50,7 @@ public final class h {
                 ruleInfo2.mContentUrl = jSONObject.optString("content_url");
                 ruleInfo = ruleInfo2;
             }
-            ruleInfo.mSname = jSONObject.optString(NotificationCompatJellybean.KEY_LABEL);
+            ruleInfo.mSname = jSONObject.optString("label");
             ruleInfo.mChangelog = jSONObject.optString("changelog");
             ruleInfo.mSign = jSONObject.optString("sign");
             ruleInfo.mProdline = jSONObject.optString("prodline");

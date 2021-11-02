@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class StateMachine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHED_AD_NUM = 100;
@@ -72,9 +72,9 @@ public class StateMachine {
         return invokeLL.booleanValue;
     }
 
-    public static void createState(long j2, String str, IXAdInstanceInfo iXAdInstanceInfo) {
+    public static void createState(long j, String str, IXAdInstanceInfo iXAdInstanceInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), str, iXAdInstanceInfo}) == null) || j2 < 0 || iXAdInstanceInfo == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), str, iXAdInstanceInfo}) == null) || j < 0 || iXAdInstanceInfo == null) {
             return;
         }
         String uniqueId = iXAdInstanceInfo.getUniqueId();
@@ -82,7 +82,7 @@ public class StateMachine {
             return;
         }
         if (getAdStateById(uniqueId) == null) {
-            mAdStatusList.put(uniqueId, new AdStateInstance(j2, str, iXAdInstanceInfo));
+            mAdStatusList.put(uniqueId, new AdStateInstance(j, str, iXAdInstanceInfo));
             mAdOrderList.add(uniqueId);
         }
         StateUploadScheduler.getInstance().start();

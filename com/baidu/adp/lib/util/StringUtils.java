@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class StringUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PASSWORD_PREFIX = "((?=.*\\d)(?=.*[a-zA-Z]).{6,20})";

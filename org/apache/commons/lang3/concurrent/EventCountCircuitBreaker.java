@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import org.apache.commons.lang3.concurrent.AbstractCircuitBreaker;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<AbstractCircuitBreaker.State, StateStrategy> STRATEGY_MAP;
@@ -27,25 +27,25 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
     public final int openingThreshold;
 
     /* renamed from: org.apache.commons.lang3.concurrent.EventCountCircuitBreaker$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CheckIntervalData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long checkIntervalStart;
         public final int eventCount;
 
-        public CheckIntervalData(int i2, long j2) {
+        public CheckIntervalData(int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -56,7 +56,7 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
                 }
             }
             this.eventCount = i2;
-            this.checkIntervalStart = j2;
+            this.checkIntervalStart = j;
         }
 
         public long getCheckIntervalStart() {
@@ -78,7 +78,7 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class StateStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,10 +99,10 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
 
         public abstract long fetchCheckInterval(EventCountCircuitBreaker eventCountCircuitBreaker);
 
-        public boolean isCheckIntervalFinished(EventCountCircuitBreaker eventCountCircuitBreaker, CheckIntervalData checkIntervalData, long j2) {
+        public boolean isCheckIntervalFinished(EventCountCircuitBreaker eventCountCircuitBreaker, CheckIntervalData checkIntervalData, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{eventCountCircuitBreaker, checkIntervalData, Long.valueOf(j2)})) == null) ? j2 - checkIntervalData.getCheckIntervalStart() > fetchCheckInterval(eventCountCircuitBreaker) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{eventCountCircuitBreaker, checkIntervalData, Long.valueOf(j)})) == null) ? j - checkIntervalData.getCheckIntervalStart() > fetchCheckInterval(eventCountCircuitBreaker) : invokeCommon.booleanValue;
         }
 
         public abstract boolean isStateTransition(EventCountCircuitBreaker eventCountCircuitBreaker, CheckIntervalData checkIntervalData, CheckIntervalData checkIntervalData2);
@@ -112,7 +112,7 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StateStrategyClosed extends StateStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StateStrategyOpen extends StateStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,12 +212,12 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
         STRATEGY_MAP = createStrategyMap();
     }
 
-    public EventCountCircuitBreaker(int i2, long j2, TimeUnit timeUnit, int i3, long j3, TimeUnit timeUnit2) {
+    public EventCountCircuitBreaker(int i2, long j, TimeUnit timeUnit, int i3, long j2, TimeUnit timeUnit2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, Integer.valueOf(i3), Long.valueOf(j3), timeUnit2};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), timeUnit, Integer.valueOf(i3), Long.valueOf(j2), timeUnit2};
             interceptable.invokeUnInit(65539, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -229,9 +229,9 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
         }
         this.checkIntervalData = new AtomicReference<>(new CheckIntervalData(0, 0L));
         this.openingThreshold = i2;
-        this.openingInterval = timeUnit.toNanos(j2);
+        this.openingInterval = timeUnit.toNanos(j);
         this.closingThreshold = i3;
-        this.closingInterval = timeUnit2.toNanos(j3);
+        this.closingInterval = timeUnit2.toNanos(j2);
     }
 
     private void changeStateAndStartNewCheckInterval(AbstractCircuitBreaker.State state) {
@@ -254,12 +254,12 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
         return (Map) invokeV.objValue;
     }
 
-    private CheckIntervalData nextCheckIntervalData(int i2, CheckIntervalData checkIntervalData, AbstractCircuitBreaker.State state, long j2) {
+    private CheckIntervalData nextCheckIntervalData(int i2, CheckIntervalData checkIntervalData, AbstractCircuitBreaker.State state, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Integer.valueOf(i2), checkIntervalData, state, Long.valueOf(j2)})) == null) {
-            if (stateStrategy(state).isCheckIntervalFinished(this, checkIntervalData, j2)) {
-                return new CheckIntervalData(i2, j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Integer.valueOf(i2), checkIntervalData, state, Long.valueOf(j)})) == null) {
+            if (stateStrategy(state).isCheckIntervalFinished(this, checkIntervalData, j)) {
+                return new CheckIntervalData(i2, j);
             }
             return checkIntervalData.increment(i2);
         }
@@ -370,13 +370,13 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EventCountCircuitBreaker(int i2, long j2, TimeUnit timeUnit, int i3) {
-        this(i2, j2, timeUnit, i3, j2, timeUnit);
+    public EventCountCircuitBreaker(int i2, long j, TimeUnit timeUnit, int i3) {
+        this(i2, j, timeUnit, i3, j, timeUnit);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), timeUnit, Integer.valueOf(i3)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -391,13 +391,13 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EventCountCircuitBreaker(int i2, long j2, TimeUnit timeUnit) {
-        this(i2, j2, timeUnit, i2);
+    public EventCountCircuitBreaker(int i2, long j, TimeUnit timeUnit) {
+        this(i2, j, timeUnit, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), timeUnit};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {

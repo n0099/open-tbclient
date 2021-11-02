@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class OfficalBarChatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_SUPPORT_OFFICIAL_CHAT = false;
@@ -35,13 +35,13 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OfficalBarChatActivityConfig(Context context, long j2, String str, String str2, int i2) {
+    public OfficalBarChatActivityConfig(Context context, long j, String str, String str2, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {context, Long.valueOf(j), str, str2, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -53,7 +53,7 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
             }
         }
         this.mUserData = null;
-        UserData userData = new UserData(j2, str, str2, i2);
+        UserData userData = new UserData(j, str, str2, i2);
         this.mUserData = userData;
         Intent intent = getIntent();
         intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
@@ -69,13 +69,13 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OfficalBarChatActivityConfig(Context context, long j2, String str, String str2, int i2, int i3) {
+    public OfficalBarChatActivityConfig(Context context, long j, String str, String str2, int i2, int i3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, Long.valueOf(j), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -87,7 +87,7 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
             }
         }
         this.mUserData = null;
-        UserData userData = new UserData(j2, str, str2, i2);
+        UserData userData = new UserData(j, str, str2, i2);
         this.mUserData = userData;
         Intent intent = getIntent();
         intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);

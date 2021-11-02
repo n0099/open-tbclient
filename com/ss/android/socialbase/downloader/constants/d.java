@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f76190a;
+    public static final d f69173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f76191b;
+    public static final d f69174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final d f76192c;
+    public static final d f69175c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ d[] f76193d;
+    public static final /* synthetic */ d[] f69176d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,11 +38,11 @@ public final class d {
                 return;
             }
         }
-        f76190a = new d("SYNC_NONE", 0);
-        f76191b = new d("SYNC_START", 1);
+        f69173a = new d("SYNC_NONE", 0);
+        f69174b = new d("SYNC_START", 1);
         d dVar = new d("SYNC_SUCCESS", 2);
-        f76192c = dVar;
-        f76193d = new d[]{f76190a, f76191b, dVar};
+        f69175c = dVar;
+        f69176d = new d[]{f69173a, f69174b, dVar};
     }
 
     public d(String str, int i2) {
@@ -73,6 +73,6 @@ public final class d {
     public static d[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (d[]) f76193d.clone() : (d[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (d[]) f69176d.clone() : (d[]) invokeV.objValue;
     }
 }

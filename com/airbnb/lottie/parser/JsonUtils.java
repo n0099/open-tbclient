@@ -7,12 +7,12 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class JsonUtils {
     public static final JsonReader.Options POINT_NAMES = JsonReader.Options.of("x", "y");
 
     /* renamed from: com.airbnb.lottie.parser.JsonUtils$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token;
 

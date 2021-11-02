@@ -17,7 +17,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CpuInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_INFO_DIR = "/sys/devices/system/cpu/";
@@ -60,21 +60,30 @@ public class CpuInfoUtils {
 
     public static float getAveCpuFrequency() {
         InterceptResult invokeV;
+        float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            int numCores = getNumCores();
             int i2 = 0;
-            float f2 = 0.0f;
-            for (int i3 = 0; i3 < getNumCores(); i3++) {
-                float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i3));
-                if (singleCpuFrequency > 0.0f) {
-                    f2 += singleCpuFrequency;
+            if (numCores > 0) {
+                int i3 = 0;
+                f2 = 0.0f;
+                while (i2 < numCores) {
+                    float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i2));
+                    if (singleCpuFrequency > 0.0f) {
+                        f2 += singleCpuFrequency;
+                        i3++;
+                    }
                     i2++;
                 }
+                i2 = i3;
+            } else {
+                f2 = 0.0f;
             }
-            if (i2 > 0) {
-                return f2 / i2;
+            if (i2 <= 0 || f2 <= 0.0f) {
+                return -1.0f;
             }
-            return -1.0f;
+            return f2 / i2;
         }
         return invokeV.floatValue;
     }
@@ -88,10 +97,35 @@ public class CpuInfoUtils {
         return (String) invokeI.objValue;
     }
 
+    public static float getMaxCpuFrequency() {
+        InterceptResult invokeV;
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            int numCores = getNumCores();
+            if (numCores > 0) {
+                f2 = 0.0f;
+                for (int i2 = 0; i2 < numCores; i2++) {
+                    float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i2));
+                    if (singleCpuFrequency > 0.0f && singleCpuFrequency > f2) {
+                        f2 = singleCpuFrequency;
+                    }
+                }
+            } else {
+                f2 = 0.0f;
+            }
+            if (f2 > 0.0f) {
+                return f2;
+            }
+            return -1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
     public static int getNumCores() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             FileFilter fileFilter = new FileFilter() { // from class: com.baidu.searchbox.aperf.param.util.CpuInfoUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +176,7 @@ public class CpuInfoUtils {
         Throwable th;
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) != null) {
             return invokeL.floatValue;
         }
         FileInputStream fileInputStream2 = null;

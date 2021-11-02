@@ -29,7 +29,7 @@ import com.baidubce.util.CheckUtils;
 import com.baidubce.util.HttpUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VodClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SOURCE_EXTENSION_LENGTH = 10;
@@ -107,7 +107,7 @@ public class VodClient extends AbstractBceClient {
             try {
                 byte[] bytes = vodBceRequest.toJsonString().getBytes("UTF-8");
                 internalRequest.addHeader("Content-Length", String.valueOf(bytes.length));
-                internalRequest.addHeader("Content-Type", "application/json; charset=utf-8");
+                internalRequest.addHeader("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
                 internalRequest.setContent(RestartableInputStream.wrap(bytes));
                 return internalRequest;
             } catch (UnsupportedEncodingException e2) {

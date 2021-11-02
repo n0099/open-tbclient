@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class RepresentationKey implements Parcelable, Comparable<RepresentationKey> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RepresentationKey> CREATOR;
@@ -20,7 +20,7 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
     public final int periodIndex;
     public final int representationIndex;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<RepresentationKey> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

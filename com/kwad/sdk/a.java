@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.core.b.i;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a implements com.kwad.sdk.plugin.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,15 +34,15 @@ public class a implements com.kwad.sdk.plugin.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
             com.kwad.sdk.core.d.a.c("AdPluginImpl", "初次获取Gid: initGId");
-            c.r.a.a.b.b().g(context, false, new c.r.a.a.d(this, context) { // from class: com.kwad.sdk.a.1
+            b.r.a.a.b.b().g(context, false, new b.r.a.a.d(this, context) { // from class: com.kwad.sdk.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f71314a;
+                public final /* synthetic */ Context f63799a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f71315b;
+                public final /* synthetic */ a f63800b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -59,11 +59,11 @@ public class a implements com.kwad.sdk.plugin.a {
                             return;
                         }
                     }
-                    this.f71315b = this;
-                    this.f71314a = context;
+                    this.f63800b = this;
+                    this.f63799a = context;
                 }
 
-                @Override // c.r.a.a.d
+                @Override // b.r.a.a.d
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
@@ -71,12 +71,12 @@ public class a implements com.kwad.sdk.plugin.a {
                     }
                 }
 
-                @Override // c.r.a.a.d
+                @Override // b.r.a.a.d
                 public void a(String str, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                        com.kwad.sdk.core.b.e.a(this.f71314a, str2);
-                        this.f71315b.a(this.f71314a, str);
+                        com.kwad.sdk.core.b.e.a(this.f63799a, str2);
+                        this.f63800b.a(this.f63799a, str);
                     }
                 }
             });
@@ -110,7 +110,7 @@ public class a implements com.kwad.sdk.plugin.a {
         }
         am.d(context, str);
         try {
-            c.r.a.a.b.b().l(context, str);
+            b.r.a.a.b.b().l(context, str);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.e("AdPluginImpl", "AdPluginImpl KWEGIDDFP setEGid error : " + th);
         }

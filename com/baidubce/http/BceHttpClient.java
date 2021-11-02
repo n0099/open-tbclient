@@ -42,7 +42,7 @@ import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
 @SuppressLint({"NewApi"})
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BceHttpClient {
     public static /* synthetic */ Interceptable $ic;
     public static final HttpClientFactory httpClientFactory;
@@ -236,12 +236,12 @@ public class BceHttpClient {
             credentials = internalRequest.getCredentials();
         }
         BceCredentials bceCredentials = credentials;
-        long j2 = 0;
+        long j = 0;
         int i2 = 1;
         while (true) {
             try {
-                j2 = Calendar.getInstance().getTimeInMillis();
-                Date date = new Date(this.diffMillis + j2);
+                j = Calendar.getInstance().getTimeInMillis();
+                Date date = new Date(this.diffMillis + j);
                 SignOptions signOptions = internalRequest.getSignOptions() == null ? SignOptions.DEFAULT : internalRequest.getSignOptions();
                 signOptions.setTimestamp(date);
                 internalRequest.setSignOptions(signOptions);
@@ -290,7 +290,7 @@ public class BceHttpClient {
                     bceServiceException = bceServiceException2;
                     if (!"".equals("") && parseRfc822Date != null) {
                         synchronized (this) {
-                            this.diffMillis = parseRfc822Date.getTime() - j2;
+                            this.diffMillis = parseRfc822Date.getTime() - j;
                         }
                         bceServiceException = bceServiceException2;
                     }
@@ -334,7 +334,7 @@ public class BceHttpClient {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class BceServiceRequestBody<T extends AbstractBceRequest> extends RequestBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -403,19 +403,19 @@ public class BceHttpClient {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
                 long contentLength = contentLength();
                 Source source = Okio.source(this.restartableInputStream);
-                long j2 = 0;
-                while (j2 < contentLength) {
-                    long read = source.read(bufferedSink.buffer(), Math.min(contentLength - j2, this.this$0.config.getUploadSegmentPart()));
+                long j = 0;
+                while (j < contentLength) {
+                    long read = source.read(bufferedSink.buffer(), Math.min(contentLength - j, this.this$0.config.getUploadSegmentPart()));
                     if (read == -1) {
                         break;
                     }
-                    long j3 = j2 + read;
+                    long j2 = j + read;
                     bufferedSink.flush();
                     BceProgressCallback<T> bceProgressCallback = this.callback;
                     if (bceProgressCallback != null) {
-                        bceProgressCallback.onProgress(this.request, j3, contentLength);
+                        bceProgressCallback.onProgress(this.request, j2, contentLength);
                     }
-                    j2 = j3;
+                    j = j2;
                 }
                 if (source != null) {
                     source.close();

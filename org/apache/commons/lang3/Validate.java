@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Validate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE = "The value %s is not in the specified exclusive range of %s to %s";
@@ -97,10 +97,10 @@ public class Validate {
         throw new IllegalArgumentException(String.format(DEFAULT_IS_INSTANCE_OF_EX_MESSAGE, objArr));
     }
 
-    public static void isTrue(boolean z, String str, long j2) {
+    public static void isTrue(boolean z, String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{Boolean.valueOf(z), str, Long.valueOf(j2)}) == null) && !z) {
-            throw new IllegalArgumentException(String.format(str, Long.valueOf(j2)));
+        if ((interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{Boolean.valueOf(z), str, Long.valueOf(j)}) == null) && !z) {
+            throw new IllegalArgumentException(String.format(str, Long.valueOf(j)));
         }
     }
 
@@ -288,20 +288,20 @@ public class Validate {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(65583, null, tArr, i2)) == null) ? (T[]) validIndex(tArr, i2, DEFAULT_VALID_INDEX_ARRAY_EX_MESSAGE, Integer.valueOf(i2)) : (T[]) ((Object[]) invokeLI.objValue);
     }
 
-    public static void exclusiveBetween(long j2, long j3, long j4) {
+    public static void exclusiveBetween(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            if (j4 <= j2 || j4 >= j3) {
-                throw new IllegalArgumentException(String.format(DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, Long.valueOf(j4), Long.valueOf(j2), Long.valueOf(j3)));
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (j3 <= j || j3 >= j2) {
+                throw new IllegalArgumentException(String.format(DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, Long.valueOf(j3), Long.valueOf(j), Long.valueOf(j2)));
             }
         }
     }
 
-    public static void inclusiveBetween(long j2, long j3, long j4) {
+    public static void inclusiveBetween(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            if (j4 < j2 || j4 > j3) {
-                throw new IllegalArgumentException(String.format(DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, Long.valueOf(j4), Long.valueOf(j2), Long.valueOf(j3)));
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (j3 < j || j3 > j2) {
+                throw new IllegalArgumentException(String.format(DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, Long.valueOf(j3), Long.valueOf(j), Long.valueOf(j2)));
             }
         }
     }
@@ -348,19 +348,19 @@ public class Validate {
         return (T) invokeLILL.objValue;
     }
 
-    public static void exclusiveBetween(long j2, long j3, long j4, String str) {
+    public static void exclusiveBetween(long j, long j2, long j3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str}) == null) {
-            if (j4 <= j2 || j4 >= j3) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
+            if (j3 <= j || j3 >= j2) {
                 throw new IllegalArgumentException(String.format(str, new Object[0]));
             }
         }
     }
 
-    public static void inclusiveBetween(long j2, long j3, long j4, String str) {
+    public static void inclusiveBetween(long j, long j2, long j3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str}) == null) {
-            if (j4 < j2 || j4 > j3) {
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
+            if (j3 < j || j3 > j2) {
                 throw new IllegalArgumentException(String.format(str, new Object[0]));
             }
         }

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
@@ -37,6 +37,10 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     public static final String FROM_VIDEO_MIDDLE_VIDEO = "from_video_middle_video";
     public static final String IS_FROM_BJH_PB = "is_from_bjh_pb";
     public static final String IS_SHOW_PB_COMMENT_FLOAT = "is_show_pb_comment_float";
+    public static final String KEY_FPS_MIDDLE_VIDEO = "FrsToVideoMiddle_middle_video_tran";
+    public static final String KEY_FPS_MIDDLE_VIDEO_FROM = "FrsToVideoMiddle";
+    public static final String KEY_FPS_MIDDLE_VIDEO_PAGE = "middle_video";
+    public static final String KEY_FPS_MIDDLE_VIDEO_TYPE = "tran";
     public static final String KEY_NID = "key_nid";
     public static final String OBJ_ID = "obj_id";
     public static final String PAGE_FIRST_IN = "page_first_in";

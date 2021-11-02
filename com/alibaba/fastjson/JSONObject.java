@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.NotActiveException;
@@ -34,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class JSONObject extends JSON implements Map<String, Object>, Cloneable, Serializable, InvocationHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_INITIAL_CAPACITY = 16;
@@ -42,7 +43,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Object> map;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class SecureObjectInputStream extends ObjectInputStream {
         public static /* synthetic */ Interceptable $ic;
         public static Field[] fields;
@@ -593,7 +594,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
                             } else {
                                 throw new JSONException("illegal getter");
                             }
-                        } else if (name3.startsWith("hashCode")) {
+                        } else if (name3.startsWith(TTDownloadField.TT_HASHCODE)) {
                             return Integer.valueOf(hashCode());
                         } else {
                             if (name3.startsWith("toString")) {

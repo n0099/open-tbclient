@@ -27,7 +27,7 @@ import java.util.Date;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TrackHeaderBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tkhd";
@@ -372,12 +372,12 @@ public class TrackHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setDuration(long j2) {
+    public void setDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.longObject(j2)));
-            this.duration = j2;
-            if (j2 >= 4294967296L) {
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.longObject(j)));
+            this.duration = j;
+            if (j >= 4294967296L) {
                 setFlags(1);
             }
         }
@@ -466,11 +466,11 @@ public class TrackHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setTrackId(long j2) {
+    public void setTrackId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this, Conversions.longObject(j2)));
-            this.trackId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this, Conversions.longObject(j)));
+            this.trackId = j;
         }
     }
 

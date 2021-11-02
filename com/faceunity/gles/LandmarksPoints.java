@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LandmarksPoints {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COORDS_PER_VERTEX = 2;

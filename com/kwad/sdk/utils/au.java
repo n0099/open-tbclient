@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f74277a;
+    public Rect f66660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f74278b;
+    public Rect f66661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f74279c;
+    public Point f66662c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f74280d;
+    public View f66663d;
 
     public au(View view) {
         Interceptable interceptable = $ic;
@@ -40,22 +40,22 @@ public class au {
                 return;
             }
         }
-        this.f74279c = new Point();
-        this.f74277a = new Rect();
-        this.f74278b = new Rect();
-        this.f74280d = view;
+        this.f66662c = new Point();
+        this.f66660a = new Rect();
+        this.f66661b = new Rect();
+        this.f66663d = view;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean globalVisibleRect = this.f74280d.getGlobalVisibleRect(this.f74277a, this.f74279c);
-            Point point = this.f74279c;
-            if (point.x == 0 && point.y == 0 && this.f74277a.height() == this.f74280d.getHeight() && this.f74278b.height() != 0 && Math.abs(this.f74277a.top - this.f74278b.top) > this.f74280d.getHeight() / 2) {
-                this.f74277a.set(this.f74278b);
+            boolean globalVisibleRect = this.f66663d.getGlobalVisibleRect(this.f66660a, this.f66662c);
+            Point point = this.f66662c;
+            if (point.x == 0 && point.y == 0 && this.f66660a.height() == this.f66663d.getHeight() && this.f66661b.height() != 0 && Math.abs(this.f66660a.top - this.f66661b.top) > this.f66663d.getHeight() / 2) {
+                this.f66660a.set(this.f66661b);
             }
-            this.f74278b.set(this.f74277a);
+            this.f66661b.set(this.f66660a);
             return globalVisibleRect;
         }
         return invokeV.booleanValue;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FaceLive {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceLive";
@@ -57,12 +57,12 @@ public class FaceLive {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native float nativeSilentLive(long j2, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
+    private native float nativeSilentLive(long j, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeSilentLiveModelInit(long j2, byte[] bArr, int i2);
+    public native int nativeSilentLiveModelInit(long j, byte[] bArr, int i2);
 
-    private native int nativeUninitModel(long j2);
+    private native int nativeUninitModel(long j);
 
     public void initModel(Context context, String str, String str2, String str3, Callback callback) {
         Interceptable interceptable = $ic;

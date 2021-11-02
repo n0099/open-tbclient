@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class be {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f78519a = 8;
+    public static int f71457a = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f929a;
+    public byte[] f930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f78520b;
+    public int f71458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f78521c;
+    public int f71459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f78522d;
+    public int f71460d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,10 +58,10 @@ public class be {
                 return;
             }
         }
-        this.f78522d = IMediaPlayer.SHARED_PLAYER_ON_INFO_EXTRA;
-        this.f929a = new byte[256];
-        this.f78521c = 0;
-        this.f78520b = 0;
+        this.f71460d = IMediaPlayer.SHARED_PLAYER_ON_INFO_EXTRA;
+        this.f930a = new byte[256];
+        this.f71459c = 0;
+        this.f71458b = 0;
     }
 
     public static int a(byte b2) {
@@ -73,8 +73,8 @@ public class be {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f78521c = 0;
-            this.f78520b = 0;
+            this.f71459c = 0;
+            this.f71458b = 0;
         }
     }
 
@@ -83,22 +83,22 @@ public class be {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), bArr, Boolean.valueOf(z)}) == null) {
             int length = bArr.length;
             for (int i3 = 0; i3 < 256; i3++) {
-                this.f929a[i3] = (byte) i3;
+                this.f930a[i3] = (byte) i3;
             }
-            this.f78521c = 0;
-            this.f78520b = 0;
+            this.f71459c = 0;
+            this.f71458b = 0;
             while (true) {
-                int i4 = this.f78520b;
+                int i4 = this.f71458b;
                 if (i4 >= i2) {
                     break;
                 }
-                int a2 = ((this.f78521c + a(this.f929a[i4])) + a(bArr[this.f78520b % length])) % 256;
-                this.f78521c = a2;
-                a(this.f929a, this.f78520b, a2);
-                this.f78520b++;
+                int a2 = ((this.f71459c + a(this.f930a[i4])) + a(bArr[this.f71458b % length])) % 256;
+                this.f71459c = a2;
+                a(this.f930a, this.f71458b, a2);
+                this.f71458b++;
             }
             if (i2 != 256) {
-                this.f78522d = ((this.f78521c + a(this.f929a[i2])) + a(bArr[i2 % length])) % 256;
+                this.f71460d = ((this.f71459c + a(this.f930a[i2])) + a(bArr[i2 % length])) % 256;
             }
             if (z) {
                 StringBuilder sb = new StringBuilder();
@@ -108,29 +108,29 @@ public class be {
                 sb.append(":");
                 for (int i6 = 0; i6 <= i2; i6++) {
                     sb.append(" ");
-                    sb.append(a(this.f929a[i6]));
+                    sb.append(a(this.f930a[i6]));
                 }
                 sb.append("   j_");
                 sb.append(i5);
                 sb.append("=");
-                sb.append(this.f78521c);
+                sb.append(this.f71459c);
                 sb.append("   j_");
                 sb.append(i2);
                 sb.append("=");
-                sb.append(this.f78522d);
+                sb.append(this.f71460d);
                 sb.append("   S_");
                 sb.append(i5);
                 sb.append("[j_");
                 sb.append(i5);
                 sb.append("]=");
-                sb.append(a(this.f929a[this.f78521c]));
+                sb.append(a(this.f930a[this.f71459c]));
                 sb.append("   S_");
                 sb.append(i5);
                 sb.append("[j_");
                 sb.append(i2);
                 sb.append("]=");
-                sb.append(a(this.f929a[this.f78522d]));
-                if (this.f929a[1] != 0) {
+                sb.append(a(this.f930a[this.f71460d]));
+                if (this.f930a[1] != 0) {
                     sb.append("   S[1]!=0");
                 }
                 com.xiaomi.channel.commonutils.logger.b.m73a(sb.toString());
@@ -227,13 +227,13 @@ public class be {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = (this.f78520b + 1) % 256;
-            this.f78520b = i2;
-            int a2 = (this.f78521c + a(this.f929a[i2])) % 256;
-            this.f78521c = a2;
-            a(this.f929a, this.f78520b, a2);
-            byte[] bArr = this.f929a;
-            return bArr[(a(bArr[this.f78520b]) + a(this.f929a[this.f78521c])) % 256];
+            int i2 = (this.f71458b + 1) % 256;
+            this.f71458b = i2;
+            int a2 = (this.f71459c + a(this.f930a[i2])) % 256;
+            this.f71459c = a2;
+            a(this.f930a, this.f71458b, a2);
+            byte[] bArr = this.f930a;
+            return bArr[(a(bArr[this.f71458b]) + a(this.f930a[this.f71459c])) % 256];
         }
         return invokeV.byteValue;
     }

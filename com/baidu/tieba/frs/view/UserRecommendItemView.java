@@ -8,47 +8,47 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import b.a.r0.x0.b1;
+import b.a.r0.x0.e1;
+import b.a.r0.x0.f1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.CardUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UserRecommendItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ClickableHeaderImageView f51857e;
+    public ClickableHeaderImageView f49185e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CardUserLikeButton f51858f;
+    public CardUserLikeButton f49186f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51859g;
+    public TextView f49187g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f51860h;
+    public TextView f49188h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f51861i;
+    public boolean f49189i;
+    public int j;
 
-    /* renamed from: j  reason: collision with root package name */
-    public int f51862j;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserRecommendItemView f51863e;
+        public final /* synthetic */ UserRecommendItemView f49190e;
 
         public a(UserRecommendItemView userRecommendItemView) {
             Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class UserRecommendItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f51863e = userRecommendItemView;
+            this.f49190e = userRecommendItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51863e.f51857e.onClick(this.f51863e.f51857e);
+                this.f49190e.f49185e.onClick(this.f49190e.f49185e);
             }
         }
     }
@@ -95,26 +95,26 @@ public class UserRecommendItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51861i = false;
-        this.f51862j = -1;
+        this.f49189i = false;
+        this.j = -1;
         b(context);
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.frs_user_recommend_item, (ViewGroup) this, true);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.user_recommend_head);
-            this.f51857e = clickableHeaderImageView;
+            LayoutInflater.from(context).inflate(f1.frs_user_recommend_item, (ViewGroup) this, true);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(e1.user_recommend_head);
+            this.f49185e = clickableHeaderImageView;
             clickableHeaderImageView.setAutoChangeStyle(true);
-            this.f51857e.setDefaultResource(17170445);
-            this.f51857e.setIsRound(true);
-            this.f51857e.setScaleType(ImageView.ScaleType.FIT_XY);
-            CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
-            this.f51858f = cardUserLikeButton;
+            this.f49185e.setDefaultResource(17170445);
+            this.f49185e.setIsRound(true);
+            this.f49185e.setScaleType(ImageView.ScaleType.FIT_XY);
+            CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(e1.user_recommend_like_btn);
+            this.f49186f = cardUserLikeButton;
             cardUserLikeButton.setGravity(17);
-            this.f51859g = (TextView) findViewById(R.id.user_recommend_username);
-            this.f51860h = (TextView) findViewById(R.id.user_recommend_fans_num);
+            this.f49187g = (TextView) findViewById(e1.user_recommend_username);
+            this.f49188h = (TextView) findViewById(e1.user_recommend_fans_num);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);
@@ -126,54 +126,54 @@ public class UserRecommendItemView extends LinearLayout {
     public TextView getFansNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51860h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49188h : (TextView) invokeV.objValue;
     }
 
     public ClickableHeaderImageView getHeaderView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51857e : (ClickableHeaderImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49185e : (ClickableHeaderImageView) invokeV.objValue;
     }
 
     public CommonUserLikeButton getLikeBtn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51858f : (CommonUserLikeButton) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49186f : (CommonUserLikeButton) invokeV.objValue;
     }
 
     public TextView getUsername() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51859g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49187g : (TextView) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || i2 == this.f51862j) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || i2 == this.j) {
             return;
         }
-        this.f51862j = i2;
-        this.f51860h.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0109));
-        if (this.f51861i) {
-            this.f51859g.setTextColor(SkinManager.getColor(i2, R.color.cp_cont_r));
+        this.j = i2;
+        this.f49188h.setTextColor(SkinManager.getColor(i2, b1.CAM_X0109));
+        if (this.f49189i) {
+            this.f49187g.setTextColor(SkinManager.getColor(i2, b1.cp_cont_r));
         } else {
-            this.f51859g.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0105));
+            this.f49187g.setTextColor(SkinManager.getColor(i2, b1.CAM_X0105));
         }
-        setBackgroundColor(SkinManager.getColor(i2, R.color.CAM_X0201));
-        this.f51858f.onChangeSkinType(i2);
-        this.f51857e.setPlaceHolder(1);
+        setBackgroundColor(SkinManager.getColor(i2, b1.CAM_X0201));
+        this.f49186f.onChangeSkinType(i2);
+        this.f49185e.setPlaceHolder(1);
     }
 
     public void setIsGod(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.f51861i == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.f49189i == z) {
             return;
         }
-        this.f51861i = z;
+        this.f49189i = z;
         if (z) {
-            this.f51859g.setTextColor(SkinManager.getColor(this.f51862j, R.color.cp_cont_r));
+            this.f49187g.setTextColor(SkinManager.getColor(this.j, b1.cp_cont_r));
         } else {
-            this.f51859g.setTextColor(SkinManager.getColor(this.f51862j, R.color.CAM_X0105));
+            this.f49187g.setTextColor(SkinManager.getColor(this.j, b1.CAM_X0105));
         }
     }
 
@@ -196,8 +196,8 @@ public class UserRecommendItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51861i = false;
-        this.f51862j = -1;
+        this.f49189i = false;
+        this.j = -1;
         b(context);
     }
 }

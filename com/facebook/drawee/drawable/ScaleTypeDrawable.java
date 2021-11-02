@@ -17,7 +17,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ScaleTypeDrawable extends ForwardingDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -180,15 +180,19 @@ public class ScaleTypeDrawable extends ForwardingDrawable {
         return (Drawable) invokeL.objValue;
     }
 
-    public void setFocusPoint(PointF pointF) {
+    public void setFocusPoint(@Nullable PointF pointF) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, pointF) == null) || Objects.equal(this.mFocusPoint, pointF)) {
             return;
         }
-        if (this.mFocusPoint == null) {
-            this.mFocusPoint = new PointF();
+        if (pointF == null) {
+            this.mFocusPoint = null;
+        } else {
+            if (this.mFocusPoint == null) {
+                this.mFocusPoint = new PointF();
+            }
+            this.mFocusPoint.set(pointF);
         }
-        this.mFocusPoint.set(pointF);
         configureBounds();
         invalidateSelf();
     }

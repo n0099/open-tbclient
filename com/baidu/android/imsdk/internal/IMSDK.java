@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class IMSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSDK";
@@ -546,10 +546,10 @@ public final class IMSDK {
         }
     }
 
-    public void setUk(long j2) {
+    public void setUk(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.mUk = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mUk = j;
         }
     }
 }

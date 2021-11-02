@@ -1,6 +1,6 @@
 package com.qq.e.ads.nativ.express2;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface MediaEventListener {
     public static final int EVENT_VIDEO_CACHE = 201;
     public static final int EVENT_VIDEO_COMPLETE = 206;

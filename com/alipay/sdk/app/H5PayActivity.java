@@ -12,34 +12,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class H5PayActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.alipay.sdk.widget.c f35875a;
+    public com.alipay.sdk.widget.c f33980a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35876b;
+    public String f33981b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35877c;
+    public String f33982c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35878d;
+    public String f33983d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35879e;
+    public String f33984e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35880f;
+    public boolean f33985f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35881g;
+    public String f33986g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WeakReference<com.alipay.sdk.sys.a> f35882h;
+    public WeakReference<com.alipay.sdk.sys.a> f33987h;
 
     public H5PayActivity() {
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class H5PayActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Object obj = PayTask.f35907h;
+            Object obj = PayTask.f34012h;
             synchronized (obj) {
                 try {
                     obj.notify();
@@ -95,7 +95,7 @@ public class H5PayActivity extends Activity {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i2 == 1010) {
-                d.a((com.alipay.sdk.sys.a) l.a(this.f35882h), i2, i3, intent);
+                d.a((com.alipay.sdk.sys.a) l.a(this.f33987h), i2, i3, intent);
             }
         }
     }
@@ -104,7 +104,7 @@ public class H5PayActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            com.alipay.sdk.widget.c cVar = this.f35875a;
+            com.alipay.sdk.widget.c cVar = this.f33980a;
             if (cVar == null) {
                 finish();
             } else if (cVar.a()) {
@@ -134,12 +134,12 @@ public class H5PayActivity extends Activity {
             b();
             super.onCreate(bundle);
             try {
-                com.alipay.sdk.sys.a a2 = a.C1568a.a(getIntent());
+                com.alipay.sdk.sys.a a2 = a.C1522a.a(getIntent());
                 if (a2 == null) {
                     finish();
                     return;
                 }
-                this.f35882h = new WeakReference<>(a2);
+                this.f33987h = new WeakReference<>(a2);
                 if (!com.alipay.sdk.data.a.u().s()) {
                     setRequestedOrientation(1);
                 } else {
@@ -148,23 +148,23 @@ public class H5PayActivity extends Activity {
                 try {
                     Bundle extras = getIntent().getExtras();
                     String string = extras.getString("url", null);
-                    this.f35876b = string;
+                    this.f33981b = string;
                     if (!l.d(string)) {
                         finish();
                         return;
                     }
-                    this.f35878d = extras.getString("cookie", null);
-                    this.f35877c = extras.getString("method", null);
-                    this.f35879e = extras.getString("title", null);
-                    this.f35881g = extras.getString("version", "v1");
-                    this.f35880f = extras.getBoolean("backisexit", false);
+                    this.f33983d = extras.getString("cookie", null);
+                    this.f33982c = extras.getString("method", null);
+                    this.f33984e = extras.getString("title", null);
+                    this.f33986g = extras.getString("version", "v1");
+                    this.f33985f = extras.getBoolean("backisexit", false);
                     try {
-                        com.alipay.sdk.widget.d dVar = new com.alipay.sdk.widget.d(this, a2, this.f35881g);
+                        com.alipay.sdk.widget.d dVar = new com.alipay.sdk.widget.d(this, a2, this.f33986g);
                         setContentView(dVar);
-                        dVar.a(this.f35879e, this.f35877c, this.f35880f);
-                        dVar.a(this.f35876b, this.f35878d);
-                        dVar.a(this.f35876b);
-                        this.f35875a = dVar;
+                        dVar.a(this.f33984e, this.f33982c, this.f33985f);
+                        dVar.a(this.f33981b, this.f33983d);
+                        dVar.a(this.f33981b);
+                        this.f33980a = dVar;
                     } catch (Throwable th) {
                         com.alipay.sdk.app.statistic.a.a(a2, "biz", "GetInstalledAppEx", th);
                         finish();
@@ -183,7 +183,7 @@ public class H5PayActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            com.alipay.sdk.widget.c cVar = this.f35875a;
+            com.alipay.sdk.widget.c cVar = this.f33980a;
             if (cVar != null) {
                 cVar.c();
             }
@@ -198,7 +198,7 @@ public class H5PayActivity extends Activity {
                 super.setRequestedOrientation(i2);
             } catch (Throwable th) {
                 try {
-                    com.alipay.sdk.app.statistic.a.a((com.alipay.sdk.sys.a) l.a(this.f35882h), "biz", com.alipay.sdk.app.statistic.b.F, th);
+                    com.alipay.sdk.app.statistic.a.a((com.alipay.sdk.sys.a) l.a(this.f33987h), "biz", com.alipay.sdk.app.statistic.b.F, th);
                 } catch (Throwable unused) {
                 }
             }

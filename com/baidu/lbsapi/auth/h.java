@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class h implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g f40694a;
+    public final /* synthetic */ g f38588a;
 
     public h(g gVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class h implements HostnameVerifier {
                 return;
             }
         }
-        this.f40694a = gVar;
+        this.f38588a = gVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

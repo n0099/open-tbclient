@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class WireOutput {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,12 +52,12 @@ public final class WireOutput {
         return invokeI.intValue;
     }
 
-    public static int int64Size(long j2) {
+    public static int int64Size(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
-            if (j2 >= 0) {
-                return varint64Size(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            if (j >= 0) {
+                return varint64Size(j);
             }
             return 10;
         }
@@ -98,7 +98,7 @@ public final class WireOutput {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            if ((i2 & a.f36025g) == 0) {
+            if ((i2 & a.f34123g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -112,35 +112,35 @@ public final class WireOutput {
         return invokeI.intValue;
     }
 
-    public static int varint64Size(long j2) {
+    public static int varint64Size(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j2)) == null) {
-            if (((-128) & j2) == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+            if (((-128) & j) == 0) {
                 return 1;
             }
-            if (((-16384) & j2) == 0) {
+            if (((-16384) & j) == 0) {
                 return 2;
             }
-            if ((CoroutineScheduler.PARKED_VERSION_MASK & j2) == 0) {
+            if ((CoroutineScheduler.PARKED_VERSION_MASK & j) == 0) {
                 return 3;
             }
-            if (((-268435456) & j2) == 0) {
+            if (((-268435456) & j) == 0) {
                 return 4;
             }
-            if (((-34359738368L) & j2) == 0) {
+            if (((-34359738368L) & j) == 0) {
                 return 5;
             }
-            if (((-4398046511104L) & j2) == 0) {
+            if (((-4398046511104L) & j) == 0) {
                 return 6;
             }
-            if (((-562949953421312L) & j2) == 0) {
+            if (((-562949953421312L) & j) == 0) {
                 return 7;
             }
-            if (((-72057594037927936L) & j2) == 0) {
+            if (((-72057594037927936L) & j) == 0) {
                 return 8;
             }
-            return (j2 & Long.MIN_VALUE) == 0 ? 9 : 10;
+            return (j & Long.MIN_VALUE) == 0 ? 9 : 10;
         }
         return invokeJ.intValue;
     }
@@ -167,17 +167,17 @@ public final class WireOutput {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), wireType, bArr, Integer.valueOf(i3)})) == null) ? writeVarint(makeTag(i2, wireType), bArr, i3) : invokeCommon.intValue;
     }
 
-    public static int writeVarint(long j2, byte[] bArr, int i2) {
+    public static int writeVarint(long j, byte[] bArr, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j2), bArr, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i2)})) == null) {
             int i3 = i2;
-            while (((-128) & j2) != 0) {
-                bArr[i3] = (byte) ((127 & j2) | 128);
-                j2 >>>= 7;
+            while (((-128) & j) != 0) {
+                bArr[i3] = (byte) ((127 & j) | 128);
+                j >>>= 7;
                 i3++;
             }
-            bArr[i3] = (byte) j2;
+            bArr[i3] = (byte) j;
             return (i3 + 1) - i2;
         }
         return invokeCommon.intValue;
@@ -189,10 +189,10 @@ public final class WireOutput {
         return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) ? (i2 >> 31) ^ (i2 << 1) : invokeI.intValue;
     }
 
-    public static long zigZag64(long j2) {
+    public static long zigZag64(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65552, null, j2)) == null) ? (j2 >> 63) ^ (j2 << 1) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65552, null, j)) == null) ? (j >> 63) ^ (j << 1) : invokeJ.longValue;
     }
 
     public void writeFixed32(int i2) throws IOException {
@@ -205,17 +205,17 @@ public final class WireOutput {
         }
     }
 
-    public void writeFixed64(long j2) throws IOException {
+    public void writeFixed64(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            writeRawByte(((int) j2) & 255);
-            writeRawByte(((int) (j2 >> 8)) & 255);
-            writeRawByte(((int) (j2 >> 16)) & 255);
-            writeRawByte(((int) (j2 >> 24)) & 255);
-            writeRawByte(((int) (j2 >> 32)) & 255);
-            writeRawByte(((int) (j2 >> 40)) & 255);
-            writeRawByte(((int) (j2 >> 48)) & 255);
-            writeRawByte(((int) (j2 >> 56)) & 255);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            writeRawByte(((int) j) & 255);
+            writeRawByte(((int) (j >> 8)) & 255);
+            writeRawByte(((int) (j >> 16)) & 255);
+            writeRawByte(((int) (j >> 24)) & 255);
+            writeRawByte(((int) (j >> 32)) & 255);
+            writeRawByte(((int) (j >> 40)) & 255);
+            writeRawByte(((int) (j >> 48)) & 255);
+            writeRawByte(((int) (j >> 56)) & 255);
         }
     }
 
@@ -254,7 +254,7 @@ public final class WireOutput {
     public void writeVarint32(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            while ((i2 & a.f36025g) != 0) {
+            while ((i2 & a.f34123g) != 0) {
                 writeRawByte((i2 & 127) | 128);
                 i2 >>>= 7;
             }
@@ -262,14 +262,14 @@ public final class WireOutput {
         }
     }
 
-    public void writeVarint64(long j2) throws IOException {
+    public void writeVarint64(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            while (((-128) & j2) != 0) {
-                writeRawByte((((int) j2) & 127) | 128);
-                j2 >>>= 7;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            while (((-128) & j) != 0) {
+                writeRawByte((((int) j) & 127) | 128);
+                j >>>= 7;
             }
-            writeRawByte((int) j2);
+            writeRawByte((int) j);
         }
     }
 

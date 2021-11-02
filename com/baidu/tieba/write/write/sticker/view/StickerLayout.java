@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import c.a.q0.d1.k;
-import c.a.r0.d4.u.n.b.c;
+import b.a.q0.d1.k;
+import b.a.r0.d4.u.n.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,36 +16,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class StickerLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f59195e;
+    public Context f56141e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<StickerView> f59196f;
+    public List<StickerView> f56142f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout.LayoutParams f59197g;
+    public FrameLayout.LayoutParams f56143g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f59198h;
+    public int f56144h;
 
-    /* loaded from: classes8.dex */
-    public class a implements c.a.r0.d4.u.n.b.a {
+    /* loaded from: classes10.dex */
+    public class a implements b.a.r0.d4.u.n.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StickerView f59199a;
+        public final /* synthetic */ StickerView f56145a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f59200b;
+        public final /* synthetic */ c f56146b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ StickerLayout f59201c;
+        public final /* synthetic */ StickerLayout f56147c;
 
         public a(StickerLayout stickerLayout, StickerView stickerView, c cVar) {
             Interceptable interceptable = $ic;
@@ -62,19 +62,19 @@ public class StickerLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f59201c = stickerLayout;
-            this.f59199a = stickerView;
-            this.f59200b = cVar;
+            this.f56147c = stickerLayout;
+            this.f56145a = stickerView;
+            this.f56146b = cVar;
         }
 
-        @Override // c.a.r0.d4.u.n.b.a
+        @Override // b.a.r0.d4.u.n.b.a
         public void a(StickerView stickerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, stickerView) == null) {
             }
         }
 
-        @Override // c.a.r0.d4.u.n.b.a
+        @Override // b.a.r0.d4.u.n.b.a
         public void b(StickerView stickerView, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stickerView, z) == null) {
@@ -85,21 +85,21 @@ public class StickerLayout extends FrameLayout {
             }
         }
 
-        @Override // c.a.r0.d4.u.n.b.a
+        @Override // b.a.r0.d4.u.n.b.a
         public void c(StickerView stickerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stickerView) == null) {
             }
         }
 
-        @Override // c.a.r0.d4.u.n.b.a
+        @Override // b.a.r0.d4.u.n.b.a
         public void onDelete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f59201c.removeView(this.f59199a);
-                this.f59201c.f59196f.remove(this.f59199a);
-                this.f59201c.redraw();
-                c cVar = this.f59200b;
+                this.f56147c.removeView(this.f56145a);
+                this.f56147c.f56142f.remove(this.f56145a);
+                this.f56147c.redraw();
+                c cVar = this.f56146b;
                 if (cVar != null) {
                     cVar.a();
                 }
@@ -132,12 +132,12 @@ public class StickerLayout extends FrameLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, cVar)) == null) {
-            StickerView stickerView = new StickerView(this.f59195e);
+            StickerView stickerView = new StickerView(this.f56141e);
             stickerView.setImageBitmap(bitmap);
-            stickerView.setLayoutParams(this.f59197g);
+            stickerView.setLayoutParams(this.f56143g);
             stickerView.setmOnStickerActionListener(new a(this, stickerView, cVar));
             addView(stickerView);
-            this.f59196f.add(stickerView);
+            this.f56142f.add(stickerView);
             redraw();
             if (cVar != null) {
                 cVar.d();
@@ -150,9 +150,9 @@ public class StickerLayout extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f59195e = context;
-            this.f59196f = new ArrayList();
-            this.f59197g = new FrameLayout.LayoutParams(-1, -1);
+            this.f56141e = context;
+            this.f56142f = new ArrayList();
+            this.f56143g = new FrameLayout.LayoutParams(-1, -1);
         }
     }
 
@@ -160,7 +160,7 @@ public class StickerLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.f59196f)) {
+            if (ListUtils.isEmpty(this.f56142f)) {
                 return null;
             }
             redraw();
@@ -172,17 +172,17 @@ public class StickerLayout extends FrameLayout {
     public List<StickerView> getStickerViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59196f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56142f : (List) invokeV.objValue;
     }
 
     public void redraw() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f59196f.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f56142f.size() <= 0) {
             return;
         }
-        for (StickerView stickerView : this.f59196f) {
+        for (StickerView stickerView : this.f56142f) {
             if (stickerView != null) {
-                stickerView.setRemoveRes(this.f59198h);
+                stickerView.setRemoveRes(this.f56144h);
                 stickerView.setEdit(false);
             }
         }
@@ -191,7 +191,7 @@ public class StickerLayout extends FrameLayout {
     public void removeAllSticker(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            Iterator<StickerView> it = this.f59196f.iterator();
+            Iterator<StickerView> it = this.f56142f.iterator();
             while (it.hasNext()) {
                 StickerView next = it.next();
                 if (next != null) {
@@ -209,7 +209,7 @@ public class StickerLayout extends FrameLayout {
     public void setRemoveRes(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f59198h = i2;
+            this.f56144h = i2;
         }
     }
 

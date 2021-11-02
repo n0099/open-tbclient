@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
-import c.a.p0.a.f;
-import c.a.p0.a.k;
-import c.a.p0.a.v2.n0;
+import b.a.p0.a.f;
+import b.a.p0.a.k;
+import b.a.p0.a.v2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FloatButton extends FullScreenFloatView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f46299f;
+    public static final boolean f43983f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class FloatButton extends FullScreenFloatView {
                 return;
             }
         }
-        f46299f = k.f7085a;
+        f43983f = k.f6397a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,7 +74,7 @@ public class FloatButton extends FullScreenFloatView {
         if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.mFloatImgView == null) {
             return;
         }
-        if (f46299f) {
+        if (f43983f) {
             String str = "move--> x = " + f2 + ", y = " + f3;
         }
         int i2 = this.mFloatViewWidth;
@@ -95,7 +95,7 @@ public class FloatButton extends FullScreenFloatView {
         if (i5 <= i7) {
             i7 = i5;
         }
-        if (f46299f) {
+        if (f43983f) {
             String str2 = "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight;
         }
         this.mFloatImgView.setX(i6);
@@ -133,7 +133,7 @@ public class FloatButton extends FullScreenFloatView {
                 } else if (this.mIsTouchDrag && (cVar = this.mDragImageListener) != null) {
                     cVar.a();
                 }
-                if (f46299f) {
+                if (f43983f) {
                     r0 = "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.mIsClickDrag;
                 }
                 if (this.mIsAutoAttachEnable && !this.mIsClickDrag && x >= 0.0f) {

@@ -13,7 +13,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SafeSubscriber<T> implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -204,11 +204,11 @@ public final class SafeSubscriber<T> implements FlowableSubscriber<T>, Subscript
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
             try {
-                this.s.request(j2);
+                this.s.request(j);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 try {

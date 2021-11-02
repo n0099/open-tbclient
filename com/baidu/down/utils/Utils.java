@@ -37,7 +37,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
@@ -98,7 +98,7 @@ public class Utils {
         extMimeMap.put(".pct", "image/pict");
         extMimeMap.put(".pic", "image/pict");
         extMimeMap.put(".pict", "image/pict");
-        extMimeMap.put(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, "image/png");
+        extMimeMap.put(".png", "image/png");
         extMimeMap.put(".pnm", "image/x-portable-anymap");
         extMimeMap.put(".pnt", "image/x-macpaint");
         extMimeMap.put(".pntg", "image/x-macpaint");

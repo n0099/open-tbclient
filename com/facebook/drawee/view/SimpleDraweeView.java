@@ -24,7 +24,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SimpleDraweeView extends GenericDraweeView {
     public static /* synthetic */ Interceptable $ic;
     public static Supplier<? extends AbstractDraweeControllerBuilder> sDraweecontrollerbuildersupplier;
@@ -57,44 +57,38 @@ public class SimpleDraweeView extends GenericDraweeView {
     private void init(Context context, @Nullable AttributeSet attributeSet) {
         int resourceId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, context, attributeSet) == null) || isInEditMode()) {
-            return;
-        }
-        if (sDraweecontrollerbuildersupplier == null) {
-            sDraweecontrollerbuildersupplier = sSupplierFactory.get();
-        }
-        try {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.beginSection("SimpleDraweeView#init");
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, context, attributeSet) == null) {
+            if (sDraweecontrollerbuildersupplier == null) {
+                sDraweecontrollerbuildersupplier = sSupplierFactory.get();
             }
-            if (isInEditMode()) {
-                getTopLevelDrawable().setVisible(true, false);
-                getTopLevelDrawable().invalidateSelf();
-            } else {
-                Preconditions.checkNotNull(sDraweecontrollerbuildersupplier, "SimpleDraweeView was not initialized!");
-                this.mControllerBuilder = sDraweecontrollerbuildersupplier.get();
-            }
-            if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SimpleDraweeView);
-                if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageUri)) {
-                    setImageURI(Uri.parse(obtainStyledAttributes.getString(R.styleable.SimpleDraweeView_actualImageUri)), (Object) null);
-                } else if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageResource)) {
-                    int resourceId2 = obtainStyledAttributes.getResourceId(R.styleable.SimpleDraweeView_actualImageResource, -1);
-                    if (resourceId2 != -1) {
+            try {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.beginSection("SimpleDraweeView#init");
+                }
+                if (isInEditMode()) {
+                    getTopLevelDrawable().setVisible(true, false);
+                    getTopLevelDrawable().invalidateSelf();
+                } else {
+                    Preconditions.checkNotNull(sDraweecontrollerbuildersupplier, "SimpleDraweeView was not initialized!");
+                    this.mControllerBuilder = sDraweecontrollerbuildersupplier.get();
+                }
+                if (attributeSet != null) {
+                    TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SimpleDraweeView);
+                    if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageUri)) {
+                        setImageURI(Uri.parse(obtainStyledAttributes.getString(R.styleable.SimpleDraweeView_actualImageUri)), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageResource) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.SimpleDraweeView_actualImageResource, -1)) != -1) {
                         if (isInEditMode()) {
-                            setImageResource(resourceId2);
+                            setImageResource(resourceId);
                         } else {
-                            setActualImageResource(resourceId2);
+                            setActualImageResource(resourceId);
                         }
                     }
-                } else if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_svgImage) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.SimpleDraweeView_svgImage, -1)) != -1) {
-                    setImageURI(UriUtil.getUriForResourceId(resourceId), (Object) null);
+                    obtainStyledAttributes.recycle();
                 }
-                obtainStyledAttributes.recycle();
-            }
-        } finally {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.endSection();
+            } finally {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.endSection();
+                }
             }
         }
     }

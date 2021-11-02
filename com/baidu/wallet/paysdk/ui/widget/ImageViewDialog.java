@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.base.widget.NetImageView;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.apollon.utils.support.ViewHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ImageViewDialog extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
     public NetImageView mContentImgageView;
     public a mListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
 
@@ -88,7 +88,7 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ImageViewDialog f63606a;
+                public final /* synthetic */ ImageViewDialog f60458a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -105,7 +105,7 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f63606a = this;
+                    this.f60458a = this;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -114,10 +114,10 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                         if (motionEvent.getAction() != 0 && motionEvent.getAction() != 2) {
-                            ViewHelper.setAlpha(this.f63606a.mCloseButton, 1.0f);
+                            ViewHelper.setAlpha(this.f60458a.mCloseButton, 1.0f);
                             return false;
                         }
-                        ViewHelper.setAlpha(this.f63606a.mCloseButton, 0.5f);
+                        ViewHelper.setAlpha(this.f60458a.mCloseButton, 0.5f);
                         return false;
                     }
                     return invokeLL.booleanValue;

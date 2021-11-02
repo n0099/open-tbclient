@@ -50,7 +50,7 @@ import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LogSystemProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEEP_ALIVE_TIME = 60000;
@@ -63,7 +63,7 @@ public class LogSystemProcessor {
     public List<BaseUploaderStrategy> mUploaderStrategies;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.LogSystemProcessor$4  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType;
         public static /* synthetic */ Interceptable $ic;

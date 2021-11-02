@@ -38,51 +38,51 @@ import java.util.concurrent.Future;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LogSender {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LogSender f43698a;
+    public static LogSender f41478a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43699b;
+    public boolean f41479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43700c;
+    public int f41480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f43701d;
+    public int f41481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SendStrategyEnum f43702e;
+    public SendStrategyEnum f41482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Timer f43703f;
+    public Timer f41483f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f43704g;
+    public Handler f41484g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements Callable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LogSender f43721a;
+        public final /* synthetic */ LogSender f41501a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f43722b;
+        public Context f41502b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f43723c;
+        public String f41503c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f43724d;
+        public String f41504d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f43725e;
+        public boolean f41505e;
 
         public a(LogSender logSender, Context context, String str, String str2, boolean z) {
             Interceptable interceptable = $ic;
@@ -99,11 +99,11 @@ public class LogSender {
                     return;
                 }
             }
-            this.f43721a = logSender;
-            this.f43722b = context;
-            this.f43724d = str;
-            this.f43723c = str2;
-            this.f43725e = z;
+            this.f41501a = logSender;
+            this.f41502b = context;
+            this.f41504d = str;
+            this.f41503c = str2;
+            this.f41505e = z;
         }
 
         @Override // java.util.concurrent.Callable
@@ -112,11 +112,11 @@ public class LogSender {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f43721a.a(this.f43722b, this.f43723c, this.f43725e)) {
-                    o.b(this.f43722b, this.f43724d);
+                if (this.f41501a.a(this.f41502b, this.f41503c, this.f41505e)) {
+                    o.b(this.f41502b, this.f41504d);
                     z = true;
                 } else {
-                    LogSender.b(this.f43722b, this.f43724d, this.f43723c);
+                    LogSender.b(this.f41502b, this.f41504d, this.f41503c);
                     z = false;
                 }
                 return Boolean.valueOf(z);
@@ -138,7 +138,7 @@ public class LogSender {
                 return;
             }
         }
-        f43698a = new LogSender();
+        f41478a = new LogSender();
     }
 
     public LogSender() {
@@ -154,13 +154,13 @@ public class LogSender {
                 return;
             }
         }
-        this.f43699b = false;
-        this.f43700c = 0;
-        this.f43701d = 1;
-        this.f43702e = SendStrategyEnum.APP_START;
+        this.f41479b = false;
+        this.f41480c = 0;
+        this.f41481d = 1;
+        this.f41482e = SendStrategyEnum.APP_START;
         HandlerThread handlerThread = new HandlerThread("LogSenderThread");
         handlerThread.start();
-        this.f43704g = new Handler(handlerThread.getLooper());
+        this.f41484g = new Handler(handlerThread.getLooper());
     }
 
     private String e(Context context, String str, String str2) throws Exception {
@@ -207,7 +207,7 @@ public class LogSender {
     public static LogSender instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? f43698a : (LogSender) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? f41478a : (LogSender) invokeV.objValue;
     }
 
     public void onSend(Context context) {
@@ -219,15 +219,15 @@ public class LogSender {
             if (context == null) {
                 return;
             }
-            this.f43704g.post(new Runnable(this, context) { // from class: com.baidu.mobstat.dxmpay.LogSender.1
+            this.f41484g.post(new Runnable(this, context) { // from class: com.baidu.mobstat.dxmpay.LogSender.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f43705a;
+                public final /* synthetic */ Context f41485a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LogSender f43706b;
+                public final /* synthetic */ LogSender f41486b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -244,34 +244,34 @@ public class LogSender {
                             return;
                         }
                     }
-                    this.f43706b = this;
-                    this.f43705a = context;
+                    this.f41486b = this;
+                    this.f41485a = context;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f43706b.f43703f != null) {
-                            this.f43706b.f43703f.cancel();
-                            this.f43706b.f43703f = null;
+                        if (this.f41486b.f41483f != null) {
+                            this.f41486b.f41483f.cancel();
+                            this.f41486b.f41483f = null;
                         }
-                        this.f43706b.f43702e = SendStrategyEnum.values()[q.a().b(this.f43705a)];
-                        this.f43706b.f43701d = q.a().c(this.f43705a);
-                        this.f43706b.f43699b = q.a().d(this.f43705a);
-                        if (!this.f43706b.f43702e.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
-                            if (this.f43706b.f43702e.equals(SendStrategyEnum.ONCE_A_DAY)) {
-                                this.f43706b.setSendingLogTimer(this.f43705a);
+                        this.f41486b.f41482e = SendStrategyEnum.values()[q.a().b(this.f41485a)];
+                        this.f41486b.f41481d = q.a().c(this.f41485a);
+                        this.f41486b.f41479b = q.a().d(this.f41485a);
+                        if (!this.f41486b.f41482e.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
+                            if (this.f41486b.f41482e.equals(SendStrategyEnum.ONCE_A_DAY)) {
+                                this.f41486b.setSendingLogTimer(this.f41485a);
                             }
                         } else {
-                            this.f43706b.setSendingLogTimer(this.f43705a);
+                            this.f41486b.setSendingLogTimer(this.f41485a);
                         }
-                        this.f43706b.f43704g.postDelayed(new Runnable(this) { // from class: com.baidu.mobstat.dxmpay.LogSender.1.1
+                        this.f41486b.f41484g.postDelayed(new Runnable(this) { // from class: com.baidu.mobstat.dxmpay.LogSender.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f43707a;
+                            public final /* synthetic */ AnonymousClass1 f41487a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -288,18 +288,18 @@ public class LogSender {
                                         return;
                                     }
                                 }
-                                this.f43707a = this;
+                                this.f41487a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    AnonymousClass1 anonymousClass1 = this.f43707a;
-                                    anonymousClass1.f43706b.a(anonymousClass1.f43705a);
+                                    AnonymousClass1 anonymousClass1 = this.f41487a;
+                                    anonymousClass1.f41486b.a(anonymousClass1.f41485a);
                                 }
                             }
-                        }, this.f43706b.f43700c * 1000);
+                        }, this.f41486b.f41480c * 1000);
                     }
                 }
             });
@@ -320,18 +320,18 @@ public class LogSender {
     public void sendEmptyLogData(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-            this.f43704g.post(new Runnable(this, context.getApplicationContext(), str) { // from class: com.baidu.mobstat.dxmpay.LogSender.7
+            this.f41484g.post(new Runnable(this, context.getApplicationContext(), str) { // from class: com.baidu.mobstat.dxmpay.LogSender.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f43718a;
+                public final /* synthetic */ Context f41498a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f43719b;
+                public final /* synthetic */ String f41499b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LogSender f43720c;
+                public final /* synthetic */ LogSender f41500c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -348,20 +348,20 @@ public class LogSender {
                             return;
                         }
                     }
-                    this.f43720c = this;
-                    this.f43718a = r7;
-                    this.f43719b = str;
+                    this.f41500c = this;
+                    this.f41498a = r7;
+                    this.f41499b = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String constructLogWithEmptyBody = DataCore.instance().constructLogWithEmptyBody(this.f43718a, this.f43719b);
+                        String constructLogWithEmptyBody = DataCore.instance().constructLogWithEmptyBody(this.f41498a, this.f41499b);
                         if (TextUtils.isEmpty(constructLogWithEmptyBody)) {
                             return;
                         }
-                        this.f43720c.c(this.f43718a, constructLogWithEmptyBody);
+                        this.f41500c.c(this.f41498a, constructLogWithEmptyBody);
                     }
                 }
             });
@@ -377,18 +377,18 @@ public class LogSender {
         if (z) {
             b(applicationContext, str);
         } else {
-            this.f43704g.post(new Runnable(this, applicationContext, str) { // from class: com.baidu.mobstat.dxmpay.LogSender.6
+            this.f41484g.post(new Runnable(this, applicationContext, str) { // from class: com.baidu.mobstat.dxmpay.LogSender.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f43715a;
+                public final /* synthetic */ Context f41495a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f43716b;
+                public final /* synthetic */ String f41496b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LogSender f43717c;
+                public final /* synthetic */ LogSender f41497c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -405,16 +405,16 @@ public class LogSender {
                             return;
                         }
                     }
-                    this.f43717c = this;
-                    this.f43715a = applicationContext;
-                    this.f43716b = str;
+                    this.f41497c = this;
+                    this.f41495a = applicationContext;
+                    this.f41496b = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43717c.b(this.f43715a, this.f43716b);
+                        this.f41497c.b(this.f41495a, this.f41496b);
                     }
                 }
             });
@@ -426,26 +426,26 @@ public class LogSender {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 < 0 || i2 > 30) {
             return;
         }
-        this.f43700c = i2;
+        this.f41480c = i2;
     }
 
     public void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, sendStrategyEnum, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (!sendStrategyEnum.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
-                this.f43702e = sendStrategyEnum;
-                q.a().a(context, this.f43702e.ordinal());
+                this.f41482e = sendStrategyEnum;
+                q.a().a(context, this.f41482e.ordinal());
                 if (sendStrategyEnum.equals(SendStrategyEnum.ONCE_A_DAY)) {
                     q.a().b(context, 24);
                 }
             } else if (i2 > 0 && i2 <= 24) {
-                this.f43701d = i2;
-                this.f43702e = SendStrategyEnum.SET_TIME_INTERVAL;
-                q.a().a(context, this.f43702e.ordinal());
-                q.a().b(context, this.f43701d);
+                this.f41481d = i2;
+                this.f41482e = SendStrategyEnum.SET_TIME_INTERVAL;
+                q.a().a(context, this.f41482e.ordinal());
+                q.a().b(context, this.f41481d);
             }
-            this.f43699b = z;
-            q.a().a(context, this.f43699b);
+            this.f41479b = z;
+            q.a().a(context, this.f41479b);
         }
     }
 
@@ -453,19 +453,19 @@ public class LogSender {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             Context applicationContext = context.getApplicationContext();
-            long j2 = this.f43701d * 3600000;
+            long j = this.f41481d * 3600000;
             try {
                 Timer timer = new Timer();
-                this.f43703f = timer;
+                this.f41483f = timer;
                 timer.schedule(new TimerTask(this, applicationContext) { // from class: com.baidu.mobstat.dxmpay.LogSender.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f43708a;
+                    public final /* synthetic */ Context f41488a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ LogSender f43709b;
+                    public final /* synthetic */ LogSender f41489b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -482,18 +482,18 @@ public class LogSender {
                                 return;
                             }
                         }
-                        this.f43709b = this;
-                        this.f43708a = applicationContext;
+                        this.f41489b = this;
+                        this.f41488a = applicationContext;
                     }
 
                     @Override // java.util.TimerTask, java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f43709b.a(this.f43708a);
+                            this.f41489b.a(this.f41488a);
                         }
                     }
-                }, j2, j2);
+                }, j, j);
             } catch (Exception unused) {
             }
         }
@@ -644,21 +644,21 @@ public class LogSender {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(Context context, long j2, String str) {
+    private void a(Context context, long j, String str) {
         int size;
-        long j3;
+        long j2;
         FileInputStream fileInputStream;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{context, Long.valueOf(j2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{context, Long.valueOf(j), str}) == null) {
             ArrayList<String> a2 = a(context, str);
             size = a2.size() - 1;
-            j3 = 0;
+            j2 = 0;
             fileInputStream = null;
             while (size >= 0) {
                 try {
                     fileInputStream = context.openFileInput(a2.get(size));
-                    j3 += fileInputStream.available();
+                    j2 += fileInputStream.available();
                 } catch (Exception unused) {
                 } catch (Throwable th) {
                     if (fileInputStream != null) {
@@ -677,7 +677,7 @@ public class LogSender {
         }
         return;
         fileInputStream = null;
-        if (j3 > j2) {
+        if (j2 > j) {
             while (i2 <= size) {
             }
             return;
@@ -698,10 +698,10 @@ public class LogSender {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f43710a;
+                    public final /* synthetic */ String f41490a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ LogSender f43711b;
+                    public final /* synthetic */ LogSender f41491b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -718,15 +718,15 @@ public class LogSender {
                                 return;
                             }
                         }
-                        this.f43711b = this;
-                        this.f43710a = str;
+                        this.f41491b = this;
+                        this.f41490a = str;
                     }
 
                     @Override // java.io.FilenameFilter
                     public boolean accept(File file, String str2) {
                         InterceptResult invokeLL2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, file, str2)) == null) ? str2.startsWith(this.f43710a) : invokeLL2.booleanValue;
+                        return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, file, str2)) == null) ? str2.startsWith(this.f41490a) : invokeLL2.booleanValue;
                     }
                 };
                 String[] strArr = null;
@@ -741,7 +741,7 @@ public class LogSender {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ LogSender f43712a;
+                            public final /* synthetic */ LogSender f41492a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -758,7 +758,7 @@ public class LogSender {
                                         return;
                                     }
                                 }
-                                this.f43712a = this;
+                                this.f41492a = this;
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
@@ -786,16 +786,16 @@ public class LogSender {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
-            if (!this.f43699b || w.h(context)) {
-                this.f43704g.post(new Runnable(this, context) { // from class: com.baidu.mobstat.dxmpay.LogSender.5
+            if (!this.f41479b || w.h(context)) {
+                this.f41484g.post(new Runnable(this, context) { // from class: com.baidu.mobstat.dxmpay.LogSender.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f43713a;
+                    public final /* synthetic */ Context f41493a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ LogSender f43714b;
+                    public final /* synthetic */ LogSender f41494b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -812,8 +812,8 @@ public class LogSender {
                                 return;
                             }
                         }
-                        this.f43714b = this;
-                        this.f43713a = context;
+                        this.f41494b = this;
+                        this.f41493a = context;
                     }
 
                     @Override // java.lang.Runnable
@@ -825,21 +825,21 @@ public class LogSender {
                         }
                         try {
                             ArrayList arrayList = new ArrayList();
-                            arrayList.addAll(this.f43714b.a(this.f43713a, Config.PREFIX_SEND_DATA));
-                            arrayList.addAll(this.f43714b.a(this.f43713a, Config.PREFIX_SEND_DATA_FULL));
+                            arrayList.addAll(this.f41494b.a(this.f41493a, Config.PREFIX_SEND_DATA));
+                            arrayList.addAll(this.f41494b.a(this.f41493a, Config.PREFIX_SEND_DATA_FULL));
                             Iterator it = arrayList.iterator();
                             while (true) {
                                 int i2 = 0;
                                 while (it.hasNext()) {
                                     str = (String) it.next();
-                                    String a2 = o.a(this.f43713a, str);
+                                    String a2 = o.a(this.f41493a, str);
                                     if (TextUtils.isEmpty(a2)) {
-                                        o.b(this.f43713a, str);
+                                        o.b(this.f41493a, str);
                                     } else {
-                                        if (this.f43714b.a(this.f43713a, a2, str.contains(Config.PREFIX_SEND_DATA_FULL))) {
+                                        if (this.f41494b.a(this.f41493a, a2, str.contains(Config.PREFIX_SEND_DATA_FULL))) {
                                             break;
                                         }
-                                        LogSender.b(this.f43713a, str, a2);
+                                        LogSender.b(this.f41493a, str, a2);
                                         i2++;
                                         if (i2 >= 5) {
                                             return;
@@ -847,7 +847,7 @@ public class LogSender {
                                     }
                                 }
                                 return;
-                                o.b(this.f43713a, str);
+                                o.b(this.f41493a, str);
                             }
                         } catch (Exception unused) {
                         }
@@ -866,7 +866,7 @@ public class LogSender {
                 h.c().a("Start send log \n" + str);
             }
             boolean z2 = false;
-            if (this.f43699b && !w.h(context)) {
+            if (this.f41479b && !w.h(context)) {
                 h.c().a("[WARNING] wifi not available, log will be cached, next time will try to resend");
                 return false;
             }
@@ -881,7 +881,7 @@ public class LogSender {
                 h.c().a(e2);
             }
             if (!z) {
-                String str3 = z2 ? "success" : com.alipay.sdk.util.f.f36109j;
+                String str3 = z2 ? "success" : com.alipay.sdk.util.f.j;
                 h.c().a("Send log " + str3);
             }
             return z2;

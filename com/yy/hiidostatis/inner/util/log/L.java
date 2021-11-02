@@ -2,9 +2,11 @@ package com.yy.hiidostatis.inner.util.log;
 
 import android.content.Context;
 import android.os.Process;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +24,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Properties;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class L {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
@@ -156,7 +158,7 @@ public class L {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, obj, str, objArr)) == null) {
-            return objClassName(obj) + " " + Util.formatStr(str, objArr);
+            return PreferencesUtil.LEFT_MOUNT + objClassName(obj) + "] " + Util.formatStr(str, objArr);
         }
         return (String) invokeLLL.objValue;
     }
@@ -340,7 +342,12 @@ public class L {
             if (obj instanceof String) {
                 return (String) obj;
             }
-            return obj.getClass().getSimpleName();
+            String simpleName = obj.getClass().getSimpleName();
+            if (TextUtils.isEmpty(simpleName)) {
+                String name = obj.getClass().getName();
+                return name.substring(name.lastIndexOf(46) + 1);
+            }
+            return simpleName;
         }
         return (String) invokeL.objValue;
     }

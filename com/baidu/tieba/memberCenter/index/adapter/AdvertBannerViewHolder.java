@@ -1,20 +1,20 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.r0.y1.c.a;
+import b.a.r0.y1.c.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AdvertBannerViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f54313a;
+    public a f51506a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdvertBannerViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -34,16 +34,16 @@ public class AdvertBannerViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54313a = new a(view, baseFragmentActivity);
+        this.f51506a = new a(view, baseFragmentActivity);
     }
 
-    public void fillView(c.a.r0.y1.c.k.a aVar) {
+    public void fillView(b.a.r0.y1.c.k.a aVar) {
         a aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || (aVar2 = this.f54313a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || (aVar2 = this.f51506a) == null) {
             return;
         }
         aVar2.b(aVar);
-        this.f54313a.d();
+        this.f51506a.d();
     }
 }

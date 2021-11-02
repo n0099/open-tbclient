@@ -20,7 +20,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableUsing<T, D> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class ObservableUsing<T, D> extends Observable<T> {
     public final Callable<? extends D> resourceSupplier;
     public final Function<? super D, ? extends ObservableSource<? extends T>> sourceSupplier;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class UsingObserver<T, D> extends AtomicBoolean implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5904473792286235046L;

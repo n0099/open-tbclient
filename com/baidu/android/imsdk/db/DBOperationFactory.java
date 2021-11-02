@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DBOperationFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBOperationFactory";
@@ -106,10 +106,10 @@ public class DBOperationFactory {
             long appid = AccountManagerImpl.getInstance(context).getAppid();
             int i2 = (0L > uk ? 1 : (0L == uk ? 0 : -1));
             if (i2 != 0 && -1 != appid) {
-                long j2 = sAppid;
-                if (j2 == -1 || j2 == appid) {
-                    long j3 = sUk;
-                    if (j3 != 0) {
+                long j = sAppid;
+                if (j == -1 || j == appid) {
+                    long j2 = sUk;
+                    if (j2 != 0) {
                     }
                     sUk = uk;
                     sAppid = appid;
@@ -152,10 +152,10 @@ public class DBOperationFactory {
             long appid = AccountManagerImpl.getInstance(context).getAppid();
             if (!TextUtils.isEmpty(uid) && -1 != appid) {
                 int env = Constants.getEnv(context);
-                long j2 = sAppid;
-                if ((j2 == -1 || j2 == appid) && ((str = sUid) == null || str.equals(uid))) {
-                    long j3 = sEnv;
-                    if (j3 != -1) {
+                long j = sAppid;
+                if ((j == -1 || j == appid) && ((str = sUid) == null || str.equals(uid))) {
+                    long j2 = sEnv;
+                    if (j2 != -1) {
                     }
                     sUid = uid;
                     sAppid = appid;

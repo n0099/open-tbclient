@@ -1,4 +1,4 @@
 package com.baidu.pass.biometrics.base;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface NoProguard {
 }

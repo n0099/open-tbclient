@@ -11,7 +11,7 @@ import com.baidu.wallet.core.NoProguard;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RouterRequest implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RouterRequest";

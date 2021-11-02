@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.q.n1;
+import b.a.q0.s.q.d2;
+import b.a.q0.s.q.n1;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PbCommentFloatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -284,8 +284,8 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", d2Var.s1());
-            if (d2Var.v1() != null && !StringUtils.isNull(d2Var.v1().E())) {
-                intent.putExtra("god_reply_id", d2Var.v1().E());
+            if (d2Var.v1() != null && !StringUtils.isNull(d2Var.v1().G())) {
+                intent.putExtra("god_reply_id", d2Var.v1().G());
             }
             intent.putExtra("is_good", d2Var.q0());
             intent.putExtra("is_top", d2Var.r0());
@@ -413,10 +413,10 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         return (PbCommentFloatActivityConfig) invokeCommon.objValue;
     }
 
-    public PbCommentFloatActivityConfig createMessageCfg(String str, String str2, String str3, long j2, String str4, String str5, String str6) {
+    public PbCommentFloatActivityConfig createMessageCfg(String str, String str2, String str3, long j, String str4, String str5, String str6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Long.valueOf(j2), str4, str5, str6})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Long.valueOf(j), str4, str5, str6})) == null) {
             if (str == null) {
                 return this;
             }
@@ -425,7 +425,7 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
             intent.putExtra("is_pv", true);
-            intent.putExtra("msg_id", j2);
+            intent.putExtra("msg_id", j);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (str4 != null) {
                 intent.putExtra("op_url", str4);

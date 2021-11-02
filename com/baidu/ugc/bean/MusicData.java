@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MusicData extends MusicBaseBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MUSIC_DATA_KEY = "musicData";
@@ -340,17 +340,17 @@ public class MusicData extends MusicBaseBean {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((int) this.clipFrom) + this.startPosition : invokeV.intValue;
     }
 
-    public void setClipFrom(long j2) {
+    public void setClipFrom(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.clipFrom = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.clipFrom = j;
         }
     }
 
-    public void setClipTo(long j2) {
+    public void setClipTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.clipTo = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.clipTo = j;
         }
     }
 

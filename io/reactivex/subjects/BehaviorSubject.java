@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BehaviorSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final BehaviorDisposable[] EMPTY;
@@ -38,7 +38,7 @@ public final class BehaviorSubject<T> extends Subject<T> {
     public final AtomicReference<Object> value;
     public final Lock writeLock;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BehaviorDisposable<T> implements Disposable, AppendOnlyLinkedArrayList.NonThrowingPredicate<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,9 +125,9 @@ public final class BehaviorSubject<T> extends Subject<T> {
             }
         }
 
-        public void emitNext(Object obj, long j2) {
+        public void emitNext(Object obj, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLJ(1048579, this, obj, j2) == null) || this.cancelled) {
+            if (!(interceptable == null || interceptable.invokeLJ(1048579, this, obj, j) == null) || this.cancelled) {
                 return;
             }
             if (!this.fastPath) {
@@ -135,7 +135,7 @@ public final class BehaviorSubject<T> extends Subject<T> {
                     if (this.cancelled) {
                         return;
                     }
-                    if (this.index == j2) {
+                    if (this.index == j) {
                         return;
                     }
                     if (this.emitting) {

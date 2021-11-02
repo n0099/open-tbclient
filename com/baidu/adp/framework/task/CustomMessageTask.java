@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CustomMessageTask extends MessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,13 +21,13 @@ public class CustomMessageTask extends MessageTask {
     public CustomRunnable<?> mRunnable;
     public TASK_TYPE mType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface CustomRunnable<T> {
         CustomResponsedMessage<?> run(CustomMessage<T> customMessage);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class TASK_TYPE {
         public static final /* synthetic */ TASK_TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

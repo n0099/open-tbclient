@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.view.itemcard.download;
 
 import android.os.Build;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,13 +9,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ItemFetchUrlHttpMsg extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +43,7 @@ public class ItemFetchUrlHttpMsg extends HttpMessage {
         addParam("screen_width", l.k(TbadkCoreApplication.getInst().getContext()));
         addParam("screen_length", l.i(TbadkCoreApplication.getInst().getContext()));
         addParam("os_ver", Build.VERSION.RELEASE);
-        addParam(AsInstallService.SCHEME_PACKAGE_ADDED, itemData.pkgName);
+        addParam("package", itemData.pkgName);
         addParam("query", str);
         if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
             addParam("req_type", ((ItemDownloadExtraData) downloadData.getExtra()).shouzhuScene == 4001 ? 5 : 6);

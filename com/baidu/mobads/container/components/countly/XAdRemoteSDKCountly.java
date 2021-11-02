@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdRemoteSDKCountly {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COUNTLY_BASE_URL_POST = "https://mobads-logs.baidu.com/brwhis.log";

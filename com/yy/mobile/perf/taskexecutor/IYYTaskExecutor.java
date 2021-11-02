@@ -1,5 +1,5 @@
 package com.yy.mobile.perf.taskexecutor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IYYTaskExecutor extends ITaskExecutor {
     IQueueTaskExecutor createAQueueExcuter();
 
@@ -7,7 +7,7 @@ public interface IYYTaskExecutor extends ITaskExecutor {
 
     void postIdleRunnableToMainThread(Runnable runnable);
 
-    void postToMainThread(Runnable runnable, long j2);
+    void postToMainThread(Runnable runnable, long j);
 
     void removeRunnableFromMainThread(Runnable runnable);
 }

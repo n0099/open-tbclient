@@ -2,18 +2,18 @@ package com.baidu.card;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.l.l0;
-import c.a.l.t0;
-import c.a.q0.s.q.a;
-import c.a.r0.q2.e;
-import c.a.r0.q2.o;
+import b.a.l.l0;
+import b.a.l.t0;
+import b.a.q0.s.q.a;
+import b.a.r0.q2.e;
+import b.a.r0.q2.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T> implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         }
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return invokeV.intValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.n : (t0) invokeV.objValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,16 +133,16 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return invokeV.booleanValue;
     }
 
-    public void setVideoStatsData(o oVar) {
+    public void setVideoStatsData(p pVar) {
         t0 t0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, oVar) == null) || (t0Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, pVar) == null) || (t0Var = this.n) == null) {
             return;
         }
-        t0Var.y(oVar);
+        t0Var.y(pVar);
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public void startPlay() {
         t0 t0Var;
         Interceptable interceptable = $ic;
@@ -152,7 +152,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         t0Var.startPlay();
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public void stopPlay() {
         t0 t0Var;
         Interceptable interceptable = $ic;

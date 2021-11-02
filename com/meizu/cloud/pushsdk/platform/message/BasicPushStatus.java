@@ -1,12 +1,12 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import android.text.TextUtils;
-import c.l.a.a.a;
+import b.l.a.a.a;
 import java.io.Serializable;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class BasicPushStatus implements Serializable {
     public static final String SUCCESS_CODE = "200";
     public static final String TAG = "BasicPushStatus";
@@ -18,7 +18,7 @@ public abstract class BasicPushStatus implements Serializable {
 
     public BasicPushStatus(String str) {
         JSONObject parse = parse(str);
-        if (parse == null || !"200".equals(this.code) || parse.isNull("value")) {
+        if (parse == null || !SUCCESS_CODE.equals(this.code) || parse.isNull("value")) {
             return;
         }
         try {

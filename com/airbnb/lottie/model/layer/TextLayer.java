@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TextLayer extends BaseLayer {
     public final LongSparseArray<String> codePointCache;
     @Nullable
@@ -66,7 +66,7 @@ public class TextLayer extends BaseLayer {
     public BaseKeyframeAnimation<Float, Float> trackingCallbackAnimation;
 
     /* renamed from: com.airbnb.lottie.model.layer.TextLayer$3  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$DocumentData$Justification;
 
@@ -164,9 +164,9 @@ public class TextLayer extends BaseLayer {
             charCount += Character.charCount(codePointAt2);
             codePointAt = (codePointAt * 31) + codePointAt2;
         }
-        long j2 = codePointAt;
-        if (this.codePointCache.containsKey(j2)) {
-            return this.codePointCache.get(j2);
+        long j = codePointAt;
+        if (this.codePointCache.containsKey(j)) {
+            return this.codePointCache.get(j);
         }
         this.stringBuilder.setLength(0);
         while (i2 < charCount) {
@@ -175,7 +175,7 @@ public class TextLayer extends BaseLayer {
             i2 += Character.charCount(codePointAt3);
         }
         String sb = this.stringBuilder.toString();
-        this.codePointCache.put(j2, sb);
+        this.codePointCache.put(j, sb);
         return sb;
     }
 

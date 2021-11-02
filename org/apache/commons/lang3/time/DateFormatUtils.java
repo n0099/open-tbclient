@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DateFormatUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final FastDateFormat ISO_8601_EXTENDED_DATETIME_FORMAT;
@@ -90,16 +90,16 @@ public class DateFormatUtils {
         }
     }
 
-    public static String format(long j2, String str) {
+    public static String format(long j, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j2, str)) == null) ? format(new Date(j2), str, (TimeZone) null, (Locale) null) : (String) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) ? format(new Date(j), str, (TimeZone) null, (Locale) null) : (String) invokeJL.objValue;
     }
 
-    public static String formatUTC(long j2, String str) {
+    public static String formatUTC(long j, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65550, null, j2, str)) == null) ? format(new Date(j2), str, UTC_TIME_ZONE, (Locale) null) : (String) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65550, null, j, str)) == null) ? format(new Date(j), str, UTC_TIME_ZONE, (Locale) null) : (String) invokeJL.objValue;
     }
 
     public static String format(Date date, String str) {
@@ -120,16 +120,16 @@ public class DateFormatUtils {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, calendar, str)) == null) ? format(calendar, str, (TimeZone) null, (Locale) null) : (String) invokeLL.objValue;
     }
 
-    public static String formatUTC(long j2, String str, Locale locale) {
+    public static String formatUTC(long j, String str, Locale locale) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j2), str, locale})) == null) ? format(new Date(j2), str, UTC_TIME_ZONE, locale) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j), str, locale})) == null) ? format(new Date(j), str, UTC_TIME_ZONE, locale) : (String) invokeCommon.objValue;
     }
 
-    public static String format(long j2, String str, TimeZone timeZone) {
+    public static String format(long j, String str, TimeZone timeZone) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), str, timeZone})) == null) ? format(new Date(j2), str, timeZone, (Locale) null) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, timeZone})) == null) ? format(new Date(j), str, timeZone, (Locale) null) : (String) invokeCommon.objValue;
     }
 
     public static String formatUTC(Date date, String str, Locale locale) {
@@ -150,10 +150,10 @@ public class DateFormatUtils {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, calendar, str, timeZone)) == null) ? format(calendar, str, timeZone, (Locale) null) : (String) invokeLLL.objValue;
     }
 
-    public static String format(long j2, String str, Locale locale) {
+    public static String format(long j, String str, Locale locale) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), str, locale})) == null) ? format(new Date(j2), str, (TimeZone) null, locale) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), str, locale})) == null) ? format(new Date(j), str, (TimeZone) null, locale) : (String) invokeCommon.objValue;
     }
 
     public static String format(Date date, String str, Locale locale) {
@@ -168,10 +168,10 @@ public class DateFormatUtils {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, calendar, str, locale)) == null) ? format(calendar, str, (TimeZone) null, locale) : (String) invokeLLL.objValue;
     }
 
-    public static String format(long j2, String str, TimeZone timeZone, Locale locale) {
+    public static String format(long j, String str, TimeZone timeZone, Locale locale) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j2), str, timeZone, locale})) == null) ? format(new Date(j2), str, timeZone, locale) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j), str, timeZone, locale})) == null) ? format(new Date(j), str, timeZone, locale) : (String) invokeCommon.objValue;
     }
 
     public static String format(Date date, String str, TimeZone timeZone, Locale locale) {

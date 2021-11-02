@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AudioEncoderCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIME_TYPE = "audio/mp4a-latm";
@@ -121,10 +121,10 @@ public class AudioEncoderCore {
         }
     }
 
-    public void encode(ByteBuffer byteBuffer, int i2, long j2) throws Exception {
+    public void encode(ByteBuffer byteBuffer, int i2, long j) throws Exception {
         int dequeueInputBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             ByteBuffer[] inputBuffers = this.mEncoder.getInputBuffers();
             do {
                 dequeueInputBuffer = this.mEncoder.dequeueInputBuffer(10000L);
@@ -135,9 +135,9 @@ public class AudioEncoderCore {
                 byteBuffer2.put(byteBuffer);
             }
             if (i2 <= 0) {
-                this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, 0, j2, 4);
+                this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, 0, j, 4);
             } else {
-                this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, i2, j2, 0);
+                this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, i2, j, 0);
             }
         }
     }

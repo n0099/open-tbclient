@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class h extends com.kwai.sodler.lib.a.f<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class h extends com.kwai.sodler.lib.a.f<g> {
             }
         }
         this.p = bVar;
-        this.f74719a = str;
+        this.f67095a = str;
     }
 
     @Override // com.kwai.sodler.lib.a.f

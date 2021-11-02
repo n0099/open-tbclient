@@ -5,13 +5,13 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.a0;
-import c.a.q0.s.k;
-import c.a.q0.s.q.z0;
-import c.a.q0.t.j.c;
-import c.a.q0.z0.a;
-import c.a.r0.p3.d;
-import c.a.r0.y3.h;
+import b.a.q0.d1.a0;
+import b.a.q0.s.k;
+import b.a.q0.s.q.z0;
+import b.a.q0.t.j.c;
+import b.a.q0.z0.a;
+import b.a.r0.q3.d;
+import b.a.r0.z3.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class InitAllTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,20 +98,20 @@ public class InitAllTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             try {
-                c.a.e.e.i.a.l().o();
+                b.a.e.e.i.a.n().q();
                 if (PermissionUtil.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
-                    c.a.e.e.i.a.l().h(false);
+                    b.a.e.e.i.a.n().j(false);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
             if (PermissionUtil.checkLocationForGoogle(AppRuntime.getAppContext())) {
-                c.a.e.e.i.a.l().h(false);
+                b.a.e.e.i.a.n().j(false);
             }
             try {
                 a0.b().e();
                 if (isMainProcess(false)) {
-                    c.a.q0.g.a.d().f();
+                    b.a.q0.g.a.d().f();
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -223,7 +223,7 @@ public class InitAllTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            c.a.q0.t.e.d dVar = new c.a.q0.t.e.d();
+            b.a.q0.t.e.d dVar = new b.a.q0.t.e.d();
             dVar.e(loadString);
             c a2 = c.a();
             a2.g(dVar.b() == 1);

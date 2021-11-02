@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ChatUser> CREATOR;
@@ -102,12 +102,12 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         };
     }
 
-    public ChatUser(long j2, long j3, String str, String str2) {
+    public ChatUser(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), str, str2};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -140,8 +140,8 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mSpecialIdentity = "";
         this.mUserExt = "";
         this.mGroupStatus = 1;
-        this.mUk = j2;
-        this.mBuid = j3;
+        this.mUk = j;
+        this.mBuid = j2;
         this.mUserName = str;
         this.mIconUrl = str2;
     }
@@ -436,10 +436,10 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         }
     }
 
-    public void setLastUpdate(long j2) {
+    public void setLastUpdate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048619, this, j2) == null) {
-            this.mLastUpdate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048619, this, j) == null) {
+            this.mLastUpdate = j;
         }
     }
 
@@ -450,17 +450,17 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         }
     }
 
-    public void setMarkTopTime(long j2) {
+    public void setMarkTopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048621, this, j2) == null) {
-            this.mMarkTopTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048621, this, j) == null) {
+            this.mMarkTopTime = j;
         }
     }
 
-    public void setPhone(long j2) {
+    public void setPhone(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.mPhone = j2;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.mPhone = j;
         }
     }
 
@@ -492,10 +492,10 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         }
     }
 
-    public void setShieldTime(long j2) {
+    public void setShieldTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j2) == null) {
-            this.mShieldTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+            this.mShieldTime = j;
         }
     }
 

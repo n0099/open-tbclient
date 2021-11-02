@@ -1,6 +1,7 @@
 package com.google.zxing.qrcode.decoder;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ErrorCorrectionLevel {
     public static final /* synthetic */ ErrorCorrectionLevel[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +38,7 @@ public final class ErrorCorrectionLevel {
         L = new ErrorCorrectionLevel("L", 0, 1);
         M = new ErrorCorrectionLevel("M", 1, 0);
         Q = new ErrorCorrectionLevel("Q", 2, 3);
-        ErrorCorrectionLevel errorCorrectionLevel = new ErrorCorrectionLevel("H", 3, 2);
+        ErrorCorrectionLevel errorCorrectionLevel = new ErrorCorrectionLevel(IEruptionStrategyGroup.STRATEGY_MODIFIER_H, 3, 2);
         H = errorCorrectionLevel;
         ErrorCorrectionLevel errorCorrectionLevel2 = L;
         ErrorCorrectionLevel errorCorrectionLevel3 = M;

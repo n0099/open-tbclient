@@ -19,7 +19,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NoMotionRequest extends BaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NoMotionRequest";

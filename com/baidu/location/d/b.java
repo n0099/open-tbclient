@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WeakReference f41301a;
+    public final /* synthetic */ WeakReference f39161a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f41302b;
+    public final /* synthetic */ a f39162b;
 
     public b(a aVar, WeakReference weakReference) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f41302b = aVar;
-        this.f41301a = weakReference;
+        this.f39162b = aVar;
+        this.f39161a = weakReference;
     }
 
     @Override // java.lang.Runnable
@@ -40,10 +40,10 @@ public class b implements Runnable {
         a aVar;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.f41301a.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.f39161a.get()) == null) {
             return;
         }
-        i2 = aVar.f41299h;
+        i2 = aVar.f39159h;
         if (i2 == 3) {
             aVar.b();
         }

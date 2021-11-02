@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MessageV4 extends MessageV3 {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV4.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,10 +47,10 @@ public class MessageV4 extends MessageV3 {
                     }
                 }
             } catch (JSONException e2) {
-                c.l.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
+                b.l.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
             }
         }
-        c.l.a.a.a.d(TAG, "MessageV4 " + messageV4);
+        b.l.a.a.a.d(TAG, "MessageV4 " + messageV4);
         return messageV4;
     }
 

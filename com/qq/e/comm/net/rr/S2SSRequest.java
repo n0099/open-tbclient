@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.net.rr.Request;
 import java.net.HttpURLConnection;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class S2SSRequest extends AbstractRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class S2SSRequest extends AbstractRequest {
     public byte[] getPostData() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.a(super.getPostData()) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.c(super.getPostData()) : (byte[]) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request

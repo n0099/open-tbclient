@@ -26,7 +26,7 @@ import io.flutter.view.VsyncWaiter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AOT_SHARED_LIBRARY_NAME = "aot-shared-library-name";
@@ -57,7 +57,7 @@ public class FlutterLoader {
     public Settings settings;
     public String vmSnapshotData;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

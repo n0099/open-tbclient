@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HiidoReport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "hiidoReport";
@@ -17,7 +17,7 @@ public class HiidoReport {
     public transient /* synthetic */ FieldHolder $fh;
     public Random random;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class CReportConfig {
         public static /* synthetic */ Interceptable $ic;
         public static String mAppName;
@@ -56,7 +56,7 @@ public class HiidoReport {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class CReportParam {
         public static /* synthetic */ Interceptable $ic = null;
         public static String ACT = "revenuepay";
@@ -95,7 +95,7 @@ public class HiidoReport {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class CReportResponse {
         public static /* synthetic */ Interceptable $ic = null;
         public static String mAppId = "";
@@ -230,16 +230,16 @@ public class HiidoReport {
         return (HiidoReport) invokeV.objValue;
     }
 
-    public String getSummaryUri(String str, CReportResponse cReportResponse) {
-        InterceptResult invokeLL;
+    public String getRevenueUri(int i2, int i3, String str) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, cReportResponse)) == null) {
-            return CReportConfig.mAppName + "/" + str;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, str)) == null) {
+            return "paysdk/android/cmd_" + str + "/" + i2 + "/" + i3;
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeIIL.objValue;
     }
 
-    public String getUri(String str, CReportResponse cReportResponse) {
+    public String getSummaryUri(String str, CReportResponse cReportResponse) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cReportResponse)) == null) {
@@ -248,20 +248,12 @@ public class HiidoReport {
         return (String) invokeLL.objValue;
     }
 
-    public boolean isReportByRandomRatio() {
-        InterceptResult invokeV;
+    public String getUri(String str, CReportResponse cReportResponse) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (CReportConfig.mReportRatio.floatValue() <= 0.0f) {
-                return false;
-            }
-            if (CReportConfig.mReportRatio.floatValue() >= 1.0f) {
-                return true;
-            }
-            int floatValue = (int) (CReportConfig.mReportRatio.floatValue() * 100.0f);
-            int nextInt = this.random.nextInt(100);
-            return nextInt >= 0 && nextInt < floatValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cReportResponse)) == null) {
+            return CReportConfig.mAppName + "/" + str;
         }
-        return invokeV.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

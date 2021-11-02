@@ -5,10 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.iddetect.IdCardActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class IMLikeData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +44,7 @@ public class IMLikeData {
             jSONObject.put("room_id", this.roomId);
             jSONObject.put("source_type", 0);
             jSONObject.put("uid", this.uid);
-            jSONObject.put(IdCardActivity.KEY_NUMBER, this.num);
+            jSONObject.put("number", this.num);
             jSONObject.put("app_version", this.appVersion);
             jSONObject.put("source_type", this.sourceType);
             jSONObject.put("caller_flag", this.callFlag);

@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.loader.a;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SecurityChecker {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile State f71440a;
+    public static volatile State f63919a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,35 +83,35 @@ public class SecurityChecker {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(Exception exc);
 
         void a(boolean z, State state);
     }
 
-    public static void a(File file, a.C1978a c1978a, a aVar) {
+    public static void a(File file, a.C1887a c1887a, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, file, c1978a, aVar) == null) {
-            i.a(new Runnable(c1978a, file, aVar) { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
+        if (interceptable == null || interceptable.invokeLLL(65538, null, file, c1887a, aVar) == null) {
+            i.a(new Runnable(c1887a, file, aVar) { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a.C1978a f71441a;
+                public final /* synthetic */ a.C1887a f63920a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f71442b;
+                public final /* synthetic */ File f63921b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f71443c;
+                public final /* synthetic */ a f63922c;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1978a, file, aVar};
+                        Object[] objArr = {c1887a, file, aVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -121,27 +121,27 @@ public class SecurityChecker {
                             return;
                         }
                     }
-                    this.f71441a = c1978a;
-                    this.f71442b = file;
-                    this.f71443c = aVar;
+                    this.f63920a = c1887a;
+                    this.f63921b = file;
+                    this.f63922c = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        State unused = SecurityChecker.f71440a = State.INIT;
+                        State unused = SecurityChecker.f63919a = State.INIT;
                         try {
-                            boolean z = this.f71441a != null && SecurityChecker.b(this.f71442b) && SecurityChecker.b(this.f71442b, this.f71441a.f71446c);
+                            boolean z = this.f63920a != null && SecurityChecker.b(this.f63921b) && SecurityChecker.b(this.f63921b, this.f63920a.f63925c);
                             if (z) {
-                                State unused2 = SecurityChecker.f71440a = State.SUCCESS;
+                                State unused2 = SecurityChecker.f63919a = State.SUCCESS;
                             }
-                            a aVar2 = this.f71443c;
+                            a aVar2 = this.f63922c;
                             if (aVar2 != null) {
-                                aVar2.a(z, SecurityChecker.f71440a);
+                                aVar2.a(z, SecurityChecker.f63919a);
                             }
                         } catch (Exception e2) {
-                            a aVar3 = this.f71443c;
+                            a aVar3 = this.f63922c;
                             if (aVar3 != null) {
                                 aVar3.a(e2);
                             }
@@ -156,7 +156,7 @@ public class SecurityChecker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
-            f71440a = State.DATA_VALID;
+            f63919a = State.DATA_VALID;
             return file != null && file.exists() && file.getName().endsWith(".apk") && file.length() > 0;
         }
         return invokeL.booleanValue;
@@ -166,7 +166,7 @@ public class SecurityChecker {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, file, str)) == null) {
-            f71440a = State.MD5;
+            f63919a = State.MD5;
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

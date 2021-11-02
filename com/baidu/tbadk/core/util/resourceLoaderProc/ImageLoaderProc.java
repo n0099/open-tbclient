@@ -2,20 +2,21 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.a.d;
-import c.a.e.e.l.b;
-import c.a.e.e.l.e;
-import c.a.e.e.p.j;
-import c.a.e.e.p.l;
-import c.a.e.l.d.a;
-import c.a.q0.c0.c;
-import c.a.q0.s.k;
+import b.a.e.e.a.d;
+import b.a.e.e.l.b;
+import b.a.e.e.l.e;
+import b.a.e.e.p.j;
+import b.a.e.e.p.l;
+import b.a.e.l.d.a;
+import b.a.q0.c0.c;
+import b.a.q0.s.k;
 import com.baidu.adp.gif.NSGif;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GIF_PLAY_LOG_TYPE = "gifplay";
@@ -53,7 +54,7 @@ public class ImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, bVar, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             byte[] bArr = new byte[0];
-            c.a.e.e.a.f.a aVar = new c.a.e.e.a.f.a("images", str, DiskFileOperate.Action.READ);
+            b.a.e.e.a.f.a aVar = new b.a.e.e.a.f.a("images", str, DiskFileOperate.Action.READ);
             aVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             aVar.setSubFolder(true);
             aVar.setIsFormatData(false);
@@ -63,9 +64,9 @@ public class ImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(aVar);
-                bVar.f2382a = diskCancelWorker;
+                bVar.f1859a = diskCancelWorker;
             }
-            if (d.g().a(aVar)) {
+            if (d.f().a(aVar)) {
                 int i4 = j.H() ? 500 : 2000;
                 synchronized (bArr) {
                     try {
@@ -80,11 +81,11 @@ public class ImageLoaderProc implements e<a> {
                         aVar.formatData(aVar.getData());
                     }
                     if (aVar.a() != null) {
-                        return new a((c.a.e.d.b) aVar.a(), BitmapHelper.Bytes2Bitmap(aVar.getData()), true);
+                        return new a((b.a.e.d.b) aVar.a(), BitmapHelper.Bytes2Bitmap(aVar.getData()), true);
                     }
                     if (B) {
                         BdLog.e("BIGIMAGE gif parse fail ");
-                        c.a.q0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
+                        b.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
                     }
                     return new a(BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(aVar.getData()), i2, i3), false, str2);
                 }
@@ -106,7 +107,7 @@ public class ImageLoaderProc implements e<a> {
         return (a) invokeLL.objValue;
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -116,7 +117,7 @@ public class ImageLoaderProc implements e<a> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -126,7 +127,7 @@ public class ImageLoaderProc implements e<a> {
         return invokeV.intValue;
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,7 +140,7 @@ public class ImageLoaderProc implements e<a> {
         }
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && (obj instanceof a)) {
@@ -154,14 +155,14 @@ public class ImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             a readGifFromDisk = readGifFromDisk(TbMd5.getNameMd5FromUrl(str2), bVar, str2, "ImageLoaderProc.getFromLocal", i2, i3);
-            c.a.e.e.l.a.f(readGifFromDisk != null, System.currentTimeMillis() - currentTimeMillis);
+            b.a.e.e.l.a.f(readGifFromDisk != null, System.currentTimeMillis() - currentTimeMillis);
             return readGifFromDisk;
         }
         return (a) invokeCommon.objValue;
@@ -169,7 +170,7 @@ public class ImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -177,7 +178,7 @@ public class ImageLoaderProc implements e<a> {
             long currentTimeMillis = System.currentTimeMillis();
             a m = c.k().m(str);
             if (z) {
-                c.a.e.e.l.a.i(m != null, System.currentTimeMillis() - currentTimeMillis);
+                b.a.e.e.l.a.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
             return m;
         }
@@ -186,7 +187,7 @@ public class ImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         String str3;
@@ -205,19 +206,19 @@ public class ImageLoaderProc implements e<a> {
                     indexOf = str.indexOf("tiebapic.baidu.com");
                 }
                 if (indexOf > 0 && (lastIndexOf = str.lastIndexOf(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX)) > 0) {
-                    str3 = str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4, str.length());
+                    str3 = str.substring(0, lastIndexOf) + ComboPraiseProvider.RES_NAME_PRAISE_WEBP_SUFFIX + str.substring(lastIndexOf + 4, str.length());
                     z = true;
                     downloadImageBytes = webClient.downloadImageBytes(str3, false);
                     boolean needCache = webClient.needCache();
                     if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                         BdLog.e("BIGIMAGE imageLoaderProc too big");
-                        c.a.q0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                        b.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
                     }
                     if (downloadImageBytes == null && webClient.IsRequestSuccess()) {
                         Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                         if (z && Bytes2Bitmap == null) {
                             TbadkCoreApplication.getInst().incWebpFailureCount();
-                            c.a.q0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
+                            b.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
                             downloadImageBytes = webClient.downloadImageBytes(str, false);
                             needCache = webClient.needCache();
                             if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -229,31 +230,31 @@ public class ImageLoaderProc implements e<a> {
                                 String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
                                 c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
                                 boolean B = l.B(downloadImageBytes);
-                                NSGif f2 = (NSGif.f36295f && B) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
+                                NSGif f2 = (NSGif.f34377f && B) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
                                 if (f2 != null) {
-                                    aVar = new a((c.a.e.d.b) f2, Bytes2Bitmap, true);
+                                    aVar = new a((b.a.e.d.b) f2, Bytes2Bitmap, true);
                                     aVar.y(needCache);
                                 } else {
                                     if (B) {
                                         BdLog.e("BIGIMAGE gif parse fail ");
-                                        c.a.q0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
+                                        b.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
                                     }
                                     a aVar2 = new a(BitmapHelper.checkBitmapSize(Bytes2Bitmap, i2, i3), false, str);
                                     aVar2.y(needCache);
                                     aVar = aVar2;
                                 }
                                 if (needCache) {
-                                    c.a.e.e.a.f.a aVar3 = new c.a.e.e.a.f.a("images", nameMd5FromUrl, DiskFileOperate.Action.WRITE);
+                                    b.a.e.e.a.f.a aVar3 = new b.a.e.e.a.f.a("images", nameMd5FromUrl, DiskFileOperate.Action.WRITE);
                                     aVar3.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
                                     aVar3.setSubFolder(true);
                                     aVar3.setData(downloadImageBytes);
                                     aVar3.setSdCard(false);
                                     aVar3.setSavedCache(true);
-                                    d.g().a(aVar3);
+                                    d.f().a(aVar3);
                                     if (bVar != null) {
                                         DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                                         diskCancelWorker.setOperate(aVar3);
-                                        bVar.f2382a = diskCancelWorker;
+                                        bVar.f1859a = diskCancelWorker;
                                     }
                                 }
                                 if (B) {
@@ -265,14 +266,14 @@ public class ImageLoaderProc implements e<a> {
                                 if (downloadImageBytes.length > 1) {
                                     z2 = true;
                                 }
-                                c.a.e.e.l.a.j(z2, str3, webClient.mStat, System.currentTimeMillis() - currentTimeMillis, downloadImageBytes.length);
+                                b.a.e.e.l.a.j(z2, str3, webClient.mStat, System.currentTimeMillis() - currentTimeMillis, downloadImageBytes.length);
                             }
                             return aVar;
                         }
-                        c.a.e.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
+                        b.a.e.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
                         return null;
                     }
-                    c.a.e.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
+                    b.a.e.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
                     return null;
                 }
             }
@@ -282,11 +283,11 @@ public class ImageLoaderProc implements e<a> {
             boolean needCache2 = webClient.needCache();
             if (webClient.IsRequestSuccess()) {
                 BdLog.e("BIGIMAGE imageLoaderProc too big");
-                c.a.q0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                b.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
             }
             if (downloadImageBytes == null) {
             }
-            c.a.e.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
+            b.a.e.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
             return null;
         }
         return (a) invokeCommon.objValue;

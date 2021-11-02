@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,11 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MessageUbc {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EVENT_TYPE = "0";
@@ -125,8 +125,8 @@ public class MessageUbc {
                     jSONObject.put("endtime", String.valueOf(this.mEndTime));
                     jSONObject.put("cost_time", String.valueOf(this.mEndTime - this.mStartTime));
                     jSONObject.put("error_code", str);
-                    jSONObject.put("error_msg", str2);
-                    jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext)));
+                    jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, str2);
+                    jSONObject.put("sdk_version", String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext)));
                     jSONObject.put("res_type", String.valueOf(this.mSendMsg.getMsgType()));
                     jSONObject.put("isgroup", String.valueOf(this.mSendMsg.getCategory()));
                     if (!"0".equals(str)) {

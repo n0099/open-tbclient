@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ii;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PushMessageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MESSAGE = "error_message";
@@ -64,14 +64,14 @@ public class PushMessageHelper {
         }
     }
 
-    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j2, String str2, String str3) {
+    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j2), str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j), str2, str3})) == null) {
             MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
             miPushCommandMessage.setCommand(str);
             miPushCommandMessage.setCommandArguments(list);
-            miPushCommandMessage.setResultCode(j2);
+            miPushCommandMessage.setResultCode(j);
             miPushCommandMessage.setReason(str2);
             miPushCommandMessage.setCategory(str3);
             return miPushCommandMessage;

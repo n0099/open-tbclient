@@ -17,27 +17,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class VerificationCodeView extends FormItemBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f56507e;
+    public EditText f53617e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f56508f;
+    public Button f53618f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f56509g;
+    public c f53619g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VerificationCodeView f56510e;
+        public final /* synthetic */ VerificationCodeView f53620e;
 
         public a(VerificationCodeView verificationCodeView) {
             Interceptable interceptable = $ic;
@@ -54,26 +54,26 @@ public class VerificationCodeView extends FormItemBaseView {
                     return;
                 }
             }
-            this.f56510e = verificationCodeView;
+            this.f53620e = verificationCodeView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f56510e.f56509g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f53620e.f53619g == null) {
                 return;
             }
-            this.f56510e.f56509g.a();
+            this.f53620e.f53619g.a();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VerificationCodeView f56511e;
+        public final /* synthetic */ VerificationCodeView f53621e;
 
         public b(VerificationCodeView verificationCodeView) {
             Interceptable interceptable = $ic;
@@ -90,25 +90,25 @@ public class VerificationCodeView extends FormItemBaseView {
                     return;
                 }
             }
-            this.f56511e = verificationCodeView;
+            this.f53621e = verificationCodeView;
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                if (!z && !this.f56511e.isPrepareToCommit()) {
-                    VerificationCodeView verificationCodeView = this.f56511e;
-                    verificationCodeView.drawBackgroundFrame(verificationCodeView.f56507e, FormItemBaseView.DrawableType.ERROR_FRAME);
+                if (!z && !this.f53621e.isPrepareToCommit()) {
+                    VerificationCodeView verificationCodeView = this.f53621e;
+                    verificationCodeView.drawBackgroundFrame(verificationCodeView.f53617e, FormItemBaseView.DrawableType.ERROR_FRAME);
                     return;
                 }
-                VerificationCodeView verificationCodeView2 = this.f56511e;
-                verificationCodeView2.drawBackgroundFrame(verificationCodeView2.f56507e, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+                VerificationCodeView verificationCodeView2 = this.f53621e;
+                verificationCodeView2.drawBackgroundFrame(verificationCodeView2.f53617e, FormItemBaseView.DrawableType.ORDINARY_FRAME);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void a();
     }
@@ -131,9 +131,9 @@ public class VerificationCodeView extends FormItemBaseView {
                 return;
             }
         }
-        this.f56507e = null;
-        this.f56508f = null;
-        this.f56509g = null;
+        this.f53617e = null;
+        this.f53618f = null;
+        this.f53619g = null;
         d();
     }
 
@@ -149,16 +149,16 @@ public class VerificationCodeView extends FormItemBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Button button = new Button(this.mContext);
-            this.f56508f = button;
+            this.f53618f = button;
             button.setId(1);
-            this.f56508f.setTextColor(this.mButtonFontColor);
-            this.f56508f.setTextSize(0, this.mFontSize);
-            this.f56508f.setBackgroundColor(this.mButtonGreyBgColor);
+            this.f53618f.setTextColor(this.mButtonFontColor);
+            this.f53618f.setTextSize(0, this.mFontSize);
+            this.f53618f.setBackgroundColor(this.mButtonGreyBgColor);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mSize80);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
-            addView(this.f56508f, layoutParams);
-            this.f56508f.setOnClickListener(new a(this));
+            addView(this.f53618f, layoutParams);
+            this.f53618f.setOnClickListener(new a(this));
         }
     }
 
@@ -166,19 +166,19 @@ public class VerificationCodeView extends FormItemBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             EditText editText = new EditText(this.mContext);
-            this.f56507e = editText;
+            this.f53617e = editText;
             editText.setTextColor(this.mFontColor);
-            this.f56507e.setHintTextColor(this.mHintFontColor);
-            this.f56507e.setTextSize(0, this.mFontSize);
-            this.f56507e.setGravity(19);
-            int paddingBottom = this.f56507e.getPaddingBottom();
-            this.f56507e.setPadding(this.mSize20, this.f56507e.getPaddingTop(), this.f56507e.getPaddingRight(), paddingBottom);
-            this.f56507e.setOnFocusChangeListener(new b(this));
+            this.f53617e.setHintTextColor(this.mHintFontColor);
+            this.f53617e.setTextSize(0, this.mFontSize);
+            this.f53617e.setGravity(19);
+            int paddingBottom = this.f53617e.getPaddingBottom();
+            this.f53617e.setPadding(this.mSize20, this.f53617e.getPaddingTop(), this.f53617e.getPaddingRight(), paddingBottom);
+            this.f53617e.setOnFocusChangeListener(new b(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mSize80);
-            layoutParams.addRule(0, this.f56508f.getId());
+            layoutParams.addRule(0, this.f53618f.getId());
             layoutParams.addRule(15);
-            drawBackgroundFrame(this.f56507e, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-            addView(this.f56507e, layoutParams);
+            drawBackgroundFrame(this.f53617e, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+            addView(this.f53617e, layoutParams);
         }
     }
 
@@ -203,14 +203,14 @@ public class VerificationCodeView extends FormItemBaseView {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f56507e.setText("");
+            this.f53617e.setText("");
         }
     }
 
     public void setListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.f56509g = cVar;
+            this.f53619g = cVar;
         }
     }
 
@@ -227,24 +227,24 @@ public class VerificationCodeView extends FormItemBaseView {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar)) == null) {
             if (super.updateView(bVar)) {
                 FormCard.h hVar = (FormCard.h) bVar;
-                if (!TextUtils.isEmpty(hVar.f56394d)) {
-                    this.f56508f.setText(hVar.f56394d);
-                    this.f56508f.setTextSize(0, this.mFontSize);
-                    this.f56508f.getLayoutParams().height = this.mSize80;
-                    Button button = this.f56508f;
+                if (!TextUtils.isEmpty(hVar.f53510d)) {
+                    this.f53618f.setText(hVar.f53510d);
+                    this.f53618f.setTextSize(0, this.mFontSize);
+                    this.f53618f.getLayoutParams().height = this.mSize80;
+                    Button button = this.f53618f;
                     int i2 = this.mSize20;
                     button.setPadding(i2, 0, i2, 0);
                 }
-                if (TextUtils.isEmpty(hVar.f56385b)) {
+                if (TextUtils.isEmpty(hVar.f53501b)) {
                     return true;
                 }
-                this.f56507e.setHint(hVar.f56385b);
-                this.f56507e.setTextSize(0, this.mFontSize);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f56507e.getLayoutParams();
+                this.f53617e.setHint(hVar.f53501b);
+                this.f53617e.setTextSize(0, this.mFontSize);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f53617e.getLayoutParams();
                 marginLayoutParams.height = this.mSize80;
                 int i3 = this.mSize20;
                 marginLayoutParams.rightMargin = i3;
-                this.f56507e.setPadding(i3, 0, 0, 0);
+                this.f53617e.setPadding(i3, 0, 0, 0);
                 return true;
             }
             return false;
@@ -271,9 +271,9 @@ public class VerificationCodeView extends FormItemBaseView {
                 return;
             }
         }
-        this.f56507e = null;
-        this.f56508f = null;
-        this.f56509g = null;
+        this.f53617e = null;
+        this.f53618f = null;
+        this.f53619g = null;
         d();
     }
 
@@ -296,9 +296,9 @@ public class VerificationCodeView extends FormItemBaseView {
                 return;
             }
         }
-        this.f56507e = null;
-        this.f56508f = null;
-        this.f56509g = null;
+        this.f53617e = null;
+        this.f53618f = null;
+        this.f53619g = null;
         d();
     }
 }

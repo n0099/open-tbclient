@@ -13,7 +13,7 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.fastpay.datamodel.GetBindMobileResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseBean<GetBindMobileResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbLandscapeListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,16 +33,16 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean W;
     public boolean a0;
     @NonNull
-    public c.a.q0.f1.q.a b0;
+    public b.a.q0.f1.r.a b0;
     public boolean c0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbLandscapeListView f55187e;
+        public final /* synthetic */ PbLandscapeListView f52378e;
 
         public a(PbLandscapeListView pbLandscapeListView) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f55187e = pbLandscapeListView;
+            this.f52378e = pbLandscapeListView;
         }
 
         @Override // android.os.Handler.Callback
@@ -73,8 +73,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     if (message.what != 0) {
                         return false;
                     }
-                    if (this.f55187e.S != null) {
-                        this.f55187e.S.a(dVar.f55188a, dVar.f55189b, dVar.f55190c, dVar.f55192e, dVar.f55191d, dVar.f55193f);
+                    if (this.f52378e.S != null) {
+                        this.f52378e.S.a(dVar.f52379a, dVar.f52380b, dVar.f52381c, dVar.f52383e, dVar.f52382d, dVar.f52384f);
                         return true;
                     }
                     return true;
@@ -85,38 +85,38 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void onLayout();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void a(int i2, int i3, float f2, float f3, float f4, float f5);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f55188a;
+        public int f52379a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f55189b;
+        public int f52380b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f55190c;
+        public float f52381c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f55191d;
+        public float f52382d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f55192e;
+        public float f52383e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f55193f;
+        public float f52384f;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.V = false;
         this.W = false;
         this.a0 = false;
-        this.b0 = new c.a.q0.f1.q.a(this);
+        this.b0 = new b.a.q0.f1.r.a(this);
         x();
     }
 
@@ -308,12 +308,12 @@ public class PbLandscapeListView extends BdTypeListView {
             Message message = new Message();
             message.what = 0;
             d dVar = new d();
-            dVar.f55188a = i2;
-            dVar.f55189b = i3;
-            dVar.f55190c = f2;
-            dVar.f55191d = f3;
-            dVar.f55192e = f4;
-            dVar.f55193f = f5;
+            dVar.f52379a = i2;
+            dVar.f52380b = i3;
+            dVar.f52381c = f2;
+            dVar.f52382d = f3;
+            dVar.f52383e = f4;
+            dVar.f52384f = f5;
             message.obj = dVar;
             this.U.sendMessageDelayed(message, 60L);
         }
@@ -345,7 +345,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.V = false;
         this.W = false;
         this.a0 = false;
-        this.b0 = new c.a.q0.f1.q.a(this);
+        this.b0 = new b.a.q0.f1.r.a(this);
         x();
     }
 
@@ -375,7 +375,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.V = false;
         this.W = false;
         this.a0 = false;
-        this.b0 = new c.a.q0.f1.q.a(this);
+        this.b0 = new b.a.q0.f1.r.a(this);
         x();
     }
 }

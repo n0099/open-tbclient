@@ -2,6 +2,7 @@ package com.win.opensdk.views;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,49 +10,50 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import b.q.a.i5;
+import b.q.a.k1;
+import b.q.a.l1;
+import b.q.a.m5;
+import b.q.a.q5;
+import b.q.a.r0;
+import b.q.a.u5;
+import b.q.a.y5;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.N;
-import com.win.opensdk.R;
-import com.win.opensdk.n2;
-import com.win.opensdk.o2;
-import com.win.opensdk.p2;
-import com.win.opensdk.q2;
-import com.win.opensdk.r2;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CloseParentView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f77551a;
+    public TextView f70534a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f77552b;
+    public LinearLayout f70535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f77553c;
+    public RelativeLayout f70536c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f77554d;
+    public Context f70537d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f77555e;
+    public View f70538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f77556f;
+    public View f70539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public q2 f77557g;
+    public u5 f70540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f77558h;
+    public int f70541h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f77559i;
+    public Handler f70542i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CloseParentView(Context context) {
@@ -93,16 +95,16 @@ public class CloseParentView extends LinearLayout {
                 return;
             }
         }
-        this.f77559i = new n2(this);
-        this.f77554d = context;
-        LinearLayout.inflate(context, R.layout.win_layout_close, this);
-        this.f77552b = (LinearLayout) findViewById(R.id.win_parent);
-        this.f77555e = findViewById(R.id.win_iv_clct);
-        this.f77553c = (RelativeLayout) findViewById(R.id.win_parent_close);
-        this.f77556f = findViewById(R.id.win_tv_area);
-        this.f77551a = (TextView) findViewById(R.id.wn_tv_cdt);
-        this.f77552b.setOnClickListener(new o2(this));
-        this.f77556f.setOnClickListener(new p2(this));
+        this.f70542i = new i5(this, Looper.getMainLooper());
+        this.f70537d = context;
+        LinearLayout.inflate(context, l1.win_layout_close, this);
+        this.f70535b = (LinearLayout) findViewById(k1.win_parent);
+        this.f70538e = findViewById(k1.win_iv_clct);
+        this.f70536c = (RelativeLayout) findViewById(k1.win_parent_close);
+        this.f70539f = findViewById(k1.win_tv_area);
+        this.f70534a = (TextView) findViewById(k1.wn_tv_cdt);
+        this.f70535b.setOnClickListener(new m5(this));
+        this.f70539f.setOnClickListener(new q5(this));
         setAreaLevel(1);
     }
 
@@ -115,7 +117,7 @@ public class CloseParentView extends LinearLayout {
     public void b() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.f77559i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.f70542i) == null) {
             return;
         }
         handler.removeCallbacksAndMessages(null);
@@ -124,10 +126,10 @@ public class CloseParentView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f77552b.removeView(this.f77553c);
-            this.f77552b.addView(this.f77553c, 1);
-            ((LinearLayout.LayoutParams) this.f77555e.getLayoutParams()).rightMargin = N.a(this.f77554d, 12.0f);
-            ((LinearLayout.LayoutParams) this.f77553c.getLayoutParams()).rightMargin = 0;
+            this.f70535b.removeView(this.f70536c);
+            this.f70535b.addView(this.f70536c, 1);
+            ((LinearLayout.LayoutParams) this.f70538e.getLayoutParams()).rightMargin = r0.b(this.f70537d, 12);
+            ((LinearLayout.LayoutParams) this.f70536c.getLayoutParams()).rightMargin = 0;
         }
     }
 
@@ -135,26 +137,26 @@ public class CloseParentView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             int i3 = i2 != 0 ? i2 != 1 ? i2 != 2 ? 0 : 30 : 22 : 10;
-            ViewGroup.LayoutParams layoutParams = this.f77556f.getLayoutParams();
-            int a2 = N.a(this.f77554d, i3);
-            layoutParams.width = a2;
-            layoutParams.height = a2;
+            ViewGroup.LayoutParams layoutParams = this.f70539f.getLayoutParams();
+            int b2 = r0.b(this.f70537d, i3);
+            layoutParams.width = b2;
+            layoutParams.height = b2;
         }
     }
 
     public void setCollectVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f77555e.setVisibility(z ? 0 : 8);
-            this.f77552b.setClickable(z);
+            this.f70538e.setVisibility(z ? 0 : 8);
+            this.f70535b.setClickable(z);
         }
     }
 
     public void setCountDown(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f77558h = i2;
-            this.f77559i.sendEmptyMessage(10);
+            this.f70541h = i2;
+            this.f70542i.sendEmptyMessage(10);
         }
     }
 
@@ -165,23 +167,23 @@ public class CloseParentView extends LinearLayout {
                 c();
                 return;
             }
-            this.f77552b.removeView(this.f77553c);
-            this.f77552b.addView(this.f77553c, 0);
-            ((LinearLayout.LayoutParams) this.f77555e.getLayoutParams()).rightMargin = 0;
-            ((LinearLayout.LayoutParams) this.f77553c.getLayoutParams()).rightMargin = N.a(this.f77554d, 12.0f);
+            this.f70535b.removeView(this.f70536c);
+            this.f70535b.addView(this.f70536c, 0);
+            ((LinearLayout.LayoutParams) this.f70538e.getLayoutParams()).rightMargin = 0;
+            ((LinearLayout.LayoutParams) this.f70536c.getLayoutParams()).rightMargin = r0.b(this.f70537d, 12);
         }
     }
 
-    public void setOnCloseListener(q2 q2Var) {
+    public void setOnCloseListener(u5 u5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, q2Var) == null) {
-            this.f77557g = q2Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, u5Var) == null) {
+            this.f70540g = u5Var;
         }
     }
 
-    public void setOnCollectListener(r2 r2Var) {
+    public void setOnCollectListener(y5 y5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, r2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, y5Var) == null) {
         }
     }
 }

@@ -18,21 +18,21 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35662a = "e";
+    public static final String f33769a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f35663b;
+    public static int f33770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, b> f35664c;
+    public static Map<String, b> f33771c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f35665d;
+    public static List<String> f33772d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,8 +48,8 @@ public class e {
                 return;
             }
         }
-        f35664c = new HashMap();
-        f35665d = new ArrayList();
+        f33771c = new HashMap();
+        f33772d = new ArrayList();
     }
 
     public e() {
@@ -73,10 +73,10 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (e.class) {
                 try {
-                    bVar = f35664c.containsKey(str) ? f35664c.get(str) : null;
+                    bVar = f33771c.containsKey(str) ? f33771c.get(str) : null;
                     if (bVar == null) {
                         bVar = new b(str);
-                        f35664c.put(str, bVar);
+                        f33771c.put(str, bVar);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -93,18 +93,18 @@ public class e {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
             try {
                 synchronized (e.class) {
-                    if (f35664c.containsKey(str)) {
-                        f35665d.add(f35664c.get(str).toString());
-                        f35664c.remove(str);
+                    if (f33771c.containsKey(str)) {
+                        f33772d.add(f33771c.get(str).toString());
+                        f33771c.remove(str);
                     }
-                    if (f35663b != 1 && !f35665d.isEmpty()) {
-                        f35663b = 1;
+                    if (f33770b != 1 && !f33772d.isEmpty()) {
+                        f33770b = 1;
                         new Timer().schedule(new TimerTask(context) { // from class: cn.com.chinatelecom.gateway.lib.b.e.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f35666a;
+                            public final /* synthetic */ Context f33773a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -121,14 +121,14 @@ public class e {
                                         return;
                                     }
                                 }
-                                this.f35666a = context;
+                                this.f33773a = context;
                             }
 
                             @Override // java.util.TimerTask, java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    e.b(this.f35666a);
+                                    e.b(this.f33773a);
                                 }
                             }
                         }, 8000L);
@@ -171,9 +171,9 @@ public class e {
         try {
             ArrayList arrayList = new ArrayList();
             synchronized (e.class) {
-                arrayList.addAll(f35665d);
-                f35663b = 0;
-                f35665d.clear();
+                arrayList.addAll(f33772d);
+                f33770b = 0;
+                f33772d.clear();
             }
             if (arrayList.isEmpty()) {
                 return;

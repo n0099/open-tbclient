@@ -63,7 +63,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GroupManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GroupManagerImpl";
@@ -152,11 +152,11 @@ public class GroupManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ChatMsg getInviteMsg(String str, int i2, long j2, long j3) {
+    public ChatMsg getInviteMsg(String str, int i2, long j, long j2) {
         String str2;
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("group_id", Utility.getLongByString(str, 0L));
@@ -172,8 +172,8 @@ public class GroupManagerImpl {
             fansGroupInviteMsg.setSenderUid(TextUtils.isEmpty(AccountManager.getUid(mContext)) ? "0" : AccountManager.getUid(mContext));
             fansGroupInviteMsg.setCategory(0);
             fansGroupInviteMsg.setChatType(i2);
-            fansGroupInviteMsg.setContacterBduid(String.valueOf(j2));
-            fansGroupInviteMsg.setContacter(j3);
+            fansGroupInviteMsg.setContacterBduid(String.valueOf(j));
+            fansGroupInviteMsg.setContacter(j2);
             fansGroupInviteMsg.setMsgTime(System.currentTimeMillis() / 1000);
             return fansGroupInviteMsg;
         }
@@ -252,18 +252,18 @@ public class GroupManagerImpl {
     }
 
     public void delGroupMember(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, arrayList, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
                 }
@@ -282,18 +282,18 @@ public class GroupManagerImpl {
     }
 
     public void delStarMember(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, arrayList, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
                 }
@@ -840,18 +840,18 @@ public class GroupManagerImpl {
     }
 
     public void getStarOnline(String str, BIMValueCallBack<Integer> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048599, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
                 }
@@ -873,35 +873,35 @@ public class GroupManagerImpl {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void joinGroup(String str, String str2, int i2, String str3, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Boolean.valueOf(z), bIMValueCallBack}) == null) {
-            long j3 = -1;
+            long j2 = -1;
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (Exception e2) {
                 e = e2;
-                j2 = -1;
+                j = -1;
             }
             try {
-                j3 = Long.valueOf(str2).longValue();
+                j2 = Long.valueOf(str2).longValue();
             } catch (Exception e3) {
                 e = e3;
                 LogUtils.e(TAG, e.getMessage());
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
-                long j4 = j3;
-                if (j2 >= 0) {
+                long j3 = j2;
+                if (j >= 0) {
                 }
                 if (bIMValueCallBack == null) {
                 }
             }
-            long j42 = j3;
-            if (j2 >= 0 || j42 < 0) {
+            long j32 = j2;
+            if (j >= 0 || j32 < 0) {
                 if (bIMValueCallBack == null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
                 }
             } else if (AccountManager.isLogin(mContext)) {
-                IMJoinGroupRequest iMJoinGroupRequest = new IMJoinGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), z, str, j42, i2, str3);
+                IMJoinGroupRequest iMJoinGroupRequest = new IMJoinGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), z, str, j32, i2, str3);
                 HttpHelper.executor(mContext, iMJoinGroupRequest, iMJoinGroupRequest);
             } else {
                 LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
@@ -913,17 +913,17 @@ public class GroupManagerImpl {
     }
 
     public void joinStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (Exception e2) {
                 LogUtils.e(TAG, e2.getMessage());
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (j2 < 0 && bIMValueCallBack != null) {
+            if (j < 0 && bIMValueCallBack != null) {
                 bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
             }
             if (AccountManager.isLogin(mContext)) {
@@ -939,18 +939,18 @@ public class GroupManagerImpl {
     }
 
     public void quitFansGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
                 }
@@ -967,18 +967,18 @@ public class GroupManagerImpl {
     }
 
     public void quitGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
                 }
@@ -995,18 +995,18 @@ public class GroupManagerImpl {
     }
 
     public void quitStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048604, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
                 }
@@ -1175,10 +1175,10 @@ public class GroupManagerImpl {
         }
     }
 
-    public void setNickName(String str, long j2, String str2, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
+    public void setNickName(String str, long j, String str2, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{str, Long.valueOf(j2), str2, Boolean.valueOf(z), bIMValueCallBack}) == null) {
-            IMSetNickNameRequest iMSetNickNameRequest = new IMSetNickNameRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), z, str, str2, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{str, Long.valueOf(j), str2, Boolean.valueOf(z), bIMValueCallBack}) == null) {
+            IMSetNickNameRequest iMSetNickNameRequest = new IMSetNickNameRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), z, str, str2, j);
             HttpHelper.executor(mContext, iMSetNickNameRequest, iMSetNickNameRequest);
         }
     }

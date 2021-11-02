@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RetrieveFileData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_PATH_IV = "1357902468135246";
@@ -29,7 +29,7 @@ public class RetrieveFileData {
     public static final String VERSION = "version";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class RetrieveFileBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,12 +41,12 @@ public class RetrieveFileData {
         public String mType;
         public String mVersion;
 
-        public RetrieveFileBean(String str, String str2, String str3, long j2, List<String> list, String str4, long j3) {
+        public RetrieveFileBean(String str, String str2, String str3, long j, List<String> list, String str4, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, Long.valueOf(j2), list, str4, Long.valueOf(j3)};
+                Object[] objArr = {str, str2, str3, Long.valueOf(j), list, str4, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -60,10 +60,10 @@ public class RetrieveFileData {
             this.mJobId = str;
             this.mType = str2;
             this.mVersion = str3;
-            this.mExpiredTime = j2;
+            this.mExpiredTime = j;
             this.mPathList = list;
             this.mPathStr = str4;
-            this.mMaxFileSize = j3;
+            this.mMaxFileSize = j2;
         }
 
         public String toString() {

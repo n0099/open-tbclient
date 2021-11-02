@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BceResponseMetadata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -170,10 +170,10 @@ public class BceResponseMetadata {
         }
     }
 
-    public void setContentLength(long j2) {
+    public void setContentLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.contentLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.contentLength = j;
         }
     }
 

@@ -71,41 +71,39 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NewBindCardEnterActivity extends PayBaseActivity implements View.OnClickListener, SafeKeyBoardEditText.OnMyFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public static boolean o;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f62430a;
+    public ViewGroup f59306a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SafeScrollView f62431b;
+    public SafeScrollView f59307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DivisionEditText f62432c;
+    public DivisionEditText f59308c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f62433d;
+    public ImageView f59309d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f62434e;
+    public LinearLayout f59310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f62435f;
+    public LinearLayout f59311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f62436g;
+    public LinearLayout f59312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f62437h;
+    public boolean f59313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NetImageView f62438i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f62439j;
+    public NetImageView f59314i;
+    public TextView j;
     public TextView k;
     public CardAddResponse l;
     public BindFastRequest m;
@@ -157,14 +155,14 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
         SafeScrollView safeScrollView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0 && !a(this.f62433d, motionEvent) && (safeScrollView = this.f62431b) != null && safeScrollView.isShouldHideInput(getCurrentFocus(), motionEvent) && this.f62431b.isPopupWindowShowing()) {
-                this.f62432c.clearFocus();
-                this.f62431b.dismissKeyBoard(this.f62432c);
-                if (this.f62437h) {
-                    this.f62433d.setImageResource(R.drawable.dxm_wallet_new_bind_card_camera_icon);
-                    this.f62433d.setOnClickListener(this);
+            if (motionEvent.getAction() == 0 && !a(this.f59309d, motionEvent) && (safeScrollView = this.f59307b) != null && safeScrollView.isShouldHideInput(getCurrentFocus(), motionEvent) && this.f59307b.isPopupWindowShowing()) {
+                this.f59308c.clearFocus();
+                this.f59307b.dismissKeyBoard(this.f59308c);
+                if (this.f59313h) {
+                    this.f59309d.setImageResource(R.drawable.dxm_wallet_new_bind_card_camera_icon);
+                    this.f59309d.setOnClickListener(this);
                 } else {
-                    this.f62433d.setVisibility(8);
+                    this.f59309d.setVisibility(8);
                 }
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -301,14 +299,14 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && view == this.f62433d) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && view == this.f59309d) {
             a.a(PayStatServiceEvent.NEW_CLICK_BANK_DETECT, new String[0]);
             LocalRouter.getInstance(this).route(this, new RouterRequest().provider("bankdetection").action("bankcarddetction"), new RouterCallback(this) { // from class: com.baidu.wallet.newbindcard.ui.NewBindCardEnterActivity.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NewBindCardEnterActivity f62454a;
+                public final /* synthetic */ NewBindCardEnterActivity f59329a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -325,7 +323,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                             return;
                         }
                     }
-                    this.f62454a = this;
+                    this.f59329a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -337,16 +335,16 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                 return;
                             }
                             String str = (String) hashMap.get("card_num");
-                            if (TextUtils.isEmpty(str) || str.equals(this.f62454a.f62432c.getRealText())) {
+                            if (TextUtils.isEmpty(str) || str.equals(this.f59329a.f59308c.getRealText())) {
                                 return;
                             }
                             if (str.length() > 10) {
-                                this.f62454a.a(str.substring(0, 10));
+                                this.f59329a.a(str.substring(0, 10));
                             }
-                            this.f62454a.f62432c.setText(str);
-                            this.f62454a.f62432c.setSelection(this.f62454a.f62432c.getText().toString().length());
-                            this.f62454a.f62432c.requestFocus();
-                            this.f62454a.f62435f.setEnabled(true);
+                            this.f59329a.f59308c.setText(str);
+                            this.f59329a.f59308c.setSelection(this.f59329a.f59308c.getText().toString().length());
+                            this.f59329a.f59308c.requestFocus();
+                            this.f59329a.f59311f.setEnabled(true);
                         } else if (i2 == 5) {
                             StatHelper.bankCardDetction(PayStatServiceEvent.BANKCARD_DETCTION_ERROR, i2 + "");
                             HashMap hashMap2 = new HashMap();
@@ -397,19 +395,19 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.v = false;
-            SafeScrollView safeScrollView = this.f62431b;
+            SafeScrollView safeScrollView = this.f59307b;
             if (safeScrollView != null && safeScrollView.isPopupWindowShowing()) {
-                this.f62431b.dismissKeyBoard(this.f62432c);
+                this.f59307b.dismissKeyBoard(this.f59308c);
             }
             BeanManager.getInstance().removeAllBeans("NewBindCardEnterActivity");
             EventBus.getInstance().unregister(this, BeanConstants.EVENT_H5_QUICK_BIND_CARD);
-            if (this.f62437h) {
+            if (this.f59313h) {
                 LocalRouter.getInstance(this.mAct).route(this.mAct, new RouterRequest().provider("bankdetection").action("clearcallback"), new RouterCallback(this) { // from class: com.baidu.wallet.newbindcard.ui.NewBindCardEnterActivity.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewBindCardEnterActivity f62451a;
+                    public final /* synthetic */ NewBindCardEnterActivity f59326a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -426,7 +424,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                 return;
                             }
                         }
-                        this.f62451a = this;
+                        this.f59326a = this;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback
@@ -466,18 +464,18 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
     @Override // com.dxmpay.wallet.base.widget.SafeKeyBoardEditText.OnMyFocusChangeListener
     public void onMyFocusChange(View view, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048587, this, view, z) == null) && view == this.f62432c) {
+        if ((interceptable == null || interceptable.invokeLZ(1048587, this, view, z) == null) && view == this.f59308c) {
             ViewGroup.LayoutParams layoutParams = this.t.getLayoutParams();
             if (z) {
                 this.t.setBackgroundColor(ResUtils.getColor(this, "wallet_cashdesk_new_bind_card_2222"));
                 layoutParams.height = (int) ResUtils.getDimension(this, "wallet_cashdesk_new_bind_card_hasfocus_line_size");
-                if (!TextUtils.isEmpty(this.f62432c.getRealText())) {
+                if (!TextUtils.isEmpty(this.f59308c.getRealText())) {
                     d();
-                } else if (this.f62437h) {
-                    this.f62433d.setImageResource(R.drawable.dxm_wallet_new_bind_card_camera_icon);
-                    this.f62433d.setOnClickListener(this);
+                } else if (this.f59313h) {
+                    this.f59309d.setImageResource(R.drawable.dxm_wallet_new_bind_card_camera_icon);
+                    this.f59309d.setOnClickListener(this);
                 } else {
-                    this.f62433d.setVisibility(8);
+                    this.f59309d.setVisibility(8);
                 }
             } else {
                 this.t.setBackgroundColor(ResUtils.getColor(this, "wallet_cashdesk_new_bind_card_E0EA"));
@@ -492,8 +490,8 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
-            this.f62432c.clearFocus();
-            this.f62431b.dismissKeyBoard();
+            this.f59308c.clearFocus();
+            this.f59307b.dismissKeyBoard();
             EventBus.getInstance().unregister(this, "ev_bean_execut_err_content");
         }
     }
@@ -515,7 +513,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewBindCardEnterActivity f62443a;
+                    public final /* synthetic */ NewBindCardEnterActivity f59318a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -532,7 +530,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                 return;
                             }
                         }
-                        this.f62443a = this;
+                        this.f59318a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -540,8 +538,8 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             a.a(PayStatServiceEvent.NEW_CLICK_SUPPORT_BANK, new String[0]);
-                            WalletGlobalUtils.safeDismissDialog(this.f62443a, 3);
-                            this.f62443a.b(false);
+                            WalletGlobalUtils.safeDismissDialog(this.f59318a, 3);
+                            this.f59318a.b(false);
                         }
                     }
                 });
@@ -550,7 +548,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewBindCardEnterActivity f62444a;
+                    public final /* synthetic */ NewBindCardEnterActivity f59319a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -567,7 +565,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                 return;
                             }
                         }
-                        this.f62444a = this;
+                        this.f59319a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -575,7 +573,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             a.a(PayStatServiceEvent.NEW_NOT_SUPPORT_CHANGE_CARD, new String[0]);
-                            WalletGlobalUtils.safeDismissDialog(this.f62444a, 3);
+                            WalletGlobalUtils.safeDismissDialog(this.f59319a, 3);
                         }
                     }
                 });
@@ -589,7 +587,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewBindCardEnterActivity f62447a;
+                    public final /* synthetic */ NewBindCardEnterActivity f59322a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -606,7 +604,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                 return;
                             }
                         }
-                        this.f62447a = this;
+                        this.f59322a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -614,7 +612,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             a.a(PayStatServiceEvent.NEW_CARD_INFO_ERR_CLICK, new String[0]);
-                            WalletGlobalUtils.safeDismissDialog(this.f62447a, 12);
+                            WalletGlobalUtils.safeDismissDialog(this.f59322a, 12);
                         }
                     }
                 });
@@ -640,7 +638,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewBindCardEnterActivity f62445a;
+                    public final /* synthetic */ NewBindCardEnterActivity f59320a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -657,7 +655,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                 return;
                             }
                         }
-                        this.f62445a = this;
+                        this.f59320a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -665,7 +663,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             a.a(PayStatServiceEvent.NEW_BIND_CARD_CHECK_DIALOG_MODIFY, a.a(), a.b());
-                            WalletGlobalUtils.safeDismissDialog(this.f62445a, 33);
+                            WalletGlobalUtils.safeDismissDialog(this.f59320a, 33);
                         }
                     }
                 });
@@ -674,7 +672,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewBindCardEnterActivity f62446a;
+                    public final /* synthetic */ NewBindCardEnterActivity f59321a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -691,23 +689,23 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                 return;
                             }
                         }
-                        this.f62446a = this;
+                        this.f59321a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f62446a, 33);
+                            WalletGlobalUtils.safeDismissDialog(this.f59321a, 33);
                             a.a(PayStatServiceEvent.NEW_CONFIRM_CARD_NO, a.a(), a.b());
-                            if (this.f62446a.r != 100027) {
-                                if (this.f62446a.r == 100028) {
-                                    this.f62446a.b(true);
+                            if (this.f59321a.r != 100027) {
+                                if (this.f59321a.r == 100028) {
+                                    this.f59321a.b(true);
                                     return;
                                 }
                                 return;
                             }
-                            NewBindCardEnterActivity newBindCardEnterActivity = this.f62446a;
+                            NewBindCardEnterActivity newBindCardEnterActivity = this.f59321a;
                             newBindCardEnterActivity.a(newBindCardEnterActivity.s);
                         }
                     }
@@ -721,7 +719,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
-            this.f62432c.requestFocus();
+            this.f59308c.requestFocus();
             EventBus.getInstance().registerSticky(this, "ev_bean_execut_err_content", 0, EventBus.ThreadMode.MainThread);
         }
     }
@@ -741,16 +739,16 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
             if (cardAddResponse != null && (userModel = cardAddResponse.user) != null) {
                 String str = userModel.true_name;
                 if (!TextUtils.isEmpty(str) && 1 == this.l.user.has_mobile_password) {
-                    DivisionEditText divisionEditText = this.f62432c;
+                    DivisionEditText divisionEditText = this.f59308c;
                     divisionEditText.setHint("请输入" + str + "的银行卡号");
                 }
             }
-            this.f62432c.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.newbindcard.ui.NewBindCardEnterActivity.10
+            this.f59308c.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.newbindcard.ui.NewBindCardEnterActivity.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NewBindCardEnterActivity f62441a;
+                public final /* synthetic */ NewBindCardEnterActivity f59316a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -767,39 +765,39 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                             return;
                         }
                     }
-                    this.f62441a = this;
+                    this.f59316a = this;
                 }
 
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
-                        this.f62441a.f62433d.setVisibility(0);
-                        if (!this.f62441a.f62437h || editable.length() != 0) {
-                            this.f62441a.d();
-                            String realText = this.f62441a.f62432c.getRealText();
+                        this.f59316a.f59309d.setVisibility(0);
+                        if (!this.f59316a.f59313h || editable.length() != 0) {
+                            this.f59316a.d();
+                            String realText = this.f59316a.f59308c.getRealText();
                             if (TextUtils.isEmpty(realText)) {
-                                this.f62441a.f62433d.setVisibility(8);
-                                this.f62441a.f62432c.setTypeface(Typeface.defaultFromStyle(0));
+                                this.f59316a.f59309d.setVisibility(8);
+                                this.f59316a.f59308c.setTypeface(Typeface.defaultFromStyle(0));
                                 return;
                             }
-                            this.f62441a.f62432c.setTypeface(Typeface.defaultFromStyle(1));
+                            this.f59316a.f59308c.setTypeface(Typeface.defaultFromStyle(1));
                             if (realText.length() == 10) {
-                                this.f62441a.a(realText);
-                                this.f62441a.f62435f.setEnabled(true);
+                                this.f59316a.a(realText);
+                                this.f59316a.f59311f.setEnabled(true);
                                 return;
                             } else if (realText.length() < 10) {
-                                this.f62441a.f62434e.setVisibility(8);
-                                this.f62441a.f62435f.setEnabled(false);
+                                this.f59316a.f59310e.setVisibility(8);
+                                this.f59316a.f59311f.setEnabled(false);
                                 return;
                             } else {
-                                this.f62441a.f62435f.setEnabled(true);
+                                this.f59316a.f59311f.setEnabled(true);
                                 return;
                             }
                         }
-                        this.f62441a.f62433d.setImageResource(R.drawable.dxm_wallet_new_bind_card_camera_icon);
-                        this.f62441a.f62432c.setTypeface(Typeface.defaultFromStyle(0));
-                        this.f62441a.f62433d.setOnClickListener(this.f62441a);
+                        this.f59316a.f59309d.setImageResource(R.drawable.dxm_wallet_new_bind_card_camera_icon);
+                        this.f59316a.f59308c.setTypeface(Typeface.defaultFromStyle(0));
+                        this.f59316a.f59309d.setOnClickListener(this.f59316a);
                     }
                 }
 
@@ -817,19 +815,19 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                     }
                 }
             });
-            this.f62432c.setOnMyFocusChangeListener(this);
+            this.f59308c.setOnMyFocusChangeListener(this);
         }
     }
 
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, this) == null) {
-            this.f62435f.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.newbindcard.ui.NewBindCardEnterActivity.11
+            this.f59311f.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.newbindcard.ui.NewBindCardEnterActivity.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NewBindCardEnterActivity f62442a;
+                public final /* synthetic */ NewBindCardEnterActivity f59317a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -846,22 +844,22 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                             return;
                         }
                     }
-                    this.f62442a = this;
+                    this.f59317a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (!this.f62442a.v) {
-                            this.f62442a.v = true;
+                        if (!this.f59317a.v) {
+                            this.f59317a.v = true;
                             a.a(PayStatServiceEvent.NEW_NA_BIND_CARD_ENTER, new String[0]);
                         }
-                        this.f62442a.f62431b.dismissKeyBoard(this.f62442a.f62432c);
-                        NewBindCardEnterActivity newBindCardEnterActivity = this.f62442a;
-                        newBindCardEnterActivity.p = newBindCardEnterActivity.f62432c.getRealText();
+                        this.f59317a.f59307b.dismissKeyBoard(this.f59317a.f59308c);
+                        NewBindCardEnterActivity newBindCardEnterActivity = this.f59317a;
+                        newBindCardEnterActivity.p = newBindCardEnterActivity.f59308c.getRealText();
                         a.a(PayStatServiceEvent.NEW_CLICK_SUBMIT_CARD, a.a(), a.b());
-                        this.f62442a.b("");
+                        this.f59317a.b("");
                     }
                 }
             });
@@ -872,7 +870,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
         CardAddResponse.QuickBindCardList[] quickBindCardListArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65568, this) == null) {
-            this.f62436g.removeAllViews();
+            this.f59312g.removeAllViews();
             CardAddResponse cardAddResponse = this.l;
             if (cardAddResponse != null && (quickBindCardListArr = cardAddResponse.bank_list) != null && quickBindCardListArr.length > 0) {
                 for (int i2 = 0; i2 < quickBindCardListArr.length; i2++) {
@@ -885,16 +883,16 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                         if (i2 == quickBindCardListArr.length - 1) {
                             findViewById.setVisibility(8);
                         }
-                        this.f62436g.addView(inflate);
+                        this.f59312g.addView(inflate);
                         inflate.setOnClickListener(new View.OnClickListener(this, quickBindCardList) { // from class: com.baidu.wallet.newbindcard.ui.NewBindCardEnterActivity.4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ CardAddResponse.QuickBindCardList f62448a;
+                            public final /* synthetic */ CardAddResponse.QuickBindCardList f59323a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ NewBindCardEnterActivity f62449b;
+                            public final /* synthetic */ NewBindCardEnterActivity f59324b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -911,45 +909,45 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                         return;
                                     }
                                 }
-                                this.f62449b = this;
-                                this.f62448a = quickBindCardList;
+                                this.f59324b = this;
+                                this.f59323a = quickBindCardList;
                             }
 
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                    a.a(this.f62448a.bank_uniq_code);
-                                    a.a(PayStatServiceEvent.NEW_ENTER_QULICK_BIND, this.f62448a.bank_uniq_code);
+                                    a.a(this.f59323a.bank_uniq_code);
+                                    a.a(PayStatServiceEvent.NEW_ENTER_QULICK_BIND, this.f59323a.bank_uniq_code);
                                     Bundle bundle = new Bundle();
-                                    String quickBindCardUrl = SdkInitResponse.getInstance().getQuickBindCardUrl(this.f62449b);
+                                    String quickBindCardUrl = SdkInitResponse.getInstance().getQuickBindCardUrl(this.f59324b);
                                     if (TextUtils.isEmpty(quickBindCardUrl)) {
                                         quickBindCardUrl = BeanConstants.API_QUICK_BIND_CARD_URL;
                                     }
                                     StringBuffer stringBuffer = new StringBuffer();
                                     stringBuffer.append(quickBindCardUrl);
-                                    CardAddResponse.QuickBindCardTypeList[] quickBindCardTypeListArr = this.f62448a.type;
+                                    CardAddResponse.QuickBindCardTypeList[] quickBindCardTypeListArr = this.f59323a.type;
                                     if (quickBindCardTypeListArr != null && quickBindCardTypeListArr.length > 0) {
-                                        for (int i3 = 0; i3 < this.f62448a.type.length; i3++) {
+                                        for (int i3 = 0; i3 < this.f59323a.type.length; i3++) {
                                             stringBuffer.append("card_type");
-                                            stringBuffer.append(this.f62448a.type[i3].card_type);
+                                            stringBuffer.append(this.f59323a.type[i3].card_type);
                                             stringBuffer.append("=");
-                                            stringBuffer.append(this.f62448a.type[i3].front_bank_code);
+                                            stringBuffer.append(this.f59323a.type[i3].front_bank_code);
                                             stringBuffer.append("&");
                                         }
                                     }
                                     stringBuffer.append("device_biometrics=");
-                                    if (this.f62449b.l.support_pwd_info != null && this.f62449b.l.support_pwd_info.length > 0 && "finger".equalsIgnoreCase(this.f62449b.l.support_pwd_info[0].verify_type)) {
+                                    if (this.f59324b.l.support_pwd_info != null && this.f59324b.l.support_pwd_info.length > 0 && "finger".equalsIgnoreCase(this.f59324b.l.support_pwd_info[0].verify_type)) {
                                         stringBuffer.append("1&");
                                     } else {
                                         stringBuffer.append("0&");
                                     }
                                     stringBuffer.append("verify_type=2&");
                                     stringBuffer.append("max_retry=");
-                                    stringBuffer.append(this.f62449b.l.support_pwd_info[0].max_retry);
-                                    if (this.f62449b.m != null) {
+                                    stringBuffer.append(this.f59324b.l.support_pwd_info[0].max_retry);
+                                    if (this.f59324b.m != null) {
                                         stringBuffer.append("&session_id=");
-                                        stringBuffer.append(this.f62449b.m.getSessionId());
+                                        stringBuffer.append(this.f59324b.m.getSessionId());
                                     }
                                     stringBuffer.append("&is_from_sdk=1");
                                     LogUtil.d("----d", stringBuffer.toString());
@@ -958,7 +956,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass4 f62450a;
+                                        public final /* synthetic */ AnonymousClass4 f59325a;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -975,7 +973,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                                     return;
                                                 }
                                             }
-                                            this.f62450a = this;
+                                            this.f59325a = this;
                                         }
 
                                         @Override // com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback, android.app.Application.ActivityLifecycleCallbacks
@@ -984,9 +982,9 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                             if (interceptable3 == null || interceptable3.invokeL(1048576, this, activity) == null) {
                                                 pop();
                                                 if (NewBindCardEnterActivity.o) {
-                                                    NewBindCardEntry.getInstance().newBindCardCallback("0", this.f62450a.f62449b.u, true);
+                                                    NewBindCardEntry.getInstance().newBindCardCallback("0", this.f59325a.f59324b.u, true);
                                                 }
-                                                this.f62450a.f62449b.u = null;
+                                                this.f59325a.f59324b.u = null;
                                                 boolean unused = NewBindCardEnterActivity.o = false;
                                             }
                                         }
@@ -996,8 +994,8 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                     bundle.putString("url", stringBuffer.toString());
                                     bundle.putParcelable("lifecycleLsnr", h5LifeCycleCallback);
                                     h5LifeCycleCallback.push();
-                                    EventBus.getInstance().register(this.f62449b, BeanConstants.EVENT_H5_QUICK_BIND_CARD, 0, EventBus.ThreadMode.MainThread);
-                                    BaiduWalletDelegate.getInstance().openH5Module(this.f62449b, bundle);
+                                    EventBus.getInstance().register(this.f59324b, BeanConstants.EVENT_H5_QUICK_BIND_CARD, 0, EventBus.ThreadMode.MainThread);
+                                    BaiduWalletDelegate.getInstance().openH5Module(this.f59324b, bundle);
                                 }
                             }
                         });
@@ -1005,7 +1003,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                 }
                 return;
             }
-            this.f62436g.setVisibility(8);
+            this.f59312g.setVisibility(8);
         }
     }
 
@@ -1014,19 +1012,19 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             if (LocalRouter.getInstance(getActivity()).isProviderExisted("bankdetection") && (cardAddResponse = this.l) != null && "1".equals(cardAddResponse.bank_card_detect_enabled)) {
-                this.f62437h = true;
+                this.f59313h = true;
             } else {
-                this.f62437h = false;
+                this.f59313h = false;
             }
-            if (this.f62437h) {
-                this.f62433d.setImageResource(R.drawable.dxm_wallet_new_bind_card_camera_icon);
+            if (this.f59313h) {
+                this.f59309d.setImageResource(R.drawable.dxm_wallet_new_bind_card_camera_icon);
             } else {
-                this.f62433d.setImageResource(R.drawable.dxm_wallet_base_delete);
+                this.f59309d.setImageResource(R.drawable.dxm_wallet_base_delete);
             }
-            this.f62432c.setUseSafeKeyBoard(true);
-            this.f62432c.setViewType(25);
-            if (this.f62437h && TextUtils.isEmpty(this.f62432c.getRealText())) {
-                this.f62433d.setOnClickListener(this);
+            this.f59308c.setUseSafeKeyBoard(true);
+            this.f59308c.setViewType(25);
+            if (this.f59313h && TextUtils.isEmpty(this.f59308c.getRealText())) {
+                this.f59309d.setOnClickListener(this);
             } else {
                 d();
             }
@@ -1037,13 +1035,13 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            this.f62433d.setImageResource(R.drawable.dxm_wallet_base_delete);
-            this.f62433d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.newbindcard.ui.NewBindCardEnterActivity.9
+            this.f59309d.setImageResource(R.drawable.dxm_wallet_base_delete);
+            this.f59309d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.newbindcard.ui.NewBindCardEnterActivity.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NewBindCardEnterActivity f62455a;
+                public final /* synthetic */ NewBindCardEnterActivity f59330a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1060,16 +1058,16 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                             return;
                         }
                     }
-                    this.f62455a = this;
+                    this.f59330a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f62455a.f62432c.setText("");
-                        this.f62455a.f62434e.setVisibility(8);
-                        this.f62455a.f62435f.setEnabled(false);
+                        this.f59330a.f59308c.setText("");
+                        this.f59330a.f59310e.setVisibility(8);
+                        this.f59330a.f59311f.setEnabled(false);
                     }
                 }
             });
@@ -1079,27 +1077,27 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            this.f62430a = (ViewGroup) findViewById(R.id.new_bind_card_enter_activity);
-            this.f62431b = (SafeScrollView) findViewById(R.id.scroll_bindcard_enter);
-            this.f62432c = (DivisionEditText) findViewById(R.id.et_new_bank_card_no);
-            this.f62433d = (ImageView) findViewById(R.id.iv_new_bind_card_icon);
-            this.f62434e = (LinearLayout) findViewById(R.id.lin_new_bank_card_info);
-            this.f62435f = (LinearLayout) findViewById(R.id.btn_new_bank_card_submit);
-            this.f62438i = (NetImageView) findViewById(R.id.iv_new_bankinfo_logo);
-            this.f62439j = (TextView) findViewById(R.id.tv_new_bankinfo_name);
-            this.f62436g = (LinearLayout) findViewById(R.id.lin_support_bank_list);
+            this.f59306a = (ViewGroup) findViewById(R.id.new_bind_card_enter_activity);
+            this.f59307b = (SafeScrollView) findViewById(R.id.scroll_bindcard_enter);
+            this.f59308c = (DivisionEditText) findViewById(R.id.et_new_bank_card_no);
+            this.f59309d = (ImageView) findViewById(R.id.iv_new_bind_card_icon);
+            this.f59310e = (LinearLayout) findViewById(R.id.lin_new_bank_card_info);
+            this.f59311f = (LinearLayout) findViewById(R.id.btn_new_bank_card_submit);
+            this.f59314i = (NetImageView) findViewById(R.id.iv_new_bankinfo_logo);
+            this.j = (TextView) findViewById(R.id.tv_new_bankinfo_name);
+            this.f59312g = (LinearLayout) findViewById(R.id.lin_support_bank_list);
             this.n = (RelativeLayout) findViewById(R.id.title_left_imgzone2);
             this.k = (TextView) findViewById(R.id.tv_support_bank);
             this.t = findViewById(R.id.view_line);
             if (!"walletapp".equalsIgnoreCase(com.dxmpay.wallet.core.beans.BeanConstants.CHANNEL_ID) && !com.dxmpay.wallet.core.beans.BeanConstants.CHANNEL_ID_WALLET_APP_PRO.equalsIgnoreCase(com.dxmpay.wallet.core.beans.BeanConstants.CHANNEL_ID)) {
-                this.f62435f.setBackgroundResource(R.drawable.dxm_wallet_base_blue_397be6_btn);
+                this.f59311f.setBackgroundResource(R.drawable.dxm_wallet_base_blue_397be6_btn);
             } else {
-                this.f62435f.setBackgroundResource(R.drawable.dxm_wallet_base_red_fa5050_btn);
+                this.f59311f.setBackgroundResource(R.drawable.dxm_wallet_base_red_fa5050_btn);
             }
-            this.f62435f.setEnabled(false);
-            this.f62434e.setVisibility(8);
-            DivisionEditText divisionEditText = this.f62432c;
-            divisionEditText.initSafeKeyBoardParams(this.f62430a, this.f62431b, divisionEditText, false);
+            this.f59311f.setEnabled(false);
+            this.f59310e.setVisibility(8);
+            DivisionEditText divisionEditText = this.f59308c;
+            divisionEditText.initSafeKeyBoardParams(this.f59306a, this.f59307b, divisionEditText, false);
             c();
             e();
             f();
@@ -1109,7 +1107,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NewBindCardEnterActivity f62440a;
+                public final /* synthetic */ NewBindCardEnterActivity f59315a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1126,14 +1124,14 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                             return;
                         }
                     }
-                    this.f62440a = this;
+                    this.f59315a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f62440a.onBackPressed();
+                        this.f59315a.onBackPressed();
                     }
                 }
             });
@@ -1142,7 +1140,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NewBindCardEnterActivity f62453a;
+                public final /* synthetic */ NewBindCardEnterActivity f59328a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1159,7 +1157,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                             return;
                         }
                     }
-                    this.f62453a = this;
+                    this.f59328a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -1167,7 +1165,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         a.a(PayStatServiceEvent.NEW_CLICK_SUPPORT_BANK, new String[0]);
-                        this.f62453a.b(false);
+                        this.f59328a.b(false);
                     }
                 }
             });
@@ -1191,9 +1189,9 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
         if (!(interceptable == null || interceptable.invokeL(65545, this, cardInfo) == null) || cardInfo == null || TextUtils.isEmpty(cardInfo.bank_logourl) || TextUtils.isEmpty(cardInfo.bank_name)) {
             return;
         }
-        this.f62434e.setVisibility(0);
-        this.f62438i.setImageUrl(cardInfo.bank_logourl);
-        TextView textView = this.f62439j;
+        this.f59310e.setVisibility(0);
+        this.f59314i.setImageUrl(cardInfo.bank_logourl);
+        TextView textView = this.j;
         StringBuilder sb = new StringBuilder();
         sb.append(cardInfo.bank_name);
         sb.append(" ");
@@ -1288,7 +1286,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
             } else {
                 intent.setClass(this, NewBindCardMainActivity.class);
             }
-            intent.putExtra(NewBindCardMainActivity.BIND_CARD_NUMBER, this.f62432c.getRealText());
+            intent.putExtra(NewBindCardMainActivity.BIND_CARD_NUMBER, this.f59308c.getRealText());
             startActivityWithoutAnim(intent);
         }
     }
@@ -1305,7 +1303,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewBindCardEnterActivity f62452a;
+                    public final /* synthetic */ NewBindCardEnterActivity f59327a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1322,7 +1320,7 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                 return;
                             }
                         }
-                        this.f62452a = this;
+                        this.f59327a = this;
                     }
 
                     /* JADX WARN: Removed duplicated region for block: B:26:0x005f  */
@@ -1351,10 +1349,10 @@ public class NewBindCardEnterActivity extends PayBaseActivity implements View.On
                                 if (i4 == 0) {
                                     z = true;
                                     if (z) {
-                                        this.f62452a.a(false, -1);
+                                        this.f59327a.a(false, -1);
                                         return;
                                     } else {
-                                        this.f62452a.a(true, i4);
+                                        this.f59327a.a(true, i4);
                                         return;
                                     }
                                 }

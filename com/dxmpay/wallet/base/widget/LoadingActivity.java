@@ -21,7 +21,7 @@ import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.core.SDKBaseActivity;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LoadingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_LOGIN_LOADING = 512;

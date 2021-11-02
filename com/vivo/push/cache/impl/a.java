@@ -14,7 +14,7 @@ import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class a extends c<SubscribeAppInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SPILTE_TAG = "@#";
