@@ -2,12 +2,13 @@ package com.baidu.tieba.frs.forumRule.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponseHttpRorumRuleCommitMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,6 +38,6 @@ public class ResponseHttpRorumRuleCommitMessage extends JsonHttpResponsedMessage
             return;
         }
         setError(Integer.parseInt(jSONObject.optString("error_code")));
-        setErrorString(jSONObject.optString("error_msg"));
+        setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
     }
 }

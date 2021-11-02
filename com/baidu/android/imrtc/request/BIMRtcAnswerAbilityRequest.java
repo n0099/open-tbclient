@@ -6,6 +6,7 @@ import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcAnswerAbilityRequest";
@@ -110,7 +111,7 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 i2 = jSONObject.optInt("error_code");
-                str2 = jSONObject.optString("error_msg");
+                str2 = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 JSONObject optJSONObject = jSONObject.optJSONObject("payload");
                 bIMRtcAnswerAbilityResult.ability = optJSONObject.optInt("ability");
                 bIMRtcAnswerAbilityResult.rtcToken = optJSONObject.optString("token");

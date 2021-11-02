@@ -2209,13 +2209,13 @@ public class ViewCompat {
         }
     }
 
-    public static void postOnAnimationDelayed(@NonNull View view, Runnable runnable, long j2) {
+    public static void postOnAnimationDelayed(@NonNull View view, Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{view, runnable, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{view, runnable, Long.valueOf(j)}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                view.postOnAnimationDelayed(runnable, j2);
+                view.postOnAnimationDelayed(runnable, j);
             } else {
-                view.postDelayed(runnable, ValueAnimator.getFrameDelay() + j2);
+                view.postDelayed(runnable, ValueAnimator.getFrameDelay() + j);
             }
         }
     }

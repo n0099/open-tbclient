@@ -3,7 +3,7 @@ package com.qq.e.comm.pi;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.IBinder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface SVSD {
     IBinder onBind(Intent intent);
 

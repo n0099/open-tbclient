@@ -3,10 +3,11 @@ package com.baidu.tieba.ad.asyncpv;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
-import c.a.e.e.p.j;
-import c.a.q0.d1.g;
-import c.a.r0.q1.o.k.a;
+import b.a.e.e.p.j;
+import b.a.q0.d1.g;
+import b.a.r0.q1.o.k.a;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -25,7 +26,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class AdAsyncRequestData extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +81,7 @@ public class AdAsyncRequestData extends HttpMessage {
             addParam("net_type", String.valueOf(j.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
             addParam(IAdRequestParam.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
-            addParam("cmode", PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
+            addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
             addParam("app_transmit_data", g.a());
         }
     }

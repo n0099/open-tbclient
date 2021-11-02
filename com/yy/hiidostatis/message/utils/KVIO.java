@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.NumberUtil;
 import com.yy.hiidostatis.inner.util.ProcessUtil;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class KVIO {
     public static /* synthetic */ Interceptable $ic;
     public static KVIO kvio;
@@ -164,10 +164,10 @@ public class KVIO {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i2)) == null) ? this.cache.getInt(str, i2) : invokeLI.intValue;
     }
 
-    public long decodeLong(String str, long j2) {
+    public long decodeLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j2)) == null) ? this.cache.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j)) == null) ? this.cache.getLong(str, j) : invokeLJ.longValue;
     }
 
     public String decodeString(String str, String str2) {
@@ -198,11 +198,11 @@ public class KVIO {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, set, cls)) == null) ? this.cache.getStringSet(str, set) : (Set) invokeLLL.objValue;
     }
 
-    public boolean encode(String str, long j2) {
+    public boolean encode(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048596, this, str, j2)) == null) {
-            this.editor.putLong(str, j2).apply();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048596, this, str, j)) == null) {
+            this.editor.putLong(str, j).apply();
             return true;
         }
         return invokeLJ.booleanValue;

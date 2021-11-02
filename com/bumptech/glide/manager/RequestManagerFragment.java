@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RequestManagerFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RMFragment";
@@ -38,7 +38,7 @@ public class RequestManagerFragment extends Fragment {
     @Nullable
     public RequestManagerFragment rootRequestManagerFragment;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class FragmentRequestManagerTreeNode implements RequestManagerTreeNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

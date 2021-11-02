@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
-import c.a.a0.b.a.e;
-import c.a.a0.b.a.k.c;
+import b.a.a0.b.a.e;
+import b.a.a0.b.a.k.c;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BackgroundRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,9 @@ public class BackgroundRenderer extends MediaBaseRenderer {
                 long a2 = eVar.a();
                 for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
                     if (mediaSegment.start != 0 || mediaSegment.end != 0) {
-                        long j2 = mediaSegment.start;
-                        long j3 = mediaSegment.end;
-                        if (j2 != j3 && a2 >= j2 && a2 <= j3) {
+                        long j = mediaSegment.start;
+                        long j2 = mediaSegment.end;
+                        if (j != j2 && a2 >= j && a2 <= j2) {
                         }
                     }
                     GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;

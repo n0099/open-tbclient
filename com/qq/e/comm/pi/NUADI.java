@@ -2,7 +2,7 @@ package com.qq.e.comm.pi;
 
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface NUADI extends ADI {
     String getAdNetWorkName();
 

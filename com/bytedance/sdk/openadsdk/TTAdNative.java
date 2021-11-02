@@ -1,133 +1,119 @@
 package com.bytedance.sdk.openadsdk;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import com.bytedance.sdk.openadsdk.c.b;
+import com.bytedance.sdk.openadsdk.common.CommonListener;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface TTAdNative {
 
-    /* loaded from: classes9.dex */
-    public interface BannerAdListener extends b {
-        @MainThread
+    /* loaded from: classes11.dex */
+    public interface BannerAdListener extends CommonListener {
         void onBannerAdLoad(TTBannerAd tTBannerAd);
 
-        @Override // com.bytedance.sdk.openadsdk.c.b
-        @MainThread
+        @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i2, String str);
     }
 
-    /* loaded from: classes9.dex */
-    public interface DrawFeedAdListener extends b {
-        @MainThread
+    /* loaded from: classes11.dex */
+    public interface DrawFeedAdListener extends CommonListener {
         void onDrawFeedAdLoad(List<TTDrawFeedAd> list);
 
-        @Override // com.bytedance.sdk.openadsdk.c.b
-        @MainThread
+        @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i2, String str);
     }
 
-    /* loaded from: classes9.dex */
-    public interface FeedAdListener extends b {
-        @Override // com.bytedance.sdk.openadsdk.c.b
-        @MainThread
+    /* loaded from: classes11.dex */
+    public interface FeedAdListener extends CommonListener {
+        @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i2, String str);
 
-        @MainThread
         void onFeedAdLoad(List<TTFeedAd> list);
     }
 
-    /* loaded from: classes9.dex */
-    public interface FullScreenVideoAdListener extends b {
-        @Override // com.bytedance.sdk.openadsdk.c.b
-        @MainThread
+    /* loaded from: classes11.dex */
+    public interface FullScreenVideoAdListener extends CommonListener {
+        @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i2, String str);
 
-        @MainThread
         void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd);
 
+        @Deprecated
         void onFullScreenVideoCached();
+
+        void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd);
     }
 
-    /* loaded from: classes9.dex */
-    public interface InteractionAdListener extends b {
-        @Override // com.bytedance.sdk.openadsdk.c.b
-        @MainThread
+    /* loaded from: classes11.dex */
+    public interface InteractionAdListener extends CommonListener {
+        @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i2, String str);
 
-        @MainThread
         void onInteractionAdLoad(TTInteractionAd tTInteractionAd);
     }
 
-    /* loaded from: classes9.dex */
-    public interface NativeAdListener extends b {
-        @Override // com.bytedance.sdk.openadsdk.c.b
-        @MainThread
+    /* loaded from: classes11.dex */
+    public interface NativeAdListener extends CommonListener {
+        @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i2, String str);
 
-        @MainThread
         void onNativeAdLoad(List<TTNativeAd> list);
     }
 
-    /* loaded from: classes9.dex */
-    public interface NativeExpressAdListener extends b {
-        @Override // com.bytedance.sdk.openadsdk.c.b
-        @MainThread
+    /* loaded from: classes11.dex */
+    public interface NativeExpressAdListener extends CommonListener {
+        @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i2, String str);
 
-        @MainThread
         void onNativeExpressAdLoad(List<TTNativeExpressAd> list);
     }
 
-    /* loaded from: classes9.dex */
-    public interface RewardVideoAdListener extends b {
-        @Override // com.bytedance.sdk.openadsdk.c.b
-        @MainThread
+    /* loaded from: classes11.dex */
+    public interface RewardVideoAdListener extends CommonListener {
+        @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i2, String str);
 
-        @MainThread
         void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd);
 
+        @Deprecated
         void onRewardVideoCached();
+
+        void onRewardVideoCached(TTRewardVideoAd tTRewardVideoAd);
     }
 
-    /* loaded from: classes9.dex */
-    public interface SplashAdListener extends b {
-        @Override // com.bytedance.sdk.openadsdk.c.b
-        @MainThread
+    /* loaded from: classes11.dex */
+    public interface SplashAdListener extends CommonListener {
+        @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i2, String str);
 
-        @MainThread
         void onSplashAdLoad(TTSplashAd tTSplashAd);
 
         void onTimeout();
     }
 
-    void loadBannerAd(AdSlot adSlot, @NonNull BannerAdListener bannerAdListener);
+    void loadBannerAd(AdSlot adSlot, BannerAdListener bannerAdListener);
 
-    void loadBannerExpressAd(AdSlot adSlot, @NonNull NativeExpressAdListener nativeExpressAdListener);
+    void loadBannerExpressAd(AdSlot adSlot, NativeExpressAdListener nativeExpressAdListener);
 
-    void loadDrawFeedAd(AdSlot adSlot, @NonNull DrawFeedAdListener drawFeedAdListener);
+    void loadDrawFeedAd(AdSlot adSlot, DrawFeedAdListener drawFeedAdListener);
 
-    void loadExpressDrawFeedAd(AdSlot adSlot, @NonNull NativeExpressAdListener nativeExpressAdListener);
+    void loadExpressDrawFeedAd(AdSlot adSlot, NativeExpressAdListener nativeExpressAdListener);
 
-    void loadFeedAd(AdSlot adSlot, @NonNull FeedAdListener feedAdListener);
+    void loadFeedAd(AdSlot adSlot, FeedAdListener feedAdListener);
 
-    void loadFullScreenVideoAd(AdSlot adSlot, @NonNull FullScreenVideoAdListener fullScreenVideoAdListener);
+    void loadFullScreenVideoAd(AdSlot adSlot, FullScreenVideoAdListener fullScreenVideoAdListener);
 
-    void loadInteractionAd(AdSlot adSlot, @NonNull InteractionAdListener interactionAdListener);
+    void loadInteractionAd(AdSlot adSlot, InteractionAdListener interactionAdListener);
 
-    void loadInteractionExpressAd(AdSlot adSlot, @NonNull NativeExpressAdListener nativeExpressAdListener);
+    void loadInteractionExpressAd(AdSlot adSlot, NativeExpressAdListener nativeExpressAdListener);
 
-    void loadNativeAd(AdSlot adSlot, @NonNull NativeAdListener nativeAdListener);
+    void loadNativeAd(AdSlot adSlot, NativeAdListener nativeAdListener);
 
-    void loadNativeExpressAd(AdSlot adSlot, @NonNull NativeExpressAdListener nativeExpressAdListener);
+    void loadNativeExpressAd(AdSlot adSlot, NativeExpressAdListener nativeExpressAdListener);
 
-    void loadRewardVideoAd(AdSlot adSlot, @NonNull RewardVideoAdListener rewardVideoAdListener);
+    void loadRewardVideoAd(AdSlot adSlot, RewardVideoAdListener rewardVideoAdListener);
 
-    void loadSplashAd(AdSlot adSlot, @NonNull SplashAdListener splashAdListener);
+    void loadSplashAd(AdSlot adSlot, SplashAdListener splashAdListener);
 
-    void loadSplashAd(AdSlot adSlot, @NonNull SplashAdListener splashAdListener, int i2);
+    void loadSplashAd(AdSlot adSlot, SplashAdListener splashAdListener, int i2);
 
-    void loadStream(AdSlot adSlot, @NonNull FeedAdListener feedAdListener);
+    void loadStream(AdSlot adSlot, FeedAdListener feedAdListener);
 }

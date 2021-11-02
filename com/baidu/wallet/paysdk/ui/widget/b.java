@@ -14,16 +14,16 @@ import com.baidu.wallet.paysdk.ui.widget.CertificateMenuView;
 import com.dxmpay.wallet.base.widget.BdMenu;
 import com.dxmpay.wallet.base.widget.BdMenuItem;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends BdMenu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GetCardInfoResponse.CertificateTypeInfo[] f63673a;
+    public GetCardInfoResponse.CertificateTypeInfo[] f60523a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CertificateMenuView.b f63674b;
+    public CertificateMenuView.b f60524b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(View view, GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr) {
@@ -43,14 +43,14 @@ public class b extends BdMenu {
                 return;
             }
         }
-        this.f63673a = certificateTypeInfoArr;
+        this.f60523a = certificateTypeInfoArr;
         setDismissOnClick(true);
     }
 
     public void a(CertificateMenuView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f63674b = bVar;
+            this.f60524b = bVar;
         }
     }
 
@@ -59,8 +59,8 @@ public class b extends BdMenu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, list) == null) {
             CertificateMenuView certificateMenuView = (CertificateMenuView) view;
-            certificateMenuView.setCertificertSelectListener(this.f63674b);
-            certificateMenuView.layoutMenu(this.f63673a);
+            certificateMenuView.setCertificertSelectListener(this.f60524b);
+            certificateMenuView.layoutMenu(this.f60523a);
         }
     }
 

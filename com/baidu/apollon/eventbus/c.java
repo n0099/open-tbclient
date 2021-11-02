@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f37931a;
+    public final e f35950a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f37932b;
+    public final int f35951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f37933c;
+    public final b f35952c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37934d;
+    public boolean f35953d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, Looper looper, int i2) {
@@ -45,9 +45,9 @@ public final class c extends Handler {
                 return;
             }
         }
-        this.f37933c = bVar;
-        this.f37932b = i2;
-        this.f37931a = new e();
+        this.f35952c = bVar;
+        this.f35951b = i2;
+        this.f35950a = new e();
     }
 
     public void a(g gVar, EventBus.Event event) {
@@ -55,9 +55,9 @@ public final class c extends Handler {
         if (interceptable == null || interceptable.invokeLL(1048576, this, gVar, event) == null) {
             d a2 = d.a(gVar, event);
             synchronized (this) {
-                this.f37931a.a(a2);
-                if (!this.f37934d) {
-                    this.f37934d = true;
+                this.f35950a.a(a2);
+                if (!this.f35953d) {
+                    this.f35953d = true;
                     if (!sendMessage(obtainMessage())) {
                         throw new EventBusException("Could not send handler message");
                     }
@@ -73,25 +73,25 @@ public final class c extends Handler {
             try {
                 long uptimeMillis = SystemClock.uptimeMillis();
                 do {
-                    d a2 = this.f37931a.a();
+                    d a2 = this.f35950a.a();
                     if (a2 == null) {
                         synchronized (this) {
-                            a2 = this.f37931a.a();
+                            a2 = this.f35950a.a();
                             if (a2 == null) {
-                                this.f37934d = false;
+                                this.f35953d = false;
                                 return;
                             }
                         }
                     }
-                    this.f37933c.a(a2);
-                } while (SystemClock.uptimeMillis() - uptimeMillis < this.f37932b);
+                    this.f35952c.a(a2);
+                } while (SystemClock.uptimeMillis() - uptimeMillis < this.f35951b);
                 if (sendMessage(obtainMessage())) {
-                    this.f37934d = true;
+                    this.f35953d = true;
                     return;
                 }
                 throw new EventBusException("Could not send handler message");
             } finally {
-                this.f37934d = false;
+                this.f35953d = false;
             }
         }
     }

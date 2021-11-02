@@ -16,17 +16,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BaseWebViewFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BOOLEAN_VALUE_CONFIG = "1";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47312e;
+    public String f44924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47313f;
+    public String f44925f;
     public String mUrl;
 
     public BaseWebViewFragment() {
@@ -48,11 +48,11 @@ public class BaseWebViewFragment extends BaseFragment {
         int indexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.f47312e.indexOf(str)) < 0) {
+            if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.f44924e.indexOf(str)) < 0) {
                 return null;
             }
             int length = indexOf + str.length();
-            String str3 = this.f47312e;
+            String str3 = this.f44924e;
             String substring = str3.substring(length, str3.length());
             int indexOf2 = substring.indexOf(str2);
             if (indexOf2 < 0) {
@@ -74,13 +74,13 @@ public class BaseWebViewFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
-            if (StringUtils.isNull(this.f47313f, true)) {
+            if (StringUtils.isNull(this.f44925f, true)) {
                 shareItem.r = getResources().getString(R.string.share_from_tieba);
             } else {
-                shareItem.r = this.f47313f;
+                shareItem.r = this.f44925f;
             }
             shareItem.t = this.mUrl;
-            if (StringUtils.isNull(this.f47312e, true)) {
+            if (StringUtils.isNull(this.f44924e, true)) {
                 shareItem.s = this.mUrl;
             } else {
                 String a2 = a("<meta name=\"description\" content=\"", "\"");
@@ -172,7 +172,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public void setSource(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f47312e = str;
+            this.f44924e = str;
         }
     }
 
@@ -190,7 +190,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public void setUrlTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f47313f = str;
+            this.f44925f = str;
         }
     }
 }

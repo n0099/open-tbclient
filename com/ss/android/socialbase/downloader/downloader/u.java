@@ -1,0 +1,92 @@
+package com.ss.android.socialbase.downloader.downloader;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ss.android.socialbase.downloader.network.IDownloadHttpService;
+/* loaded from: classes2.dex */
+public interface u {
+
+    /* loaded from: classes2.dex */
+    public static class a implements u {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.ss.android.socialbase.downloader.downloader.u
+        public com.ss.android.socialbase.downloader.exception.g a(Throwable th, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, th, str)) == null) {
+                return null;
+            }
+            return (com.ss.android.socialbase.downloader.exception.g) invokeLL.objValue;
+        }
+
+        @Override // com.ss.android.socialbase.downloader.downloader.u
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.ss.android.socialbase.downloader.downloader.u
+        public boolean a(Throwable th) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.ss.android.socialbase.downloader.downloader.u
+        public IDownloadHttpService b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return null;
+            }
+            return (IDownloadHttpService) invokeV.objValue;
+        }
+
+        @Override // com.ss.android.socialbase.downloader.downloader.u
+        public com.ss.android.socialbase.downloader.network.h c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return null;
+            }
+            return (com.ss.android.socialbase.downloader.network.h) invokeV.objValue;
+        }
+    }
+
+    com.ss.android.socialbase.downloader.exception.g a(Throwable th, String str);
+
+    boolean a();
+
+    boolean a(Throwable th);
+
+    IDownloadHttpService b();
+
+    com.ss.android.socialbase.downloader.network.h c();
+}

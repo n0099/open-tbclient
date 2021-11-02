@@ -1,5 +1,6 @@
 package com.kwad.sdk.collector.model;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -19,7 +20,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,6 +29,15 @@ public class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, appPackageInfo, strategy)) == null) {
+            if (appPackageInfo == null) {
+                return null;
+            }
+            if (appPackageInfo.appName == null) {
+                appPackageInfo.appName = "";
+            }
+            if (TextUtils.isEmpty(appPackageInfo.packageName)) {
+                return null;
+            }
             return new com.kwad.sdk.collector.model.jni.b(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
         }
         return (com.kwad.sdk.collector.model.jni.b) invokeLL.objValue;
@@ -94,13 +104,13 @@ public class c {
         }
     }
 
-    public static void a(b bVar, long j2) {
+    public static void a(b bVar, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, bVar, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, bVar, j) == null) {
             if (bVar instanceof com.kwad.sdk.collector.model.jni.b) {
-                AppStatusNative.appRunningInfoSetLastRunningTime((com.kwad.sdk.collector.model.jni.b) bVar, j2);
+                AppStatusNative.appRunningInfoSetLastRunningTime((com.kwad.sdk.collector.model.jni.b) bVar, j);
             } else if (bVar instanceof com.kwad.sdk.collector.model.a.b) {
-                ((com.kwad.sdk.collector.model.a.b) bVar).b(j2);
+                ((com.kwad.sdk.collector.model.a.b) bVar).b(j);
             }
         }
     }

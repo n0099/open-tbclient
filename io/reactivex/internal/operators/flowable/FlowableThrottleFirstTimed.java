@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
     public final long timeout;
     public final TimeUnit unit;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class DebounceTimedSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9102637559663639004L;
@@ -41,12 +41,12 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
         public final TimeUnit unit;
         public final Scheduler.Worker worker;
 
-        public DebounceTimedSubscriber(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public DebounceTimedSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, worker};
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, worker};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -58,7 +58,7 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
             }
             this.timer = new SequentialDisposable();
             this.actual = subscriber;
-            this.timeout = j2;
+            this.timeout = j;
             this.unit = timeUnit;
             this.worker = worker;
         }
@@ -130,10 +130,10 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this, j);
             }
         }
 
@@ -147,13 +147,13 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableThrottleFirstTimed(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public FlowableThrottleFirstTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2), timeUnit, scheduler};
+            Object[] objArr = {flowable, Long.valueOf(j), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -164,7 +164,7 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
                 return;
             }
         }
-        this.timeout = j2;
+        this.timeout = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

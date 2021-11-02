@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TrackExtendsBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "trex";
@@ -184,19 +184,19 @@ public class TrackExtendsBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public void setDefaultSampleDescriptionIndex(long j2) {
+    public void setDefaultSampleDescriptionIndex(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.longObject(j2)));
-            this.defaultSampleDescriptionIndex = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.longObject(j)));
+            this.defaultSampleDescriptionIndex = j;
         }
     }
 
-    public void setDefaultSampleDuration(long j2) {
+    public void setDefaultSampleDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.longObject(j2)));
-            this.defaultSampleDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.longObject(j)));
+            this.defaultSampleDuration = j;
         }
     }
 
@@ -208,19 +208,19 @@ public class TrackExtendsBox extends AbstractFullBox {
         }
     }
 
-    public void setDefaultSampleSize(long j2) {
+    public void setDefaultSampleSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.longObject(j2)));
-            this.defaultSampleSize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.longObject(j)));
+            this.defaultSampleSize = j;
         }
     }
 
-    public void setTrackId(long j2) {
+    public void setTrackId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, Conversions.longObject(j2)));
-            this.trackId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, Conversions.longObject(j)));
+            this.trackId = j;
         }
     }
 }

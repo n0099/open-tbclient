@@ -1,0 +1,122 @@
+package com.bytedance.pangle.helper;
+
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.pangle.log.ZeusLogger;
+import com.bytedance.pangle.util.MethodUtils;
+/* loaded from: classes11.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static Class f61425a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Object f61426b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static final Object a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f61426b == null) {
+                try {
+                    synchronized (a.class) {
+                        if (f61426b == null) {
+                            if (f61425a == null) {
+                                f61425a = Class.forName("android.app.ActivityThread");
+                            }
+                            f61426b = MethodUtils.invokeStaticMethod(f61425a, "currentActivityThread", new Object[0]);
+                        }
+                        if (f61426b == null && Looper.myLooper() != Looper.getMainLooper()) {
+                            Object obj = new Object();
+                            new Handler(Looper.getMainLooper()).post(new Runnable(obj) { // from class: com.bytedance.pangle.helper.a.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ Object f61427a;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {obj};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f61427a = obj;
+                                }
+
+                                /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        try {
+                                            try {
+                                                Object unused = a.f61426b = MethodUtils.invokeStaticMethod(a.f61425a, "currentActivityThread", new Object[0]);
+                                                synchronized (this.f61427a) {
+                                                    this.f61427a.notify();
+                                                }
+                                            } catch (Exception e2) {
+                                                ZeusLogger.e(ZeusLogger.TAG, "ActivityThreadHelper main looper invoke currentActivityThread failed.", e2);
+                                                synchronized (this.f61427a) {
+                                                    this.f61427a.notify();
+                                                }
+                                            }
+                                        } catch (Throwable th) {
+                                            synchronized (this.f61427a) {
+                                                this.f61427a.notify();
+                                                throw th;
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                            if (f61426b == null) {
+                                synchronized (obj) {
+                                    try {
+                                        obj.wait(5000L);
+                                    } catch (InterruptedException e2) {
+                                        ZeusLogger.e(ZeusLogger.TAG, "ActivityThreadHelper currentActivityThread interruptedException failed.", e2);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e3) {
+                    ZeusLogger.e(ZeusLogger.TAG, "ActivityThreadHelper currentActivityThread failed.", e3);
+                }
+            }
+            return f61426b;
+        }
+        return invokeV.objValue;
+    }
+}

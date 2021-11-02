@@ -14,34 +14,34 @@ import java.nio.ByteBuffer;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.Adler32;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class fd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77979a;
+    public int f70936a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fh f375a;
+    public fh f376a;
 
     /* renamed from: a  reason: collision with other field name */
-    public OutputStream f376a;
+    public OutputStream f377a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ByteBuffer f377a;
+    public ByteBuffer f378a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Adler32 f378a;
+    public Adler32 f379a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f379a;
+    public byte[] f380a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f77980b;
+    public int f70937b;
 
     /* renamed from: b  reason: collision with other field name */
-    public ByteBuffer f380b;
+    public ByteBuffer f381b;
 
     public fd(OutputStream outputStream, fh fhVar) {
         Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class fd {
                 return;
             }
         }
-        this.f377a = ByteBuffer.allocate(2048);
-        this.f380b = ByteBuffer.allocate(4);
-        this.f378a = new Adler32();
-        this.f376a = new BufferedOutputStream(outputStream);
-        this.f375a = fhVar;
+        this.f378a = ByteBuffer.allocate(2048);
+        this.f381b = ByteBuffer.allocate(4);
+        this.f379a = new Adler32();
+        this.f377a = new BufferedOutputStream(outputStream);
+        this.f376a = fhVar;
         TimeZone timeZone = TimeZone.getDefault();
-        this.f77979a = timeZone.getRawOffset() / 3600000;
-        this.f77980b = timeZone.useDaylightTime() ? 1 : 0;
+        this.f70936a = timeZone.getRawOffset() / 3600000;
+        this.f70937b = timeZone.useDaylightTime() ? 1 : 0;
     }
 
     public int a(fa faVar) {
@@ -77,29 +77,29 @@ public class fd {
                 com.xiaomi.channel.commonutils.logger.b.m73a("Blob size=" + c2 + " should be less than 32768 Drop blob chid=" + faVar.a() + " id=" + faVar.e());
                 return 0;
             }
-            this.f377a.clear();
+            this.f378a.clear();
             int i2 = c2 + 8 + 4;
-            if (i2 > this.f377a.capacity() || this.f377a.capacity() > 4096) {
-                this.f377a = ByteBuffer.allocate(i2);
+            if (i2 > this.f378a.capacity() || this.f378a.capacity() > 4096) {
+                this.f378a = ByteBuffer.allocate(i2);
             }
-            this.f377a.putShort((short) -15618);
-            this.f377a.putShort((short) 5);
-            this.f377a.putInt(c2);
-            int position = this.f377a.position();
-            this.f377a = faVar.mo306a(this.f377a);
+            this.f378a.putShort((short) -15618);
+            this.f378a.putShort((short) 5);
+            this.f378a.putInt(c2);
+            int position = this.f378a.position();
+            this.f378a = faVar.mo306a(this.f378a);
             if (!"CONN".equals(faVar.m305a())) {
-                if (this.f379a == null) {
-                    this.f379a = this.f375a.a();
+                if (this.f380a == null) {
+                    this.f380a = this.f376a.a();
                 }
-                com.xiaomi.push.service.be.a(this.f379a, this.f377a.array(), true, position, c2);
+                com.xiaomi.push.service.be.a(this.f380a, this.f378a.array(), true, position, c2);
             }
-            this.f378a.reset();
-            this.f378a.update(this.f377a.array(), 0, this.f377a.position());
-            this.f380b.putInt(0, (int) this.f378a.getValue());
-            this.f376a.write(this.f377a.array(), 0, this.f377a.position());
-            this.f376a.write(this.f380b.array(), 0, 4);
-            this.f376a.flush();
-            int position2 = this.f377a.position() + 4;
+            this.f379a.reset();
+            this.f379a.update(this.f378a.array(), 0, this.f378a.position());
+            this.f381b.putInt(0, (int) this.f379a.getValue());
+            this.f377a.write(this.f378a.array(), 0, this.f378a.position());
+            this.f377a.write(this.f381b.array(), 0, 4);
+            this.f377a.flush();
+            int position2 = this.f378a.position() + 4;
             com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + faVar.m305a() + ";chid=" + faVar.a() + ";len=" + position2 + "}");
             return position2;
         }
@@ -115,11 +115,11 @@ public class fd {
             eVar.b(t.m640a());
             eVar.c(com.xiaomi.push.service.bi.m615a());
             eVar.b(43);
-            eVar.d(this.f375a.m327b());
-            eVar.e(this.f375a.a());
+            eVar.d(this.f376a.m327b());
+            eVar.e(this.f376a.a());
             eVar.f(Locale.getDefault().toString());
             eVar.c(Build.VERSION.SDK_INT);
-            byte[] m333a = this.f375a.m323a().m333a();
+            byte[] m333a = this.f376a.m323a().m333a();
             if (m333a != null) {
                 eVar.a(du.b.a(m333a));
             }
@@ -129,7 +129,7 @@ public class fd {
             faVar.a(0L, "xiaomi.com", null);
             faVar.a(eVar.m284a(), (String) null);
             a(faVar);
-            com.xiaomi.channel.commonutils.logger.b.m73a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m615a() + " tz=" + this.f77979a + ":" + this.f77980b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+            com.xiaomi.channel.commonutils.logger.b.m73a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m615a() + " tz=" + this.f70936a + ":" + this.f70937b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
         }
     }
 
@@ -139,7 +139,7 @@ public class fd {
             fa faVar = new fa();
             faVar.a("CLOSE", (String) null);
             a(faVar);
-            this.f376a.close();
+            this.f377a.close();
         }
     }
 }

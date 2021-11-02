@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "b";
@@ -158,10 +158,10 @@ public abstract class b {
         }
     }
 
-    private boolean a(int i2, ByteBuffer byteBuffer, int i3, long j2) {
+    private boolean a(int i2, ByteBuffer byteBuffer, int i3, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), Long.valueOf(j)})) == null) {
             ByteBuffer byteBuffer2 = this.uQ.getInputBuffers()[i2];
             if (byteBuffer2.capacity() >= byteBuffer.capacity()) {
                 byteBuffer2.position(0);
@@ -170,7 +170,7 @@ public abstract class b {
                 MediaCodec.BufferInfo bufferInfo = this.uR;
                 bufferInfo.offset = 0;
                 bufferInfo.size = i3;
-                bufferInfo.presentationTimeUs = j2 / 1000;
+                bufferInfo.presentationTimeUs = j / 1000;
                 return true;
             }
             return false;
@@ -206,14 +206,14 @@ public abstract class b {
         }
     }
 
-    public void a(boolean z, ByteBuffer byteBuffer, int i2, long j2) {
+    public void a(boolean z, ByteBuffer byteBuffer, int i2, long j) {
         MediaCodec mediaCodec;
         int i3;
         int i4;
-        long j3;
+        long j2;
         int i5;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.uQ == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.uQ == null) {
             return;
         }
         int i6 = -1;
@@ -231,19 +231,19 @@ public abstract class b {
                 mediaCodec = this.uQ;
                 i3 = 0;
                 i4 = 0;
-                j3 = 0;
+                j2 = 0;
                 i5 = 4;
-            } else if (!a(i6, byteBuffer, i2, j2)) {
+            } else if (!a(i6, byteBuffer, i2, j)) {
                 return;
             } else {
                 mediaCodec = this.uQ;
                 MediaCodec.BufferInfo bufferInfo = this.uR;
                 i3 = bufferInfo.offset;
                 i4 = bufferInfo.size;
-                j3 = bufferInfo.presentationTimeUs;
+                j2 = bufferInfo.presentationTimeUs;
                 i5 = 0;
             }
-            mediaCodec.queueInputBuffer(i6, i3, i4, j3, i5);
+            mediaCodec.queueInputBuffer(i6, i3, i4, j2, i5);
         } else {
             com.baidu.ar.h.b.c(TAG, "drainBuffer encode input buffer not available");
         }

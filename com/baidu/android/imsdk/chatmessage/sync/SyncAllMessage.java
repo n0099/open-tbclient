@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SyncAllMessage extends SyncStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SyncAllMessage";
@@ -83,13 +83,13 @@ public class SyncAllMessage extends SyncStrategy {
         return (SyncAllMessage) invokeL.objValue;
     }
 
-    private void setDeviceMaxNotifyMsgid(long j2) {
+    private void setDeviceMaxNotifyMsgid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             String str = TAG;
-            LogUtils.d(str, "deal setDeviceMaxNotifyMsgid:" + j2);
-            if (j2 > this.mMaxMsgid) {
-                this.mMaxMsgid = j2;
+            LogUtils.d(str, "deal setDeviceMaxNotifyMsgid:" + j);
+            if (j > this.mMaxMsgid) {
+                this.mMaxMsgid = j;
             }
         }
     }
@@ -162,12 +162,12 @@ public class SyncAllMessage extends SyncStrategy {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void updateData(Context context, long j2) {
+    public void updateData(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, context, j2) == null) || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) || j <= 0) {
             return;
         }
-        setDeviceMaxNotifyMsgid(j2);
+        setDeviceMaxNotifyMsgid(j);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy

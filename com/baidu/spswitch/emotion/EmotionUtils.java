@@ -35,7 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class EmotionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean CACHE_DEBUG = false;
@@ -59,7 +59,7 @@ public class EmotionUtils {
     public Semaphore mSync;
 
     /* renamed from: com.baidu.spswitch.emotion.EmotionUtils$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$spswitch$emotion$EmotionType;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +87,7 @@ public class EmotionUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class EmotionClassic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -463,19 +463,19 @@ public class EmotionUtils {
         this.mMediaPlayer.start();
     }
 
-    public void waitForEmotionLoadedIfNeeded(long j2) {
+    public void waitForEmotionLoadedIfNeeded(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
+        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j) == null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
             return;
         }
-        if (j2 <= 0) {
-            j2 = 350;
+        if (j <= 0) {
+            j = 350;
         }
         if (DEBUG) {
             String str = "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded begin-------";
         }
         try {
-            this.mSync.tryAcquire(j2, TimeUnit.MILLISECONDS);
+            this.mSync.tryAcquire(j, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }

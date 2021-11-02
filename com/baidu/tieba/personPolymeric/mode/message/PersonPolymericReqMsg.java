@@ -1,9 +1,9 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
-import c.a.e.e.p.l;
-import c.a.q0.d1.z;
-import c.a.q0.s.k;
-import c.a.r0.m2.b;
+import b.a.e.e.p.l;
+import b.a.q0.d1.z;
+import b.a.q0.s.k;
+import b.a.r0.m2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonPolymericReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,10 +91,10 @@ public class PersonPolymericReqMsg extends NetMessage {
         }
     }
 
-    public void setUid(long j2) {
+    public void setUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.uid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.uid = j;
         }
     }
 }

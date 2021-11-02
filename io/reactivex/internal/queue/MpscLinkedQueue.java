@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.SimplePlainQueue;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class MpscLinkedQueue<T> implements SimplePlainQueue<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicReference<LinkedQueueNode<T>> consumerNode;
     public final AtomicReference<LinkedQueueNode<T>> producerNode;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2404266111789071508L;

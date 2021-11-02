@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
     public final ObservableSource<? extends Open> bufferOpen;
     public final Callable<U> bufferSupplier;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class BufferBoundaryObserver<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8466418554264089604L;
@@ -51,7 +51,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         public final SpscLinkedArrayQueue<C> queue;
         public final AtomicReference<Disposable> upstream;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public static final class BufferOpenObserver<Open> extends AtomicReference<Disposable> implements Observer<Open>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -8498650778633225126L;
@@ -161,10 +161,10 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             }
         }
 
-        public void close(BufferCloseObserver<T, C> bufferCloseObserver, long j2) {
+        public void close(BufferCloseObserver<T, C> bufferCloseObserver, long j) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferCloseObserver, j2) == null) {
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferCloseObserver, j) == null) {
                 this.observers.delete(bufferCloseObserver);
                 if (this.observers.size() == 0) {
                     DisposableHelper.dispose(this.upstream);
@@ -176,7 +176,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                     if (this.buffers == null) {
                         return;
                     }
-                    this.queue.offer(this.buffers.remove(Long.valueOf(j2)));
+                    this.queue.offer(this.buffers.remove(Long.valueOf(j)));
                     if (z) {
                         this.done = true;
                     }
@@ -309,15 +309,15 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                 try {
                     Collection collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
                     ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.bufferClose.apply(open), "The bufferClose returned a null ObservableSource");
-                    long j2 = this.index;
-                    this.index = 1 + j2;
+                    long j = this.index;
+                    this.index = 1 + j;
                     synchronized (this) {
                         Map<Long, C> map = this.buffers;
                         if (map == 0) {
                             return;
                         }
-                        map.put(Long.valueOf(j2), collection);
-                        BufferCloseObserver bufferCloseObserver = new BufferCloseObserver(this, j2);
+                        map.put(Long.valueOf(j), collection);
+                        BufferCloseObserver bufferCloseObserver = new BufferCloseObserver(this, j);
                         this.observers.add(bufferCloseObserver);
                         observableSource.subscribe(bufferCloseObserver);
                     }
@@ -342,7 +342,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class BufferCloseObserver<T, C extends Collection<? super T>> extends AtomicReference<Disposable> implements Observer<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8498650778633225126L;
@@ -350,12 +350,12 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         public final long index;
         public final BufferBoundaryObserver<T, C, ?, ?> parent;
 
-        public BufferCloseObserver(BufferBoundaryObserver<T, C, ?, ?> bufferBoundaryObserver, long j2) {
+        public BufferCloseObserver(BufferBoundaryObserver<T, C, ?, ?> bufferBoundaryObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bufferBoundaryObserver, Long.valueOf(j2)};
+                Object[] objArr = {bufferBoundaryObserver, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -366,7 +366,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                 }
             }
             this.parent = bufferBoundaryObserver;
-            this.index = j2;
+            this.index = j;
         }
 
         @Override // io.reactivex.disposables.Disposable

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AccountData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4126203103788833116L;
@@ -383,10 +383,10 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setPersonalGid(long j2) {
+    public void setPersonalGid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.mPersonalGid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.mPersonalGid = j;
         }
     }
 
@@ -418,10 +418,10 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setTime(long j2) {
+    public void setTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j2) == null) {
-            this.mTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+            this.mTime = j;
         }
     }
 

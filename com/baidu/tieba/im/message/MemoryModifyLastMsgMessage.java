@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_CLEAR_ALL = 1;
@@ -14,22 +14,22 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
     public static final int TYPE_SEND_MSG = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53239a;
+        public String f50493a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53240b;
+        public int f50494b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ChatMessage f53241c;
+        public ChatMessage f50495c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53242d;
+        public int f50496d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -60,10 +60,10 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f53239a = str;
-            this.f53240b = i2;
-            this.f53241c = chatMessage;
-            this.f53242d = i3;
+            this.f50493a = str;
+            this.f50494b = i2;
+            this.f50495c = chatMessage;
+            this.f50496d = i3;
         }
     }
 

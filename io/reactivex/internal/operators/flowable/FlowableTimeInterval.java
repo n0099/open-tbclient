@@ -13,14 +13,14 @@ import io.reactivex.schedulers.Timed;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableTimeInterval<T> extends AbstractFlowableWithUpstream<T, Timed<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class TimeIntervalSubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public final class FlowableTimeInterval<T> extends AbstractFlowableWithUpstream<
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 long now = this.scheduler.now(this.unit);
-                long j2 = this.lastTime;
+                long j = this.lastTime;
                 this.lastTime = now;
-                this.actual.onNext(new Timed(t, now - j2, this.unit));
+                this.actual.onNext(new Timed(t, now - j, this.unit));
             }
         }
 
@@ -96,10 +96,10 @@ public final class FlowableTimeInterval<T> extends AbstractFlowableWithUpstream<
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.s.request(j);
             }
         }
     }

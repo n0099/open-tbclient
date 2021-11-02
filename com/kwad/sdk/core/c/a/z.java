@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class z implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class z implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.c> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        cVar.f72120a = jSONObject.optInt("cellId");
-        cVar.f72121b = jSONObject.optInt("lac");
-        cVar.f72122c = jSONObject.optInt("bsss");
+        cVar.f64584a = jSONObject.optInt("cellId");
+        cVar.f64585b = jSONObject.optInt("lac");
+        cVar.f64586c = jSONObject.optInt("bsss");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,9 +47,9 @@ public class z implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.c> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "cellId", cVar.f72120a);
-            com.kwad.sdk.utils.q.a(jSONObject, "lac", cVar.f72121b);
-            com.kwad.sdk.utils.q.a(jSONObject, "bsss", cVar.f72122c);
+            com.kwad.sdk.utils.q.a(jSONObject, "cellId", cVar.f64584a);
+            com.kwad.sdk.utils.q.a(jSONObject, "lac", cVar.f64585b);
+            com.kwad.sdk.utils.q.a(jSONObject, "bsss", cVar.f64586c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

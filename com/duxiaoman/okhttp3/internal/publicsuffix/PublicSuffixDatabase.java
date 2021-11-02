@@ -1,9 +1,9 @@
 package com.duxiaoman.okhttp3.internal.publicsuffix;
 
-import c.d.b.e0.e;
-import c.d.b.e0.m.g;
+import androidx.exifinterface.media.ExifInterface;
+import b.d.b.e0.e;
+import b.d.b.e0.n.g;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,34 +20,34 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class PublicSuffixDatabase {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f69598e;
+    public static final byte[] f62040e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f69599f;
+    public static final String[] f62041f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f69600g;
+    public static final String[] f62042g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final PublicSuffixDatabase f69601h;
+    public static final PublicSuffixDatabase f62043h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f69602a;
+    public final AtomicBoolean f62044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CountDownLatch f69603b;
+    public final CountDownLatch f62045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f69604c;
+    public byte[] f62046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f69605d;
+    public byte[] f62047d;
 
     static {
         InterceptResult invokeClinit;
@@ -62,10 +62,10 @@ public final class PublicSuffixDatabase {
                 return;
             }
         }
-        f69598e = new byte[]{42};
-        f69599f = new String[0];
-        f69600g = new String[]{"*"};
-        f69601h = new PublicSuffixDatabase();
+        f62040e = new byte[]{ExifInterface.START_CODE};
+        f62041f = new String[0];
+        f62042g = new String[]{"*"};
+        f62043h = new PublicSuffixDatabase();
     }
 
     public PublicSuffixDatabase() {
@@ -81,8 +81,8 @@ public final class PublicSuffixDatabase {
                 return;
             }
         }
-        this.f69602a = new AtomicBoolean(false);
-        this.f69603b = new CountDownLatch(1);
+        this.f62044a = new AtomicBoolean(false);
+        this.f62045b = new CountDownLatch(1);
     }
 
     public static String a(byte[] bArr, byte[][] bArr2, int i2) {
@@ -154,7 +154,7 @@ public final class PublicSuffixDatabase {
                         }
                         if (length2 >= i14) {
                             if (length2 <= i14) {
-                                return new String(bArr, i8, i10, e.f31789d);
+                                return new String(bArr, i8, i10, e.f30193e);
                             }
                         }
                     }
@@ -170,7 +170,7 @@ public final class PublicSuffixDatabase {
     public static PublicSuffixDatabase c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f69601h : (PublicSuffixDatabase) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f62043h : (PublicSuffixDatabase) invokeV.objValue;
     }
 
     public final String[] b(String[] strArr) {
@@ -183,24 +183,24 @@ public final class PublicSuffixDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
             int i2 = 0;
-            if (!this.f69602a.get() && this.f69602a.compareAndSet(false, true)) {
+            if (!this.f62044a.get() && this.f62044a.compareAndSet(false, true)) {
                 f();
             } else {
                 try {
-                    this.f69603b.await();
+                    this.f62045b.await();
                 } catch (InterruptedException unused) {
                     Thread.currentThread().interrupt();
                 }
             }
             synchronized (this) {
-                if (this.f69604c == null) {
+                if (this.f62046c == null) {
                     throw new IllegalStateException("Unable to load publicsuffixes.gz resource from the classpath.");
                 }
             }
             int length = strArr.length;
             byte[][] bArr = new byte[length];
             for (int i3 = 0; i3 < strArr.length; i3++) {
-                bArr[i3] = strArr[i3].getBytes(e.f31789d);
+                bArr[i3] = strArr[i3].getBytes(e.f30193e);
             }
             int i4 = 0;
             while (true) {
@@ -209,7 +209,7 @@ public final class PublicSuffixDatabase {
                     str2 = null;
                     break;
                 }
-                str2 = a(this.f69604c, bArr, i4);
+                str2 = a(this.f62046c, bArr, i4);
                 if (str2 != null) {
                     break;
                 }
@@ -218,8 +218,8 @@ public final class PublicSuffixDatabase {
             if (length > 1) {
                 byte[][] bArr2 = (byte[][]) bArr.clone();
                 for (int i5 = 0; i5 < bArr2.length - 1; i5++) {
-                    bArr2[i5] = f69598e;
-                    str3 = a(this.f69604c, bArr2, i5);
+                    bArr2[i5] = f62040e;
+                    str3 = a(this.f62046c, bArr2, i5);
                     if (str3 != null) {
                         break;
                     }
@@ -231,7 +231,7 @@ public final class PublicSuffixDatabase {
                     if (i2 >= length - 1) {
                         break;
                     }
-                    String a2 = a(this.f69605d, bArr, i2);
+                    String a2 = a(this.f62047d, bArr, i2);
                     if (a2 != null) {
                         str = a2;
                         break;
@@ -240,19 +240,19 @@ public final class PublicSuffixDatabase {
                 }
             }
             if (str != null) {
-                return ("!" + str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                return ("!" + str).split("\\.");
             } else if (str2 == null && str3 == null) {
-                return f69600g;
+                return f62042g;
             } else {
                 if (str2 != null) {
-                    strArr2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    strArr2 = str2.split("\\.");
                 } else {
-                    strArr2 = f69599f;
+                    strArr2 = f62041f;
                 }
                 if (str3 != null) {
-                    strArr3 = str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    strArr3 = str3.split("\\.");
                 } else {
-                    strArr3 = f69599f;
+                    strArr3 = f62041f;
                 }
                 return strArr2.length > strArr3.length ? strArr2 : strArr3;
             }
@@ -267,7 +267,7 @@ public final class PublicSuffixDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (str != null) {
-                String[] split = IDN.toUnicode(str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = IDN.toUnicode(str).split("\\.");
                 String[] b2 = b(split);
                 if (split.length != b2.length || b2[0].charAt(0) == '!') {
                     if (b2[0].charAt(0) == '!') {
@@ -278,7 +278,7 @@ public final class PublicSuffixDatabase {
                         length2 = b2.length + 1;
                     }
                     StringBuilder sb = new StringBuilder();
-                    String[] split2 = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    String[] split2 = str.split("\\.");
                     for (int i2 = length - length2; i2 < split2.length; i2++) {
                         sb.append(split2[i2]);
                         sb.append('.');
@@ -306,10 +306,10 @@ public final class PublicSuffixDatabase {
             byte[] bArr2 = new byte[buffer.readInt()];
             buffer.readFully(bArr2);
             synchronized (this) {
-                this.f69604c = bArr;
-                this.f69605d = bArr2;
+                this.f62046c = bArr;
+                this.f62047d = bArr2;
             }
-            this.f69603b.countDown();
+            this.f62045b.countDown();
         } finally {
             e.f(buffer);
         }

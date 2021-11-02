@@ -1,9 +1,9 @@
 package com.baidu.android.imsdk.pubaccount;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface ISubscriptionChangeListener extends IMListener {
-    void onSubscriptionResult(int i2, long j2, Object obj);
+    void onSubscriptionResult(int i2, long j, Object obj);
 
-    void onUnSubscriptionResult(long j2);
+    void onUnSubscriptionResult(long j);
 }

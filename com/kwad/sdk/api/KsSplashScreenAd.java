@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface KsSplashScreenAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface SplashScreenAdInteractionListener {
         @KsAdSdkApi
         @Keep
@@ -31,6 +31,18 @@ public interface KsSplashScreenAd {
         @KsAdSdkApi
         @Keep
         void onAdShowStart();
+
+        @KsAdSdkApi
+        @Keep
+        void onDownloadTipsDialogCancel();
+
+        @KsAdSdkApi
+        @Keep
+        void onDownloadTipsDialogDismiss();
+
+        @KsAdSdkApi
+        @Keep
+        void onDownloadTipsDialogShow();
 
         @KsAdSdkApi
         @Keep

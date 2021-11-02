@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
     public final Executor executor;
     public final Executor uiThreadExecutor;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class UiThreadExecutor implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     }
                 }
             }, this.uiThreadExecutor);
-            this.executor.execute(new Runnable() { // from class: g.a.c.a.f
+            this.executor.execute(new Runnable() { // from class: f.a.c.a.f
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -333,7 +333,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     break;
             }
             if (c2 == 0) {
-                executeInBackground(new Callable() { // from class: g.a.c.a.b
+                executeInBackground(new Callable() { // from class: f.a.c.a.b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -345,7 +345,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     }
                 }, result);
             } else if (c2 == 1) {
-                executeInBackground(new Callable() { // from class: g.a.c.a.e
+                executeInBackground(new Callable() { // from class: f.a.c.a.e
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -357,7 +357,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     }
                 }, result);
             } else if (c2 == 2) {
-                executeInBackground(new Callable() { // from class: g.a.c.a.d
+                executeInBackground(new Callable() { // from class: f.a.c.a.d
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -369,7 +369,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     }
                 }, result);
             } else if (c2 == 3) {
-                executeInBackground(new Callable() { // from class: g.a.c.a.a
+                executeInBackground(new Callable() { // from class: f.a.c.a.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -382,7 +382,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                 }, result);
             } else if (c2 == 4) {
                 final String androidType = StorageDirectoryMapper.androidType((Integer) methodCall.argument("type"));
-                executeInBackground(new Callable() { // from class: g.a.c.a.c
+                executeInBackground(new Callable() { // from class: f.a.c.a.c
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -396,7 +396,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
             } else if (c2 != 5) {
                 result.notImplemented();
             } else {
-                executeInBackground(new Callable() { // from class: g.a.c.a.g
+                executeInBackground(new Callable() { // from class: f.a.c.a.g
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

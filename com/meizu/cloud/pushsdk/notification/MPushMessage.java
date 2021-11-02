@@ -8,7 +8,7 @@ import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MPushMessage implements Serializable {
     public static final String TAG = "MPushMessage";
     public String clickType;
@@ -64,16 +64,16 @@ public class MPushMessage implements Serializable {
                             mPushMessage.setParams(getParamsMap(jSONObject3));
                         }
                     } catch (JSONException e2) {
-                        c.l.a.a.a.d(TAG, "parameter parse error message " + e2.getMessage());
+                        b.l.a.a.a.d(TAG, "parameter parse error message " + e2.getMessage());
                     }
                     jSONObject.remove(PushConstants.PARAMS);
                 }
                 mPushMessage.setExtra(getParamsMap(jSONObject));
             }
         } catch (JSONException e3) {
-            c.l.a.a.a.d(TAG, "parse push message error " + e3.getMessage());
+            b.l.a.a.a.d(TAG, "parse push message error " + e3.getMessage());
         }
-        c.l.a.a.a.d(TAG, " parsePushMessage " + mPushMessage);
+        b.l.a.a.a.d(TAG, " parsePushMessage " + mPushMessage);
         return mPushMessage;
     }
 

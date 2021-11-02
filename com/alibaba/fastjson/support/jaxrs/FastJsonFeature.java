@@ -14,7 +14,7 @@ import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.MessageBodyWriter;
 import org.glassfish.jersey.CommonProperties;
 import org.glassfish.jersey.internal.util.PropertiesHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FastJsonFeature implements Feature {
     public static /* synthetic */ Interceptable $ic;
     public static final String JSON_FEATURE;

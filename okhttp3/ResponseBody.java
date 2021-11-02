@@ -19,13 +19,13 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ResponseBody implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Reader reader;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BomAwareReader extends Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,12 +212,12 @@ public abstract class ResponseBody implements Closeable {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, byteString)) == null) ? create(mediaType, byteString.size(), new Buffer().write(byteString)) : (ResponseBody) invokeLL.objValue;
     }
 
-    public static ResponseBody create(@Nullable MediaType mediaType, long j2, BufferedSource bufferedSource) {
+    public static ResponseBody create(@Nullable MediaType mediaType, long j, BufferedSource bufferedSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{mediaType, Long.valueOf(j2), bufferedSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{mediaType, Long.valueOf(j), bufferedSource})) == null) {
             if (bufferedSource != null) {
-                return new ResponseBody(mediaType, j2, bufferedSource) { // from class: okhttp3.ResponseBody.1
+                return new ResponseBody(mediaType, j, bufferedSource) { // from class: okhttp3.ResponseBody.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BufferedSource val$content;
@@ -229,7 +229,7 @@ public abstract class ResponseBody implements Closeable {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {mediaType, Long.valueOf(j2), bufferedSource};
+                            Object[] objArr = {mediaType, Long.valueOf(j), bufferedSource};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -240,7 +240,7 @@ public abstract class ResponseBody implements Closeable {
                             }
                         }
                         this.val$contentType = mediaType;
-                        this.val$contentLength = j2;
+                        this.val$contentLength = j;
                         this.val$content = bufferedSource;
                     }
 

@@ -17,7 +17,7 @@ import com.baidu.searchbox.v8engine.WebGLImageLoader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImageAssetManager {
     public static final Object bitmapHashLock = new Object();
     public final Context context;

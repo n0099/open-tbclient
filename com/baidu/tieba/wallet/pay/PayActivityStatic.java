@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.p0.b;
-import c.a.q0.p0.f;
-import c.a.q0.p0.g;
+import b.a.q0.p0.b;
+import b.a.q0.p0.f;
+import b.a.q0.p0.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +21,6 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.tieba.wallet.Login;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -49,9 +48,10 @@ import org.json.JSONObject;
 import tv.athena.revenue.api.MiddleReportConfig;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.YYPayUIKit;
+import tv.athena.revenue.payui.model.PayScene;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PayActivityStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_WX_RECHARGE_RESULT_ERROR_CODE = "_wxapi_baseresp_errcode";
@@ -102,7 +102,7 @@ public class PayActivityStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String p = c.a.q0.s.d0.b.j().p("version_name", "");
+            String p = b.a.q0.s.e0.b.j().p("version_name", "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName(context.getString(R.string.app_name));
@@ -173,18 +173,22 @@ public class PayActivityStatic {
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = fVar.f13673e;
-        Object obj = fVar.f13669a;
+        yyPayResultCallback = fVar.f12807e;
+        Object obj = fVar.f12803a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        if (!TextUtils.isEmpty(fVar.f13671c)) {
-            viewParams.payAmountDialogTitle = fVar.f13671c;
+        if (!TextUtils.isEmpty(fVar.f12805c)) {
+            viewParams.payAmountDialogTitle = fVar.f12805c;
         }
-        Long l = fVar.f13672d;
+        Long l = fVar.f12806d;
         if (l != null) {
-            viewParams.targetAmount = l.intValue();
+            int intValue = l.intValue();
+            viewParams.targetAmount = intValue;
+            if (intValue > 0) {
+                viewParams.payScene = PayScene.DIALOG_QUICK_PAY;
+            }
         }
         if (obj != null) {
             IPayCallback<CurrencyChargeMessage> iPayCallback = new IPayCallback() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.3
@@ -240,19 +244,19 @@ public class PayActivityStatic {
                     }
                     g gVar = new g();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    gVar.f13680g = currencyChargeMessage.status;
-                    gVar.f13675b = currencyChargeMessage.appid;
-                    gVar.f13681h = Long.valueOf(currencyChargeMessage.uid);
-                    gVar.f13682i = currencyChargeMessage.usedChannel;
-                    gVar.f13677d = currencyChargeMessage.currencyType;
-                    gVar.f13674a = Long.valueOf(currencyChargeMessage.amount);
-                    gVar.f13676c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    gVar.f13679f = currencyChargeMessage.orderId;
-                    gVar.f13678e = currencyChargeMessage.expand;
+                    gVar.f12814g = currencyChargeMessage.status;
+                    gVar.f12809b = currencyChargeMessage.appid;
+                    gVar.f12815h = Long.valueOf(currencyChargeMessage.uid);
+                    gVar.f12816i = currencyChargeMessage.usedChannel;
+                    gVar.f12811d = currencyChargeMessage.currencyType;
+                    gVar.f12808a = Long.valueOf(currencyChargeMessage.amount);
+                    gVar.f12810c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    gVar.f12813f = currencyChargeMessage.orderId;
+                    gVar.f12812e = currencyChargeMessage.expand;
                     PayActivityStatic.yyPayResultCallback.a(gVar);
                 }
             };
-            if (fVar.f13670b == 0) {
+            if (fVar.f12804b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, null, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
@@ -295,7 +299,7 @@ public class PayActivityStatic {
             payReq.appId = jSONObject.optString("appid");
             payReq.partnerId = jSONObject.optString("partnerid");
             payReq.prepayId = jSONObject.optString("prepayid");
-            payReq.packageValue = jSONObject.optString(AsInstallService.SCHEME_PACKAGE_ADDED);
+            payReq.packageValue = jSONObject.optString("package");
             payReq.nonceStr = jSONObject.optString("noncestr");
             payReq.timeStamp = jSONObject.optString("timestamp");
             payReq.sign = jSONObject.optString("sign");

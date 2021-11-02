@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.p0.a.v2.n0;
-import c.a.p0.j.d;
+import b.a.p0.a.v2.n0;
+import b.a.p0.j.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,28 +14,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class OpenLocationMenuItem {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f47153e;
+    public static final int f44778e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MenuItemType f47154a;
+    public MenuItemType f44779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f47155b;
+    public b f44780b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f47156c;
+    public TextView f44781c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f47157d;
+    public int f44782d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class MenuItemType {
         public static final /* synthetic */ MenuItemType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -106,13 +106,13 @@ public class OpenLocationMenuItem {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OpenLocationMenuItem f47158e;
+        public final /* synthetic */ OpenLocationMenuItem f44783e;
 
         public a(OpenLocationMenuItem openLocationMenuItem) {
             Interceptable interceptable = $ic;
@@ -129,20 +129,20 @@ public class OpenLocationMenuItem {
                     return;
                 }
             }
-            this.f47158e = openLocationMenuItem;
+            this.f44783e = openLocationMenuItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47158e.f47155b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44783e.f44780b == null) {
                 return;
             }
-            this.f47158e.f47155b.onMenuItemClick(this.f47158e);
+            this.f44783e.f44780b.onMenuItemClick(this.f44783e);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void onMenuItemClick(OpenLocationMenuItem openLocationMenuItem);
     }
@@ -160,7 +160,7 @@ public class OpenLocationMenuItem {
                 return;
             }
         }
-        f47153e = n0.g(45.0f);
+        f44778e = n0.g(45.0f);
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
@@ -178,51 +178,51 @@ public class OpenLocationMenuItem {
                 return;
             }
         }
-        this.f47156c = new TextView(context);
-        this.f47157d = n0.g(1.0f);
-        this.f47156c.setText(str);
-        this.f47156c.setTextSize(16.0f);
-        this.f47156c.setBackground(context.getResources().getDrawable(d.openlocation_bottommenu_itemclick_selector));
-        this.f47156c.setTextColor(-16777216);
-        this.f47156c.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, f47153e);
-        layoutParams.bottomMargin = this.f47157d;
+        this.f44781c = new TextView(context);
+        this.f44782d = n0.g(1.0f);
+        this.f44781c.setText(str);
+        this.f44781c.setTextSize(16.0f);
+        this.f44781c.setBackground(context.getResources().getDrawable(d.openlocation_bottommenu_itemclick_selector));
+        this.f44781c.setTextColor(-16777216);
+        this.f44781c.setGravity(17);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, f44778e);
+        layoutParams.bottomMargin = this.f44782d;
         layoutParams.gravity = 17;
-        this.f47156c.setLayoutParams(layoutParams);
-        e(str);
-        f(menuItemType);
-        this.f47156c.setOnClickListener(new a(this));
+        this.f44781c.setLayoutParams(layoutParams);
+        d(str);
+        e(menuItemType);
+        this.f44781c.setOnClickListener(new a(this));
     }
 
     public TextView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47156c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44781c : (TextView) invokeV.objValue;
     }
 
-    public MenuItemType c() {
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.f44780b = bVar;
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    public void e(MenuItemType menuItemType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, menuItemType) == null) {
+            this.f44779a = menuItemType;
+        }
+    }
+
+    public MenuItemType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47154a : (MenuItemType) invokeV.objValue;
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f47155b = bVar;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public void f(MenuItemType menuItemType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, menuItemType) == null) {
-            this.f47154a = menuItemType;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44779a : (MenuItemType) invokeV.objValue;
     }
 }

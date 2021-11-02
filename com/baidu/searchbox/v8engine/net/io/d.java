@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d implements Serializable, Comparable<d> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f45115a;
+    public static final char[] f42849a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f45116b;
+    public static final d f42850b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f45117c;
+    public final byte[] f42851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public transient int f45118d;
+    public transient int f42852d;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient String f45119e;
+    public transient String f42853e;
 
     static {
         InterceptResult invokeClinit;
@@ -47,8 +47,8 @@ public class d implements Serializable, Comparable<d> {
                 return;
             }
         }
-        f45115a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f45116b = a(new byte[0]);
+        f42849a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f42850b = a(new byte[0]);
     }
 
     public d(byte[] bArr) {
@@ -66,7 +66,7 @@ public class d implements Serializable, Comparable<d> {
                 return;
             }
         }
-        this.f45117c = bArr;
+        this.f42851c = bArr;
     }
 
     public static d a(byte... bArr) {
@@ -85,12 +85,12 @@ public class d implements Serializable, Comparable<d> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            byte[] bArr = this.f45117c;
+            byte[] bArr = this.f42851c;
             char[] cArr = new char[bArr.length * 2];
             int i2 = 0;
             for (byte b2 : bArr) {
                 int i3 = i2 + 1;
-                char[] cArr2 = f45115a;
+                char[] cArr2 = f42849a;
                 cArr[i2] = cArr2[(b2 >> 4) & 15];
                 i2 = i3 + 1;
                 cArr[i3] = cArr2[b2 & 15];
@@ -103,13 +103,13 @@ public class d implements Serializable, Comparable<d> {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f45117c.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42851c.length : invokeV.intValue;
     }
 
     public byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (byte[]) this.f45117c.clone() : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (byte[]) this.f42851c.clone() : (byte[]) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -122,7 +122,7 @@ public class d implements Serializable, Comparable<d> {
             if (obj instanceof d) {
                 d dVar = (d) obj;
                 int c2 = dVar.c();
-                byte[] bArr = this.f45117c;
+                byte[] bArr = this.f42851c;
                 if (c2 == bArr.length && dVar.a(0, bArr, 0, bArr.length)) {
                     return true;
                 }
@@ -136,12 +136,12 @@ public class d implements Serializable, Comparable<d> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i2 = this.f45118d;
+            int i2 = this.f42852d;
             if (i2 != 0) {
                 return i2;
             }
-            int hashCode = Arrays.hashCode(this.f45117c);
-            this.f45118d = hashCode;
+            int hashCode = Arrays.hashCode(this.f42851c);
+            this.f42852d = hashCode;
             return hashCode;
         }
         return invokeV.intValue;
@@ -152,22 +152,22 @@ public class d implements Serializable, Comparable<d> {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f45117c.length == 0) {
+            if (this.f42851c.length == 0) {
                 return "[size=0]";
             }
             String a2 = a();
             int a3 = a(a2, 64);
             if (a3 == -1) {
-                if (this.f45117c.length <= 64) {
+                if (this.f42851c.length <= 64) {
                     return "[hex=" + b() + PreferencesUtil.RIGHT_MOUNT;
                 }
-                return "[size=" + this.f45117c.length + " hex=" + a(0, 64).b() + "…]";
+                return "[size=" + this.f42851c.length + " hex=" + a(0, 64).b() + "…]";
             }
             String replace = a2.substring(0, a3).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace(StringUtils.LF, "\\n").replace(StringUtils.CR, "\\r");
             if (a3 < a2.length()) {
                 sb = new StringBuilder();
                 sb.append("[size=");
-                sb.append(this.f45117c.length);
+                sb.append(this.f42851c.length);
                 sb.append(" text=");
                 sb.append(replace);
                 sb.append("…]");
@@ -186,12 +186,12 @@ public class d implements Serializable, Comparable<d> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.f45119e;
+            String str = this.f42853e;
             if (str != null) {
                 return str;
             }
-            String str2 = new String(this.f45117c, com.baidu.searchbox.v8engine.net.b.f45111a);
-            this.f45119e = str2;
+            String str2 = new String(this.f42851c, com.baidu.searchbox.v8engine.net.b.f42845a);
+            this.f42853e = str2;
             return str2;
         }
         return (String) invokeV.objValue;
@@ -202,9 +202,9 @@ public class d implements Serializable, Comparable<d> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) {
             if (i2 >= 0) {
-                byte[] bArr = this.f45117c;
+                byte[] bArr = this.f42851c;
                 if (i3 > bArr.length) {
-                    throw new IllegalArgumentException("endIndex > length(" + this.f45117c.length + SmallTailInfo.EMOTION_SUFFIX);
+                    throw new IllegalArgumentException("endIndex > length(" + this.f42851c.length + SmallTailInfo.EMOTION_SUFFIX);
                 }
                 int i4 = i3 - i2;
                 if (i4 >= 0) {
@@ -212,7 +212,7 @@ public class d implements Serializable, Comparable<d> {
                         return this;
                     }
                     byte[] bArr2 = new byte[i4];
-                    System.arraycopy(this.f45117c, i2, bArr2, 0, i4);
+                    System.arraycopy(this.f42851c, i2, bArr2, 0, i4);
                     return new d(bArr2);
                 }
                 throw new IllegalArgumentException("endIndex < beginIndex");
@@ -225,13 +225,13 @@ public class d implements Serializable, Comparable<d> {
     public byte a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f45117c[i2] : invokeI.byteValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f42851c[i2] : invokeI.byteValue;
     }
 
     public boolean a(int i2, d dVar, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), dVar, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? dVar.a(i3, this.f45117c, i2, i4) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), dVar, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? dVar.a(i3, this.f42851c, i2, i4) : invokeCommon.booleanValue;
     }
 
     public boolean a(int i2, byte[] bArr, int i3, int i4) {
@@ -239,7 +239,7 @@ public class d implements Serializable, Comparable<d> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (i2 >= 0) {
-                byte[] bArr2 = this.f45117c;
+                byte[] bArr2 = this.f42851c;
                 if (i2 <= bArr2.length - i4 && i3 >= 0 && i3 <= bArr.length - i4 && j.a(bArr2, i2, bArr, i3, i4)) {
                     return true;
                 }

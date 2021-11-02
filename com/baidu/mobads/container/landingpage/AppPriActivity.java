@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AppPriActivity implements IActivityImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIONBAR_VIEW_ID = 1010;
@@ -48,7 +48,7 @@ public class AppPriActivity implements IActivityImpl {
     public Activity proxyActivity;
     public RelativeLayout wvTool;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class CustomProgressBar extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

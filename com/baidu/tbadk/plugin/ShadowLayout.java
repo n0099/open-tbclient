@@ -19,28 +19,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ShadowLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f48495e;
+    public Paint f46020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f48496f;
+    public RectF f46021f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48497g;
+    public int f46022g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48498h;
+    public int f46023h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48499i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f48500j;
+    public int f46024i;
+    public int j;
     public int k;
     public int l;
 
@@ -71,25 +69,25 @@ public class ShadowLayout extends FrameLayout {
             setWillNotDraw(false);
             setLayerType(1, null);
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-            this.f48497g = dimensionPixelSize;
+            this.f46022g = dimensionPixelSize;
             setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
             this.l = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
-            this.f48498h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f48499i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
-            this.f48500j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
+            this.f46023h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
+            this.f46024i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
+            this.j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
             this.k = SkinManager.getColor(R.color.plugin_button_shadow_blue);
             Paint paint = new Paint();
-            this.f48495e = paint;
+            this.f46020e = paint;
             paint.setColor(0);
-            this.f48495e.setShadowLayer(this.f48498h, this.f48499i, this.f48500j, this.k);
-            this.f48496f = new RectF();
+            this.f46020e.setShadowLayer(this.f46023h, this.f46024i, this.j, this.k);
+            this.f46021f = new RectF();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48495e.setShadowLayer(this.f48498h, this.f48499i, this.f48500j, this.k);
+            this.f46020e.setShadowLayer(this.f46023h, this.f46024i, this.j, this.k);
             postInvalidate();
         }
     }
@@ -97,7 +95,7 @@ public class ShadowLayout extends FrameLayout {
     public void buildShadow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = this.f48497g;
+            int i2 = this.f46022g;
             setPadding(i2, i2, i2, i2);
             b();
         }
@@ -108,13 +106,13 @@ public class ShadowLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f48496f.left = getPaddingLeft();
-            this.f48496f.right = getWidth() - getPaddingRight();
-            this.f48496f.bottom = getHeight() - getPaddingBottom();
-            this.f48496f.top = getPaddingTop();
-            RectF rectF = this.f48496f;
+            this.f46021f.left = getPaddingLeft();
+            this.f46021f.right = getWidth() - getPaddingRight();
+            this.f46021f.bottom = getHeight() - getPaddingBottom();
+            this.f46021f.top = getPaddingTop();
+            RectF rectF = this.f46021f;
             int i2 = this.l;
-            canvas.drawRoundRect(rectF, i2, i2, this.f48495e);
+            canvas.drawRoundRect(rectF, i2, i2, this.f46020e);
         }
     }
 
@@ -134,8 +132,8 @@ public class ShadowLayout extends FrameLayout {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
-            this.f48499i = getResources().getDimensionPixelSize(i2);
-            this.f48500j = getResources().getDimensionPixelSize(i3);
+            this.f46024i = getResources().getDimensionPixelSize(i2);
+            this.j = getResources().getDimensionPixelSize(i3);
             return this;
         }
         return (ShadowLayout) invokeII.objValue;
@@ -146,7 +144,7 @@ public class ShadowLayout extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f48497g = getResources().getDimensionPixelSize(i2);
+            this.f46022g = getResources().getDimensionPixelSize(i2);
             return this;
         }
         return (ShadowLayout) invokeI.objValue;

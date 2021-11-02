@@ -2,11 +2,11 @@ package com.baidu.tieba.person.holder;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.e.l.e.n;
-import c.a.r0.m2.d;
-import c.a.r0.m2.g.e;
-import c.a.r0.m2.g.f;
+import b.a.e.e.p.l;
+import b.a.e.l.e.n;
+import b.a.r0.m2.d;
+import b.a.r0.m2.g.e;
+import b.a.r0.m2.g.f;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || fVar == null) {
             return;
         }
-        this.adapterManager.c(a(fVar.b()));
+        this.adapterManager.c(a(fVar.a()));
     }
 
     public void fillViewResource() {

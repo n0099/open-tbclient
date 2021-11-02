@@ -26,7 +26,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SpeechRecognitionDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ELLIPSIS_NORMAL = "…";
@@ -61,12 +60,12 @@ public class SpeechRecognitionDialog extends Dialog {
     public RelativeLayout voiceParentLayout;
     public VoiceSinWaveView voiceSinWaveView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface ResetCallback {
         void onReset();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface StopSpeechLister {
         void onStopSpeech();
     }
@@ -423,7 +422,7 @@ public class SpeechRecognitionDialog extends Dialog {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-                            intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.this$0.activity.getPackageName(), null));
+                            intent.setData(Uri.fromParts("package", this.this$0.activity.getPackageName(), null));
                             this.this$0.activity.startActivityForResult(intent, 9000);
                         }
                     }

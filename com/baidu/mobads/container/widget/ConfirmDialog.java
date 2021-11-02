@@ -45,7 +45,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ConfirmDialog extends DialogFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_DESC_COLOR_DEFAULT = -6710887;
@@ -69,7 +69,7 @@ public class ConfirmDialog extends DialogFragment {
     public OnConfirmListener listener;
     public IOAdEventListener lpCloseListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class LpCloseListener implements IOAdEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class ConfirmDialog extends DialogFragment {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnConfirmListener {
         void onAdClick();
 

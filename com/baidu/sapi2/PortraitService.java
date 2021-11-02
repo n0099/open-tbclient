@@ -33,24 +33,24 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PortraitService extends AbstractService implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SetPortraitCallback f44506a;
+        public final /* synthetic */ SetPortraitCallback f42258a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SetPortraitResult f44507b;
+        public final /* synthetic */ SetPortraitResult f42259b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PortraitService f44508c;
+        public final /* synthetic */ PortraitService f42260c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PortraitService portraitService, Looper looper, SetPortraitCallback setPortraitCallback, SetPortraitResult setPortraitResult) {
@@ -70,17 +70,17 @@ public class PortraitService extends AbstractService implements NoProguard {
                     return;
                 }
             }
-            this.f44508c = portraitService;
-            this.f44506a = setPortraitCallback;
-            this.f44507b = setPortraitResult;
+            this.f42260c = portraitService;
+            this.f42258a = setPortraitCallback;
+            this.f42259b = setPortraitResult;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f44507b.setResultCode(i2);
-                this.f44506a.onFailure(this.f44507b);
+                this.f42259b.setResultCode(i2);
+                this.f42258a.onFailure(this.f42259b);
             }
         }
 
@@ -88,7 +88,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f44506a.onFinish();
+                this.f42258a.onFinish();
             }
         }
 
@@ -96,7 +96,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f44506a.onStart();
+                this.f42258a.onStart();
             }
         }
 
@@ -104,45 +104,46 @@ public class PortraitService extends AbstractService implements NoProguard {
         public void onSuccess(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
-                this.f44507b.setResultCode(this.f44508c.getErrorCode(str));
-                this.f44507b.setResultMsg(this.f44508c.getErrorMsg(str));
-                int resultCode = this.f44507b.getResultCode();
-                if (resultCode != 0) {
-                    if (resultCode != 160103) {
-                        this.f44506a.onFailure(this.f44507b);
-                        return;
-                    } else {
-                        this.f44506a.onBdussExpired(this.f44507b);
-                        return;
+                this.f42259b.setResultCode(this.f42260c.getErrorCode(str));
+                this.f42259b.setResultMsg(this.f42260c.getErrorMsg(str));
+                int resultCode = this.f42259b.getResultCode();
+                if (resultCode == 0) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(str);
+                        this.f42259b.portraitSign = jSONObject.optString("portrait_tag");
+                        String optString = jSONObject.optString("portrait");
+                        if (!TextUtils.isEmpty(optString)) {
+                            this.f42259b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f42259b.portraitSign);
+                        }
+                    } catch (JSONException unused) {
                     }
+                    this.f42258a.onSuccess(this.f42259b);
+                } else if (resultCode == 160103) {
+                    this.f42258a.onBdussExpired(this.f42259b);
+                } else if (resultCode == 991613) {
+                    this.f42258a.onFailure(this.f42259b);
+                } else if (resultCode != 991616) {
+                    this.f42258a.onFailure(this.f42259b);
+                } else {
+                    this.f42258a.onSuccess(this.f42259b);
                 }
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    this.f44507b.portraitSign = jSONObject.optString("portrait_tag");
-                    String optString = jSONObject.optString("portrait");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.f44507b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f44507b.portraitSign);
-                    }
-                } catch (JSONException unused) {
-                }
-                this.f44506a.onSuccess(this.f44507b);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SetPopularPortraitResult f44509a;
+        public final /* synthetic */ SetPopularPortraitResult f42261a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SetPopularPortraitCallback f44510b;
+        public final /* synthetic */ SetPopularPortraitCallback f42262b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PortraitService f44511c;
+        public final /* synthetic */ PortraitService f42263c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PortraitService portraitService, Looper looper, SetPopularPortraitResult setPopularPortraitResult, SetPopularPortraitCallback setPopularPortraitCallback) {
@@ -162,17 +163,17 @@ public class PortraitService extends AbstractService implements NoProguard {
                     return;
                 }
             }
-            this.f44511c = portraitService;
-            this.f44509a = setPopularPortraitResult;
-            this.f44510b = setPopularPortraitCallback;
+            this.f42263c = portraitService;
+            this.f42261a = setPopularPortraitResult;
+            this.f42262b = setPopularPortraitCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f44509a.setResultCode(i2);
-                this.f44510b.onFailure(this.f44509a);
+                this.f42261a.setResultCode(i2);
+                this.f42262b.onFailure(this.f42261a);
             }
         }
 
@@ -180,7 +181,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f44510b.onFinish();
+                this.f42262b.onFinish();
             }
         }
 
@@ -188,7 +189,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f44510b.onStart();
+                this.f42262b.onStart();
             }
         }
 
@@ -199,35 +200,35 @@ public class PortraitService extends AbstractService implements NoProguard {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     int i3 = jSONObject.getInt("errno");
-                    this.f44509a.setResultCode(i3);
-                    this.f44509a.setResultMsg(jSONObject.optString("errmsg"));
+                    this.f42261a.setResultCode(i3);
+                    this.f42261a.setResultMsg(jSONObject.optString("errmsg"));
                     if (i3 == 0) {
-                        this.f44510b.onSuccess(this.f44509a);
+                        this.f42262b.onSuccess(this.f42261a);
                     } else {
-                        this.f44510b.onFailure(this.f44509a);
+                        this.f42262b.onFailure(this.f42261a);
                     }
                 } catch (JSONException e2) {
-                    this.f44509a.setResultCode(-202);
-                    this.f44510b.onFailure(this.f44509a);
+                    this.f42261a.setResultCode(-202);
+                    this.f42262b.onFailure(this.f42261a);
                     Log.e(e2);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class c extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetHistoryPortraitsResult f44512a;
+        public final /* synthetic */ GetHistoryPortraitsResult f42264a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GetHistoryPortraitsCallback f44513b;
+        public final /* synthetic */ GetHistoryPortraitsCallback f42265b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PortraitService f44514c;
+        public final /* synthetic */ PortraitService f42266c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PortraitService portraitService, Looper looper, GetHistoryPortraitsResult getHistoryPortraitsResult, GetHistoryPortraitsCallback getHistoryPortraitsCallback) {
@@ -247,17 +248,17 @@ public class PortraitService extends AbstractService implements NoProguard {
                     return;
                 }
             }
-            this.f44514c = portraitService;
-            this.f44512a = getHistoryPortraitsResult;
-            this.f44513b = getHistoryPortraitsCallback;
+            this.f42266c = portraitService;
+            this.f42264a = getHistoryPortraitsResult;
+            this.f42265b = getHistoryPortraitsCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f44512a.setResultCode(i2);
-                this.f44513b.onFailure(this.f44512a);
+                this.f42264a.setResultCode(i2);
+                this.f42265b.onFailure(this.f42264a);
             }
         }
 
@@ -268,41 +269,41 @@ public class PortraitService extends AbstractService implements NoProguard {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     int i3 = jSONObject.getInt("errno");
-                    this.f44512a.setResultCode(i3);
-                    this.f44512a.setResultMsg(jSONObject.optString("errmsg"));
+                    this.f42264a.setResultCode(i3);
+                    this.f42264a.setResultMsg(jSONObject.optString("errmsg"));
                     if (i3 == 0) {
                         JSONArray optJSONArray = jSONObject.optJSONArray("history");
                         int length = optJSONArray.length();
-                        this.f44512a.historyPortraits = new ArrayList(length);
+                        this.f42264a.historyPortraits = new ArrayList(length);
                         for (int i4 = 0; i4 < length; i4++) {
-                            this.f44512a.historyPortraits.add(optJSONArray.optString(i4));
+                            this.f42264a.historyPortraits.add(optJSONArray.optString(i4));
                         }
-                        this.f44513b.onSuccess(this.f44512a);
+                        this.f42265b.onSuccess(this.f42264a);
                         return;
                     }
-                    this.f44513b.onFailure(this.f44512a);
+                    this.f42265b.onFailure(this.f42264a);
                 } catch (JSONException e2) {
-                    this.f44512a.setResultCode(-202);
-                    this.f44513b.onFailure(this.f44512a);
+                    this.f42264a.setResultCode(-202);
+                    this.f42265b.onFailure(this.f42264a);
                     Log.e(e2);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class d extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetPopularPortraitsCallback f44515a;
+        public final /* synthetic */ GetPopularPortraitsCallback f42267a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GetPopularPortraitsInfoResult f44516b;
+        public final /* synthetic */ GetPopularPortraitsInfoResult f42268b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PortraitService f44517c;
+        public final /* synthetic */ PortraitService f42269c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(PortraitService portraitService, Looper looper, GetPopularPortraitsCallback getPopularPortraitsCallback, GetPopularPortraitsInfoResult getPopularPortraitsInfoResult) {
@@ -322,17 +323,17 @@ public class PortraitService extends AbstractService implements NoProguard {
                     return;
                 }
             }
-            this.f44517c = portraitService;
-            this.f44515a = getPopularPortraitsCallback;
-            this.f44516b = getPopularPortraitsInfoResult;
+            this.f42269c = portraitService;
+            this.f42267a = getPopularPortraitsCallback;
+            this.f42268b = getPopularPortraitsInfoResult;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f44516b.setResultCode(i2);
-                this.f44515a.onFailure(this.f44516b);
+                this.f42268b.setResultCode(i2);
+                this.f42267a.onFailure(this.f42268b);
             }
         }
 
@@ -340,7 +341,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f44515a.onFinish();
+                this.f42267a.onFinish();
             }
         }
 
@@ -348,7 +349,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f44515a.onStart();
+                this.f42267a.onStart();
             }
         }
 
@@ -359,12 +360,12 @@ public class PortraitService extends AbstractService implements NoProguard {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("errno");
-                    this.f44516b.setResultCode(optInt);
-                    this.f44516b.setResultMsg(jSONObject.optString("errmsg"));
+                    this.f42268b.setResultCode(optInt);
+                    this.f42268b.setResultMsg(jSONObject.optString("errmsg"));
                     if (optInt == 0) {
                         JSONArray optJSONArray = jSONObject.optJSONArray("list");
                         int length = optJSONArray.length();
-                        this.f44516b.popularPortraitsInfoList = new ArrayList(length);
+                        this.f42268b.popularPortraitsInfoList = new ArrayList(length);
                         for (int i3 = 0; i3 < length; i3++) {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                             if (optJSONObject != null) {
@@ -375,16 +376,17 @@ public class PortraitService extends AbstractService implements NoProguard {
                                 popularPortraitsInfo.myItem = optJSONObject.optInt("myitem");
                                 popularPortraitsInfo.color = optJSONObject.optString("color");
                                 popularPortraitsInfo.category = optJSONObject.optString("category");
-                                this.f44516b.popularPortraitsInfoList.add(popularPortraitsInfo);
+                                popularPortraitsInfo.gifUrl = optJSONObject.optString("gifUrl");
+                                this.f42268b.popularPortraitsInfoList.add(popularPortraitsInfo);
                             }
                         }
-                        this.f44515a.onSuccess(this.f44516b);
+                        this.f42267a.onSuccess(this.f42268b);
                         return;
                     }
-                    this.f44515a.onFailure(this.f44516b);
+                    this.f42267a.onFailure(this.f42268b);
                 } catch (JSONException e2) {
-                    this.f44516b.setResultCode(-202);
-                    this.f44515a.onFailure(this.f44516b);
+                    this.f42268b.setResultCode(-202);
+                    this.f42267a.onFailure(this.f42268b);
                     Log.e(e2);
                 }
             }

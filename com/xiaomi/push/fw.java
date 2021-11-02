@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class fw extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public gf f78018a;
+    public gf f70975a;
 
     /* renamed from: a  reason: collision with other field name */
-    public gg f420a;
+    public gg f421a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Throwable f421a;
+    public Throwable f422a;
 
     public fw() {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f78018a = null;
-        this.f420a = null;
+        this.f70975a = null;
         this.f421a = null;
+        this.f422a = null;
     }
 
     public fw(gf gfVar) {
@@ -56,10 +56,10 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f78018a = null;
-        this.f420a = null;
+        this.f70975a = null;
         this.f421a = null;
-        this.f78018a = gfVar;
+        this.f422a = null;
+        this.f70975a = gfVar;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -80,9 +80,9 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f78018a = null;
-        this.f420a = null;
+        this.f70975a = null;
         this.f421a = null;
+        this.f422a = null;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -103,10 +103,10 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f78018a = null;
-        this.f420a = null;
+        this.f70975a = null;
         this.f421a = null;
-        this.f421a = th;
+        this.f422a = null;
+        this.f422a = th;
     }
 
     public fw(Throwable th) {
@@ -124,16 +124,16 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f78018a = null;
-        this.f420a = null;
+        this.f70975a = null;
         this.f421a = null;
-        this.f421a = th;
+        this.f422a = null;
+        this.f422a = th;
     }
 
     public Throwable a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f421a : (Throwable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f422a : (Throwable) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable
@@ -144,7 +144,7 @@ public class fw extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String message = super.getMessage();
-            return (message != null || (ggVar = this.f420a) == null) ? (message != null || (gfVar = this.f78018a) == null) ? message : gfVar.toString() : ggVar.toString();
+            return (message != null || (ggVar = this.f421a) == null) ? (message != null || (gfVar = this.f70975a) == null) ? message : gfVar.toString() : ggVar.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -162,9 +162,9 @@ public class fw extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, printStream) == null) {
             super.printStackTrace(printStream);
-            if (this.f421a != null) {
+            if (this.f422a != null) {
                 printStream.println("Nested Exception: ");
-                this.f421a.printStackTrace(printStream);
+                this.f422a.printStackTrace(printStream);
             }
         }
     }
@@ -174,9 +174,9 @@ public class fw extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, printWriter) == null) {
             super.printStackTrace(printWriter);
-            if (this.f421a != null) {
+            if (this.f422a != null) {
                 printWriter.println("Nested Exception: ");
-                this.f421a.printStackTrace(printWriter);
+                this.f422a.printStackTrace(printWriter);
             }
         }
     }
@@ -192,17 +192,17 @@ public class fw extends Exception {
                 sb.append(message);
                 sb.append(": ");
             }
-            gg ggVar = this.f420a;
+            gg ggVar = this.f421a;
             if (ggVar != null) {
                 sb.append(ggVar);
             }
-            gf gfVar = this.f78018a;
+            gf gfVar = this.f70975a;
             if (gfVar != null) {
                 sb.append(gfVar);
             }
-            if (this.f421a != null) {
+            if (this.f422a != null) {
                 sb.append("\n  -- caused by: ");
-                sb.append(this.f421a);
+                sb.append(this.f422a);
             }
             return sb.toString();
         }

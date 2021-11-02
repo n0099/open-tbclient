@@ -11,19 +11,19 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f39299a;
+    public final int f37249a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c> f39300b;
+    public List<c> f37250b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f39301c;
+    public c f37251c;
 
     public f(int i2) {
         Interceptable interceptable = $ic;
@@ -40,26 +40,26 @@ public class f {
                 return;
             }
         }
-        this.f39299a = i2;
-        this.f39301c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
-        this.f39300b = new ArrayList();
+        this.f37249a = i2;
+        this.f37251c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
+        this.f37250b = new ArrayList();
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39299a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37249a : invokeV.intValue;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            this.f39301c.a(jSONObject);
+            this.f37251c.a(jSONObject);
             JSONArray jSONArray = new JSONArray();
-            for (int i2 = 0; i2 < this.f39300b.size(); i2++) {
+            for (int i2 = 0; i2 < this.f37250b.size(); i2++) {
                 JSONObject jSONObject2 = new JSONObject();
-                if (this.f39300b.get(i2).a(jSONObject2) != null) {
+                if (this.f37250b.get(i2).a(jSONObject2) != null) {
                     jSONArray.put(jSONObject2);
                 }
             }
@@ -74,7 +74,7 @@ public class f {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f39301c.a(eVar);
+            this.f37251c.a(eVar);
         }
     }
 }

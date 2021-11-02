@@ -10,14 +10,14 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableRange extends Observable<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long end;
     public final int start;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class RangeDisposable extends BasicIntQueueDisposable<Integer> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 396518478098735504L;
@@ -27,12 +27,12 @@ public final class ObservableRange extends Observable<Integer> {
         public boolean fused;
         public long index;
 
-        public RangeDisposable(Observer<? super Integer> observer, long j2, long j3) {
+        public RangeDisposable(Observer<? super Integer> observer, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {observer, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -43,8 +43,8 @@ public final class ObservableRange extends Observable<Integer> {
                 }
             }
             this.actual = observer;
-            this.index = j2;
-            this.end = j3;
+            this.index = j;
+            this.end = j2;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -98,9 +98,9 @@ public final class ObservableRange extends Observable<Integer> {
                 return;
             }
             Observer<? super Integer> observer = this.actual;
-            long j2 = this.end;
-            for (long j3 = this.index; j3 != j2 && get() == 0; j3++) {
-                observer.onNext(Integer.valueOf((int) j3));
+            long j = this.end;
+            for (long j2 = this.index; j2 != j && get() == 0; j2++) {
+                observer.onNext(Integer.valueOf((int) j2));
             }
             if (get() == 0) {
                 lazySet(1);
@@ -115,10 +115,10 @@ public final class ObservableRange extends Observable<Integer> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                long j2 = this.index;
-                if (j2 != this.end) {
-                    this.index = 1 + j2;
-                    return Integer.valueOf((int) j2);
+                long j = this.index;
+                if (j != this.end) {
+                    this.index = 1 + j;
+                    return Integer.valueOf((int) j);
                 }
                 lazySet(1);
                 return null;

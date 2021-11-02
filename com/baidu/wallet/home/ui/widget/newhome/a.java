@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class a {
                 str = "";
             }
             char c2 = 65535;
-            if (str.hashCode() == 49588 && str.equals("202")) {
+            if (str.hashCode() == 49588 && str.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202)) {
                 c2 = 0;
             }
             return c2 != 0 ? NHSeperator.SP_NONE : NHSeperator.SP_SINGLE_LINE;
@@ -55,7 +55,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             HomeCfgResponse.ConfigData configData = new HomeCfgResponse.ConfigData();
-            configData.group_layout = "100";
+            configData.group_layout = HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP;
             configData.group_name = str;
             return configData;
         }

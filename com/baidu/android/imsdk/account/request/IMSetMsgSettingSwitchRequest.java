@@ -10,18 +10,17 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetMsgSettingSwitchRequest";
@@ -105,9 +104,9 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
                 jSONObject.put("appid", appid);
                 jSONObject.put("uk", uk);
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+                jSONObject.put("device_type", 2);
                 jSONObject.put("timestamp", currentTimeMillis);
                 jSONObject.put("sign", getMd5("" + currentTimeMillis + uk + appid));
                 jSONObject.put("account_type", AccountManager.isCuidLogin(this.mContext) ? 1 : 0);
@@ -148,7 +147,7 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i3 = jSONObject.getInt("error_code");
-                str = jSONObject.optString("error_msg", "");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "JSONException", e2);
                 i3 = 1010;

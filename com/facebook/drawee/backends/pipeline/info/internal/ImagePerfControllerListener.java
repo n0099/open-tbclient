@@ -1,6 +1,7 @@
 package com.facebook.drawee.backends.pipeline.info.internal;
 
 import android.graphics.drawable.Animatable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,10 +12,12 @@ import com.facebook.common.time.MonotonicClock;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfMonitor;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfState;
 import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.fresco.ui.common.DimensionsInfo;
+import com.facebook.fresco.ui.common.OnDrawControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
-public class ImagePerfControllerListener extends BaseControllerListener<ImageInfo> {
+/* loaded from: classes11.dex */
+public class ImagePerfControllerListener extends BaseControllerListener<ImageInfo> implements OnDrawControllerListener<ImageInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MonotonicClock mClock;
@@ -42,11 +45,11 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
     }
 
     @VisibleForTesting
-    private void reportViewInvisible(long j2) {
+    private void reportViewInvisible(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
             this.mImagePerfState.setVisible(false);
-            this.mImagePerfState.setInvisibilityEventTimeMs(j2);
+            this.mImagePerfState.setInvisibilityEventTimeMs(j);
             this.mImagePerfMonitor.notifyListenersOfVisibilityStateUpdate(this.mImagePerfState, 2);
         }
     }
@@ -58,6 +61,7 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
             long now = this.mClock.now();
             this.mImagePerfState.setControllerFailureTimeMs(now);
             this.mImagePerfState.setControllerId(str);
+            this.mImagePerfState.setErrorThrowable(th);
             this.mImagePerfMonitor.notifyStatusUpdated(this.mImagePerfState, 5);
             reportViewInvisible(now);
         }
@@ -66,11 +70,11 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
     @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
     public void onRelease(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             super.onRelease(str);
             long now = this.mClock.now();
             int imageLoadStatus = this.mImagePerfState.getImageLoadStatus();
-            if (imageLoadStatus != 3 && imageLoadStatus != 5) {
+            if (imageLoadStatus != 3 && imageLoadStatus != 5 && imageLoadStatus != 6) {
                 this.mImagePerfState.setControllerCancelTimeMs(now);
                 this.mImagePerfState.setControllerId(str);
                 this.mImagePerfMonitor.notifyStatusUpdated(this.mImagePerfState, 4);
@@ -82,8 +86,9 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
     @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
     public void onSubmit(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, obj) == null) {
             long now = this.mClock.now();
+            this.mImagePerfState.resetPointsTimestamps();
             this.mImagePerfState.setControllerSubmitTimeMs(now);
             this.mImagePerfState.setControllerId(str);
             this.mImagePerfState.setCallerContext(obj);
@@ -93,11 +98,11 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
     }
 
     @VisibleForTesting
-    public void reportViewVisible(long j2) {
+    public void reportViewVisible(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
             this.mImagePerfState.setVisible(true);
-            this.mImagePerfState.setVisibilityEventTimeMs(j2);
+            this.mImagePerfState.setVisibilityEventTimeMs(j);
             this.mImagePerfMonitor.notifyListenersOfVisibilityStateUpdate(this.mImagePerfState, 1);
         }
     }
@@ -117,10 +122,21 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.fresco.ui.common.OnDrawControllerListener
+    public void onImageDrawn(String str, ImageInfo imageInfo, DimensionsInfo dimensionsInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, imageInfo, dimensionsInfo) == null) {
+            this.mImagePerfState.setImageDrawTimeMs(this.mClock.now());
+            this.mImagePerfState.setDimensionsInfo(dimensionsInfo);
+            this.mImagePerfMonitor.notifyStatusUpdated(this.mImagePerfState, 6);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
     public void onIntermediateImageSet(String str, @Nullable ImageInfo imageInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, imageInfo) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, imageInfo) == null) {
             this.mImagePerfState.setControllerIntermediateImageSetTimeMs(this.mClock.now());
             this.mImagePerfState.setControllerId(str);
             this.mImagePerfState.setImageInfo(imageInfo);

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final RecyclerView f72457a;
+    public final RecyclerView f64915a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final RecyclerView.LayoutManager f72458b;
+    public final RecyclerView.LayoutManager f64916b;
 
     public f(RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public class f {
                 return;
             }
         }
-        this.f72457a = recyclerView;
-        this.f72458b = recyclerView.getLayoutManager();
+        this.f64915a = recyclerView;
+        this.f64916b = recyclerView.getLayoutManager();
     }
 
     private View a(int i2, int i3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            OrientationHelper createVerticalHelper = this.f72458b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f72458b) : OrientationHelper.createHorizontalHelper(this.f72458b);
+            OrientationHelper createVerticalHelper = this.f64916b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f64916b) : OrientationHelper.createHorizontalHelper(this.f64916b);
             int startAfterPadding = createVerticalHelper.getStartAfterPadding();
             int endAfterPadding = createVerticalHelper.getEndAfterPadding();
             int i4 = i3 > i2 ? 1 : -1;
             View view = null;
             while (i2 != i3) {
-                View childAt = this.f72458b.getChildAt(i2);
+                View childAt = this.f64916b.getChildAt(i2);
                 int decoratedStart = createVerticalHelper.getDecoratedStart(childAt);
                 int decoratedEnd = createVerticalHelper.getDecoratedEnd(childAt);
                 if (decoratedStart < endAfterPadding && decoratedEnd > startAfterPadding) {
@@ -86,11 +86,11 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View a2 = a(0, this.f72458b.getChildCount(), false, true);
+            View a2 = a(0, this.f64916b.getChildCount(), false, true);
             if (a2 == null) {
                 return -1;
             }
-            return this.f72457a.getChildAdapterPosition(a2);
+            return this.f64915a.getChildAdapterPosition(a2);
         }
         return invokeV.intValue;
     }
@@ -99,11 +99,11 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View a2 = a(this.f72458b.getChildCount() - 1, -1, false, true);
+            View a2 = a(this.f64916b.getChildCount() - 1, -1, false, true);
             if (a2 == null) {
                 return -1;
             }
-            return this.f72457a.getChildAdapterPosition(a2);
+            return this.f64915a.getChildAdapterPosition(a2);
         }
         return invokeV.intValue;
     }

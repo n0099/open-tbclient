@@ -17,7 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MethodProfileData {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeUnit DATA_TIME_UNITS;
@@ -28,13 +28,13 @@ public class MethodProfileData {
     public final Map<Integer, Map<Long, MethodStats>> mPerThreadStatsByCaller;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodProfileData$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class MethodStats {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +59,9 @@ public class MethodProfileData {
         }
 
         public static /* synthetic */ long access$1108(MethodStats methodStats) {
-            long j2 = methodStats.mInvocationCount;
-            methodStats.mInvocationCount = 1 + j2;
-            return j2;
+            long j = methodStats.mInvocationCount;
+            methodStats.mInvocationCount = 1 + j;
+            return j;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -237,7 +237,7 @@ public class MethodProfileData {
         this.mIsRecursive = builder.mRecursive;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -377,24 +377,24 @@ public class MethodProfileData {
             }
         }
 
-        private void addExclusiveTime(MethodStats methodStats, long j2, ClockType clockType) {
+        private void addExclusiveTime(MethodStats methodStats, long j, ClockType clockType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{methodStats, Long.valueOf(j2), clockType}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{methodStats, Long.valueOf(j), clockType}) == null) {
                 if (clockType == ClockType.THREAD) {
-                    methodStats.mExclusiveThreadTime += j2;
+                    methodStats.mExclusiveThreadTime += j;
                 } else {
-                    methodStats.mExclusiveGlobalTime += j2;
+                    methodStats.mExclusiveGlobalTime += j;
                 }
             }
         }
 
-        private void addInclusiveTime(MethodStats methodStats, long j2, ClockType clockType) {
+        private void addInclusiveTime(MethodStats methodStats, long j, ClockType clockType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{methodStats, Long.valueOf(j2), clockType}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{methodStats, Long.valueOf(j), clockType}) == null) {
                 if (clockType == ClockType.THREAD) {
-                    methodStats.mInclusiveThreadTime += j2;
+                    methodStats.mInclusiveThreadTime += j;
                 } else {
-                    methodStats.mInclusiveGlobalTime += j2;
+                    methodStats.mInclusiveGlobalTime += j;
                 }
             }
         }

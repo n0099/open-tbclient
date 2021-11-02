@@ -1,13 +1,13 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.e.e.n.c;
-import c.a.e.e.o.a;
+import b.a.e.e.n.c;
+import b.a.e.e.o.a;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SyncSwitch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -144,6 +144,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(WorkAddTopicSwitch.class);
             SwitchManager.getInstance().registerSwitch(UploadPicParallelSwitch.class);
             SwitchManager.getInstance().registerSwitch(AdSaleSpreadSwitch.class);
+            SwitchManager.getInstance().registerSwitch(AndroidActivityLogSwitch.class);
         }
     }
 }

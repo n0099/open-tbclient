@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoCodecInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String H264_CONSTRAINED_BASELINE_3_1 = "42e01f";

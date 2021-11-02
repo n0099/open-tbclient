@@ -49,7 +49,7 @@ import com.google.android.material.internal.CollapsingTextHelper;
 import com.google.android.material.internal.DescendantOffsetUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CollapsingToolbarLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
@@ -85,7 +85,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     public View toolbarDirectChild;
     public int toolbarId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class OffsetUpdateListener implements AppBarLayout.OnOffsetChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -386,11 +386,11 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j2) {
+    public boolean drawChild(Canvas canvas, View view, long j) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
             if (this.contentScrim == null || this.scrimAlpha <= 0 || !isToolbarChild(view)) {
                 z = false;
             } else {
@@ -398,7 +398,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
                 this.contentScrim.draw(canvas);
                 z = true;
             }
-            return super.drawChild(canvas, view, j2) || z;
+            return super.drawChild(canvas, view, j) || z;
         }
         return invokeCommon.booleanValue;
     }
@@ -843,10 +843,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
         ViewCompat.postInvalidateOnAnimation(this);
     }
 
-    public void setScrimAnimationDuration(@IntRange(from = 0) long j2) {
+    public void setScrimAnimationDuration(@IntRange(from = 0) long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048630, this, j2) == null) {
-            this.scrimAnimationDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048630, this, j) == null) {
+            this.scrimAnimationDuration = j;
         }
     }
 
@@ -1120,7 +1120,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (FrameLayout.LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COLLAPSE_MODE_OFF = 0;

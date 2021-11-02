@@ -15,51 +15,51 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ApollonLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
     public static String TAG = "Apollon";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38259a;
+    public static final String f36266a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class MarkerLog {
         public static /* synthetic */ Interceptable $ic;
         public static final boolean ENABLED;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final long f38260a = 0;
+        public static final long f36267a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<a> f38261b;
+        public final List<a> f36268b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f38262c;
+        public boolean f36269c;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f38263a;
+            public final String f36270a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f38264b;
+            public final long f36271b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final long f38265c;
+            public final long f36272c;
 
-            public a(String str, long j2, long j3) {
+            public a(String str, long j, long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3)};
+                    Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -69,9 +69,9 @@ public class ApollonLog {
                         return;
                     }
                 }
-                this.f38263a = str;
-                this.f38264b = j2;
-                this.f38265c = j3;
+                this.f36270a = str;
+                this.f36271b = j;
+                this.f36272c = j2;
             }
         }
 
@@ -104,30 +104,30 @@ public class ApollonLog {
                     return;
                 }
             }
-            this.f38261b = new ArrayList();
-            this.f38262c = false;
+            this.f36268b = new ArrayList();
+            this.f36269c = false;
         }
 
         private long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                if (this.f38261b.size() == 0) {
+                if (this.f36268b.size() == 0) {
                     return 0L;
                 }
-                long j2 = this.f38261b.get(0).f38265c;
-                List<a> list = this.f38261b;
-                return list.get(list.size() - 1).f38265c - j2;
+                long j = this.f36268b.get(0).f36272c;
+                List<a> list = this.f36268b;
+                return list.get(list.size() - 1).f36272c - j;
             }
             return invokeV.longValue;
         }
 
-        public synchronized void add(String str, long j2) {
+        public synchronized void add(String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
                 synchronized (this) {
-                    if (!this.f38262c) {
-                        this.f38261b.add(new a(str, j2, SystemClock.elapsedRealtime()));
+                    if (!this.f36269c) {
+                        this.f36268b.add(new a(str, j, SystemClock.elapsedRealtime()));
                     } else {
                         throw new IllegalStateException("Marker added to finished log");
                     }
@@ -137,7 +137,7 @@ public class ApollonLog {
 
         public void finalize() throws Throwable {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f38262c) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f36269c) {
                 return;
             }
             finish("Request on the loose");
@@ -148,17 +148,17 @@ public class ApollonLog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 synchronized (this) {
-                    this.f38262c = true;
+                    this.f36269c = true;
                     long a2 = a();
                     if (a2 <= 0) {
                         return;
                     }
-                    long j2 = this.f38261b.get(0).f38265c;
+                    long j = this.f36268b.get(0).f36272c;
                     ApollonLog.d("(%-4d ms) %s", Long.valueOf(a2), str);
-                    for (a aVar : this.f38261b) {
-                        long j3 = aVar.f38265c;
-                        ApollonLog.d("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(aVar.f38264b), aVar.f38263a);
-                        j2 = j3;
+                    for (a aVar : this.f36268b) {
+                        long j2 = aVar.f36272c;
+                        ApollonLog.d("(+%-4d) [%2d] %s", Long.valueOf(j2 - j), Long.valueOf(aVar.f36271b), aVar.f36270a);
+                        j = j2;
                     }
                 }
             }
@@ -179,7 +179,7 @@ public class ApollonLog {
             }
         }
         DEBUG = Log.isLoggable("Apollon", 2);
-        f38259a = ApollonLog.class.getName();
+        f36266a = ApollonLog.class.getName();
     }
 
     public ApollonLog() {
@@ -210,7 +210,7 @@ public class ApollonLog {
                 if (i2 >= stackTrace.length) {
                     str2 = "<unknown>";
                     break;
-                } else if (!stackTrace[i2].getClassName().equals(f38259a)) {
+                } else if (!stackTrace[i2].getClassName().equals(f36266a)) {
                     String className = stackTrace[i2].getClassName();
                     String substring = className.substring(className.lastIndexOf(46) + 1);
                     str2 = substring.substring(substring.lastIndexOf(36) + 1) + "." + stackTrace[i2].getMethodName();

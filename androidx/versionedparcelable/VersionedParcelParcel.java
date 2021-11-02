@@ -269,10 +269,10 @@ public class VersionedParcelParcel extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeLong(long j2) {
+    public void writeLong(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.mParcel.writeLong(j2);
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            this.mParcel.writeLong(j);
         }
     }
 

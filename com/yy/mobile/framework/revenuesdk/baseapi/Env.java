@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,30 +11,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Env {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] BACKUP_DOMAIN_POOL;
     public final String PRODUCE_REVENUE_HTTP_URL;
-    public String REVENUE_HTTP_REPORT_TAG;
     public String REVENUE_HTTP_URL;
     public int SERVICE_REVENUE;
-    public String SERVICE_REVENUE_REPORT_TAG;
     public final String TAG;
-    public final String TEST_REVENUE_HTTP_URL;
+    public String TEST_REVENUE_HTTP_URL;
     public final long YY_REQUEST_HREADER_URI;
     public final long YY_RESPONSE_HREADER_URI;
     public boolean isTestEnv;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.baseapi.Env$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final Env instance;
@@ -80,16 +79,18 @@ public class Env {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Holder.instance : (Env) invokeV.objValue;
     }
 
-    public synchronized void init(boolean z) {
+    public synchronized void init(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             synchronized (this) {
+                RLog.info("Revenue-Env", "init isTestEnv:" + z + " testUrl:" + str);
                 this.isTestEnv = z;
                 this.SERVICE_REVENUE = z ? IMConstants.ERROR_JOIN_GROUP_NUMBER_FULL : 30079;
-                this.SERVICE_REVENUE_REPORT_TAG = this.SERVICE_REVENUE + "";
-                RLog.debug("Revenue-Env", "SERVICE_REVENUE_REPORT_TAG:" + this.SERVICE_REVENUE_REPORT_TAG);
-                this.REVENUE_HTTP_URL = this.isTestEnv ? "https://turnover-pre.yy.com" : "https://turnover.yy.com";
-                RLog.debug("Revenue-Env", "REVENUE_HTTP_REPORT_TAG:" + this.REVENUE_HTTP_REPORT_TAG);
+                if (!TextUtils.isEmpty(str)) {
+                    this.TEST_REVENUE_HTTP_URL = str;
+                }
+                this.REVENUE_HTTP_URL = this.isTestEnv ? this.TEST_REVENUE_HTTP_URL : "https://turnover.yy.com";
+                RLog.info("Revenue-Env", "init REVENUE_HTTP_URL:" + this.REVENUE_HTTP_URL);
             }
         }
     }
@@ -115,11 +116,9 @@ public class Env {
         }
         this.TAG = "Revenue-Env";
         this.SERVICE_REVENUE = IMConstants.ERROR_JOIN_GROUP_NUMBER_FULL;
-        this.SERVICE_REVENUE_REPORT_TAG = "";
         this.YY_REQUEST_HREADER_URI = 4041273699L;
         this.YY_RESPONSE_HREADER_URI = 4040225123L;
         this.REVENUE_HTTP_URL = "";
-        this.REVENUE_HTTP_REPORT_TAG = "";
         this.TEST_REVENUE_HTTP_URL = "https://turnover-pre.yy.com";
         this.PRODUCE_REVENUE_HTTP_URL = "https://turnover.yy.com";
         this.BACKUP_DOMAIN_POOL = new String[]{"https://api-turnover.zhiniu8.com", "https://turnover.myzhiniu.com"};

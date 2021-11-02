@@ -1,7 +1,7 @@
 package com.baidu.tbadk.adBillingLog;
 
-import c.a.q0.d.c;
-import c.a.q0.d1.z;
+import b.a.q0.d.c;
+import b.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AdNewLog.AdNewLogReqIdl;
 import tbclient.AdNewLog.DataReq;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AdBillingLogReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,19 +44,19 @@ public class AdBillingLogReqMsg extends NetMessage {
         if (!(interceptable == null || interceptable.invokeL(65537, this, builder) == null) || (cVar = this.mReqData) == null) {
             return;
         }
-        builder.token = cVar.f12840d;
-        int i2 = cVar.f12842f;
+        builder.token = cVar.f12003d;
+        int i2 = cVar.f12005f;
         if (i2 >= 0) {
             builder.da_locate = String.valueOf(i2);
         }
-        int i3 = this.mReqData.f12838b;
+        int i3 = this.mReqData.f12001b;
         if (i3 >= 0) {
             builder.da_from = Integer.valueOf(i3);
         }
         c cVar2 = this.mReqData;
-        builder.extra_param = cVar2.f12841e;
-        builder.order_id = cVar2.f12839c;
-        int i4 = cVar2.f12837a;
+        builder.extra_param = cVar2.f12004e;
+        builder.order_id = cVar2.f12002c;
+        int i4 = cVar2.f12000a;
         if (i4 >= 0) {
             builder.da_type = String.valueOf(i4);
         }

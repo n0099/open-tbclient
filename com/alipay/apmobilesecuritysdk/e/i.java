@@ -10,27 +10,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35829a = "";
+    public static String f33935a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35830b = "";
+    public static String f33936b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35831c = "";
+    public static String f33937c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f35832d = "";
+    public static String f33938d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f35833e = "";
+    public static String f33939e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, String> f35834f;
+    public static Map<String, String> f33940f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public final class i {
                 return;
             }
         }
-        f35834f = new HashMap();
+        f33940f = new HashMap();
     }
 
     public static synchronized String a(String str) {
@@ -55,8 +55,8 @@ public final class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             synchronized (i.class) {
                 String str2 = "apdidTokenCache" + str;
-                if (f35834f.containsKey(str2)) {
-                    String str3 = f35834f.get(str2);
+                if (f33940f.containsKey(str2)) {
+                    String str3 = f33940f.get(str2);
                     if (com.alipay.security.mobile.module.a.a.b(str3)) {
                         return str3;
                     }
@@ -80,9 +80,9 @@ public final class i {
         if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
             synchronized (i.class) {
                 if (bVar != null) {
-                    f35829a = bVar.f35815a;
-                    f35830b = bVar.f35816b;
-                    f35831c = bVar.f35817c;
+                    f33935a = bVar.f33921a;
+                    f33936b = bVar.f33922b;
+                    f33937c = bVar.f33923c;
                 }
             }
         }
@@ -93,11 +93,11 @@ public final class i {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cVar) == null) {
             synchronized (i.class) {
                 if (cVar != null) {
-                    f35829a = cVar.f35818a;
-                    f35830b = cVar.f35819b;
-                    f35832d = cVar.f35821d;
-                    f35833e = cVar.f35822e;
-                    f35831c = cVar.f35820c;
+                    f33935a = cVar.f33924a;
+                    f33936b = cVar.f33925b;
+                    f33938d = cVar.f33927d;
+                    f33939e = cVar.f33928e;
+                    f33937c = cVar.f33926c;
                 }
             }
         }
@@ -108,10 +108,10 @@ public final class i {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
             synchronized (i.class) {
                 String str3 = "apdidTokenCache" + str;
-                if (f35834f.containsKey(str3)) {
-                    f35834f.remove(str3);
+                if (f33940f.containsKey(str3)) {
+                    f33940f.remove(str3);
                 }
-                f35834f.put(str3, str2);
+                f33940f.put(str3, str2);
             }
         }
     }
@@ -124,25 +124,25 @@ public final class i {
     */
     public static synchronized boolean a(Context context, String str) {
         InterceptResult invokeLL;
-        long j2;
+        long j;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
             synchronized (i.class) {
                 try {
-                    j2 = h.a(context);
+                    j = h.a(context);
                 } catch (Throwable unused) {
                 }
             }
             return z;
         }
         return invokeLL.booleanValue;
-        j2 = 86400000;
+        j = 86400000;
         try {
         } catch (Throwable th) {
             com.alipay.apmobilesecuritysdk.c.a.a(th);
         }
-        if (Math.abs(System.currentTimeMillis() - h.h(context, str)) < j2) {
+        if (Math.abs(System.currentTimeMillis() - h.h(context, str)) < j) {
             z = true;
             return z;
         }
@@ -158,7 +158,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (i.class) {
-                str = f35829a;
+                str = f33935a;
             }
             return str;
         }
@@ -168,7 +168,7 @@ public final class i {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f35829a = str;
+            f33935a = str;
         }
     }
 
@@ -178,7 +178,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (i.class) {
-                str = f35830b;
+                str = f33936b;
             }
             return str;
         }
@@ -188,7 +188,7 @@ public final class i {
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            f35830b = str;
+            f33936b = str;
         }
     }
 
@@ -198,7 +198,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             synchronized (i.class) {
-                str = f35832d;
+                str = f33938d;
             }
             return str;
         }
@@ -208,7 +208,7 @@ public final class i {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            f35831c = str;
+            f33937c = str;
         }
     }
 
@@ -218,7 +218,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             synchronized (i.class) {
-                str = f35833e;
+                str = f33939e;
             }
             return str;
         }
@@ -228,7 +228,7 @@ public final class i {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            f35832d = str;
+            f33938d = str;
         }
     }
 
@@ -238,7 +238,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             synchronized (i.class) {
-                str = f35831c;
+                str = f33937c;
             }
             return str;
         }
@@ -248,7 +248,7 @@ public final class i {
     public static void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f35833e = str;
+            f33939e = str;
         }
     }
 
@@ -258,7 +258,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
             synchronized (i.class) {
-                cVar = new c(f35829a, f35830b, f35831c, f35832d, f35833e);
+                cVar = new c(f33935a, f33936b, f33937c, f33938d, f33939e);
             }
             return cVar;
         }
@@ -268,12 +268,12 @@ public final class i {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            f35834f.clear();
-            f35829a = "";
-            f35830b = "";
-            f35832d = "";
-            f35833e = "";
-            f35831c = "";
+            f33940f.clear();
+            f33935a = "";
+            f33936b = "";
+            f33938d = "";
+            f33939e = "";
+            f33937c = "";
         }
     }
 }

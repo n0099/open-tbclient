@@ -22,7 +22,7 @@ import java.io.StringWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_LIMETE = 10485760;

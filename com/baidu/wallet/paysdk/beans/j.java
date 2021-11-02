@@ -17,13 +17,13 @@ import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class j extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f62727a;
+    public BindFastRequest f59596a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> j(Context context) {
@@ -43,8 +43,8 @@ public class j extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
                 return;
             }
         }
-        this.f62727a = null;
-        this.f62727a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
+        this.f59596a = null;
+        this.f59596a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -61,8 +61,8 @@ public class j extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62727a.getmBankCard())));
-            arrayList.add(new RestNameValuePair("sms_vcode", this.f62727a.mSmsVCode));
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f59596a.getmBankCard())));
+            arrayList.add(new RestNameValuePair("sms_vcode", this.f59596a.mSmsVCode));
             arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
             return arrayList;
         }

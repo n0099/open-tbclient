@@ -1,0 +1,19 @@
+package b.a.x0.g;
+/* loaded from: classes6.dex */
+public interface a {
+    int availableBytes();
+
+    void close();
+
+    void flush();
+
+    byte[] getOutPutBytes();
+
+    void init(int i2, int i3);
+
+    boolean putBytes(byte[] bArr, int i2);
+
+    int receiveBytes(byte[] bArr, int i2);
+
+    void setSpeed(float f2);
+}

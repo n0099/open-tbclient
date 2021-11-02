@@ -6,8 +6,8 @@ import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.h;
-import c.a.e.h.j.g.d;
+import b.a.e.a.h;
+import b.a.e.h.j.g.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PluginContextWrapper extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,8 +115,8 @@ public class PluginContextWrapper extends ContextWrapper {
                 }
                 throw new RuntimeException("third plugin is not loaded");
             }
-            Resources b2 = h.a().b();
-            return b2 != null ? b2 : super.getResources();
+            Resources resources = h.a().getResources();
+            return resources != null ? resources : super.getResources();
         }
         return (Resources) invokeV.objValue;
     }

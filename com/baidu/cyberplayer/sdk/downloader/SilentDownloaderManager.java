@@ -27,58 +27,56 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
-public class SilentDownloaderManager implements a.InterfaceC1647a {
+/* loaded from: classes7.dex */
+public class SilentDownloaderManager implements a.InterfaceC1604a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SilentDownloaderManager f39096a;
+    public static volatile SilentDownloaderManager f37055a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f39097d;
+    public static volatile boolean f37056d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39098b;
+    public int f37057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f39099c;
+    public Context f37058c;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39100e;
+    public String f37059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f39101f;
+    public String f37060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f39102g;
+    public String f37061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f39103h;
+    public a f37062h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f39104i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Map<String, String> f39105j;
+    public boolean f37063i;
+    public Map<String, String> j;
     public HashMap<String, String> k;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f39106a;
+        public static final a f37064a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f39107b;
+        public static final a f37065b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f39108c;
+        public static final a f37066c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ a[] f39109d;
+        public static final /* synthetic */ a[] f37067d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -94,11 +92,11 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
                     return;
                 }
             }
-            f39106a = new a("CORE", 0);
-            f39107b = new a("LIBS_INFO_DEF_PRO", 1);
+            f37064a = new a("CORE", 0);
+            f37065b = new a("LIBS_INFO_DEF_PRO", 1);
             a aVar = new a("LIB", 2);
-            f39108c = aVar;
-            f39109d = new a[]{f39106a, f39107b, aVar};
+            f37066c = aVar;
+            f37067d = new a[]{f37064a, f37065b, aVar};
         }
 
         public a(String str, int i2) {
@@ -129,7 +127,7 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f39109d.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f37067d.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -161,19 +159,19 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
                 return;
             }
         }
-        this.f39098b = 0;
-        this.f39099c = null;
-        this.f39100e = null;
-        this.f39101f = null;
-        this.f39102g = null;
-        this.f39103h = null;
-        this.f39104i = true;
-        this.f39100e = c.a().a((String) null);
-        this.f39102g = o.b();
-        this.f39101f = this.f39102g + File.separator + "libs";
+        this.f37057b = 0;
+        this.f37058c = null;
+        this.f37059e = null;
+        this.f37060f = null;
+        this.f37061g = null;
+        this.f37062h = null;
+        this.f37063i = true;
+        this.f37059e = c.a().a((String) null);
+        this.f37061g = o.b();
+        this.f37060f = this.f37061g + File.separator + "libs";
         this.k = new HashMap<>();
-        this.f39105j = new HashMap();
-        this.f39099c = CyberPlayerManager.getApplicationContext();
+        this.j = new HashMap();
+        this.f37058c = CyberPlayerManager.getApplicationContext();
         String d2 = o.d();
         if (d2.equals(d("silent_download_success_time", null))) {
             return;
@@ -208,7 +206,7 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             if (!TextUtils.isEmpty(entry.getKey()) || !TextUtils.isEmpty(entry.getValue())) {
                 c(b(entry.getKey(), entry.getValue()));
-                if (!this.f39104i) {
+                if (!this.f37063i) {
                     return;
                 }
             }
@@ -220,7 +218,7 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2)) == null) {
             try {
-                return new File(this.f39101f + File.separator + o.o() + File.separator + str + "_" + str2 + File.separator + "lib" + str + ".so").exists();
+                return new File(this.f37060f + File.separator + o.o() + File.separator + str + "_" + str2 + File.separator + "lib" + str + ".so").exists();
             } catch (Exception unused) {
                 return false;
             }
@@ -247,7 +245,7 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
-            String str2 = this.f39101f + File.separator + "libsinfodef_" + str + ".pro";
+            String str2 = this.f37060f + File.separator + "libsinfodef_" + str + ".pro";
             Map<String, String> a2 = com.baidu.cyberplayer.sdk.config.b.a(str2);
             HashMap hashMap = new HashMap();
             if (a2 != null && a2.size() != 0) {
@@ -268,7 +266,7 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             e("silentdownload", "1");
-            com.baidu.cyberplayer.sdk.statistics.b.a(this.f39099c, (int) DpStatConstants.ACTION_LIB_LOAD_RESULT, this.k);
+            com.baidu.cyberplayer.sdk.statistics.b.a(this.f37058c, (int) DpStatConstants.ACTION_LIB_LOAD_RESULT, this.k);
         }
     }
 
@@ -279,7 +277,7 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
             if (hashMap != null) {
                 hashMap.clear();
             }
-            Map<String, String> map = this.f39105j;
+            Map<String, String> map = this.j;
             if (map != null) {
                 map.clear();
             }
@@ -295,11 +293,11 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         }
         com.baidu.cyberplayer.sdk.downloader.a aVar = new com.baidu.cyberplayer.sdk.downloader.a();
         if (str.startsWith("model_")) {
-            str2 = this.f39100e;
-            str3 = this.f39102g;
+            str2 = this.f37059e;
+            str3 = this.f37061g;
         } else {
-            str2 = this.f39100e;
-            str3 = this.f39101f;
+            str2 = this.f37059e;
+            str3 = this.f37060f;
         }
         aVar.a(str2, str, str3, this);
     }
@@ -343,7 +341,7 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
                     return false;
                 } else {
                     int a2 = a("silent_download_success_count", 0);
-                    this.f39098b = a2;
+                    this.f37057b = a2;
                     if (a2 >= 36) {
                         CyberLog.w("SilentDownloaderManager", "Achieve max success download time:36");
                         return false;
@@ -361,7 +359,7 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) {
             try {
-                return new File(this.f39101f + File.separator + "cyber-media-dex_" + str + ".jar").exists();
+                return new File(this.f37060f + File.separator + "cyber-media-dex_" + str + ".jar").exists();
             } catch (Exception unused) {
                 return false;
             }
@@ -372,7 +370,7 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
     private SharedPreferences e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? this.f39099c.getSharedPreferences("dp_silent_download_cfg_", 0) : (SharedPreferences) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? this.f37058c.getSharedPreferences("dp_silent_download_cfg_", 0) : (SharedPreferences) invokeV.objValue;
     }
 
     private String e(String str) {
@@ -405,34 +403,34 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (f39096a == null) {
+            if (f37055a == null) {
                 synchronized (SilentDownloaderManager.class) {
-                    if (f39096a == null) {
-                        f39096a = new SilentDownloaderManager();
+                    if (f37055a == null) {
+                        f37055a = new SilentDownloaderManager();
                     }
                 }
             }
-            return f39096a;
+            return f37055a;
         }
         return (SilentDownloaderManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1647a
-    public void a(String str, long j2) {
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1604a
+    public void a(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1647a
-    public void a(String str, long j2, int i2, String str2) {
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1604a
+    public void a(String str, long j, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i2), str2}) == null) {
             CyberLog.i("SilentDownloaderManager", "onDownloadFail srcUrl:" + str + " detail:" + str2);
-            this.f39104i = false;
+            this.f37063i = false;
             if (i2 != -1) {
-                int i3 = this.f39098b + 1;
-                this.f39098b = i3;
+                int i3 = this.f37057b + 1;
+                this.f37057b = i3;
                 c("silent_download_success_count", Integer.toString(i3));
             }
             e("errorCode", String.valueOf(i2));
@@ -440,20 +438,20 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1647a
-    public void a(String str, long j2, long j3) {
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1604a
+    public void a(String str, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1647a
-    public void a(String str, long j2, ArrayList<String> arrayList) {
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1604a
+    public void a(String str, long j, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j2), arrayList}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), arrayList}) == null) {
             CyberLog.i("SilentDownloaderManager", "onDownloadSuccess:" + arrayList);
-            int i2 = this.f39098b + 1;
-            this.f39098b = i2;
+            int i2 = this.f37057b + 1;
+            this.f37057b = i2;
             c("silent_download_success_count", Integer.toString(i2));
             e(e(str), "1");
         }
@@ -465,33 +463,33 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
         Map<String, String> map2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!d() || (map = this.f39105j) == null || map.size() == 0 || this.f39103h == null) {
+            if (!d() || (map = this.j) == null || map.size() == 0 || this.f37062h == null) {
                 return false;
             }
             synchronized (SilentDownloaderManager.class) {
-                if (f39097d) {
+                if (f37056d) {
                     return false;
                 }
-                f39097d = true;
-                CyberLog.i("SilentDownloaderManager", "downloadOnce mDownloadMap=" + this.f39105j);
-                a aVar = this.f39103h;
-                if (aVar == a.f39106a) {
-                    c(b("cyber-media-dex", this.f39105j.get("cyber-media-dex")));
-                    if (this.f39104i) {
-                        map2 = b(this.f39105j.get("cyber-media-dex"));
+                f37056d = true;
+                CyberLog.i("SilentDownloaderManager", "downloadOnce mDownloadMap=" + this.j);
+                a aVar = this.f37062h;
+                if (aVar == a.f37064a) {
+                    c(b("cyber-media-dex", this.j.get("cyber-media-dex")));
+                    if (this.f37063i) {
+                        map2 = b(this.j.get("cyber-media-dex"));
                         a(map2);
                     }
                     b();
                     c();
-                    return this.f39104i;
+                    return this.f37063i;
                 }
-                if (aVar == a.f39107b || aVar == a.f39108c) {
-                    map2 = this.f39105j;
+                if (aVar == a.f37065b || aVar == a.f37066c) {
+                    map2 = this.j;
                     a(map2);
                 }
                 b();
                 c();
-                return this.f39104i;
+                return this.f37063i;
             }
         }
         return invokeV.booleanValue;
@@ -512,12 +510,12 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
                     if (b2 == null || b2.size() == 0) {
                         return false;
                     }
-                    this.f39103h = a.f39107b;
-                    this.f39105j.putAll(b2);
-                    str2 = "libsinfodef.pro has so need to download, mDownloadMap=" + this.f39105j;
+                    this.f37062h = a.f37065b;
+                    this.j.putAll(b2);
+                    str2 = "libsinfodef.pro has so need to download, mDownloadMap=" + this.j;
                 } else {
-                    this.f39103h = a.f39106a;
-                    this.f39105j.put("cyber-media-dex", str);
+                    this.f37062h = a.f37064a;
+                    this.j.put("cyber-media-dex", str);
                     str2 = "core not exist";
                 }
                 CyberLog.i("SilentDownloaderManager", str2);
@@ -536,9 +534,9 @@ public class SilentDownloaderManager implements a.InterfaceC1647a {
             if (!d() || a(str, str2) || "cybermedia-ext-rtc".equals(str)) {
                 return false;
             }
-            this.f39103h = a.f39108c;
-            this.f39105j.put(str, str2);
-            CyberLog.i("SilentDownloaderManager", "so not exist, mDownloadMap=" + this.f39105j);
+            this.f37062h = a.f37066c;
+            this.j.put(str, str2);
+            CyberLog.i("SilentDownloaderManager", "so not exist, mDownloadMap=" + this.j);
             return true;
         }
         return invokeLL.booleanValue;

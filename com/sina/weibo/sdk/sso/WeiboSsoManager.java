@@ -3,9 +3,9 @@ package com.sina.weibo.sdk.sso;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.q.a.a;
-import c.q.a.b;
-import c.q.a.c;
+import b.p.a.a;
+import b.p.a.b;
+import b.p.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class WeiboSsoManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WeiboSsoManager";
     public transient /* synthetic */ FieldHolder $fh;
     public String aid;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Instance {
         public static /* synthetic */ Interceptable $ic;
         public static final WeiboSsoManager instance;
@@ -100,7 +100,7 @@ public final class WeiboSsoManager {
                         this.this$0 = this;
                     }
 
-                    @Override // c.q.a.b
+                    @Override // b.p.a.b
                     public void handler(WeiboSsoSdk.d dVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dVar) == null) {
@@ -143,10 +143,10 @@ public final class WeiboSsoManager {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
             LogUtil.d(TAG, "init config");
             c cVar = new c();
-            cVar.l(context);
-            cVar.k(str);
-            cVar.m("1478195010");
-            cVar.n("1000_0001");
+            cVar.k(context);
+            cVar.j(str);
+            cVar.l("1478195010");
+            cVar.m("1000_0001");
             WeiboSsoSdk.j(cVar);
             initAid();
         }

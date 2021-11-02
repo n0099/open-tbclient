@@ -19,31 +19,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UploadingFileView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UploadCircleView f40531a;
+    public UploadCircleView f38428a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f40532b;
+    public ImageView f38429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f40533c;
+    public ImageView f38430c;
     public DynamicWaveView dynamicWaveView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UploadingFileView f40535a;
+        public final /* synthetic */ UploadingFileView f38432a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f40536b;
+        public float f38433b;
 
         public a(UploadingFileView uploadingFileView) {
             Interceptable interceptable = $ic;
@@ -60,8 +60,8 @@ public class UploadingFileView extends FrameLayout {
                     return;
                 }
             }
-            this.f40535a = uploadingFileView;
-            this.f40536b = 0.5f;
+            this.f38432a = uploadingFileView;
+            this.f38433b = 0.5f;
         }
 
         @Override // android.animation.TimeInterpolator
@@ -70,7 +70,7 @@ public class UploadingFileView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
                 double pow = Math.pow(2.0d, (-10.0f) * f2);
-                float f3 = this.f40536b;
+                float f3 = this.f38433b;
                 return (float) ((pow * Math.sin(((f2 - (f3 / 4.0f)) * 6.283185307179586d) / f3)) + 1.0d);
             }
             return invokeF.floatValue;
@@ -102,7 +102,7 @@ public class UploadingFileView extends FrameLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            this.f40533c.setVisibility(0);
+            this.f38430c.setVisibility(0);
             AnimationSet animationSet = new AnimationSet(true);
             ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 1, 0.5f, 1, 0.5f);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
@@ -110,7 +110,7 @@ public class UploadingFileView extends FrameLayout {
             animationSet.addAnimation(alphaAnimation);
             animationSet.setDuration(200L);
             animationSet.setFillAfter(true);
-            this.f40533c.startAnimation(animationSet);
+            this.f38430c.startAnimation(animationSet);
         }
     }
 
@@ -118,14 +118,14 @@ public class UploadingFileView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 < 100) {
-                this.f40531a.setProgress(i2);
+                this.f38428a.setProgress(i2);
                 if (i2 == 0) {
                     this.dynamicWaveView.setVisibility(0);
                     return;
                 }
                 return;
             }
-            this.f40531a.setProgress(100);
+            this.f38428a.setProgress(100);
             this.dynamicWaveView.stopAnim();
         }
     }
@@ -133,9 +133,9 @@ public class UploadingFileView extends FrameLayout {
     public void showUpSucView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f40531a.setVisibility(8);
+            this.f38428a.setVisibility(8);
             this.dynamicWaveView.setVisibility(8);
-            this.f40532b.setVisibility(0);
+            this.f38429b.setVisibility(0);
             a();
         }
     }
@@ -168,13 +168,13 @@ public class UploadingFileView extends FrameLayout {
             scaleAnimation.setInterpolator(new a(this));
             scaleAnimation.setDuration(1000L);
             scaleAnimation.setFillAfter(true);
-            this.f40532b.startAnimation(scaleAnimation);
+            this.f38429b.startAnimation(scaleAnimation);
             postDelayed(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.view.UploadingFileView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ UploadingFileView f40534a;
+                public final /* synthetic */ UploadingFileView f38431a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -191,14 +191,14 @@ public class UploadingFileView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f40534a = this;
+                    this.f38431a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f40534a.b();
+                        this.f38431a.b();
                     }
                 }
             }, 300L);
@@ -226,8 +226,8 @@ public class UploadingFileView extends FrameLayout {
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_uploading_file_view, (ViewGroup) this, true);
         this.dynamicWaveView = (DynamicWaveView) findViewById(R.id.dynamic_wave);
-        this.f40531a = (UploadCircleView) inflate.findViewById(R.id.my_circle);
-        this.f40532b = (ImageView) inflate.findViewById(R.id.circle);
-        this.f40533c = (ImageView) inflate.findViewById(R.id.tick);
+        this.f38428a = (UploadCircleView) inflate.findViewById(R.id.my_circle);
+        this.f38429b = (ImageView) inflate.findViewById(R.id.circle);
+        this.f38430c = (ImageView) inflate.findViewById(R.id.tick);
     }
 }

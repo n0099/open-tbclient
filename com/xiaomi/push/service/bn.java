@@ -16,12 +16,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bn {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f78535a;
+    public static final Object f71473a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class bn {
                 return;
             }
         }
-        f78535a = new Object();
+        f71473a = new Object();
     }
 
     public static void a(Context context, hj hjVar) {

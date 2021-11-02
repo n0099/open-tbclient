@@ -15,9 +15,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.f;
-import c.a.e.e.p.j;
-import c.a.e.e.p.l;
+import b.a.e.e.p.f;
+import b.a.e.e.p.j;
+import b.a.e.e.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -45,7 +45,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EmotionEditActivity extends BaseActivity implements EmotionEditModel.e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STEP_COMPOSITION = 2;
@@ -71,20 +71,20 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     public String mLastSendText;
     public EmotionEditModel mModel;
     public PermissionJudgePolicy mPermissionJudgement;
-    public c.a.q0.s.f0.a mProgressDialog;
+    public b.a.q0.s.g0.a mProgressDialog;
     public View mRootView;
     public View mSend;
     public int mSendInStep;
     public Bitmap mTextBitmap;
     public long startSendTime;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditActivity f55787e;
+        public final /* synthetic */ EmotionEditActivity f52943e;
 
         public a(EmotionEditActivity emotionEditActivity) {
             Interceptable interceptable = $ic;
@@ -101,27 +101,27 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     return;
                 }
             }
-            this.f55787e = emotionEditActivity;
+            this.f52943e = emotionEditActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f55787e.mModel.L(true);
-                this.f55787e.recycleTextBitmap();
-                this.f55787e.hideProgress();
+                this.f52943e.mModel.L(true);
+                this.f52943e.recycleTextBitmap();
+                this.f52943e.hideProgress();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements ChooseColorLayout.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditActivity f55788a;
+        public final /* synthetic */ EmotionEditActivity f52944a;
 
         public b(EmotionEditActivity emotionEditActivity) {
             Interceptable interceptable = $ic;
@@ -138,25 +138,25 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     return;
                 }
             }
-            this.f55788a = emotionEditActivity;
+            this.f52944a = emotionEditActivity;
         }
 
         @Override // com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout.b
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f55788a.mEditText.setTextColor(i2);
+                this.f52944a.mEditText.setTextColor(i2);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditActivity f55789e;
+        public final /* synthetic */ EmotionEditActivity f52945e;
 
         public c(EmotionEditActivity emotionEditActivity) {
             Interceptable interceptable = $ic;
@@ -173,7 +173,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     return;
                 }
             }
-            this.f55789e = emotionEditActivity;
+            this.f52945e = emotionEditActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -181,23 +181,23 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (z) {
-                    EmotionEditActivity emotionEditActivity = this.f55789e;
-                    emotionEditActivity.ShowSoftKeyPad(emotionEditActivity.mInputManager, this.f55789e.mEditText.getEditText());
+                    EmotionEditActivity emotionEditActivity = this.f52945e;
+                    emotionEditActivity.ShowSoftKeyPad(emotionEditActivity.mInputManager, this.f52945e.mEditText.getEditText());
                     return;
                 }
-                EmotionEditActivity emotionEditActivity2 = this.f55789e;
-                emotionEditActivity2.HidenSoftKeyPad(emotionEditActivity2.mInputManager, this.f55789e.mEditText.getEditText());
+                EmotionEditActivity emotionEditActivity2 = this.f52945e;
+                emotionEditActivity2.HidenSoftKeyPad(emotionEditActivity2.mInputManager, this.f52945e.mEditText.getEditText());
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class d extends c.a.e.e.l.c<c.a.e.l.d.a> {
+    /* loaded from: classes9.dex */
+    public class d extends b.a.e.e.l.c<b.a.e.l.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditActivity f55790a;
+        public final /* synthetic */ EmotionEditActivity f52946a;
 
         public d(EmotionEditActivity emotionEditActivity) {
             Interceptable interceptable = $ic;
@@ -214,27 +214,27 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     return;
                 }
             }
-            this.f55790a = emotionEditActivity;
+            this.f52946a = emotionEditActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.e.e.l.c
-        public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.e.l.c
+        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null) {
                 return;
             }
-            this.f55790a.mIsGif = aVar.t();
-            if (this.f55790a.mIsGif) {
-                aVar.h(this.f55790a.mImageView);
-                this.f55790a.mImageView = new GifView(this.f55790a.getPageContext().getPageActivity());
-                ((GifView) this.f55790a.mImageView).setSupportNoImage(false);
+            this.f52946a.mIsGif = aVar.t();
+            if (this.f52946a.mIsGif) {
+                aVar.h(this.f52946a.mImageView);
+                this.f52946a.mImageView = new GifView(this.f52946a.getPageContext().getPageActivity());
+                ((GifView) this.f52946a.mImageView).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
-                gifInfo.mSharpText = this.f55790a.mEmotionImageData.getPicUrl();
-                gifInfo.mDynamicUrl = this.f55790a.mEmotionImageData.getPicUrl();
-                gifInfo.mStaticUrl = this.f55790a.mEmotionImageData.getThumbUrl();
-                this.f55790a.mImageView.setTag(gifInfo.mSharpText);
-                ((GifView) this.f55790a.mImageView).startLoad(gifInfo);
+                gifInfo.mSharpText = this.f52946a.mEmotionImageData.getPicUrl();
+                gifInfo.mDynamicUrl = this.f52946a.mEmotionImageData.getPicUrl();
+                gifInfo.mStaticUrl = this.f52946a.mEmotionImageData.getThumbUrl();
+                this.f52946a.mImageView.setTag(gifInfo.mSharpText);
+                ((GifView) this.f52946a.mImageView).startLoad(gifInfo);
             }
         }
     }
@@ -327,7 +327,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                 tbImageView.setGifIconSupport(false);
                 ((TbImageView) this.mImageView).setAutoChangeStyle(false);
                 ((TbImageView) this.mImageView).startLoad(this.mEmotionImageData.getPicUrl(), 10, true);
-                c.a.e.e.l.d.h().m(this.mEmotionImageData.getPicUrl(), 10, new d(this), getUniqueId());
+                b.a.e.e.l.d.h().m(this.mEmotionImageData.getPicUrl(), 10, new d(this), getUniqueId());
             }
             this.mImageWidth = this.mEmotionImageData.getWidth();
             int height = this.mEmotionImageData.getHeight();
@@ -395,14 +395,14 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
         ImageView imageView2 = this.mImageView;
         if (imageView2 instanceof TbImageView) {
-            c.a.e.l.d.a bdImage = ((TbImageView) imageView2).getBdImage();
+            b.a.e.l.d.a bdImage = ((TbImageView) imageView2).getBdImage();
             if (bdImage != null) {
                 if (this.mModel.F()) {
                     return;
                 }
                 Bitmap addTextToImage = addTextToImage(bdImage.p());
                 if (addTextToImage != null) {
-                    this.mModel.I(addTextToImage, f.f2551b + "/" + TbConfig.getTempDirName() + "/emotion.png");
+                    this.mModel.I(addTextToImage, f.f2023b + "/" + TbConfig.getTempDirName() + "/emotion.png");
                     return;
                 }
                 showToast(R.string.upload_error);
@@ -642,7 +642,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             addGlobalLayoutListener();
             adjustResizeForSoftInput(R.color.black_alpha40, false);
             this.mInputManager = (InputMethodManager) getSystemService("input_method");
-            c.a.q0.s.f0.a aVar = new c.a.q0.s.f0.a(getPageContext());
+            b.a.q0.s.g0.a aVar = new b.a.q0.s.g0.a(getPageContext());
             this.mProgressDialog = aVar;
             aVar.i(R.string.emotion_composition);
             this.mProgressDialog.e(new a(this));

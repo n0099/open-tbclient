@@ -5,11 +5,10 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.m.b;
-import c.a.e.e.p.k;
-import c.a.q0.e.f;
-import c.a.q0.u.j;
-import c.a.r0.v.a;
+import b.a.e.e.m.b;
+import b.a.q0.e.f;
+import b.a.q0.u.k;
+import b.a.r0.v.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -36,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpenPage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +77,9 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 return;
             }
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.f48111a = true;
-            aVar.f48114d = "1".equals(queryParameter2);
-            aVar.f48113c = queryParameter;
+            aVar.f45667a = true;
+            aVar.f45670d = "1".equals(queryParameter2);
+            aVar.f45669c = queryParameter;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }
@@ -117,7 +116,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 this.val$alaPersonCenterConfig = r7;
             }
 
-            @Override // c.a.q0.e.f
+            @Override // b.a.q0.e.f
             public void onFail() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -125,7 +124,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 }
             }
 
-            @Override // c.a.q0.e.f
+            @Override // b.a.q0.e.f
             public void onSwitchGet(boolean z) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -177,7 +176,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (!(interceptable == null || interceptable.invokeL(1048581, this, toWhereParam) == null) || toWhereParam.getResult() == null) {
             return;
         }
-        c.a.q0.s.a0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
+        b.a.q0.s.b0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
     }
 
     @Override // com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
@@ -195,7 +194,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
     public void goToSendThread(TiebaUtilityOpenPageAuto.SendThreadParam sendThreadParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, sendThreadParam) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new j(1)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new k(1)));
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.UBS_TEST_PUBLISH_BUTTON_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
@@ -239,7 +238,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, sMAppMapParam) == null) {
             HashMap result = sMAppMapParam.getResult();
-            if (a.b((String) result.get("id"), (String) result.get("link"), "1191000600000000", Integer.valueOf(((Boolean) result.get("is_game")).booleanValue() ? 1 : 0)) || k.isEmpty((String) result.get("h5_url"))) {
+            if (a.b((String) result.get("id"), (String) result.get("link"), "1191000600000000", Integer.valueOf(((Boolean) result.get("is_game")).booleanValue() ? 1 : 0)) || b.a.e.e.p.k.isEmpty((String) result.get("h5_url"))) {
                 return;
             }
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -267,7 +266,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (interceptable == null || interceptable.invokeL(1048589, this, signProcessParam) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
-                c.a.q0.t.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
+                b.a.q0.t.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
             }
         }
     }

@@ -19,35 +19,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f59418a;
+    public static CustomMessageListener f56353a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f59419b;
+    public static CustomMessageListener f56354b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f59420c;
+    public static CustomMessageListener f56355c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static CustomMessageListener f59421d;
+    public static CustomMessageListener f56356d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC1814a implements Runnable {
+        /* loaded from: classes10.dex */
+        public class RunnableC1773a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC1814a(a aVar) {
+            public RunnableC1773a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,12 +97,12 @@ public class PushStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                new Thread(new RunnableC1814a(this)).start();
+                new Thread(new RunnableC1773a(this)).start();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +209,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class e implements UploadDataListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +236,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class f implements UploadDataListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -276,14 +276,14 @@ public class PushStatic {
                 return;
             }
         }
-        f59418a = new a(0);
-        f59419b = new b(2921613);
-        f59420c = new c(2005016);
-        f59421d = new d(2921631);
-        MessageManager.getInstance().registerListener(2007015, f59418a);
-        MessageManager.getInstance().registerListener(f59419b);
-        MessageManager.getInstance().registerListener(f59420c);
-        MessageManager.getInstance().registerListener(f59421d);
+        f56353a = new a(0);
+        f56354b = new b(2921613);
+        f56355c = new c(2005016);
+        f56356d = new d(2921631);
+        MessageManager.getInstance().registerListener(2007015, f56353a);
+        MessageManager.getInstance().registerListener(f56354b);
+        MessageManager.getInstance().registerListener(f56355c);
+        MessageManager.getInstance().registerListener(f56356d);
     }
 
     public PushStatic() {
@@ -335,15 +335,15 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, c.a.r0.e4.a.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, b.a.r0.e4.a.a(context, Constants.API_KEY));
         }
     }
 
     public static void h(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
-            if (j2.g(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
+            b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
+            if (j.g(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }
         }
@@ -359,7 +359,7 @@ public class PushStatic {
     public static void j() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65547, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && TbadkCoreApplication.isLogin()) {
-            boolean k = c.a.q0.t.d.d.d().k();
+            boolean k = b.a.q0.t.d.d.d().k();
             PushManager.uploadNotifyStatus(TbadkCoreApplication.getInst(), k ? 1 : 0, new f());
         }
     }

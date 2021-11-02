@@ -17,13 +17,13 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends ExtractorProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaExtractor f39130a;
+    public MediaExtractor f37087a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class b extends ExtractorProvider {
                 return;
             }
         }
-        this.f39130a = new MediaExtractor();
+        this.f37087a = new MediaExtractor();
     }
 
     private Integer a(String str) {
@@ -46,11 +46,11 @@ public class b extends ExtractorProvider {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            MediaExtractor mediaExtractor = this.f39130a;
+            MediaExtractor mediaExtractor = this.f37087a;
             if (mediaExtractor != null && Build.VERSION.SDK_INT >= 16) {
                 int trackCount = mediaExtractor.getTrackCount();
                 for (int i2 = 0; i2 < trackCount; i2++) {
-                    if (this.f39130a.getTrackFormat(i2).getString("mime").startsWith(str)) {
+                    if (this.f37087a.getTrackFormat(i2).getString("mime").startsWith(str)) {
                         num = Integer.valueOf(i2);
                         break;
                     }
@@ -69,13 +69,13 @@ public class b extends ExtractorProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle bundle = new Bundle();
-            if (this.f39130a != null) {
+            if (this.f37087a != null) {
                 int intValue = a(FileUtils.VIDEO_FILE_START).intValue();
                 int intValue2 = a("audio/").intValue();
                 if (intValue != -1) {
                     intValue2 = intValue;
                 }
-                if (intValue2 != -1 && (trackFormat = this.f39130a.getTrackFormat(intValue2)) != null) {
+                if (intValue2 != -1 && (trackFormat = this.f37087a.getTrackFormat(intValue2)) != null) {
                     try {
                         bundle.putLong("duration", trackFormat.getLong("durationUs") / 1000);
                         if (intValue != -1) {
@@ -98,10 +98,10 @@ public class b extends ExtractorProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             CyberLog.i("MediaExtractorImpl", "release");
-            MediaExtractor mediaExtractor = this.f39130a;
+            MediaExtractor mediaExtractor = this.f37087a;
             if (mediaExtractor != null) {
                 mediaExtractor.release();
-                this.f39130a = null;
+                this.f37087a = null;
             }
         }
     }
@@ -110,7 +110,7 @@ public class b extends ExtractorProvider {
     public void setDataSource(Context context, Uri uri) {
         MediaExtractor mediaExtractor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, uri) == null) || (mediaExtractor = this.f39130a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, uri) == null) || (mediaExtractor = this.f37087a) == null) {
             return;
         }
         try {
@@ -124,7 +124,7 @@ public class b extends ExtractorProvider {
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
         MediaExtractor mediaExtractor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, context, uri, map) == null) || (mediaExtractor = this.f39130a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, context, uri, map) == null) || (mediaExtractor = this.f37087a) == null) {
             return;
         }
         try {
@@ -138,7 +138,7 @@ public class b extends ExtractorProvider {
     public void setDataSource(FileDescriptor fileDescriptor) {
         MediaExtractor mediaExtractor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, fileDescriptor) == null) || (mediaExtractor = this.f39130a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, fileDescriptor) == null) || (mediaExtractor = this.f37087a) == null) {
             return;
         }
         try {
@@ -152,7 +152,7 @@ public class b extends ExtractorProvider {
     public void setDataSource(String str) {
         MediaExtractor mediaExtractor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (mediaExtractor = this.f39130a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (mediaExtractor = this.f37087a) == null) {
             return;
         }
         try {

@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MovieFragmentRandomAccessOffsetBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "mfro";
@@ -103,11 +103,11 @@ public class MovieFragmentRandomAccessOffsetBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public void setMfraSize(long j2) {
+    public void setMfraSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j2)));
-            this.mfraSize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
+            this.mfraSize = j;
         }
     }
 }

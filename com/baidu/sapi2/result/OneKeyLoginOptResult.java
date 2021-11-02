@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OneKeyLoginOptResult implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OneKeyLoginOptResult";
@@ -22,7 +22,7 @@ public class OneKeyLoginOptResult implements NoProguard {
     public String securityPhone;
     public int subCode;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OptResultFields {
         public static final String CODE = "0";
         public static final String EXTRA = "3";

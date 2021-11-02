@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.DelayKt;
 import kotlinx.coroutines.Job;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "androidx.lifecycle.BlockRunner$cancel$1", f = "CoroutineLiveData.kt", i = {0}, l = {Opcodes.NEW}, m = "invokeSuspend", n = {"$this$launch"}, s = {"L$0"})
 /* loaded from: classes.dex */
 public final class BlockRunner$cancel$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
@@ -75,7 +76,7 @@ public final class BlockRunner$cancel$1 extends SuspendLambda implements Functio
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         InterceptResult invokeL;
-        long j2;
+        long j;
         CoroutineLiveData coroutineLiveData;
         Job job;
         Interceptable interceptable = $ic;
@@ -85,10 +86,10 @@ public final class BlockRunner$cancel$1 extends SuspendLambda implements Functio
             if (i2 == 0) {
                 ResultKt.throwOnFailure(obj);
                 CoroutineScope coroutineScope = this.p$;
-                j2 = this.this$0.timeoutInMs;
+                j = this.this$0.timeoutInMs;
                 this.L$0 = coroutineScope;
                 this.label = 1;
-                if (DelayKt.delay(j2, this) == coroutine_suspended) {
+                if (DelayKt.delay(j, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             } else if (i2 != 1) {

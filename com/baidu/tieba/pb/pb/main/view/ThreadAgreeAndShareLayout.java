@@ -9,11 +9,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.k;
-import c.a.q0.j0.h;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.q.f;
-import c.a.r0.k2.h.e;
+import b.a.e.e.p.k;
+import b.a.q0.j0.h;
+import b.a.q0.s.q.d2;
+import b.a.r0.k2.g;
+import b.a.r0.k2.i;
+import b.a.r0.k2.j;
+import b.a.r0.k2.l;
+import b.a.r0.k2.r.f;
+import b.a.r0.l3.j0.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -36,50 +40,47 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f55384e;
+    public TbPageContext f52564e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f55385f;
+    public Context f52565f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f55386g;
+    public d f52566g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f55387h;
+    public d f52567h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f55388i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public d f55389j;
-    public e k;
+    public d f52568i;
+    public d j;
+    public f k;
     public AgreeData l;
-    public c.a.r0.k3.i0.e m;
-    public f n;
+    public e m;
+    public b.a.q0.s.q.f n;
     public CustomMessageListener o;
     public CustomMessageListener p;
     public View.OnClickListener q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadAgreeAndShareLayout f55390a;
+        public final /* synthetic */ ThreadAgreeAndShareLayout f52569a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ThreadAgreeAndShareLayout threadAgreeAndShareLayout, int i2) {
@@ -99,43 +100,43 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     return;
                 }
             }
-            this.f55390a = threadAgreeAndShareLayout;
+            this.f52569a = threadAgreeAndShareLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.r0.k3.i0.e)) {
-                AgreeData agreeData = ((c.a.r0.k3.i0.e) customResponsedMessage.getData()).f21031b;
-                if (this.f55390a.l == null || agreeData == null || this.f55390a.m == null || this.f55390a.l.isInPost || this.f55390a.m.f21030a == this.f55390a.m.f21030a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
+                AgreeData agreeData = ((e) customResponsedMessage.getData()).f20602b;
+                if (this.f52569a.l == null || agreeData == null || this.f52569a.m == null || this.f52569a.l.isInPost || this.f52569a.m.f20601a == this.f52569a.m.f20601a) {
                     return;
                 }
                 String str = agreeData.nid;
                 if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-                    if (this.f55390a.k == null || this.f55390a.k.O() == null || this.f55390a.k.O().L() == null || !TextUtils.equals(str, this.f55390a.k.O().L().oriUgcNid)) {
+                    if (this.f52569a.k == null || this.f52569a.k.O() == null || this.f52569a.k.O().L() == null || !TextUtils.equals(str, this.f52569a.k.O().L().oriUgcNid)) {
                         return;
                     }
-                    this.f55390a.j(agreeData);
+                    this.f52569a.j(agreeData);
                     return;
                 }
                 String str2 = agreeData.threadId;
-                String str3 = this.f55390a.l.threadId;
+                String str3 = this.f52569a.l.threadId;
                 if ("0".equals(str2) || TextUtils.isEmpty(str2) || !TextUtils.equals(str2, str3)) {
                     return;
                 }
-                this.f55390a.j(agreeData);
+                this.f52569a.j(agreeData);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadAgreeAndShareLayout f55391a;
+        public final /* synthetic */ ThreadAgreeAndShareLayout f52570a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ThreadAgreeAndShareLayout threadAgreeAndShareLayout, int i2) {
@@ -155,31 +156,31 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     return;
                 }
             }
-            this.f55391a = threadAgreeAndShareLayout;
+            this.f52570a = threadAgreeAndShareLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.r0.k3.i0.e)) {
-                c.a.r0.k3.i0.e eVar = (c.a.r0.k3.i0.e) customResponsedMessage.getData();
-                AgreeData agreeData = eVar.f21031b;
-                if (this.f55391a.l == null || TextUtils.isEmpty(this.f55391a.l.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !this.f55391a.l.postId.equals(agreeData.postId) || this.f55391a.l.isInThread || this.f55391a.m.f21030a == eVar.f21030a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
+                e eVar = (e) customResponsedMessage.getData();
+                AgreeData agreeData = eVar.f20602b;
+                if (this.f52570a.l == null || TextUtils.isEmpty(this.f52570a.l.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !this.f52570a.l.postId.equals(agreeData.postId) || this.f52570a.l.isInThread || this.f52570a.m.f20601a == eVar.f20601a) {
                     return;
                 }
-                this.f55391a.j(agreeData);
+                this.f52570a.j(agreeData);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadAgreeAndShareLayout f55392e;
+        public final /* synthetic */ ThreadAgreeAndShareLayout f52571e;
 
         public c(ThreadAgreeAndShareLayout threadAgreeAndShareLayout) {
             Interceptable interceptable = $ic;
@@ -196,34 +197,34 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     return;
                 }
             }
-            this.f55392e = threadAgreeAndShareLayout;
+            this.f52571e = threadAgreeAndShareLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55392e.i(view);
+                this.f52571e.i(view);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f55393a;
+        public View f52572a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f55394b;
+        public View f52573b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f55395c;
+        public TextView f52574c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TBLottieAnimationView f55396d;
+        public TBLottieAnimationView f52575d;
 
         public d(Context context) {
             Interceptable interceptable = $ic;
@@ -240,77 +241,77 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     return;
                 }
             }
-            View inflate = View.inflate(context, R.layout.thread_agree_and_share_item_view, null);
-            this.f55393a = inflate;
-            this.f55394b = inflate.findViewById(R.id.item_bg);
-            this.f55395c = (TextView) inflate.findViewById(R.id.item_text);
-            this.f55396d = (TBLottieAnimationView) inflate.findViewById(R.id.item_icon);
+            View inflate = View.inflate(context, j.thread_agree_and_share_item_view, null);
+            this.f52572a = inflate;
+            this.f52573b = inflate.findViewById(i.item_bg);
+            this.f52574c = (TextView) inflate.findViewById(i.item_text);
+            this.f52575d = (TBLottieAnimationView) inflate.findViewById(i.item_icon);
         }
 
         public void c(Animator.AnimatorListener animatorListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
-                this.f55396d.addAnimatorListener(animatorListener);
+                this.f52575d.addAnimatorListener(animatorListener);
             }
         }
 
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                TBSelector.makeDrawableSelector().cornerRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds47)).strokeWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).defaultStrokeColor(R.color.cp_cont_f_alpha50).defaultColor(R.color.CAM_X0201).into(this.f55394b);
+                TBSelector.makeDrawableSelector().cornerRadius(UtilHelper.getDimenPixelSize(g.tbds47)).strokeWidth(UtilHelper.getDimenPixelSize(g.tbds1)).defaultStrokeColor(b.a.r0.k2.f.cp_cont_f_alpha50).defaultColor(b.a.r0.k2.f.CAM_X0201).into(this.f52573b);
             }
         }
 
         public TBLottieAnimationView e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55396d : (TBLottieAnimationView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52575d : (TBLottieAnimationView) invokeV.objValue;
         }
 
         public TextView f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55395c : (TextView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52574c : (TextView) invokeV.objValue;
         }
 
         public View g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f55393a : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f52572a : (View) invokeV.objValue;
         }
 
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f55396d.playAnimation();
+                this.f52575d.playAnimation();
             }
         }
 
         public void i(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                SkinManager.setImageResource(this.f55396d, i2);
+                SkinManager.setImageResource(this.f52575d, i2);
             }
         }
 
         public void j(ImageView.ScaleType scaleType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, scaleType) == null) {
-                this.f55396d.setScaleType(scaleType);
+                this.f52575d.setScaleType(scaleType);
             }
         }
 
         public void k(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.f55395c.setText(i2);
+                this.f52574c.setText(i2);
             }
         }
 
         public void l(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                SkinManager.setViewTextColor(this.f55395c, i2, 1);
+                SkinManager.setViewTextColor(this.f52574c, i2, 1);
             }
         }
     }
@@ -348,9 +349,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             return;
         }
         int i3 = 0;
-        e eVar = this.k;
+        f fVar = this.k;
         String str6 = null;
-        if (eVar == null || eVar.O() == null) {
+        if (fVar == null || fVar.O() == null) {
             str = null;
             str2 = null;
             str3 = null;
@@ -381,26 +382,26 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             str2 = str6;
             str6 = F0;
         }
-        int i4 = this.n.f14189a;
+        int i4 = this.n.f13299a;
         String str7 = str2;
         String str8 = str;
         String str9 = str5;
         if (i4 != 1) {
             if (i4 == 2) {
-                StatisticItem param = new StatisticItem("c13271").param("obj_type", this.n.f14195g).param("obj_locate", this.n.f14196h).param("obj_id", this.n.f14197i).param("obj_name", i2).param("nid", str6).param("card_type", i3).param("recom_source", str3).param("ab_tag", str4).param("weight", str9).param(TiebaStatic.Params.RECOM_EXTRA, str8).param(TiebaStatic.Params.OBJ_PARAM6, str7);
+                StatisticItem param = new StatisticItem("c13271").param("obj_type", this.n.f13305g).param("obj_locate", this.n.f13306h).param("obj_id", this.n.f13307i).param("obj_name", i2).param("nid", str6).param("card_type", i3).param("recom_source", str3).param("ab_tag", str4).param("weight", str9).param(TiebaStatic.Params.RECOM_EXTRA, str8).param(TiebaStatic.Params.OBJ_PARAM6, str7);
                 if (getTbPageContext() != null) {
-                    c.a.q0.n0.c.e(getTbPageContext().getPageActivity(), param);
+                    b.a.q0.n0.c.e(getTbPageContext().getPageActivity(), param);
                 }
                 TiebaStatic.log(param);
                 return;
             }
             return;
         }
-        StatisticItem param2 = new StatisticItem("c12003").param("obj_locate", this.n.f14190b).param("obj_param1", this.n.f14191c).param("obj_source", this.n.f14192d).param("obj_id", this.n.f14193e).param("obj_name", i2).param("nid", str6).param("card_type", i3).param("recom_source", str3).param("ab_tag", str4).param("weight", str9).param(TiebaStatic.Params.RECOM_EXTRA, str8).param(TiebaStatic.Params.OBJ_PARAM6, str7);
+        StatisticItem param2 = new StatisticItem("c12003").param("obj_locate", this.n.f13300b).param("obj_param1", this.n.f13301c).param("obj_source", this.n.f13302d).param("obj_id", this.n.f13303e).param("obj_name", i2).param("nid", str6).param("card_type", i3).param("recom_source", str3).param("ab_tag", str4).param("weight", str9).param(TiebaStatic.Params.RECOM_EXTRA, str8).param(TiebaStatic.Params.OBJ_PARAM6, str7);
         if (getTbPageContext() != null) {
-            c.a.q0.n0.c.e(getTbPageContext().getPageActivity(), param2);
+            b.a.q0.n0.c.e(getTbPageContext().getPageActivity(), param2);
         }
-        c.a.q0.m0.c f2 = TbPageExtraHelper.f(this);
+        b.a.q0.m0.c f2 = TbPageExtraHelper.f(this);
         if (f2 != null) {
             param2.param(TiebaStatic.Params.OBJ_CUR_PAGE, f2.a());
         }
@@ -414,7 +415,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            d dVar = new d(this.f55385f);
+            d dVar = new d(this.f52565f);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
             layoutParams.leftMargin = i2;
             addView(dVar.g(), layoutParams);
@@ -450,15 +451,15 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f55384e == null) {
+            if (this.f52564e == null) {
                 Context context = getContext();
                 if (context instanceof BaseActivity) {
-                    this.f55384e = ((BaseActivity) context).getPageContext();
+                    this.f52564e = ((BaseActivity) context).getPageContext();
                 } else if (context instanceof BaseFragmentActivity) {
-                    this.f55384e = ((BaseFragmentActivity) context).getPageContext();
+                    this.f52564e = ((BaseFragmentActivity) context).getPageContext();
                 }
             }
-            return this.f55384e;
+            return this.f52564e;
         }
         return (TbPageContext) invokeV.objValue;
     }
@@ -466,53 +467,53 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
-            this.f55386g = f(0);
-            this.f55387h = f(dimenPixelSize);
-            this.f55388i = f(dimenPixelSize);
-            this.f55389j = f(dimenPixelSize);
-            this.f55388i.j(ImageView.ScaleType.FIT_XY);
-            this.f55389j.j(ImageView.ScaleType.FIT_XY);
-            this.f55388i.k(R.string.share_weixin_friend);
-            this.f55389j.k(R.string.share_weixin_timeline);
-            this.f55386g.j(ImageView.ScaleType.CENTER_INSIDE);
-            this.f55386g.c(this);
-            this.f55387h.j(ImageView.ScaleType.CENTER_INSIDE);
-            this.f55387h.c(this);
-            this.f55386g.e().setOnClickListener(this.q);
-            this.f55387h.e().setOnClickListener(this.q);
-            this.f55388i.e().setOnClickListener(this.q);
-            this.f55389j.e().setOnClickListener(this.q);
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(g.tbds24);
+            this.f52566g = f(0);
+            this.f52567h = f(dimenPixelSize);
+            this.f52568i = f(dimenPixelSize);
+            this.j = f(dimenPixelSize);
+            this.f52568i.j(ImageView.ScaleType.FIT_XY);
+            this.j.j(ImageView.ScaleType.FIT_XY);
+            this.f52568i.k(l.share_weixin_friend);
+            this.j.k(l.share_weixin_timeline);
+            this.f52566g.j(ImageView.ScaleType.CENTER_INSIDE);
+            this.f52566g.c(this);
+            this.f52567h.j(ImageView.ScaleType.CENTER_INSIDE);
+            this.f52567h.c(this);
+            this.f52566g.e().setOnClickListener(this.q);
+            this.f52567h.e().setOnClickListener(this.q);
+            this.f52568i.e().setOnClickListener(this.q);
+            this.j.e().setOnClickListener(this.q);
             onChangeSkin();
         }
     }
 
     public final void i(View view) {
-        e eVar;
+        f fVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && this.l != null && ViewHelper.checkUpIsLogin(getContext())) {
-            if (view != this.f55386g.e() && view != this.f55387h.e()) {
-                if (view == this.f55388i.e()) {
-                    e eVar2 = this.k;
-                    if (eVar2 != null) {
-                        c.a.r0.k2.k.e.f1.b.n(this.f55385f, eVar2.O(), 3);
+            if (view != this.f52566g.e() && view != this.f52567h.e()) {
+                if (view == this.f52568i.e()) {
+                    f fVar2 = this.k;
+                    if (fVar2 != null) {
+                        b.a.r0.k2.u.f.f1.b.n(this.f52565f, fVar2.O(), 3);
                         return;
                     }
                     return;
-                } else if (view != this.f55389j.e() || (eVar = this.k) == null) {
+                } else if (view != this.j.e() || (fVar = this.k) == null) {
                     return;
                 } else {
-                    c.a.r0.k2.k.e.f1.b.n(this.f55385f, eVar.O(), 2);
+                    b.a.r0.k2.u.f.f1.b.n(this.f52565f, fVar.O(), 2);
                     return;
                 }
             }
             int i2 = 0;
-            if (view == this.f55386g.e()) {
-                this.f55386g.h();
-                f fVar = this.n;
-                if (fVar != null) {
-                    fVar.f14189a = 1;
-                    fVar.f14190b = 4;
+            if (view == this.f52566g.e()) {
+                this.f52566g.h();
+                b.a.q0.s.q.f fVar3 = this.n;
+                if (fVar3 != null) {
+                    fVar3.f13299a = 1;
+                    fVar3.f13300b = 4;
                 }
                 AgreeData agreeData = this.l;
                 if (agreeData.hasAgree) {
@@ -522,9 +523,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                         agreeData.diffAgreeNum--;
                         agreeData.agreeNum--;
                         updateAgreeUI();
-                        f fVar2 = this.n;
-                        if (fVar2 != null) {
-                            fVar2.f14193e = 1;
+                        b.a.q0.s.q.f fVar4 = this.n;
+                        if (fVar4 != null) {
+                            fVar4.f13303e = 1;
                         }
                         i2 = 1;
                     } else {
@@ -534,9 +535,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                         agreeData.agreeNum++;
                         agreeData.disAgreeNum--;
                         updateAgreeUiWithAnimation(true);
-                        f fVar3 = this.n;
-                        if (fVar3 != null) {
-                            fVar3.f14193e = 0;
+                        b.a.q0.s.q.f fVar5 = this.n;
+                        if (fVar5 != null) {
+                            fVar5.f13303e = 0;
                         }
                     }
                 } else {
@@ -547,12 +548,12 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     updateAgreeUiWithAnimation(true);
                 }
                 sendMesage(i2);
-            } else if (view == this.f55387h.e()) {
-                this.f55387h.h();
-                f fVar4 = this.n;
-                if (fVar4 != null) {
-                    fVar4.f14189a = 2;
-                    fVar4.f14190b = 4;
+            } else if (view == this.f52567h.e()) {
+                this.f52567h.h();
+                b.a.q0.s.q.f fVar6 = this.n;
+                if (fVar6 != null) {
+                    fVar6.f13299a = 2;
+                    fVar6.f13300b = 4;
                 }
                 AgreeData agreeData2 = this.l;
                 if (agreeData2.hasAgree) {
@@ -562,9 +563,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                         agreeData2.diffAgreeNum++;
                         agreeData2.disAgreeNum--;
                         updateAgreeUI();
-                        f fVar5 = this.n;
-                        if (fVar5 != null) {
-                            fVar5.f14197i = 0;
+                        b.a.q0.s.q.f fVar7 = this.n;
+                        if (fVar7 != null) {
+                            fVar7.f13307i = 0;
                         }
                         i2 = 1;
                     } else {
@@ -574,9 +575,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                         agreeData2.agreeNum--;
                         agreeData2.disAgreeNum++;
                         updateAgreeUiWithAnimation(false);
-                        f fVar6 = this.n;
-                        if (fVar6 != null) {
-                            fVar6.f14197i = 1;
+                        b.a.q0.s.q.f fVar8 = this.n;
+                        if (fVar8 != null) {
+                            fVar8.f13307i = 1;
                         }
                     }
                 } else {
@@ -585,19 +586,19 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     agreeData2.diffAgreeNum--;
                     agreeData2.disAgreeNum++;
                     updateAgreeUiWithAnimation(false);
-                    f fVar7 = this.n;
-                    if (fVar7 != null) {
-                        fVar7.f14197i = 1;
+                    b.a.q0.s.q.f fVar9 = this.n;
+                    if (fVar9 != null) {
+                        fVar9.f13307i = 1;
                     }
                 }
                 sendMesage(i2);
             }
-            c.a.r0.k3.i0.e eVar3 = this.m;
+            e eVar = this.m;
             AgreeData agreeData3 = this.l;
-            eVar3.f21031b = agreeData3;
+            eVar.f20602b = agreeData3;
             if (agreeData3.isInThread) {
-                e eVar4 = this.k;
-                if (eVar4 != null && eVar4.O() != null && this.k.O().L() != null) {
+                f fVar10 = this.k;
+                if (fVar10 != null && fVar10.O() != null && this.k.O().L() != null) {
                     this.l.nid = this.k.O().L().oriUgcNid;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, this.m));
@@ -666,14 +667,14 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     public void onChangeSkin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f55388i.l(R.color.CAM_X0107);
-            this.f55389j.l(R.color.CAM_X0107);
-            this.f55388i.i(R.drawable.icon_weixin_112);
-            this.f55389j.i(R.drawable.icon_pengyouqun_112);
-            this.f55386g.d();
-            this.f55387h.d();
-            this.f55388i.d();
-            this.f55389j.d();
+            this.f52568i.l(b.a.r0.k2.f.CAM_X0107);
+            this.j.l(b.a.r0.k2.f.CAM_X0107);
+            this.f52568i.i(b.a.r0.k2.h.icon_weixin_112);
+            this.j.i(b.a.r0.k2.h.icon_pengyouqun_112);
+            this.f52566g.d();
+            this.f52567h.d();
+            this.f52568i.d();
+            this.j.d();
             updateAgreeUI();
         }
     }
@@ -704,15 +705,15 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         httpMessage.addParam("obj_type", this.l.objType);
         httpMessage.addParam("agree_type", this.l.agreeType);
         httpMessage.addParam("forum_id", this.l.forumId);
-        c.a.q0.m0.c f2 = TbPageExtraHelper.f(this);
+        b.a.q0.m0.c f2 = TbPageExtraHelper.f(this);
         if (f2 != null) {
             httpMessage.addParam("obj_source", f2.a());
         }
         if (!TextUtils.isEmpty(this.l.postId)) {
             httpMessage.addParam("post_id", this.l.postId);
         }
-        e eVar = this.k;
-        if (eVar != null && eVar.O() != null && this.k.O().L() != null) {
+        f fVar = this.k;
+        if (fVar != null && fVar.O() != null && this.k.O().L() != null) {
             BaijiahaoData L = this.k.O().L();
             httpMessage.addParam("ori_ugc_tid", L.oriUgcTid);
             httpMessage.addParam("ori_ugc_nid", L.oriUgcNid);
@@ -725,22 +726,22 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void setData(e eVar, AgreeData agreeData) {
+    public void setData(f fVar, AgreeData agreeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, eVar, agreeData) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048592, this, fVar, agreeData) == null) {
             if (agreeData == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.k = eVar;
+            this.k = fVar;
             this.l = agreeData;
             agreeData.isInThread = true;
             updateAgreeUI();
         }
     }
 
-    public void setStatisticData(f fVar) {
+    public void setStatisticData(b.a.q0.s.q.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, fVar) == null) {
             this.n = fVar;
@@ -752,12 +753,12 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || this.l == null) {
             return;
         }
-        TBLottieAnimationView e2 = this.f55386g.e();
-        SkinManager.setLottieAnimation(e2, R.raw.lottie_agree);
-        TBLottieAnimationView e3 = this.f55387h.e();
-        SkinManager.setLottieAnimation(e3, R.raw.lottie_disagree);
-        TextView f2 = this.f55386g.f();
-        TextView f3 = this.f55387h.f();
+        TBLottieAnimationView e2 = this.f52566g.e();
+        SkinManager.setLottieAnimation(e2, b.a.r0.k2.k.lottie_agree);
+        TBLottieAnimationView e3 = this.f52567h.e();
+        SkinManager.setLottieAnimation(e3, b.a.r0.k2.k.lottie_disagree);
+        TextView f2 = this.f52566g.f();
+        TextView f3 = this.f52567h.f();
         f2.setText(StringHelper.numFormatOverWanNa(this.l.agreeNum));
         f3.setText(StringHelper.numFormatOverWanNa(this.l.disAgreeNum));
         AgreeData agreeData = this.l;
@@ -765,21 +766,21 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             if (agreeData.agreeType == 2) {
                 e3.setProgress(0.0f);
                 e2.setProgress(1.0f);
-                f2.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
-                f3.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+                f2.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0301));
+                f3.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0107));
             } else {
                 e2.setProgress(0.0f);
                 e3.setProgress(1.0f);
-                f2.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
-                f3.setTextColor(SkinManager.getColor(R.color.CAM_X0304));
+                f2.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0107));
+                f3.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0304));
             }
         } else {
             e2.setMinAndMaxProgress(0.0f, 0.0f);
             e3.setMinAndMaxProgress(0.0f, 0.0f);
             e2.setProgress(0.0f);
             e3.setProgress(0.0f);
-            f2.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
-            f3.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+            f2.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0107));
+            f3.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0107));
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType == 1) {
@@ -792,8 +793,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             e2.setAlpha(1.0f);
             e3.setAlpha(1.0f);
         }
-        e eVar = this.k;
-        if (eVar == null || eVar.O() == null) {
+        f fVar = this.k;
+        if (fVar == null || fVar.O() == null) {
             return;
         }
         setVisibility(this.k.O().D2() ? 8 : 0);
@@ -804,10 +805,10 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         if (!(interceptable == null || interceptable.invokeZ(1048595, this, z) == null) || this.l == null) {
             return;
         }
-        TBLottieAnimationView tBLottieAnimationView = this.f55386g.f55396d;
-        TBLottieAnimationView tBLottieAnimationView2 = this.f55387h.f55396d;
-        TextView textView = this.f55386g.f55395c;
-        TextView textView2 = this.f55387h.f55395c;
+        TBLottieAnimationView tBLottieAnimationView = this.f52566g.f52575d;
+        TBLottieAnimationView tBLottieAnimationView2 = this.f52567h.f52575d;
+        TextView textView = this.f52566g.f52574c;
+        TextView textView2 = this.f52567h.f52574c;
         tBLottieAnimationView.setMinAndMaxProgress(0.0f, 1.0f);
         tBLottieAnimationView2.setMinAndMaxProgress(0.0f, 1.0f);
         textView.setText(StringHelper.numFormatOverWanNa(this.l.agreeNum));
@@ -828,16 +829,16 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         AgreeData agreeData = this.l;
         if (agreeData.hasAgree) {
             if (agreeData.agreeType == 2) {
-                textView.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
-                textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+                textView.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0301));
+                textView2.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0107));
                 return;
             }
-            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
-            textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0304));
+            textView.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0107));
+            textView2.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0304));
             return;
         }
-        textView.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
-        textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+        textView.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0107));
+        textView2.setTextColor(SkinManager.getColor(b.a.r0.k2.f.CAM_X0107));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -864,13 +865,13 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         this.q = new c(this);
         setOrientation(0);
         setGravity(17);
-        this.f55385f = context;
-        c.a.r0.k3.i0.e eVar = new c.a.r0.k3.i0.e();
+        this.f52565f = context;
+        e eVar = new e();
         this.m = eVar;
-        eVar.f21030a = getPageId();
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds43);
+        eVar.f20601a = getPageId();
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(g.tbds43);
         setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
         h();
-        this.n = new f();
+        this.n = new b.a.q0.s.q.f();
     }
 }

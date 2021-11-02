@@ -15,14 +15,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableRetryPredicate<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long count;
     public final Predicate<? super Throwable> predicate;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class RetrySubscriber<T> extends AtomicInteger implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
@@ -34,12 +34,12 @@ public final class FlowableRetryPredicate<T> extends AbstractFlowableWithUpstrea
         public final SubscriptionArbiter sa;
         public final Publisher<? extends T> source;
 
-        public RetrySubscriber(Subscriber<? super T> subscriber, long j2, Predicate<? super Throwable> predicate, SubscriptionArbiter subscriptionArbiter, Publisher<? extends T> publisher) {
+        public RetrySubscriber(Subscriber<? super T> subscriber, long j, Predicate<? super Throwable> predicate, SubscriptionArbiter subscriptionArbiter, Publisher<? extends T> publisher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), predicate, subscriptionArbiter, publisher};
+                Object[] objArr = {subscriber, Long.valueOf(j), predicate, subscriptionArbiter, publisher};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -53,7 +53,7 @@ public final class FlowableRetryPredicate<T> extends AbstractFlowableWithUpstrea
             this.sa = subscriptionArbiter;
             this.source = publisher;
             this.predicate = predicate;
-            this.remaining = j2;
+            this.remaining = j;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -68,11 +68,11 @@ public final class FlowableRetryPredicate<T> extends AbstractFlowableWithUpstrea
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                long j2 = this.remaining;
-                if (j2 != Long.MAX_VALUE) {
-                    this.remaining = j2 - 1;
+                long j = this.remaining;
+                if (j != Long.MAX_VALUE) {
+                    this.remaining = j - 1;
                 }
-                if (j2 == 0) {
+                if (j == 0) {
                     this.actual.onError(th);
                     return;
                 }
@@ -111,10 +111,10 @@ public final class FlowableRetryPredicate<T> extends AbstractFlowableWithUpstrea
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getAndIncrement() == 0) {
                 int i2 = 1;
                 while (!this.sa.isCancelled()) {
-                    long j2 = this.produced;
-                    if (j2 != 0) {
+                    long j = this.produced;
+                    if (j != 0) {
                         this.produced = 0L;
-                        this.sa.produced(j2);
+                        this.sa.produced(j);
                     }
                     this.source.subscribe(this);
                     i2 = addAndGet(-i2);
@@ -127,13 +127,13 @@ public final class FlowableRetryPredicate<T> extends AbstractFlowableWithUpstrea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableRetryPredicate(Flowable<T> flowable, long j2, Predicate<? super Throwable> predicate) {
+    public FlowableRetryPredicate(Flowable<T> flowable, long j, Predicate<? super Throwable> predicate) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2), predicate};
+            Object[] objArr = {flowable, Long.valueOf(j), predicate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -145,7 +145,7 @@ public final class FlowableRetryPredicate<T> extends AbstractFlowableWithUpstrea
             }
         }
         this.predicate = predicate;
-        this.count = j2;
+        this.count = j;
     }
 
     @Override // io.reactivex.Flowable

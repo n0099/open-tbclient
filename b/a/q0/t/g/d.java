@@ -1,0 +1,7 @@
+package b.a.q0.t.g;
+
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+/* loaded from: classes4.dex */
+public interface d {
+    void a(ShareItem shareItem, int i2, boolean z);
+}

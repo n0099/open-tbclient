@@ -4,13 +4,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    @Deprecated
     public static final String APPLICATION_ID = "com.facebook.imagepipelinebase";
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
     public static final String FLAVOR = "";
+    public static final String LIBRARY_PACKAGE_NAME = "com.facebook.imagepipelinebase";
     public static final int VERSION_CODE = -1;
     public static final String VERSION_NAME = "";
     public transient /* synthetic */ FieldHolder $fh;

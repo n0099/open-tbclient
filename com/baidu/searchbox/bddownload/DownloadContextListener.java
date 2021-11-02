@@ -3,7 +3,7 @@ package com.baidu.searchbox.bddownload;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface DownloadContextListener {
     void queueEnd(@NonNull DownloadContext downloadContext);
 

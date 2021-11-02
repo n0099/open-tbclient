@@ -41,7 +41,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ShareLoginModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static String AUTH_APP_PKG_NAME = "auth_app_pkg_name";
@@ -229,10 +229,10 @@ public class ShareLoginModel {
         return (LinkedList) invokeV.objValue;
     }
 
-    public void getShareModels(long j2, ShareModelCallback shareModelCallback) {
+    public void getShareModels(long j, ShareModelCallback shareModelCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, shareModelCallback) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, shareModelCallback) == null) {
+            if (j <= 0) {
                 throw new IllegalArgumentException("must timeoutMills > 0");
             }
             if (shareModelCallback == null) {
@@ -253,7 +253,7 @@ public class ShareLoginModel {
                 Log.d(ShareUtils.TAG, "getShareModels config loginShareStrategy is not DISABLED");
                 shareModelCallback.onReceiveShareModels(new ArrayList(0));
             } else {
-                ShareUtils.getShareModels(j2, sapiConfiguration.context, sapiConfiguration.tpl, shareModelCallback);
+                ShareUtils.getShareModels(j, sapiConfiguration.context, sapiConfiguration.tpl, shareModelCallback);
             }
         }
     }

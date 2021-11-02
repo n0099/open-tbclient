@@ -20,20 +20,20 @@ import java.util.Stack;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ZipUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static ZipUtils singleton;
     public transient /* synthetic */ FieldHolder $fh;
     public ZipEntry nextEntry;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends ZipInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ZipUtils f64177a;
+        public final /* synthetic */ ZipUtils f61020a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ZipUtils zipUtils, InputStream inputStream) {
@@ -53,31 +53,31 @@ public class ZipUtils implements INoProGuard {
                     return;
                 }
             }
-            this.f64177a = zipUtils;
+            this.f61020a = zipUtils;
         }
 
         @Override // java.util.zip.ZipInputStream, java.util.zip.InflaterInputStream, java.io.FilterInputStream, java.io.InputStream
-        public final long skip(long j2) throws IOException {
+        public final long skip(long j) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                long j3 = 0;
-                if (j2 >= 0) {
-                    int min = (int) Math.min(j2, 4096L);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                long j2 = 0;
+                if (j >= 0) {
+                    int min = (int) Math.min(j, 4096L);
                     byte[] bArr = new byte[min];
-                    while (j3 != j2) {
-                        long j4 = j2 - j3;
-                        long j5 = min;
-                        if (j5 <= j4) {
-                            j4 = j5;
+                    while (j2 != j) {
+                        long j3 = j - j2;
+                        long j4 = min;
+                        if (j4 <= j3) {
+                            j3 = j4;
                         }
-                        int read = read(bArr, 0, (int) j4);
+                        int read = read(bArr, 0, (int) j3);
                         if (read <= 0) {
-                            return j3;
+                            return j2;
                         }
-                        j3 += read;
+                        j2 += read;
                     }
-                    return j3;
+                    return j2;
                 }
                 throw new IllegalArgumentException();
             }

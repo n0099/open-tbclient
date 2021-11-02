@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdURIUtils {
     public static /* synthetic */ Interceptable $ic;
     public static volatile XAdURIUtils shareInstance;

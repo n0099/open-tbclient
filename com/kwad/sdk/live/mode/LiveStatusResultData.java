@@ -15,14 +15,14 @@ import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LiveStatusResultData extends BaseResultData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4029640509861990549L;
     public transient /* synthetic */ FieldHolder $fh;
     public LiveStatus liveStatus;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class LiveStatus implements b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5609658944971506312L;

@@ -14,14 +14,14 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.j;
-import c.a.e.e.p.l;
-import c.a.q0.s.q.a0;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.q.m0;
-import c.a.q0.s.s.a;
-import c.a.q0.s.s.i;
-import c.a.r0.x0.v0;
+import b.a.e.e.p.j;
+import b.a.e.e.p.l;
+import b.a.q0.s.q.a0;
+import b.a.q0.s.q.d2;
+import b.a.q0.s.q.m0;
+import b.a.q0.s.s.a;
+import b.a.q0.s.s.i;
+import b.a.r0.x0.v0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -51,35 +51,35 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import tbclient.BawuThrones;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ThreadManageDialog extends PopupDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public final CompoundButton.OnCheckedChangeListener B;
-    public final c.a.e.a.e C;
+    public final b.a.e.a.e C;
     public final i.e D;
     public TbPageContext n;
     public Context o;
-    public final c.a.q0.s.s.i p;
+    public final b.a.q0.s.s.i p;
     public AlertDialog q;
     public AlertDialog r;
-    public c.a.q0.s.s.a s;
+    public b.a.q0.s.s.a s;
     public Dialog t;
-    public final List<c.a.q0.s.s.f> u;
+    public final List<b.a.q0.s.s.f> u;
     public String v;
     public String w;
     public List<BlueCheckRadioButton> x;
     public d2 y;
     public ForumManageModel z;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadManageDialog f50024e;
+        public final /* synthetic */ ThreadManageDialog f47434e;
 
         public a(ThreadManageDialog threadManageDialog) {
             Interceptable interceptable = $ic;
@@ -96,32 +96,32 @@ public class ThreadManageDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50024e = threadManageDialog;
+            this.f47434e = threadManageDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f50024e.q != null) {
-                    this.f50024e.q.dismiss();
+                if (this.f47434e.q != null) {
+                    this.f47434e.q.dismiss();
                 }
                 if (!j.A()) {
-                    l.L(this.f50024e.o, R.string.neterror);
+                    l.L(this.f47434e.o, R.string.neterror);
                 } else {
-                    this.f50024e.T(null, false);
+                    this.f47434e.T(null, false);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadManageDialog f50025e;
+        public final /* synthetic */ ThreadManageDialog f47435e;
 
         public b(ThreadManageDialog threadManageDialog) {
             Interceptable interceptable = $ic;
@@ -138,26 +138,26 @@ public class ThreadManageDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50025e = threadManageDialog;
+            this.f47435e = threadManageDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50025e.q == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47435e.q == null) {
                 return;
             }
-            this.f50025e.q.dismiss();
+            this.f47435e.q.dismiss();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadManageDialog f50026e;
+        public final /* synthetic */ ThreadManageDialog f47436e;
 
         public c(ThreadManageDialog threadManageDialog) {
             Interceptable interceptable = $ic;
@@ -174,38 +174,38 @@ public class ThreadManageDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50026e = threadManageDialog;
+            this.f47436e = threadManageDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f50026e.r != null) {
-                    this.f50026e.r.dismiss();
+                if (this.f47436e.r != null) {
+                    this.f47436e.r.dismiss();
                 }
                 if (!j.A()) {
-                    l.L(this.f50026e.o, R.string.neterror);
+                    l.L(this.f47436e.o, R.string.neterror);
                     return;
                 }
-                this.f50026e.T(null, true);
+                this.f47436e.T(null, true);
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MUSK_SELF_DIALOG_CONFIRM_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("tid", this.f50026e.y.f0());
-                statisticItem.param("fid", this.f50026e.y.T());
-                statisticItem.param("fname", this.f50026e.y.Z());
+                statisticItem.param("tid", this.f47436e.y.f0());
+                statisticItem.param("fid", this.f47436e.y.T());
+                statisticItem.param("fname", this.f47436e.y.Z());
                 TiebaStatic.log(statisticItem);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadManageDialog f50027e;
+        public final /* synthetic */ ThreadManageDialog f47437e;
 
         public d(ThreadManageDialog threadManageDialog) {
             Interceptable interceptable = $ic;
@@ -222,33 +222,33 @@ public class ThreadManageDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50027e = threadManageDialog;
+            this.f47437e = threadManageDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f50027e.r != null) {
-                    this.f50027e.r.dismiss();
+                if (this.f47437e.r != null) {
+                    this.f47437e.r.dismiss();
                 }
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MUSK_SELF_DIALOG_CANCEL_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("tid", this.f50027e.y.f0());
-                statisticItem.param("fid", this.f50027e.y.T());
-                statisticItem.param("fname", this.f50027e.y.Z());
+                statisticItem.param("tid", this.f47437e.y.f0());
+                statisticItem.param("fid", this.f47437e.y.T());
+                statisticItem.param("fname", this.f47437e.y.Z());
                 TiebaStatic.log(statisticItem);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadManageDialog f50028e;
+        public final /* synthetic */ ThreadManageDialog f47438e;
 
         public e(ThreadManageDialog threadManageDialog) {
             Interceptable interceptable = $ic;
@@ -265,25 +265,25 @@ public class ThreadManageDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50028e = threadManageDialog;
+            this.f47438e = threadManageDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.e.e.m.g.b(this.f50028e.t, this.f50028e.n);
+                b.a.e.e.m.g.b(this.f47438e.t, this.f47438e.n);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadManageDialog f50029e;
+        public final /* synthetic */ ThreadManageDialog f47439e;
 
         public f(ThreadManageDialog threadManageDialog) {
             Interceptable interceptable = $ic;
@@ -300,27 +300,27 @@ public class ThreadManageDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50029e = threadManageDialog;
+            this.f47439e = threadManageDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.e.e.m.g.b(this.f50029e.t, this.f50029e.n);
-                ThreadManageDialog threadManageDialog = this.f50029e;
+                b.a.e.e.m.g.b(this.f47439e.t, this.f47439e.n);
+                ThreadManageDialog threadManageDialog = this.f47439e;
                 threadManageDialog.V(threadManageDialog.w, false);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class g implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadManageDialog f50030e;
+        public final /* synthetic */ ThreadManageDialog f47440e;
 
         public g(ThreadManageDialog threadManageDialog) {
             Interceptable interceptable = $ic;
@@ -337,18 +337,18 @@ public class ThreadManageDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50030e = threadManageDialog;
+            this.f47440e = threadManageDialog;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && z && (compoundButton.getTag() instanceof String)) {
-                this.f50030e.w = (String) compoundButton.getTag();
-                if (this.f50030e.x != null) {
-                    for (BlueCheckRadioButton blueCheckRadioButton : this.f50030e.x) {
+                this.f47440e.w = (String) compoundButton.getTag();
+                if (this.f47440e.x != null) {
+                    for (BlueCheckRadioButton blueCheckRadioButton : this.f47440e.x) {
                         String str = (String) blueCheckRadioButton.getTag();
-                        if (str != null && this.f50030e.w != null && !str.equals(this.f50030e.w)) {
+                        if (str != null && this.f47440e.w != null && !str.equals(this.f47440e.w)) {
                             blueCheckRadioButton.setChecked(false);
                         }
                     }
@@ -357,15 +357,15 @@ public class ThreadManageDialog extends PopupDialog {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class h extends c.a.e.a.e {
+    /* loaded from: classes9.dex */
+    public class h extends b.a.e.a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadManageDialog f50031a;
+        public final /* synthetic */ ThreadManageDialog f47441a;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class a implements a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -386,8 +386,8 @@ public class ThreadManageDialog extends PopupDialog {
                 }
             }
 
-            @Override // c.a.q0.s.s.a.e
-            public void onClick(c.a.q0.s.s.a aVar) {
+            @Override // b.a.q0.s.s.a.e
+            public void onClick(b.a.q0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                     return;
@@ -411,79 +411,79 @@ public class ThreadManageDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50031a = threadManageDialog;
+            this.f47441a = threadManageDialog;
         }
 
-        @Override // c.a.e.a.e
+        @Override // b.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || this.f50031a.z == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || this.f47441a.z == null) {
                 return;
             }
-            ViewGroup viewGroup = (ViewGroup) this.f50031a.N();
-            switch (this.f50031a.z.getLoadDataMode()) {
+            ViewGroup viewGroup = (ViewGroup) this.f47441a.N();
+            switch (this.f47441a.z.getLoadDataMode()) {
                 case 0:
                     ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                    if (bVar.f57179d != 0) {
-                        if (bVar.f57183h) {
-                            new BdTopToast(this.f50031a.getContext()).setIcon(false).setContent(this.f50031a.O(R.string.shield_fail, new Object[0])).show(viewGroup);
+                    if (bVar.f54251d != 0) {
+                        if (bVar.f54255h) {
+                            new BdTopToast(this.f47441a.getContext()).setIcon(false).setContent(this.f47441a.O(R.string.shield_fail, new Object[0])).show(viewGroup);
                             return;
                         } else {
-                            new BdTopToast(this.f50031a.getContext()).setIcon(false).setContent(this.f50031a.O(R.string.delete_fail, new Object[0])).show(viewGroup);
+                            new BdTopToast(this.f47441a.getContext()).setIcon(false).setContent(this.f47441a.O(R.string.delete_fail, new Object[0])).show(viewGroup);
                             return;
                         }
-                    } else if (bVar.f57176a) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921031, this.f50031a.y.f0()));
-                        if (bVar.f57183h) {
-                            new BdTopToast(this.f50031a.getContext()).setIcon(true).setContent(this.f50031a.O(R.string.shield_success, new Object[0])).show(viewGroup);
+                    } else if (bVar.f54248a) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921031, this.f47441a.y.f0()));
+                        if (bVar.f54255h) {
+                            new BdTopToast(this.f47441a.getContext()).setIcon(true).setContent(this.f47441a.O(R.string.shield_success, new Object[0])).show(viewGroup);
                             return;
                         } else {
-                            new BdTopToast(this.f50031a.getContext()).setIcon(true).setContent(this.f50031a.O(R.string.delete_success, new Object[0])).show(viewGroup);
+                            new BdTopToast(this.f47441a.getContext()).setIcon(true).setContent(this.f47441a.O(R.string.delete_success, new Object[0])).show(viewGroup);
                             return;
                         }
                     } else {
-                        String O = !TextUtils.isEmpty(bVar.f57177b) ? bVar.f57177b : this.f50031a.O(R.string.delete_fail, new Object[0]);
-                        if (bVar.f57178c == 1211066) {
-                            if (this.f50031a.s == null) {
-                                ThreadManageDialog threadManageDialog = this.f50031a;
-                                threadManageDialog.s = new c.a.q0.s.s.a(threadManageDialog.n.getPageActivity());
-                                this.f50031a.s.setMessage(O);
-                                this.f50031a.s.setPositiveButton(R.string.dialog_known, new a(this));
-                                this.f50031a.s.setCancelable(true);
-                                this.f50031a.s.create(this.f50031a.n);
+                        String O = !TextUtils.isEmpty(bVar.f54249b) ? bVar.f54249b : this.f47441a.O(R.string.delete_fail, new Object[0]);
+                        if (bVar.f54250c == 1211066) {
+                            if (this.f47441a.s == null) {
+                                ThreadManageDialog threadManageDialog = this.f47441a;
+                                threadManageDialog.s = new b.a.q0.s.s.a(threadManageDialog.n.getPageActivity());
+                                this.f47441a.s.setMessage(O);
+                                this.f47441a.s.setPositiveButton(R.string.dialog_known, new a(this));
+                                this.f47441a.s.setCancelable(true);
+                                this.f47441a.s.create(this.f47441a.n);
                             }
-                            this.f50031a.s.show();
+                            this.f47441a.s.show();
                             return;
                         }
-                        new BdTopToast(this.f50031a.getContext()).setIcon(false).setContent(O).show(viewGroup);
+                        new BdTopToast(this.f47441a.getContext()).setIcon(false).setContent(O).show(viewGroup);
                         return;
                     }
                 case 1:
                     ForumManageModel.d dVar = (ForumManageModel.d) obj;
                     if (dVar == null) {
-                        l.M(this.f50031a.o, this.f50031a.O(R.string.mute_fail, new Object[0]));
+                        l.M(this.f47441a.o, this.f47441a.O(R.string.mute_fail, new Object[0]));
                         return;
-                    } else if (dVar.f57184a) {
-                        l.M(this.f50031a.o, !TextUtils.isEmpty(dVar.f57185b) ? dVar.f57185b : this.f50031a.O(R.string.mute_success, new Object[0]));
+                    } else if (dVar.f54256a) {
+                        l.M(this.f47441a.o, !TextUtils.isEmpty(dVar.f54257b) ? dVar.f54257b : this.f47441a.O(R.string.mute_success, new Object[0]));
                         return;
                     } else {
-                        l.M(this.f50031a.o, !TextUtils.isEmpty(dVar.f57185b) ? dVar.f57185b : this.f50031a.O(R.string.mute_fail, new Object[0]));
+                        l.M(this.f47441a.o, !TextUtils.isEmpty(dVar.f54257b) ? dVar.f54257b : this.f47441a.O(R.string.mute_fail, new Object[0]));
                         return;
                     }
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    ThreadManageDialog threadManageDialog2 = this.f50031a;
+                    ThreadManageDialog threadManageDialog2 = this.f47441a;
                     threadManageDialog2.M(threadManageDialog2.z.getLoadDataMode(), (ForumManageModel.g) obj);
                     return;
                 case 6:
                     ForumManageModel.g gVar = (ForumManageModel.g) obj;
-                    if (gVar == null || !gVar.f57198a) {
-                        l.M(this.f50031a.o, this.f50031a.O(R.string.operation_failed, new Object[0]));
+                    if (gVar == null || !gVar.f54270a) {
+                        l.M(this.f47441a.o, this.f47441a.O(R.string.operation_failed, new Object[0]));
                         return;
                     } else {
-                        this.f50031a.S(gVar.f57200c);
+                        this.f47441a.S(gVar.f54272c);
                         return;
                     }
                 default:
@@ -492,13 +492,13 @@ public class ThreadManageDialog extends PopupDialog {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class i implements i.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadManageDialog f50032e;
+        public final /* synthetic */ ThreadManageDialog f47442e;
 
         public i(ThreadManageDialog threadManageDialog) {
             Interceptable interceptable = $ic;
@@ -515,74 +515,74 @@ public class ThreadManageDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50032e = threadManageDialog;
+            this.f47442e = threadManageDialog;
         }
 
-        @Override // c.a.q0.s.s.i.e
-        public void onItemClick(c.a.q0.s.s.i iVar, int i2, View view) {
+        @Override // b.a.q0.s.s.i.e
+        public void onItemClick(b.a.q0.s.s.i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f50032e.dismiss();
+                this.f47442e.dismiss();
                 if (!j.z()) {
-                    l.L(this.f50032e.o, R.string.network_not_available);
+                    l.L(this.f47442e.o, R.string.network_not_available);
                     return;
                 }
                 if (i2 == 1) {
-                    if (this.f50032e.y != null && this.f50032e.y.J() != null) {
-                        if (UtilHelper.isCurrentAccount(this.f50032e.y.J().getUserId())) {
-                            this.f50032e.showDeleteMeDialog();
+                    if (this.f47442e.y != null && this.f47442e.y.J() != null) {
+                        if (UtilHelper.isCurrentAccount(this.f47442e.y.J().getUserId())) {
+                            this.f47442e.showDeleteMeDialog();
                         } else {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921515, new c.a.r0.j.h(1, this.f50032e.z, this.f50032e.y)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921515, new b.a.r0.j.h(1, this.f47442e.z, this.f47442e.y)));
                         }
                     }
                 } else if (i2 == 9) {
-                    if (this.f50032e.y != null && this.f50032e.y.J() != null) {
-                        if (UtilHelper.isCurrentAccount(this.f50032e.y.J().getUserId())) {
-                            this.f50032e.showBlockMeDialog();
+                    if (this.f47442e.y != null && this.f47442e.y.J() != null) {
+                        if (UtilHelper.isCurrentAccount(this.f47442e.y.J().getUserId())) {
+                            this.f47442e.showBlockMeDialog();
                         } else {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921515, new c.a.r0.j.h(3, this.f50032e.z, this.f50032e.y)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921515, new b.a.r0.j.h(3, this.f47442e.z, this.f47442e.y)));
                             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MUSK_REASON_DIALOG_SHOW);
                             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                            statisticItem.param("tid", this.f50032e.y.f0());
-                            if (this.f50032e.y.Y() != null) {
-                                statisticItem.param("fid", this.f50032e.y.Y().getForumId());
-                                statisticItem.param("fname", this.f50032e.y.Y().getForumName());
+                            statisticItem.param("tid", this.f47442e.y.f0());
+                            if (this.f47442e.y.Y() != null) {
+                                statisticItem.param("fid", this.f47442e.y.Y().getForumId());
+                                statisticItem.param("fname", this.f47442e.y.Y().getForumName());
                             }
                             statisticItem.param("obj_source", 1);
                             TiebaStatic.log(statisticItem);
                         }
                         StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_BAWU_FRS_MUSK_CLICK);
                         statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem2.param("tid", this.f50032e.y.f0());
-                        statisticItem2.param("fid", this.f50032e.y.T());
-                        statisticItem2.param("fname", this.f50032e.y.Z());
+                        statisticItem2.param("tid", this.f47442e.y.f0());
+                        statisticItem2.param("fid", this.f47442e.y.T());
+                        statisticItem2.param("fname", this.f47442e.y.Z());
                         TiebaStatic.log(statisticItem2);
                     }
                 } else if (i2 == 2) {
-                    this.f50032e.U();
+                    this.f47442e.U();
                 } else if (i2 == 3) {
-                    this.f50032e.W();
+                    this.f47442e.W();
                 } else if (i2 == 4) {
-                    ThreadManageDialog threadManageDialog = this.f50032e;
+                    ThreadManageDialog threadManageDialog = this.f47442e;
                     threadManageDialog.V(threadManageDialog.v, true);
                 } else if (i2 == 5) {
-                    this.f50032e.J();
+                    this.f47442e.J();
                 } else if (i2 == 10) {
-                    this.f50032e.I();
+                    this.f47442e.I();
                     StatisticItem statisticItem3 = new StatisticItem(CommonStatisticKey.KEY_BAWU_MULTI_MUSK_CLICK);
                     statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem3.param("tid", this.f50032e.y.f0());
-                    statisticItem3.param("fid", this.f50032e.y.T());
-                    statisticItem3.param("fname", this.f50032e.y.Z());
+                    statisticItem3.param("tid", this.f47442e.y.f0());
+                    statisticItem3.param("fid", this.f47442e.y.T());
+                    statisticItem3.param("fname", this.f47442e.y.Z());
                     TiebaStatic.log(statisticItem3);
                 } else if (i2 == 6) {
-                    this.f50032e.R();
+                    this.f47442e.R();
                 } else if (i2 == 7) {
-                    this.f50032e.H();
+                    this.f47442e.H();
                 } else if (i2 == 8) {
-                    this.f50032e.G();
+                    this.f47442e.G();
                 }
-                this.f50032e.Q(i2);
+                this.f47442e.Q(i2);
             }
         }
     }
@@ -599,7 +599,7 @@ public class ThreadManageDialog extends PopupDialog {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((c.a.e.a.f) newInitContext.callArgs[0]);
+                super((b.a.e.a.f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -614,10 +614,10 @@ public class ThreadManageDialog extends PopupDialog {
         this.n = tbPageContext;
         this.o = tbPageContext.getPageActivity();
         this.u = new ArrayList();
-        c.a.q0.s.s.i iVar = new c.a.q0.s.s.i(this.o);
+        b.a.q0.s.s.i iVar = new b.a.q0.s.s.i(this.o);
         this.p = iVar;
-        iVar.q(O(R.string.thread_manager, new Object[0]));
-        this.p.n(this.D);
+        iVar.p(O(R.string.thread_manager, new Object[0]));
+        this.p.m(this.D);
         ForumManageModel forumManageModel = new ForumManageModel(this.n);
         this.z = forumManageModel;
         forumManageModel.setLoadDataCallBack(this.C);
@@ -635,15 +635,15 @@ public class ThreadManageDialog extends PopupDialog {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.r0.x0.a.h().p(true, false);
+            b.a.r0.x0.a.h().p(true, false);
         }
     }
 
     public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.x0.b.f().o(true);
-            c.a.r0.x0.b.f().p(true, false);
+            b.a.r0.x0.b.f().o(true);
+            b.a.r0.x0.b.f().p(true, false);
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_SHOW);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("tid", this.y.f0());
@@ -656,8 +656,8 @@ public class ThreadManageDialog extends PopupDialog {
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.r0.x0.b.f().o(false);
-            c.a.r0.x0.b.f().p(true, false);
+            b.a.r0.x0.b.f().o(false);
+            b.a.r0.x0.b.f().p(true, false);
         }
     }
 
@@ -677,48 +677,48 @@ public class ThreadManageDialog extends PopupDialog {
     }
 
     public final void L() {
-        List<c.a.q0.s.s.f> list;
+        List<b.a.q0.s.s.f> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.y == null || (list = this.u) == null || this.p == null) {
             return;
         }
         list.clear();
-        if (c.a.r0.x0.j.d(c.a.r0.x0.j.a()) && !c.a.r0.x0.j.f()) {
-            if (!this.y.Q1() && ((this.y.J() == null || !this.y.J().isForumBusinessAccount() || this.y.isSelf() || v0.isOn()) && !c.a.r0.x0.j.g() && !this.y.I2() && !this.y.s2() && (!this.y.z2() || this.y.isSelf()))) {
-                this.u.add(new c.a.q0.s.s.f(1, O(R.string.delete_page, new Object[0]), this.p));
+        if (b.a.r0.x0.j.d(b.a.r0.x0.j.a()) && !b.a.r0.x0.j.f()) {
+            if (!this.y.Q1() && ((this.y.J() == null || !this.y.J().isForumBusinessAccount() || this.y.isSelf() || v0.isOn()) && !b.a.r0.x0.j.g() && !this.y.I2() && !this.y.s2() && (!this.y.z2() || this.y.isSelf()))) {
+                this.u.add(new b.a.q0.s.s.f(1, O(R.string.delete_page, new Object[0]), this.p));
             }
-            if (this.y.I2() || this.y.s2() || (c.a.r0.x0.j.g() && !this.y.Q1() && (this.y.J() == null || !this.y.J().isForumBusinessAccount() || this.y.isSelf() || v0.isOn()))) {
-                this.u.add(new c.a.q0.s.s.f(9, O(R.string.forum_shield, new Object[0]), this.p));
+            if (this.y.I2() || this.y.s2() || (b.a.r0.x0.j.g() && !this.y.Q1() && (this.y.J() == null || !this.y.J().isForumBusinessAccount() || this.y.isSelf() || v0.isOn()))) {
+                this.u.add(new b.a.q0.s.s.f(9, O(R.string.forum_shield, new Object[0]), this.p));
             }
             if (!UtilHelper.isCurrentAccount(this.y.J() != null ? this.y.J().getUserId() : "") && ((this.y.J() == null || !this.y.J().isForumBusinessAccount()) && !this.y.z2())) {
-                this.u.add(new c.a.q0.s.s.f(2, O(R.string.thread_forbid, new Object[0]), this.p));
+                this.u.add(new b.a.q0.s.s.f(2, O(R.string.thread_forbid, new Object[0]), this.p));
             }
         }
-        if (c.a.r0.x0.j.e() || c.a.r0.x0.j.f()) {
-            this.u.add(new c.a.q0.s.s.f(3, O(this.y.r0() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.p));
+        if (b.a.r0.x0.j.e() || b.a.r0.x0.j.f()) {
+            this.u.add(new b.a.q0.s.s.f(3, O(this.y.r0() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.p));
         }
-        if (c.a.r0.x0.j.e() || c.a.r0.x0.j.h()) {
-            this.u.add(new c.a.q0.s.s.f(4, O(this.y.q0() == 1 ? R.string.cancel_good : R.string.commit_good, new Object[0]), this.p));
+        if (b.a.r0.x0.j.e() || b.a.r0.x0.j.h()) {
+            this.u.add(new b.a.q0.s.s.f(4, O(this.y.q0() == 1 ? R.string.cancel_good : R.string.commit_good, new Object[0]), this.p));
         }
-        if (c.a.r0.x0.j.e()) {
-            this.u.add(new c.a.q0.s.s.f(6, O(R.string.frs_recommend_thread, new Object[0]), this.p));
+        if (b.a.r0.x0.j.e()) {
+            this.u.add(new b.a.q0.s.s.f(6, O(R.string.frs_recommend_thread, new Object[0]), this.p));
         }
-        if (c.a.r0.x0.j.e() || c.a.r0.x0.j.f()) {
-            this.u.add(new c.a.q0.s.s.f(8, O(R.string.frs_forum_bawu_send_broadcast, new Object[0]), this.p));
+        if (b.a.r0.x0.j.e() || b.a.r0.x0.j.f()) {
+            this.u.add(new b.a.q0.s.s.f(8, O(R.string.frs_forum_bawu_send_broadcast, new Object[0]), this.p));
         }
-        if (c.a.r0.x0.j.e() && this.A) {
-            this.u.add(new c.a.q0.s.s.f(7, O(R.string.frs_move_area_thread, new Object[0]), this.p));
+        if (b.a.r0.x0.j.e() && this.A) {
+            this.u.add(new b.a.q0.s.s.f(7, O(R.string.frs_move_area_thread, new Object[0]), this.p));
         }
-        if (!c.a.r0.x0.j.f() && c.a.r0.x0.b.f().j() && this.A && ((this.y.J() == null || !this.y.J().isForumBusinessAccount() || this.y.isSelf() || v0.isOn()) && !c.a.r0.x0.j.g())) {
-            this.u.add(new c.a.q0.s.s.f(5, O(R.string.multi_delete, new Object[0]), this.p));
+        if (!b.a.r0.x0.j.f() && b.a.r0.x0.b.f().j() && this.A && ((this.y.J() == null || !this.y.J().isForumBusinessAccount() || this.y.isSelf() || v0.isOn()) && !b.a.r0.x0.j.g())) {
+            this.u.add(new b.a.q0.s.s.f(5, O(R.string.multi_delete, new Object[0]), this.p));
         }
-        if (c.a.r0.x0.j.g() && !c.a.r0.x0.j.f() && c.a.r0.x0.b.f().j() && this.A && (this.y.J() == null || !this.y.J().isForumBusinessAccount() || this.y.isSelf() || v0.isOn())) {
-            this.u.add(new c.a.q0.s.s.f(10, O(R.string.multi_shield, new Object[0]), this.p));
+        if (b.a.r0.x0.j.g() && !b.a.r0.x0.j.f() && b.a.r0.x0.b.f().j() && this.A && (this.y.J() == null || !this.y.J().isForumBusinessAccount() || this.y.isSelf() || v0.isOn())) {
+            this.u.add(new b.a.q0.s.s.f(10, O(R.string.multi_shield, new Object[0]), this.p));
         }
-        if (c.a.r0.x0.j.g() && this.y.isSelf() && !this.y.Q1()) {
-            this.u.add(new c.a.q0.s.s.f(1, O(R.string.delete, new Object[0]), this.p));
+        if (b.a.r0.x0.j.g() && this.y.isSelf() && !this.y.Q1()) {
+            this.u.add(new b.a.q0.s.s.f(1, O(R.string.delete, new Object[0]), this.p));
         }
-        this.p.k(this.u);
+        this.p.j(this.u);
     }
 
     public final void M(int i2, ForumManageModel.g gVar) {
@@ -726,41 +726,41 @@ public class ThreadManageDialog extends PopupDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, gVar) == null) {
             d2 d2Var = this.y;
-            if (d2Var != null && gVar != null && gVar.f57198a) {
+            if (d2Var != null && gVar != null && gVar.f54270a) {
                 String str = "";
                 boolean z = true;
                 if (i2 == 2) {
-                    d2Var.W3(1);
+                    d2Var.X3(1);
                     a0 a0Var = new a0();
-                    a0Var.f14080a = 2;
-                    a0Var.f14081b = this.y.s1();
-                    if (c.a.r0.x0.j.e()) {
+                    a0Var.f13198a = 2;
+                    a0Var.f13199b = this.y.s1();
+                    if (b.a.r0.x0.j.e()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, a0Var));
                     } else {
-                        str = P(gVar.f57199b, R.string.set_good_success);
+                        str = P(gVar.f54271b, R.string.set_good_success);
                         z = false;
                     }
                 } else {
                     if (i2 == 3) {
-                        d2Var.W3(0);
-                        str = P(gVar.f57199b, R.string.operation_success);
+                        d2Var.X3(0);
+                        str = P(gVar.f54271b, R.string.operation_success);
                     } else if (i2 == 4) {
-                        d2Var.X3(1);
+                        d2Var.Y3(1);
                         a0 a0Var2 = new a0();
-                        a0Var2.f14080a = 1;
-                        a0Var2.f14081b = this.y.s1();
+                        a0Var2.f13198a = 1;
+                        a0Var2.f13199b = this.y.s1();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, a0Var2));
                     } else if (i2 == 5) {
-                        d2Var.X3(0);
-                        str = P(gVar.f57199b, R.string.operation_success);
+                        d2Var.Y3(0);
+                        str = P(gVar.f54271b, R.string.operation_success);
                     }
                     z = false;
                 }
                 ForumManageModel.e eVar = new ForumManageModel.e();
-                eVar.f57186a = this.y.f0();
-                eVar.f57188c = this.y.Z();
-                eVar.f57187b = String.valueOf(this.y.T());
-                eVar.f57189d = i2;
+                eVar.f54258a = this.y.f0();
+                eVar.f54260c = this.y.Z();
+                eVar.f54259b = String.valueOf(this.y.T());
+                eVar.f54261d = i2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921316, eVar));
                 if (TextUtils.isEmpty(str)) {
                     str = O(R.string.operation_success, new Object[0]);
@@ -771,8 +771,8 @@ public class ThreadManageDialog extends PopupDialog {
                 l.M(this.o, str);
                 return;
             }
-            if (gVar != null && !TextUtils.isEmpty(gVar.f57199b)) {
-                O = gVar.f57199b;
+            if (gVar != null && !TextUtils.isEmpty(gVar.f54271b)) {
+                O = gVar.f54271b;
             } else {
                 O = O(R.string.operation_failed, new Object[0]);
             }
@@ -825,15 +825,15 @@ public class ThreadManageDialog extends PopupDialog {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.n == null || this.y == null) {
             return;
         }
-        BawuThrones b2 = c.a.r0.x0.c.c().b();
+        BawuThrones b2 = b.a.r0.x0.c.c().b();
         if (b2 == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921465));
         } else if (b2.total_recommend_num.intValue() == b2.used_recommend_num.intValue()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921465));
-        } else if (c.a.q0.s.d0.b.j().g("key_frs_recommend_tip", true)) {
-            c.a.r0.x0.c.c().f(this.n, String.valueOf(this.y.T()), this.y.f0());
+        } else if (b.a.q0.s.e0.b.j().g("key_frs_recommend_tip", true)) {
+            b.a.r0.x0.c.c().f(this.n, String.valueOf(this.y.T()), this.y.f0());
         } else {
-            c.a.r0.x0.c.c().d(String.valueOf(this.y.T()), this.y.f0());
+            b.a.r0.x0.c.c().d(String.valueOf(this.y.T()), this.y.f0());
         }
     }
 
@@ -853,7 +853,7 @@ public class ThreadManageDialog extends PopupDialog {
                 inflate.findViewById(R.id.dialog_button_cancel).setOnClickListener(new e(this));
                 inflate.findViewById(R.id.dialog_button_ok).setOnClickListener(new f(this));
             }
-            c.a.q0.w0.a.a(this.n, this.t.findViewById(R.id.commit_good_layout));
+            b.a.q0.w0.a.a(this.n, this.t.findViewById(R.id.commit_good_layout));
             LinearLayout linearLayout = (LinearLayout) this.t.findViewById(R.id.good_class_group);
             linearLayout.removeAllViews();
             this.x = new ArrayList();
@@ -889,7 +889,7 @@ public class ThreadManageDialog extends PopupDialog {
                 scrollView.removeAllViews();
                 scrollView.addView(linearLayout);
             }
-            c.a.e.e.m.g.j(this.t, this.n);
+            b.a.e.e.m.g.j(this.t, this.n);
         }
     }
 
@@ -986,13 +986,13 @@ public class ThreadManageDialog extends PopupDialog {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            c.a.q0.s.s.i iVar = this.p;
+            b.a.q0.s.s.i iVar = this.p;
             if (iVar != null) {
-                iVar.j();
+                iVar.i();
             }
-            c.a.q0.s.s.a aVar = this.s;
+            b.a.q0.s.s.a aVar = this.s;
             if (aVar != null) {
-                c.a.q0.w0.a.a(this.n, aVar.getRealView());
+                b.a.q0.w0.a.a(this.n, aVar.getRealView());
             }
         }
     }
@@ -1014,13 +1014,13 @@ public class ThreadManageDialog extends PopupDialog {
             }
             TBAlertConfig.a aVar = new TBAlertConfig.a(R.string.shield, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a(R.string.cancel, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            c.a.q0.s.s.l lVar = new c.a.q0.s.s.l(this.n.getPageActivity());
-            lVar.p(R.string.musk_my_thread_confirm);
+            b.a.q0.s.s.l lVar = new b.a.q0.s.s.l(this.n.getPageActivity());
+            lVar.q(R.string.musk_my_thread_confirm);
             lVar.j(R.string.musk_my_thread_confirm_subtitle);
             lVar.l(true);
-            lVar.o(aVar2, aVar);
+            lVar.p(aVar2, aVar);
             lVar.g(false);
-            this.r = lVar.s();
+            this.r = lVar.t();
             aVar.a(new c(this));
             aVar2.a(new d(this));
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MUSK_SELF_DIALOG_SHOW);
@@ -1041,13 +1041,13 @@ public class ThreadManageDialog extends PopupDialog {
             }
             TBAlertConfig.a aVar = new TBAlertConfig.a(R.string.delete, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a(R.string.cancel, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            c.a.q0.s.s.l lVar = new c.a.q0.s.s.l(this.n.getPageActivity());
-            lVar.p(R.string.del_my_thread_confirm);
+            b.a.q0.s.s.l lVar = new b.a.q0.s.s.l(this.n.getPageActivity());
+            lVar.q(R.string.del_my_thread_confirm);
             lVar.j(R.string.del_my_thread_confirm_subtitle);
             lVar.l(true);
-            lVar.o(aVar2, aVar);
+            lVar.p(aVar2, aVar);
             lVar.g(false);
-            this.q = lVar.s();
+            this.q = lVar.t();
             aVar.a(new a(this));
             aVar2.a(new b(this));
         }

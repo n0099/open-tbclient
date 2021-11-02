@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SwipeDismissView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WearMapView.OnDismissCallback f41657a;
+    public WearMapView.OnDismissCallback f39500a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwipeDismissView(Context context, AttributeSet attributeSet, int i2, View view) {
@@ -37,7 +37,7 @@ public class SwipeDismissView extends RelativeLayout {
                 return;
             }
         }
-        this.f41657a = null;
+        this.f39500a = null;
         a(context, view);
     }
 
@@ -60,7 +60,7 @@ public class SwipeDismissView extends RelativeLayout {
                 return;
             }
         }
-        this.f41657a = null;
+        this.f39500a = null;
         a(context, view);
     }
 
@@ -82,7 +82,7 @@ public class SwipeDismissView extends RelativeLayout {
                 return;
             }
         }
-        this.f41657a = null;
+        this.f39500a = null;
         a(context, view);
     }
 
@@ -96,7 +96,7 @@ public class SwipeDismissView extends RelativeLayout {
     public void setCallback(WearMapView.OnDismissCallback onDismissCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onDismissCallback) == null) {
-            this.f41657a = onDismissCallback;
+            this.f39500a = onDismissCallback;
         }
     }
 }

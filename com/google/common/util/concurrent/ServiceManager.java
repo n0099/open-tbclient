@@ -1,13 +1,13 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.g;
-import c.i.d.a.j;
-import c.i.d.a.n;
-import c.i.d.a.p;
-import c.i.d.c.e1;
-import c.i.d.c.o1;
-import c.i.d.c.s0;
+import b.i.d.a.g;
+import b.i.d.a.j;
+import b.i.d.a.n;
+import b.i.d.a.p;
+import b.i.d.c.e1;
+import b.i.d.c.o1;
+import b.i.d.c.s0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,7 +41,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ServiceManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ListenerCallQueue.Event<Listener> HEALTHY_EVENT;
@@ -51,7 +51,7 @@ public final class ServiceManager {
     public final ImmutableList<Service> services;
     public final ServiceManagerState state;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class EmptyServiceManagerWarning extends Throwable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public final class ServiceManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Listener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public final class ServiceManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class NoOpService extends AbstractService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public final class ServiceManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ServiceListener extends Service.Listener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -441,13 +441,13 @@ public final class ServiceManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             j.b b2 = j.b(ServiceManager.class);
-            b2.d("services", c.i.d.c.n.c(this.services, Predicates.j(Predicates.h(NoOpService.class))));
+            b2.d("services", b.i.d.c.n.c(this.services, Predicates.j(Predicates.h(NoOpService.class))));
             return b2.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class ServiceManagerState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -462,7 +462,7 @@ public final class ServiceManager {
         public final Monitor.Guard stoppedGuard;
         public boolean transitioned;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public final class AwaitHealthGuard extends Monitor.Guard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -502,7 +502,7 @@ public final class ServiceManager {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public final class StoppedGuard extends Monitor.Guard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -755,7 +755,7 @@ public final class ServiceManager {
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // c.i.d.a.g
+                        @Override // b.i.d.a.g
                         public Long apply(Map.Entry<Service, Long> entry2) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
@@ -823,12 +823,12 @@ public final class ServiceManager {
             }
         }
 
-        public void awaitStopped(long j2, TimeUnit timeUnit) throws TimeoutException {
+        public void awaitStopped(long j, TimeUnit timeUnit) throws TimeoutException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(1048580, this, j2, timeUnit) == null) {
+            if (interceptable == null || interceptable.invokeJL(1048580, this, j, timeUnit) == null) {
                 this.monitor.enter();
                 try {
-                    if (this.monitor.waitForUninterruptibly(this.stoppedGuard, j2, timeUnit)) {
+                    if (this.monitor.waitForUninterruptibly(this.stoppedGuard, j, timeUnit)) {
                         return;
                     }
                     throw new TimeoutException("Timeout waiting for the services to stop. The following services have not stopped: " + Multimaps.e(this.servicesByState, Predicates.j(Predicates.g(EnumSet.of(Service.State.TERMINATED, Service.State.FAILED)))));
@@ -838,12 +838,12 @@ public final class ServiceManager {
             }
         }
 
-        public void awaitHealthy(long j2, TimeUnit timeUnit) throws TimeoutException {
+        public void awaitHealthy(long j, TimeUnit timeUnit) throws TimeoutException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit) == null) {
+            if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit) == null) {
                 this.monitor.enter();
                 try {
-                    if (this.monitor.waitForUninterruptibly(this.awaitHealthGuard, j2, timeUnit)) {
+                    if (this.monitor.waitForUninterruptibly(this.awaitHealthGuard, j, timeUnit)) {
                         checkHealthy();
                         return;
                     }
@@ -862,17 +862,17 @@ public final class ServiceManager {
         }
     }
 
-    public void awaitHealthy(long j2, TimeUnit timeUnit) throws TimeoutException {
+    public void awaitHealthy(long j, TimeUnit timeUnit) throws TimeoutException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j2, timeUnit) == null) {
-            this.state.awaitHealthy(j2, timeUnit);
+        if (interceptable == null || interceptable.invokeJL(1048579, this, j, timeUnit) == null) {
+            this.state.awaitHealthy(j, timeUnit);
         }
     }
 
-    public void awaitStopped(long j2, TimeUnit timeUnit) throws TimeoutException {
+    public void awaitStopped(long j, TimeUnit timeUnit) throws TimeoutException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048581, this, j2, timeUnit) == null) {
-            this.state.awaitStopped(j2, timeUnit);
+        if (interceptable == null || interceptable.invokeJL(1048581, this, j, timeUnit) == null) {
+            this.state.awaitStopped(j, timeUnit);
         }
     }
 }

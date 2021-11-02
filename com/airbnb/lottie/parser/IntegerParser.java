@@ -2,7 +2,7 @@ package com.airbnb.lottie.parser;
 
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IntegerParser implements ValueParser<Integer> {
     public static final IntegerParser INSTANCE = new IntegerParser();
 

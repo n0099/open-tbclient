@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ch implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.k> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class ch implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.k> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, kVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        kVar.f72161b = jSONObject.optInt("personalRecommend");
+        kVar.f64623b = jSONObject.optInt("personalRecommend");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,7 +45,7 @@ public class ch implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.k> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "personalRecommend", kVar.f72161b);
+            com.kwad.sdk.utils.q.a(jSONObject, "personalRecommend", kVar.f64623b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

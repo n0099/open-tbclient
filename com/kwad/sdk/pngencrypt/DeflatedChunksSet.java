@@ -12,47 +12,45 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DeflatedChunksSet {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f73431a;
+    public byte[] f65859a;
 
     /* renamed from: b  reason: collision with root package name */
-    public State f73432b;
+    public State f65860b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f73433c;
+    public final boolean f65861c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f73434d;
+    public int f65862d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f73435e;
+    public int f65863e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f73436f;
+    public final String f65864f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f73437g;
+    public int f65865g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f73438h;
+    public int f65866h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f73439i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Inflater f73440j;
+    public int f65867i;
+    public Inflater j;
     public final boolean k;
     public d l;
     public long m;
     public long n;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -142,28 +140,28 @@ public class DeflatedChunksSet {
                 return;
             }
         }
-        this.f73432b = State.WAITING_FOR_INPUT;
+        this.f65860b = State.WAITING_FOR_INPUT;
         this.m = 0L;
         this.n = 0L;
-        this.f73434d = -1;
-        this.f73435e = -1;
-        this.f73436f = str;
-        this.f73433c = z;
-        this.f73438h = i2;
+        this.f65862d = -1;
+        this.f65863e = -1;
+        this.f65864f = str;
+        this.f65861c = z;
+        this.f65866h = i2;
         boolean z2 = true;
         if (i2 < 1 || i3 < i2) {
             throw new PngjException("bad inital row len " + i2);
         }
         if (inflater != null) {
-            this.f73440j = inflater;
+            this.j = inflater;
             z2 = false;
         } else {
-            this.f73440j = new Inflater();
+            this.j = new Inflater();
         }
         this.k = z2;
-        this.f73431a = (bArr == null || bArr.length < i2) ? new byte[i3] : bArr;
-        this.f73439i = -1;
-        this.f73432b = State.WAITING_FOR_INPUT;
+        this.f65859a = (bArr == null || bArr.length < i2) ? new byte[i3] : bArr;
+        this.f65867i = -1;
+        this.f65860b = State.WAITING_FOR_INPUT;
         try {
             a(i2);
         } catch (RuntimeException e2) {
@@ -186,32 +184,32 @@ public class DeflatedChunksSet {
             return invokeV.booleanValue;
         }
         try {
-            if (this.f73432b == State.ROW_READY) {
+            if (this.f65860b == State.ROW_READY) {
                 com.kwad.sdk.core.d.a.a(new PngjException("invalid state"));
             }
-            if (this.f73432b.isDone()) {
+            if (this.f65860b.isDone()) {
                 return false;
             }
-            if (this.f73431a == null || this.f73431a.length < this.f73438h) {
-                this.f73431a = new byte[this.f73438h];
+            if (this.f65859a == null || this.f65859a.length < this.f65866h) {
+                this.f65859a = new byte[this.f65866h];
             }
-            if (this.f73437g < this.f73438h && !this.f73440j.finished()) {
+            if (this.f65865g < this.f65866h && !this.j.finished()) {
                 try {
-                    i2 = this.f73440j.inflate(this.f73431a, this.f73437g, this.f73438h - this.f73437g);
+                    i2 = this.j.inflate(this.f65859a, this.f65865g, this.f65866h - this.f65865g);
                 } catch (DataFormatException e2) {
                     com.kwad.sdk.core.d.a.a(new PngjException("error decompressing zlib stream ", e2));
                     i2 = 0;
                 }
-                this.f73437g += i2;
+                this.f65865g += i2;
                 this.n += i2;
             }
-            if (this.f73437g != this.f73438h) {
-                if (!this.f73440j.finished()) {
+            if (this.f65865g != this.f65866h) {
+                if (!this.j.finished()) {
                     state = State.WAITING_FOR_INPUT;
-                } else if (this.f73437g <= 0) {
+                } else if (this.f65865g <= 0) {
                     state = State.DONE;
                 }
-                this.f73432b = state;
+                this.f65860b = state;
                 if (state != State.ROW_READY) {
                     a();
                     return true;
@@ -219,7 +217,7 @@ public class DeflatedChunksSet {
                 return false;
             }
             state = State.ROW_READY;
-            this.f73432b = state;
+            this.f65860b = state;
             if (state != State.ROW_READY) {
             }
         } catch (RuntimeException e3) {
@@ -237,16 +235,16 @@ public class DeflatedChunksSet {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f73437g = 0;
-            this.f73439i++;
-            if (i2 < 1 || this.f73440j.finished()) {
-                this.f73438h = 0;
+            this.f65865g = 0;
+            this.f65867i++;
+            if (i2 < 1 || this.j.finished()) {
+                this.f65866h = 0;
                 g();
                 return;
             }
-            this.f73432b = State.WAITING_FOR_INPUT;
-            this.f73438h = i2;
-            if (this.f73433c) {
+            this.f65860b = State.WAITING_FOR_INPUT;
+            this.f65866h = i2;
+            if (this.f65861c) {
                 return;
             }
             i();
@@ -256,13 +254,13 @@ public class DeflatedChunksSet {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            if (!this.f73436f.equals(dVar.a().f73496c)) {
-                com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk inside IdatSet, id:" + dVar.a().f73496c + ", expected:" + this.f73436f));
+            if (!this.f65864f.equals(dVar.a().f65919c)) {
+                com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk inside IdatSet, id:" + dVar.a().f65919c + ", expected:" + this.f65864f));
             }
             this.l = dVar;
-            int i2 = this.f73434d + 1;
-            this.f73434d = i2;
-            int i3 = this.f73435e;
+            int i2 = this.f65862d + 1;
+            this.f65862d = i2;
+            int i3 = this.f65863e;
             if (i3 >= 0) {
                 dVar.a(i2 + i3);
             }
@@ -273,17 +271,17 @@ public class DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
             this.m += i3;
-            if (i3 < 1 || this.f73432b.isDone()) {
+            if (i3 < 1 || this.f65860b.isDone()) {
                 return;
             }
-            if (this.f73432b == State.ROW_READY) {
+            if (this.f65860b == State.ROW_READY) {
                 com.kwad.sdk.core.d.a.a(new PngjException("this should only be called if waitingForMoreInput"));
             }
-            if (this.f73440j.needsDictionary() || !this.f73440j.needsInput()) {
+            if (this.j.needsDictionary() || !this.j.needsInput()) {
                 throw new RuntimeException("should not happen");
             }
-            this.f73440j.setInput(bArr, i2, i3);
-            if (!this.f73433c) {
+            this.j.setInput(bArr, i2, i3);
+            if (!this.f65861c) {
                 i();
                 return;
             }
@@ -300,19 +298,19 @@ public class DeflatedChunksSet {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.f73432b.isClosed()) {
+            if (this.f65860b.isClosed()) {
                 return false;
             }
-            if (str.equals(this.f73436f) || b(str)) {
+            if (str.equals(this.f65864f) || b(str)) {
                 return true;
             }
-            if (this.f73432b.isDone()) {
-                if (!this.f73432b.isClosed()) {
+            if (this.f65860b.isDone()) {
+                if (!this.f65860b.isClosed()) {
                     f();
                 }
                 return false;
             }
-            throw new PngjException("Unexpected chunk " + str + " while " + this.f73436f + " set is not done");
+            throw new PngjException("Unexpected chunk " + str + " while " + this.f65864f + " set is not done");
         }
         return invokeL.booleanValue;
     }
@@ -344,27 +342,27 @@ public class DeflatedChunksSet {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f73432b.isDone() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65860b.isDone() : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f73432b.isClosed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f65860b.isClosed() : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             try {
-                if (!this.f73432b.isClosed()) {
-                    this.f73432b = State.CLOSED;
+                if (!this.f65860b.isClosed()) {
+                    this.f65860b = State.CLOSED;
                 }
-                if (!this.k || this.f73440j == null) {
+                if (!this.k || this.j == null) {
                     return;
                 }
-                this.f73440j.end();
-                this.f73440j = null;
+                this.j.end();
+                this.j = null;
             } catch (Exception unused) {
             }
         }
@@ -375,20 +373,20 @@ public class DeflatedChunksSet {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || d()) {
             return;
         }
-        this.f73432b = State.DONE;
+        this.f65860b = State.DONE;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f73439i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f65867i : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return new StringBuilder("idatSet : " + this.l.a().f73496c + " state=" + this.f73432b + " rows=" + this.f73439i + " bytes=" + this.m + "/" + this.n).toString();
+            return new StringBuilder("idatSet : " + this.l.a().f65919c + " state=" + this.f65860b + " rows=" + this.f65867i + " bytes=" + this.m + "/" + this.n).toString();
         }
         return (String) invokeV.objValue;
     }

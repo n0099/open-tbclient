@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,22 +15,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Flow implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<Flow> CREATOR;
-    public static final boolean DEBUG;
     public static final int INVALID_HANDLE = -1;
-    public static final String TAG = "UBCFlow";
     public transient /* synthetic */ FieldHolder $fh;
     public int mHandle;
+    public boolean mHasEnd;
     public String mId;
     public int mOption;
     public HashMap<String, Slot> mSlotMaps;
     public long mStartTime;
     public boolean mValid;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Parcelable.Creator<Flow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +80,6 @@ public class Flow implements Parcelable {
                 return;
             }
         }
-        DEBUG = AppConfig.isDebug();
         CREATOR = new a();
     }
 
@@ -100,6 +97,7 @@ public class Flow implements Parcelable {
             }
         }
         this.mValid = true;
+        this.mHasEnd = false;
         this.mId = "";
         this.mHandle = -1;
         this.mOption = 0;
@@ -191,9 +189,22 @@ public class Flow implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mValid : invokeV.booleanValue;
     }
 
+    public boolean hasEnd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mHasEnd : invokeV.booleanValue;
+    }
+
+    public void markEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.mHasEnd = true;
+        }
+    }
+
     public void setValid(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.mValid = z;
         }
     }
@@ -202,7 +213,7 @@ public class Flow implements Parcelable {
     public final void setValue(String str) {
         UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
         uBCManager.flowSetValue(this, str);
@@ -212,7 +223,7 @@ public class Flow implements Parcelable {
     public void setValueWithDuration(String str) {
         UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
         uBCManager.flowSetValueWithDuration(this, str);
@@ -222,7 +233,7 @@ public class Flow implements Parcelable {
     public final void startSlot(String str, JSONObject jSONObject) {
         UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048593, this, str, jSONObject) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048595, this, str, jSONObject) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
         uBCManager.flowStartSlot(this, str, jSONObject);
@@ -231,7 +242,7 @@ public class Flow implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048594, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048596, this, parcel, i2) == null) {
             parcel.writeString(this.mId);
             parcel.writeInt(this.mHandle);
             parcel.writeInt(this.mOption);
@@ -255,20 +266,20 @@ public class Flow implements Parcelable {
     public void setValue(Map<String, String> map) {
         UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, map) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, map) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
         uBCManager.flowSetValue(this, map);
     }
 
     @Deprecated
-    public final void addEvent(String str, String str2, long j2) {
+    public final void addEvent(String str, String str2, long j) {
         UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
-        uBCManager.flowAddEventWithDate(this, str, str2, j2);
+        uBCManager.flowAddEventWithDate(this, str, str2, j);
     }
 
     public Flow(String str, int i2, int i3) {
@@ -287,6 +298,7 @@ public class Flow implements Parcelable {
             }
         }
         this.mValid = true;
+        this.mHasEnd = false;
         this.mId = str;
         this.mHandle = i2;
         this.mOption = i3;
@@ -310,6 +322,7 @@ public class Flow implements Parcelable {
             }
         }
         this.mValid = true;
+        this.mHasEnd = false;
         this.mId = parcel.readString();
         this.mHandle = parcel.readInt();
         this.mOption = parcel.readInt();

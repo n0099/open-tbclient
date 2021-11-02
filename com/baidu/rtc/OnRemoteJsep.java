@@ -1,7 +1,7 @@
 package com.baidu.rtc;
 
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface OnRemoteJsep {
     void onRemoteJsep(JanusHandle janusHandle, JSONObject jSONObject);
 }

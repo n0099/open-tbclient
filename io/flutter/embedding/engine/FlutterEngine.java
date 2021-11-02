@@ -32,7 +32,7 @@ import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterEngine";
@@ -70,7 +70,7 @@ public class FlutterEngine {
     @NonNull
     public final TextInputChannel textInputChannel;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface EngineLifecycleListener {
         void onPreEngineRestart();
     }

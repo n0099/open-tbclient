@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.ColorSpace;
 import androidx.annotation.ColorInt;
 import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010\u000e\n\u0002\b\u000b\n\u0002\u0010\u000b\n\u0002\b\t\u001a\u0014\u0010\u0002\u001a\u00020\u0001*\u00020\u0000H\u0087\n¢\u0006\u0004\b\u0002\u0010\u0003\u001a\u0014\u0010\u0002\u001a\u00020\u0004*\u00020\u0004H\u0086\n¢\u0006\u0004\b\u0002\u0010\u0005\u001a\u0014\u0010\u0002\u001a\u00020\u0001*\u00020\u0006H\u0087\n¢\u0006\u0004\b\u0002\u0010\u0007\u001a\u0014\u0010\b\u001a\u00020\u0001*\u00020\u0000H\u0087\n¢\u0006\u0004\b\b\u0010\u0003\u001a\u0014\u0010\b\u001a\u00020\u0004*\u00020\u0004H\u0086\n¢\u0006\u0004\b\b\u0010\u0005\u001a\u0014\u0010\b\u001a\u00020\u0001*\u00020\u0006H\u0087\n¢\u0006\u0004\b\b\u0010\u0007\u001a\u0014\u0010\t\u001a\u00020\u0001*\u00020\u0000H\u0087\n¢\u0006\u0004\b\t\u0010\u0003\u001a\u0014\u0010\t\u001a\u00020\u0004*\u00020\u0004H\u0086\n¢\u0006\u0004\b\t\u0010\u0005\u001a\u0014\u0010\t\u001a\u00020\u0001*\u00020\u0006H\u0087\n¢\u0006\u0004\b\t\u0010\u0007\u001a\u0014\u0010\n\u001a\u00020\u0001*\u00020\u0000H\u0087\n¢\u0006\u0004\b\n\u0010\u0003\u001a\u0014\u0010\n\u001a\u00020\u0004*\u00020\u0004H\u0086\n¢\u0006\u0004\b\n\u0010\u0005\u001a\u0014\u0010\n\u001a\u00020\u0001*\u00020\u0006H\u0087\n¢\u0006\u0004\b\n\u0010\u0007\u001a\u001c\u0010\r\u001a\u00020\u0000*\u00020\u00002\u0006\u0010\f\u001a\u00020\u000bH\u0087\f¢\u0006\u0004\b\r\u0010\u000e\u001a\u001c\u0010\r\u001a\u00020\u0000*\u00020\u00002\u0006\u0010\f\u001a\u00020\u000fH\u0087\f¢\u0006\u0004\b\r\u0010\u0010\u001a\u001c\u0010\r\u001a\u00020\u0006*\u00020\u00042\u0006\u0010\f\u001a\u00020\u000bH\u0087\f¢\u0006\u0004\b\r\u0010\u0011\u001a\u001c\u0010\r\u001a\u00020\u0006*\u00020\u00042\u0006\u0010\f\u001a\u00020\u000fH\u0087\f¢\u0006\u0004\b\r\u0010\u0012\u001a\u001c\u0010\r\u001a\u00020\u0006*\u00020\u00062\u0006\u0010\f\u001a\u00020\u000bH\u0087\f¢\u0006\u0004\b\r\u0010\u0013\u001a\u001c\u0010\r\u001a\u00020\u0006*\u00020\u00062\u0006\u0010\f\u001a\u00020\u000fH\u0087\f¢\u0006\u0004\b\r\u0010\u0014\u001a\u001c\u0010\u0016\u001a\u00020\u0000*\u00020\u00002\u0006\u0010\u0015\u001a\u00020\u0000H\u0087\u0002¢\u0006\u0004\b\u0016\u0010\u0017\u001a\u0014\u0010\u0018\u001a\u00020\u0000*\u00020\u0004H\u0087\b¢\u0006\u0004\b\u0018\u0010\u0019\u001a\u0014\u0010\u0018\u001a\u00020\u0000*\u00020\u0006H\u0087\b¢\u0006\u0004\b\u0018\u0010\u001a\u001a\u0014\u0010\u001b\u001a\u00020\u0004*\u00020\u0006H\u0087\b¢\u0006\u0004\b\u001b\u0010\u001c\u001a\u0014\u0010\u001b\u001a\u00020\u0004*\u00020\u001dH\u0087\b¢\u0006\u0004\b\u001b\u0010\u001e\u001a\u0014\u0010\u001f\u001a\u00020\u0006*\u00020\u0004H\u0087\b¢\u0006\u0004\b\u001f\u0010 \"\u0018\u0010\"\u001a\u00020\u0004*\u00020\u00048Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b!\u0010\u0005\"\u0018\u0010\"\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b!\u0010\u0007\"\u0018\u0010$\u001a\u00020\u0004*\u00020\u00048Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b#\u0010\u0005\"\u0018\u0010$\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b#\u0010\u0007\"\u0018\u0010\f\u001a\u00020\u000b*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b%\u0010&\"\u0018\u0010(\u001a\u00020\u0004*\u00020\u00048Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b'\u0010\u0005\"\u0018\u0010(\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b'\u0010\u0007\"\u0018\u0010*\u001a\u00020)*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b*\u0010+\"\u0018\u0010,\u001a\u00020)*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b,\u0010+\"\u0018\u0010/\u001a\u00020\u0001*\u00020\u00048Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b-\u0010.\"\u0018\u0010/\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b-\u0010\u0007\"\u0018\u00101\u001a\u00020\u0004*\u00020\u00048Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b0\u0010\u0005\"\u0018\u00101\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b0\u0010\u0007¨\u00062"}, d2 = {"Landroid/graphics/Color;", "", "component1", "(Landroid/graphics/Color;)F", "", "(I)I", "", "(J)F", "component2", "component3", "component4", "Landroid/graphics/ColorSpace;", "colorSpace", "convertTo", "(Landroid/graphics/Color;Landroid/graphics/ColorSpace;)Landroid/graphics/Color;", "Landroid/graphics/ColorSpace$Named;", "(Landroid/graphics/Color;Landroid/graphics/ColorSpace$Named;)Landroid/graphics/Color;", "(ILandroid/graphics/ColorSpace;)J", "(ILandroid/graphics/ColorSpace$Named;)J", "(JLandroid/graphics/ColorSpace;)J", "(JLandroid/graphics/ColorSpace$Named;)J", "c", "plus", "(Landroid/graphics/Color;Landroid/graphics/Color;)Landroid/graphics/Color;", "toColor", "(I)Landroid/graphics/Color;", "(J)Landroid/graphics/Color;", "toColorInt", "(J)I", "", "(Ljava/lang/String;)I", "toColorLong", "(I)J", "getAlpha", "alpha", "getBlue", "blue", "getColorSpace", "(J)Landroid/graphics/ColorSpace;", "getGreen", "green", "", "isSrgb", "(J)Z", "isWideGamut", "getLuminance", "(I)F", "luminance", "getRed", "red", "core-ktx_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010\u000e\n\u0002\b\u000b\n\u0002\u0010\u000b\n\u0002\b\t\u001a\u0014\u0010\u0002\u001a\u00020\u0001*\u00020\u0000H\u0087\n¢\u0006\u0004\b\u0002\u0010\u0003\u001a\u0014\u0010\u0002\u001a\u00020\u0004*\u00020\u0004H\u0086\n¢\u0006\u0004\b\u0002\u0010\u0005\u001a\u0014\u0010\u0002\u001a\u00020\u0001*\u00020\u0006H\u0087\n¢\u0006\u0004\b\u0002\u0010\u0007\u001a\u0014\u0010\b\u001a\u00020\u0001*\u00020\u0000H\u0087\n¢\u0006\u0004\b\b\u0010\u0003\u001a\u0014\u0010\b\u001a\u00020\u0004*\u00020\u0004H\u0086\n¢\u0006\u0004\b\b\u0010\u0005\u001a\u0014\u0010\b\u001a\u00020\u0001*\u00020\u0006H\u0087\n¢\u0006\u0004\b\b\u0010\u0007\u001a\u0014\u0010\t\u001a\u00020\u0001*\u00020\u0000H\u0087\n¢\u0006\u0004\b\t\u0010\u0003\u001a\u0014\u0010\t\u001a\u00020\u0004*\u00020\u0004H\u0086\n¢\u0006\u0004\b\t\u0010\u0005\u001a\u0014\u0010\t\u001a\u00020\u0001*\u00020\u0006H\u0087\n¢\u0006\u0004\b\t\u0010\u0007\u001a\u0014\u0010\n\u001a\u00020\u0001*\u00020\u0000H\u0087\n¢\u0006\u0004\b\n\u0010\u0003\u001a\u0014\u0010\n\u001a\u00020\u0004*\u00020\u0004H\u0086\n¢\u0006\u0004\b\n\u0010\u0005\u001a\u0014\u0010\n\u001a\u00020\u0001*\u00020\u0006H\u0087\n¢\u0006\u0004\b\n\u0010\u0007\u001a\u001c\u0010\r\u001a\u00020\u0000*\u00020\u00002\u0006\u0010\f\u001a\u00020\u000bH\u0087\f¢\u0006\u0004\b\r\u0010\u000e\u001a\u001c\u0010\r\u001a\u00020\u0000*\u00020\u00002\u0006\u0010\f\u001a\u00020\u000fH\u0087\f¢\u0006\u0004\b\r\u0010\u0010\u001a\u001c\u0010\r\u001a\u00020\u0006*\u00020\u00042\u0006\u0010\f\u001a\u00020\u000bH\u0087\f¢\u0006\u0004\b\r\u0010\u0011\u001a\u001c\u0010\r\u001a\u00020\u0006*\u00020\u00042\u0006\u0010\f\u001a\u00020\u000fH\u0087\f¢\u0006\u0004\b\r\u0010\u0012\u001a\u001c\u0010\r\u001a\u00020\u0006*\u00020\u00062\u0006\u0010\f\u001a\u00020\u000bH\u0087\f¢\u0006\u0004\b\r\u0010\u0013\u001a\u001c\u0010\r\u001a\u00020\u0006*\u00020\u00062\u0006\u0010\f\u001a\u00020\u000fH\u0087\f¢\u0006\u0004\b\r\u0010\u0014\u001a\u001c\u0010\u0016\u001a\u00020\u0000*\u00020\u00002\u0006\u0010\u0015\u001a\u00020\u0000H\u0087\u0002¢\u0006\u0004\b\u0016\u0010\u0017\u001a\u0014\u0010\u0018\u001a\u00020\u0000*\u00020\u0004H\u0087\b¢\u0006\u0004\b\u0018\u0010\u0019\u001a\u0014\u0010\u0018\u001a\u00020\u0000*\u00020\u0006H\u0087\b¢\u0006\u0004\b\u0018\u0010\u001a\u001a\u0014\u0010\u001b\u001a\u00020\u0004*\u00020\u0006H\u0087\b¢\u0006\u0004\b\u001b\u0010\u001c\u001a\u0014\u0010\u001b\u001a\u00020\u0004*\u00020\u001dH\u0087\b¢\u0006\u0004\b\u001b\u0010\u001e\u001a\u0014\u0010\u001f\u001a\u00020\u0006*\u00020\u0004H\u0087\b¢\u0006\u0004\b\u001f\u0010 \"\u0018\u0010\"\u001a\u00020\u0004*\u00020\u00048Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b!\u0010\u0005\"\u0018\u0010\"\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b!\u0010\u0007\"\u0018\u0010$\u001a\u00020\u0004*\u00020\u00048Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b#\u0010\u0005\"\u0018\u0010$\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b#\u0010\u0007\"\u0018\u0010\f\u001a\u00020\u000b*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b%\u0010&\"\u0018\u0010(\u001a\u00020\u0004*\u00020\u00048Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b'\u0010\u0005\"\u0018\u0010(\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b'\u0010\u0007\"\u0018\u0010*\u001a\u00020)*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b*\u0010+\"\u0018\u0010,\u001a\u00020)*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b,\u0010+\"\u0018\u0010/\u001a\u00020\u0001*\u00020\u00048Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b-\u0010.\"\u0018\u0010/\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b-\u0010\u0007\"\u0018\u00101\u001a\u00020\u0004*\u00020\u00048Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b0\u0010\u0005\"\u0018\u00101\u001a\u00020\u0001*\u00020\u00068Ç\u0002@\u0006¢\u0006\u0006\u001a\u0004\b0\u0010\u0007¨\u00062"}, d2 = {"Landroid/graphics/Color;", "", "component1", "(Landroid/graphics/Color;)F", "", "(I)I", "", "(J)F", "component2", "component3", "component4", "Landroid/graphics/ColorSpace;", "colorSpace", "convertTo", "(Landroid/graphics/Color;Landroid/graphics/ColorSpace;)Landroid/graphics/Color;", "Landroid/graphics/ColorSpace$Named;", "(Landroid/graphics/Color;Landroid/graphics/ColorSpace$Named;)Landroid/graphics/Color;", "(ILandroid/graphics/ColorSpace;)J", "(ILandroid/graphics/ColorSpace$Named;)J", "(JLandroid/graphics/ColorSpace;)J", "(JLandroid/graphics/ColorSpace$Named;)J", "c", "plus", "(Landroid/graphics/Color;Landroid/graphics/Color;)Landroid/graphics/Color;", "toColor", "(I)Landroid/graphics/Color;", "(J)Landroid/graphics/Color;", "toColorInt", "(J)I", "", "(Ljava/lang/String;)I", "toColorLong", "(I)J", "getAlpha", Key.ALPHA, "getBlue", "blue", "getColorSpace", "(J)Landroid/graphics/ColorSpace;", "getGreen", "green", "", "isSrgb", "(J)Z", "isWideGamut", "getLuminance", "(I)F", "luminance", "getRed", "red", "core-ktx_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
 public final class ColorKt {
     public static /* synthetic */ Interceptable $ic;
@@ -77,10 +78,10 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getAlpha(long j2) {
+    public static final float getAlpha(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j2)) == null) ? Color.alpha(j2) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j)) == null) ? Color.alpha(j) : invokeJ.floatValue;
     }
 
     public static final int getAlpha(@ColorInt int i2) {
@@ -90,10 +91,10 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getBlue(long j2) {
+    public static final float getBlue(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j2)) == null) ? Color.blue(j2) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j)) == null) ? Color.blue(j) : invokeJ.floatValue;
     }
 
     public static final int getBlue(@ColorInt int i2) {
@@ -103,11 +104,11 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final ColorSpace getColorSpace(long j2) {
+    public static final ColorSpace getColorSpace(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j2)) == null) {
-            ColorSpace colorSpace = Color.colorSpace(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j)) == null) {
+            ColorSpace colorSpace = Color.colorSpace(j);
             Intrinsics.checkExpressionValueIsNotNull(colorSpace, "Color.colorSpace(this)");
             return colorSpace;
         }
@@ -115,10 +116,10 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getGreen(long j2) {
+    public static final float getGreen(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j2)) == null) ? Color.green(j2) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j)) == null) ? Color.green(j) : invokeJ.floatValue;
     }
 
     public static final int getGreen(@ColorInt int i2) {
@@ -135,10 +136,10 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getRed(long j2) {
+    public static final float getRed(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65563, null, j2)) == null) ? Color.red(j2) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65563, null, j)) == null) ? Color.red(j) : invokeJ.floatValue;
     }
 
     public static final int getRed(@ColorInt int i2) {
@@ -148,17 +149,17 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final boolean isSrgb(long j2) {
+    public static final boolean isSrgb(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65565, null, j2)) == null) ? Color.isSrgb(j2) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65565, null, j)) == null) ? Color.isSrgb(j) : invokeJ.booleanValue;
     }
 
     @RequiresApi(26)
-    public static final boolean isWideGamut(long j2) {
+    public static final boolean isWideGamut(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65566, null, j2)) == null) ? Color.isWideGamut(j2) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65566, null, j)) == null) ? Color.isWideGamut(j) : invokeJ.booleanValue;
     }
 
     @RequiresApi(26)
@@ -187,10 +188,10 @@ public final class ColorKt {
 
     @ColorInt
     @RequiresApi(26)
-    public static final int toColorInt(long j2) {
+    public static final int toColorInt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65570, null, j2)) == null) ? Color.toArgb(j2) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65570, null, j)) == null) ? Color.toArgb(j) : invokeJ.intValue;
     }
 
     @RequiresApi(26)
@@ -201,31 +202,31 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float component1(long j2) {
+    public static final float component1(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j2)) == null) ? Color.red(j2) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) ? Color.red(j) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
-    public static final float component2(long j2) {
+    public static final float component2(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? Color.green(j2) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? Color.green(j) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
-    public static final float component3(long j2) {
+    public static final float component3(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j2)) == null) ? Color.blue(j2) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j)) == null) ? Color.blue(j) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
-    public static final float component4(long j2) {
+    public static final float component4(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) ? Color.alpha(j2) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) ? Color.alpha(j) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
@@ -236,18 +237,18 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getLuminance(long j2) {
+    public static final float getLuminance(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65562, null, j2)) == null) ? Color.luminance(j2) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65562, null, j)) == null) ? Color.luminance(j) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
-    public static final Color toColor(long j2) {
+    public static final Color toColor(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65569, null, j2)) == null) {
-            Color valueOf = Color.valueOf(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65569, null, j)) == null) {
+            Color valueOf = Color.valueOf(j);
             Intrinsics.checkExpressionValueIsNotNull(valueOf, "Color.valueOf(this)");
             return valueOf;
         }
@@ -262,17 +263,17 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final long convertTo(long j2, ColorSpace.Named named) {
+    public static final long convertTo(long j, ColorSpace.Named named) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65550, null, j2, named)) == null) ? Color.convert(j2, ColorSpace.get(named)) : invokeJL.longValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65550, null, j, named)) == null) ? Color.convert(j, ColorSpace.get(named)) : invokeJL.longValue;
     }
 
     @RequiresApi(26)
-    public static final long convertTo(long j2, ColorSpace colorSpace) {
+    public static final long convertTo(long j, ColorSpace colorSpace) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65551, null, j2, colorSpace)) == null) ? Color.convert(j2, colorSpace) : invokeJL.longValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65551, null, j, colorSpace)) == null) ? Color.convert(j, colorSpace) : invokeJL.longValue;
     }
 
     @RequiresApi(26)

@@ -1,11 +1,11 @@
 package com.baidu.tieba.lego.activity;
 
-import c.a.q0.s.q.d2;
-import c.a.r0.q1.l;
-import c.a.r0.q1.m.c;
-import c.a.r0.q1.m.e;
-import c.a.r0.q1.o.d;
-import c.a.r0.q1.r.b;
+import b.a.q0.s.q.d2;
+import b.a.r0.q1.l;
+import b.a.r0.q1.m.c;
+import b.a.r0.q1.m.e;
+import b.a.r0.q1.o.d;
+import b.a.r0.q1.r.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LegoListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,19 +70,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        b.f23883a.set(new l());
+        b.f22768a.set(new l());
         TbConfig.setLegoLibVersion("3.0.0");
-        c.a.r0.q1.o.b.h().g(d.f());
+        b.a.r0.q1.o.b.h().g(d.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        c.a.r0.q1.m.b.a().b(new e());
-        c.a.r0.q1.m.a.a().b(new c());
-        c.a.r0.q1.m.a.a().b(new c.a.r0.q1.m.d());
-        c.a.q0.c.c.f12803a.set(c.a.r0.q1.m.b.a());
-        c.a.q0.c.b.f12801a.set(c.a.r0.q1.m.a.a());
+        b.a.r0.q1.m.b.a().b(new e());
+        b.a.r0.q1.m.a.a().b(new c());
+        b.a.r0.q1.m.a.a().b(new b.a.r0.q1.m.d());
+        b.a.q0.c.c.f11967a.set(b.a.r0.q1.m.b.a());
+        b.a.q0.c.b.f11965a.set(b.a.r0.q1.m.a.a());
         d2.O3.set(true);
     }
 

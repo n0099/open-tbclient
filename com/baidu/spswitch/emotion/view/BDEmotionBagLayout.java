@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BDEmotionBagLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKGROUND_COLOR = -1;
@@ -52,7 +52,7 @@ public class BDEmotionBagLayout extends LinearLayout {
     public PagerAdapter mPagerAdapter;
     public ViewPager mViewPager;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class EmotionGridViewAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class EmotionPagerAdapter extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

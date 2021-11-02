@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f72834a;
+    public final com.kwad.sdk.core.webview.a f65284a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f72835b;
+    public a f65285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f72836c;
+    public Handler f65286c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
     }
@@ -43,9 +43,9 @@ public class b implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f72836c = new Handler(Looper.getMainLooper());
-        this.f72834a = aVar;
-        this.f72835b = aVar2;
+        this.f65286c = new Handler(Looper.getMainLooper());
+        this.f65284a = aVar;
+        this.f65285b = aVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -60,12 +60,12 @@ public class b implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f72836c.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.b.1
+            this.f65286c.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f72837a;
+                public final /* synthetic */ b f65287a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -82,14 +82,14 @@ public class b implements com.kwad.sdk.core.webview.a.a {
                             return;
                         }
                     }
-                    this.f72837a = this;
+                    this.f65287a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f72837a.f72835b.a();
+                        this.f65287a.f65285b.a();
                     }
                 }
             });
@@ -101,7 +101,7 @@ public class b implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f72836c.removeCallbacksAndMessages(null);
+            this.f65286c.removeCallbacksAndMessages(null);
         }
     }
 }

@@ -18,19 +18,19 @@ import java.lang.ref.WeakReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class StringUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern AcceptUrlPat;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f64082a;
+    public static final char[] f60925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f64083b;
+    public static Pattern f60926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WeakReference<Paint> f64084c;
+    public static WeakReference<Paint> f60927c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,10 +46,10 @@ public class StringUtil {
                 return;
             }
         }
-        f64082a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f60925a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         AcceptUrlPat = Pattern.compile("^(https?://|file:///android_asset/).*");
-        f64083b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
-        f64084c = new WeakReference<>(null);
+        f60926b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
+        f60927c = new WeakReference<>(null);
     }
 
     public StringUtil() {
@@ -78,8 +78,8 @@ public class StringUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b2)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(f64082a[(b2 >> 4) & 15]);
-            sb.append(f64082a[b2 & 15]);
+            sb.append(f60925a[(b2 >> 4) & 15]);
+            sb.append(f60925a[b2 & 15]);
             return sb.toString();
         }
         return (String) invokeB.objValue;
@@ -123,10 +123,10 @@ public class StringUtil {
             if (TextUtils.isEmpty(str)) {
                 return 0.0f;
             }
-            Paint paint = f64084c.get();
+            Paint paint = f60927c.get();
             if (paint == null) {
                 paint = new Paint();
-                f64084c = new WeakReference<>(paint);
+                f60927c = new WeakReference<>(paint);
             }
             paint.setTextSize(f2);
             return paint.measureText(str);
@@ -141,7 +141,7 @@ public class StringUtil {
             if (charSequence == null) {
                 return null;
             }
-            Matcher matcher = f64083b.matcher(charSequence);
+            Matcher matcher = f60926b.matcher(charSequence);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (matcher.matches()) {
                 spannableStringBuilder.append((CharSequence) matcher.group(1));

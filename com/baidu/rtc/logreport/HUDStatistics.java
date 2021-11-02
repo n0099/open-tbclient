@@ -13,13 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.webrtc.StatsReport;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HUDStatistics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_STATES_STREAMING_ALL = 31;
@@ -288,17 +287,17 @@ public class HUDStatistics {
         }
     }
 
-    public void addAudioStuckData(long j2, long j3) {
+    public void addAudioStuckData(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.audioStuckList.add(Long.valueOf(j3 - j2));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.audioStuckList.add(Long.valueOf(j2 - j));
         }
     }
 
-    public void addVideoStuckData(long j2, long j3) {
+    public void addVideoStuckData(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.videoStuckList.add(Long.valueOf(j3 - j2));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.videoStuckList.add(Long.valueOf(j2 - j));
         }
     }
 
@@ -430,17 +429,17 @@ public class HUDStatistics {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mHasVideo : invokeV.booleanValue;
     }
 
-    public void setFirstFrameTime(long j2) {
+    public void setFirstFrameTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.firstFrameTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.firstFrameTime = j;
         }
     }
 
-    public void setRequestSubscribeTime(long j2) {
+    public void setRequestSubscribeTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.requestSubscribeTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.requestSubscribeTime = j;
         }
     }
 
@@ -472,13 +471,13 @@ public class HUDStatistics {
                 sb.append(this.mVideoInputWidth);
                 sb.append("x");
                 sb.append(this.mVideoInputHeight);
-                sb.append(TNCManager.TNC_PROBE_HEADER_SECEPTOR);
+                sb.append("@");
                 sb.append(this.mVideoInputFps);
                 sb.append("fps  |  (send) ");
                 sb.append(this.mVideoSendWidth);
                 sb.append("X");
                 sb.append(this.mVideoSendHeight);
-                sb.append(TNCManager.TNC_PROBE_HEADER_SECEPTOR);
+                sb.append("@");
                 sb.append(this.mVideoSendFps);
                 sb.append("fps\n");
                 sb.append("VideoEnc: ");
@@ -505,7 +504,7 @@ public class HUDStatistics {
                 sb.append(this.mVideoRecvWidth);
                 sb.append("X");
                 sb.append(this.mVideoRecvHeight);
-                sb.append(TNCManager.TNC_PROBE_HEADER_SECEPTOR);
+                sb.append("@");
                 sb.append(this.mVideoRecvFps);
                 sb.append("fps  |  (deocded)");
                 sb.append(this.mVideoDecodFps);

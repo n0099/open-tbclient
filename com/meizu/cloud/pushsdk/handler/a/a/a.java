@@ -9,7 +9,7 @@ import com.meizu.cloud.pushsdk.handler.a.b.g;
 import com.meizu.cloud.pushsdk.notification.c;
 import com.meizu.cloud.pushsdk.util.d;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -31,7 +31,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(g gVar, c cVar) {
         String message;
-        c.l.a.a.a.c();
+        b.l.a.a.a.c();
         String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + gVar.d().b().a() + "_" + gVar.d().b().d() + ".zip";
         File file = null;
         try {
@@ -41,7 +41,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
             file = file2;
         } catch (Exception e2) {
             message = e2.getMessage();
-            c.l.a.a.a.b("AbstractMessageHandler", "zip error message " + message);
+            b.l.a.a.a.b("AbstractMessageHandler", "zip error message " + message);
         }
         if (file != null && file.length() / 1024 > gVar.a()) {
             message = "the upload file exceeds the max size";
@@ -50,19 +50,19 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
         }
         com.meizu.cloud.pushsdk.b.a.c<String> a2 = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
         if (a2 == null || !a2.b()) {
-            c.l.a.a.a.d("AbstractMessageHandler", "upload error code " + a2.c() + a2.a());
+            b.l.a.a.a.d("AbstractMessageHandler", "upload error code " + a2.c() + a2.a());
             return;
         }
         if (file != null) {
             file.delete();
         }
-        c.l.a.a.a.b("AbstractMessageHandler", "upload success " + a2.a());
+        b.l.a.a.a.b("AbstractMessageHandler", "upload success " + a2.a());
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
         int i2;
-        c.l.a.a.a.d("AbstractMessageHandler", "start LogUploadMessageHandler match");
+        b.l.a.a.a.d("AbstractMessageHandler", "start LogUploadMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
             com.meizu.cloud.pushsdk.handler.a.b.b a2 = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);

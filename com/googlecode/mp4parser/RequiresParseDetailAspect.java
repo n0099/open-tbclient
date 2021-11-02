@@ -13,7 +13,7 @@ import org.aspectj.lang.NoAspectBoundException;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 @Aspect
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RequiresParseDetailAspect {
     public static /* synthetic */ Interceptable $ic;
     public static /* synthetic */ Throwable ajc$initFailureCause;

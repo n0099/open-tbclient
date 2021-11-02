@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM = "MD5";

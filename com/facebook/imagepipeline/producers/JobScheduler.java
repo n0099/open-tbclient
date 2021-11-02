@@ -13,12 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.image.EncodedImage;
+import com.facebook.imagepipeline.instrumentation.FrescoInstrumenter;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class JobScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String QUEUE_TIME_KEY = "queueTime";
@@ -45,7 +46,7 @@ public class JobScheduler {
     public final Runnable mSubmitJobRunnable;
 
     /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
         public static /* synthetic */ Interceptable $ic;
@@ -85,13 +86,13 @@ public class JobScheduler {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface JobRunnable {
         void run(EncodedImage encodedImage, int i2);
     }
 
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class JobStartExecutorSupplier {
         public static /* synthetic */ Interceptable $ic;
         public static ScheduledExecutorService sJobStarterExecutor;
@@ -126,7 +127,7 @@ public class JobScheduler {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class JobState {
         public static final /* synthetic */ JobState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -302,37 +303,38 @@ public class JobScheduler {
         }
     }
 
-    private void enqueueJob(long j2) {
+    private void enqueueJob(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
-            if (j2 > 0) {
-                JobStartExecutorSupplier.get().schedule(this.mSubmitJobRunnable, j2, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            Runnable decorateRunnable = FrescoInstrumenter.decorateRunnable(this.mSubmitJobRunnable, "JobScheduler_enqueueJob");
+            if (j > 0) {
+                JobStartExecutorSupplier.get().schedule(decorateRunnable, j, TimeUnit.MILLISECONDS);
             } else {
-                this.mSubmitJobRunnable.run();
+                decorateRunnable.run();
             }
         }
     }
 
     private void onJobFinished() {
-        long j2;
+        long j;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();
             synchronized (this) {
                 if (this.mJobState == JobState.RUNNING_AND_PENDING) {
-                    j2 = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
+                    j = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
                     z = true;
                     this.mJobSubmitTime = uptimeMillis;
                     this.mJobState = JobState.QUEUED;
                 } else {
                     this.mJobState = JobState.IDLE;
-                    j2 = 0;
+                    j = 0;
                     z = false;
                 }
             }
             if (z) {
-                enqueueJob(j2 - uptimeMillis);
+                enqueueJob(j - uptimeMillis);
             }
         }
     }
@@ -347,7 +349,7 @@ public class JobScheduler {
     public void submitJob() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mExecutor.execute(this.mDoJobRunnable);
+            this.mExecutor.execute(FrescoInstrumenter.decorateRunnable(this.mDoJobRunnable, "JobScheduler_submitJob"));
         }
     }
 
@@ -366,13 +368,13 @@ public class JobScheduler {
 
     public synchronized long getQueuedTime() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                j2 = this.mJobStartTime - this.mJobSubmitTime;
+                j = this.mJobStartTime - this.mJobSubmitTime;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

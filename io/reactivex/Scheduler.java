@@ -20,13 +20,13 @@ import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.SchedulerRunnableIntrospection;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public static final long CLOCK_DRIFT_TOLERANCE_NANOSECONDS;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class DisposeTask implements Disposable, Runnable, SchedulerRunnableIntrospection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public abstract class Scheduler {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class PeriodicDirectTask implements Disposable, Runnable, SchedulerRunnableIntrospection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,12 +165,12 @@ public abstract class Scheduler {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Worker implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public final class PeriodicTask implements Runnable, SchedulerRunnableIntrospection {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -184,12 +184,12 @@ public abstract class Scheduler {
             public long startInNanoseconds;
             public final /* synthetic */ Worker this$0;
 
-            public PeriodicTask(Worker worker, @NonNull long j2, Runnable runnable, @NonNull long j3, SequentialDisposable sequentialDisposable, long j4) {
+            public PeriodicTask(Worker worker, @NonNull long j, Runnable runnable, @NonNull long j2, SequentialDisposable sequentialDisposable, long j3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {worker, Long.valueOf(j2), runnable, Long.valueOf(j3), sequentialDisposable, Long.valueOf(j4)};
+                    Object[] objArr = {worker, Long.valueOf(j), runnable, Long.valueOf(j2), sequentialDisposable, Long.valueOf(j3)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -202,9 +202,9 @@ public abstract class Scheduler {
                 this.this$0 = worker;
                 this.decoratedRun = runnable;
                 this.sd = sequentialDisposable;
-                this.periodInNanoseconds = j4;
-                this.lastNowNanoseconds = j3;
-                this.startInNanoseconds = j2;
+                this.periodInNanoseconds = j3;
+                this.lastNowNanoseconds = j2;
+                this.startInNanoseconds = j;
             }
 
             @Override // io.reactivex.schedulers.SchedulerRunnableIntrospection
@@ -216,7 +216,7 @@ public abstract class Scheduler {
 
             @Override // java.lang.Runnable
             public void run() {
-                long j2;
+                long j;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     this.decoratedRun.run();
@@ -224,27 +224,27 @@ public abstract class Scheduler {
                         return;
                     }
                     long now = this.this$0.now(TimeUnit.NANOSECONDS);
-                    long j3 = Scheduler.CLOCK_DRIFT_TOLERANCE_NANOSECONDS;
-                    long j4 = this.lastNowNanoseconds;
-                    if (now + j3 >= j4) {
-                        long j5 = this.periodInNanoseconds;
-                        if (now < j4 + j5 + j3) {
-                            long j6 = this.startInNanoseconds;
-                            long j7 = this.count + 1;
-                            this.count = j7;
-                            j2 = j6 + (j7 * j5);
+                    long j2 = Scheduler.CLOCK_DRIFT_TOLERANCE_NANOSECONDS;
+                    long j3 = this.lastNowNanoseconds;
+                    if (now + j2 >= j3) {
+                        long j4 = this.periodInNanoseconds;
+                        if (now < j3 + j4 + j2) {
+                            long j5 = this.startInNanoseconds;
+                            long j6 = this.count + 1;
+                            this.count = j6;
+                            j = j5 + (j6 * j4);
                             this.lastNowNanoseconds = now;
-                            this.sd.replace(this.this$0.schedule(this, j2 - now, TimeUnit.NANOSECONDS));
+                            this.sd.replace(this.this$0.schedule(this, j - now, TimeUnit.NANOSECONDS));
                         }
                     }
-                    long j8 = this.periodInNanoseconds;
-                    long j9 = now + j8;
-                    long j10 = this.count + 1;
-                    this.count = j10;
-                    this.startInNanoseconds = j9 - (j8 * j10);
-                    j2 = j9;
+                    long j7 = this.periodInNanoseconds;
+                    long j8 = now + j7;
+                    long j9 = this.count + 1;
+                    this.count = j9;
+                    this.startInNanoseconds = j8 - (j7 * j9);
+                    j = j8;
                     this.lastNowNanoseconds = now;
-                    this.sd.replace(this.this$0.schedule(this, j2 - now, TimeUnit.NANOSECONDS));
+                    this.sd.replace(this.this$0.schedule(this, j - now, TimeUnit.NANOSECONDS));
                 }
             }
         }
@@ -277,19 +277,19 @@ public abstract class Scheduler {
         }
 
         @NonNull
-        public abstract Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit);
+        public abstract Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit);
 
         @NonNull
-        public Disposable schedulePeriodically(@NonNull Runnable runnable, long j2, long j3, @NonNull TimeUnit timeUnit) {
+        public Disposable schedulePeriodically(@NonNull Runnable runnable, long j, long j2, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
                 SequentialDisposable sequentialDisposable = new SequentialDisposable();
                 SequentialDisposable sequentialDisposable2 = new SequentialDisposable(sequentialDisposable);
                 Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
-                long nanos = timeUnit.toNanos(j3);
+                long nanos = timeUnit.toNanos(j2);
                 long now = now(TimeUnit.NANOSECONDS);
-                Disposable schedule = schedule(new PeriodicTask(this, now + timeUnit.toNanos(j2), onSchedule, now, sequentialDisposable2, nanos), j2, timeUnit);
+                Disposable schedule = schedule(new PeriodicTask(this, now + timeUnit.toNanos(j), onSchedule, now, sequentialDisposable2, nanos), j, timeUnit);
                 if (schedule == EmptyDisposable.INSTANCE) {
                     return schedule;
                 }
@@ -353,13 +353,13 @@ public abstract class Scheduler {
     }
 
     @NonNull
-    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j2, long j3, @NonNull TimeUnit timeUnit) {
+    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
             Worker createWorker = createWorker();
             PeriodicDirectTask periodicDirectTask = new PeriodicDirectTask(RxJavaPlugins.onSchedule(runnable), createWorker);
-            Disposable schedulePeriodically = createWorker.schedulePeriodically(periodicDirectTask, j2, j3, timeUnit);
+            Disposable schedulePeriodically = createWorker.schedulePeriodically(periodicDirectTask, j, j2, timeUnit);
             return schedulePeriodically == EmptyDisposable.INSTANCE ? schedulePeriodically : periodicDirectTask;
         }
         return (Disposable) invokeCommon.objValue;
@@ -385,13 +385,13 @@ public abstract class Scheduler {
     }
 
     @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
             Worker createWorker = createWorker();
             DisposeTask disposeTask = new DisposeTask(RxJavaPlugins.onSchedule(runnable), createWorker);
-            createWorker.schedule(disposeTask, j2, timeUnit);
+            createWorker.schedule(disposeTask, j, timeUnit);
             return disposeTask;
         }
         return (Disposable) invokeCommon.objValue;

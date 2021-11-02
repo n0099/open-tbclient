@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SelectImageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
@@ -110,7 +110,7 @@ public class SelectImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
             try {
-                int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
+                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
                 if (attributeInt != 3) {
                     if (attributeInt != 6) {
                         return attributeInt != 8 ? 0 : 270;

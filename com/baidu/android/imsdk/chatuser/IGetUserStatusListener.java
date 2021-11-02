@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.chatuser;
 
 import com.baidu.android.imsdk.IMListener;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IGetUserStatusListener extends IMListener {
     void onGetUsersStatusResult(int i2, String str, ArrayList<UserStatus> arrayList);
 }

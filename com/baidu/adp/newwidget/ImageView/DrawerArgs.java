@@ -1,7 +1,7 @@
 package com.baidu.adp.newwidget.ImageView;
 
 import android.graphics.Matrix;
-import c.a.e.f.a.b;
+import b.a.e.f.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,40 +9,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DrawerArgs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f36345a;
+    public float[] f34425a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36346b;
+    public boolean f34426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36347c;
+    public boolean f34427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36348d;
+    public int f34428d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36349e;
+    public int f34429e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SkinType f36350f;
+    public SkinType f34430f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36351g;
+    public boolean f34431g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36352h;
+    public boolean f34432h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f36353i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f36354j;
+    public boolean f34433i;
+    public int j;
     public float k;
     public Matrix l;
     public int m;
@@ -50,7 +48,7 @@ public class DrawerArgs {
     public boolean o;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class SkinType {
         public static final /* synthetic */ SkinType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -124,11 +122,11 @@ public class DrawerArgs {
                 return;
             }
         }
-        this.f36345a = new float[8];
-        this.f36350f = SkinType.DAY;
-        this.f36352h = false;
-        this.f36353i = true;
-        this.f36354j = b.f2715a;
+        this.f34425a = new float[8];
+        this.f34430f = SkinType.DAY;
+        this.f34432h = false;
+        this.f34433i = true;
+        this.j = b.f2181a;
         this.k = 1.0f;
         this.o = false;
     }

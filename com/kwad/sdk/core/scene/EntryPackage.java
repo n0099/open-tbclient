@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class EntryPackage extends URLPackage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 8251709184937662571L;

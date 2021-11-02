@@ -8,41 +8,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f43833a;
+    public static final g f41610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f43834b;
+    public static final g f41611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f43835c;
+    public static final g f41612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f43836d;
+    public static final g f41613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f43837e;
+    public static final g f41614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f43838f;
+    public static final g f41615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final g f43839g;
+    public static final g f41616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final g f43840h;
+    public static final g f41617h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final g f43841i;
+    public static final g f41618i;
     public static final /* synthetic */ g[] k;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f43842j;
+    public long j;
 
     static {
         InterceptResult invokeClinit;
@@ -57,17 +55,17 @@ public final class g {
                 return;
             }
         }
-        f43833a = new g("AP_LIST", 0);
-        f43834b = new g("APP_USER_LIST", 1);
-        f43835c = new g("APP_SYS_LIST", 2);
-        f43836d = new g("APP_TRACE_CURRENT", 3);
-        f43837e = new g("APP_TRACE_HIS", 4);
-        f43838f = new g("APP_CHANGE", 5);
-        f43839g = new g("APP_APK", 6);
-        f43840h = new g("LAST_SEND", 7);
+        f41610a = new g("AP_LIST", 0);
+        f41611b = new g("APP_USER_LIST", 1);
+        f41612c = new g("APP_SYS_LIST", 2);
+        f41613d = new g("APP_TRACE_CURRENT", 3);
+        f41614e = new g("APP_TRACE_HIS", 4);
+        f41615f = new g("APP_CHANGE", 5);
+        f41616g = new g("APP_APK", 6);
+        f41617h = new g("LAST_SEND", 7);
         g gVar = new g("LAST_UPDATE", 8);
-        f43841i = gVar;
-        k = new g[]{f43833a, f43834b, f43835c, f43836d, f43837e, f43838f, f43839g, f43840h, gVar};
+        f41618i = gVar;
+        k = new g[]{f41610a, f41611b, f41612c, f41613d, f41614e, f41615f, f41616g, f41617h, gVar};
     }
 
     public g(String str, int i2) {

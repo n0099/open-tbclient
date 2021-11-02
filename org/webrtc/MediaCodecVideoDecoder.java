@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import h.c.i0;
-import h.c.l0;
+import g.c.i0;
+import g.c.l0;
 import java.nio.ByteBuffer;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaCodecVideoDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
@@ -96,7 +96,7 @@ public class MediaCodecVideoDecoder {
     public TextureListener textureListener;
     public int width;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DecodedOutputBuffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,12 +109,12 @@ public class MediaCodecVideoDecoder {
         public final int size;
         public final long timeStampMs;
 
-        public DecodedOutputBuffer(int i2, int i3, int i4, long j2, long j3, long j4, long j5, long j6) {
+        public DecodedOutputBuffer(int i2, int i3, int i4, long j, long j2, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r4;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -127,11 +127,11 @@ public class MediaCodecVideoDecoder {
             this.index = i2;
             this.offset = i3;
             this.size = i4;
-            this.presentationTimeStampMs = j2;
-            this.timeStampMs = j3;
-            this.ntpTimeStampMs = j4;
-            this.decodeTimeMs = j5;
-            this.endDecodeTimeMs = j6;
+            this.presentationTimeStampMs = j;
+            this.timeStampMs = j2;
+            this.ntpTimeStampMs = j3;
+            this.decodeTimeMs = j4;
+            this.endDecodeTimeMs = j5;
         }
 
         @CalledByNative("DecodedOutputBuffer")
@@ -184,7 +184,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DecodedTextureBuffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,12 +195,12 @@ public class MediaCodecVideoDecoder {
         public final long timeStampMs;
         public final VideoFrame.Buffer videoFrameBuffer;
 
-        public DecodedTextureBuffer(VideoFrame.Buffer buffer, long j2, long j3, long j4, long j5, long j6) {
+        public DecodedTextureBuffer(VideoFrame.Buffer buffer, long j, long j2, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {buffer, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+                Object[] objArr = {buffer, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -211,11 +211,11 @@ public class MediaCodecVideoDecoder {
                 }
             }
             this.videoFrameBuffer = buffer;
-            this.presentationTimeStampMs = j2;
-            this.timeStampMs = j3;
-            this.ntpTimeStampMs = j4;
-            this.decodeTimeMs = j5;
-            this.frameDelayMs = j6;
+            this.presentationTimeStampMs = j;
+            this.timeStampMs = j2;
+            this.ntpTimeStampMs = j3;
+            this.decodeTimeMs = j4;
+            this.frameDelayMs = j5;
         }
 
         @CalledByNative("DecodedTextureBuffer")
@@ -261,7 +261,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DecoderProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,7 +288,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HwDecoderFactory implements VideoDecoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -427,17 +427,17 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MediaCodecVideoDecoderErrorCallback {
         void onMediaCodecVideoDecoderCriticalError(int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MediaCodecVideoDecoderObserver {
         void onSEIRecv(ByteBuffer byteBuffer);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TextureListener implements VideoSink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -558,7 +558,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TimeStamps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -566,12 +566,12 @@ public class MediaCodecVideoDecoder {
         public final long ntpTimeStampMs;
         public final long timeStampMs;
 
-        public TimeStamps(long j2, long j3, long j4) {
+        public TimeStamps(long j, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -581,14 +581,14 @@ public class MediaCodecVideoDecoder {
                     return;
                 }
             }
-            this.decodeStartTimeMs = j2;
-            this.timeStampMs = j3;
-            this.ntpTimeStampMs = j4;
+            this.decodeStartTimeMs = j;
+            this.timeStampMs = j2;
+            this.ntpTimeStampMs = j3;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class VideoCodecType {
         public static final /* synthetic */ VideoCodecType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -738,7 +738,7 @@ public class MediaCodecVideoDecoder {
     @CalledByNativeUnchecked
     private DecodedOutputBuffer dequeueOutputBuffer(int i2) {
         InterceptResult invokeI;
-        long j2;
+        long j;
         int integer;
         int integer2;
         Interceptable interceptable = $ic;
@@ -763,11 +763,11 @@ public class MediaCodecVideoDecoder {
                         long elapsedRealtime = SystemClock.elapsedRealtime() - remove.decodeStartTimeMs;
                         if (elapsedRealtime > 200) {
                             Logging.e(TAG, "Very high decode time: " + elapsedRealtime + "ms. Q size: " + this.decodeStartTimeMs.size() + ". Might be caused by resuming H264 decoding after a pause.");
-                            j2 = 200L;
+                            j = 200L;
                         } else {
-                            j2 = elapsedRealtime;
+                            j = elapsedRealtime;
                         }
-                        return new DecodedOutputBuffer(dequeueOutputBuffer, bufferInfo.offset, bufferInfo.size, TimeUnit.MICROSECONDS.toMillis(bufferInfo.presentationTimeUs), remove.timeStampMs, remove.ntpTimeStampMs, j2, SystemClock.elapsedRealtime());
+                        return new DecodedOutputBuffer(dequeueOutputBuffer, bufferInfo.offset, bufferInfo.size, TimeUnit.MICROSECONDS.toMillis(bufferInfo.presentationTimeUs), remove.timeStampMs, remove.ntpTimeStampMs, j, SystemClock.elapsedRealtime());
                     }
                     return null;
                 } else {
@@ -1125,16 +1125,16 @@ public class MediaCodecVideoDecoder {
     }
 
     @CalledByNativeUnchecked
-    private boolean queueInputBuffer(int i2, int i3, long j2, long j3, long j4) {
+    private boolean queueInputBuffer(int i2, int i3, long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             checkOnMediaCodecThread();
             try {
                 this.inputBuffers[i2].position(0);
                 this.inputBuffers[i2].limit(i3);
-                this.decodeStartTimeMs.add(new TimeStamps(SystemClock.elapsedRealtime(), j3, j4));
-                this.mediaCodec.queueInputBuffer(i2, 0, i3, j2, 0);
+                this.decodeStartTimeMs.add(new TimeStamps(SystemClock.elapsedRealtime(), j2, j3));
+                this.mediaCodec.queueInputBuffer(i2, 0, i3, j, 0);
                 return true;
             } catch (IllegalStateException e2) {
                 Logging.e(TAG, "decode failed", e2);

@@ -18,7 +18,7 @@ import okio.Buffer;
 import okio.BufferedSource;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.auth.AUTH;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Response implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -205,16 +205,16 @@ public final class Response implements Closeable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? new Builder(this) : (Builder) invokeV.objValue;
     }
 
-    public ResponseBody peekBody(long j2) throws IOException {
+    public ResponseBody peekBody(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
             BufferedSource source = this.body.source();
-            source.request(j2);
+            source.request(j);
             Buffer clone = source.buffer().clone();
-            if (clone.size() > j2) {
+            if (clone.size() > j) {
                 Buffer buffer = new Buffer();
-                buffer.write(clone, j2);
+                buffer.write(clone, j);
                 clone.clear();
                 clone = buffer;
             }
@@ -280,7 +280,7 @@ public final class Response implements Closeable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.headers : (Headers) invokeV.objValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -481,11 +481,11 @@ public final class Response implements Closeable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder receivedResponseAtMillis(long j2) {
+        public Builder receivedResponseAtMillis(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j2)) == null) {
-                this.receivedResponseAtMillis = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
+                this.receivedResponseAtMillis = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -511,11 +511,11 @@ public final class Response implements Closeable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder sentRequestAtMillis(long j2) {
+        public Builder sentRequestAtMillis(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j2)) == null) {
-                this.sentRequestAtMillis = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
+                this.sentRequestAtMillis = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;

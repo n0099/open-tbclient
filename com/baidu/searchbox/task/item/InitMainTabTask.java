@@ -1,18 +1,19 @@
 package com.baidu.searchbox.task.item;
 
-import c.a.q0.m.a;
-import c.a.y0.c;
+import b.a.q0.m.a;
+import b.a.y0.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class InitMainTabTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,6 +43,9 @@ public class InitMainTabTask extends LaunchTask {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921616));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921617));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921618));
+            if (AdToMainTabActivitySwitch.getIsOn()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            }
         }
     }
 

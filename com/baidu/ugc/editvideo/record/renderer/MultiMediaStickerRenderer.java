@@ -3,8 +3,8 @@ package com.baidu.ugc.editvideo.record.renderer;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.e;
-import c.a.x0.t.h;
+import b.a.a0.b.a.e;
+import b.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -26,7 +26,7 @@ import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -143,10 +143,10 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
             MediaSegment mediaSegment = this.mSubtitleAndStickerTrack.mediaSegments.get(i9);
             MultiMediaData multiMediaData = this.mMultiMediaDataTrack.multiMediaDataList.get(i9);
             if (mediaSegment != null && multiMediaData != null) {
-                long j2 = mediaSegment.start;
-                if (j2 == 0 || j2 <= eVar.a()) {
-                    long j3 = mediaSegment.end;
-                    if ((j3 == 0 || j3 >= eVar.a()) && multiMediaData.textureId != 0) {
+                long j = mediaSegment.start;
+                if (j == 0 || j <= eVar.a()) {
+                    long j2 = mediaSegment.end;
+                    if ((j2 == 0 || j2 >= eVar.a()) && multiMediaData.textureId != 0) {
                         a aVar = this.mStickerItems.get(i9);
                         if (checkForSubline()) {
                             MultiMediaData checkForInitBtn = checkForInitBtn(this.mSublineData, "video_dotted_line");
@@ -165,14 +165,14 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                         } else {
                             aVar.b(this.mFullScreen2D);
-                            GLES20.glBindFramebuffer(36160, aVar.f60160a[0]);
+                            GLES20.glBindFramebuffer(36160, aVar.f57076a[0]);
                             GLViewPortLocation gLViewPortLocation2 = this.mGLViewPortLocation;
                             GLES20.glViewport(0, 0, gLViewPortLocation2.width, gLViewPortLocation2.height);
                             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                             GLES20.glClear(16640);
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                             GLES20.glBindFramebuffer(36160, 0);
-                            int h2 = eVar.h(mediaSegment, aVar.f60161b[0], null);
+                            int h2 = eVar.h(mediaSegment, aVar.f57077b[0], null);
                             GLES20.glViewport(i4, i6, i7, i8);
                             this.mFullScreen2D.drawFrame(h2, fArr);
                         }
@@ -209,10 +209,10 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                 }
                 MultiMediaData multiMediaData = this.mMultiMediaDataTrack.multiMediaDataList.get(i2);
                 if (mediaSegment != null && multiMediaData != null) {
-                    long j2 = mediaSegment.start;
-                    if (j2 == 0 || j2 <= this.mCurrentPos) {
-                        long j3 = mediaSegment.end;
-                        if ((j3 == 0 || j3 >= this.mCurrentPos) && multiMediaData.textureId != 0 && TextUtils.equals(this.mEditTrackType, mediaSegment.type)) {
+                    long j = mediaSegment.start;
+                    if (j == 0 || j <= this.mCurrentPos) {
+                        long j2 = mediaSegment.end;
+                        if ((j2 == 0 || j2 >= this.mCurrentPos) && multiMediaData.textureId != 0 && TextUtils.equals(this.mEditTrackType, mediaSegment.type)) {
                             this.mVisibleStickerItems.add((a) h.c(this.mStickerItems, i2));
                         }
                     }

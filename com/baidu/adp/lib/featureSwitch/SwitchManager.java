@@ -2,8 +2,8 @@ package com.baidu.adp.lib.featureSwitch;
 
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.f.b;
-import c.a.e.e.f.c;
+import b.a.e.e.f.b;
+import b.a.e.e.f.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SwitchManager {
     public static /* synthetic */ Interceptable $ic;
     public static SwitchManager sSwitchManager;
@@ -90,9 +90,9 @@ public class SwitchManager {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
         for (c cVar : this.mSwitchs.values()) {
             if (cVar != null) {
-                cVar.i(0);
-                edit.putInt(cVar.d() + c.f2253d, 0);
-                edit.putInt(cVar.d() + c.f2254e, cVar.c());
+                cVar.h(0);
+                edit.putInt(cVar.d() + c.f1734d, 0);
+                edit.putInt(cVar.d() + c.f1735e, cVar.c());
             }
         }
         edit.commit();
@@ -113,7 +113,7 @@ public class SwitchManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             c cVar = this.mSwitchs.get(str);
             if (cVar != null) {
-                return cVar.e();
+                return cVar.getType();
             }
             return -1;
         }
@@ -171,7 +171,7 @@ public class SwitchManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
             if (i2 >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-                return cVar.j(i2);
+                return cVar.i(i2);
             }
             return false;
         }

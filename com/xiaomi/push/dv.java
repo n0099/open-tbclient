@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class dv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +74,7 @@ public class dv {
                         hashMap2.put("flow_id", String.valueOf(jSONObject.opt("flow_id")));
                         hashMap2.put("jobkey", String.valueOf(jSONObject.opt("jobkey")));
                         hashMap2.put("msg_id", String.valueOf(jSONObject.opt("msg_id")));
-                        hashMap2.put("A", String.valueOf(jSONObject.opt("awake_app")));
+                        hashMap2.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, String.valueOf(jSONObject.opt("awake_app")));
                         hashMap2.put("B", String.valueOf(jSONObject.opt("awakened_app")));
                         hashMap2.put("module", String.valueOf(jSONObject.opt("awake_type")));
                     } catch (JSONException e2) {

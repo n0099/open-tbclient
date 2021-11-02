@@ -4,19 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class t implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.b f77015a;
+    public final /* synthetic */ com.vivo.push.b.b f70363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f77016b;
+    public final /* synthetic */ String f70364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ p f77017c;
+    public final /* synthetic */ p f70365c;
 
     public t(p pVar, com.vivo.push.b.b bVar, String str) {
         Interceptable interceptable = $ic;
@@ -33,17 +33,17 @@ public final class t implements Runnable {
                 return;
             }
         }
-        this.f77017c = pVar;
-        this.f77015a = bVar;
-        this.f77016b = str;
+        this.f70365c = pVar;
+        this.f70363a = bVar;
+        this.f70364b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f77017c.a(this.f77015a);
-            this.f77017c.d(this.f77016b);
+            this.f70365c.a(this.f70363a);
+            this.f70365c.d(this.f70364b);
         }
     }
 }

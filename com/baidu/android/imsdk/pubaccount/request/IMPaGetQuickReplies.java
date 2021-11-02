@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.QuickReply;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,19 +21,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
     public long mPaid;
 
-    public IMPaGetQuickReplies(Context context, long j2, String str) {
+    public IMPaGetQuickReplies(Context context, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -43,7 +44,7 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mPaid = j2;
+        this.mPaid = j;
         this.mKey = str;
     }
 
@@ -139,7 +140,7 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
         try {
             jSONObject = new JSONObject(str2);
             i3 = jSONObject.getInt("error_code");
-            jSONObject.optString("error_msg", "");
+            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
         } catch (JSONException e2) {
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }

@@ -40,7 +40,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCallback {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -72,7 +72,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     public WebSocketWriter writer;
     public final Runnable writerRunnable;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class CancelRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Close {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,12 +113,12 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         public final int code;
         public final ByteString reason;
 
-        public Close(int i2, ByteString byteString, long j2) {
+        public Close(int i2, ByteString byteString, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), byteString, Long.valueOf(j2)};
+                Object[] objArr = {Integer.valueOf(i2), byteString, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -130,11 +130,11 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
             }
             this.code = i2;
             this.reason = byteString;
-            this.cancelAfterCloseMillis = j2;
+            this.cancelAfterCloseMillis = j;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Message {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class PingRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Streams implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,12 +239,12 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         ONLY_HTTP1 = Collections.singletonList(Protocol.HTTP_1_1);
     }
 
-    public RealWebSocket(Request request, WebSocketListener webSocketListener, Random random, long j2) {
+    public RealWebSocket(Request request, WebSocketListener webSocketListener, Random random, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {request, webSocketListener, random, Long.valueOf(j2)};
+            Object[] objArr = {request, webSocketListener, random, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -261,7 +261,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
             this.originalRequest = request;
             this.listener = webSocketListener;
             this.random = random;
-            this.pingIntervalMillis = j2;
+            this.pingIntervalMillis = j;
             byte[] bArr = new byte[16];
             random.nextBytes(bArr);
             this.key = ByteString.of(bArr).base64();
@@ -586,13 +586,13 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     @Override // okhttp3.WebSocket
     public synchronized long queueSize() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             synchronized (this) {
-                j2 = this.queueSize;
+                j = this.queueSize;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -763,10 +763,10 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    public synchronized boolean close(int i2, String str, long j2) {
+    public synchronized boolean close(int i2, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)})) == null) {
             synchronized (this) {
                 WebSocketProtocol.validateCloseCode(i2);
                 ByteString byteString = null;
@@ -778,7 +778,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                 }
                 if (!this.failed && !this.enqueuedClose) {
                     this.enqueuedClose = true;
-                    this.messageAndCloseQueue.add(new Close(i2, byteString, j2));
+                    this.messageAndCloseQueue.add(new Close(i2, byteString, j));
                     runWriter();
                     return true;
                 }

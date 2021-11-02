@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77748a;
+    public int f70711a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f153a;
+    public String f154a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, String> f154a;
+    public Map<String, String> f155a;
 
     public be() {
         Interceptable interceptable = $ic;
@@ -35,18 +35,18 @@ public class be {
                 return;
             }
         }
-        this.f154a = new HashMap();
+        this.f155a = new HashMap();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f153a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f154a : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.f77748a), this.f154a.toString(), this.f153a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.f70711a), this.f155a.toString(), this.f154a) : (String) invokeV.objValue;
     }
 }

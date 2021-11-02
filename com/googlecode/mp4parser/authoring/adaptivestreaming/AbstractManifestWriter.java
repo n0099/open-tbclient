@@ -20,7 +20,7 @@ import com.googlecode.mp4parser.authoring.builder.FragmentIntersectionFinder;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.logging.Logger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractManifestWriter implements ManifestWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
@@ -73,7 +73,7 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
             long[] jArr = new long[sampleNumbers.length];
             int i2 = 0;
             int i3 = 1;
-            for (long j2 : track.getSampleDurations()) {
+            for (long j : track.getSampleDurations()) {
                 int i4 = i3 + 1;
                 while (i3 < i4) {
                     if (i2 != sampleNumbers.length - 1) {
@@ -82,7 +82,7 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
                             i2 = i5;
                         }
                     }
-                    jArr[i2] = jArr[i2] + j2;
+                    jArr[i2] = jArr[i2] + j;
                     i3++;
                 }
             }
@@ -104,15 +104,15 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
                     StringBuilder sb = new StringBuilder(String.valueOf("" + jArr.length));
                     sb.append("Reference     :  [");
                     String sb2 = sb.toString();
-                    for (long j2 : jArr) {
-                        sb2 = String.valueOf(sb2) + String.format("%10d,", Long.valueOf(j2));
+                    for (long j : jArr) {
+                        sb2 = String.valueOf(sb2) + String.format("%10d,", Long.valueOf(j));
                     }
                     LOG.warning(String.valueOf(sb2) + PreferencesUtil.RIGHT_MOUNT);
                     StringBuilder sb3 = new StringBuilder(String.valueOf("" + jArr2.length));
                     sb3.append("Current       :  [");
                     String sb4 = sb3.toString();
-                    for (long j3 : jArr2) {
-                        sb4 = String.valueOf(sb4) + String.format("%10d,", Long.valueOf(j3));
+                    for (long j2 : jArr2) {
+                        sb4 = String.valueOf(sb4) + String.format("%10d,", Long.valueOf(j2));
                     }
                     LOG.warning(String.valueOf(sb4) + PreferencesUtil.RIGHT_MOUNT);
                     throw new IOException("Track does not have the same fragment borders as its predecessor.");
@@ -128,11 +128,11 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, track)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (Sample sample : track.getSamples()) {
-                j2 += sample.getSize();
+                j += sample.getSize();
             }
-            return ((long) (j2 / (track.getDuration() / track.getTrackMetaData().getTimescale()))) * 8;
+            return ((long) (j / (track.getDuration() / track.getTrackMetaData().getTimescale()))) * 8;
         }
         return invokeL.longValue;
     }

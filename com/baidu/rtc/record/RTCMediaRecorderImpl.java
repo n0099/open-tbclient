@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.i0;
+import g.c.i0;
 import java.io.File;
 import java.io.IOException;
 import org.webrtc.VideoTrack;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RTCMediaRecorderImpl implements IMediaRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RTCMediaRecorderImpl";

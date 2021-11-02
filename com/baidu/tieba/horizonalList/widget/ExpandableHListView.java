@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ExpandableHListView extends HListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] A;
@@ -48,22 +48,20 @@ public class ExpandableHListView extends HListView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ExpandableHListConnector f52688e;
+    public ExpandableHListConnector f49968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ExpandableListAdapter f52689f;
+    public ExpandableListAdapter f49969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52690g;
+    public int f49970g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52691h;
+    public int f49971h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f52692i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f52693j;
+    public int f49972i;
+    public int j;
     public int k;
     public int l;
     public Drawable m;
@@ -80,14 +78,14 @@ public class ExpandableHListView extends HListView {
     public d x;
     public c y;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public ArrayList<ExpandableHListConnector.GroupMetadata> expandedGroupMetadataList;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -199,26 +197,26 @@ public class ExpandableHListView extends HListView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b implements ContextMenu.ContextMenuInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f52694a;
+        public View f49973a;
 
-        public b(View view, long j2, long j3) {
+        public b(View view, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {view, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -228,26 +226,26 @@ public class ExpandableHListView extends HListView {
                     return;
                 }
             }
-            this.f52694a = view;
+            this.f49973a = view;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface c {
-        boolean a(ExpandableHListView expandableHListView, View view, int i2, int i3, long j2);
+        boolean a(ExpandableHListView expandableHListView, View view, int i2, int i3, long j);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface d {
-        boolean a(ExpandableHListView expandableHListView, View view, int i2, long j2);
+        boolean a(ExpandableHListView expandableHListView, View view, int i2, long j);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface e {
         void a(int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface f {
         void a(int i2);
     }
@@ -298,12 +296,12 @@ public class ExpandableHListView extends HListView {
         }
     }
 
-    public static int getPackedPositionChild(long j2) {
+    public static int getPackedPositionChild(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2)) == null) {
-            if (j2 != 4294967295L && (j2 & Long.MIN_VALUE) == Long.MIN_VALUE) {
-                return (int) (j2 & 4294967295L);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+            if (j != 4294967295L && (j & Long.MIN_VALUE) == Long.MIN_VALUE) {
+                return (int) (j & 4294967295L);
             }
             return -1;
         }
@@ -322,26 +320,26 @@ public class ExpandableHListView extends HListView {
         return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? (i2 & 2147483647L) << 32 : invokeI.longValue;
     }
 
-    public static int getPackedPositionGroup(long j2) {
+    public static int getPackedPositionGroup(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j2)) == null) {
-            if (j2 == 4294967295L) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
+            if (j == 4294967295L) {
                 return -1;
             }
-            return (int) ((j2 & 9223372032559808512L) >> 32);
+            return (int) ((j & 9223372032559808512L) >> 32);
         }
         return invokeJ.intValue;
     }
 
-    public static int getPackedPositionType(long j2) {
+    public static int getPackedPositionType(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j2)) == null) {
-            if (j2 == 4294967295L) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j)) == null) {
+            if (j == 4294967295L) {
                 return 2;
             }
-            return (j2 & Long.MIN_VALUE) == Long.MIN_VALUE ? 1 : 0;
+            return (j & Long.MIN_VALUE) == Long.MIN_VALUE ? 1 : 0;
         }
         return invokeJ.intValue;
     }
@@ -352,14 +350,14 @@ public class ExpandableHListView extends HListView {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 + getHeaderViewsCount() : invokeI.intValue;
     }
 
-    public final long b(c.a.r0.i1.b.a aVar) {
+    public final long b(b.a.r0.i1.b.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar.f19098d == 1) {
-                return this.f52689f.getChildId(aVar.f19095a, aVar.f19096b);
+            if (aVar.f17894d == 1) {
+                return this.f49969f.getChildId(aVar.f17891a, aVar.f17892b);
             }
-            return this.f52689f.getGroupId(aVar.f19095a);
+            return this.f49969f.getGroupId(aVar.f17891a);
         }
         return invokeL.longValue;
     }
@@ -374,7 +372,7 @@ public class ExpandableHListView extends HListView {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            boolean b2 = this.f52688e.b(i2);
+            boolean b2 = this.f49968e.b(i2);
             e eVar = this.v;
             if (eVar != null) {
                 eVar.a(i2);
@@ -385,15 +383,15 @@ public class ExpandableHListView extends HListView {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView
-    public ContextMenu.ContextMenuInfo createContextMenuInfo(View view, int i2, long j2) {
+    public ContextMenu.ContextMenuInfo createContextMenuInfo(View view, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             if (f(i2)) {
-                return new AdapterView.b(view, i2, j2);
+                return new AdapterView.b(view, i2, j);
             }
-            ExpandableHListConnector.b i3 = this.f52688e.i(c(i2));
-            c.a.r0.i1.b.a aVar = i3.f52685a;
+            ExpandableHListConnector.b i3 = this.f49968e.i(c(i2));
+            b.a.r0.i1.b.a aVar = i3.f49965a;
             long b2 = b(aVar);
             long a2 = aVar.a();
             i3.d();
@@ -407,16 +405,16 @@ public class ExpandableHListView extends HListView {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            if (bVar.f52685a.f19098d == 2) {
+            if (bVar.f49965a.f17894d == 2) {
                 drawable = this.m;
                 if (drawable != null && drawable.isStateful()) {
-                    ExpandableHListConnector.GroupMetadata groupMetadata = bVar.f52686b;
+                    ExpandableHListConnector.GroupMetadata groupMetadata = bVar.f49966b;
                     drawable.setState(D[bVar.b() | (groupMetadata == null || groupMetadata.lastChildFlPos == groupMetadata.flPos ? (char) 2 : (char) 0)]);
                 }
             } else {
                 drawable = this.n;
                 if (drawable != null && drawable.isStateful()) {
-                    drawable.setState(bVar.f52685a.f19097c == bVar.f52686b.lastChildFlPos ? E : z);
+                    drawable.setState(bVar.f49965a.f17893c == bVar.f49966b.lastChildFlPos ? E : z);
                 }
             }
             return drawable;
@@ -449,34 +447,34 @@ public class ExpandableHListView extends HListView {
                     int left = childAt.getLeft();
                     int right2 = childAt.getRight();
                     if (right2 >= 0 && left <= right) {
-                        ExpandableHListConnector.b i5 = this.f52688e.i(i4);
-                        int i6 = i5.f52685a.f19098d;
+                        ExpandableHListConnector.b i5 = this.f49968e.i(i4);
+                        int i6 = i5.f49965a.f17894d;
                         if (i6 != i2) {
                             if (i6 == 1) {
                                 rect.top = childAt.getTop() + this.k;
                                 rect.bottom = childAt.getBottom() + this.k;
                             } else {
-                                rect.top = childAt.getTop() + this.f52690g;
-                                rect.bottom = childAt.getBottom() + this.f52690g;
+                                rect.top = childAt.getTop() + this.f49970g;
+                                rect.bottom = childAt.getBottom() + this.f49970g;
                             }
-                            i2 = i5.f52685a.f19098d;
+                            i2 = i5.f49965a.f17894d;
                         }
                         if (rect.top != rect.bottom) {
-                            if (i5.f52685a.f19098d == 1) {
+                            if (i5.f49965a.f17894d == 1) {
                                 int i7 = this.l;
                                 rect.left = left + i7;
                                 rect.right = right2 + i7;
                             } else {
-                                int i8 = this.f52691h;
+                                int i8 = this.f49971h;
                                 rect.left = left + i8;
                                 rect.right = right2 + i8;
                             }
                             Drawable d2 = d(i5);
                             if (d2 != null) {
-                                if (i5.f52685a.f19098d == 1) {
-                                    Gravity.apply(this.f52693j, this.t, this.u, rect, this.q);
+                                if (i5.f49965a.f17894d == 1) {
+                                    Gravity.apply(this.j, this.t, this.u, rect, this.q);
                                 } else {
-                                    Gravity.apply(this.f52692i, this.r, this.s, rect, this.q);
+                                    Gravity.apply(this.f49972i, this.r, this.s, rect, this.q);
                                 }
                                 d2.setBounds(this.q);
                                 d2.draw(canvas);
@@ -503,10 +501,10 @@ public class ExpandableHListView extends HListView {
         if (interceptable == null || interceptable.invokeLLI(1048583, this, canvas, rect, i2) == null) {
             int i3 = i2 + this.mFirstPosition;
             if (i3 >= 0) {
-                ExpandableHListConnector.b i4 = this.f52688e.i(c(i3));
-                if (i4.f52685a.f19098d != 1) {
+                ExpandableHListConnector.b i4 = this.f49968e.i(c(i3));
+                if (i4.f49965a.f17894d != 1) {
                     if (i4.b()) {
-                        ExpandableHListConnector.GroupMetadata groupMetadata = i4.f52686b;
+                        ExpandableHListConnector.GroupMetadata groupMetadata = i4.f49966b;
                     }
                     i4.d();
                 }
@@ -520,43 +518,43 @@ public class ExpandableHListView extends HListView {
         }
     }
 
-    public boolean e(View view, int i2, long j2) {
+    public boolean e(View view, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            ExpandableHListConnector.b i3 = this.f52688e.i(i2);
-            long b2 = b(i3.f52685a);
-            c.a.r0.i1.b.a aVar = i3.f52685a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            ExpandableHListConnector.b i3 = this.f49968e.i(i2);
+            long b2 = b(i3.f49965a);
+            b.a.r0.i1.b.a aVar = i3.f49965a;
             boolean z2 = true;
-            if (aVar.f19098d == 2) {
+            if (aVar.f17894d == 2) {
                 d dVar = this.x;
-                if (dVar != null && dVar.a(this, view, aVar.f19095a, b2)) {
+                if (dVar != null && dVar.a(this, view, aVar.f17891a, b2)) {
                     i3.d();
                     return true;
                 } else if (i3.b()) {
-                    this.f52688e.c(i3);
+                    this.f49968e.c(i3);
                     playSoundEffect(0);
                     e eVar = this.v;
                     if (eVar != null) {
-                        eVar.a(i3.f52685a.f19095a);
+                        eVar.a(i3.f49965a.f17891a);
                     }
                 } else {
-                    this.f52688e.d(i3);
+                    this.f49968e.d(i3);
                     playSoundEffect(0);
                     f fVar = this.w;
                     if (fVar != null) {
-                        fVar.a(i3.f52685a.f19095a);
+                        fVar.a(i3.f49965a.f17891a);
                     }
-                    c.a.r0.i1.b.a aVar2 = i3.f52685a;
-                    int i4 = aVar2.f19095a;
-                    int headerViewsCount = aVar2.f19097c + getHeaderViewsCount();
-                    smoothScrollToPosition(this.f52689f.getChildrenCount(i4) + headerViewsCount, headerViewsCount);
+                    b.a.r0.i1.b.a aVar2 = i3.f49965a;
+                    int i4 = aVar2.f17891a;
+                    int headerViewsCount = aVar2.f17893c + getHeaderViewsCount();
+                    smoothScrollToPosition(this.f49969f.getChildrenCount(i4) + headerViewsCount, headerViewsCount);
                 }
             } else if (this.y != null) {
                 playSoundEffect(0);
                 c cVar = this.y;
-                c.a.r0.i1.b.a aVar3 = i3.f52685a;
-                return cVar.a(this, view, aVar3.f19095a, aVar3.f19096b, b2);
+                b.a.r0.i1.b.a aVar3 = i3.f49965a;
+                return cVar.a(this, view, aVar3.f17891a, aVar3.f17892b, b2);
             } else {
                 z2 = false;
             }
@@ -598,7 +596,7 @@ public class ExpandableHListView extends HListView {
     public ExpandableListAdapter getExpandableListAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f52689f : (ExpandableListAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f49969f : (ExpandableListAdapter) invokeV.objValue;
     }
 
     public long getExpandableListPosition(int i2) {
@@ -608,22 +606,22 @@ public class ExpandableHListView extends HListView {
             if (f(i2)) {
                 return 4294967295L;
             }
-            ExpandableHListConnector.b i3 = this.f52688e.i(c(i2));
-            long a2 = i3.f52685a.a();
+            ExpandableHListConnector.b i3 = this.f49968e.i(c(i2));
+            long a2 = i3.f49965a.a();
             i3.d();
             return a2;
         }
         return invokeI.longValue;
     }
 
-    public int getFlatListPosition(long j2) {
+    public int getFlatListPosition(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j2)) == null) {
-            c.a.r0.i1.b.a f2 = c.a.r0.i1.b.a.f(j2);
-            ExpandableHListConnector.b h2 = this.f52688e.h(f2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
+            b.a.r0.i1.b.a f2 = b.a.r0.i1.b.a.f(j);
+            ExpandableHListConnector.b h2 = this.f49968e.h(f2);
             f2.g();
-            int i2 = h2.f52685a.f19097c;
+            int i2 = h2.f49965a.f17893c;
             h2.d();
             return a(i2);
         }
@@ -640,9 +638,9 @@ public class ExpandableHListView extends HListView {
             }
             int packedPositionGroup = getPackedPositionGroup(selectedPosition);
             if (getPackedPositionType(selectedPosition) == 0) {
-                return this.f52689f.getGroupId(packedPositionGroup);
+                return this.f49969f.getGroupId(packedPositionGroup);
             }
-            return this.f52689f.getChildId(packedPositionGroup, getPackedPositionChild(selectedPosition));
+            return this.f49969f.getChildId(packedPositionGroup, getPackedPositionChild(selectedPosition));
         }
         return invokeV.longValue;
     }
@@ -670,7 +668,7 @@ public class ExpandableHListView extends HListView {
     public boolean isGroupExpanded(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) ? this.f52688e.j(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) ? this.f49968e.j(i2) : invokeI.booleanValue;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.HListView, com.baidu.tieba.horizonalList.widget.AbsHListView, com.baidu.tieba.horizonalList.widget.AdapterView, android.view.View
@@ -703,7 +701,7 @@ public class ExpandableHListView extends HListView {
             }
             SavedState savedState = (SavedState) parcelable;
             super.onRestoreInstanceState(savedState.getSuperState());
-            ExpandableHListConnector expandableHListConnector = this.f52688e;
+            ExpandableHListConnector expandableHListConnector = this.f49968e;
             if (expandableHListConnector == null || (arrayList = savedState.expandedGroupMetadataList) == null) {
                 return;
             }
@@ -726,21 +724,21 @@ public class ExpandableHListView extends HListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             Parcelable onSaveInstanceState = super.onSaveInstanceState();
-            ExpandableHListConnector expandableHListConnector = this.f52688e;
+            ExpandableHListConnector expandableHListConnector = this.f49968e;
             return new SavedState(onSaveInstanceState, expandableHListConnector != null ? expandableHListConnector.g() : null);
         }
         return (Parcelable) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView, com.baidu.tieba.horizonalList.widget.AdapterView
-    public boolean performItemClick(View view, int i2, long j2) {
+    public boolean performItemClick(View view, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             if (f(i2)) {
-                return super.performItemClick(view, i2, j2);
+                return super.performItemClick(view, i2, j);
             }
-            return e(view, c(i2), j2);
+            return e(view, c(i2), j);
         }
         return invokeCommon.booleanValue;
     }
@@ -808,19 +806,19 @@ public class ExpandableHListView extends HListView {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2)})) == null) {
-            c.a.r0.i1.b.a d2 = c.a.r0.i1.b.a.d(i2, i3);
-            ExpandableHListConnector.b h2 = this.f52688e.h(d2);
+            b.a.r0.i1.b.a d2 = b.a.r0.i1.b.a.d(i2, i3);
+            ExpandableHListConnector.b h2 = this.f49968e.h(d2);
             if (h2 == null) {
                 if (!z2) {
                     return false;
                 }
                 expandGroup(i2);
-                h2 = this.f52688e.h(d2);
+                h2 = this.f49968e.h(d2);
                 if (h2 == null) {
                     throw new IllegalStateException("Could not find child");
                 }
             }
-            super.setSelection(a(h2.f52685a.f19097c));
+            super.setSelection(a(h2.f49965a.f17893c));
             d2.g();
             h2.d();
             return true;
@@ -831,10 +829,10 @@ public class ExpandableHListView extends HListView {
     public void setSelectedGroup(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            c.a.r0.i1.b.a e2 = c.a.r0.i1.b.a.e(i2);
-            ExpandableHListConnector.b h2 = this.f52688e.h(e2);
+            b.a.r0.i1.b.a e2 = b.a.r0.i1.b.a.e(i2);
+            ExpandableHListConnector.b h2 = this.f49968e.h(e2);
             e2.g();
-            super.setSelection(a(h2.f52685a.f19097c));
+            super.setSelection(a(h2.f49965a.f17893c));
             h2.d();
         }
     }
@@ -864,17 +862,17 @@ public class ExpandableHListView extends HListView {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z2)})) == null) {
-            c.a.r0.i1.b.a c2 = c.a.r0.i1.b.a.c(2, i2, -1, -1);
-            ExpandableHListConnector.b h2 = this.f52688e.h(c2);
+            b.a.r0.i1.b.a c2 = b.a.r0.i1.b.a.c(2, i2, -1, -1);
+            ExpandableHListConnector.b h2 = this.f49968e.h(c2);
             c2.g();
-            boolean d2 = this.f52688e.d(h2);
+            boolean d2 = this.f49968e.d(h2);
             f fVar = this.w;
             if (fVar != null) {
                 fVar.a(i2);
             }
             if (z2) {
-                int headerViewsCount = h2.f52685a.f19097c + getHeaderViewsCount();
-                smoothScrollToPosition(this.f52689f.getChildrenCount(i2) + headerViewsCount, headerViewsCount);
+                int headerViewsCount = h2.f49965a.f17893c + getHeaderViewsCount();
+                smoothScrollToPosition(this.f49969f.getChildrenCount(i2) + headerViewsCount, headerViewsCount);
             }
             h2.d();
             return d2;
@@ -923,10 +921,10 @@ public class ExpandableHListView extends HListView {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ExpandableHListView, i2, 0);
         setGroupIndicator(obtainStyledAttributes.getDrawable(R$styleable.ExpandableHListView_hlv_groupIndicator));
         setChildIndicator(obtainStyledAttributes.getDrawable(R$styleable.ExpandableHListView_hlv_childIndicator));
-        this.f52691h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ExpandableHListView_hlv_indicatorPaddingLeft, 0);
-        this.f52690g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ExpandableHListView_hlv_indicatorPaddingTop, 0);
-        this.f52692i = obtainStyledAttributes.getInt(R$styleable.ExpandableHListView_hlv_indicatorGravity, 0);
-        this.f52693j = obtainStyledAttributes.getInt(R$styleable.ExpandableHListView_hlv_childIndicatorGravity, 0);
+        this.f49971h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ExpandableHListView_hlv_indicatorPaddingLeft, 0);
+        this.f49970g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ExpandableHListView_hlv_indicatorPaddingTop, 0);
+        this.f49972i = obtainStyledAttributes.getInt(R$styleable.ExpandableHListView_hlv_indicatorGravity, 0);
+        this.j = obtainStyledAttributes.getInt(R$styleable.ExpandableHListView_hlv_childIndicatorGravity, 0);
         this.l = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ExpandableHListView_hlv_childIndicatorPaddingLeft, 0);
         this.k = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ExpandableHListView_hlv_childIndicatorPaddingTop, 0);
         this.o = obtainStyledAttributes.getDrawable(R$styleable.ExpandableHListView_hlv_childDivider);
@@ -936,13 +934,13 @@ public class ExpandableHListView extends HListView {
     public void setAdapter(ExpandableListAdapter expandableListAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, expandableListAdapter) == null) {
-            this.f52689f = expandableListAdapter;
+            this.f49969f = expandableListAdapter;
             if (expandableListAdapter != null) {
-                this.f52688e = new ExpandableHListConnector(expandableListAdapter);
+                this.f49968e = new ExpandableHListConnector(expandableListAdapter);
             } else {
-                this.f52688e = null;
+                this.f49968e = null;
             }
-            super.setAdapter((ListAdapter) this.f52688e);
+            super.setAdapter((ListAdapter) this.f49968e);
         }
     }
 }

@@ -4,6 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.BaseTaskPool;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.task.item.CheckRepackagingTask;
+import com.baidu.searchbox.task.item.DeleteApkTask;
 import com.baidu.searchbox.task.item.InitAccountAndPersonalizePageDataTask;
 import com.baidu.searchbox.task.item.InitAccountChangeTask;
 import com.baidu.searchbox.task.item.InitAdTask;
@@ -12,7 +13,10 @@ import com.baidu.searchbox.task.item.InitArTask;
 import com.baidu.searchbox.task.item.InitDimenAdaptTask;
 import com.baidu.searchbox.task.item.InitMessageTask;
 import com.baidu.searchbox.task.item.InitSapiTask;
+import com.baidu.searchbox.task.item.LogoTask;
+import com.baidu.searchbox.task.item.NightPluginTask;
 import com.baidu.searchbox.task.item.PermissionUtilTask;
+import com.baidu.searchbox.task.item.SyncAccountTask;
 import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ApplicationTaskPool extends BaseTaskPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,10 +80,28 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List<LaunchTask> onUiReady(boolean z) {
+    public List<LaunchTask> onPrivacyPolicyGranted(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (z) {
+                arrayList.add(new DeleteApkTask());
+                arrayList.add(new NightPluginTask());
+                arrayList.add(new LogoTask());
+            } else {
+                arrayList.add(new SyncAccountTask());
+            }
+            return arrayList;
+        }
+        return (List) invokeZ.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
+    public List<LaunchTask> onUiReady(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             ArrayList arrayList = new ArrayList();
             if (z) {
                 arrayList.add(new CheckRepackagingTask());

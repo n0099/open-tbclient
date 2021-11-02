@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.performance;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.k;
+import b.a.p0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,34 +14,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UbcFlowEvent {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f46187g;
+    public static final boolean f43880g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f46188a;
+    public final String f43881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f46189b;
+    public long f43882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46190c;
+    public String f43883c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f46191d;
+    public String f43884d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecordType f46192e;
+    public RecordType f43885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f46193f;
+    public boolean f43886f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class RecordType {
         public static final /* synthetic */ RecordType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -117,7 +117,7 @@ public class UbcFlowEvent {
                 return;
             }
         }
-        f46187g = k.f7085a;
+        f43880g = k.f6397a;
     }
 
     public UbcFlowEvent(String str) {
@@ -135,19 +135,19 @@ public class UbcFlowEvent {
                 return;
             }
         }
-        this.f46189b = System.currentTimeMillis();
-        this.f46190c = "";
-        this.f46191d = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
-        this.f46192e = RecordType.KEEP;
-        this.f46193f = false;
-        this.f46188a = str;
+        this.f43882b = System.currentTimeMillis();
+        this.f43883c = "";
+        this.f43884d = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
+        this.f43885e = RecordType.KEEP;
+        this.f43886f = false;
+        this.f43881a = str;
     }
 
     public UbcFlowEvent a(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.f46193f = z;
+            this.f43886f = z;
             return this;
         }
         return (UbcFlowEvent) invokeZ.objValue;
@@ -156,20 +156,20 @@ public class UbcFlowEvent {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46193f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43886f : invokeV.booleanValue;
     }
 
     public RecordType c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46192e : (RecordType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43885e : (RecordType) invokeV.objValue;
     }
 
     public UbcFlowEvent d(RecordType recordType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, recordType)) == null) {
-            this.f46192e = recordType;
+            this.f43885e = recordType;
             return this;
         }
         return (UbcFlowEvent) invokeL.objValue;
@@ -179,7 +179,7 @@ public class UbcFlowEvent {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f46191d = str;
+            this.f43884d = str;
             return this;
         }
         return (UbcFlowEvent) invokeL.objValue;
@@ -188,23 +188,23 @@ public class UbcFlowEvent {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f46191d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43884d : (String) invokeV.objValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f46189b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43882b : invokeV.longValue;
     }
 
-    public UbcFlowEvent h(long j2) {
+    public UbcFlowEvent h(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-            if (j2 < 0) {
-                j2 = 0;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            this.f46189b = j2;
+            this.f43882b = j;
             return this;
         }
         return (UbcFlowEvent) invokeJ.objValue;
@@ -216,11 +216,11 @@ public class UbcFlowEvent {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("id", this.f46188a);
-                jSONObject.put("value", this.f46190c);
-                jSONObject.put("ts", this.f46189b);
+                jSONObject.put("id", this.f43881a);
+                jSONObject.put("value", this.f43883c);
+                jSONObject.put("ts", this.f43882b);
             } catch (JSONException unused) {
-                boolean z = f46187g;
+                boolean z = f43880g;
             }
             return jSONObject;
         }
@@ -230,7 +230,7 @@ public class UbcFlowEvent {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f46190c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f43883c : (String) invokeV.objValue;
     }
 
     public String toString() {
@@ -240,7 +240,7 @@ public class UbcFlowEvent {
             Locale locale = Locale.getDefault();
             Object[] objArr = new Object[3];
             objArr[0] = Long.valueOf(g());
-            objArr[1] = this.f46188a;
+            objArr[1] = this.f43881a;
             objArr[2] = b() ? "(justLocalRecord)" : "";
             return String.format(locale, "Event at %d id = %s %s", objArr);
         }

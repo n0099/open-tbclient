@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f37938a = 1032;
+    public static final int f35957a = 1032;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Class<?>, Method> f37939b;
+    public static Map<Class<?>, Method> f35958b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class f {
                 return;
             }
         }
-        f37939b = new HashMap();
+        f35958b = new HashMap();
     }
 
     public f() {
@@ -55,20 +55,20 @@ public class f {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (f37939b) {
-                f37939b.clear();
+            synchronized (f35958b) {
+                f35958b.clear();
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:35:0x0070, code lost:
-        r1 = com.baidu.apollon.eventbus.f.f37939b;
+        r1 = com.baidu.apollon.eventbus.f.f35958b;
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0072, code lost:
         monitor-enter(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x0073, code lost:
-        com.baidu.apollon.eventbus.f.f37939b.put(r12, r2);
+        com.baidu.apollon.eventbus.f.f35958b.put(r12, r2);
      */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x0078, code lost:
         monitor-exit(r1);
@@ -84,8 +84,8 @@ public class f {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            synchronized (f37939b) {
-                method = f37939b.get(cls);
+            synchronized (f35958b) {
+                method = f35958b.get(cls);
             }
             if (method != null) {
                 return method;

@@ -15,6 +15,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.XAdRemoteCommonUtils;
@@ -44,6 +45,7 @@ import com.baidu.mobads.container.util.ScreenUtils;
 import com.baidu.mobads.container.util.SendLogUtil;
 import com.baidu.mobads.container.util.XAdRemoteEvent;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -62,7 +64,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseHtmlBridgeHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DL_STATUS_NONE = "NONE";
@@ -85,7 +87,7 @@ public abstract class BaseHtmlBridgeHandler {
     public WebView mWebView;
 
     /* renamed from: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler$14  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass14 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$mobads$container$bridge$CommandType;
         public static /* synthetic */ Interceptable $ic;
@@ -747,11 +749,21 @@ public abstract class BaseHtmlBridgeHandler {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:102:0x0293 A[Catch: Exception -> 0x02f9, TryCatch #9 {Exception -> 0x02f9, blocks: (B:100:0x027d, B:102:0x0293, B:104:0x029d, B:106:0x02b4, B:108:0x02ba, B:110:0x02dc, B:111:0x02f3), top: B:138:0x027d }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0154 A[Catch: Exception -> 0x025f, TRY_LEAVE, TryCatch #7 {Exception -> 0x025f, blocks: (B:9:0x0043, B:35:0x00ef, B:63:0x0154, B:71:0x0177, B:72:0x017c, B:74:0x0188, B:75:0x018b, B:77:0x01c2, B:78:0x01c5, B:81:0x01f0, B:83:0x0202, B:85:0x020c, B:88:0x0214, B:90:0x0222, B:61:0x014b, B:66:0x0168, B:68:0x016e), top: B:133:0x0043, inners: #5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0188 A[Catch: Exception -> 0x025f, TryCatch #7 {Exception -> 0x025f, blocks: (B:9:0x0043, B:35:0x00ef, B:63:0x0154, B:71:0x0177, B:72:0x017c, B:74:0x0188, B:75:0x018b, B:77:0x01c2, B:78:0x01c5, B:81:0x01f0, B:83:0x0202, B:85:0x020c, B:88:0x0214, B:90:0x0222, B:61:0x014b, B:66:0x0168, B:68:0x016e), top: B:133:0x0043, inners: #5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x01c2 A[Catch: Exception -> 0x025f, TryCatch #7 {Exception -> 0x025f, blocks: (B:9:0x0043, B:35:0x00ef, B:63:0x0154, B:71:0x0177, B:72:0x017c, B:74:0x0188, B:75:0x018b, B:77:0x01c2, B:78:0x01c5, B:81:0x01f0, B:83:0x0202, B:85:0x020c, B:88:0x0214, B:90:0x0222, B:61:0x014b, B:66:0x0168, B:68:0x016e), top: B:133:0x0043, inners: #5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x01ee A[ADDED_TO_REGION] */
+    /* JADX WARN: Can't wrap try/catch for region: R(18:119|120|(4:113|114|115|44)|(0)|47|48|49|(0)|52|(0)|55|(2:58|(5:60|62|65|67|68))|71|72|73|(0)|85|86) */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0169, code lost:
+        r0 = r11.optJSONObject("apo");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x016d, code lost:
+        if (r0 != null) goto L94;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x016f, code lost:
+        r9.setAppOpenStrs(r0.toString());
+     */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x0294 A[Catch: Exception -> 0x02fa, TryCatch #9 {Exception -> 0x02fa, blocks: (B:100:0x027e, B:102:0x0294, B:104:0x029e, B:106:0x02b5, B:108:0x02bb, B:110:0x02dd, B:111:0x02f4), top: B:139:0x027e }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0155 A[Catch: Exception -> 0x0260, TRY_LEAVE, TryCatch #7 {Exception -> 0x0260, blocks: (B:9:0x0044, B:35:0x00f0, B:63:0x0155, B:71:0x0178, B:72:0x017d, B:74:0x0189, B:75:0x018c, B:77:0x01c3, B:78:0x01c6, B:81:0x01f1, B:83:0x0203, B:85:0x020d, B:88:0x0215, B:90:0x0223, B:61:0x014c, B:66:0x0169, B:68:0x016f), top: B:134:0x0044, inners: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0189 A[Catch: Exception -> 0x0260, TryCatch #7 {Exception -> 0x0260, blocks: (B:9:0x0044, B:35:0x00f0, B:63:0x0155, B:71:0x0178, B:72:0x017d, B:74:0x0189, B:75:0x018c, B:77:0x01c3, B:78:0x01c6, B:81:0x01f1, B:83:0x0203, B:85:0x020d, B:88:0x0215, B:90:0x0223, B:61:0x014c, B:66:0x0169, B:68:0x016f), top: B:134:0x0044, inners: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x01c3 A[Catch: Exception -> 0x0260, TryCatch #7 {Exception -> 0x0260, blocks: (B:9:0x0044, B:35:0x00f0, B:63:0x0155, B:71:0x0178, B:72:0x017d, B:74:0x0189, B:75:0x018c, B:77:0x01c3, B:78:0x01c6, B:81:0x01f1, B:83:0x0203, B:85:0x020d, B:88:0x0215, B:90:0x0223, B:61:0x014c, B:66:0x0169, B:68:0x016f), top: B:134:0x0044, inners: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x01ef A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -893,85 +905,6 @@ public abstract class BaseHtmlBridgeHandler {
                                         cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
                                         handleVideoParameters(cloneIXAdInstanceInfo, jSONObject5);
                                         if (optInt3 == 2) {
-                                            appContext = this.mAdContainerCxt.getAppContext();
-                                            activity = this.mAdContainerCxt.getActivity();
-                                            if (NetworkInfoUtils.isCurrentNetworkAvailable(appContext)) {
-                                                CommonUtils.showAlertDialog(activity, jSONObject5.optString("dlgTitle", CommonUtils.DIALOG_TITLE), jSONObject5.optString("dlgBody", CommonUtils.DIALOG_MESSAGE), jSONObject5.optString("okBtn", CommonUtils.DIALOG_POS_TEXT), jSONObject5.optString("cancelBtn", CommonUtils.DIALOG_NEG_TEXT), true, new DialogInterface.OnClickListener(this, cloneIXAdInstanceInfo) { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.7
-                                                    public static /* synthetic */ Interceptable $ic;
-                                                    public transient /* synthetic */ FieldHolder $fh;
-                                                    public final /* synthetic */ BaseHtmlBridgeHandler this$0;
-                                                    public final /* synthetic */ IXAdInstanceInfo val$info;
-
-                                                    {
-                                                        Interceptable interceptable2 = $ic;
-                                                        if (interceptable2 != null) {
-                                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                                            newInitContext.initArgs = r2;
-                                                            Object[] objArr = {this, cloneIXAdInstanceInfo};
-                                                            interceptable2.invokeUnInit(65536, newInitContext);
-                                                            int i3 = newInitContext.flag;
-                                                            if ((i3 & 1) != 0) {
-                                                                int i4 = i3 & 2;
-                                                                newInitContext.thisArg = this;
-                                                                interceptable2.invokeInitBody(65536, newInitContext);
-                                                                return;
-                                                            }
-                                                        }
-                                                        this.this$0 = this;
-                                                        this.val$info = cloneIXAdInstanceInfo;
-                                                    }
-
-                                                    @Override // android.content.DialogInterface.OnClickListener
-                                                    public void onClick(DialogInterface dialogInterface, int i3) {
-                                                        Interceptable interceptable2 = $ic;
-                                                        if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i3) == null) {
-                                                            this.val$info.setActionOnlyWifi(false);
-                                                            this.val$info.setSecondConfirmed(true);
-                                                            this.this$0.mBridgeListener.onAdClicked(this.val$info);
-                                                            this.this$0.try2FireCustomizeTracking(this.val$info, 360);
-                                                            StateMachine.event(this.val$info.getUniqueId(), AdStateCode.EVENT_CLICK);
-                                                        }
-                                                    }
-                                                }, new DialogInterface.OnClickListener(this, cloneIXAdInstanceInfo) { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.8
-                                                    public static /* synthetic */ Interceptable $ic;
-                                                    public transient /* synthetic */ FieldHolder $fh;
-                                                    public final /* synthetic */ BaseHtmlBridgeHandler this$0;
-                                                    public final /* synthetic */ IXAdInstanceInfo val$info;
-
-                                                    {
-                                                        Interceptable interceptable2 = $ic;
-                                                        if (interceptable2 != null) {
-                                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                                            newInitContext.initArgs = r2;
-                                                            Object[] objArr = {this, cloneIXAdInstanceInfo};
-                                                            interceptable2.invokeUnInit(65536, newInitContext);
-                                                            int i3 = newInitContext.flag;
-                                                            if ((i3 & 1) != 0) {
-                                                                int i4 = i3 & 2;
-                                                                newInitContext.thisArg = this;
-                                                                interceptable2.invokeInitBody(65536, newInitContext);
-                                                                return;
-                                                            }
-                                                        }
-                                                        this.this$0 = this;
-                                                        this.val$info = cloneIXAdInstanceInfo;
-                                                    }
-
-                                                    @Override // android.content.DialogInterface.OnClickListener
-                                                    public void onClick(DialogInterface dialogInterface, int i3) {
-                                                        Interceptable interceptable2 = $ic;
-                                                        if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i3) == null) {
-                                                            this.val$info.setActionOnlyWifi(true);
-                                                            this.val$info.setSecondConfirmed(true);
-                                                            this.this$0.mBridgeListener.onAdClicked(this.val$info);
-                                                            this.this$0.try2FireCustomizeTracking(this.val$info, SDKLogTypeConstants.DZZB_ALERTDIALOG_NEGATIVE_CLICKED);
-                                                            StateMachine.event(this.val$info.getUniqueId(), AdStateCode.EVENT_CLICK);
-                                                        }
-                                                    }
-                                                });
-                                                try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG);
-                                                return;
-                                            }
                                         }
                                         this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
                                         StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
@@ -982,11 +915,7 @@ public abstract class BaseHtmlBridgeHandler {
                                     }
                                     if (jSONObject2 != null) {
                                     }
-                                    try {
-                                        cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
-                                    } catch (Exception e5) {
-                                        this.mAdLogger.d(e5);
-                                    }
+                                    cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
                                     cloneIXAdInstanceInfo.setClickThroughUrl(optString);
                                     cloneIXAdInstanceInfo.setAppPackageName(optString2);
                                     if (!TextUtils.isEmpty(optString3)) {
@@ -1010,6 +939,85 @@ public abstract class BaseHtmlBridgeHandler {
                                     cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
                                     handleVideoParameters(cloneIXAdInstanceInfo, jSONObject5);
                                     if (optInt3 == 2) {
+                                        appContext = this.mAdContainerCxt.getAppContext();
+                                        activity = this.mAdContainerCxt.getActivity();
+                                        if (NetworkInfoUtils.isCurrentNetworkAvailable(appContext)) {
+                                            CommonUtils.showAlertDialog(activity, jSONObject5.optString("dlgTitle", CommonUtils.DIALOG_TITLE), jSONObject5.optString("dlgBody", CommonUtils.DIALOG_MESSAGE), jSONObject5.optString("okBtn", CommonUtils.DIALOG_POS_TEXT), jSONObject5.optString("cancelBtn", CommonUtils.DIALOG_NEG_TEXT), true, new DialogInterface.OnClickListener(this, cloneIXAdInstanceInfo) { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.7
+                                                public static /* synthetic */ Interceptable $ic;
+                                                public transient /* synthetic */ FieldHolder $fh;
+                                                public final /* synthetic */ BaseHtmlBridgeHandler this$0;
+                                                public final /* synthetic */ IXAdInstanceInfo val$info;
+
+                                                {
+                                                    Interceptable interceptable2 = $ic;
+                                                    if (interceptable2 != null) {
+                                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                                        newInitContext.initArgs = r2;
+                                                        Object[] objArr = {this, cloneIXAdInstanceInfo};
+                                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                                        int i3 = newInitContext.flag;
+                                                        if ((i3 & 1) != 0) {
+                                                            int i4 = i3 & 2;
+                                                            newInitContext.thisArg = this;
+                                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                                            return;
+                                                        }
+                                                    }
+                                                    this.this$0 = this;
+                                                    this.val$info = cloneIXAdInstanceInfo;
+                                                }
+
+                                                @Override // android.content.DialogInterface.OnClickListener
+                                                public void onClick(DialogInterface dialogInterface, int i3) {
+                                                    Interceptable interceptable2 = $ic;
+                                                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i3) == null) {
+                                                        this.val$info.setActionOnlyWifi(false);
+                                                        this.val$info.setSecondConfirmed(true);
+                                                        this.this$0.mBridgeListener.onAdClicked(this.val$info);
+                                                        this.this$0.try2FireCustomizeTracking(this.val$info, 360);
+                                                        StateMachine.event(this.val$info.getUniqueId(), AdStateCode.EVENT_CLICK);
+                                                    }
+                                                }
+                                            }, new DialogInterface.OnClickListener(this, cloneIXAdInstanceInfo) { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.8
+                                                public static /* synthetic */ Interceptable $ic;
+                                                public transient /* synthetic */ FieldHolder $fh;
+                                                public final /* synthetic */ BaseHtmlBridgeHandler this$0;
+                                                public final /* synthetic */ IXAdInstanceInfo val$info;
+
+                                                {
+                                                    Interceptable interceptable2 = $ic;
+                                                    if (interceptable2 != null) {
+                                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                                        newInitContext.initArgs = r2;
+                                                        Object[] objArr = {this, cloneIXAdInstanceInfo};
+                                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                                        int i3 = newInitContext.flag;
+                                                        if ((i3 & 1) != 0) {
+                                                            int i4 = i3 & 2;
+                                                            newInitContext.thisArg = this;
+                                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                                            return;
+                                                        }
+                                                    }
+                                                    this.this$0 = this;
+                                                    this.val$info = cloneIXAdInstanceInfo;
+                                                }
+
+                                                @Override // android.content.DialogInterface.OnClickListener
+                                                public void onClick(DialogInterface dialogInterface, int i3) {
+                                                    Interceptable interceptable2 = $ic;
+                                                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i3) == null) {
+                                                        this.val$info.setActionOnlyWifi(true);
+                                                        this.val$info.setSecondConfirmed(true);
+                                                        this.this$0.mBridgeListener.onAdClicked(this.val$info);
+                                                        this.this$0.try2FireCustomizeTracking(this.val$info, SDKLogTypeConstants.DZZB_ALERTDIALOG_NEGATIVE_CLICKED);
+                                                        StateMachine.event(this.val$info.getUniqueId(), AdStateCode.EVENT_CLICK);
+                                                    }
+                                                }
+                                            });
+                                            try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG);
+                                            return;
+                                        }
                                     }
                                     this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
                                     StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
@@ -1026,8 +1034,8 @@ public abstract class BaseHtmlBridgeHandler {
                                     str8 = jSONObject3.optString("appname");
                                     i2 = optInt;
                                     str4 = str7;
-                                } catch (Exception e6) {
-                                    e = e6;
+                                } catch (Exception e5) {
+                                    e = e5;
                                     i2 = optInt;
                                     str4 = str7;
                                     this.mAdLogger.d(e);
@@ -1075,8 +1083,8 @@ public abstract class BaseHtmlBridgeHandler {
                             }
                             str5 = str4;
                             str6 = str8;
-                        } catch (Exception e7) {
-                            e = e7;
+                        } catch (Exception e6) {
+                            e = e6;
                             str4 = optString6;
                             i2 = 0;
                         }
@@ -1085,11 +1093,8 @@ public abstract class BaseHtmlBridgeHandler {
                         }
                         try {
                             cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
-                        } catch (Exception unused6) {
-                            JSONObject optJSONObject3 = jSONObject5.optJSONObject("apo");
-                            if (optJSONObject3 != null) {
-                                cloneIXAdInstanceInfo.setAppOpenStrs(optJSONObject3.toString());
-                            }
+                        } catch (Exception e7) {
+                            this.mAdLogger.d(e7);
                         }
                         cloneIXAdInstanceInfo.setClickThroughUrl(optString);
                         cloneIXAdInstanceInfo.setAppPackageName(optString2);
@@ -1502,15 +1507,15 @@ public abstract class BaseHtmlBridgeHandler {
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("level", "");
+                String optString = jSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, "");
                 String optString2 = jSONObject.optString("msg", "");
                 if (optString.equals("D")) {
                     this.mAdLogger.d(optString2);
                 } else if (optString.equals("I")) {
                     this.mAdLogger.i(optString2);
-                } else if (optString.equals("W")) {
+                } else if (optString.equals(ExifInterface.LONGITUDE_WEST)) {
                     this.mAdLogger.w(optString2);
-                } else if (optString.equals("E")) {
+                } else if (optString.equals(ExifInterface.LONGITUDE_EAST)) {
                     this.mAdLogger.e(optString2);
                 }
             } catch (Exception e2) {

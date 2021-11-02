@@ -1,25 +1,31 @@
 package rx.internal.operators;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.f;
-import i.j;
-import i.n.a;
+import h.d;
+import h.f;
+import h.j;
+import h.n.a;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+import java.util.concurrent.atomic.AtomicInteger;
+import rx.subjects.UnicastSubject;
+/* loaded from: classes3.dex */
 public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final int f79811e;
+    /* renamed from: i  reason: collision with root package name */
+    public final j<? super d<T>> f72645i;
+    public final int j;
+    public final int k;
+    public final AtomicInteger l;
+    public int m;
+    public h.t.d<T, T> n;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final int f79812f;
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class WindowSkipProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
@@ -44,21 +50,83 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
             this.this$0 = operatorWindowWithSize$WindowSkip;
         }
 
-        @Override // i.f
-        public void request(long j2) {
+        @Override // h.f
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                 if (i2 < 0) {
-                    throw new IllegalArgumentException("n >= 0 required but it was " + j2);
+                    throw new IllegalArgumentException("n >= 0 required but it was " + j);
                 } else if (i2 != 0) {
                     OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowSkip.request(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f79812f));
+                        operatorWindowWithSize$WindowSkip.e(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.k));
                     } else {
-                        operatorWindowWithSize$WindowSkip.request(i.o.a.a.a(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f79811e), i.o.a.a.c(operatorWindowWithSize$WindowSkip.f79812f - operatorWindowWithSize$WindowSkip.f79811e, j2 - 1)));
+                        operatorWindowWithSize$WindowSkip.e(h.o.a.a.a(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.j), h.o.a.a.c(operatorWindowWithSize$WindowSkip.k - operatorWindowWithSize$WindowSkip.j, j - 1)));
                     }
                 }
+            }
+        }
+    }
+
+    @Override // h.n.a
+    public void call() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.l.decrementAndGet() == 0) {
+            unsubscribe();
+        }
+    }
+
+    @Override // h.e
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h.t.d<T, T> dVar = this.n;
+            if (dVar != null) {
+                this.n = null;
+                dVar.onCompleted();
+            }
+            this.f72645i.onCompleted();
+        }
+    }
+
+    @Override // h.e
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            h.t.d<T, T> dVar = this.n;
+            if (dVar != null) {
+                this.n = null;
+                dVar.onError(th);
+            }
+            this.f72645i.onError(th);
+        }
+    }
+
+    @Override // h.e
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            int i2 = this.m;
+            UnicastSubject unicastSubject = this.n;
+            if (i2 == 0) {
+                this.l.getAndIncrement();
+                unicastSubject = UnicastSubject.F(this.j, this);
+                this.n = unicastSubject;
+                this.f72645i.onNext(unicastSubject);
+            }
+            int i3 = i2 + 1;
+            if (unicastSubject != null) {
+                unicastSubject.onNext(t);
+            }
+            if (i3 == this.j) {
+                this.m = i3;
+                this.n = null;
+                unicastSubject.onCompleted();
+            } else if (i3 == this.k) {
+                this.m = 0;
+            } else {
+                this.m = i3;
             }
         }
     }

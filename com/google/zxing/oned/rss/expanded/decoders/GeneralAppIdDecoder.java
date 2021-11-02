@@ -19,7 +19,7 @@ import com.google.zxing.common.BitArray;
 import kotlin.text.Typography;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class GeneralAppIdDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public final class GeneralAppIdDecoder {
                         c2 = Typography.less;
                         break;
                     case GDiffPatcher.DATA_INT /* 248 */:
-                        c2 = a.f36026h;
+                        c2 = a.f34124h;
                         break;
                     case 249:
                         c2 = Typography.greater;

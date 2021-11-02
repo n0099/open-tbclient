@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class BannerBaseItemInfo implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TIMESTAMP_TYPE_COPY = "3";

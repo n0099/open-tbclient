@@ -1,7 +1,7 @@
 package com.bun.miitmdid.supplier.d;
 
 import android.content.Context;
-import c.l.b.a.b;
+import b.l.b.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a implements InnerIdSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64338a;
+    public Context f61177a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a implements InnerIdSupplier {
                 return;
             }
         }
-        this.f64338a = context;
+        this.f61177a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -59,7 +59,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                return b.e(this.f64338a);
+                return b.e(this.f61177a);
             } catch (Exception unused) {
                 return "";
             }
@@ -73,7 +73,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return b.c(this.f64338a);
+                return b.c(this.f61177a);
             } catch (Exception unused) {
                 return "";
             }
@@ -87,7 +87,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                return b.a(this.f64338a);
+                return b.a(this.f61177a);
             } catch (Exception unused) {
                 return "";
             }
@@ -101,7 +101,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                return b.d(this.f64338a);
+                return b.d(this.f61177a);
             } catch (Exception unused) {
                 return "";
             }

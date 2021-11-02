@@ -1,5 +1,6 @@
 package com.baidu.android.common.others.lang;
 
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -28,7 +29,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class StringUtil implements IStringUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARRAY_ELEMENT_SEPARATOR = ", ";
@@ -986,6 +987,7 @@ public final class StringUtil implements IStringUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65621, null, str)) == null) ? unqualify(str, '.') : (String) invokeL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static void validateLocalePart(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65623, null, str) == null) {

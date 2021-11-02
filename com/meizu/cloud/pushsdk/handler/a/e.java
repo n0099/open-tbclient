@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e extends a<MessageV3> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -28,7 +28,7 @@ public class e extends a<MessageV3> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        c.l.a.a.a.d("AbstractMessageHandler", "start ThroughMessageHandler match");
+        b.l.a.a.a.d("AbstractMessageHandler", "start ThroughMessageHandler match");
         if (a(1, g(intent))) {
             if (PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction())) {
                 if ("message".equals(i(intent))) {

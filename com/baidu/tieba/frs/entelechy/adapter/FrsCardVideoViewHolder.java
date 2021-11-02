@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.entelechy.adapter;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.b0.b;
-import c.a.r0.q2.e;
-import c.a.r0.x0.n1.g.a;
+import b.a.r0.b0.b;
+import b.a.r0.q2.e;
+import b.a.r0.x0.x1.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         }
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return invokeV.intValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,12 +60,12 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
             if (t == 0) {
                 return null;
             }
-            return ((a) t).N();
+            return ((a) t).K();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,12 +74,12 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
             if (t == 0) {
                 return null;
             }
-            return ((a) t).O();
+            return ((a) t).M();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,12 +98,12 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
             if (t == 0) {
                 return false;
             }
-            return ((a) t).X();
+            return ((a) t).W();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public void startPlay() {
         T t;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         ((a) t).startPlay();
     }
 
-    @Override // c.a.r0.q2.e
+    @Override // b.a.r0.q2.e
     public void stopPlay() {
         T t;
         Interceptable interceptable = $ic;

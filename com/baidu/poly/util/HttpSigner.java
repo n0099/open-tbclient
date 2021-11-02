@@ -1,7 +1,7 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
-import c.a.e0.k.a.b;
+import b.a.e0.k.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpSigner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class HttpSigner {
             sb.append(str);
             sb.append("=");
             sb.append(nativeGetStatisticsKey(i2));
-            return c.a.e0.k.g.b.c(sb.toString());
+            return b.a.e0.k.g.b.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
@@ -87,7 +87,7 @@ public class HttpSigner {
         sb.append(nativeGetCommissionSk());
         sb.append("&");
         sb.append(bVar.b("timestamp"));
-        bVar.e("sign", c.a.e0.k.g.b.c(sb.toString()));
+        bVar.e("sign", b.a.e0.k.g.b.c(sb.toString()));
     }
 
     public static native String nativeGetCommissionSk();

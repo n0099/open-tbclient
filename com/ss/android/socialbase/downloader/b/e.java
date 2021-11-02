@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import c.p.a.e.b.g.l;
-import c.p.a.e.b.g.t;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -20,6 +18,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.b.c;
+import com.ss.android.socialbase.downloader.downloader.k;
+import com.ss.android.socialbase.downloader.downloader.t;
+import com.ss.android.socialbase.downloader.f.i;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,737 +28,28 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e extends c.a implements t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SQLiteDatabase f76124b;
+    public static volatile SQLiteDatabase f69088b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.b.b f76125a;
+    public b f69089a;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.p.a.e.b.b.c f76126c;
+    public g f69090c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.p.a.e.b.b.c f76127d;
+    public g f69091d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.p.a.e.b.b.c f76128e;
+    public g f69092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f76129f;
-
-    /* loaded from: classes10.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f76130e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f76131f;
-
-        public a(e eVar, DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, downloadInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76131f = eVar;
-            this.f76130e = downloadInfo;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f76131f.d(this.f76130e);
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f76132e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f76133f;
-
-        public b(e eVar, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76133f = eVar;
-            this.f76132e = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f76133f.e(this.f76132e);
-                this.f76133f.d(this.f76132e);
-                this.f76133f.m(this.f76132e);
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f76134e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f76135f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.e.b.b.b f76136g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f76137h;
-
-        public c(e eVar, SparseArray sparseArray, SparseArray sparseArray2, c.p.a.e.b.b.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, sparseArray, sparseArray2, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76137h = eVar;
-            this.f76134e = sparseArray;
-            this.f76135f = sparseArray2;
-            this.f76136g = bVar;
-        }
-
-        /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, IGET, IGET, INVOKE, INVOKE, IGET, INVOKE, IGET, IGET, IGET, INVOKE, IF] complete} */
-        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-        /* JADX WARN: Code restructure failed: missing block: B:122:0x0273, code lost:
-            if (r0 == null) goto L90;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:127:0x027d, code lost:
-            if (r0 == null) goto L90;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:129:0x0281, code lost:
-            return;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:163:0x0336, code lost:
-            if (r0 == null) goto L183;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:168:0x033f, code lost:
-            if (r0 == null) goto L183;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:169:0x0341, code lost:
-            r0.a();
-            r18.f76137h.f76129f = true;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:170:0x0349, code lost:
-            r18.f76137h.a(r18.f76134e, r18.f76135f);
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:171:0x0352, code lost:
-            throw r0;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:80:0x019f, code lost:
-            if (r0 != null) goto L92;
-         */
-        /* JADX WARN: Removed duplicated region for block: B:197:0x00de A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:199:0x00ce A[SYNTHETIC] */
-        @Override // java.lang.Runnable
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void run() {
-            c.p.a.e.b.b.b bVar;
-            c.p.a.e.b.b.b bVar2;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.f76137h.h();
-            if (e.f76124b == null) {
-                return;
-            }
-            l b2 = c.p.a.e.b.g.e.b();
-            SparseArray sparseArray = new SparseArray();
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            Cursor cursor = null;
-            int i2 = 0;
-            try {
-                cursor = e.f76124b.rawQuery("SELECT * FROM downloader", null);
-                while (cursor.moveToNext()) {
-                    DownloadInfo downloadInfo = new DownloadInfo(cursor);
-                    downloadInfo.setStatusAtDbInit(downloadInfo.getRealStatus());
-                    if (downloadInfo.isCanResumeFromBreakPointStatus()) {
-                        downloadInfo.setStatus(-5);
-                        if (c.p.a.e.b.j.a.r().q("status_not_update_to_db", true)) {
-                            sparseArray.put(downloadInfo.getId(), downloadInfo);
-                        }
-                    }
-                    if (!TextUtils.isEmpty(downloadInfo.getSavePath()) && !TextUtils.isEmpty(downloadInfo.getName())) {
-                        if (downloadInfo.getStatus() != 1 || downloadInfo.getCurBytes() > 0) {
-                            if (downloadInfo.getStatus() != -3 && downloadInfo.getStatus() != 11 && !downloadInfo.isFileDataValid()) {
-                                downloadInfo.reset();
-                            }
-                            z = false;
-                        } else {
-                            z = true;
-                        }
-                        if (downloadInfo.getStatus() == 11) {
-                            downloadInfo.setStatus(-5);
-                        }
-                        if (c.p.a.e.b.l.f.I(downloadInfo.getStatus(), downloadInfo.getSavePath(), downloadInfo.getName())) {
-                            if (!c.p.a.e.b.l.a.a(33554432)) {
-                                downloadInfo.erase();
-                            }
-                        }
-                        if (!z) {
-                            arrayList.add(Integer.valueOf(downloadInfo.getId()));
-                            arrayList2.add(downloadInfo);
-                        } else {
-                            int id = downloadInfo.getId();
-                            int a2 = b2 != null ? b2.a(downloadInfo.getUrl(), downloadInfo.getSavePath()) : 0;
-                            if (a2 != id) {
-                                downloadInfo.setId(a2);
-                                sparseArray.put(id, downloadInfo);
-                            }
-                            this.f76134e.put(downloadInfo.getId(), downloadInfo);
-                        }
-                    }
-                    z = true;
-                    if (!z) {
-                    }
-                }
-                c.p.a.e.b.l.f.D(cursor);
-                this.f76137h.a(arrayList2);
-                this.f76137h.a(arrayList2, arrayList, sparseArray, this.f76134e, this.f76135f);
-                try {
-                    ArrayList<Integer> arrayList3 = new ArrayList();
-                    if (this.f76134e != null) {
-                        while (i2 < this.f76134e.size()) {
-                            int keyAt = this.f76134e.keyAt(i2);
-                            if (keyAt != 0) {
-                                DownloadInfo downloadInfo2 = (DownloadInfo) this.f76134e.get(keyAt);
-                                if (c.p.a.e.b.l.a.a(8192)) {
-                                    if (downloadInfo2 != null && !downloadInfo2.isChunkBreakpointAvailable() && downloadInfo2.getStatus() != -3) {
-                                        arrayList3.add(Integer.valueOf(downloadInfo2.getId()));
-                                        this.f76135f.remove(downloadInfo2.getId());
-                                    }
-                                } else if (downloadInfo2 != null && !downloadInfo2.isChunkBreakpointAvailable()) {
-                                    arrayList3.add(Integer.valueOf(downloadInfo2.getId()));
-                                    this.f76135f.remove(downloadInfo2.getId());
-                                }
-                            }
-                            for (Integer num : arrayList3) {
-                                this.f76134e.remove(num.intValue());
-                            }
-                            i2++;
-                        }
-                    }
-                    bVar2 = this.f76136g;
-                } catch (Throwable th) {
-                    try {
-                        th.printStackTrace();
-                    } finally {
-                    }
-                }
-            } catch (Throwable th2) {
-                try {
-                    th2.printStackTrace();
-                    c.p.a.e.b.l.f.D(cursor);
-                    this.f76137h.a(arrayList2);
-                    this.f76137h.a(arrayList2, arrayList, sparseArray, this.f76134e, this.f76135f);
-                    try {
-                        ArrayList<Integer> arrayList4 = new ArrayList();
-                        if (this.f76134e != null) {
-                            while (i2 < this.f76134e.size()) {
-                                int keyAt2 = this.f76134e.keyAt(i2);
-                                if (keyAt2 != 0) {
-                                    DownloadInfo downloadInfo3 = (DownloadInfo) this.f76134e.get(keyAt2);
-                                    if (c.p.a.e.b.l.a.a(8192)) {
-                                        if (downloadInfo3 != null && !downloadInfo3.isChunkBreakpointAvailable() && downloadInfo3.getStatus() != -3) {
-                                            arrayList4.add(Integer.valueOf(downloadInfo3.getId()));
-                                            this.f76135f.remove(downloadInfo3.getId());
-                                        }
-                                    } else if (downloadInfo3 != null && !downloadInfo3.isChunkBreakpointAvailable()) {
-                                        arrayList4.add(Integer.valueOf(downloadInfo3.getId()));
-                                        this.f76135f.remove(downloadInfo3.getId());
-                                    }
-                                }
-                                for (Integer num2 : arrayList4) {
-                                    this.f76134e.remove(num2.intValue());
-                                }
-                                i2++;
-                            }
-                        }
-                        bVar2 = this.f76136g;
-                    } catch (Throwable th3) {
-                        try {
-                            th3.printStackTrace();
-                            bVar2 = this.f76136g;
-                        } finally {
-                            c.p.a.e.b.b.b bVar3 = this.f76136g;
-                            if (bVar3 != null) {
-                                bVar3.a();
-                                this.f76137h.f76129f = true;
-                            }
-                            this.f76137h.a(this.f76134e, this.f76135f);
-                        }
-                    }
-                } catch (Throwable th4) {
-                    c.p.a.e.b.l.f.D(cursor);
-                    this.f76137h.a(arrayList2);
-                    this.f76137h.a(arrayList2, arrayList, sparseArray, this.f76134e, this.f76135f);
-                    try {
-                        ArrayList<Integer> arrayList5 = new ArrayList();
-                        if (this.f76134e != null) {
-                            while (i2 < this.f76134e.size()) {
-                                int keyAt3 = this.f76134e.keyAt(i2);
-                                if (keyAt3 != 0) {
-                                    DownloadInfo downloadInfo4 = (DownloadInfo) this.f76134e.get(keyAt3);
-                                    if (c.p.a.e.b.l.a.a(8192)) {
-                                        if (downloadInfo4 != null && !downloadInfo4.isChunkBreakpointAvailable() && downloadInfo4.getStatus() != -3) {
-                                            arrayList5.add(Integer.valueOf(downloadInfo4.getId()));
-                                            this.f76135f.remove(downloadInfo4.getId());
-                                        }
-                                    } else if (downloadInfo4 != null && !downloadInfo4.isChunkBreakpointAvailable()) {
-                                        arrayList5.add(Integer.valueOf(downloadInfo4.getId()));
-                                        this.f76135f.remove(downloadInfo4.getId());
-                                    }
-                                }
-                                for (Integer num3 : arrayList5) {
-                                    this.f76134e.remove(num3.intValue());
-                                }
-                                i2++;
-                            }
-                        }
-                        bVar = this.f76136g;
-                    } catch (Throwable th5) {
-                        try {
-                            th5.printStackTrace();
-                            bVar = this.f76136g;
-                        } finally {
-                            c.p.a.e.b.b.b bVar4 = this.f76136g;
-                            if (bVar4 != null) {
-                                bVar4.a();
-                                this.f76137h.f76129f = true;
-                            }
-                            this.f76137h.a(this.f76134e, this.f76135f);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f76138e;
-
-        public d(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76138e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f76138e.k();
-            }
-        }
-    }
-
-    /* renamed from: com.ss.android.socialbase.downloader.b.e$e  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class RunnableC2062e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f76139e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f76140f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f76141g;
-
-        public RunnableC2062e(e eVar, int i2, ContentValues contentValues) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2), contentValues};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76141g = eVar;
-            this.f76139e = i2;
-            this.f76140f = contentValues;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f76141g.b(this.f76139e, this.f76140f);
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f76142e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f76143f;
-
-        public f(e eVar, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76143f = eVar;
-            this.f76142e = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.f76143f.a(this.f76142e, this.f76143f.f76127d.b());
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.model.b f76144e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f76145f;
-
-        public g(e eVar, com.ss.android.socialbase.downloader.model.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76145f = eVar;
-            this.f76144e = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.f76145f.a(this.f76144e, this.f76145f.f76127d.a());
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f76146e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f76147f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f76148g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f76149h;
-
-        public h(e eVar, int i2, int i3, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76149h = eVar;
-            this.f76146e = i2;
-            this.f76147f = i3;
-            this.f76148g = j2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.f76149h.a(this.f76146e, this.f76147f, this.f76148g, this.f76149h.f76127d.c());
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class i implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f76150e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f76151f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f76152g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f76153h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f76154i;
-
-        public i(e eVar, int i2, int i3, int i4, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76154i = eVar;
-            this.f76150e = i2;
-            this.f76151f = i3;
-            this.f76152g = i4;
-            this.f76153h = j2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.f76154i.a(this.f76150e, this.f76151f, this.f76152g, this.f76153h, this.f76154i.f76127d.c());
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class j implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f76155e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f76156f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f76157g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f76158h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f76159i;
-
-        public j(e eVar, int i2, int i3, int i4, int i5) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76159i = eVar;
-            this.f76155e = i2;
-            this.f76156f = i3;
-            this.f76157g = i4;
-            this.f76158h = i5;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.f76159i.a(this.f76155e, this.f76156f, this.f76157g, this.f76158h, this.f76159i.f76127d.c());
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class k implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f76160e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f76161f;
-
-        public k(e eVar, DownloadInfo downloadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, downloadInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76161f = eVar;
-            this.f76160e = downloadInfo;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.f76161f.a(this.f76160e, this.f76161f.f76126c.a());
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
+    public volatile boolean f69093f;
 
     static {
         InterceptResult invokeClinit;
@@ -795,13 +87,13 @@ public class e extends c.a implements t {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65568, this) == null) && f76124b == null) {
+        if ((interceptable == null || interceptable.invokeV(65567, this) == null) && f69088b == null) {
             synchronized (e.class) {
-                if (f76124b == null) {
-                    f76124b = c.p.a.e.b.b.a.g().getWritableDatabase();
-                    this.f76126c = new c.p.a.e.b.b.c(f76124b, "downloader", c.p.a.e.b.d.b.f35100a, c.p.a.e.b.d.b.f35101b);
-                    this.f76127d = new c.p.a.e.b.b.c(f76124b, "downloadChunk", c.p.a.e.b.d.b.f35102c, c.p.a.e.b.d.b.f35103d);
-                    this.f76128e = new c.p.a.e.b.b.c(f76124b, "segments", c.p.a.e.b.d.b.f35104e, c.p.a.e.b.d.b.f35105f);
+                if (f69088b == null) {
+                    f69088b = a.a().getWritableDatabase();
+                    this.f69090c = new g(f69088b, "downloader", com.ss.android.socialbase.downloader.constants.c.f69167a, com.ss.android.socialbase.downloader.constants.c.f69168b);
+                    this.f69091d = new g(f69088b, "downloadChunk", com.ss.android.socialbase.downloader.constants.c.f69169c, com.ss.android.socialbase.downloader.constants.c.f69170d);
+                    this.f69092e = new g(f69088b, "segments", com.ss.android.socialbase.downloader.constants.c.f69171e, com.ss.android.socialbase.downloader.constants.c.f69172f);
                 }
             }
         }
@@ -809,19 +101,19 @@ public class e extends c.a implements t {
 
     private void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
-            f76124b.beginTransaction();
+        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
+            f69088b.beginTransaction();
         }
     }
 
     private void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
             try {
-                if (f76124b == null || !f76124b.inTransaction()) {
+                if (f69088b == null || !f69088b.inTransaction()) {
                     return;
                 }
-                f76124b.endTransaction();
+                f69088b.endTransaction();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -831,14 +123,65 @@ public class e extends c.a implements t {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
             synchronized (this) {
                 i();
-                f76124b.delete("downloader", null, null);
-                f76124b.delete("downloadChunk", null, null);
-                f76124b.setTransactionSuccessful();
+                f69088b.delete("downloader", null, null);
+                f69088b.delete("downloadChunk", null, null);
+                f69088b.setTransactionSuccessful();
                 j();
             }
+        }
+    }
+
+    private void update(int i2, ContentValues contentValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65571, this, i2, contentValues) == null) {
+            h();
+            if (f69088b == null) {
+                return;
+            }
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this, i2, contentValues) { // from class: com.ss.android.socialbase.downloader.b.e.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f69103a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ ContentValues f69104b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ e f69105c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), contentValues};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69105c = this;
+                    this.f69103a = i2;
+                    this.f69104b = contentValues;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f69105c.a(this.f69103a, this.f69104b);
+                    }
+                }
+            });
         }
     }
 
@@ -909,13 +252,13 @@ public class e extends c.a implements t {
     @Override // com.ss.android.socialbase.downloader.b.c
     public boolean e(int i2) {
         InterceptResult invokeI;
-        c.p.a.e.b.b.c cVar;
+        g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
             h();
-            if (f76124b != null && (cVar = this.f76126c) != null) {
+            if (f69088b != null && (gVar = this.f69090c) != null) {
                 try {
-                    a(i2, cVar.b());
+                    a(i2, gVar.b());
                     return true;
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -931,7 +274,45 @@ public class e extends c.a implements t {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) {
-            c.p.a.e.b.g.e.g0(new b(this, i2));
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this, i2) { // from class: com.ss.android.socialbase.downloader.b.e.11
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f69100a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ e f69101b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69101b = this;
+                    this.f69100a = i2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f69101b.e(this.f69100a);
+                        this.f69101b.d(this.f69100a);
+                        this.f69101b.m(this.f69100a);
+                    }
+                }
+            });
             return true;
         }
         return invokeI.booleanValue;
@@ -947,16 +328,16 @@ public class e extends c.a implements t {
         return (DownloadInfo) invokeI.objValue;
     }
 
-    @Override // c.p.a.e.b.g.k
-    public Map<Long, c.p.a.e.b.i.i> l(int i2) {
+    @Override // com.ss.android.socialbase.downloader.downloader.j
+    public Map<Long, i> l(int i2) {
         InterceptResult invokeI;
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i2)) == null) {
             h();
-            if (f76124b != null) {
+            if (f69088b != null) {
                 try {
-                    cursor = f76124b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "segments", "_id"), new String[]{Integer.toString(i2)});
+                    cursor = f69088b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "segments", "_id"), new String[]{Integer.toString(i2)});
                     try {
                         if (cursor.moveToNext()) {
                             int columnIndex = cursor.getColumnIndex("info");
@@ -964,21 +345,21 @@ public class e extends c.a implements t {
                             HashMap hashMap = new HashMap();
                             JSONArray jSONArray = new JSONArray(string);
                             for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                                c.p.a.e.b.i.i iVar = new c.p.a.e.b.i.i(jSONArray.getJSONObject(i3));
-                                hashMap.put(Long.valueOf(iVar.h()), iVar);
+                                i iVar = new i(jSONArray.getJSONObject(i3));
+                                hashMap.put(Long.valueOf(iVar.c()), iVar);
                             }
-                            c.p.a.e.b.l.f.D(cursor);
+                            com.ss.android.socialbase.downloader.i.f.a(cursor);
                             return hashMap;
                         }
-                        c.p.a.e.b.l.f.D(cursor);
+                        com.ss.android.socialbase.downloader.i.f.a(cursor);
                     } catch (Throwable th) {
                         th = th;
                         try {
                             th.printStackTrace();
-                            c.p.a.e.b.l.f.D(cursor);
+                            com.ss.android.socialbase.downloader.i.f.a(cursor);
                             return null;
                         } catch (Throwable th2) {
-                            c.p.a.e.b.l.f.D(cursor);
+                            com.ss.android.socialbase.downloader.i.f.a(cursor);
                             throw th2;
                         }
                     }
@@ -992,16 +373,16 @@ public class e extends c.a implements t {
         return (Map) invokeI.objValue;
     }
 
-    @Override // c.p.a.e.b.g.k
+    @Override // com.ss.android.socialbase.downloader.downloader.j
     public void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
             h();
-            if (f76124b == null) {
+            if (f69088b == null) {
                 return;
             }
             try {
-                a(i2, this.f76128e.b());
+                a(i2, this.f69092e.b());
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -1023,9 +404,9 @@ public class e extends c.a implements t {
                 return;
             }
         }
-        this.f76125a = null;
+        this.f69089a = null;
         if (z) {
-            this.f76129f = false;
+            this.f69093f = false;
             a();
         }
     }
@@ -1037,24 +418,24 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
             h();
-            if (f76124b != null) {
+            if (f69088b != null) {
                 try {
-                    cursor = f76124b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "_id"), new String[]{Integer.toString(i2)});
+                    cursor = f69088b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "_id"), new String[]{Integer.toString(i2)});
                     try {
                         if (cursor.moveToNext()) {
                             DownloadInfo downloadInfo = new DownloadInfo(cursor);
-                            c.p.a.e.b.l.f.D(cursor);
+                            com.ss.android.socialbase.downloader.i.f.a(cursor);
                             return downloadInfo;
                         }
-                        c.p.a.e.b.l.f.D(cursor);
+                        com.ss.android.socialbase.downloader.i.f.a(cursor);
                     } catch (Throwable th) {
                         th = th;
                         try {
                             th.printStackTrace();
-                            c.p.a.e.b.l.f.D(cursor);
+                            com.ss.android.socialbase.downloader.i.f.a(cursor);
                             return null;
                         } catch (Throwable th2) {
-                            c.p.a.e.b.l.f.D(cursor);
+                            com.ss.android.socialbase.downloader.i.f.a(cursor);
                             throw th2;
                         }
                     }
@@ -1075,20 +456,20 @@ public class e extends c.a implements t {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
             ArrayList arrayList = new ArrayList();
             h();
-            if (f76124b != null) {
+            if (f69088b != null) {
                 Cursor cursor = null;
                 try {
-                    cursor = f76124b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloadChunk", "_id"), new String[]{Integer.toString(i2)});
+                    cursor = f69088b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloadChunk", "_id"), new String[]{Integer.toString(i2)});
                     while (cursor.moveToNext()) {
                         arrayList.add(new com.ss.android.socialbase.downloader.model.b(cursor));
                     }
-                    c.p.a.e.b.l.f.D(cursor);
+                    com.ss.android.socialbase.downloader.i.f.a(cursor);
                 } catch (Throwable th) {
                     try {
                         th.printStackTrace();
-                        c.p.a.e.b.l.f.D(cursor);
+                        com.ss.android.socialbase.downloader.i.f.a(cursor);
                     } catch (Throwable th2) {
-                        c.p.a.e.b.l.f.D(cursor);
+                        com.ss.android.socialbase.downloader.i.f.a(cursor);
                         throw th2;
                     }
                 }
@@ -1103,10 +484,50 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
             h();
-            if (f76124b == null || this.f76127d == null) {
+            if (f69088b == null || this.f69091d == null) {
                 return;
             }
-            c.p.a.e.b.g.e.g0(new f(this, i2));
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this, i2) { // from class: com.ss.android.socialbase.downloader.b.e.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f69106a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ e f69107b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69107b = this;
+                    this.f69106a = i2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            this.f69107b.a(this.f69106a, this.f69107b.f69091d.b());
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -1117,7 +538,7 @@ public class e extends c.a implements t {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status", (Integer) 1);
-            a(i2, contentValues);
+            update(i2, contentValues);
             return null;
         }
         return (DownloadInfo) invokeI.objValue;
@@ -1130,7 +551,7 @@ public class e extends c.a implements t {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status", (Integer) (-7));
-            a(i2, contentValues);
+            update(i2, contentValues);
             return null;
         }
         return (DownloadInfo) invokeI.objValue;
@@ -1139,7 +560,7 @@ public class e extends c.a implements t {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void d(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65566, this, downloadInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(65565, this, downloadInfo) == null) {
             synchronized (this) {
                 if (downloadInfo == null) {
                     return;
@@ -1147,9 +568,9 @@ public class e extends c.a implements t {
                 try {
                     if (!a(downloadInfo.getId())) {
                         c(downloadInfo);
-                    } else if (this.f76126c == null) {
+                    } else if (this.f69090c == null) {
                     } else {
-                        b(downloadInfo, this.f76126c.c());
+                        b(downloadInfo, this.f69090c.c());
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -1159,27 +580,27 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public DownloadInfo e(int i2, long j2) {
+    public DownloadInfo e(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status", (Integer) (-4));
-            contentValues.put("curBytes", Long.valueOf(j2));
-            a(i2, contentValues);
+            contentValues.put("curBytes", Long.valueOf(j));
+            update(i2, contentValues);
             return null;
         }
         return (DownloadInfo) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.p.a.e.b.g.k
+    @Override // com.ss.android.socialbase.downloader.downloader.j
     /* renamed from: k */
-    public ArrayList<c.p.a.e.b.i.i> n(int i2) {
+    public ArrayList<i> n(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i2)) == null) {
-            Map<Long, c.p.a.e.b.i.i> l = l(i2);
+            Map<Long, i> l = l(i2);
             if (l == null || l.isEmpty()) {
                 return null;
             }
@@ -1196,7 +617,7 @@ public class e extends c.a implements t {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status", (Integer) 5);
             contentValues.put("isFirstDownload", (Integer) 0);
-            a(i2, contentValues);
+            update(i2, contentValues);
             return null;
         }
         return (DownloadInfo) invokeI.objValue;
@@ -1212,7 +633,7 @@ public class e extends c.a implements t {
 
     private void b(DownloadInfo downloadInfo, SQLiteStatement sQLiteStatement) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65562, this, downloadInfo, sQLiteStatement) == null) || downloadInfo == null || sQLiteStatement == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65561, this, downloadInfo, sQLiteStatement) == null) || downloadInfo == null || sQLiteStatement == null) {
             return;
         }
         try {
@@ -1230,30 +651,327 @@ public class e extends c.a implements t {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a(new SparseArray<>(), new SparseArray<>(), (c.p.a.e.b.b.b) null);
+            a(new SparseArray<>(), new SparseArray<>(), (d) null);
         }
     }
 
     private void c(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65564, this, downloadInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(65563, this, downloadInfo) == null) {
             h();
-            if (f76124b == null || this.f76126c == null) {
+            if (f69088b == null || this.f69090c == null) {
                 return;
             }
-            c.p.a.e.b.g.e.g0(new k(this, downloadInfo));
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.b.e.9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ DownloadInfo f69124a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ e f69125b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, downloadInfo};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69125b = this;
+                    this.f69124a = downloadInfo;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            this.f69125b.a(this.f69124a, this.f69125b.f69090c.a());
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+                }
+            });
         }
     }
 
-    @Override // c.p.a.e.b.g.t
-    public void a(SparseArray<DownloadInfo> sparseArray, SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray2, c.p.a.e.b.b.b bVar) {
+    @Override // com.ss.android.socialbase.downloader.downloader.t
+    public void a(SparseArray<DownloadInfo> sparseArray, SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray2, d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, sparseArray, sparseArray2, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, sparseArray, sparseArray2, dVar) == null) {
             try {
-                c cVar = new c(this, sparseArray, sparseArray2, bVar);
-                ExecutorService G0 = c.p.a.e.b.g.e.G0();
-                if (G0 != null) {
-                    G0.execute(cVar);
+                Runnable runnable = new Runnable(this, sparseArray, sparseArray2, dVar) { // from class: com.ss.android.socialbase.downloader.b.e.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ SparseArray f69094a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ SparseArray f69095b;
+
+                    /* renamed from: c  reason: collision with root package name */
+                    public final /* synthetic */ d f69096c;
+
+                    /* renamed from: d  reason: collision with root package name */
+                    public final /* synthetic */ e f69097d;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, sparseArray, sparseArray2, dVar};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f69097d = this;
+                        this.f69094a = sparseArray;
+                        this.f69095b = sparseArray2;
+                        this.f69096c = dVar;
+                    }
+
+                    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, IGET, IGET, INVOKE, INVOKE, IGET, INVOKE, IGET, IGET, IGET, INVOKE, IF] complete} */
+                    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+                    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
+                    /* JADX WARN: Code restructure failed: missing block: B:122:0x0273, code lost:
+                        if (r0 == null) goto L90;
+                     */
+                    /* JADX WARN: Code restructure failed: missing block: B:127:0x027d, code lost:
+                        if (r0 == null) goto L90;
+                     */
+                    /* JADX WARN: Code restructure failed: missing block: B:129:0x0281, code lost:
+                        return;
+                     */
+                    /* JADX WARN: Code restructure failed: missing block: B:163:0x0336, code lost:
+                        if (r0 == null) goto L183;
+                     */
+                    /* JADX WARN: Code restructure failed: missing block: B:168:0x033f, code lost:
+                        if (r0 == null) goto L183;
+                     */
+                    /* JADX WARN: Code restructure failed: missing block: B:169:0x0341, code lost:
+                        r0.a();
+                        r18.f69097d.f69093f = true;
+                     */
+                    /* JADX WARN: Code restructure failed: missing block: B:170:0x0349, code lost:
+                        r18.f69097d.a(r18.f69094a, r18.f69095b);
+                     */
+                    /* JADX WARN: Code restructure failed: missing block: B:171:0x0352, code lost:
+                        throw r0;
+                     */
+                    /* JADX WARN: Code restructure failed: missing block: B:80:0x019f, code lost:
+                        if (r0 != null) goto L92;
+                     */
+                    /* JADX WARN: Removed duplicated region for block: B:197:0x00de A[SYNTHETIC] */
+                    /* JADX WARN: Removed duplicated region for block: B:199:0x00ce A[SYNTHETIC] */
+                    @Override // java.lang.Runnable
+                    /*
+                        Code decompiled incorrectly, please refer to instructions dump.
+                    */
+                    public void run() {
+                        d dVar2;
+                        d dVar3;
+                        boolean z;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
+                        }
+                        this.f69097d.h();
+                        if (e.f69088b == null) {
+                            return;
+                        }
+                        k B = com.ss.android.socialbase.downloader.downloader.c.B();
+                        SparseArray sparseArray3 = new SparseArray();
+                        ArrayList arrayList = new ArrayList();
+                        ArrayList arrayList2 = new ArrayList();
+                        Cursor cursor = null;
+                        int i2 = 0;
+                        try {
+                            cursor = e.f69088b.rawQuery("SELECT * FROM downloader", null);
+                            while (cursor.moveToNext()) {
+                                DownloadInfo downloadInfo = new DownloadInfo(cursor);
+                                downloadInfo.setStatusAtDbInit(downloadInfo.getRealStatus());
+                                if (downloadInfo.isCanResumeFromBreakPointStatus()) {
+                                    downloadInfo.setStatus(-5);
+                                    if (com.ss.android.socialbase.downloader.g.a.c().b("status_not_update_to_db", true)) {
+                                        sparseArray3.put(downloadInfo.getId(), downloadInfo);
+                                    }
+                                }
+                                if (!TextUtils.isEmpty(downloadInfo.getSavePath()) && !TextUtils.isEmpty(downloadInfo.getName())) {
+                                    if (downloadInfo.getStatus() != 1 || downloadInfo.getCurBytes() > 0) {
+                                        if (downloadInfo.getStatus() != -3 && downloadInfo.getStatus() != 11 && !downloadInfo.isFileDataValid()) {
+                                            downloadInfo.reset();
+                                        }
+                                        z = false;
+                                    } else {
+                                        z = true;
+                                    }
+                                    if (downloadInfo.getStatus() == 11) {
+                                        downloadInfo.setStatus(-5);
+                                    }
+                                    if (com.ss.android.socialbase.downloader.i.f.a(downloadInfo.getStatus(), downloadInfo.getSavePath(), downloadInfo.getName())) {
+                                        if (!com.ss.android.socialbase.downloader.i.a.a(33554432)) {
+                                            downloadInfo.erase();
+                                        }
+                                    }
+                                    if (!z) {
+                                        arrayList.add(Integer.valueOf(downloadInfo.getId()));
+                                        arrayList2.add(downloadInfo);
+                                    } else {
+                                        int id = downloadInfo.getId();
+                                        int a2 = B != null ? B.a(downloadInfo.getUrl(), downloadInfo.getSavePath()) : 0;
+                                        if (a2 != id) {
+                                            downloadInfo.setId(a2);
+                                            sparseArray3.put(id, downloadInfo);
+                                        }
+                                        this.f69094a.put(downloadInfo.getId(), downloadInfo);
+                                    }
+                                }
+                                z = true;
+                                if (!z) {
+                                }
+                            }
+                            com.ss.android.socialbase.downloader.i.f.a(cursor);
+                            this.f69097d.a(arrayList2);
+                            this.f69097d.a(arrayList2, arrayList, sparseArray3, this.f69094a, this.f69095b);
+                            try {
+                                ArrayList<Integer> arrayList3 = new ArrayList();
+                                if (this.f69094a != null) {
+                                    while (i2 < this.f69094a.size()) {
+                                        int keyAt = this.f69094a.keyAt(i2);
+                                        if (keyAt != 0) {
+                                            DownloadInfo downloadInfo2 = (DownloadInfo) this.f69094a.get(keyAt);
+                                            if (com.ss.android.socialbase.downloader.i.a.a(8192)) {
+                                                if (downloadInfo2 != null && !downloadInfo2.isChunkBreakpointAvailable() && downloadInfo2.getStatus() != -3) {
+                                                    arrayList3.add(Integer.valueOf(downloadInfo2.getId()));
+                                                    this.f69095b.remove(downloadInfo2.getId());
+                                                }
+                                            } else if (downloadInfo2 != null && !downloadInfo2.isChunkBreakpointAvailable()) {
+                                                arrayList3.add(Integer.valueOf(downloadInfo2.getId()));
+                                                this.f69095b.remove(downloadInfo2.getId());
+                                            }
+                                        }
+                                        for (Integer num : arrayList3) {
+                                            this.f69094a.remove(num.intValue());
+                                        }
+                                        i2++;
+                                    }
+                                }
+                                dVar3 = this.f69096c;
+                            } catch (Throwable th) {
+                                try {
+                                    th.printStackTrace();
+                                } finally {
+                                }
+                            }
+                        } catch (Throwable th2) {
+                            try {
+                                th2.printStackTrace();
+                                com.ss.android.socialbase.downloader.i.f.a(cursor);
+                                this.f69097d.a(arrayList2);
+                                this.f69097d.a(arrayList2, arrayList, sparseArray3, this.f69094a, this.f69095b);
+                                try {
+                                    ArrayList<Integer> arrayList4 = new ArrayList();
+                                    if (this.f69094a != null) {
+                                        while (i2 < this.f69094a.size()) {
+                                            int keyAt2 = this.f69094a.keyAt(i2);
+                                            if (keyAt2 != 0) {
+                                                DownloadInfo downloadInfo3 = (DownloadInfo) this.f69094a.get(keyAt2);
+                                                if (com.ss.android.socialbase.downloader.i.a.a(8192)) {
+                                                    if (downloadInfo3 != null && !downloadInfo3.isChunkBreakpointAvailable() && downloadInfo3.getStatus() != -3) {
+                                                        arrayList4.add(Integer.valueOf(downloadInfo3.getId()));
+                                                        this.f69095b.remove(downloadInfo3.getId());
+                                                    }
+                                                } else if (downloadInfo3 != null && !downloadInfo3.isChunkBreakpointAvailable()) {
+                                                    arrayList4.add(Integer.valueOf(downloadInfo3.getId()));
+                                                    this.f69095b.remove(downloadInfo3.getId());
+                                                }
+                                            }
+                                            for (Integer num2 : arrayList4) {
+                                                this.f69094a.remove(num2.intValue());
+                                            }
+                                            i2++;
+                                        }
+                                    }
+                                    dVar3 = this.f69096c;
+                                } catch (Throwable th3) {
+                                    try {
+                                        th3.printStackTrace();
+                                        dVar3 = this.f69096c;
+                                    } finally {
+                                        d dVar4 = this.f69096c;
+                                        if (dVar4 != null) {
+                                            dVar4.a();
+                                            this.f69097d.f69093f = true;
+                                        }
+                                        this.f69097d.a(this.f69094a, this.f69095b);
+                                    }
+                                }
+                            } catch (Throwable th4) {
+                                com.ss.android.socialbase.downloader.i.f.a(cursor);
+                                this.f69097d.a(arrayList2);
+                                this.f69097d.a(arrayList2, arrayList, sparseArray3, this.f69094a, this.f69095b);
+                                try {
+                                    ArrayList<Integer> arrayList5 = new ArrayList();
+                                    if (this.f69094a != null) {
+                                        while (i2 < this.f69094a.size()) {
+                                            int keyAt3 = this.f69094a.keyAt(i2);
+                                            if (keyAt3 != 0) {
+                                                DownloadInfo downloadInfo4 = (DownloadInfo) this.f69094a.get(keyAt3);
+                                                if (com.ss.android.socialbase.downloader.i.a.a(8192)) {
+                                                    if (downloadInfo4 != null && !downloadInfo4.isChunkBreakpointAvailable() && downloadInfo4.getStatus() != -3) {
+                                                        arrayList5.add(Integer.valueOf(downloadInfo4.getId()));
+                                                        this.f69095b.remove(downloadInfo4.getId());
+                                                    }
+                                                } else if (downloadInfo4 != null && !downloadInfo4.isChunkBreakpointAvailable()) {
+                                                    arrayList5.add(Integer.valueOf(downloadInfo4.getId()));
+                                                    this.f69095b.remove(downloadInfo4.getId());
+                                                }
+                                            }
+                                            for (Integer num3 : arrayList5) {
+                                                this.f69094a.remove(num3.intValue());
+                                            }
+                                            i2++;
+                                        }
+                                    }
+                                    dVar2 = this.f69096c;
+                                } catch (Throwable th5) {
+                                    try {
+                                        th5.printStackTrace();
+                                        dVar2 = this.f69096c;
+                                    } finally {
+                                        d dVar5 = this.f69096c;
+                                        if (dVar5 != null) {
+                                            dVar5.a();
+                                            this.f69097d.f69093f = true;
+                                        }
+                                        this.f69097d.a(this.f69094a, this.f69095b);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+                ExecutorService r = com.ss.android.socialbase.downloader.downloader.c.r();
+                if (r != null) {
+                    r.execute(runnable);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -1262,14 +980,14 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public DownloadInfo d(int i2, long j2) {
+    public DownloadInfo d(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status", (Integer) (-2));
-            contentValues.put("curBytes", Long.valueOf(j2));
-            a(i2, contentValues);
+            contentValues.put("curBytes", Long.valueOf(j));
+            update(i2, contentValues);
             return null;
         }
         return (DownloadInfo) invokeCommon.objValue;
@@ -1280,10 +998,42 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             h();
-            if (f76124b == null) {
+            if (f69088b == null) {
                 return;
             }
-            c.p.a.e.b.g.e.g0(new d(this));
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this) { // from class: com.ss.android.socialbase.downloader.b.e.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ e f69102a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69102a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f69102a.k();
+                    }
+                }
+            });
         }
     }
 
@@ -1296,7 +1046,7 @@ public class e extends c.a implements t {
         try {
             for (DownloadInfo downloadInfo : list) {
                 if (downloadInfo != null && downloadInfo.isSavePathRedirected()) {
-                    c.p.a.e.b.l.f.b0(downloadInfo);
+                    com.ss.android.socialbase.downloader.i.f.b(downloadInfo);
                 }
             }
         } catch (Throwable unused) {
@@ -1307,37 +1057,37 @@ public class e extends c.a implements t {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f76129f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f69093f : invokeV.booleanValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public DownloadInfo b(int i2, long j2) {
+    public DownloadInfo b(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status", (Integer) (-1));
-            contentValues.put("curBytes", Long.valueOf(j2));
-            if (j2 > 0) {
+            contentValues.put("curBytes", Long.valueOf(j));
+            if (j > 0) {
                 contentValues.put("isFirstDownload", (Integer) 0);
             }
-            a(i2, contentValues);
+            update(i2, contentValues);
             return null;
         }
         return (DownloadInfo) invokeCommon.objValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public DownloadInfo c(int i2, long j2) {
+    public DownloadInfo c(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status", (Integer) (-3));
-            contentValues.put("curBytes", Long.valueOf(j2));
+            contentValues.put("curBytes", Long.valueOf(j));
             contentValues.put("isFirstDownload", (Integer) 0);
             contentValues.put("isFirstSuccess", (Integer) 0);
-            a(i2, contentValues);
+            update(i2, contentValues);
             return null;
         }
         return (DownloadInfo) invokeCommon.objValue;
@@ -1347,39 +1097,39 @@ public class e extends c.a implements t {
     public void a(List<DownloadInfo> list, List<Integer> list2, SparseArray<DownloadInfo> sparseArray, SparseArray<DownloadInfo> sparseArray2, SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray3) {
         int size;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65558, this, list, list2, sparseArray, sparseArray2, sparseArray3) == null) || (size = sparseArray.size()) < 0 || f76124b == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65558, this, list, list2, sparseArray, sparseArray2, sparseArray3) == null) || (size = sparseArray.size()) < 0 || f69088b == null) {
             return;
         }
-        synchronized (f76124b) {
+        synchronized (f69088b) {
             try {
                 i();
                 if (!list.isEmpty()) {
-                    if (c.p.a.e.b.j.a.r().l("clear_invalid_task_error")) {
+                    if (com.ss.android.socialbase.downloader.g.a.c().a("clear_invalid_task_error")) {
                         String[] strArr = new String[list.size()];
                         for (int i2 = 0; i2 < list.size(); i2++) {
                             strArr[i2] = String.valueOf(list.get(i2));
                         }
                         String str = "CAST(_id AS TEXT) IN (" + new String(new char[list.size() - 1]).replace("\u0000", "?,") + "?)";
-                        f76124b.delete("downloader", str, strArr);
-                        f76124b.delete("downloadChunk", str, strArr);
+                        f69088b.delete("downloader", str, strArr);
+                        f69088b.delete("downloadChunk", str, strArr);
                     } else {
                         String join = TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, list2);
-                        f76124b.delete("downloader", "_id IN (?)", new String[]{join});
-                        f76124b.delete("downloadChunk", "_id IN (?)", new String[]{join});
+                        f69088b.delete("downloader", "_id IN (?)", new String[]{join});
+                        f69088b.delete("downloadChunk", "_id IN (?)", new String[]{join});
                     }
                 }
                 for (int i3 = 0; i3 < size; i3++) {
                     int keyAt = sparseArray.keyAt(i3);
                     DownloadInfo downloadInfo = sparseArray.get(keyAt);
-                    f76124b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
-                    f76124b.insert("downloader", null, downloadInfo.toContentValues());
+                    f69088b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
+                    f69088b.insert("downloader", null, downloadInfo.toContentValues());
                     if (downloadInfo.getChunkCount() > 1) {
                         List<com.ss.android.socialbase.downloader.model.b> c2 = c(keyAt);
                         if (c2.size() > 0) {
-                            f76124b.delete("downloadChunk", "_id = ?", new String[]{String.valueOf(keyAt)});
+                            f69088b.delete("downloadChunk", "_id = ?", new String[]{String.valueOf(keyAt)});
                             for (com.ss.android.socialbase.downloader.model.b bVar : c2) {
                                 bVar.b(downloadInfo.getId());
-                                f76124b.insert("downloadChunk", null, bVar.a());
+                                f69088b.insert("downloadChunk", null, bVar.a());
                             }
                         }
                     }
@@ -1388,13 +1138,13 @@ public class e extends c.a implements t {
                     int size2 = sparseArray2.size();
                     for (int i4 = 0; i4 < size2; i4++) {
                         int id = sparseArray2.valueAt(i4).getId();
-                        List<com.ss.android.socialbase.downloader.model.b> r = c.p.a.e.b.l.f.r(c(id));
-                        if (r != null && r.size() > 0) {
-                            sparseArray3.put(id, r);
+                        List<com.ss.android.socialbase.downloader.model.b> a2 = com.ss.android.socialbase.downloader.i.f.a(c(id));
+                        if (a2 != null && a2.size() > 0) {
+                            sparseArray3.put(id, a2);
                         }
                     }
                 }
-                f76124b.setTransactionSuccessful();
+                f69088b.setTransactionSuccessful();
                 j();
             } catch (Throwable th) {
                 throw th;
@@ -1426,23 +1176,6 @@ public class e extends c.a implements t {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i2, ContentValues contentValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65561, this, i2, contentValues) == null) {
-            int i3 = 10;
-            while (f76124b.isDbLockedByCurrentThread() && i3 - 1 >= 0) {
-                try {
-                    Thread.sleep(5L);
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                    return;
-                }
-            }
-            f76124b.update("downloader", contentValues, "_id = ? ", new String[]{String.valueOf(i2)});
-        }
-    }
-
     @Override // com.ss.android.socialbase.downloader.b.c
     public boolean a(int i2) {
         InterceptResult invokeI;
@@ -1465,20 +1198,20 @@ public class e extends c.a implements t {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             h();
             ArrayList arrayList = new ArrayList();
-            if (f76124b != null) {
+            if (f69088b != null) {
                 Cursor cursor = null;
                 try {
-                    cursor = f76124b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "url"), new String[]{str});
+                    cursor = f69088b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "url"), new String[]{str});
                     if (cursor.moveToNext()) {
                         arrayList.add(new DownloadInfo(cursor));
                     }
-                    c.p.a.e.b.l.f.D(cursor);
+                    com.ss.android.socialbase.downloader.i.f.a(cursor);
                 } catch (Throwable th) {
                     try {
                         th.printStackTrace();
-                        c.p.a.e.b.l.f.D(cursor);
+                        com.ss.android.socialbase.downloader.i.f.a(cursor);
                     } catch (Throwable th2) {
-                        c.p.a.e.b.l.f.D(cursor);
+                        com.ss.android.socialbase.downloader.i.f.a(cursor);
                         throw th2;
                     }
                 }
@@ -1509,10 +1242,50 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             h();
-            if (f76124b == null || this.f76127d == null) {
+            if (f69088b == null || this.f69091d == null) {
                 return;
             }
-            c.p.a.e.b.g.e.g0(new g(this, bVar));
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this, bVar) { // from class: com.ss.android.socialbase.downloader.b.e.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ com.ss.android.socialbase.downloader.model.b f69108a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ e f69109b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69109b = this;
+                    this.f69108a = bVar;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            this.f69109b.a(this.f69108a, this.f69109b.f69091d.a());
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -1549,26 +1322,126 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public void a(int i2, int i3, long j2) {
+    public void a(int i2, int i3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
             h();
-            if (i2 == 0 || i3 < 0 || j2 < 0 || f76124b == null || this.f76127d == null) {
+            if (i2 == 0 || i3 < 0 || j < 0 || f69088b == null || this.f69091d == null) {
                 return;
             }
-            c.p.a.e.b.g.e.g0(new h(this, i2, i3, j2));
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this, i2, i3, j) { // from class: com.ss.android.socialbase.downloader.b.e.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f69110a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ int f69111b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ long f69112c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ e f69113d;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69113d = this;
+                    this.f69110a = i2;
+                    this.f69111b = i3;
+                    this.f69112c = j;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            this.f69113d.a(this.f69110a, this.f69111b, this.f69112c, this.f69113d.f69091d.c());
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+                }
+            });
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public void a(int i2, int i3, int i4, long j2) {
+    public void a(int i2, int i3, int i4, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) {
             h();
-            if (i2 == 0 || i3 < 0 || i4 < 0 || j2 < 0 || f76124b == null || this.f76127d == null) {
+            if (i2 == 0 || i3 < 0 || i4 < 0 || j < 0 || f69088b == null || this.f69091d == null) {
                 return;
             }
-            c.p.a.e.b.g.e.g0(new i(this, i2, i3, i4, j2));
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this, i2, i3, i4, j) { // from class: com.ss.android.socialbase.downloader.b.e.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f69114a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ int f69115b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ int f69116c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ long f69117d;
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ e f69118e;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i5 = newInitContext.flag;
+                        if ((i5 & 1) != 0) {
+                            int i6 = i5 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69118e = this;
+                    this.f69114a = i2;
+                    this.f69115b = i3;
+                    this.f69116c = i4;
+                    this.f69117d = j;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            this.f69118e.a(this.f69114a, this.f69115b, this.f69116c, this.f69117d, this.f69118e.f69091d.c());
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -1577,10 +1450,62 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
             h();
-            if (i2 == 0 || i4 < 0 || i5 == i3 || i5 < 0 || f76124b == null || this.f76127d == null) {
+            if (i2 == 0 || i4 < 0 || i5 == i3 || i5 < 0 || f69088b == null || this.f69091d == null) {
                 return;
             }
-            c.p.a.e.b.g.e.g0(new j(this, i2, i3, i4, i5));
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this, i2, i3, i4, i5) { // from class: com.ss.android.socialbase.downloader.b.e.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f69119a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ int f69120b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ int f69121c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ int f69122d;
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ e f69123e;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i6 = newInitContext.flag;
+                        if ((i6 & 1) != 0) {
+                            int i7 = i6 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69123e = this;
+                    this.f69119a = i2;
+                    this.f69120b = i3;
+                    this.f69121c = i4;
+                    this.f69122d = i5;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            this.f69123e.a(this.f69119a, this.f69120b, this.f69121c, this.f69122d, this.f69123e.f69091d.c());
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -1592,7 +1517,7 @@ public class e extends c.a implements t {
                 synchronized (sQLiteStatement) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("chunkIndex", Integer.valueOf(i5));
-                    f76124b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
+                    f69088b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -1601,14 +1526,14 @@ public class e extends c.a implements t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, int i3, long j2, SQLiteStatement sQLiteStatement) {
+    public void a(int i2, int i3, long j, SQLiteStatement sQLiteStatement) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), sQLiteStatement}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), sQLiteStatement}) == null) {
             try {
                 synchronized (sQLiteStatement) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("curOffset", Long.valueOf(j2));
-                    f76124b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3)});
+                    contentValues.put("curOffset", Long.valueOf(j));
+                    f69088b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3)});
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -1617,14 +1542,14 @@ public class e extends c.a implements t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, int i3, int i4, long j2, SQLiteStatement sQLiteStatement) {
+    public void a(int i2, int i3, int i4, long j, SQLiteStatement sQLiteStatement) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), sQLiteStatement}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), sQLiteStatement}) == null) {
             try {
                 synchronized (sQLiteStatement) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("curOffset", Long.valueOf(j2));
-                    f76124b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
+                    contentValues.put("curOffset", Long.valueOf(j));
+                    f69088b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -1638,11 +1563,11 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
             h();
-            if (f76124b == null) {
+            if (f69088b == null) {
                 return null;
             }
             int i4 = 10;
-            while (f76124b.isDbLockedByCurrentThread() && i4 - 1 >= 0) {
+            while (f69088b.isDbLockedByCurrentThread() && i4 - 1 >= 0) {
                 try {
                     Thread.sleep(5L);
                 } catch (Throwable th) {
@@ -1651,7 +1576,7 @@ public class e extends c.a implements t {
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("chunkCount", Integer.valueOf(i3));
-            f76124b.update("downloader", contentValues, "_id = ? ", new String[]{Integer.toString(i2)});
+            f69088b.update("downloader", contentValues, "_id = ? ", new String[]{Integer.toString(i2)});
             return null;
         }
         return (DownloadInfo) invokeII.objValue;
@@ -1663,95 +1588,137 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, downloadInfo)) == null) {
             h();
-            if (downloadInfo == null || f76124b == null) {
+            if (downloadInfo == null || f69088b == null) {
                 return false;
             }
-            c.p.a.e.b.g.e.g0(new a(this, downloadInfo));
+            com.ss.android.socialbase.downloader.downloader.c.b(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.b.e.10
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ DownloadInfo f69098a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ e f69099b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, downloadInfo};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f69099b = this;
+                    this.f69098a = downloadInfo;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f69099b.d(this.f69098a);
+                    }
+                }
+            });
             return true;
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public DownloadInfo a(int i2, long j2, String str, String str2) {
+    public DownloadInfo a(int i2, long j, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, str2})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status", (Integer) 3);
-            contentValues.put("totalBytes", Long.valueOf(j2));
+            contentValues.put("totalBytes", Long.valueOf(j));
             contentValues.put("eTag", str);
             if (!TextUtils.isEmpty(str2)) {
                 contentValues.put("name", str2);
             }
-            a(i2, contentValues);
+            update(i2, contentValues);
             return null;
         }
         return (DownloadInfo) invokeCommon.objValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public DownloadInfo a(int i2, long j2) {
+    public DownloadInfo a(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status", (Integer) 4);
-            contentValues.put("curBytes", Long.valueOf(j2));
-            a(i2, contentValues);
+            contentValues.put("curBytes", Long.valueOf(j));
+            update(i2, contentValues);
             return null;
         }
         return (DownloadInfo) invokeCommon.objValue;
     }
 
-    @Override // c.p.a.e.b.g.k
-    public boolean a(int i2, Map<Long, c.p.a.e.b.i.i> map) {
+    @Override // com.ss.android.socialbase.downloader.downloader.j
+    public boolean a(int i2, Map<Long, i> map) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i2, map)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             h();
-            if (f76124b == null) {
+            if (f69088b == null) {
                 return false;
             }
             JSONArray jSONArray = new JSONArray();
             try {
                 for (Long l : map.keySet()) {
-                    jSONArray.put(map.get(Long.valueOf(l.longValue())).r());
+                    jSONArray.put(map.get(Long.valueOf(l.longValue())).k());
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
             r0 = "json=" + jSONArray;
-            SQLiteStatement d2 = this.f76128e.d();
+            SQLiteStatement d2 = this.f69092e.d();
             synchronized (d2) {
                 d2.clearBindings();
                 d2.bindLong(1, i2);
                 d2.bindString(2, jSONArray.toString());
                 d2.execute();
             }
-            c.p.a.e.b.c.a.g("SqlDownloadCache", "updateSegments cost=" + c.p.a.e.b.l.f.l0(currentTimeMillis));
+            com.ss.android.socialbase.downloader.c.a.b("SqlDownloadCache", "updateSegments cost=" + com.ss.android.socialbase.downloader.i.f.c(currentTimeMillis));
             return false;
         }
         return invokeIL.booleanValue;
     }
 
-    private void a(int i2, ContentValues contentValues) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i2, ContentValues contentValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, this, i2, contentValues) == null) {
-            h();
-            if (f76124b == null) {
-                return;
+            int i3 = 10;
+            while (f69088b.isDbLockedByCurrentThread() && i3 - 1 >= 0) {
+                try {
+                    Thread.sleep(5L);
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                    return;
+                }
             }
-            c.p.a.e.b.g.e.g0(new RunnableC2062e(this, i2, contentValues));
+            f69088b.update("downloader", contentValues, "_id = ? ", new String[]{String.valueOf(i2)});
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public void a(com.ss.android.socialbase.downloader.b.b bVar) {
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f76125a = bVar;
+            this.f69089a = bVar;
         }
     }
 
@@ -1759,10 +1726,10 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, sparseArray, sparseArray2) == null) {
             try {
-                HashMap q = c.p.a.e.b.l.f.q(sparseArray);
-                HashMap q2 = c.p.a.e.b.l.f.q(sparseArray2);
-                if (this.f76125a != null) {
-                    this.f76125a.a(q, q2);
+                HashMap a2 = com.ss.android.socialbase.downloader.i.f.a(sparseArray);
+                HashMap a3 = com.ss.android.socialbase.downloader.i.f.a(sparseArray2);
+                if (this.f69089a != null) {
+                    this.f69089a.a(a2, a3);
                 }
             } catch (Throwable unused) {
             }

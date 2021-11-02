@@ -13,13 +13,13 @@ import com.kwai.filedownloader.c.a;
 import com.kwai.filedownloader.c.b;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.services.FileDownloadServiceProxy;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownloader.c.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
-    public static class a extends a.AbstractBinderC2031a {
+    /* loaded from: classes2.dex */
+    public static class a extends a.AbstractBinderC1941a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

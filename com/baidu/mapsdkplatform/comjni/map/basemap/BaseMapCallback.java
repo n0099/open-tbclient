@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BaseMapCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LongSparseArray<b> f42614a;
+    public static LongSparseArray<b> f40426a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class BaseMapCallback {
                 return;
             }
         }
-        f42614a = new LongSparseArray<>();
+        f40426a = new LongSparseArray<>();
     }
 
     public BaseMapCallback() {
@@ -48,15 +48,15 @@ public class BaseMapCallback {
         }
     }
 
-    public static int ReqLayerData(Bundle bundle, long j2, int i2, Bundle bundle2) {
+    public static int ReqLayerData(Bundle bundle, long j, int i2, Bundle bundle2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bundle, Long.valueOf(j2), Integer.valueOf(i2), bundle2})) == null) {
-            int size = f42614a.size();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bundle, Long.valueOf(j), Integer.valueOf(i2), bundle2})) == null) {
+            int size = f40426a.size();
             for (int i3 = 0; i3 < size; i3++) {
-                b valueAt = f42614a.valueAt(i3);
-                if (valueAt != null && valueAt.a(j2)) {
-                    return valueAt.a(bundle, j2, i2, bundle2);
+                b valueAt = f40426a.valueAt(i3);
+                if (valueAt != null && valueAt.a(j)) {
+                    return valueAt.a(bundle, j, i2, bundle2);
                 }
             }
             return 0;
@@ -64,17 +64,17 @@ public class BaseMapCallback {
         return invokeCommon.intValue;
     }
 
-    public static void addLayerDataInterface(long j2, b bVar) {
+    public static void addLayerDataInterface(long j, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65539, null, j2, bVar) == null) {
-            f42614a.put(j2, bVar);
+        if (interceptable == null || interceptable.invokeJL(65539, null, j, bVar) == null) {
+            f40426a.put(j, bVar);
         }
     }
 
-    public static void removeLayerDataInterface(long j2) {
+    public static void removeLayerDataInterface(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2) == null) {
-            f42614a.remove(j2);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
+            f40426a.remove(j);
         }
     }
 }

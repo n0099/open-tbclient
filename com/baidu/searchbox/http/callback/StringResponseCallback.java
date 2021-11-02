@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class StringResponseCallback extends ResponseCallback<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

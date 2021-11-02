@@ -2,7 +2,7 @@ package com.qq.e.comm.net;
 
 import com.qq.e.comm.net.rr.Request;
 import com.qq.e.comm.net.rr.Response;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface NetworkCallBack {
     void onException(Exception exc);
 

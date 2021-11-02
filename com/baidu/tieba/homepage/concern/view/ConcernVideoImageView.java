@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MediaData;
@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ConcernVideoImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f52137e;
+    public TbImageView f49449e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernVideoImageView(Context context) {
@@ -51,10 +51,10 @@ public class ConcernVideoImageView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.concern_video_img_layout, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.concern_video_img);
-            this.f52137e = tbImageView;
+            this.f49449e = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0205);
             int k = l.k(getContext()) - l.g(getContext(), R.dimen.ds68);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f52137e.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f49449e.getLayoutParams();
             layoutParams.height = (k * 9) / 16;
             layoutParams.width = k;
         }
@@ -65,7 +65,7 @@ public class ConcernVideoImageView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list) || StringUtils.isNull(list.get(0).getPicUrl())) {
             return;
         }
-        this.f52137e.startLoad(list.get(0).getPicUrl(), 10, false);
+        this.f49449e.startLoad(list.get(0).getPicUrl(), 10, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

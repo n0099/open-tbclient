@@ -1,11 +1,11 @@
 package com.baidu.tieba.godSquare;
 
 import android.os.Bundle;
-import c.a.e.e.p.j;
-import c.a.e.e.p.l;
-import c.a.e.l.e.n;
-import c.a.q0.s.f0.f;
-import c.a.r0.c1.c.b;
+import b.a.e.e.p.j;
+import b.a.e.e.p.l;
+import b.a.e.l.e.n;
+import b.a.q0.s.g0.f;
+import b.a.r0.c1.c.b;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -22,25 +22,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GodSquareActivity extends BaseActivity<GodSquareActivity> implements f.g, BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener mAttentionListener;
     public b.c mCallBack;
     public boolean mHasMore;
-    public c.a.r0.c1.c.b mModel;
+    public b.a.r0.c1.c.b mModel;
     public NoNetworkView.b mNetworkChangeListener;
-    public c.a.r0.c1.a mView;
+    public b.a.r0.c1.a mView;
     public boolean needRefreshView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements b.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f52017a;
+        public final /* synthetic */ GodSquareActivity f49335a;
 
         public a(GodSquareActivity godSquareActivity) {
             Interceptable interceptable = $ic;
@@ -57,53 +57,53 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f52017a = godSquareActivity;
+            this.f49335a = godSquareActivity;
         }
 
-        @Override // c.a.r0.c1.c.b.c
+        @Override // b.a.r0.c1.c.b.c
         public void a(List<n> list, boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                this.f52017a.mHasMore = z2;
-                this.f52017a.mView.a().completePullRefreshPostDelayed(0L);
-                this.f52017a.mView.b();
+                this.f49335a.mHasMore = z2;
+                this.f49335a.mView.a().completePullRefreshPostDelayed(0L);
+                this.f49335a.mView.b();
                 if (ListUtils.isEmpty(list)) {
-                    this.f52017a.mView.d();
-                    if (ListUtils.isEmpty(this.f52017a.mModel.f16103e)) {
-                        this.f52017a.mView.k(str);
+                    this.f49335a.mView.d();
+                    if (ListUtils.isEmpty(this.f49335a.mModel.f15138e)) {
+                        this.f49335a.mView.k(str);
                         return;
                     }
-                    this.f52017a.mHasMore = true;
+                    this.f49335a.mHasMore = true;
                     if (l.D()) {
-                        this.f52017a.showToast(str);
+                        this.f49335a.showToast(str);
                         return;
                     }
                     return;
                 }
-                this.f52017a.mView.c();
+                this.f49335a.mView.c();
                 if (z) {
-                    this.f52017a.mModel.f16103e = list;
-                    this.f52017a.mView.m(this.f52017a.mModel.f16103e);
+                    this.f49335a.mModel.f15138e = list;
+                    this.f49335a.mView.m(this.f49335a.mModel.f15138e);
                 } else {
-                    this.f52017a.mModel.f16103e.addAll(list);
-                    this.f52017a.mView.g();
+                    this.f49335a.mModel.f15138e.addAll(list);
+                    this.f49335a.mView.g();
                 }
                 if (z2) {
-                    this.f52017a.mView.f();
+                    this.f49335a.mView.f();
                 } else {
-                    this.f52017a.mView.e();
+                    this.f49335a.mView.e();
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f52018a;
+        public final /* synthetic */ GodSquareActivity f49336a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(GodSquareActivity godSquareActivity, int i2) {
@@ -123,7 +123,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f52018a = godSquareActivity;
+            this.f49336a = godSquareActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -132,23 +132,23 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f48113c)) {
+                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f45669c)) {
                     return;
                 }
-                if (this.f52018a.mModel.g(c.a.e.e.m.b.g(updateAttentionMessage.getData().f48113c, 0L))) {
-                    this.f52018a.needRefreshView = true;
+                if (this.f49336a.mModel.g(b.a.e.e.m.b.g(updateAttentionMessage.getData().f45669c, 0L))) {
+                    this.f49336a.needRefreshView = true;
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f52019e;
+        public final /* synthetic */ GodSquareActivity f49337e;
 
         public c(GodSquareActivity godSquareActivity) {
             Interceptable interceptable = $ic;
@@ -165,17 +165,17 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f52019e = godSquareActivity;
+            this.f49337e = godSquareActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                if (ListUtils.isEmpty(this.f52019e.mModel.f16103e)) {
-                    this.f52019e.loadFirstTime();
+                if (ListUtils.isEmpty(this.f49337e.mModel.f15138e)) {
+                    this.f49337e.loadFirstTime();
                 } else {
-                    this.f52019e.mView.l();
+                    this.f49337e.mView.l();
                 }
             }
         }
@@ -206,11 +206,11 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             this.mView.j();
-            this.mModel.l();
+            this.mModel.update();
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.o0.a
+    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -231,21 +231,21 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            c.a.r0.c1.a aVar = new c.a.r0.c1.a(this);
+            b.a.r0.c1.a aVar = new b.a.r0.c1.a(this);
             this.mView = aVar;
             aVar.i(this.mNetworkChangeListener);
-            this.mModel = new c.a.r0.c1.c.b(this.mCallBack, this);
+            this.mModel = new b.a.r0.c1.c.b(this.mCallBack, this);
             registerListener(this.mAttentionListener);
             loadFirstTime();
         }
     }
 
-    @Override // c.a.q0.s.f0.f.g
+    @Override // b.a.q0.s.g0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.needRefreshView = false;
-            this.mModel.l();
+            this.mModel.update();
         }
     }
 

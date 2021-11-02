@@ -29,6 +29,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     public final int mBehavior;
     public FragmentTransaction mCurTransaction;
     public Fragment mCurrentPrimaryItem;
+    public boolean mExecutingFinishUpdate;
     public final FragmentManager mFragmentManager;
     public ArrayList<Fragment> mFragments;
     public ArrayList<Fragment.SavedState> mSavedState;
@@ -82,10 +83,13 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || (fragmentTransaction = this.mCurTransaction) == null) {
             return;
         }
-        try {
-            fragmentTransaction.commitNowAllowingStateLoss();
-        } catch (IllegalStateException unused) {
-            this.mCurTransaction.commitAllowingStateLoss();
+        if (!this.mExecutingFinishUpdate) {
+            try {
+                this.mExecutingFinishUpdate = true;
+                fragmentTransaction.commitNowAllowingStateLoss();
+            } finally {
+                this.mExecutingFinishUpdate = false;
+            }
         }
         this.mCurTransaction = null;
     }

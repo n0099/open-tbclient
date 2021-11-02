@@ -6,9 +6,9 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.f1.p.a.d.d;
-import c.a.q0.f1.p.a.f.c;
-import c.a.q0.x0.a;
+import b.a.q0.f1.q.a.d.d;
+import b.a.q0.f1.q.a.f.c;
+import b.a.q0.x0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SelectClassDialogView extends ViewGroup implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f59276e;
+    public ViewGroup f56220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c<String> f59277f;
+    public c<String> f56221f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectClassDialogView(ViewGroup viewGroup, Context context) {
@@ -49,30 +49,30 @@ public class SelectClassDialogView extends ViewGroup implements a {
                 return;
             }
         }
-        this.f59276e = viewGroup;
+        this.f56220e = viewGroup;
         a(context);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.class_pickerview_options, this.f59276e, true);
-            c<String> cVar = new c<>(this.f59276e, true);
-            this.f59277f = cVar;
+            LayoutInflater.from(context).inflate(R.layout.class_pickerview_options, this.f56220e, true);
+            c<String> cVar = new c<>(this.f56220e, true);
+            this.f56221f = cVar;
             cVar.t(9);
-            this.f59277f.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
-            this.f59277f.q(SkinManager.getColor(R.color.CAM_X0203));
-            this.f59277f.s(WheelView.DividerType.FILL);
-            this.f59277f.v(3.0f);
-            this.f59277f.B(SkinManager.getColor(R.color.CAM_X0611));
-            this.f59277f.z(SkinManager.getColor(R.color.CAM_X0611));
-            this.f59277f.m(Typeface.DEFAULT_BOLD);
-            this.f59277f.k(true);
-            this.f59277f.o(false);
+            this.f56221f.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
+            this.f56221f.q(SkinManager.getColor(R.color.CAM_X0203));
+            this.f56221f.s(WheelView.DividerType.FILL);
+            this.f56221f.v(3.0f);
+            this.f56221f.B(SkinManager.getColor(R.color.CAM_X0611));
+            this.f56221f.z(SkinManager.getColor(R.color.CAM_X0611));
+            this.f56221f.m(Typeface.DEFAULT_BOLD);
+            this.f56221f.k(true);
+            this.f56221f.o(false);
         }
     }
 
-    @Override // c.a.q0.x0.a
+    @Override // b.a.q0.x0.a
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class SelectClassDialogView extends ViewGroup implements a {
         return (Intent) invokeV.objValue;
     }
 
-    @Override // c.a.q0.x0.a
+    @Override // b.a.q0.x0.a
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,11 +92,11 @@ public class SelectClassDialogView extends ViewGroup implements a {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.q0.x0.a
+    @Override // b.a.q0.x0.a
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59277f.i() == null || this.f59277f.i().length < 2 || this.f59277f.i()[0] <= 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56221f.i() == null || this.f56221f.i().length < 2 || this.f56221f.i()[0] <= 0 : invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -106,28 +106,28 @@ public class SelectClassDialogView extends ViewGroup implements a {
         }
     }
 
-    @Override // c.a.q0.x0.a
+    @Override // b.a.q0.x0.a
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f59277f.q(SkinManager.getColor(R.color.CAM_X0203));
-            this.f59277f.B(SkinManager.getColor(R.color.CAM_X0105));
-            this.f59277f.z(SkinManager.getColor(R.color.CAM_X0105));
-            this.f59277f.j();
+            this.f56221f.q(SkinManager.getColor(R.color.CAM_X0203));
+            this.f56221f.B(SkinManager.getColor(R.color.CAM_X0105));
+            this.f56221f.z(SkinManager.getColor(R.color.CAM_X0105));
+            this.f56221f.j();
         }
     }
 
     public void setCurrentItems(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.f59277f.n(i2, i3, 0);
+            this.f56221f.n(i2, i3, 0);
         }
     }
 
     public void setOnOptionsSelectChangeListener(d dVar) {
         c<String> cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) || (cVar = this.f59277f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) || (cVar = this.f56221f) == null) {
             return;
         }
         cVar.w(dVar);
@@ -136,7 +136,7 @@ public class SelectClassDialogView extends ViewGroup implements a {
     public void setPicker(List<String> list, List<List<String>> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, list2) == null) {
-            this.f59277f.x(list, list2, null);
+            this.f56221f.x(list, list2, null);
         }
     }
 }

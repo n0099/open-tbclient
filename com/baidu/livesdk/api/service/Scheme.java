@@ -2,10 +2,10 @@ package com.baidu.livesdk.api.service;
 
 import android.app.Activity;
 import android.net.Uri;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface Scheme {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface CallbackHandler {
         void handleSchemeDispatchCallback(String str, String str2);
     }

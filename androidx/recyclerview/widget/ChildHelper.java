@@ -110,9 +110,9 @@ public class ChildHelper {
                     return;
                 }
                 boolean z2 = (this.mData & Long.MIN_VALUE) != 0;
-                long j2 = (1 << i2) - 1;
-                long j3 = this.mData;
-                this.mData = ((j3 & (~j2)) << 1) | (j3 & j2);
+                long j = (1 << i2) - 1;
+                long j2 = this.mData;
+                this.mData = ((j2 & (~j)) << 1) | (j2 & j);
                 if (z) {
                     set(i2);
                 } else {
@@ -133,12 +133,12 @@ public class ChildHelper {
                     ensureNext();
                     return this.mNext.remove(i2 - 64);
                 }
-                long j2 = 1 << i2;
-                boolean z = (this.mData & j2) != 0;
-                long j3 = this.mData & (~j2);
-                this.mData = j3;
-                long j4 = j2 - 1;
-                this.mData = (j3 & j4) | Long.rotateRight((~j4) & j3, 1);
+                long j = 1 << i2;
+                boolean z = (this.mData & j) != 0;
+                long j2 = this.mData & (~j);
+                this.mData = j2;
+                long j3 = j - 1;
+                this.mData = (j2 & j3) | Long.rotateRight((~j3) & j2, 1);
                 Bucket bucket = this.mNext;
                 if (bucket != null) {
                     if (bucket.get(0)) {

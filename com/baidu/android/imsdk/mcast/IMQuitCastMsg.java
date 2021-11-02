@@ -15,10 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMQuitCastMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQuitCastMsg";
@@ -28,12 +27,12 @@ public class IMQuitCastMsg extends Message {
     public long mRowId;
     public long mToUser;
 
-    public IMQuitCastMsg(Context context, long j2, String str) {
+    public IMQuitCastMsg(Context context, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -46,7 +45,7 @@ public class IMQuitCastMsg extends Message {
         this.mContext = context;
         initCommonParameter(context);
         this.mMsgKey = str;
-        this.mToUser = j2;
+        this.mToUser = j;
         setNeedReplay(true);
         setType(202);
     }
@@ -75,7 +74,7 @@ public class IMQuitCastMsg extends Message {
                 jSONObject.put("uk", this.mUk);
                 jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
                 jSONObject.put("msg_key", this.mMsgKey);
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 this.mBody = jSONObject.toString();
             } catch (JSONException e2) {
                 LogUtils.e(IMQuitCastMsg.class.getSimpleName(), "Exception ", e2);
@@ -88,20 +87,20 @@ public class IMQuitCastMsg extends Message {
     public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
-            long j2 = -1;
+            long j = -1;
             if (i2 == 0) {
                 try {
                     if (jSONObject.has("msg")) {
                         jSONObject.getString("msg");
                     }
                     if (jSONObject.has("mcast_id")) {
-                        j2 = jSONObject.getLong("mcast_id");
+                        j = jSONObject.getLong("mcast_id");
                     } else {
                         i2 = 1015;
                         str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
                     }
-                    if (j2 > 0) {
-                        LogUtils.d(TAG, "quit 直播间，castid信息：" + j2);
+                    if (j > 0) {
+                        LogUtils.d(TAG, "quit 直播间，castid信息：" + j);
                     }
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e2);
@@ -111,7 +110,7 @@ public class IMQuitCastMsg extends Message {
             String str2 = str;
             super.handleMessageResult(context, jSONObject, i3, str2);
             LogUtils.d(TAG, "errorCode:" + i3 + "  strMsg" + str2);
-            ConversationStudioManImpl.getInstance(this.mContext).onQuitCastResult(getListenerKey(), i3, str2, j2);
+            ConversationStudioManImpl.getInstance(this.mContext).onQuitCastResult(getListenerKey(), i3, str2, j);
         }
     }
 }

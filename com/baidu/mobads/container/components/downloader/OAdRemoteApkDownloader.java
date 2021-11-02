@@ -30,7 +30,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OAdRemoteApkDownloader extends Observable implements Runnable, IDownloader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLOCK_SIZE = 102400;
@@ -56,7 +56,7 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
     public boolean pausedManually;
     public String title;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class DownloadThread extends BaseTask {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "DownloadThread";
@@ -75,12 +75,12 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
         public HttpURLConnection mUrlConnection;
         public final /* synthetic */ OAdRemoteApkDownloader this$0;
 
-        public DownloadThread(OAdRemoteApkDownloader oAdRemoteApkDownloader, int i2, URL url, String str, long j2, long j3, long j4) {
+        public DownloadThread(OAdRemoteApkDownloader oAdRemoteApkDownloader, int i2, URL url, String str, long j, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oAdRemoteApkDownloader, Integer.valueOf(i2), url, str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                Object[] objArr = {oAdRemoteApkDownloader, Integer.valueOf(i2), url, str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -97,9 +97,9 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
             this.mThreadID = i2;
             this.mURL = url;
             this.mOutputFile = str;
-            this.mStartByte = j2;
-            this.mEndByte = j3;
-            this.mCompleteByte = j4;
+            this.mStartByte = j;
+            this.mEndByte = j2;
+            this.mCompleteByte = j3;
             this.mIsFinished = false;
         }
 
@@ -273,20 +273,20 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
                             }
                             bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
                             try {
-                                long j2 = this.mStartByte + this.mCompleteByte;
-                                RemoteXAdLogger.getInstance().d(TAG, "tmpStartByte = " + j2);
+                                long j = this.mStartByte + this.mCompleteByte;
+                                RemoteXAdLogger.getInstance().d(TAG, "tmpStartByte = " + j);
                                 randomAccessFile2 = new RandomAccessFile(this.mOutputFile, "rw");
                                 try {
-                                    randomAccessFile2.seek(j2);
+                                    randomAccessFile2.seek(j);
                                     byte[] bArr = new byte[102400];
                                     while (true) {
-                                        if (this.this$0.mState != IDownloader.DownloadStatus.DOWNLOADING || (read = bufferedInputStream.read(bArr, i3, 102400)) == -1 || j2 >= this.mEndByte || i2 != this.exeVer) {
+                                        if (this.this$0.mState != IDownloader.DownloadStatus.DOWNLOADING || (read = bufferedInputStream.read(bArr, i3, 102400)) == -1 || j >= this.mEndByte || i2 != this.exeVer) {
                                             break;
                                         }
                                         randomAccessFile2.write(bArr, i3, read);
-                                        long j3 = read;
-                                        this.mCompleteByte += j3;
-                                        j2 += j3;
+                                        long j2 = read;
+                                        this.mCompleteByte += j2;
+                                        j += j2;
                                         this.this$0.updateDownloadedSize(read);
                                         synchronized (this) {
                                             if (this.isCancelled) {
@@ -296,7 +296,7 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
                                         i3 = 0;
                                     }
                                     randomAccessFile3 = randomAccessFile2;
-                                    if (j2 >= this.mEndByte) {
+                                    if (j >= this.mEndByte) {
                                         this.mIsFinished = true;
                                         randomAccessFile3 = randomAccessFile2;
                                     }
@@ -562,7 +562,7 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
             String str5 = (this.mOutputFolder + this.mFileName) + ".tmp";
             int size = this.mListDownloadThread.size();
             String str6 = ";complete=";
-            long j2 = 0;
+            long j = 0;
             boolean z = false;
             String str7 = TAG;
             if (size == 0) {
@@ -604,9 +604,9 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
                                     randomAccessFile.close();
                                     RemoteXAdLogger.getInstance().d("Downloader.init():  建立完random文件 ts:" + System.currentTimeMillis());
                                     ArrayList arrayList3 = new ArrayList();
-                                    long j3 = -1;
-                                    long j4 = this.mFileSize;
-                                    long j5 = j4 - 1;
+                                    long j2 = -1;
+                                    long j3 = this.mFileSize;
+                                    long j4 = j3 - 1;
                                     i4 = this.mNumConnections;
                                     if (i4 <= 1) {
                                     }
@@ -617,7 +617,7 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
                                     str = str4;
                                     if (this.mSupportResumeFromBreakPoint.booleanValue()) {
                                     }
-                                    this.mDownloaded = j2;
+                                    this.mDownloaded = j;
                                     this.mProgress = (int) getProgress();
                                     setState(IDownloader.DownloadStatus.DOWNLOADING);
                                     RemoteXAdLogger.getInstance().d(str3, "Downloader starts unfinished threads and waits threads end");
@@ -651,21 +651,21 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
                     randomAccessFile2.close();
                     RemoteXAdLogger.getInstance().d("Downloader.init():  建立完random文件 ts:" + System.currentTimeMillis());
                     ArrayList arrayList32 = new ArrayList();
-                    long j32 = -1;
-                    long j42 = this.mFileSize;
-                    long j52 = j42 - 1;
+                    long j22 = -1;
+                    long j32 = this.mFileSize;
+                    long j42 = j32 - 1;
                     i4 = this.mNumConnections;
                     if (i4 <= 1) {
-                        long round = Math.round((((float) j42) / i4) / 102400.0f) * 102400;
+                        long round = Math.round((((float) j32) / i4) / 102400.0f) * 102400;
                         int i5 = 0;
-                        while (j32 < j52) {
-                            long j6 = j32 + 1;
-                            long j7 = j32 + round;
-                            long j8 = j7 < j52 ? j7 : j52;
+                        while (j22 < j42) {
+                            long j5 = j22 + 1;
+                            long j6 = j22 + round;
+                            long j7 = j6 < j42 ? j6 : j42;
                             int i6 = i5 + 1;
-                            arrayList32.add(new OAdSqlLiteDownloadingInfo(i6, url, str5, j6, j8, 0L));
+                            arrayList32.add(new OAdSqlLiteDownloadingInfo(i6, url, str5, j5, j7, 0L));
                             str7 = str7;
-                            j32 = j8;
+                            j22 = j7;
                             i5 = i6;
                             round = round;
                             str6 = str6;
@@ -677,7 +677,7 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
                         str2 = ";complete=";
                         str3 = TAG;
                         str4 = ";end =";
-                        arrayList32.add(new OAdSqlLiteDownloadingInfo(1, url, str5, 0L, j52, 0L));
+                        arrayList32.add(new OAdSqlLiteDownloadingInfo(1, url, str5, 0L, j42, 0L));
                     }
                     arrayList = arrayList32;
                 } else {
@@ -706,10 +706,10 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
             }
             if (this.mSupportResumeFromBreakPoint.booleanValue()) {
                 for (int i7 = 0; i7 < this.mListDownloadThread.size(); i7++) {
-                    j2 += this.mListDownloadThread.get(i7).mCompleteByte;
+                    j += this.mListDownloadThread.get(i7).mCompleteByte;
                 }
             }
-            this.mDownloaded = j2;
+            this.mDownloaded = j;
             this.mProgress = (int) getProgress();
             setState(IDownloader.DownloadStatus.DOWNLOADING);
             RemoteXAdLogger.getInstance().d(str3, "Downloader starts unfinished threads and waits threads end");
@@ -798,11 +798,11 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j2 = this.mFileSize;
-            if (j2 > 2147483647L) {
+            long j = this.mFileSize;
+            if (j > 2147483647L) {
                 return -1;
             }
-            return (int) j2;
+            return (int) j;
         }
         return invokeV.intValue;
     }

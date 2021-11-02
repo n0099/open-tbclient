@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FaceResultData implements Parcelable, IFaceResultData {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<FaceResultData> CREATOR;
@@ -406,10 +406,10 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         }
     }
 
-    public void setTimestamp(long j2) {
+    public void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            this.mTimestamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            this.mTimestamp = j;
         }
     }
 

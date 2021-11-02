@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CARD_NO = "card_no";
@@ -36,16 +36,16 @@ public final class PayUtils {
     public static final String KEY_VALID_DATE = "valid_date";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f62594a = "PayUtils";
+    public static String f59465a = "PayUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62595b = "";
+    public static final String f59466b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f62596c;
+    public static ArrayList<String> f59467c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,12 +88,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f62596c = arrayList;
+        f59467c = arrayList;
         arrayList.add("card_no");
-        f62596c.add("valid_date");
-        f62596c.add("cvv2");
-        f62596c.add("identity_code");
-        f62596c.add("phone_number");
+        f59467c.add("valid_date");
+        f59467c.add("cvv2");
+        f59467c.add("identity_code");
+        f59467c.add("phone_number");
     }
 
     public PayUtils() {
@@ -132,7 +132,7 @@ public final class PayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f62596c.contains(str)) {
+            if (f59467c.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -250,7 +250,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f36026h);
+                    sb.append(com.alipay.sdk.encrypt.a.f34124h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

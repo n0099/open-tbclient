@@ -57,7 +57,7 @@ import java.util.List;
 import java.util.Locale;
 import org.webrtc.MediaStreamTrack;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class LightappBaseActivity extends BaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CALL_CAMERA_ID_DETECT = 5;
@@ -72,19 +72,19 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Intent f61808a;
+    public Intent f58691a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61809b;
+    public int f58692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61810c;
+    public String f58693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f61811d;
+    public boolean f58694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Uri f61812e;
+    public Uri f58695e;
     public long mLangbridgeHash;
     public LightappJsClient mLightappJsClient;
     public boolean mNeedClearHistory;
@@ -94,13 +94,13 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     public ValueCallback<Uri[]> mUploadMessageForAndroid5;
     public LightappBrowserWebView mWebView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class BaseCustomWebViewClient extends SafeWebView.SafeWebViewClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LightappBaseActivity f61818a;
+        public final /* synthetic */ LightappBaseActivity f58701a;
 
         public BaseCustomWebViewClient(LightappBaseActivity lightappBaseActivity) {
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                     return;
                 }
             }
-            this.f61818a = lightappBaseActivity;
+            this.f58701a = lightappBaseActivity;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
@@ -125,13 +125,13 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) {
                 super.doUpdateVisitedHistory(webView, str, z);
-                LightappBaseActivity lightappBaseActivity = this.f61818a;
+                LightappBaseActivity lightappBaseActivity = this.f58701a;
                 if (lightappBaseActivity.mNeedClearHistory) {
                     lightappBaseActivity.mWebView.clearHistory();
                     if (str == null || str.contains("about:blank")) {
                         return;
                     }
-                    this.f61818a.mNeedClearHistory = false;
+                    this.f58701a.mNeedClearHistory = false;
                 }
             }
         }
@@ -148,7 +148,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
-                this.f61818a.mLightappJsClient.setUrlLocal(str);
+                this.f58701a.mLightappJsClient.setUrlLocal(str);
                 super.onPageStarted(webView, str, bitmap);
             }
         }
@@ -173,7 +173,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                 LogUtil.d("LightappBaseActivity", "shouldOverrideUrlLoading url = " + str);
                 if (str.startsWith("tel:")) {
                     try {
-                        this.f61818a.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
+                        this.f58701a.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
                         return true;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -182,11 +182,11 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                     try {
                         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str));
                         intent.putExtra("android.intent.extra.EMAIL", new String[]{str.replace(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO, "")});
-                        this.f61818a.startActivity(intent);
+                        this.f58701a.startActivity(intent);
                         return true;
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        GlobalUtils.toast(this.f61818a.getActivity(), "请先配置邮箱");
+                        GlobalUtils.toast(this.f58701a.getActivity(), "请先配置邮箱");
                     }
                 } else if (!str.toLowerCase(Locale.CHINA).startsWith("http") && !str.toLowerCase(Locale.CHINA).startsWith("https") && !str.toLowerCase(Locale.CHINA).startsWith("file")) {
                     try {
@@ -194,13 +194,13 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                         parseUri.addCategory("android.intent.category.BROWSABLE");
                         parseUri.setComponent(null);
                         parseUri.setSelector(null);
-                        this.f61818a.startActivity(parseUri);
+                        this.f58701a.startActivity(parseUri);
                         return true;
                     } catch (Exception e4) {
                         LogUtil.d("LightappBaseActivity", e4.getMessage());
                     }
                 } else {
-                    LangbridgeCacheManager.getInstance().handleLoadUrl(this.f61818a.mLangbridgeHash, str);
+                    LangbridgeCacheManager.getInstance().handleLoadUrl(this.f58701a.mLangbridgeHash, str);
                     return false;
                 }
                 return super.shouldOverrideUrlLoading(webView, str);
@@ -238,10 +238,10 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
             }
         }
         this.mNeedClearHistory = true;
-        this.f61808a = null;
-        this.f61809b = -1;
-        this.f61810c = null;
-        this.f61811d = false;
+        this.f58691a = null;
+        this.f58692b = -1;
+        this.f58693c = null;
+        this.f58694d = false;
         this.mNeedOverrideUrl = false;
         this.mLangbridgeHash = 0L;
     }
@@ -259,8 +259,8 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            this.f61808a = null;
-            this.f61809b = -1;
+            this.f58691a = null;
+            this.f58692b = -1;
             if (i2 == 1) {
                 if (this.mUploadMessage == null) {
                     return;
@@ -269,10 +269,10 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                 if (data != null) {
                     this.mUploadMessage.onReceiveValue(data);
                 } else {
-                    this.mUploadMessage.onReceiveValue(this.f61812e);
+                    this.mUploadMessage.onReceiveValue(this.f58695e);
                 }
                 this.mUploadMessage = null;
-                this.f61812e = null;
+                this.f58695e = null;
             } else if (i2 == 2) {
                 if (this.mUploadMessageForAndroid5 == null) {
                     return;
@@ -281,7 +281,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                 if (data2 != null) {
                     this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{data2});
                 } else {
-                    Uri uri = this.f61812e;
+                    Uri uri = this.f58695e;
                     if (uri != null) {
                         this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{uri});
                     } else {
@@ -289,7 +289,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                     }
                 }
                 this.mUploadMessageForAndroid5 = null;
-                this.f61812e = null;
+                this.f58695e = null;
             } else if (i2 == 3) {
                 if (i3 == -1) {
                     this.mLightappJsClient.onCallCameraPicCallbackLocal();
@@ -317,7 +317,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ LightappBaseActivity f61813a;
+                            public final /* synthetic */ LightappBaseActivity f58696a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -334,17 +334,17 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                                         return;
                                     }
                                 }
-                                this.f61813a = this;
+                                this.f58696a = this;
                             }
 
                             @Override // android.widget.AdapterView.OnItemClickListener
-                            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j2) {
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j2)}) == null) || i4 <= 0 || i4 >= this.f61813a.mPhoneContacts.size()) {
+                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) || i4 <= 0 || i4 >= this.f58696a.mPhoneContacts.size()) {
                                     return;
                                 }
-                                String replace = this.f61813a.mPhoneContacts.get(i4).replace(" ", "").replace("-", "");
-                                LightappBaseActivity lightappBaseActivity = this.f61813a;
+                                String replace = this.f58696a.mPhoneContacts.get(i4).replace(" ", "").replace("-", "");
+                                LightappBaseActivity lightappBaseActivity = this.f58696a;
                                 lightappBaseActivity.mLightappJsClient.onContactsSelectedLocal(0, new String[]{lightappBaseActivity.mPhoneContacts.get(0), replace}, "");
                             }
                         });
@@ -470,37 +470,37 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                         }
                     }
                     if (!z) {
-                        a(this.f61810c, this.f61811d, this.f61809b);
-                        this.f61810c = "";
-                        this.f61811d = false;
-                        this.f61809b = -1;
+                        a(this.f58693c, this.f58694d, this.f58692b);
+                        this.f58693c = "";
+                        this.f58694d = false;
+                        this.f58692b = -1;
                     }
                 }
                 z = false;
             } else if (iArr[0] == 0) {
-                Intent intent = this.f61808a;
+                Intent intent = this.f58691a;
                 if (intent != null) {
-                    startActivityForResult(intent, this.f61809b);
+                    startActivityForResult(intent, this.f58692b);
                 }
                 z = false;
             } else {
                 z = true;
             }
             if (z) {
-                if (this.f61809b == 1) {
+                if (this.f58692b == 1) {
                     ValueCallback<Uri> valueCallback = this.mUploadMessage;
                     if (valueCallback != null) {
                         valueCallback.onReceiveValue(null);
                         this.mUploadMessage = null;
                     }
-                    this.f61812e = null;
+                    this.f58695e = null;
                 } else if (i2 == 2) {
                     ValueCallback<Uri[]> valueCallback2 = this.mUploadMessageForAndroid5;
                     if (valueCallback2 != null) {
                         valueCallback2.onReceiveValue(new Uri[0]);
                         this.mUploadMessageForAndroid5 = null;
                     }
-                    this.f61812e = null;
+                    this.f58695e = null;
                 }
             }
         }
@@ -563,15 +563,15 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (!PermissionManager.checkCallingPermission(getActivity(), "android.permission.READ_EXTERNAL_STORAGE") && !PermissionManager.checkCallingPermission(getActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                this.f61810c = str;
-                this.f61811d = z;
-                this.f61809b = i2;
+                this.f58693c = str;
+                this.f58694d = z;
+                this.f58692b = i2;
                 BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LightappBaseActivity f61814a;
+                    public final /* synthetic */ LightappBaseActivity f58697a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -588,7 +588,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                                 return;
                             }
                         }
-                        this.f61814a = this;
+                        this.f58697a = this;
                     }
 
                     @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -596,9 +596,9 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                             if (bool.booleanValue()) {
-                                PermissionManager.checkCallingOrSelfPermission(this.f61814a.getActivity(), new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"}, 102);
+                                PermissionManager.checkCallingOrSelfPermission(this.f58697a.getActivity(), new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"}, 102);
                             } else {
-                                this.f61814a.onRequestPermissionsResult(102, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"}, new int[]{-1, -1});
+                                this.f58697a.onRequestPermissionsResult(102, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"}, new int[]{-1, -1});
                             }
                         }
                     }
@@ -653,23 +653,23 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                             File file = new File(externalStoragePublicDirectory + File.separator + "IMG_" + System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
                             if ("iqiyi".equals(BeanConstants.CHANNEL_ID)) {
                                 Activity activity = getActivity();
-                                this.f61812e = FileProvider.getUriForFile(activity, getPackageName() + ".fileprovider", file);
+                                this.f58695e = FileProvider.getUriForFile(activity, getPackageName() + ".fileprovider", file);
                             } else {
                                 Activity activity2 = getActivity();
-                                this.f61812e = FileProvider.getUriForFile(activity2, getPackageName() + ".langbrigeProvider", file);
+                                this.f58695e = FileProvider.getUriForFile(activity2, getPackageName() + ".langbrigeProvider", file);
                             }
-                            grantUriPermission(getPackageName(), this.f61812e, 3);
+                            grantUriPermission(getPackageName(), this.f58695e, 3);
                             intent2 = new Intent("android.media.action.IMAGE_CAPTURE");
-                            intent2.putExtra("output", this.f61812e);
+                            intent2.putExtra("output", this.f58695e);
                             if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                                this.f61808a = intent2;
-                                this.f61809b = i2;
+                                this.f58691a = intent2;
+                                this.f58692b = i2;
                                 BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.3
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ LightappBaseActivity f61815a;
+                                    public final /* synthetic */ LightappBaseActivity f58698a;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -686,7 +686,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                                                 return;
                                             }
                                         }
-                                        this.f61815a = this;
+                                        this.f58698a = this;
                                     }
 
                                     @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -694,9 +694,9 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                                             if (bool.booleanValue()) {
-                                                PermissionManager.checkCallingOrSelfPermission(this.f61815a.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 101);
+                                                PermissionManager.checkCallingOrSelfPermission(this.f58698a.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 101);
                                             } else {
-                                                this.f61815a.onRequestPermissionsResult(101, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
+                                                this.f58698a.onRequestPermissionsResult(101, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
                                             }
                                         }
                                     }
@@ -721,23 +721,23 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                             File file2 = new File(externalStoragePublicDirectory + File.separator + "video_" + System.currentTimeMillis() + ".mp4");
                             if ("iqiyi".equals(BeanConstants.CHANNEL_ID)) {
                                 Activity activity3 = getActivity();
-                                this.f61812e = FileProvider.getUriForFile(activity3, getPackageName() + ".fileprovider", file2);
+                                this.f58695e = FileProvider.getUriForFile(activity3, getPackageName() + ".fileprovider", file2);
                             } else {
                                 Activity activity4 = getActivity();
-                                this.f61812e = FileProvider.getUriForFile(activity4, getPackageName() + ".langbrigeProvider", file2);
+                                this.f58695e = FileProvider.getUriForFile(activity4, getPackageName() + ".langbrigeProvider", file2);
                             }
-                            grantUriPermission(getPackageName(), this.f61812e, 3);
+                            grantUriPermission(getPackageName(), this.f58695e, 3);
                             intent2 = new Intent("android.media.action.VIDEO_CAPTURE");
-                            intent2.putExtra("output", this.f61812e);
+                            intent2.putExtra("output", this.f58695e);
                             if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                                this.f61808a = intent2;
-                                this.f61809b = i2;
+                                this.f58691a = intent2;
+                                this.f58692b = i2;
                                 BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.4
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ LightappBaseActivity f61816a;
+                                    public final /* synthetic */ LightappBaseActivity f58699a;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -754,7 +754,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                                                 return;
                                             }
                                         }
-                                        this.f61816a = this;
+                                        this.f58699a = this;
                                     }
 
                                     @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -762,9 +762,9 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                                             if (bool.booleanValue()) {
-                                                PermissionManager.checkCallingOrSelfPermission(this.f61816a.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 101);
+                                                PermissionManager.checkCallingOrSelfPermission(this.f58699a.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 101);
                                             } else {
-                                                this.f61816a.onRequestPermissionsResult(101, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
+                                                this.f58699a.onRequestPermissionsResult(101, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
                                             }
                                         }
                                     }
@@ -810,13 +810,13 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class BaseCustomChromeClient extends SafeWebView.SafeChromeClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LightappBaseActivity f61817a;
+        public final /* synthetic */ LightappBaseActivity f58700a;
 
         public BaseCustomChromeClient(LightappBaseActivity lightappBaseActivity) {
             Interceptable interceptable = $ic;
@@ -833,7 +833,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                     return;
                 }
             }
-            this.f61817a = lightappBaseActivity;
+            this.f58700a = lightappBaseActivity;
         }
 
         @Override // android.webkit.WebChromeClient
@@ -851,12 +851,12 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
             String[] acceptTypes;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, valueCallback, fileChooserParams)) == null) {
-                this.f61817a.mUploadMessageForAndroid5 = valueCallback;
+                this.f58700a.mUploadMessageForAndroid5 = valueCallback;
                 if (webView != null && !TextUtils.isEmpty(webView.getUrl())) {
                     DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_INPUT_FILE, Arrays.asList(webView.getUrl()));
                 }
                 if (fileChooserParams != null && (acceptTypes = fileChooserParams.getAcceptTypes()) != null && acceptTypes.length > 0 && !TextUtils.isEmpty(acceptTypes[0])) {
-                    this.f61817a.a(acceptTypes[0], fileChooserParams.isCaptureEnabled(), 2);
+                    this.f58700a.a(acceptTypes[0], fileChooserParams.isCaptureEnabled(), 2);
                 }
                 return true;
             }
@@ -866,12 +866,12 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         public void openFileChooser(ValueCallback<Uri> valueCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, valueCallback) == null) {
-                this.f61817a.mUploadMessage = valueCallback;
+                this.f58700a.mUploadMessage = valueCallback;
                 Intent intent = new Intent("android.intent.action.GET_CONTENT");
                 intent.addCategory("android.intent.category.OPENABLE");
                 intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
                 try {
-                    this.f61817a.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
+                    this.f58700a.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
                 } catch (ActivityNotFoundException e2) {
                     e2.printStackTrace();
                 }
@@ -881,12 +881,12 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         public void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, valueCallback, str) == null) {
-                this.f61817a.mUploadMessage = valueCallback;
+                this.f58700a.mUploadMessage = valueCallback;
                 Intent intent = new Intent("android.intent.action.GET_CONTENT");
                 intent.addCategory("android.intent.category.OPENABLE");
                 intent.setType(str);
                 try {
-                    this.f61817a.startActivityForResult(Intent.createChooser(intent, "File Browser"), 1);
+                    this.f58700a.startActivityForResult(Intent.createChooser(intent, "File Browser"), 1);
                 } catch (ActivityNotFoundException e2) {
                     e2.printStackTrace();
                 }
@@ -896,11 +896,11 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, valueCallback, str, str2) == null) {
-                this.f61817a.mUploadMessage = valueCallback;
+                this.f58700a.mUploadMessage = valueCallback;
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.f61817a.a(str, !TextUtils.isEmpty(str2), 1);
+                this.f58700a.a(str, !TextUtils.isEmpty(str2), 1);
             }
         }
     }

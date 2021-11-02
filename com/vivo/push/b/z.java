@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class z extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f76893a;
+    public int f70242a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z() {
@@ -30,13 +30,13 @@ public final class z extends com.vivo.push.y {
                 return;
             }
         }
-        this.f76893a = 0;
+        this.f70242a = 0;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f76893a = i2;
+            this.f70242a = i2;
         }
     }
 
@@ -44,7 +44,7 @@ public final class z extends com.vivo.push.y {
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            aVar.a("com.bbk.push.ikey.MODE_TYPE", this.f76893a);
+            aVar.a("com.bbk.push.ikey.MODE_TYPE", this.f70242a);
         }
     }
 
@@ -61,7 +61,7 @@ public final class z extends com.vivo.push.y {
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76893a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70242a : invokeV.intValue;
     }
 
     @Override // com.vivo.push.y
@@ -75,7 +75,7 @@ public final class z extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f76893a = aVar.b("com.bbk.push.ikey.MODE_TYPE", 0);
+            this.f70242a = aVar.b("com.bbk.push.ikey.MODE_TYPE", 0);
         }
     }
 }

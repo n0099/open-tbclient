@@ -57,10 +57,10 @@ public class MediaMetadataCompatApi21 {
             }
         }
 
-        public static void putLong(Object obj, String str, long j2) {
+        public static void putLong(Object obj, String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Long.valueOf(j2)}) == null) {
-                ((MediaMetadata.Builder) obj).putLong(str, j2);
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Long.valueOf(j)}) == null) {
+                ((MediaMetadata.Builder) obj).putLong(str, j);
             }
         }
 

@@ -12,15 +12,15 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.g;
-import c.a.e.a.h;
-import c.a.e.e.p.l;
-import c.a.q0.a.s;
-import c.a.q0.o0.a;
-import c.a.q0.o0.b;
-import c.a.q0.o0.d;
-import c.a.q0.o0.e;
-import c.a.q0.s.c;
+import b.a.e.a.g;
+import b.a.e.a.h;
+import b.a.e.e.p.l;
+import b.a.q0.a.s;
+import b.a.q0.o0.a;
+import b.a.q0.o0.b;
+import b.a.q0.o0.d;
+import b.a.q0.o0.e;
+import b.a.q0.s.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -65,7 +65,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPageContextSupport, a, g<T>, IPermissionPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static int flog = 1;
@@ -80,7 +80,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public long lastResumeTime;
     public PermissionJudgePolicy mCurrentPermissionJudgePolicy;
     public BdUniqueId mId;
-    public c.a.q0.s.a mLayoutInflateFactory;
+    public b.a.q0.s.a mLayoutInflateFactory;
     public c mLayoutMode;
     public SwipeBackLayout mSwipeBackLayout;
     public boolean mUseStyleImmersiveSticky;
@@ -228,7 +228,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             s.a(motionEvent, getPageId(), 0L);
-            c.a.r0.p3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+            b.a.r0.q3.a.getInstance().behaviorRecordEvent(motionEvent, this);
             try {
                 return super.dispatchTouchEvent(motionEvent);
             } catch (Exception e2) {
@@ -275,20 +275,20 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             hashMap.put("native_view_cost", Long.valueOf(this.creatTime));
             hashMap.put("native_start_time", Long.valueOf(this.startTime));
             hashMap.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
-            hashMap.put("sorce_key_list", c.a.q0.o0.c.a(getCurrentPageSourceKeyList()));
+            hashMap.put("sorce_key_list", b.a.q0.o0.c.a(getCurrentPageSourceKeyList()));
             return hashMap;
         }
         return (Map) invokeV.objValue;
     }
 
-    @Override // c.a.q0.o0.a
+    @Override // b.a.q0.o0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getContainerUrl() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.q0.o0.a
+    @Override // b.a.q0.o0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -308,7 +308,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mLayoutMode : (c) invokeV.objValue;
     }
 
-    @Override // c.a.q0.o0.a
+    @Override // b.a.q0.o0.a
     public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -361,7 +361,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return (d) invokeV.objValue;
     }
 
-    @Override // c.a.q0.o0.a
+    @Override // b.a.q0.o0.a
     public b getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -388,7 +388,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
                 this.this$0 = this;
             }
 
-            @Override // c.a.q0.o0.b
+            @Override // b.a.q0.o0.b
             public boolean canStat(d dVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -398,14 +398,14 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
                 return invokeL.booleanValue;
             }
 
-            @Override // c.a.q0.o0.b
+            @Override // b.a.q0.o0.b
             public int getMaxCost() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e.b().c() : invokeV2.intValue;
             }
 
-            @Override // c.a.q0.o0.b
+            @Override // b.a.q0.o0.b
             public boolean isCurrentPageCanBeAddToSourceTrace() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
@@ -422,8 +422,8 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            Resources b2 = h.a().b();
-            return (b2 == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : b2;
+            Resources resources = h.a().getResources();
+            return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
         }
         return (Resources) invokeV.objValue;
     }
@@ -491,13 +491,13 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
                 BdSocketLinkService.startService(false, "app start");
             }
             this.mLayoutMode = new c();
-            c.a.q0.s.a aVar = new c.a.q0.s.a();
+            b.a.q0.s.a aVar = new b.a.q0.s.a();
             this.mLayoutInflateFactory = aVar;
             aVar.a(this.mLayoutMode);
             TbadkCoreApplication.setIsAppRunning(true);
             TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
             TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-            c.a.e.a.b.g().o(getPageContext().getPageActivity());
+            b.a.e.a.b.g().o(getPageContext().getPageActivity());
             if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
                 z = false;
             }
@@ -525,7 +525,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
             super.onDestroy();
-            c.a.e.a.b.g().m(getPageContext().getPageActivity());
+            b.a.e.a.b.g().m(getPageContext().getPageActivity());
         }
     }
 
@@ -533,7 +533,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            c.a.r0.p3.a.getInstance().onPause(this);
+            b.a.r0.q3.a.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -599,7 +599,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             this.flutterStartTime = System.currentTimeMillis();
             TbadkCoreApplication.getInst().AddResumeNum();
             super.onResume();
-            c.a.r0.p3.a.getInstance().onResume(this);
+            b.a.r0.q3.a.getInstance().onResume(this);
             this.lastResumeTime = System.currentTimeMillis();
             TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
             TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
@@ -650,11 +650,11 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             FrameLayout frameLayout = new FrameLayout(getActivity());
             frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            Resources b2 = h.a().b();
+            Resources resources = h.a().getResources();
             if (getBackgroundMode() == BoostFlutterActivity.BackgroundMode.transparent) {
                 frameLayout.setBackgroundColor(0);
             } else {
-                int identifier = b2.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
+                int identifier = resources.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
                 int i2 = TbadkCoreApplication.getInst().getSkinType() != 0 ? -16777216 : -1;
                 if (identifier == 0) {
                     frameLayout.setBackgroundColor(i2);
@@ -664,9 +664,9 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             }
             if (getIntent() == null || getIntent().getBooleanExtra("showloading", true)) {
                 ContinuousAnimationView continuousAnimationView = new ContinuousAnimationView(getActivity());
-                SkinManager.setLottieAnimation(continuousAnimationView, b2.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
+                SkinManager.setLottieAnimation(continuousAnimationView, resources.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
                 continuousAnimationView.setSpeed(1.2f);
-                continuousAnimationView.setLayoutParams(new FrameLayout.LayoutParams(b2.getDimensionPixelSize(b2.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), b2.getDimensionPixelSize(b2.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
+                continuousAnimationView.setLayoutParams(new FrameLayout.LayoutParams(resources.getDimensionPixelSize(resources.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), resources.getDimensionPixelSize(resources.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
                 frameLayout.addView(continuousAnimationView);
                 continuousAnimationView.playAnimation();
             }
@@ -675,7 +675,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return (SplashScreen) invokeV.objValue;
     }
 
-    public void registerListener(c.a.e.c.g.a aVar) {
+    public void registerListener(b.a.e.c.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, aVar) == null) {
             if (aVar != null && aVar.getTag() == null) {
@@ -746,7 +746,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.TbPageContextSupport, c.a.e.a.g
+    @Override // com.baidu.tbadk.TbPageContextSupport, b.a.e.a.g
     public TbPageContext<T> getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -763,7 +763,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return (TbPageContext) invokeV.objValue;
     }
 
-    public void registerListener(int i2, c.a.e.c.g.a aVar) {
+    public void registerListener(int i2, b.a.e.c.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048605, this, i2, aVar) == null) {
             if (aVar != null && aVar.getTag() == null) {

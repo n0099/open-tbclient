@@ -19,7 +19,7 @@ import com.dxmpay.apollon.utils.GlobalUtils;
 import com.dxmpay.wallet.core.beans.BeanManager;
 import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CouponListPresenter extends CouponListContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CouponListPresenter";
@@ -28,34 +28,34 @@ public class CouponListPresenter extends CouponListContract.Presenter {
     public CouponListActivity mActivity;
     public PayRequest mPayRequest;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f62973a;
+        public String f59840a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f62974b;
+        public int f59841b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f62975c;
+        public int f59842c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f62976d;
+        public String f59843d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f62977e;
+        public String f59844e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f62978f;
+        public String f59845f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f62979g;
+        public boolean f59846g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f62980h;
+        public boolean f59847h;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class CouponListPresenter extends CouponListContract.Presenter {
     public void calcPayamount(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (aVar != null && aVar.f62974b == -1) {
+            if (aVar != null && aVar.f59841b == -1) {
                 this.mActivity.showLoading(0);
             } else {
                 this.mActivity.setPageClickable(false);
@@ -107,7 +107,7 @@ public class CouponListPresenter extends CouponListContract.Presenter {
             com.baidu.wallet.paysdk.beans.d dVar = (com.baidu.wallet.paysdk.beans.d) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 16, TAG);
             if (aVar != null) {
                 this.isFromActivityJump = false;
-                dVar.a(aVar.f62975c, aVar.f62974b, !aVar.f62980h ? "4" : "0");
+                dVar.a(aVar.f59842c, aVar.f59841b, !aVar.f59847h ? "4" : "0");
             } else {
                 this.isFromActivityJump = true;
             }
@@ -157,14 +157,14 @@ public class CouponListPresenter extends CouponListContract.Presenter {
                 for (int i4 = 0; i4 < calcPaymentResponse.coupon_list.length; i4++) {
                     a aVar = new a();
                     PayData.Coupon[] couponArr = calcPaymentResponse.coupon_list;
-                    aVar.f62973a = couponArr[i4].icon_url;
-                    aVar.f62974b = i4;
-                    aVar.f62975c = 2;
-                    aVar.f62976d = couponArr[i4].description;
-                    aVar.f62977e = couponArr[i4].discount_msg;
-                    aVar.f62978f = couponArr[i4].select_state_desc;
-                    aVar.f62979g = couponArr[i4].getEnable();
-                    aVar.f62980h = calcPaymentResponse.coupon_list[i4].getSelected();
+                    aVar.f59840a = couponArr[i4].icon_url;
+                    aVar.f59841b = i4;
+                    aVar.f59842c = 2;
+                    aVar.f59843d = couponArr[i4].description;
+                    aVar.f59844e = couponArr[i4].discount_msg;
+                    aVar.f59845f = couponArr[i4].select_state_desc;
+                    aVar.f59846g = couponArr[i4].getEnable();
+                    aVar.f59847h = calcPaymentResponse.coupon_list[i4].getSelected();
                     arrayList.add(aVar);
                 }
             }
@@ -177,14 +177,14 @@ public class CouponListPresenter extends CouponListContract.Presenter {
                     if (discountArr[i3].isCommonDiscount()) {
                         a aVar2 = new a();
                         PayData.Discount[] discountArr2 = calcPaymentResponse.activity_list;
-                        aVar2.f62973a = discountArr2[i3].icon_url;
-                        aVar2.f62974b = i3;
-                        aVar2.f62975c = 1;
-                        aVar2.f62976d = discountArr2[i3].description;
-                        aVar2.f62977e = discountArr2[i3].discount_msg;
-                        aVar2.f62978f = discountArr2[i3].select_state_desc;
-                        aVar2.f62979g = discountArr2[i3].getEnable();
-                        aVar2.f62980h = calcPaymentResponse.activity_list[i3].getSelected();
+                        aVar2.f59840a = discountArr2[i3].icon_url;
+                        aVar2.f59841b = i3;
+                        aVar2.f59842c = 1;
+                        aVar2.f59843d = discountArr2[i3].description;
+                        aVar2.f59844e = discountArr2[i3].discount_msg;
+                        aVar2.f59845f = discountArr2[i3].select_state_desc;
+                        aVar2.f59846g = discountArr2[i3].getEnable();
+                        aVar2.f59847h = calcPaymentResponse.activity_list[i3].getSelected();
                         arrayList.add(aVar2);
                     }
                     i3++;

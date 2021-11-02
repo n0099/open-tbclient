@@ -19,19 +19,19 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class KsLogoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f74384a;
+    public TextView f66766a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f74385b;
+    public ImageView f66767b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f74386c;
+    public boolean f66768c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KsLogoView(Context context) {
@@ -128,17 +128,17 @@ public class KsLogoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             LinearLayout.inflate(context, R.layout.ksad_logo_layout, this);
-            this.f74384a = (TextView) findViewById(R.id.ksad_logo_text);
-            this.f74385b = (ImageView) findViewById(R.id.ksad_logo_icon);
+            this.f66766a = (TextView) findViewById(R.id.ksad_logo_text);
+            this.f66767b = (ImageView) findViewById(R.id.ksad_logo_icon);
             boolean z = getBackground() == null;
-            this.f74386c = z;
+            this.f66768c = z;
             if (z) {
-                this.f74385b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_gray));
-                textView = this.f74384a;
+                this.f66767b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_gray));
+                textView = this.f66766a;
                 i2 = -6513508;
             } else {
-                this.f74385b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_white));
-                textView = this.f74384a;
+                this.f66767b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_white));
+                textView = this.f66766a;
                 i2 = -1711276033;
             }
             textView.setTextColor(i2);
@@ -151,26 +151,26 @@ public class KsLogoView extends LinearLayout {
             View findViewById = findViewById(R.id.ksad_logo_container);
             AdInfo i2 = com.kwad.sdk.core.response.b.c.i(adTemplate);
             if (TextUtils.isEmpty(i2.adBaseInfo.adSourceDescription)) {
-                this.f74384a.setVisibility(8);
-                this.f74384a.setText("");
+                this.f66766a.setVisibility(8);
+                this.f66766a.setText("");
             } else {
-                this.f74384a.setText(com.kwad.sdk.core.response.b.a.t(i2));
-                this.f74384a.setVisibility(0);
+                this.f66766a.setText(com.kwad.sdk.core.response.b.a.t(i2));
+                this.f66766a.setVisibility(0);
             }
-            String str = this.f74386c ? i2.adBaseInfo.adGrayMarkIcon : i2.adBaseInfo.adMarkIcon;
+            String str = this.f66768c ? i2.adBaseInfo.adGrayMarkIcon : i2.adBaseInfo.adMarkIcon;
             if (TextUtils.isEmpty(str)) {
-                this.f74385b.setVisibility(8);
-                this.f74385b.setImageDrawable(null);
+                this.f66767b.setVisibility(8);
+                this.f66767b.setImageDrawable(null);
             } else {
-                KSImageLoader.loadFeeImage(this.f74385b, str, adTemplate);
-                this.f74385b.setVisibility(0);
+                KSImageLoader.loadFeeImage(this.f66767b, str, adTemplate);
+                this.f66767b.setVisibility(0);
             }
             findViewById.setVisibility(0);
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(i2.adBaseInfo.adSourceDescription)) {
-                this.f74384a.setVisibility(0);
-                this.f74384a.setText(com.kwad.sdk.core.response.b.a.t(i2));
-                this.f74385b.setVisibility(0);
-                this.f74385b.setImageDrawable(getContext().getResources().getDrawable(this.f74386c ? R.drawable.ksad_logo_gray : R.drawable.ksad_logo_white));
+                this.f66766a.setVisibility(0);
+                this.f66766a.setText(com.kwad.sdk.core.response.b.a.t(i2));
+                this.f66767b.setVisibility(0);
+                this.f66767b.setImageDrawable(getContext().getResources().getDrawable(this.f66768c ? R.drawable.ksad_logo_gray : R.drawable.ksad_logo_white));
             }
         }
     }
@@ -178,12 +178,12 @@ public class KsLogoView extends LinearLayout {
     public ImageView getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f74385b : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66767b : (ImageView) invokeV.objValue;
     }
 
     public TextView getTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f74384a : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f66766a : (TextView) invokeV.objValue;
     }
 }

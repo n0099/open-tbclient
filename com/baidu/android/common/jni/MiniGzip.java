@@ -1,7 +1,7 @@
 package com.baidu.android.common.jni;
 
 import android.os.SystemClock;
-import c.a.c.a.a;
+import b.a.c.a.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class MiniGzip {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36744a = "MiniGzip";
+    public static final String f34796a = "MiniGzip";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,14 +54,14 @@ public final class MiniGzip {
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (str == null || str2 == null || str.equals("") || str2.equals("")) {
-                String str3 = f36744a;
+                String str3 = f34796a;
                 LogUtil.logD(str3, "parameters invalid : srcFile=" + str + "//destFile=" + str2);
             } else if (!new File(str).exists()) {
-                String str4 = f36744a;
+                String str4 = f34796a;
                 LogUtil.logD(str4, str + "  not exists.");
             } else if (new a(new File(str)).a()) {
                 uncompressFile(str, str2);
-                String str5 = f36744a;
+                String str5 = f34796a;
                 LogUtil.logD(str5, "native ungzip use time : " + (SystemClock.elapsedRealtime() - elapsedRealtime));
             }
         }

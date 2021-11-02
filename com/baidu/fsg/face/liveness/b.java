@@ -9,40 +9,38 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f40172a;
+    public long f38090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40173b;
+    public int f38091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40174c;
+    public int f38092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40175d;
+    public String f38093d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40176e;
+    public String f38094e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f40177f;
+    public long f38095f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f40178g;
+    public long f38096g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f40179h;
+    public long f38097h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f40180i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f40181j;
+    public long f38098i;
+    public long j;
     public long k;
     public long l;
     public long m;
@@ -66,13 +64,13 @@ public class b {
                 return;
             }
         }
-        this.f40177f = 0L;
-        this.f40178g = 0L;
-        this.f40179h = 0L;
+        this.f38095f = 0L;
+        this.f38096g = 0L;
+        this.f38097h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f40175d = "";
-        this.f40176e = "";
+        this.f38093d = "";
+        this.f38094e = "";
     }
 
     private ArrayList<String> c() {
@@ -80,8 +78,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(String.valueOf(this.f40180i));
-            arrayList.add(String.valueOf(this.f40181j));
+            arrayList.add(String.valueOf(this.f38098i));
+            arrayList.add(String.valueOf(this.j));
             arrayList.add(String.valueOf(this.k));
             arrayList.add(String.valueOf(this.l));
             arrayList.add(String.valueOf(this.m));
@@ -101,8 +99,8 @@ public class b {
             ArrayList arrayList = new ArrayList();
             if (d.t.equals(str)) {
                 ArrayList arrayList2 = new ArrayList();
-                arrayList2.add(this.f40173b + "");
-                arrayList2.add(this.f40174c + "");
+                arrayList2.add(this.f38091b + "");
+                arrayList2.add(this.f38092c + "");
                 arrayList2.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.t, arrayList2);
             } else if (d.r.equals(str)) {
@@ -111,10 +109,10 @@ public class b {
                 arrayList.add(b() + "");
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.s, arrayList);
-            } else if (d.f40303f.equals(str)) {
-                arrayList.add(((System.currentTimeMillis() - this.f40172a) / 1000) + "");
+            } else if (d.f38213f.equals(str)) {
+                arrayList.add(((System.currentTimeMillis() - this.f38090a) / 1000) + "");
                 arrayList.add(spno);
-                RimStatisticsUtil.onEventWithValues(d.f40303f, arrayList);
+                RimStatisticsUtil.onEventWithValues(d.f38213f, arrayList);
             } else if (d.u.equals(str)) {
                 if (this.o > 0) {
                     str2 = (this.n / this.o) + "";
@@ -134,31 +132,31 @@ public class b {
                     } else {
                         this.p.add("");
                     }
-                    this.p.add(this.f40173b + "*" + this.f40174c);
+                    this.p.add(this.f38091b + "*" + this.f38092c);
                     this.p.add(spno);
                     RimStatisticsUtil.onEventWithValues(str, this.p);
                 }
             } else if (d.l.equals(str)) {
-                arrayList.add(this.f40176e);
-                arrayList.add(this.f40175d);
+                arrayList.add(this.f38094e);
+                arrayList.add(this.f38093d);
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, arrayList);
             } else if (d.o.equals(str)) {
-                arrayList.add((System.currentTimeMillis() - this.f40172a) + "");
+                arrayList.add((System.currentTimeMillis() - this.f38090a) + "");
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, arrayList);
             }
         }
     }
 
-    public void b(long j2) {
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             if (this.q == null) {
                 this.q = new StringBuilder();
             }
             StringBuilder sb = this.q;
-            sb.append(j2);
+            sb.append(j);
             sb.append("-");
         }
     }
@@ -167,9 +165,9 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            long j2 = this.f40179h;
-            if (j2 >= 2) {
-                return (this.f40178g - this.f40177f) / j2;
+            long j = this.f38097h;
+            if (j >= 2) {
+                return (this.f38096g - this.f38095f) / j;
             }
             return 0L;
         }
@@ -179,7 +177,7 @@ public class b {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f40175d += str;
+            this.f38093d += str;
         }
     }
 
@@ -198,31 +196,31 @@ public class b {
                 return;
             }
         }
-        this.f40177f = 0L;
-        this.f40178g = 0L;
-        this.f40179h = 0L;
+        this.f38095f = 0L;
+        this.f38096g = 0L;
+        this.f38097h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f40175d = "";
-        this.f40176e = "";
+        this.f38093d = "";
+        this.f38094e = "";
         this.s = livenessRecogDTO;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f40177f == 0) {
-                this.f40177f = System.currentTimeMillis();
+            if (this.f38095f == 0) {
+                this.f38095f = System.currentTimeMillis();
             }
-            this.f40178g = System.currentTimeMillis();
-            this.f40179h++;
+            this.f38096g = System.currentTimeMillis();
+            this.f38097h++;
         }
     }
 
-    public void a(long j2) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.n += j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.n += j;
             this.o++;
         }
     }

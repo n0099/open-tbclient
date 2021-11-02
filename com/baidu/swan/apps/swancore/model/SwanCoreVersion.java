@@ -2,7 +2,7 @@ package com.baidu.swan.apps.swancore.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.p0.a.v2.l0;
+import b.a.p0.a.v2.l0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanCoreVersion extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SwanCoreVersion> CREATOR;
@@ -26,7 +26,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
     public long swanCoreVersionCode;
     public String swanCoreVersionName;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<SwanCoreVersion> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

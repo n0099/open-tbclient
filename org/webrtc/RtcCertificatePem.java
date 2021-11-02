@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.PeerConnection;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RtcCertificatePem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_EXPIRY = 2592000;
@@ -42,7 +42,7 @@ public class RtcCertificatePem {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? nativeGenerateCertificate(PeerConnection.KeyType.ECDSA, DEFAULT_EXPIRY) : (RtcCertificatePem) invokeV.objValue;
     }
 
-    public static native RtcCertificatePem nativeGenerateCertificate(PeerConnection.KeyType keyType, long j2);
+    public static native RtcCertificatePem nativeGenerateCertificate(PeerConnection.KeyType keyType, long j);
 
     @CalledByNative
     public String getCertificate() {
@@ -64,15 +64,15 @@ public class RtcCertificatePem {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, keyType)) == null) ? nativeGenerateCertificate(keyType, DEFAULT_EXPIRY) : (RtcCertificatePem) invokeL.objValue;
     }
 
-    public static RtcCertificatePem generateCertificate(long j2) {
+    public static RtcCertificatePem generateCertificate(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? nativeGenerateCertificate(PeerConnection.KeyType.ECDSA, j2) : (RtcCertificatePem) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? nativeGenerateCertificate(PeerConnection.KeyType.ECDSA, j) : (RtcCertificatePem) invokeJ.objValue;
     }
 
-    public static RtcCertificatePem generateCertificate(PeerConnection.KeyType keyType, long j2) {
+    public static RtcCertificatePem generateCertificate(PeerConnection.KeyType keyType, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, keyType, j2)) == null) ? nativeGenerateCertificate(keyType, j2) : (RtcCertificatePem) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, keyType, j)) == null) ? nativeGenerateCertificate(keyType, j) : (RtcCertificatePem) invokeLJ.objValue;
     }
 }

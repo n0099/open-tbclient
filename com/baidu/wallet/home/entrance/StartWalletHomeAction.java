@@ -21,7 +21,7 @@ import com.baidu.wallet.passport.LoginBackListenerProxy;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class StartWalletHomeAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "StartWalletHomeAction";
@@ -58,16 +58,16 @@ public class StartWalletHomeAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f61409a;
+                public final /* synthetic */ Context f58296a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Intent f61410b;
+                public final /* synthetic */ Intent f58297b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f61411c;
+                public final /* synthetic */ boolean f58298c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ StartWalletHomeAction f61412d;
+                public final /* synthetic */ StartWalletHomeAction f58299d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,10 +84,10 @@ public class StartWalletHomeAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f61412d = this;
-                    this.f61409a = context;
-                    this.f61410b = intent;
-                    this.f61411c = z;
+                    this.f58299d = this;
+                    this.f58296a = context;
+                    this.f58297b = intent;
+                    this.f58298c = z;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -95,13 +95,13 @@ public class StartWalletHomeAction implements RouterAction {
                     Context context2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        if (i2 == 603 && (context2 = this.f61409a) != null) {
+                        if (i2 == 603 && (context2 = this.f58296a) != null) {
                             GlobalUtils.toast(context2, ResUtils.getString(context2, "wallet_home_login_invalid_dialog_tips"));
                         }
-                        this.f61409a.startActivity(this.f61410b);
-                        Context context3 = this.f61409a;
+                        this.f58296a.startActivity(this.f58297b);
+                        Context context3 = this.f58296a;
                         if (context3 instanceof Activity) {
-                            if (this.f61411c) {
+                            if (this.f58298c) {
                                 BaiduWalletUtils.startActivityAnim(context3);
                             } else {
                                 BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context3);
@@ -114,10 +114,10 @@ public class StartWalletHomeAction implements RouterAction {
                 public void onSuccess(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                        this.f61409a.startActivity(this.f61410b);
-                        Context context2 = this.f61409a;
+                        this.f58296a.startActivity(this.f58297b);
+                        Context context2 = this.f58296a;
                         if (context2 instanceof Activity) {
-                            if (this.f61411c) {
+                            if (this.f58298c) {
                                 BaiduWalletUtils.startActivityAnim(context2);
                             } else {
                                 BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context2);

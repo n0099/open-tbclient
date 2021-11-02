@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* renamed from: com.baidu.ufosdk.ui.do  reason: invalid class name */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class Cdo implements AbsListView.RecyclerListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f60013a;
+    public final /* synthetic */ FeedbackListActivity f56931a;
 
     public Cdo(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class Cdo implements AbsListView.RecyclerListener {
                 return;
             }
         }
-        this.f60013a = feedbackListActivity;
+        this.f56931a = feedbackListActivity;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

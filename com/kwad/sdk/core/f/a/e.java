@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f72083a;
+    public Context f64553a;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class e {
                 return;
             }
         }
-        this.f72083a = context;
+        this.f64553a = context;
     }
 
     public String a() {
@@ -46,7 +46,7 @@ public class e {
             try {
                 Uri parse = Uri.parse("content://cn.nubia.identity/identity");
                 if (Build.VERSION.SDK_INT > 17) {
-                    ContentProviderClient acquireContentProviderClient = this.f72083a.getContentResolver().acquireContentProviderClient(parse);
+                    ContentProviderClient acquireContentProviderClient = this.f64553a.getContentResolver().acquireContentProviderClient(parse);
                     call = acquireContentProviderClient.call("getOAID", null, null);
                     if (Build.VERSION.SDK_INT >= 24) {
                         acquireContentProviderClient.close();
@@ -54,7 +54,7 @@ public class e {
                         acquireContentProviderClient.release();
                     }
                 } else {
-                    call = this.f72083a.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
+                    call = this.f64553a.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
                 }
                 if (call != null) {
                     str = call.getInt("code", -1) == 0 ? call.getString("id") : "";

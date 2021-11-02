@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PollingModeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int finishTimes;
-    public int interval;
-    public int times;
+    public int hasPolledTimes;
+    public int pollInterval;
+    public int totalPollTimes;
 
     public PollingModeInfo() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class PollingModeInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PollingModeInfo{times=" + this.times + ", interval=" + this.interval + ExtendedMessageFormat.END_FE;
+            return "PollingModeInfo{totalPollTimes=" + this.totalPollTimes + ",pollInterval=" + this.pollInterval + ",hasPolledTimes=" + this.hasPolledTimes + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

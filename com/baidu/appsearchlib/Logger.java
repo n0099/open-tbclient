@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_SERVER = "http://nsclick.baidu.com/v.gif";

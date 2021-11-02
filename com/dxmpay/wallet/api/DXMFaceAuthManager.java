@@ -3,7 +3,7 @@ package com.dxmpay.wallet.api;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.f.a.d.a;
+import b.f.a.d.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,12 +21,12 @@ import com.dxmpay.wallet.core.beans.BeanConstants;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.statistics.impl.SensorsSyncHttpImpl;
 import com.dxmpay.wallet.statistics.impl.StatConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class DXMFaceAuthManager implements IFaceAuthAPI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final DXMFaceAuthManager instance;

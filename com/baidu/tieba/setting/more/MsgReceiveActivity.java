@@ -2,8 +2,8 @@ package com.baidu.tieba.setting.more;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.q0.t.d.d;
-import c.a.r0.c3.c.f;
+import b.a.q0.t.d.d;
+import b.a.r0.c3.c.f;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,13 +25,13 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     public OfficialAccountPushModel mOfficialPushModel;
     public f mView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements MsgRemindModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgReceiveActivity f56756a;
+        public final /* synthetic */ MsgReceiveActivity f53854a;
 
         public a(MsgReceiveActivity msgReceiveActivity) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                     return;
                 }
             }
-            this.f56756a = msgReceiveActivity;
+            this.f53854a = msgReceiveActivity;
         }
 
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
@@ -60,43 +60,43 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                         return;
                     }
                     if (z2) {
-                        this.f56756a.mView.h().turnOffNoCallback();
-                        this.f56756a.mView.n(false);
-                        this.f56756a.mView.p(false);
+                        this.f53854a.mView.h().turnOffNoCallback();
+                        this.f53854a.mView.n(false);
+                        this.f53854a.mView.p(false);
                         return;
                     }
-                    this.f56756a.mView.h().turnOnNoCallback();
-                    this.f56756a.mView.n(true);
-                    this.f56756a.mView.p(true);
+                    this.f53854a.mView.h().turnOnNoCallback();
+                    this.f53854a.mView.n(true);
+                    this.f53854a.mView.p(true);
                 } else if (i2 == 9) {
                     if (z) {
                         return;
                     }
                     if (z2) {
-                        this.f56756a.mView.j().turnOffNoCallback();
+                        this.f53854a.mView.j().turnOffNoCallback();
                     } else {
-                        this.f56756a.mView.j().turnOnNoCallback();
+                        this.f53854a.mView.j().turnOnNoCallback();
                     }
                 } else if (i2 == 7) {
                     if (z) {
                         d.d().P(z2);
                     } else if (z2) {
-                        this.f56756a.mView.g().turnOffNoCallback();
+                        this.f53854a.mView.g().turnOffNoCallback();
                     } else {
-                        this.f56756a.mView.g().turnOnNoCallback();
+                        this.f53854a.mView.g().turnOnNoCallback();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements OfficialAccountPushModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgReceiveActivity f56757a;
+        public final /* synthetic */ MsgReceiveActivity f53855a;
 
         public b(MsgReceiveActivity msgReceiveActivity) {
             Interceptable interceptable = $ic;
@@ -113,14 +113,14 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                     return;
                 }
             }
-            this.f56757a = msgReceiveActivity;
+            this.f53855a = msgReceiveActivity;
         }
 
         @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.b
         public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i2, str) == null) && i2 == OfficialAccountPushModel.NET_SUCCESS && this.f56757a.mView != null) {
-                this.f56757a.mView.o(arrayList);
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i2, str) == null) && i2 == OfficialAccountPushModel.NET_SUCCESS && this.f53855a.mView != null) {
+                this.f53855a.mView.o(arrayList);
             }
         }
     }

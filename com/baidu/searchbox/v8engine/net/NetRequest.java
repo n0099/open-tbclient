@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Observable;
 @NotProguard
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NetRequest extends Observable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetRequest";
@@ -24,12 +24,12 @@ public class NetRequest extends Observable {
     public RedirectInterceptor mRedirectInterceptor;
     public RequestInterceptor mRequestInterceptor;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface RedirectInterceptor {
         boolean shouldInterceptRedirect(NetRequestParam netRequestParam, NetRedirectInfo netRedirectInfo);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface RequestInterceptor {
         boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam);
     }
@@ -49,7 +49,7 @@ public class NetRequest extends Observable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeExecute(long j2, NetRequestParam netRequestParam);
+    public native void nativeExecute(long j, NetRequestParam netRequestParam);
 
     private synchronized void receiveRequestCallback(NetRequestParam netRequestParam, int i2, String str, int i3, String[] strArr, int i4, String str2) {
         Interceptable interceptable = $ic;

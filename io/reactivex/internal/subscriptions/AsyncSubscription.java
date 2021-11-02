@@ -11,7 +11,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class AsyncSubscription extends AtomicLong implements Subscription, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7028635084060361255L;
@@ -67,10 +67,10 @@ public final class AsyncSubscription extends AtomicLong implements Subscription,
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            SubscriptionHelper.deferredRequest(this.actual, this, j2);
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            SubscriptionHelper.deferredRequest(this.actual, this, j);
         }
     }
 

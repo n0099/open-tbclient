@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BCResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

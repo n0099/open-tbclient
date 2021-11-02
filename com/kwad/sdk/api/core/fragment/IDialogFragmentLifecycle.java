@@ -3,7 +3,7 @@ package com.kwad.sdk.api.core.fragment;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IDialogFragmentLifecycle extends IFragmentLifecycle {
     void onCancel(DialogInterface dialogInterface);
 

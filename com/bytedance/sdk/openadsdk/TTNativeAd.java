@@ -4,16 +4,13 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface TTNativeAd {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface AdInteractionListener {
         void onAdClicked(View view, TTNativeAd tTNativeAd);
 
@@ -22,7 +19,7 @@ public interface TTNativeAd {
         void onAdShow(TTNativeAd tTNativeAd);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface ExpressRenderListener {
         void onRenderSuccess(View view, float f2, float f3, boolean z);
     }
@@ -40,6 +37,8 @@ public interface TTNativeAd {
     int getAppSize();
 
     String getButtonText();
+
+    ComplianceInfo getComplianceInfo();
 
     String getDescription();
 
@@ -65,20 +64,21 @@ public interface TTNativeAd {
 
     String getTitle();
 
-    @Nullable
     TTImage getVideoCoverImage();
 
-    void registerViewForInteraction(@NonNull ViewGroup viewGroup, @NonNull View view, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, View view, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(@NonNull ViewGroup viewGroup, @NonNull List<View> list, @Nullable List<View> list2, @Nullable View view, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, View view, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(@NonNull ViewGroup viewGroup, @NonNull List<View> list, @Nullable List<View> list2, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(@NonNull ViewGroup viewGroup, @NonNull List<View> list, @NonNull List<View> list2, @Nullable List<View> list3, @Nullable View view, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, List<View> list3, View view, AdInteractionListener adInteractionListener);
+
+    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, List<View> list3, List<View> list4, View view, AdInteractionListener adInteractionListener);
 
     void render();
 
-    void setActivityForDownloadApp(@NonNull Activity activity);
+    void setActivityForDownloadApp(Activity activity);
 
     void setDislikeCallback(Activity activity, TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback);
 
@@ -88,6 +88,5 @@ public interface TTNativeAd {
 
     void setExpressRenderListener(ExpressRenderListener expressRenderListener);
 
-    @MainThread
     void showInteractionExpressAd(Activity activity);
 }

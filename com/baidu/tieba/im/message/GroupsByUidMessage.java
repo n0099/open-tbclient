@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.QueryGroupsByUid.DataReq;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GroupsByUidMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,10 +86,10 @@ public class GroupsByUidMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.width : invokeV.intValue;
     }
 
-    public void setFriendUid(long j2) {
+    public void setFriendUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.friendUid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.friendUid = j;
         }
     }
 
@@ -115,13 +115,13 @@ public class GroupsByUidMessage extends TbSocketMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupsByUidMessage(long j2, int i2, int i3) {
+    public GroupsByUidMessage(long j, int i2, int i3) {
         super(103003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -134,7 +134,7 @@ public class GroupsByUidMessage extends TbSocketMessage {
         }
         this.width = i2;
         this.height = i3;
-        this.friendUid = j2;
+        this.friendUid = j;
         this.isFriend = 1;
     }
 }

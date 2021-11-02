@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -20,28 +20,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FunAdButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51891e;
+    public int f49216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51892f;
+    public int f49217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51893g;
+    public int f49218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51894h;
+    public int f49219h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f51895i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f51896j;
+    public final int f49220i;
+    public int j;
     public int k;
     public int l;
     public int m;
@@ -158,7 +156,7 @@ public class FunAdButton extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            return View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE ? Math.max((this.f51895i * 2) + ((int) this.o.measureText(this.r)), this.f51896j) : View.MeasureSpec.getSize(i2);
+            return View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE ? Math.max((this.f49220i * 2) + ((int) this.o.measureText(this.r)), this.j) : View.MeasureSpec.getSize(i2);
         }
         return invokeI.intValue;
     }
@@ -178,10 +176,10 @@ public class FunAdButton extends View {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SkinManager.setBackgroundResource(this, this.f51894h);
-            this.l = SkinManager.getColor(this.f51891e);
-            this.m = SkinManager.getColor(this.f51892f);
-            this.q = SkinManager.getColor(this.f51893g);
+            SkinManager.setBackgroundResource(this, this.f49219h);
+            this.l = SkinManager.getColor(this.f49216e);
+            this.m = SkinManager.getColor(this.f49217f);
+            this.q = SkinManager.getColor(this.f49218g);
         }
     }
 
@@ -221,7 +219,7 @@ public class FunAdButton extends View {
     public void setBackgroundSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f51894h = i2;
+            this.f49219h = i2;
         }
     }
 
@@ -279,7 +277,7 @@ public class FunAdButton extends View {
     public void setTextColorInitSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f51892f = i2;
+            this.f49217f = i2;
         }
     }
 
@@ -323,17 +321,17 @@ public class FunAdButton extends View {
                 return;
             }
         }
-        this.f51891e = R.color.CAM_X0101;
-        this.f51892f = R.color.CAM_X0304;
-        this.f51893g = R.color.CAM_X0302;
-        this.f51894h = R.drawable.ad_download_progress_button_bg;
-        this.f51895i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-        this.f51896j = getResources().getDimensionPixelSize(R.dimen.tbds198);
+        this.f49216e = R.color.CAM_X0101;
+        this.f49217f = R.color.CAM_X0304;
+        this.f49218g = R.color.CAM_X0302;
+        this.f49219h = R.drawable.ad_download_progress_button_bg;
+        this.f49220i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+        this.j = getResources().getDimensionPixelSize(R.dimen.tbds198);
         this.k = 0;
-        this.l = SkinManager.getColor(this.f51891e);
-        this.m = SkinManager.getColor(this.f51892f);
+        this.l = SkinManager.getColor(this.f49216e);
+        this.m = SkinManager.getColor(this.f49217f);
         this.p = 10.0f;
-        this.q = SkinManager.getColor(this.f51893g);
+        this.q = SkinManager.getColor(this.f49218g);
         this.s = 100;
         this.t = 0;
         this.w = 0;

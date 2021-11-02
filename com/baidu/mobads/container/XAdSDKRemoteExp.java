@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdSDKRemoteExp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class LiteInc {
         public static /* synthetic */ Interceptable $ic = null;
         public static int mCountMax = 2;
@@ -73,7 +73,7 @@ public class XAdSDKRemoteExp {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class PlayGame {
         public static /* synthetic */ Interceptable $ic;
         public static boolean mInit;
@@ -109,7 +109,7 @@ public class XAdSDKRemoteExp {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class SearchBoxAct {
         public static /* synthetic */ Interceptable $ic = null;
         public static int mIntervalTime = 43200000;
@@ -144,14 +144,14 @@ public class XAdSDKRemoteExp {
             }
         }
 
-        public static boolean count(long j2) {
+        public static boolean count(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? System.currentTimeMillis() - j2 >= ((long) mIntervalTime) : invokeJ.booleanValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? System.currentTimeMillis() - j >= ((long) mIntervalTime) : invokeJ.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class SecDexExp {
         public static /* synthetic */ Interceptable $ic;
         public static String[] appsidList;
@@ -206,7 +206,7 @@ public class XAdSDKRemoteExp {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class StateMachineExp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -248,7 +248,7 @@ public class XAdSDKRemoteExp {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ThirdMonitorExp {
         public static /* synthetic */ Interceptable $ic;
         public static String[] appsidList;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class f {
         int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, algoHandleController, bitmapArr, i2)) == null) {
-            long j2 = 0;
+            long j = 0;
             if (bitmapArr == null || bitmapArr.length == 0) {
                 return 0L;
             }
@@ -37,13 +37,13 @@ public class f {
             int[] iArr5 = new int[bitmapArr.length];
             ArrayList arrayList2 = new ArrayList();
             int length = bitmapArr.length;
-            long j3 = 0;
+            long j2 = 0;
             int i7 = 0;
             while (i7 < length) {
                 Bitmap bitmap = bitmapArr[i7];
                 int width = bitmap.getWidth();
                 int height = bitmap.getHeight();
-                if (j3 == j2) {
+                if (j2 == j) {
                     long createHandle = algoHandleController.createHandle();
                     i3 = height;
                     i4 = i7;
@@ -52,7 +52,7 @@ public class f {
                     iArr = iArr5;
                     iArr2 = iArr4;
                     algoHandleController.setHandleInput(createHandle, i2, currentTimeMillis, 4, width, i3, false, 0, false, null);
-                    j3 = createHandle;
+                    j2 = createHandle;
                     i6 = width;
                 } else {
                     i3 = height;
@@ -75,7 +75,7 @@ public class f {
                 iArr5 = iArr;
                 iArr4 = iArr6;
                 length = i5;
-                j2 = 0;
+                j = 0;
             }
             ReserveHandleData reserveHandleData = new ReserveHandleData();
             reserveHandleData.setByteDataSize(bitmapArr.length);
@@ -83,8 +83,8 @@ public class f {
             reserveHandleData.setByteHeights(iArr4);
             reserveHandleData.setByteFormats(iArr5);
             reserveHandleData.setByteArrayListData(arrayList2);
-            AlgoHandleAdapter.setHandleReserveData(j3, reserveHandleData);
-            return j3;
+            AlgoHandleAdapter.setHandleReserveData(j2, reserveHandleData);
+            return j2;
         }
         return invokeLLI.longValue;
     }

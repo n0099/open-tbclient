@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.ObjectUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ToStringBuilder implements Builder<String> {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ToStringStyle defaultStyle;
@@ -336,11 +336,11 @@ public class ToStringBuilder implements Builder<String> {
         return (ToStringBuilder) invokeL.objValue;
     }
 
-    public ToStringBuilder append(long j2) {
+    public ToStringBuilder append(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            this.style.append(this.buffer, (String) null, j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            this.style.append(this.buffer, (String) null, j);
             return this;
         }
         return (ToStringBuilder) invokeJ.objValue;
@@ -576,11 +576,11 @@ public class ToStringBuilder implements Builder<String> {
         return (ToStringBuilder) invokeLLZ.objValue;
     }
 
-    public ToStringBuilder append(String str, long j2) {
+    public ToStringBuilder append(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j2)) == null) {
-            this.style.append(this.buffer, str, j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j)) == null) {
+            this.style.append(this.buffer, str, j);
             return this;
         }
         return (ToStringBuilder) invokeLJ.objValue;

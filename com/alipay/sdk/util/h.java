@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36132a;
+    public static String f34224a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -123,16 +123,16 @@ public class h {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f36132a)) {
+            if (TextUtils.isEmpty(f34224a)) {
                 try {
                     str = context.getApplicationContext().getPackageName();
                 } catch (Throwable th) {
                     c.a(th);
                     str = "";
                 }
-                f36132a = (str + "0000000000000000000000000000").substring(0, 24);
+                f34224a = (str + "0000000000000000000000000000").substring(0, 24);
             }
-            return f36132a;
+            return f34224a;
         }
         return (String) invokeL.objValue;
     }

@@ -3,7 +3,7 @@ package com.airbnb.lottie.parser;
 import android.graphics.PointF;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PointFParser implements ValueParser<PointF> {
     public static final PointFParser INSTANCE = new PointFParser();
 

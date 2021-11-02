@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e extends j {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -146,9 +146,9 @@ public class e extends j {
             } else if (sensorEvent.sensor.getType() == 4) {
                 synchronized (this.sw) {
                     if (this.sx.booleanValue()) {
-                        long j2 = this.timestamp;
-                        if (j2 != 0) {
-                            float f2 = ((float) (sensorEvent.timestamp - j2)) * 1.0E-9f;
+                        long j = this.timestamp;
+                        if (j != 0) {
+                            float f2 = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
                             float[] fArr2 = sensorEvent.values;
                             float f3 = fArr2[0];
                             float f4 = fArr2[1];

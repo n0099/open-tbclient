@@ -25,7 +25,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ItemLocationBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "iloc";
@@ -100,7 +100,7 @@ public class ItemLocationBox extends AbstractFullBox {
         ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getIndexSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 143);
         ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setIndexSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "indexSize", "", "void"), 147);
         ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getItems", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "java.util.List"), Opcodes.DCMPL);
-        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setItems", "com.coremedia.iso.boxes.ItemLocationBox", "java.util.List", "items", "", "void"), a.f37803e);
+        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setItems", "com.coremedia.iso.boxes.ItemLocationBox", "java.util.List", "items", "", "void"), a.f35825e);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -123,22 +123,22 @@ public class ItemLocationBox extends AbstractFullBox {
         }
     }
 
-    public Extent createExtent(long j2, long j3, long j4) {
+    public Extent createExtent(long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, (Object) this, (Object) this, new Object[]{Conversions.longObject(j2), Conversions.longObject(j3), Conversions.longObject(j4)}));
-            return new Extent(this, j2, j3, j4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, (Object) this, (Object) this, new Object[]{Conversions.longObject(j), Conversions.longObject(j2), Conversions.longObject(j3)}));
+            return new Extent(this, j, j2, j3);
         }
         return (Extent) invokeCommon.objValue;
     }
 
-    public Item createItem(int i2, int i3, int i4, long j2, List<Extent> list) {
+    public Item createItem(int i2, int i3, int i4, long j, List<Extent> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), list})) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, (Object) this, (Object) this, new Object[]{Conversions.intObject(i2), Conversions.intObject(i3), Conversions.intObject(i4), Conversions.longObject(j2), list}));
-            return new Item(this, i2, i3, i4, j2, list);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), list})) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, (Object) this, (Object) this, new Object[]{Conversions.intObject(i2), Conversions.intObject(i3), Conversions.intObject(i4), Conversions.longObject(j), list}));
+            return new Item(this, i2, i3, i4, j, list);
         }
         return (Item) invokeCommon.objValue;
     }
@@ -176,11 +176,11 @@ public class ItemLocationBox extends AbstractFullBox {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j2 = 8;
+            long j = 8;
             for (Item item : this.items) {
-                j2 += item.getSize();
+                j += item.getSize();
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -277,7 +277,7 @@ public class ItemLocationBox extends AbstractFullBox {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) ? new Item(this, byteBuffer) : (Item) invokeL.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class Extent {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,12 +286,12 @@ public class ItemLocationBox extends AbstractFullBox {
         public long extentOffset;
         public final /* synthetic */ ItemLocationBox this$0;
 
-        public Extent(ItemLocationBox itemLocationBox, long j2, long j3, long j4) {
+        public Extent(ItemLocationBox itemLocationBox, long j, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {itemLocationBox, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                Object[] objArr = {itemLocationBox, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -302,9 +302,9 @@ public class ItemLocationBox extends AbstractFullBox {
                 }
             }
             this.this$0 = itemLocationBox;
-            this.extentOffset = j2;
-            this.extentLength = j3;
-            this.extentIndex = j4;
+            this.extentOffset = j;
+            this.extentLength = j2;
+            this.extentIndex = j3;
         }
 
         public boolean equals(Object obj) {
@@ -353,10 +353,10 @@ public class ItemLocationBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                long j2 = this.extentOffset;
-                long j3 = this.extentLength;
-                long j4 = this.extentIndex;
-                return (((((int) (j2 ^ (j2 >>> 32))) * 31) + ((int) (j3 ^ (j3 >>> 32)))) * 31) + ((int) (j4 ^ (j4 >>> 32)));
+                long j = this.extentOffset;
+                long j2 = this.extentLength;
+                long j3 = this.extentIndex;
+                return (((((int) (j ^ (j >>> 32))) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + ((int) (j3 ^ (j3 >>> 32)));
             }
             return invokeV.intValue;
         }
@@ -395,7 +395,7 @@ public class ItemLocationBox extends AbstractFullBox {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class Item {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -497,18 +497,18 @@ public class ItemLocationBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                long j2 = this.baseOffset;
-                int i2 = ((((((this.itemId * 31) + this.constructionMethod) * 31) + this.dataReferenceIndex) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31;
+                long j = this.baseOffset;
+                int i2 = ((((((this.itemId * 31) + this.constructionMethod) * 31) + this.dataReferenceIndex) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
                 List<Extent> list = this.extents;
                 return i2 + (list != null ? list.hashCode() : 0);
             }
             return invokeV.intValue;
         }
 
-        public void setBaseOffset(long j2) {
+        public void setBaseOffset(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.baseOffset = j2;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.baseOffset = j;
             }
         }
 
@@ -521,12 +521,12 @@ public class ItemLocationBox extends AbstractFullBox {
             return (String) invokeV.objValue;
         }
 
-        public Item(ItemLocationBox itemLocationBox, int i2, int i3, int i4, long j2, List<Extent> list) {
+        public Item(ItemLocationBox itemLocationBox, int i2, int i3, int i4, long j, List<Extent> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {itemLocationBox, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), list};
+                Object[] objArr = {itemLocationBox, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), list};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -541,7 +541,7 @@ public class ItemLocationBox extends AbstractFullBox {
             this.itemId = i2;
             this.constructionMethod = i3;
             this.dataReferenceIndex = i4;
-            this.baseOffset = j2;
+            this.baseOffset = j;
             this.extents = list;
         }
     }

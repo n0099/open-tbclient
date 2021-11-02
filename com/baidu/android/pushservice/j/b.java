@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<Long, c> f37678a;
+    public static Map<Long, c> f35702a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a(long j2) {
+    public static synchronized void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65536, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
             synchronized (b.class) {
-                if (f37678a.containsKey(Long.valueOf(j2))) {
-                    f37678a.remove(f37678a.get(Long.valueOf(j2)));
+                if (f35702a.containsKey(Long.valueOf(j))) {
+                    f35702a.remove(f35702a.get(Long.valueOf(j)));
                 }
             }
         }
@@ -31,11 +31,11 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, intent) == null) && intent.hasExtra("bd.cross.request.COMMAND_TYPE") && TextUtils.equals(intent.getStringExtra("bd.cross.request.COMMAND_TYPE"), "bd.cross.command.MESSAGE_ACK")) {
             long longExtra = intent.getLongExtra("bd.cross.request.ID", 0L);
-            if (longExtra == 0 || (map = f37678a) == null || !map.containsKey(Long.valueOf(longExtra))) {
+            if (longExtra == 0 || (map = f35702a) == null || !map.containsKey(Long.valueOf(longExtra))) {
                 return;
             }
-            f37678a.get(Long.valueOf(longExtra)).a(intent);
-            Map<Long, c> map2 = f37678a;
+            f35702a.get(Long.valueOf(longExtra)).a(intent);
+            Map<Long, c> map2 = f35702a;
             map2.remove(map2.get(Long.valueOf(longExtra)));
         }
     }
@@ -44,13 +44,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
             synchronized (b.class) {
-                if (f37678a == null) {
-                    f37678a = Collections.synchronizedMap(new HashMap());
+                if (f35702a == null) {
+                    f35702a = Collections.synchronizedMap(new HashMap());
                 }
-                if (f37678a.containsKey(Long.valueOf(cVar.a()))) {
-                    f37678a.remove(cVar).a();
+                if (f35702a.containsKey(Long.valueOf(cVar.a()))) {
+                    f35702a.remove(cVar).a();
                 }
-                f37678a.put(Long.valueOf(cVar.a()), cVar);
+                f35702a.put(Long.valueOf(cVar.a()), cVar);
             }
         }
     }

@@ -9,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +47,7 @@ public class Utils {
                 hashMap.put("appid", confignation.appId);
                 hashMap.put("tpl", confignation.tpl);
                 hashMap.put("app_version", SapiUtils.getVersionName(confignation.context));
-                hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, isAccountManager.getVersionName());
+                hashMap.put("sdk_version", isAccountManager.getVersionName());
                 hashMap.put("sdkversion", isAccountManager.getVersionName());
             }
             return hashMap;

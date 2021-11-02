@@ -1,9 +1,9 @@
 package com.google.common.base;
 
-import c.i.d.a.g;
-import c.i.d.a.h;
-import c.i.d.a.n;
-import c.i.d.a.r;
+import b.i.d.a.g;
+import b.i.d.a.h;
+import b.i.d.a.n;
+import b.i.d.a.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Functions$SupplierFunction<T> implements g<Object, T>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -23,14 +23,14 @@ public class Functions$SupplierFunction<T> implements g<Object, T>, Serializable
         this(rVar);
     }
 
-    @Override // c.i.d.a.g
+    @Override // b.i.d.a.g
     public T apply(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.supplier.get() : (T) invokeL.objValue;
     }
 
-    @Override // c.i.d.a.g
+    @Override // b.i.d.a.g
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -11,25 +11,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CircleProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f48172e;
+    public Paint f45722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f48173f;
+    public Paint f45723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f48174g;
+    public float f45724g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48175h;
+    public int f45725h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RectF f48176i;
+    public RectF f45726i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CircleProgressView(Context context) {
@@ -49,51 +49,51 @@ public class CircleProgressView extends View {
                 return;
             }
         }
-        this.f48174g = 5.0f;
+        this.f45724g = 5.0f;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48176i = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
+            this.f45726i = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
             Paint paint = new Paint();
-            this.f48172e = paint;
+            this.f45722e = paint;
             paint.setAntiAlias(true);
-            this.f48172e.setDither(true);
-            this.f48172e.setStyle(Paint.Style.STROKE);
-            this.f48172e.setStrokeCap(Paint.Cap.ROUND);
-            this.f48172e.setStrokeWidth(this.f48174g);
+            this.f45722e.setDither(true);
+            this.f45722e.setStyle(Paint.Style.STROKE);
+            this.f45722e.setStrokeCap(Paint.Cap.ROUND);
+            this.f45722e.setStrokeWidth(this.f45724g);
             Paint paint2 = new Paint();
-            this.f48173f = paint2;
+            this.f45723f = paint2;
             paint2.setAntiAlias(true);
-            this.f48173f.setDither(true);
-            this.f48173f.setStyle(Paint.Style.STROKE);
-            this.f48173f.setStrokeCap(Paint.Cap.ROUND);
-            this.f48173f.setStrokeWidth(this.f48174g);
+            this.f45723f.setDither(true);
+            this.f45723f.setStyle(Paint.Style.STROKE);
+            this.f45723f.setStrokeCap(Paint.Cap.ROUND);
+            this.f45723f.setStrokeWidth(this.f45724g);
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f48175h < 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f45725h < 0) {
             return;
         }
-        RectF rectF = this.f48176i;
-        float f2 = this.f48174g;
+        RectF rectF = this.f45726i;
+        float f2 = this.f45724g;
         rectF.left = f2;
         rectF.top = f2;
-        rectF.right = getWidth() - this.f48174g;
-        this.f48176i.bottom = getHeight() - this.f48174g;
-        canvas.drawArc(this.f48176i, 0.0f, 360.0f, false, this.f48173f);
-        canvas.drawArc(this.f48176i, -90.0f, (this.f48175h / 100) * 360.0f, false, this.f48172e);
+        rectF.right = getWidth() - this.f45724g;
+        this.f45726i.bottom = getHeight() - this.f45724g;
+        canvas.drawArc(this.f45726i, 0.0f, 360.0f, false, this.f45723f);
+        canvas.drawArc(this.f45726i, -90.0f, (this.f45725h / 100) * 360.0f, false, this.f45722e);
     }
 
     public void setCircleBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f48173f.setColor(i2);
+            this.f45723f.setColor(i2);
             postInvalidate();
         }
     }
@@ -101,7 +101,7 @@ public class CircleProgressView extends View {
     public void setCircleForegroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f48172e.setColor(i2);
+            this.f45722e.setColor(i2);
             postInvalidate();
         }
     }
@@ -109,7 +109,7 @@ public class CircleProgressView extends View {
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f48175h = i2;
+            this.f45725h = i2;
             postInvalidate();
         }
     }
@@ -118,9 +118,9 @@ public class CircleProgressView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             float f2 = i2;
-            this.f48174g = f2;
-            this.f48173f.setStrokeWidth(f2);
-            this.f48172e.setStrokeWidth(f2);
+            this.f45724g = f2;
+            this.f45723f.setStrokeWidth(f2);
+            this.f45722e.setStrokeWidth(f2);
             postInvalidate();
         }
     }
@@ -144,7 +144,7 @@ public class CircleProgressView extends View {
                 return;
             }
         }
-        this.f48174g = 5.0f;
+        this.f45724g = 5.0f;
         a();
     }
 }

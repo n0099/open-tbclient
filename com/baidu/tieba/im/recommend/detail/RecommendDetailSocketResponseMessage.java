@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.recommend.detail;
 
-import c.a.e.e.d.l;
-import c.a.q0.s.r.a;
+import b.a.e.e.d.l;
+import b.a.q0.s.r.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

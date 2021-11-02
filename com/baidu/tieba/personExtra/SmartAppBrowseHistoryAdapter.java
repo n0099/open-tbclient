@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.e.e.p.k;
+import b.a.e.e.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,36 +22,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.SmartApp;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRecordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f56012a;
+    public Context f53156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SmartApp> f56013b;
+    public List<SmartApp> f53157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f56014c;
+    public View.OnClickListener f53158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnLongClickListener f56015d;
+    public View.OnLongClickListener f53159d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class HistoryRecordViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f56016a;
+        public View f53160a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f56017b;
+        public HeadImageView f53161b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f56018c;
+        public TextView f53162c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public HistoryRecordViewHolder(View view) {
@@ -71,26 +71,26 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                     return;
                 }
             }
-            this.f56016a = view;
+            this.f53160a = view;
             HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.f56017b = headImageView;
+            this.f53161b = headImageView;
             headImageView.setIsRound(true);
-            this.f56017b.setPlaceHolder(1);
-            this.f56018c = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
+            this.f53161b.setPlaceHolder(1);
+            this.f53162c = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void bindData(SmartApp smartApp) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
-                this.f56016a.setTag(smartApp);
+                this.f53160a.setTag(smartApp);
                 if (!k.isEmpty(smartApp.avatar)) {
-                    this.f56017b.setPlaceHolder(1);
-                    this.f56017b.startLoad(smartApp.avatar, 10, false, false);
+                    this.f53161b.setPlaceHolder(1);
+                    this.f53161b.startLoad(smartApp.avatar, 10, false, false);
                 }
                 if (!k.isEmpty(smartApp.name)) {
-                    this.f56018c.setText(smartApp.name);
+                    this.f53162c.setText(smartApp.name);
                 } else {
-                    this.f56018c.setText(R.string.intelligent_smart_app);
+                    this.f53162c.setText(R.string.intelligent_smart_app);
                 }
             }
         }
@@ -98,15 +98,15 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                SkinManager.setBackgroundResource(this.f56016a, R.drawable.person_center_action_item_selector);
-                SkinManager.setViewTextColor(this.f56018c, R.color.CAM_X0105);
+                SkinManager.setBackgroundResource(this.f53160a, R.drawable.person_center_action_item_selector);
+                SkinManager.setViewTextColor(this.f53162c, R.color.CAM_X0105);
             }
         }
 
         public void setOnClickListener(View.OnClickListener onClickListener) {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (view = this.f56016a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (view = this.f53160a) == null) {
                 return;
             }
             view.setOnClickListener(onClickListener);
@@ -115,7 +115,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, onLongClickListener) == null) || (view = this.f56016a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, onLongClickListener) == null) || (view = this.f53160a) == null) {
                 return;
             }
             view.setOnLongClickListener(onLongClickListener);
@@ -137,27 +137,27 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                 return;
             }
         }
-        this.f56012a = context;
+        this.f53156a = context;
     }
 
     public final SmartApp a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (SmartApp) ListUtils.getItem(this.f56013b, i2) : (SmartApp) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (SmartApp) ListUtils.getItem(this.f53157b, i2) : (SmartApp) invokeI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ListUtils.getCount(this.f56013b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ListUtils.getCount(this.f53157b) : invokeV.intValue;
     }
 
     public void moveItemToHead(SmartApp smartApp) {
         SmartApp removeData;
         List<SmartApp> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, smartApp) == null) || (removeData = removeData(smartApp.id)) == null || (list = this.f56013b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, smartApp) == null) || (removeData = removeData(smartApp.id)) == null || (list = this.f53157b) == null) {
             return;
         }
         ListUtils.add(list, 0, removeData);
@@ -167,10 +167,10 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (ListUtils.isEmpty(this.f56013b)) {
+            if (ListUtils.isEmpty(this.f53157b)) {
                 return null;
             }
-            Iterator<SmartApp> it = this.f56013b.iterator();
+            Iterator<SmartApp> it = this.f53157b.iterator();
             while (it.hasNext()) {
                 SmartApp next = it.next();
                 if (next != null && StringHelper.equals(next.id, str)) {
@@ -186,21 +186,21 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     public void setDataList(List<SmartApp> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f56013b = list;
+            this.f53157b = list;
         }
     }
 
     public void setOnItemClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
-            this.f56014c = onClickListener;
+            this.f53158c = onClickListener;
         }
     }
 
     public void setOnItemLongClickListener(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, onLongClickListener) == null) {
-            this.f56015d = onLongClickListener;
+            this.f53159d = onLongClickListener;
         }
     }
 
@@ -213,8 +213,8 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
             return;
         }
         historyRecordViewHolder.bindData(a2);
-        historyRecordViewHolder.setOnClickListener(this.f56014c);
-        historyRecordViewHolder.setOnLongClickListener(this.f56015d);
+        historyRecordViewHolder.setOnClickListener(this.f53158c);
+        historyRecordViewHolder.setOnLongClickListener(this.f53159d);
         historyRecordViewHolder.onChangeSkinType();
     }
 
@@ -223,6 +223,6 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     public HistoryRecordViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) ? new HistoryRecordViewHolder(LayoutInflater.from(this.f56012a).inflate(R.layout.smart_app_history_record_item, viewGroup, false)) : (HistoryRecordViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) ? new HistoryRecordViewHolder(LayoutInflater.from(this.f53156a).inflate(R.layout.smart_app_history_record_item, viewGroup, false)) : (HistoryRecordViewHolder) invokeLI.objValue;
     }
 }

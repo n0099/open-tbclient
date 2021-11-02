@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LoginHistoryLoginModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long SECONDS_OF_ONE_DAY = 86400;
@@ -126,7 +126,7 @@ public class LoginHistoryLoginModel {
                 loadHistoryAccounts = new ArrayList();
             }
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            long j2 = currentTimeMillis / 86400;
+            long j = currentTimeMillis / 86400;
             int i2 = -1;
             int i3 = 0;
             while (true) {
@@ -134,10 +134,10 @@ public class LoginHistoryLoginModel {
                     break;
                 }
                 AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i3);
-                long j3 = accountLoginAction.loginTimeSecond;
-                if (currentTimeMillis - j3 > 5) {
-                    long j4 = j3 / 86400;
-                    if (TextUtils.equals(sapiAccount.bduss, accountLoginAction.sapiAccount.bduss) && j2 == j4) {
+                long j2 = accountLoginAction.loginTimeSecond;
+                if (currentTimeMillis - j2 > 5) {
+                    long j3 = j2 / 86400;
+                    if (TextUtils.equals(sapiAccount.bduss, accountLoginAction.sapiAccount.bduss) && j == j3) {
                         i2 = i3;
                         break;
                     }

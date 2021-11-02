@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class p extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76876a;
+    public String f70225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f76877b;
+    public int f70226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f76878c;
+    public boolean f70227c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p() {
@@ -37,21 +37,21 @@ public final class p extends u {
                 return;
             }
         }
-        this.f76877b = 0;
-        this.f76878c = false;
+        this.f70226b = 0;
+        this.f70227c = false;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f76877b = i2;
+            this.f70226b = i2;
         }
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f76876a = str;
+            this.f70225a = str;
         }
     }
 
@@ -60,28 +60,28 @@ public final class p extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("content", this.f76876a);
-            aVar.a("log_level", this.f76877b);
-            aVar.a("is_server_log", this.f76878c);
+            aVar.a("content", this.f70225a);
+            aVar.a("log_level", this.f70226b);
+            aVar.a("is_server_log", this.f70227c);
         }
     }
 
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f76876a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70225a : (String) invokeV.objValue;
     }
 
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f76877b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f70226b : invokeV.intValue;
     }
 
     public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f76878c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f70227c : invokeV.booleanValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -94,7 +94,7 @@ public final class p extends u {
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f76878c = z;
+            this.f70227c = z;
         }
     }
 
@@ -103,9 +103,9 @@ public final class p extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             super.d(aVar);
-            this.f76876a = aVar.a("content");
-            this.f76877b = aVar.b("log_level", 0);
-            this.f76878c = aVar.d("is_server_log");
+            this.f70225a = aVar.a("content");
+            this.f70226b = aVar.b("log_level", 0);
+            this.f70227c = aVar.d("is_server_log");
         }
     }
 }

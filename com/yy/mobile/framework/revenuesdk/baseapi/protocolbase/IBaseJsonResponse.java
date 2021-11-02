@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IBaseJsonResponse {
     void parserResponse(String str);
 }

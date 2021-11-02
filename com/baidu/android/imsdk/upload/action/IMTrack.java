@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imsdk.upload.action.IMTrack$2  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class AckBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PROXY_TYPE = "proxy";
@@ -113,11 +113,11 @@ public class IMTrack {
             ack.aliasId = -1L;
         }
 
-        public AckBuilder aliasId(long j2) {
+        public AckBuilder aliasId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                this.ack.aliasId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                this.ack.aliasId = j;
                 return this;
             }
             return (AckBuilder) invokeJ.objValue;
@@ -140,11 +140,11 @@ public class IMTrack {
             return (AckBuilder) invokeL.objValue;
         }
 
-        public AckBuilder timestamp(long j2) {
+        public AckBuilder timestamp(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.ack.timestamp = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.ack.timestamp = j;
                 return this;
             }
             return (AckBuilder) invokeJ.objValue;
@@ -171,7 +171,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class ConnectionBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CONN_TYPE_SOCKET_CONNECTION_ENV_FAIL = 401203;
@@ -211,11 +211,11 @@ public class IMTrack {
             connection.aliasId = -1L;
         }
 
-        public ConnectionBuilder aliasId(long j2) {
+        public ConnectionBuilder aliasId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                this.connection.aliasId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                this.connection.aliasId = j;
                 return this;
             }
             return (ConnectionBuilder) invokeJ.objValue;
@@ -248,48 +248,48 @@ public class IMTrack {
             return (ConnectionBuilder) invokeL.objValue;
         }
 
-        public ConnectionBuilder retryCount(long j2) {
+        public ConnectionBuilder retryCount(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                this.connection.retryCount = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                this.connection.retryCount = j;
                 return this;
             }
             return (ConnectionBuilder) invokeJ.objValue;
         }
 
-        public ConnectionBuilder retryTime(long j2) {
+        public ConnectionBuilder retryTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-                this.connection.retryTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+                this.connection.retryTime = j;
                 return this;
             }
             return (ConnectionBuilder) invokeJ.objValue;
         }
 
-        public ConnectionBuilder startTime(long j2) {
+        public ConnectionBuilder startTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-                this.connection.startTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                this.connection.startTime = j;
                 return this;
             }
             return (ConnectionBuilder) invokeJ.objValue;
         }
 
-        public ConnectionBuilder stopTime(long j2) {
+        public ConnectionBuilder stopTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                this.connection.stopTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                this.connection.stopTime = j;
                 return this;
             }
             return (ConnectionBuilder) invokeJ.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class CrashBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CRASH_TYPE_CATCH = 201001;
@@ -323,11 +323,11 @@ public class IMTrack {
             crash2.aliasId = 201001L;
         }
 
-        public CrashBuilder aliasId(long j2) {
+        public CrashBuilder aliasId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                this.crash.aliasId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                this.crash.aliasId = j;
                 return this;
             }
             return (CrashBuilder) invokeJ.objValue;
@@ -362,7 +362,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class DbBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ACTION_ADD = "add";
@@ -413,11 +413,11 @@ public class IMTrack {
             return (DbBuilder) invokeL.objValue;
         }
 
-        public DbBuilder aliasId(long j2) {
+        public DbBuilder aliasId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                this.db.aliasId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                this.db.aliasId = j;
                 return this;
             }
             return (DbBuilder) invokeJ.objValue;
@@ -440,21 +440,21 @@ public class IMTrack {
             return (DbBuilder) invokeL.objValue;
         }
 
-        public DbBuilder duration(long j2) {
+        public DbBuilder duration(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                this.db.duration = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                this.db.duration = j;
                 return this;
             }
             return (DbBuilder) invokeJ.objValue;
         }
 
-        public DbBuilder endTime(long j2) {
+        public DbBuilder endTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-                this.db.endTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+                this.db.endTime = j;
                 return this;
             }
             return (DbBuilder) invokeJ.objValue;
@@ -480,11 +480,11 @@ public class IMTrack {
             return (DbBuilder) invokeL.objValue;
         }
 
-        public DbBuilder startTime(long j2) {
+        public DbBuilder startTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
-                this.db.startTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+                this.db.startTime = j;
                 return this;
             }
             return (DbBuilder) invokeJ.objValue;
@@ -501,7 +501,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class MsgBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -535,11 +535,11 @@ public class IMTrack {
             msg.aliasId = -1L;
         }
 
-        public MsgBuilder aliasId(long j2) {
+        public MsgBuilder aliasId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                this.msg.aliasId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                this.msg.aliasId = j;
                 return this;
             }
             return (MsgBuilder) invokeJ.objValue;
@@ -552,21 +552,21 @@ public class IMTrack {
             }
         }
 
-        public MsgBuilder duration(long j2) {
+        public MsgBuilder duration(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                this.msg.duration = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.msg.duration = j;
                 return this;
             }
             return (MsgBuilder) invokeJ.objValue;
         }
 
-        public MsgBuilder endMsgId(long j2) {
+        public MsgBuilder endMsgId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.msg.endMsgId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.msg.endMsgId = j;
                 return this;
             }
             return (MsgBuilder) invokeJ.objValue;
@@ -582,11 +582,11 @@ public class IMTrack {
             return (MsgBuilder) invokeL.objValue;
         }
 
-        public MsgBuilder msgCount(long j2) {
+        public MsgBuilder msgCount(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-                this.msg.msgCount = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+                this.msg.msgCount = j;
                 return this;
             }
             return (MsgBuilder) invokeJ.objValue;
@@ -602,18 +602,18 @@ public class IMTrack {
             return (MsgBuilder) invokeL.objValue;
         }
 
-        public MsgBuilder startMsgId(long j2) {
+        public MsgBuilder startMsgId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                this.msg.startMsgId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                this.msg.startMsgId = j;
                 return this;
             }
             return (MsgBuilder) invokeJ.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class RequestBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REQUEST_INIT = 501100;
@@ -651,11 +651,11 @@ public class IMTrack {
             request.aliasId = -1L;
         }
 
-        public RequestBuilder aliasId(long j2) {
+        public RequestBuilder aliasId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                this.request.aliasId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                this.request.aliasId = j;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
@@ -668,11 +668,11 @@ public class IMTrack {
             }
         }
 
-        public RequestBuilder errorCode(long j2) {
+        public RequestBuilder errorCode(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                this.request.errorCode = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.request.errorCode = j;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
@@ -708,28 +708,28 @@ public class IMTrack {
             return (RequestBuilder) invokeL.objValue;
         }
 
-        public RequestBuilder requestTime(long j2) {
+        public RequestBuilder requestTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-                this.request.timestamp = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                this.request.timestamp = j;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
         }
 
-        public RequestBuilder responseTime(long j2) {
+        public RequestBuilder responseTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                this.request.responseTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                this.request.responseTime = j;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class UiBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String CATEGORY_CLICK = "category_click";
@@ -766,11 +766,11 @@ public class IMTrack {
             ui.aliasId = -1L;
         }
 
-        public UiBuilder aliasId(long j2) {
+        public UiBuilder aliasId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                this.ui.aliasId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                this.ui.aliasId = j;
                 return this;
             }
             return (UiBuilder) invokeJ.objValue;
@@ -793,21 +793,21 @@ public class IMTrack {
             return (UiBuilder) invokeL.objValue;
         }
 
-        public UiBuilder duration(long j2) {
+        public UiBuilder duration(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.ui.duration = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.ui.duration = j;
                 return this;
             }
             return (UiBuilder) invokeJ.objValue;
         }
 
-        public UiBuilder endTime(long j2) {
+        public UiBuilder endTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                this.ui.endTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                this.ui.endTime = j;
                 return this;
             }
             return (UiBuilder) invokeJ.objValue;
@@ -833,11 +833,11 @@ public class IMTrack {
             return (UiBuilder) invokeL.objValue;
         }
 
-        public UiBuilder startTime(long j2) {
+        public UiBuilder startTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                this.ui.startTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                this.ui.startTime = j;
                 return this;
             }
             return (UiBuilder) invokeJ.objValue;

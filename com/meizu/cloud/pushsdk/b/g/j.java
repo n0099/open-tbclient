@@ -1,113 +1,113 @@
 package com.meizu.cloud.pushsdk.b.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f75032a;
+    public final byte[] f67396a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f75033b;
+    public int f67397b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f75034c;
+    public int f67398c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f75035d;
+    public boolean f67399d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f75036e;
+    public boolean f67400e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j f75037f;
+    public j f67401f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j f75038g;
+    public j f67402g;
 
     public j() {
-        this.f75032a = new byte[2048];
-        this.f75036e = true;
-        this.f75035d = false;
+        this.f67396a = new byte[2048];
+        this.f67400e = true;
+        this.f67399d = false;
     }
 
     public j(j jVar) {
-        this(jVar.f75032a, jVar.f75033b, jVar.f75034c);
-        jVar.f75035d = true;
+        this(jVar.f67396a, jVar.f67397b, jVar.f67398c);
+        jVar.f67399d = true;
     }
 
     public j(byte[] bArr, int i2, int i3) {
-        this.f75032a = bArr;
-        this.f75033b = i2;
-        this.f75034c = i3;
-        this.f75036e = false;
-        this.f75035d = true;
+        this.f67396a = bArr;
+        this.f67397b = i2;
+        this.f67398c = i3;
+        this.f67400e = false;
+        this.f67399d = true;
     }
 
     public j a() {
-        j jVar = this.f75037f;
+        j jVar = this.f67401f;
         if (jVar == this) {
             jVar = null;
         }
-        j jVar2 = this.f75038g;
-        jVar2.f75037f = this.f75037f;
-        this.f75037f.f75038g = jVar2;
-        this.f75037f = null;
-        this.f75038g = null;
+        j jVar2 = this.f67402g;
+        jVar2.f67401f = this.f67401f;
+        this.f67401f.f67402g = jVar2;
+        this.f67401f = null;
+        this.f67402g = null;
         return jVar;
     }
 
     public j a(int i2) {
-        if (i2 <= 0 || i2 > this.f75034c - this.f75033b) {
+        if (i2 <= 0 || i2 > this.f67398c - this.f67397b) {
             throw new IllegalArgumentException();
         }
         j jVar = new j(this);
-        jVar.f75034c = jVar.f75033b + i2;
-        this.f75033b += i2;
-        this.f75038g.a(jVar);
+        jVar.f67398c = jVar.f67397b + i2;
+        this.f67397b += i2;
+        this.f67402g.a(jVar);
         return jVar;
     }
 
     public j a(j jVar) {
-        jVar.f75038g = this;
-        jVar.f75037f = this.f75037f;
-        this.f75037f.f75038g = jVar;
-        this.f75037f = jVar;
+        jVar.f67402g = this;
+        jVar.f67401f = this.f67401f;
+        this.f67401f.f67402g = jVar;
+        this.f67401f = jVar;
         return jVar;
     }
 
     public void a(j jVar, int i2) {
-        if (!jVar.f75036e) {
+        if (!jVar.f67400e) {
             throw new IllegalArgumentException();
         }
-        int i3 = jVar.f75034c;
+        int i3 = jVar.f67398c;
         if (i3 + i2 > 2048) {
-            if (jVar.f75035d) {
+            if (jVar.f67399d) {
                 throw new IllegalArgumentException();
             }
-            int i4 = jVar.f75033b;
+            int i4 = jVar.f67397b;
             if ((i3 + i2) - i4 > 2048) {
                 throw new IllegalArgumentException();
             }
-            byte[] bArr = jVar.f75032a;
+            byte[] bArr = jVar.f67396a;
             System.arraycopy(bArr, i4, bArr, 0, i3 - i4);
-            jVar.f75034c -= jVar.f75033b;
-            jVar.f75033b = 0;
+            jVar.f67398c -= jVar.f67397b;
+            jVar.f67397b = 0;
         }
-        System.arraycopy(this.f75032a, this.f75033b, jVar.f75032a, jVar.f75034c, i2);
-        jVar.f75034c += i2;
-        this.f75033b += i2;
+        System.arraycopy(this.f67396a, this.f67397b, jVar.f67396a, jVar.f67398c, i2);
+        jVar.f67398c += i2;
+        this.f67397b += i2;
     }
 
     public void b() {
-        j jVar = this.f75038g;
+        j jVar = this.f67402g;
         if (jVar == this) {
             throw new IllegalStateException();
         }
-        if (jVar.f75036e) {
-            int i2 = this.f75034c - this.f75033b;
-            if (i2 > (2048 - jVar.f75034c) + (jVar.f75035d ? 0 : jVar.f75033b)) {
+        if (jVar.f67400e) {
+            int i2 = this.f67398c - this.f67397b;
+            if (i2 > (2048 - jVar.f67398c) + (jVar.f67399d ? 0 : jVar.f67397b)) {
                 return;
             }
-            a(this.f75038g, i2);
+            a(this.f67402g, i2);
             a();
             k.a(this);
         }

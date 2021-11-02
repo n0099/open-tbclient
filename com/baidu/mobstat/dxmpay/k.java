@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -403,7 +403,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
             String a2 = f.a().a(str);
             if (TextUtils.isEmpty(a2)) {
-                a2 = c.a().a(str, c.a.f43775a);
+                a2 = c.a().a(str, c.a.f41554a);
             }
             return a2 == null ? "" : a2;
         }
@@ -559,7 +559,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            String a2 = c.a().a(str, c.a.f43776b);
+            String a2 = c.a().a(str, c.a.f41555b);
             return a2 == null ? "" : a2;
         }
         return (String) invokeL.objValue;

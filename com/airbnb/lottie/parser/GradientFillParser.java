@@ -13,9 +13,9 @@ import com.airbnb.lottie.value.Keyframe;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.IOException;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GradientFillParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", r.f42346a, "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", r.f40168a, "hd");
     public static final JsonReader.Options GRADIENT_NAMES = JsonReader.Options.of("p", "k");
 
     public static GradientFill parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {

@@ -10,16 +10,16 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class p extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f77674a;
+    public final /* synthetic */ Context f70637a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ie f99a;
+    public final /* synthetic */ ie f100a;
 
     public p(ie ieVar, Context context) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class p extends ai.a {
                 return;
             }
         }
-        this.f99a = ieVar;
-        this.f77674a = context;
+        this.f100a = ieVar;
+        this.f70637a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -52,10 +52,10 @@ public final class p extends ai.a {
     public void run() {
         ie ieVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ieVar = this.f99a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ieVar = this.f100a) == null) {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.f77674a.getApplicationContext()).a((an) this.f99a, hf.f78124i, true, (hs) null, true);
+        an.a(this.f70637a.getApplicationContext()).a((an) this.f100a, hf.f71079i, true, (hs) null, true);
     }
 }

@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BorderDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DRAW_STROKE_WIDTH_MULTIPLE = 1.3333f;
@@ -60,13 +60,13 @@ public class BorderDrawable extends Drawable {
     public int topOuterStrokeColor;
 
     /* renamed from: com.google.android.material.floatingactionbutton.BorderDrawable$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class BorderState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

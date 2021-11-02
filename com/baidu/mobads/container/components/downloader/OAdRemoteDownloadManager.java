@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OAdRemoteDownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_OUTPUT_FOLDER = "";

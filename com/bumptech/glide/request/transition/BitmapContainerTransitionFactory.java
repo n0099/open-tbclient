@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class BitmapContainerTransitionFactory<R> implements TransitionFactory<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TransitionFactory<Drawable> realFactory;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public final class BitmapGlideAnimation implements Transition<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

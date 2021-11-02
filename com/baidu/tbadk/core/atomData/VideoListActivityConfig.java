@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import c.a.e.e.p.k;
+import b.a.e.e.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VideoListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_FORUM_ID = "KEY_FORUM_ID";
@@ -62,12 +62,12 @@ public class VideoListActivityConfig extends IntentConfig {
         return (VideoListActivityConfig) invokeLLL.objValue;
     }
 
-    public VideoListActivityConfig createNormalCfg(long j2, String str) {
+    public VideoListActivityConfig createNormalCfg(long j, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, str)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
             Intent intent = getIntent();
-            intent.putExtra("user_id", j2);
+            intent.putExtra("user_id", j);
             if (!k.isEmpty(str)) {
                 intent.putExtra(KEY_SOURCE, str);
             }

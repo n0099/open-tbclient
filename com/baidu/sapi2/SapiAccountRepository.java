@@ -80,7 +80,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -99,7 +98,7 @@ import javax.security.cert.CertificateException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SapiAccountRepository {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_V3 = "3";
@@ -108,7 +107,7 @@ public final class SapiAccountRepository {
     public transient /* synthetic */ FieldHolder $fh;
     public SapiConfiguration configuration;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OneKeyRequestJsCallback {
         void failure(int i2, String str);
 
@@ -349,7 +348,7 @@ public final class SapiAccountRepository {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            return "tpl:" + this.configuration.tpl + ";android_sapi_v9.4.1";
+            return "tpl:" + this.configuration.tpl + ";android_sapi_v9.4.3";
         }
         return (String) invokeV.objValue;
     }
@@ -462,7 +461,7 @@ public final class SapiAccountRepository {
             jSONObject.put("password", str4);
             jSONObject.put("login_type", "3");
             jSONObject.put("key", sapiDataEncryptor.getAESKey());
-            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "2");
+            jSONObject.put("sdk_version", "2");
             jSONObject.put("pinfo", SapiDeviceUtils.getBrandName());
             httpHashMapWrap.put(TableDefine.DB_TABLE_USERINFO, sapiDataEncryptor.encrypt(str, jSONObject.toString()));
             new HttpClientWrap().post(SapiEnv.LOGIN_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(this, Looper.getMainLooper(), sapiCallBack, z, sapiDataEncryptor) { // from class: com.baidu.sapi2.SapiAccountRepository.3
@@ -613,7 +612,7 @@ public final class SapiAccountRepository {
                 httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
             }
             httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
-            httpHashMapWrap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3");
+            httpHashMapWrap.put("sdk_version", "3");
             return httpHashMapWrap;
         }
         return (HttpHashMapWrap) invokeL.objValue;

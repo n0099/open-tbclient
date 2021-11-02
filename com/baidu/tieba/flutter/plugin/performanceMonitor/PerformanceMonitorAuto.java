@@ -2,18 +2,19 @@ package com.baidu.tieba.flutter.plugin.performanceMonitor;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.fluency.utils.FpsConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PerformanceMonitorAuto {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class FpsParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +43,7 @@ public class PerformanceMonitorAuto {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
                 FpsParam fpsParam = new FpsParam();
                 fpsParam.page = (String) hashMap.get("page");
-                fpsParam.fps = (Double) hashMap.get("fps");
+                fpsParam.fps = (Double) hashMap.get(FpsConstants.REPORT_FPS);
                 fpsParam.cont = (HashMap) hashMap.get("cont");
                 fpsParam.fatal = (HashMap) hashMap.get("fatal");
                 return fpsParam;
@@ -108,7 +109,7 @@ public class PerformanceMonitorAuto {
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("page", this.page);
-                hashMap.put("fps", this.fps);
+                hashMap.put(FpsConstants.REPORT_FPS, this.fps);
                 hashMap.put("cont", this.cont);
                 hashMap.put("fatal", this.fatal);
                 return hashMap;
@@ -117,7 +118,7 @@ public class PerformanceMonitorAuto {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface HostPerformanceMonitor {
         void reportEnginePerformance(MapParam mapParam);
 
@@ -128,7 +129,7 @@ public class PerformanceMonitorAuto {
         void reportPageLoadPerformance(MapParam mapParam);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class MapParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

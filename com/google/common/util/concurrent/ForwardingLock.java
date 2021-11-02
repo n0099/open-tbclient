@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ForwardingLock implements Lock {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +69,9 @@ public abstract class ForwardingLock implements Lock {
     }
 
     @Override // java.util.concurrent.locks.Lock
-    public boolean tryLock(long j2, TimeUnit timeUnit) throws InterruptedException {
+    public boolean tryLock(long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048581, this, j2, timeUnit)) == null) ? delegate().tryLock(j2, timeUnit) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048581, this, j, timeUnit)) == null) ? delegate().tryLock(j, timeUnit) : invokeJL.booleanValue;
     }
 }

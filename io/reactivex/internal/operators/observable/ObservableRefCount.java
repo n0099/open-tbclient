@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableRefCount<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class ObservableRefCount<T> extends AbstractObservableWithUpstream<
     public final ConnectableObservable<? extends T> source;
     public final AtomicInteger subscriptionCount;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public final class ConnectionObserver extends AtomicReference<Disposable> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3813126992133394324L;
@@ -128,7 +128,7 @@ public final class ObservableRefCount<T> extends AbstractObservableWithUpstream<
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public final class DisposeConsumer implements Consumer<Disposable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +172,7 @@ public final class ObservableRefCount<T> extends AbstractObservableWithUpstream<
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public final class DisposeTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

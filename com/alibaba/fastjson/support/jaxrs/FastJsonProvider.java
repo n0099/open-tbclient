@@ -40,7 +40,7 @@ import javax.ws.rs.ext.Providers;
 @Produces({"*/*"})
 @Provider
 @Consumes({"*/*"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FastJsonProvider implements MessageBodyReader<Object>, MessageBodyWriter<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?>[] DEFAULT_UNREADABLES;

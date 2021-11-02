@@ -15,7 +15,7 @@ import io.reactivex.observers.SerializedObserver;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
     public final long timeout;
     public final TimeUnit unit;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class DebounceTimedObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 786994795061867455L;
@@ -36,12 +36,12 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
         public final TimeUnit unit;
         public final Scheduler.Worker worker;
 
-        public DebounceTimedObserver(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public DebounceTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, worker};
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, worker};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -52,7 +52,7 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
                 }
             }
             this.actual = observer;
-            this.timeout = j2;
+            this.timeout = j;
             this.unit = timeUnit;
             this.worker = worker;
         }
@@ -132,13 +132,13 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableThrottleFirstTimed(ObservableSource<T> observableSource, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableThrottleFirstTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j2), timeUnit, scheduler};
+            Object[] objArr = {observableSource, Long.valueOf(j), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -149,7 +149,7 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
                 return;
             }
         }
-        this.timeout = j2;
+        this.timeout = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

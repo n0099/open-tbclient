@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FlushedInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,22 +33,22 @@ public class FlushedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j2) {
+    public long skip(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            long j3 = 0;
-            while (j3 < j2) {
-                long skip = ((FilterInputStream) this).in.skip(j2 - j3);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            long j2 = 0;
+            while (j2 < j) {
+                long skip = ((FilterInputStream) this).in.skip(j - j2);
                 if (skip == 0) {
                     if (read() < 0) {
                         break;
                     }
                     skip = 1;
                 }
-                j3 += skip;
+                j2 += skip;
             }
-            return j3;
+            return j2;
         }
         return invokeJ.longValue;
     }

@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f74598a;
+    public static boolean f66974a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,7 +53,7 @@ public class d {
     public static void a(int i2, Object obj, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), obj, th, str, objArr}) == null) {
-            if ((i2 >= 5) || f74598a) {
+            if ((i2 >= 5) || f66974a) {
                 Log.println(i2, a(obj), f.a(str, objArr));
                 if (th != null) {
                     th.printStackTrace();

@@ -11,7 +11,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.ValueCallback;
 import androidx.core.view.InputDeviceCompat;
-import c.a.k.a.g;
+import b.a.k.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.core.permission.BdPermissionActivity;
@@ -29,7 +29,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BdUploadHandler implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_MIME_TYPE = "audio/*";
@@ -50,13 +50,13 @@ public class BdUploadHandler implements INoProGuard {
     public ValueCallback<Uri> mUploadMessage;
     public ValueCallback<Uri[]> mUploadMessage1;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements ActivityCompat.OnRequestPermissionsResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdUploadHandler f38612e;
+        public final /* synthetic */ BdUploadHandler f36600e;
 
         public a(BdUploadHandler bdUploadHandler) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class BdUploadHandler implements INoProGuard {
                     return;
                 }
             }
-            this.f38612e = bdUploadHandler;
+            this.f36600e = bdUploadHandler;
         }
 
         @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
@@ -87,22 +87,22 @@ public class BdUploadHandler implements INoProGuard {
                     }
                 }
                 if (z) {
-                    Intent createCameraIntentAfterCheckPermission = this.f38612e.createCameraIntentAfterCheckPermission();
-                    this.f38612e.mCanHandleResult = true;
-                    this.f38612e.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
+                    Intent createCameraIntentAfterCheckPermission = this.f36600e.createCameraIntentAfterCheckPermission();
+                    this.f36600e.mCanHandleResult = true;
+                    this.f36600e.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
                 }
-                c.a.k.a.p.a.b().d(4099);
+                b.a.k.a.p.a.b().d(4099);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements ActivityCompat.OnRequestPermissionsResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdUploadHandler f38613e;
+        public final /* synthetic */ BdUploadHandler f36601e;
 
         public b(BdUploadHandler bdUploadHandler) {
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class BdUploadHandler implements INoProGuard {
                     return;
                 }
             }
-            this.f38613e = bdUploadHandler;
+            this.f36601e = bdUploadHandler;
         }
 
         @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
@@ -133,10 +133,10 @@ public class BdUploadHandler implements INoProGuard {
                     }
                 }
                 if (z) {
-                    this.f38613e.mCanHandleResult = true;
-                    this.f38613e.mActivity.startActivityForResult(this.f38613e.createCamcorderIntent(), 11);
+                    this.f36601e.mCanHandleResult = true;
+                    this.f36601e.mActivity.startActivityForResult(this.f36601e.createCamcorderIntent(), 11);
                 }
-                c.a.k.a.p.a.b().d(4099);
+                b.a.k.a.p.a.b().d(4099);
             }
         }
     }
@@ -165,13 +165,13 @@ public class BdUploadHandler implements INoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (c.a.k.a.p.b.a(this.mActivity)) {
+            if (b.a.k.a.p.b.a(this.mActivity)) {
                 return new Intent("android.media.action.VIDEO_CAPTURE");
             }
             Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
             intent.putExtra("request_code", 4099);
             intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-            c.a.k.a.p.a.b().a(4099, new b(this));
+            b.a.k.a.p.a.b().a(4099, new b(this));
             return intent;
         }
         return (Intent) invokeV.objValue;
@@ -213,7 +213,7 @@ public class BdUploadHandler implements INoProGuard {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, intentArr)) == null) {
             Intent intent = new Intent("android.intent.action.CHOOSER");
             intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-            intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.d("string", "sailor_choose_upload")));
+            intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.c("string", "sailor_choose_upload")));
             return intent;
         }
         return (Intent) invokeL.objValue;
@@ -243,13 +243,13 @@ public class BdUploadHandler implements INoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (c.a.k.a.p.b.a(this.mActivity) && c.a.k.a.p.b.b(this.mActivity)) {
+            if (b.a.k.a.p.b.a(this.mActivity) && b.a.k.a.p.b.b(this.mActivity)) {
                 return createCameraIntentAfterCheckPermission();
             }
             Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
             intent.putExtra("request_code", 4099);
             intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"});
-            c.a.k.a.p.a.b().a(4099, new a(this));
+            b.a.k.a.p.a.b().a(4099, new a(this));
             return intent;
         }
         return (Intent) invokeV.objValue;

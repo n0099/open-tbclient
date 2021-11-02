@@ -35,7 +35,7 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OrderConfirmPresenter";
@@ -294,7 +294,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f62990a;
+                public final /* synthetic */ OrderConfirmPresenter f59857a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -311,14 +311,14 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f62990a = this;
+                    this.f59857a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62990a.getViewData();
+                        this.f59857a.getViewData();
                     }
                 }
             }, 800L);
@@ -420,7 +420,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f62989a;
+                public final /* synthetic */ OrderConfirmPresenter f59856a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -437,7 +437,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f62989a = this;
+                    this.f59856a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.fingerprint.b
@@ -451,19 +451,19 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             StatHelper.cacheCodeAndMsg(i2 + "", str);
                         }
                         if (i2 == 0) {
-                            this.f62989a.onFpCheckSucces(str);
+                            this.f59856a.onFpCheckSucces(str);
                         } else if (i2 == -5) {
-                            this.f62989a.onFpCheckError();
+                            this.f59856a.onFpCheckError();
                         } else if (i2 == -3) {
-                            this.f62989a.gotoPayUsePwd(true, str);
+                            this.f59856a.gotoPayUsePwd(true, str);
                         } else if (i2 == -1) {
-                            this.f62989a.changePwdMode();
+                            this.f59856a.changePwdMode();
                         } else if (i2 == -4 || i2 == -6) {
-                            this.f62989a.gotoPayUsePwd(true, str);
+                            this.f59856a.gotoPayUsePwd(true, str);
                         } else if (i2 == -7) {
-                            this.f62989a.gotoPayUsePwd(true, str);
+                            this.f59856a.gotoPayUsePwd(true, str);
                         } else if (i2 == -2) {
-                            this.f62989a.gotoPayUsePwd(true, "");
+                            this.f59856a.gotoPayUsePwd(true, "");
                         }
                     }
                 }

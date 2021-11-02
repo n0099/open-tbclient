@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AppMessage extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -126,10 +126,10 @@ public class AppMessage extends Message {
         }
     }
 
-    public void setEndDate(long j2) {
+    public void setEndDate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.mEndDate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.mEndDate = j;
         }
     }
 
@@ -147,10 +147,10 @@ public class AppMessage extends Message {
         }
     }
 
-    public void setStartDate(long j2) {
+    public void setStartDate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.mStartDate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.mStartDate = j;
         }
     }
 

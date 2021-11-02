@@ -1,11 +1,11 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.c.d1;
-import c.i.d.c.m;
-import c.i.d.c.q0;
-import c.i.d.c.s0;
-import c.i.d.c.y0;
+import b.i.d.c.d1;
+import b.i.d.c.m;
+import b.i.d.c.q0;
+import b.i.d.c.s0;
+import b.i.d.c.y0;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ArrayListMultimap<K, V> extends ArrayListMultimapGwtSerializationDependencies<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_VALUES_PER_KEY = 3;
@@ -73,64 +73,64 @@ public final class ArrayListMultimap<K, V> extends ArrayListMultimapGwtSerializa
         }
     }
 
-    @Override // com.google.common.collect.AbstractListMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractListMultimap, b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ Map asMap() {
         return super.asMap();
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, b.i.d.c.q0
     public /* bridge */ /* synthetic */ void clear() {
         super.clear();
     }
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean containsEntry(Object obj, Object obj2) {
         return super.containsEntry(obj, obj2);
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, b.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean containsKey(Object obj) {
         return super.containsKey(obj);
     }
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean containsValue(Object obj) {
         return super.containsValue(obj);
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ Collection entries() {
         return super.entries();
     }
 
-    @Override // com.google.common.collect.AbstractListMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractListMultimap, b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractListMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractListMultimap, com.google.common.collect.AbstractMapBasedMultimap, b.i.d.c.q0
     public /* bridge */ /* synthetic */ List get(Object obj) {
         return super.get((ArrayListMultimap<K, V>) obj);
     }
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ int hashCode() {
         return super.hashCode();
     }
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ Set keySet() {
         return super.keySet();
     }
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ s0 keys() {
         return super.keys();
     }
@@ -138,39 +138,39 @@ public final class ArrayListMultimap<K, V> extends ArrayListMultimapGwtSerializa
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractListMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractListMultimap, com.google.common.collect.AbstractMapBasedMultimap, b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean put(Object obj, Object obj2) {
         return super.put(obj, obj2);
     }
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean putAll(q0 q0Var) {
         return super.putAll(q0Var);
     }
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean remove(Object obj, Object obj2) {
         return super.remove(obj, obj2);
     }
 
-    @Override // com.google.common.collect.AbstractListMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractListMultimap, com.google.common.collect.AbstractMapBasedMultimap, b.i.d.c.q0
     public /* bridge */ /* synthetic */ List removeAll(Object obj) {
         return super.removeAll(obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractListMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractListMultimap, com.google.common.collect.AbstractMapBasedMultimap, b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ List replaceValues(Object obj, Iterable iterable) {
         return super.replaceValues((ArrayListMultimap<K, V>) obj, iterable);
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, b.i.d.c.q0
     public /* bridge */ /* synthetic */ int size() {
         return super.size();
     }
 
-    @Override // c.i.d.c.c
+    @Override // b.i.d.c.c
     public /* bridge */ /* synthetic */ String toString() {
         return super.toString();
     }
@@ -186,7 +186,7 @@ public final class ArrayListMultimap<K, V> extends ArrayListMultimapGwtSerializa
         }
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ Collection values() {
         return super.values();
     }
@@ -229,7 +229,7 @@ public final class ArrayListMultimap<K, V> extends ArrayListMultimapGwtSerializa
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // b.i.d.c.c, b.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean putAll(Object obj, Iterable iterable) {
         return super.putAll(obj, iterable);
     }

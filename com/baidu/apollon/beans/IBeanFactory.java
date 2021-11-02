@@ -1,7 +1,7 @@
 package com.baidu.apollon.beans;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IBeanFactory {
     ApollonBean<?> getBean(Context context, int i2, String str);
 }

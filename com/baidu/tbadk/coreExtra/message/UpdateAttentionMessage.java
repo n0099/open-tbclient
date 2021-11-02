@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import c.a.e.e.p.k;
+import b.a.e.e.p.k;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,45 +12,43 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f48111a;
+        public boolean f45667a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48112b;
+        public String f45668b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f48113c;
+        public String f45669c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f48114d;
+        public boolean f45670d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f48115e;
+        public boolean f45671e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f48116f;
+        public boolean f45672f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f48117g;
+        public HttpResponse f45673g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f48118h;
+        public JSONObject f45674h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f48119i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public boolean f48120j;
+        public boolean f45675i;
+        public boolean j;
         public String k;
         public BlockPopInfoData l;
         public int m;
@@ -68,8 +66,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f48115e = false;
-            this.f48116f = false;
+            this.f45671e = false;
+            this.f45672f = false;
             this.m = 0;
         }
 
@@ -100,7 +98,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f48118h = jSONObject;
+                this.f45674h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -144,7 +142,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f48114d;
+            return getData().f45670d;
         }
         return invokeV.booleanValue;
     }
@@ -156,7 +154,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f48116f;
+            return getData().f45672f;
         }
         return invokeV.booleanValue;
     }
@@ -168,7 +166,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f48111a;
+            return getData().f45667a;
         }
         return invokeV.booleanValue;
     }

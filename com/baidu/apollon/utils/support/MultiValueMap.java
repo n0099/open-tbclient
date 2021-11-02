@@ -2,7 +2,7 @@ package com.baidu.apollon.utils.support;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface MultiValueMap<K, V> extends Map<K, List<V>> {
     void add(K k, V v);
 

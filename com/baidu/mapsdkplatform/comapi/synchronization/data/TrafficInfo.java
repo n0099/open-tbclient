@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class TrafficInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TrafficInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42464a;
+    public boolean f40282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42465b;
+    public String f40283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<Integer> f42466c;
+    public ArrayList<Integer> f40284c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,11 +55,11 @@ public final class TrafficInfo implements Parcelable {
                 return;
             }
         }
-        this.f42464a = false;
-        this.f42465b = null;
-        this.f42464a = false;
-        this.f42465b = null;
-        this.f42466c = new ArrayList<>();
+        this.f40282a = false;
+        this.f40283b = null;
+        this.f40282a = false;
+        this.f40283b = null;
+        this.f40284c = new ArrayList<>();
     }
 
     public TrafficInfo(Parcel parcel) {
@@ -77,43 +77,43 @@ public final class TrafficInfo implements Parcelable {
                 return;
             }
         }
-        this.f42464a = false;
-        this.f42465b = null;
-        this.f42464a = parcel.readByte() != 0;
-        this.f42465b = parcel.readString();
+        this.f40282a = false;
+        this.f40283b = null;
+        this.f40282a = parcel.readByte() != 0;
+        this.f40283b = parcel.readString();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42465b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40283b : (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f42465b = str;
+            this.f40283b = str;
         }
     }
 
     public void a(ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f42466c = arrayList;
+            this.f40284c = arrayList;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f42464a = z;
+            this.f40282a = z;
         }
     }
 
     public ArrayList<Integer> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42466c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40284c : (ArrayList) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -130,8 +130,8 @@ public final class TrafficInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
-            parcel.writeByte(this.f42464a ? (byte) 1 : (byte) 0);
-            parcel.writeString(this.f42465b);
+            parcel.writeByte(this.f40282a ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.f40283b);
         }
     }
 }

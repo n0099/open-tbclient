@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.l0;
+import g.c.l0;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaCodecVideoDecoderFactory";

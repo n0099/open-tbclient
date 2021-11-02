@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FaceSDKManager {
     public static /* synthetic */ Interceptable $ic;
     public static FaceSDKManager instance;
@@ -120,10 +120,10 @@ public class FaceSDKManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f44184a;
+                public final /* synthetic */ IInitCallback f41948a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f44185b;
+                public final /* synthetic */ FaceSDKManager f41949b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -140,15 +140,15 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f44185b = this;
-                    this.f44184a = iInitCallback;
+                    this.f41949b = this;
+                    this.f41948a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
                 public final void onResponse(int i2, String str) {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f44184a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f41948a) == null) {
                         return;
                     }
                     iInitCallback2.initFailure(i2, str);
@@ -159,10 +159,10 @@ public class FaceSDKManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f44186a;
+                public final /* synthetic */ IInitCallback f41950a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f44187b;
+                public final /* synthetic */ FaceSDKManager f41951b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -179,15 +179,15 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f44187b = this;
-                    this.f44186a = iInitCallback;
+                    this.f41951b = this;
+                    this.f41950a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
                 public final void onResponse(int i2, String str) {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f44186a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f41950a) == null) {
                         return;
                     }
                     iInitCallback2.initFailure(i2, str);
@@ -198,10 +198,10 @@ public class FaceSDKManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f44188a;
+                public final /* synthetic */ IInitCallback f41952a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f44189b;
+                public final /* synthetic */ FaceSDKManager f41953b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -218,15 +218,15 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f44189b = this;
-                    this.f44188a = iInitCallback;
+                    this.f41953b = this;
+                    this.f41952a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
                 public final void onResponse(int i2, String str) {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f44188a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f41952a) == null) {
                         return;
                     }
                     iInitCallback2.initFailure(i2, str);
@@ -237,10 +237,10 @@ public class FaceSDKManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f44190a;
+                public final /* synthetic */ IInitCallback f41954a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f44191b;
+                public final /* synthetic */ FaceSDKManager f41955b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -257,8 +257,8 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f44191b = this;
-                    this.f44190a = iInitCallback;
+                    this.f41955b = this;
+                    this.f41954a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
@@ -266,14 +266,14 @@ public class FaceSDKManager {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        if (i2 != 0 && (iInitCallback2 = this.f44190a) != null) {
+                        if (i2 != 0 && (iInitCallback2 = this.f41954a) != null) {
                             iInitCallback2.initFailure(i2, str);
                         }
-                        if (i2 != 0 || this.f44190a == null) {
+                        if (i2 != 0 || this.f41954a == null) {
                             return;
                         }
-                        this.f44191b.mInitFlag = true;
-                        this.f44190a.initSuccess();
+                        this.f41955b.mInitFlag = true;
+                        this.f41954a.initSuccess();
                     }
                 }
             });
@@ -523,13 +523,13 @@ public class FaceSDKManager {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f44181a;
+            public final /* synthetic */ Context f41945a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ IInitCallback f44182b;
+            public final /* synthetic */ IInitCallback f41946b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ FaceSDKManager f44183c;
+            public final /* synthetic */ FaceSDKManager f41947c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -546,9 +546,9 @@ public class FaceSDKManager {
                         return;
                     }
                 }
-                this.f44183c = this;
-                this.f44181a = context;
-                this.f44182b = iInitCallback;
+                this.f41947c = this;
+                this.f41945a = context;
+                this.f41946b = iInitCallback;
             }
 
             @Override // com.baidu.pass.main.facesdk.callback.Callback
@@ -556,10 +556,10 @@ public class FaceSDKManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str3) == null) {
                     if (i2 == 0) {
-                        this.f44183c.initModel(this.f44181a, this.f44182b);
+                        this.f41947c.initModel(this.f41945a, this.f41946b);
                         return;
                     }
-                    IInitCallback iInitCallback2 = this.f44182b;
+                    IInitCallback iInitCallback2 = this.f41946b;
                     if (iInitCallback2 != null) {
                         iInitCallback2.initFailure(i2, str3);
                     }

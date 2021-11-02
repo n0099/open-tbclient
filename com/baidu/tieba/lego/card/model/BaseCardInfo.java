@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import c.a.r0.q1.m.b;
+import b.a.r0.q1.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BaseCardInfo extends BaseLegoCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,10 +55,10 @@ public class BaseCardInfo extends BaseLegoCardInfo {
             if (shouldResponseAttention()) {
                 if (obj instanceof UpdateAttentionMessage.a) {
                     UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
-                    return responseAttentionUser(aVar.f48113c, aVar.f48114d);
-                } else if (obj instanceof c.a.r0.q1.p.b) {
-                    c.a.r0.q1.p.b bVar = (c.a.r0.q1.p.b) obj;
-                    return responseAttentionForum(bVar.f23833a, bVar.f23834b);
+                    return responseAttentionUser(aVar.f45669c, aVar.f45670d);
+                } else if (obj instanceof b.a.r0.q1.p.b) {
+                    b.a.r0.q1.p.b bVar = (b.a.r0.q1.p.b) obj;
+                    return responseAttentionForum(bVar.f22719a, bVar.f22720b);
                 } else {
                     return false;
                 }

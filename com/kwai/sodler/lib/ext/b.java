@@ -8,10 +8,10 @@ import com.kwai.sodler.lib.a.a;
 import com.kwai.sodler.lib.a.f;
 import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a implements b<g, h> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.item;
 
 import android.content.Context;
-import c.a.a0.a.b;
-import c.a.q0.w.d;
+import b.a.a0.a.b;
+import b.a.q0.w.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class InitArTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class InitArTask extends LaunchTask {
     public static void initAR(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            b.s(BdUploadHandler.MEDIA_SOURCE_KEY);
-            b.k(context);
-            b.v(false);
+            b.r(BdUploadHandler.MEDIA_SOURCE_KEY);
+            b.j(context);
+            b.u(false);
             d.a();
         }
     }

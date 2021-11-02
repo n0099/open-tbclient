@@ -5,54 +5,54 @@ import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f74961a;
+    public final f f67325a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f74962b;
+    public final String f67326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f74963c;
+    public final c f67327c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f74964d;
+    public final j f67328d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f74965e;
+    public final Object f67329e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public f f74966a;
+        public f f67330a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f74967b = "GET";
+        public String f67331b = "GET";
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a f74968c = new c.a();
+        public c.a f67332c = new c.a();
 
         /* renamed from: d  reason: collision with root package name */
-        public j f74969d;
+        public j f67333d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f74970e;
+        public Object f67334e;
 
         public a a() {
             return a("GET", (j) null);
         }
 
         public a a(c cVar) {
-            this.f74968c = cVar.c();
+            this.f67332c = cVar.c();
             return this;
         }
 
         public a a(f fVar) {
             if (fVar != null) {
-                this.f74966a = fVar;
+                this.f67330a = fVar;
                 return this;
             }
             throw new IllegalArgumentException("url == null");
@@ -103,8 +103,8 @@ public class i {
             if (jVar != null && !d.b(str)) {
                 throw new IllegalArgumentException("method " + str + " must not have a request body.");
             } else if (jVar != null || !d.a(str)) {
-                this.f74967b = str;
-                this.f74969d = jVar;
+                this.f67331b = str;
+                this.f67333d = jVar;
                 return this;
             } else {
                 throw new IllegalArgumentException("method " + str + " must have a request body.");
@@ -112,7 +112,7 @@ public class i {
         }
 
         public a a(String str, String str2) {
-            this.f74968c.a(str, str2);
+            this.f67332c.a(str, str2);
             return this;
         }
 
@@ -129,7 +129,7 @@ public class i {
         }
 
         public i c() {
-            if (this.f74966a != null) {
+            if (this.f67330a != null) {
                 return new i(this);
             }
             throw new IllegalStateException("url == null");
@@ -141,23 +141,23 @@ public class i {
     }
 
     public i(a aVar) {
-        this.f74961a = aVar.f74966a;
-        this.f74962b = aVar.f74967b;
-        this.f74963c = aVar.f74968c.a();
-        this.f74964d = aVar.f74969d;
-        this.f74965e = aVar.f74970e != null ? aVar.f74970e : this;
+        this.f67325a = aVar.f67330a;
+        this.f67326b = aVar.f67331b;
+        this.f67327c = aVar.f67332c.a();
+        this.f67328d = aVar.f67333d;
+        this.f67329e = aVar.f67334e != null ? aVar.f67334e : this;
     }
 
     public f a() {
-        return this.f74961a;
+        return this.f67325a;
     }
 
     public String a(String str) {
-        return this.f74963c.a(str);
+        return this.f67327c.a(str);
     }
 
     public String b() {
-        return this.f74962b;
+        return this.f67326b;
     }
 
     public int c() {
@@ -180,25 +180,25 @@ public class i {
     }
 
     public c d() {
-        return this.f74963c;
+        return this.f67327c;
     }
 
     public j e() {
-        return this.f74964d;
+        return this.f67328d;
     }
 
     public boolean f() {
-        return this.f74961a.a();
+        return this.f67325a.a();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Request{method=");
-        sb.append(this.f74962b);
+        sb.append(this.f67326b);
         sb.append(", url=");
-        sb.append(this.f74961a);
+        sb.append(this.f67325a);
         sb.append(", tag=");
-        Object obj = this.f74965e;
+        Object obj = this.f67329e;
         if (obj == this) {
             obj = null;
         }

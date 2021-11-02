@@ -1,11 +1,11 @@
 package com.bytedance.sdk.openadsdk;
 
-import c.p.a.a.a.f.d;
-/* loaded from: classes9.dex */
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
 public interface TTDownloadEventLogger {
-    void onEvent(d dVar);
+    void onEvent(JSONObject jSONObject);
 
-    void onV3Event(d dVar);
+    void onV3Event(JSONObject jSONObject);
 
     boolean shouldFilterOpenSdkLog();
 }

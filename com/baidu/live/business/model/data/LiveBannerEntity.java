@@ -2,7 +2,7 @@ package com.baidu.live.business.model.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.w.e.g.j;
+import b.a.w.e.g.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LiveBannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<LiveBannerEntity> CREATOR;
@@ -37,7 +37,7 @@ public class LiveBannerEntity implements Parcelable {
     public long startTime;
     public LiveStatInfo statInfo;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Parcelable.Creator<LiveBannerEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,13 +75,13 @@ public class LiveBannerEntity implements Parcelable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40853a;
+        public String f38739a;
 
         public b(LiveBannerEntity liveBannerEntity) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class LiveBannerEntity implements Parcelable {
                 return;
             }
             jSONObject.optInt("type");
-            this.f40853a = jSONObject.optString("action");
+            this.f38739a = jSONObject.optString("action");
         }
     }
 

@@ -11,7 +11,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,22 +91,22 @@ public final class b {
                 file.createNewFile();
             }
         }
-        long j2 = 0;
+        long j = 0;
         try {
             if (z) {
-                j2 = file.length();
+                j = file.length();
                 fileOutputStream = new FileOutputStream(str, true);
             } else {
                 fileOutputStream = new FileOutputStream(str);
             }
-            long j3 = j2;
-            long contentLength = httpURLConnection.getContentLength() + j3;
+            long j2 = j;
+            long contentLength = httpURLConnection.getContentLength() + j2;
             BufferedInputStream bufferedInputStream2 = new BufferedInputStream(httpURLConnection.getInputStream());
             try {
                 bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
                 if (cVar != null) {
                     try {
-                        if (!cVar.a(contentLength, j3, true)) {
+                        if (!cVar.a(contentLength, j2, true)) {
                             try {
                                 bufferedInputStream2.close();
                             } catch (Throwable unused) {
@@ -147,14 +147,14 @@ public final class b {
                 }
                 byte[] bArr = new byte[4096];
                 while (true) {
-                    long j4 = j3;
+                    long j3 = j2;
                     int read = bufferedInputStream2.read(bArr);
                     if (read == -1) {
                         break;
                     }
                     bufferedOutputStream.write(bArr, 0, read);
-                    j3 = j4 + read;
-                    if (cVar != null && !cVar.a(contentLength, j3, false)) {
+                    j2 = j3 + read;
+                    if (cVar != null && !cVar.a(contentLength, j2, false)) {
                         try {
                             bufferedInputStream2.close();
                         } catch (Throwable unused6) {

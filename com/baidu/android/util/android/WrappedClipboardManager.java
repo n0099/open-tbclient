@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class WrappedClipboardManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @TargetApi(11)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class HoneycombClipboardManager extends WrappedClipboardManager {
         public static /* synthetic */ Interceptable $ic;
         public static ClipData sClipData;
@@ -88,7 +88,11 @@ public abstract class WrappedClipboardManager {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
                 ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
                 sClipData = newPlainText;
-                sInstance.setPrimaryClip(newPlainText);
+                try {
+                    sInstance.setPrimaryClip(newPlainText);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
         }
     }

@@ -12,12 +12,12 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GlobalStateSyncAuto {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AllStateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,13 +137,13 @@ public class GlobalStateSyncAuto {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class FlutterGlobalStateSync {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BinaryMessenger binaryMessenger;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public interface Reply<T> {
             void reply(T t);
         }
@@ -169,7 +169,7 @@ public class GlobalStateSyncAuto {
         public void writeToFlutter(SingleTypeStateData singleTypeStateData, final Reply<WriteResult> reply) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, singleTypeStateData, reply) == null) {
-                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterGlobalStateSync.writeToFlutter", new StandardMessageCodec()).send(singleTypeStateData.toMap(), new BasicMessageChannel.Reply() { // from class: c.a.r0.t0.a.b.a
+                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterGlobalStateSync.writeToFlutter", new StandardMessageCodec()).send(singleTypeStateData.toMap(), new BasicMessageChannel.Reply() { // from class: b.a.r0.t0.a.b.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -185,7 +185,7 @@ public class GlobalStateSyncAuto {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface HostGlobalStateSync {
         void readAllState(Result<AllStateData> result);
 
@@ -194,12 +194,12 @@ public class GlobalStateSyncAuto {
         void write(SingleTypeStateData singleTypeStateData);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Result<T> {
         void success(T t);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SingleTypeStateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -299,7 +299,7 @@ public class GlobalStateSyncAuto {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class WriteResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,7 +355,7 @@ public class GlobalStateSyncAuto {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class readParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

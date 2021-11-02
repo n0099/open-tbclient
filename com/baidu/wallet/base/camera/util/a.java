@@ -10,24 +10,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f60449a;
+    public int f57361a;
 
     /* renamed from: com.baidu.wallet.base.camera.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C1822a implements FileFilter {
+    /* loaded from: classes10.dex */
+    public class C1781a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f60450a;
+        public Pattern f57362a;
 
-        public C1822a() {
+        public C1781a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,23 +40,23 @@ public class a {
                     return;
                 }
             }
-            this.f60450a = Pattern.compile("cpu\\d{1,2}");
+            this.f57362a = Pattern.compile("cpu\\d{1,2}");
         }
 
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? this.f60450a.matcher(file.getName()).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? this.f57362a.matcher(file.getName()).matches() : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f60451a;
+        public static a f57363a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -72,7 +72,7 @@ public class a {
                     return;
                 }
             }
-            f60451a = new a();
+            f57363a = new a();
         }
 
         public b() {
@@ -103,22 +103,22 @@ public class a {
                 return;
             }
         }
-        this.f60449a = -1;
+        this.f57361a = -1;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (-1 == b.f60451a.f60449a) {
+            if (-1 == b.f57363a.f57361a) {
                 try {
-                    b.f60451a.f60449a = new File("/sys/devices/system/cpu/").listFiles(new C1822a()).length;
+                    b.f57363a.f57361a = new File("/sys/devices/system/cpu/").listFiles(new C1781a()).length;
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    b.f60451a.f60449a = 1;
+                    b.f57363a.f57361a = 1;
                 }
             }
-            return b.f60451a.f60449a;
+            return b.f57363a.f57361a;
         }
         return invokeV.intValue;
     }

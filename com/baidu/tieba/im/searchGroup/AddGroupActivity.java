@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import c.a.e.c.g.c;
-import c.a.e.e.m.b;
+import b.a.e.c.g.c;
+import b.a.e.e.m.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -25,21 +25,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.l1.r.a addGroupView;
+    public b.a.r0.l1.r.a addGroupView;
     public c searchGroupCallback;
     public SearchGroupModel searchGroupModel;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddGroupActivity f53295a;
+        public final /* synthetic */ AddGroupActivity f50547a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AddGroupActivity addGroupActivity, int i2) {
@@ -59,7 +59,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
                     return;
                 }
             }
-            this.f53295a = addGroupActivity;
+            this.f50547a = addGroupActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,22 +67,22 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f53295a.addGroupView.l(false);
+                this.f50547a.addGroupView.l(false);
                 if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                    this.f53295a.groupNotSearched();
+                    this.f50547a.groupNotSearched();
                 } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                    this.f53295a.groupNotSearched();
+                    this.f50547a.groupNotSearched();
                 } else {
                     ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                     if (responseSearchGroupMessage.getError() != 0) {
-                        this.f53295a.showError(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
+                        this.f50547a.showError(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
                         return;
                     }
                     List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                     if (searchResult == null || searchResult.size() <= 0) {
-                        this.f53295a.groupNotSearched();
+                        this.f50547a.groupNotSearched();
                     } else {
-                        this.f53295a.groupSearched(searchResult.get(0));
+                        this.f50547a.groupSearched(searchResult.get(0));
                     }
                 }
             }
@@ -191,7 +191,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.addGroupView = new c.a.r0.l1.r.a(this);
+            this.addGroupView = new b.a.r0.l1.r.a(this);
             this.searchGroupModel = new SearchGroupModel(this);
             registerListener(this.searchGroupCallback);
         }

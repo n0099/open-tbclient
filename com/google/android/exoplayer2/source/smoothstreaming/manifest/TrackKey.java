@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class TrackKey implements Parcelable, Comparable<TrackKey> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TrackKey> CREATOR;
@@ -19,7 +19,7 @@ public final class TrackKey implements Parcelable, Comparable<TrackKey> {
     public final int streamElementIndex;
     public final int trackIndex;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<TrackKey> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

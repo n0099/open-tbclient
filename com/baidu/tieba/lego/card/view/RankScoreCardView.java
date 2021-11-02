@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.r0.k3.w;
+import b.a.e.e.p.l;
+import b.a.r0.l3.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -24,25 +24,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f53973f;
+    public LinearLayout f51190f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f53974g;
+    public RelativeLayout f51191g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f53975h;
+    public TextView f51192h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f53976i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f53977j;
+    public TextView f51193i;
+    public TextView j;
     public RelativeLayout k;
     public TbImageView l;
     public TextView m;
@@ -51,16 +49,16 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public final int p;
     public final int q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCard f53978e;
+        public final /* synthetic */ RankScoreCard f51194e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCardView f53979f;
+        public final /* synthetic */ RankScoreCardView f51195f;
 
         public a(RankScoreCardView rankScoreCardView, RankScoreCard rankScoreCard) {
             Interceptable interceptable = $ic;
@@ -77,29 +75,29 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     return;
                 }
             }
-            this.f53979f = rankScoreCardView;
-            this.f53978e = rankScoreCard;
+            this.f51195f = rankScoreCardView;
+            this.f51194e = rankScoreCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                w.c(this.f53979f.mContext, this.f53978e.getD2Scheme());
+                w.c(this.f51195f.mContext, this.f51194e.getD2Scheme());
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCard f53980e;
+        public final /* synthetic */ RankScoreCard f51196e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCardView f53981f;
+        public final /* synthetic */ RankScoreCardView f51197f;
 
         public b(RankScoreCardView rankScoreCardView, RankScoreCard rankScoreCard) {
             Interceptable interceptable = $ic;
@@ -116,31 +114,31 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     return;
                 }
             }
-            this.f53981f = rankScoreCardView;
-            this.f53980e = rankScoreCard;
+            this.f51197f = rankScoreCardView;
+            this.f51196e = rankScoreCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f53981f.getContext())) {
-                c.a.r0.q1.m.b a2 = c.a.r0.q1.m.b.a();
-                RankScoreCard rankScoreCard = this.f53980e;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f51197f.getContext())) {
+                b.a.r0.q1.m.b a2 = b.a.r0.q1.m.b.a();
+                RankScoreCard rankScoreCard = this.f51196e;
                 a2.e(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCard f53982e;
+        public final /* synthetic */ RankScoreCard f51198e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCardView f53983f;
+        public final /* synthetic */ RankScoreCardView f51199f;
 
         public c(RankScoreCardView rankScoreCardView, RankScoreCard rankScoreCard) {
             Interceptable interceptable = $ic;
@@ -157,15 +155,15 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     return;
                 }
             }
-            this.f53983f = rankScoreCardView;
-            this.f53982e = rankScoreCard;
+            this.f51199f = rankScoreCardView;
+            this.f51198e = rankScoreCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53983f.handleClickEvent(this.f53982e);
+                this.f51199f.handleClickEvent(this.f51198e);
             }
         }
     }
@@ -197,7 +195,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         if (!(interceptable == null || interceptable.invokeL(65537, this, rankScoreCard) == null) || rankScoreCard == null || TextUtils.isEmpty(rankScoreCard.getDesc2())) {
             return;
         }
-        setTextColor(this.f53977j, rankScoreCard.getD2Color(), rankScoreCard.getD2ColorN(), R.color.CAM_X0106);
+        setTextColor(this.j, rankScoreCard.getD2Color(), rankScoreCard.getD2ColorN(), R.color.CAM_X0106);
     }
 
     private void setRightScoreColor(RankScoreCard rankScoreCard) {
@@ -214,7 +212,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f53974g.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f51191g.getLayoutParams();
         if (rankScoreCard.getRatio() > 0.0d) {
             layoutParams.height = (int) ((layoutParams.width * rankScoreCard.getRatio()) + 0.5d);
         } else {
@@ -222,7 +220,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         }
         this.l.setLayoutParams(layoutParams);
         layoutParams2.height = layoutParams.height;
-        this.f53974g.setLayoutParams(layoutParams2);
+        this.f51191g.setLayoutParams(layoutParams2);
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
@@ -231,17 +229,17 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_rank_score, (ViewGroup) null);
-            this.f53973f = linearLayout;
-            this.f53974g = (RelativeLayout) findViewById(linearLayout, R.id.rl_content);
-            this.f53975h = (TextView) findViewById(this.f53973f, R.id.score_title);
-            this.f53976i = (TextView) findViewById(this.f53973f, R.id.desc);
-            this.f53977j = (TextView) findViewById(this.f53973f, R.id.desc2);
-            this.k = (RelativeLayout) findViewById(this.f53973f, R.id.rl_pic);
-            this.l = (TbImageView) findViewById(this.f53973f, R.id.pic);
-            this.m = (TextView) findViewById(this.f53973f, R.id.leftTopText);
-            this.n = (TextView) findViewById(this.f53973f, R.id.right);
-            this.o = (TextView) findViewById(this.f53973f, R.id.btn_post);
-            return this.f53973f;
+            this.f51190f = linearLayout;
+            this.f51191g = (RelativeLayout) findViewById(linearLayout, R.id.rl_content);
+            this.f51192h = (TextView) findViewById(this.f51190f, R.id.score_title);
+            this.f51193i = (TextView) findViewById(this.f51190f, R.id.desc);
+            this.j = (TextView) findViewById(this.f51190f, R.id.desc2);
+            this.k = (RelativeLayout) findViewById(this.f51190f, R.id.rl_pic);
+            this.l = (TbImageView) findViewById(this.f51190f, R.id.pic);
+            this.m = (TextView) findViewById(this.f51190f, R.id.leftTopText);
+            this.n = (TextView) findViewById(this.f51190f, R.id.right);
+            this.o = (TextView) findViewById(this.f51190f, R.id.btn_post);
+            return this.f51190f;
         }
         return (View) invokeV.objValue;
     }
@@ -251,10 +249,10 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public void onChangeSkinType(RankScoreCard rankScoreCard, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, rankScoreCard, i2) == null) {
-            c.a.q0.w0.a.a(this.mContext, getRootView());
-            SkinManager.setBackgroundResource(this.f53973f, R.drawable.addresslist_item_bg);
-            SkinManager.setViewTextColor(this.f53975h, R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.f53976i, R.color.CAM_X0106);
+            b.a.q0.w0.a.a(this.mContext, getRootView());
+            SkinManager.setBackgroundResource(this.f51190f, R.drawable.addresslist_item_bg);
+            SkinManager.setViewTextColor(this.f51192h, R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.f51193i, R.color.CAM_X0106);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0308);
             setDesc2Color(rankScoreCard);
             setRightScoreColor(rankScoreCard);
@@ -267,27 +265,27 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, rankScoreCard) == null) {
             if (!TextUtils.isEmpty(rankScoreCard.getCardTitle())) {
-                this.f53975h.setVisibility(0);
-                this.f53975h.setText(rankScoreCard.getCardTitle());
+                this.f51192h.setVisibility(0);
+                this.f51192h.setText(rankScoreCard.getCardTitle());
             } else {
-                this.f53975h.setVisibility(4);
+                this.f51192h.setVisibility(4);
             }
             if (!TextUtils.isEmpty(rankScoreCard.getDesc())) {
-                this.f53976i.setVisibility(0);
-                this.f53976i.setText(rankScoreCard.getDesc());
+                this.f51193i.setVisibility(0);
+                this.f51193i.setText(rankScoreCard.getDesc());
             } else {
-                this.f53976i.setVisibility(4);
+                this.f51193i.setVisibility(4);
             }
             if (!TextUtils.isEmpty(rankScoreCard.getDesc2())) {
-                this.f53977j.setText(rankScoreCard.getDesc2());
+                this.j.setText(rankScoreCard.getDesc2());
                 setDesc2Color(rankScoreCard);
                 if (!TextUtils.isEmpty(rankScoreCard.getD2Scheme())) {
-                    this.f53977j.setOnClickListener(new a(this, rankScoreCard));
+                    this.j.setOnClickListener(new a(this, rankScoreCard));
                 } else {
-                    this.f53977j.setOnClickListener(null);
+                    this.j.setOnClickListener(null);
                 }
             } else {
-                this.f53977j.setVisibility(4);
+                this.j.setVisibility(4);
             }
             if (!TextUtils.isEmpty(rankScoreCard.getPostUrl()) && !TextUtils.isEmpty(rankScoreCard.getBtnText()) && !TextUtils.isEmpty(rankScoreCard.getBtnDone())) {
                 this.o.setVisibility(0);
@@ -325,7 +323,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     } else {
                         SkinManager.setViewTextColor(this.m, R.color.CAM_X0111);
                     }
-                    SkinManager.setBackgroundColor(this.m, c.a.r0.q1.a.f23675a[i2]);
+                    SkinManager.setBackgroundColor(this.m, b.a.r0.q1.a.f22568a[i2]);
                     this.m.setText(rankScoreCard.getRank() + "");
                 }
             }

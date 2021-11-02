@@ -15,7 +15,7 @@ import com.facebook.fresco.animation.backend.AnimationBackend;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBackend> extends AnimationBackendDelegate<T> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -33,7 +33,7 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
     public final MonotonicClock mMonotonicClock;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface InactivityListener {
         void onInactive();
     }
@@ -155,10 +155,10 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mInactivityThresholdMs : invokeV.longValue;
     }
 
-    public void setInactivityCheckPollingTimeMs(long j2) {
+    public void setInactivityCheckPollingTimeMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.mInactivityCheckPollingTimeMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mInactivityCheckPollingTimeMs = j;
         }
     }
 
@@ -169,10 +169,10 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
         }
     }
 
-    public void setInactivityThresholdMs(long j2) {
+    public void setInactivityThresholdMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.mInactivityThresholdMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.mInactivityThresholdMs = j;
         }
     }
 

@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PoiDetailSearchResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<PoiDetailInfo> f41881a;
+    public List<PoiDetailInfo> f39718a;
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +71,7 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
                 return;
             }
         }
-        this.f41881a = parcel.createTypedArrayList(PoiDetailInfo.CREATOR);
+        this.f39718a = parcel.createTypedArrayList(PoiDetailInfo.CREATOR);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -107,13 +107,13 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     public List<PoiDetailInfo> getPoiDetailInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41881a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39718a : (List) invokeV.objValue;
     }
 
     public void setPoiDetailInfoList(List<PoiDetailInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f41881a = list;
+            this.f39718a = list;
         }
     }
 
@@ -121,16 +121,16 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<PoiDetailInfo> list = this.f41881a;
+            List<PoiDetailInfo> list = this.f39718a;
             if (list == null || list.isEmpty()) {
                 return "PoiDetailSearchResult is null";
             }
             StringBuffer stringBuffer = new StringBuffer("PoiDetailSearchResult:");
-            for (int i2 = 0; i2 < this.f41881a.size(); i2++) {
+            for (int i2 = 0; i2 < this.f39718a.size(); i2++) {
                 stringBuffer.append(" ");
                 stringBuffer.append(i2);
                 stringBuffer.append(" ");
-                PoiDetailInfo poiDetailInfo = this.f41881a.get(i2);
+                PoiDetailInfo poiDetailInfo = this.f39718a.get(i2);
                 stringBuffer.append(poiDetailInfo != null ? poiDetailInfo.toString() : StringUtil.NULL_STRING);
             }
             return stringBuffer.toString();
@@ -143,7 +143,7 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
-            parcel.writeTypedList(this.f41881a);
+            parcel.writeTypedList(this.f39718a);
         }
     }
 }

@@ -2,6 +2,7 @@ package com.kwad.sdk.core.webview.a;
 
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72788a;
+    public final int f65238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f72789b;
+    public final String f65239b;
 
     public e(int i2, String str) {
         Interceptable interceptable = $ic;
@@ -35,8 +36,8 @@ public class e implements com.kwad.sdk.core.b {
                 return;
             }
         }
-        this.f72788a = i2;
-        this.f72789b = str;
+        this.f65238a = i2;
+        this.f65239b = str;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -52,8 +53,8 @@ public class e implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "result", this.f72788a);
-            q.a(jSONObject, "error_msg", this.f72789b);
+            q.a(jSONObject, "result", this.f65238a);
+            q.a(jSONObject, GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f65239b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

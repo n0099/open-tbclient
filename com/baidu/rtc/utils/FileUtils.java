@@ -33,7 +33,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtils";
@@ -265,10 +265,10 @@ public class FileUtils {
                 try {
                     fileChannel2 = file.getChannel();
                     long size = fileChannel.size();
-                    long j2 = 0;
-                    while (j2 < size) {
-                        long j3 = size - j2;
-                        j2 += fileChannel2.transferFrom(fileChannel, j2, j3 > 31457280 ? 31457280L : j3);
+                    long j = 0;
+                    while (j < size) {
+                        long j2 = size - j;
+                        j += fileChannel2.transferFrom(fileChannel, j, j2 > 31457280 ? 31457280L : j2);
                     }
                     z = true;
                     closeable = file;
@@ -348,21 +348,21 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, file)) == null) {
-            long j2 = 0;
+            long j = 0;
             FileInputStream fileInputStream = null;
             try {
                 try {
                     if (file.exists()) {
                         FileInputStream fileInputStream2 = new FileInputStream(file);
                         try {
-                            j2 = fileInputStream2.available();
+                            j = fileInputStream2.available();
                             fileInputStream = fileInputStream2;
                         } catch (Exception e2) {
                             e = e2;
                             fileInputStream = fileInputStream2;
                             e.getMessage();
                             CloseHelper.close(fileInputStream);
-                            return j2;
+                            return j;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -377,7 +377,7 @@ public class FileUtils {
                 e = e3;
             }
             CloseHelper.close(fileInputStream);
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -408,7 +408,7 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, file)) == null) {
-            long j2 = 0;
+            long j = 0;
             if (file == null || !file.exists()) {
                 return 0L;
             }
@@ -423,9 +423,9 @@ public class FileUtils {
                 return 0L;
             }
             for (File file2 : listFiles) {
-                j2 += getSize(file2);
+                j += getSize(file2);
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }

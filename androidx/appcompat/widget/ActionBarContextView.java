@@ -480,8 +480,8 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     @Override // androidx.appcompat.widget.AbsActionBarView
-    public /* bridge */ /* synthetic */ ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j2) {
-        return super.setupAnimatorToVisibility(i2, j2);
+    public /* bridge */ /* synthetic */ ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j) {
+        return super.setupAnimatorToVisibility(i2, j);
     }
 
     @Override // android.view.ViewGroup

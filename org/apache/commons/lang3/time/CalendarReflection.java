@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CalendarReflection {
     public static /* synthetic */ Interceptable $ic;
     public static final Method GET_WEEK_YEAR;

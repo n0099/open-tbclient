@@ -6,25 +6,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42706a;
+    public long f40516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42707b;
+    public int f40517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42708c;
+    public int f40518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42709d;
+    public int f40519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42710e;
+    public int f40520e;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public abstract class g {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42709d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40519d : invokeV.intValue;
     }
 
     public abstract b a(byte[] bArr, int i2, int i3);
@@ -51,12 +51,12 @@ public abstract class g {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42708c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40518c : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42710e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40520e : invokeV.intValue;
     }
 }

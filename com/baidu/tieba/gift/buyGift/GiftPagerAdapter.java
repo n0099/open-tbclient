@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GiftPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<View> f51940a;
+    public List<View> f49261a;
 
     public GiftPagerAdapter(List<View> list) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class GiftPagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f51940a = new ArrayList();
-        this.f51940a = list;
+        this.f49261a = new ArrayList();
+        this.f49261a = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -44,7 +44,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         if (!(interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) || i2 < 0 || i2 >= getCount()) {
             return;
         }
-        viewGroup.removeView(this.f51940a.get(i2));
+        viewGroup.removeView(this.f49261a.get(i2));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -52,7 +52,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<View> list = this.f51940a;
+            List<View> list = this.f49261a;
             if (list == null) {
                 return 0;
             }
@@ -69,7 +69,7 @@ public class GiftPagerAdapter extends PagerAdapter {
             if (i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            View view = this.f51940a.get(i2);
+            View view = this.f49261a.get(i2);
             viewGroup.addView(view);
             return view;
         }

@@ -17,7 +17,7 @@ import com.facebook.imageutils.WebpUtil;
 import java.io.UnsupportedEncodingException;
 import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WebpSupportStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXTENDED_WEBP_HEADER_LENGTH = 21;
@@ -54,7 +54,7 @@ public class WebpSupportStatus {
         sIsExtendedWebpSupported = isExtendedWebpSupported();
         sWebpBitmapFactory = null;
         sWebpLibraryChecked = false;
-        WEBP_RIFF_BYTES = asciiBytes(b.f60395e);
+        WEBP_RIFF_BYTES = asciiBytes(b.f57309e);
         WEBP_NAME_BYTES = asciiBytes("WEBP");
         WEBP_VP8_BYTES = asciiBytes(WebpUtil.VP8_HEADER);
         WEBP_VP8L_BYTES = asciiBytes(WebpUtil.VP8L_HEADER);

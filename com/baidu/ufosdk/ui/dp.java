@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class dp implements AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f60014a;
+    public final /* synthetic */ FeedbackListActivity f56932a;
 
     public dp(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -32,33 +32,33 @@ public final class dp implements AdapterView.OnItemClickListener {
                 return;
             }
         }
-        this.f60014a = feedbackListActivity;
+        this.f56932a = feedbackListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView adapterView, View view, int i2, long j2) {
+    public final void onItemClick(AdapterView adapterView, View view, int i2, long j) {
         List list;
         du duVar;
         List list2;
         List list3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            list = this.f60014a.f59851e;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            list = this.f56932a.f56772e;
             ((Map) list.get(i2)).put("newmsg", "0");
-            duVar = this.f60014a.u;
+            duVar = this.f56932a.u;
             duVar.notifyDataSetChanged();
             Intent intent = new Intent();
-            intent.setClass(this.f60014a, FeedbackInputActivity.class);
-            list2 = this.f60014a.f59851e;
+            intent.setClass(this.f56932a, FeedbackInputActivity.class);
+            list2 = this.f56932a.f56772e;
             intent.putExtra("msgid", (String) ((Map) list2.get(i2)).get("id"));
-            list3 = this.f60014a.f59851e;
+            list3 = this.f56932a.f56772e;
             intent.putExtra("appid", (String) ((Map) list3.get(i2)).get("appid"));
             intent.putExtra("fromList", true);
             intent.putExtra("fromEdit", false);
             if (com.baidu.ufosdk.f.h.a()) {
                 return;
             }
-            this.f60014a.startActivity(intent);
+            this.f56932a.startActivity(intent);
         }
     }
 }

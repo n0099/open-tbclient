@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f f76194a;
+    public static final f f69186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f f76195b;
+    public static final f f69187b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final f f76196c;
+    public static final f f69188c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ f[] f76197d;
+    public static final /* synthetic */ f[] f69189d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,11 +38,11 @@ public final class f {
                 return;
             }
         }
-        f76194a = new f("MAIN", 0);
-        f76195b = new f("SUB", 1);
+        f69186a = new f("MAIN", 0);
+        f69187b = new f("SUB", 1);
         f fVar = new f("NOTIFICATION", 2);
-        f76196c = fVar;
-        f76197d = new f[]{f76194a, f76195b, fVar};
+        f69188c = fVar;
+        f69189d = new f[]{f69186a, f69187b, fVar};
     }
 
     public f(String str, int i2) {
@@ -73,6 +73,6 @@ public final class f {
     public static f[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f[]) f76197d.clone() : (f[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f[]) f69189d.clone() : (f[]) invokeV.objValue;
     }
 }

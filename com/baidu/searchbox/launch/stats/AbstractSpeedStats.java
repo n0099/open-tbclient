@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -48,10 +48,10 @@ public abstract class AbstractSpeedStats {
         }
     }
 
-    public void addStatsDuration(String str, long j2) {
+    public void addStatsDuration(String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) && DEBUG) {
-            String str2 = "addStatsDuration key: " + str + " duration " + j2;
+        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) && DEBUG) {
+            String str2 = "addStatsDuration key: " + str + " duration " + j;
         }
     }
 
@@ -106,10 +106,10 @@ public abstract class AbstractSpeedStats {
         }
     }
 
-    public void addStatsTimeStamp(int i2, long j2) {
+    public void addStatsTimeStamp(int i2, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) && DEBUG) {
-            String str = "addStatsTimeStamp key: " + i2 + " timeStamp " + j2;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) && DEBUG) {
+            String str = "addStatsTimeStamp key: " + i2 + " timeStamp " + j;
         }
     }
 }

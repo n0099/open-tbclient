@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
+import b.i.d.a.n;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -21,13 +21,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Longs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class LexicographicalComparator implements Comparator<long[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -109,7 +109,7 @@ public final class Longs {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class LongArrayAsList extends AbstractList<Long> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -317,16 +317,16 @@ public final class Longs {
                 n.n(i2, size());
                 long[] jArr = this.array;
                 int i3 = this.start;
-                long j2 = jArr[i3 + i2];
+                long j = jArr[i3 + i2];
                 n.p(l);
                 jArr[i3 + i2] = l.longValue();
-                return Long.valueOf(j2);
+                return Long.valueOf(j);
             }
             return (Long) invokeIL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class LongConverter extends Converter<String, Long> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final LongConverter INSTANCE;
@@ -392,11 +392,11 @@ public final class Longs {
         }
     }
 
-    public static int c(long j2, long j3) {
+    public static int c(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
             if (i2 < 0) {
                 return -1;
             }
@@ -411,18 +411,18 @@ public final class Longs {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Byte.valueOf(b5), Byte.valueOf(b6), Byte.valueOf(b7), Byte.valueOf(b8), Byte.valueOf(b9)})) == null) ? ((b3 & 255) << 48) | ((b2 & 255) << 56) | ((b4 & 255) << 40) | ((b5 & 255) << 32) | ((b6 & 255) << 24) | ((b7 & 255) << 16) | ((b8 & 255) << 8) | (b9 & 255) : invokeCommon.longValue;
     }
 
-    public static int e(long j2) {
+    public static int e(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2)) == null) ? (int) (j2 ^ (j2 >>> 32)) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) ? (int) (j ^ (j >>> 32)) : invokeJ.intValue;
     }
 
-    public static int f(long[] jArr, long j2, int i2, int i3) {
+    public static int f(long[] jArr, long j, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{jArr, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{jArr, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             while (i2 < i3) {
-                if (jArr[i2] == j2) {
+                if (jArr[i2] == j) {
                     return i2;
                 }
                 i2++;
@@ -432,12 +432,12 @@ public final class Longs {
         return invokeCommon.intValue;
     }
 
-    public static int g(long[] jArr, long j2, int i2, int i3) {
+    public static int g(long[] jArr, long j, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{jArr, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{jArr, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             for (int i4 = i3 - 1; i4 >= i2; i4--) {
-                if (jArr[i4] == j2) {
+                if (jArr[i4] == j) {
                     return i4;
                 }
             }

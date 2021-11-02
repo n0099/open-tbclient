@@ -2,8 +2,8 @@ package com.baidu.tieba.person.holder;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.e.l.e.n;
-import c.a.q0.u.m;
+import b.a.e.l.e.n;
+import b.a.q0.u.o;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public n f55844a;
+    public n f52996a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55845b;
+    public int f52997b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f55846c;
+    public View.OnClickListener f52998c;
     public View coverView;
     public TbImageView imageView;
     public TextView tipTextView;
@@ -52,7 +52,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f55845b = 3;
+        this.f52997b = 3;
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.photo_image_view);
         this.imageView = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
@@ -62,11 +62,11 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     public void bindDataToView(n nVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) && (nVar instanceof m)) {
-            this.f55844a = nVar;
-            m mVar = (m) nVar;
-            if (mVar.d()) {
-                String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(mVar.c());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) && (nVar instanceof o)) {
+            this.f52996a = nVar;
+            o oVar = (o) nVar;
+            if (oVar.e()) {
+                String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(oVar.d());
                 this.tipTextView.setVisibility(0);
                 if (StringUtils.isNull(headPortraitFilter)) {
                     this.imageView.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
@@ -76,9 +76,9 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
             } else {
                 this.imageView.setDefaultResource(R.drawable.img_default_100);
                 this.tipTextView.setVisibility(8);
-                this.imageView.startLoad(mVar.c(), 10, false);
+                this.imageView.startLoad(oVar.d(), 10, false);
             }
-            getView().setOnClickListener(this.f55846c);
+            getView().setOnClickListener(this.f52998c);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -86,23 +86,23 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public n getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55844a : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52996a : (n) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f55845b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f52997b == i2) {
             return;
         }
         SkinManager.setViewTextColor(this.tipTextView, R.color.CAM_X0111, 1);
         SkinManager.setBackgroundColor(this.tipTextView, R.color.black_alpha50);
-        this.f55845b = i2;
+        this.f52997b = i2;
     }
 
     public void setOnclickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f55846c = onClickListener;
+            this.f52998c = onClickListener;
         }
     }
 }

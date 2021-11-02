@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f36065a;
+    public a f34161a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36066b;
+    public String f34162b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f36067c;
+    public String[] f34163c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        this.f36066b = str;
+        this.f34162b = str;
     }
 
     public static void a(b bVar) {
@@ -79,7 +79,7 @@ public class b {
     public String[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36067c : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34163c : (String[]) invokeV.objValue;
     }
 
     public b(String str, a aVar) {
@@ -97,8 +97,8 @@ public class b {
                 return;
             }
         }
-        this.f36066b = str;
-        this.f36065a = aVar;
+        this.f34162b = str;
+        this.f34161a = aVar;
     }
 
     public static List<b> a(JSONObject jSONObject) {
@@ -112,9 +112,9 @@ public class b {
             String[] a2 = a(jSONObject.optString("name", ""));
             for (int i2 = 0; i2 < a2.length; i2++) {
                 a a3 = a.a(a2[i2]);
-                if (a3 != a.f36057b) {
+                if (a3 != a.f34153b) {
                     b bVar = new b(a2[i2], a3);
-                    bVar.f36067c = b(a2[i2]);
+                    bVar.f34163c = b(a2[i2]);
                     arrayList.add(bVar);
                 }
             }
@@ -126,7 +126,7 @@ public class b {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36066b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34162b : (String) invokeV.objValue;
     }
 
     public static String[] a(String str) {
@@ -144,6 +144,6 @@ public class b {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36065a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34161a : (a) invokeV.objValue;
     }
 }

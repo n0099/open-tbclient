@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +17,7 @@ import com.qq.e.ads.dfa.GDTAppDialogClickListener;
 import com.qq.e.comm.constants.CustomPkgConstants;
 import com.qq.e.comm.managers.devtool.DevTools;
 import com.qq.e.comm.managers.plugin.PM;
+import com.qq.e.comm.managers.plugin.e;
 import com.qq.e.comm.managers.setting.SM;
 import com.qq.e.comm.managers.status.APPStatus;
 import com.qq.e.comm.managers.status.DeviceStatus;
@@ -26,61 +28,104 @@ import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class GDTADManager implements IGDTAdManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ExecutorService INIT_EXECUTOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Boolean f75662a;
+    public volatile Boolean f67969a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Context f75663b;
+    public volatile Context f67970b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile SM f75664c;
+    public volatile SM f67971c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile PM f75665d;
+    public volatile PM f67972d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile DevTools f75666e;
+    public volatile DevTools f67973e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile APPStatus f75667f;
+    public volatile APPStatus f67974f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile DeviceStatus f75668g;
+    public volatile DeviceStatus f67975g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile String f75669h;
+    public volatile String f67976h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PM.a.InterfaceC2049a f75670i;
+    public e f67977i;
 
-    /* loaded from: classes10.dex */
-    public static final class a {
+    /* loaded from: classes2.dex */
+    public class a extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ long f67978a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ GDTADManager f67979b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(GDTADManager gDTADManager, String str, long j) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gDTADManager, str, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f67979b = gDTADManager;
+            this.f67978a = j;
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.run();
+                GDTADManager.a(this.f67979b, this.f67978a);
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static GDTADManager f75673a;
+        public static GDTADManager f67980a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(876102630, "Lcom/qq/e/comm/managers/GDTADManager$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(876102661, "Lcom/qq/e/comm/managers/GDTADManager$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(876102630, "Lcom/qq/e/comm/managers/GDTADManager$a;");
+                    classClinitInterceptable.invokePostClinit(876102661, "Lcom/qq/e/comm/managers/GDTADManager$b;");
                     return;
                 }
             }
-            f75673a = new GDTADManager((byte) 0);
+            f67980a = new GDTADManager(null);
         }
     }
 
@@ -113,21 +158,43 @@ public class GDTADManager implements IGDTAdManager {
                 return;
             }
         }
-        this.f75662a = Boolean.FALSE;
+        this.f67969a = Boolean.FALSE;
     }
 
-    public /* synthetic */ GDTADManager(byte b2) {
+    public /* synthetic */ GDTADManager(a aVar) {
         this();
     }
 
-    public static /* synthetic */ void a(GDTADManager gDTADManager, long j2) {
-        com.qq.e.comm.a.a.a().a(gDTADManager.f75663b, gDTADManager.f75664c, gDTADManager.f75665d, gDTADManager.f75668g, gDTADManager.f75667f, j2);
+    private void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, this, context, str) == null) {
+            long nanoTime = System.nanoTime();
+            this.f67976h = SystemUtil.getProcessName(context);
+            this.f67970b = context.getApplicationContext();
+            this.f67971c = new SM(this.f67970b);
+            this.f67972d = new PM(this.f67970b, this.f67977i);
+            this.f67974f = new APPStatus(str, this.f67970b);
+            this.f67975g = new DeviceStatus(this.f67970b);
+            if (Build.VERSION.SDK_INT > 7) {
+                new a(this, "GDT_ACTIVATE_LAUNCH", nanoTime).start();
+            }
+        }
+    }
+
+    public static void a(GDTADManager gDTADManager, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, gDTADManager, j) == null) {
+            if (gDTADManager == null) {
+                throw null;
+            }
+            com.qq.e.comm.b.a.a().a(gDTADManager.f67970b, gDTADManager.f67971c, gDTADManager.f67972d, gDTADManager.f67975g, gDTADManager.f67974f, j);
+        }
     }
 
     public static GDTADManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f75673a : (GDTADManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f67980a : (GDTADManager) invokeV.objValue;
     }
 
     public JSONObject buildS2SSBaseInfo() throws JSONException {
@@ -135,11 +202,16 @@ public class GDTADManager implements IGDTAdManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (isInitialized()) {
-                JSONObject a2 = com.qq.e.comm.net.a.a(this.f75664c);
-                a2.put("app", com.qq.e.comm.net.a.a(this.f75667f));
-                a2.put("c", com.qq.e.comm.net.a.a(this.f75668g));
-                a2.put("sdk", com.qq.e.comm.net.a.a(this.f75665d));
-                return a2;
+                SM sm = this.f67971c;
+                JSONObject jSONObject = new JSONObject();
+                if (sm != null) {
+                    jSONObject.putOpt("suid", sm.getSuid());
+                    jSONObject.putOpt("sid", sm.getSid());
+                }
+                jSONObject.put("app", com.qq.e.comm.net.a.a(this.f67974f));
+                jSONObject.put("c", com.qq.e.comm.net.a.a(this.f67975g));
+                jSONObject.put("sdk", com.qq.e.comm.net.a.a(this.f67972d));
+                return jSONObject;
             }
             return null;
         }
@@ -155,13 +227,13 @@ public class GDTADManager implements IGDTAdManager {
     public Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75663b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67970b : (Context) invokeV.objValue;
     }
 
     public APPStatus getAppStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75667f : (APPStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67974f : (APPStatus) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.managers.IGDTAdManager
@@ -171,7 +243,7 @@ public class GDTADManager implements IGDTAdManager {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (isInitialized()) {
                 try {
-                    return this.f75665d.getPOFactory().getBuyerId();
+                    return this.f67972d.getPOFactory().getBuyerId();
                 } catch (Exception e2) {
                     GDTLogger.e("SDK 初始化异常", e2);
                     return "";
@@ -187,10 +259,10 @@ public class GDTADManager implements IGDTAdManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f75666e == null) {
-                this.f75666e = new DevTools();
+            if (this.f67973e == null) {
+                this.f67973e = new DevTools();
             }
-            return this.f75666e;
+            return this.f67973e;
         }
         return (DevTools) invokeV.objValue;
     }
@@ -198,7 +270,7 @@ public class GDTADManager implements IGDTAdManager {
     public DeviceStatus getDeviceStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f75668g : (DeviceStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f67975g : (DeviceStatus) invokeV.objValue;
     }
 
     public String getDownLoadClazz() {
@@ -216,7 +288,7 @@ public class GDTADManager implements IGDTAdManager {
     public PM getPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f75665d : (PM) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f67972d : (PM) invokeV.objValue;
     }
 
     public String getPortraitADActivityClazz() {
@@ -228,7 +300,7 @@ public class GDTADManager implements IGDTAdManager {
     public String getProcessName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f75669h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f67976h : (String) invokeV.objValue;
     }
 
     public String getRewardvideoLandscapeADActivityClazz() {
@@ -246,7 +318,7 @@ public class GDTADManager implements IGDTAdManager {
     public SM getSM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f75664c : (SM) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f67971c : (SM) invokeV.objValue;
     }
 
     public synchronized boolean initWith(Context context, String str) {
@@ -257,64 +329,15 @@ public class GDTADManager implements IGDTAdManager {
                 if (Build.VERSION.SDK_INT < 14) {
                     GDTLogger.e("GDTADManager初始化错误，SDK不支持Android 4.0以下版本");
                     return false;
-                } else if (this.f75662a.booleanValue()) {
+                } else if (this.f67969a.booleanValue()) {
                     return true;
                 } else {
                     if (context == null || TextUtils.isEmpty(str)) {
                         GDTLogger.e("GDTADManager初始化错误，context和appId不能为空");
                         return false;
                     }
-                    long nanoTime = System.nanoTime();
-                    this.f75669h = SystemUtil.getProcessName(context);
-                    this.f75663b = context.getApplicationContext();
-                    this.f75664c = new SM(this.f75663b);
-                    this.f75665d = new PM(this.f75663b, this.f75670i);
-                    this.f75667f = new APPStatus(str, this.f75663b);
-                    this.f75668g = new DeviceStatus(this.f75663b);
-                    if (Build.VERSION.SDK_INT > 7) {
-                        new Thread(this, "GDT_ACTIVATE_LAUNCH", nanoTime) { // from class: com.qq.e.comm.managers.GDTADManager.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public /* synthetic */ long f75671a;
-
-                            /* renamed from: b  reason: collision with root package name */
-                            public /* synthetic */ GDTADManager f75672b;
-
-                            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                            {
-                                super(r8);
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, r8, Long.valueOf(nanoTime)};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        super((String) newInitContext.callArgs[0]);
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.f75672b = this;
-                                this.f75671a = nanoTime;
-                            }
-
-                            @Override // java.lang.Thread, java.lang.Runnable
-                            public final void run() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    super.run();
-                                    GDTADManager.a(this.f75672b, this.f75671a);
-                                }
-                            }
-                        }.start();
-                    }
-                    this.f75662a = Boolean.TRUE;
+                    a(context, str);
+                    this.f67969a = Boolean.TRUE;
                     return true;
                 }
             }
@@ -326,7 +349,7 @@ public class GDTADManager implements IGDTAdManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.f75662a == null || !this.f75662a.booleanValue()) {
+            if (this.f67969a == null || !this.f67969a.booleanValue()) {
                 GDTLogger.e("SDK 尚未初始化，请在 Application 中调用 GDTAdSdk.init() 初始化");
                 return false;
             }
@@ -335,10 +358,10 @@ public class GDTADManager implements IGDTAdManager {
         return invokeV.booleanValue;
     }
 
-    public void setPluginLoadListener(PM.a.InterfaceC2049a interfaceC2049a) {
+    public void setPluginLoadListener(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, interfaceC2049a) == null) {
-            this.f75670i = interfaceC2049a;
+        if (interceptable == null || interceptable.invokeL(1048593, this, eVar) == null) {
+            this.f67977i = eVar;
         }
     }
 
@@ -349,7 +372,7 @@ public class GDTADManager implements IGDTAdManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, gDTAppDialogClickListener)) == null) {
             if (isInitialized()) {
                 try {
-                    return this.f75665d.getPOFactory().showOpenOrInstallAppDialog(gDTAppDialogClickListener);
+                    return this.f67972d.getPOFactory().showOpenOrInstallAppDialog(gDTAppDialogClickListener);
                 } catch (Exception e2) {
                     GDTLogger.e("SDK 初始化异常", e2);
                     return 0;

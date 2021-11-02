@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.base;
 import android.content.Context;
 import com.baidu.pass.biometrics.base.callback.PassBiometricCallback;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface PassBiometric {
     void config(PassBiometricConfiguration passBiometricConfiguration);
 

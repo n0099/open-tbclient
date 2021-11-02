@@ -10,7 +10,7 @@ import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseNativeExpressAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;
@@ -20,12 +20,12 @@ public abstract class BaseNativeExpressAd {
     public static final int EVENT_TYPE_ON_NO_AD = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public BaseNativeExpressAd(Context context, ADSize aDSize, String str, String str2) {
+    public BaseNativeExpressAd(Context context, ADSize aDSize, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, aDSize, str, str2};
+            Object[] objArr = {context, aDSize, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -52,6 +52,8 @@ public abstract class BaseNativeExpressAd {
     public abstract void loadAD(int i2, LoadAdParams loadAdParams);
 
     public abstract void setAdListener(ADListener aDListener);
+
+    public abstract void setECPMLevel(String str);
 
     public abstract void setMaxVideoDuration(int i2);
 

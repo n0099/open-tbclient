@@ -11,13 +11,13 @@ import io.reactivex.Observer;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.observers.BasicFuseableObserver;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableFilter<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Predicate<? super T> predicate;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class FilterObserver<T> extends BasicFuseableObserver<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

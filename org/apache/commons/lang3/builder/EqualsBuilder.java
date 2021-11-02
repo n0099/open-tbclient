@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.Pair;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EqualsBuilder implements Builder<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<Set<Pair<IDKey, IDKey>>> REGISTRY;
@@ -282,12 +282,12 @@ public class EqualsBuilder implements Builder<Boolean> {
         return invokeCommon.booleanValue;
     }
 
-    public EqualsBuilder append(long j2, long j3) {
+    public EqualsBuilder append(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (this.isEquals) {
-                this.isEquals = j2 == j3;
+                this.isEquals = j == j2;
                 return this;
             }
             return this;

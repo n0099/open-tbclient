@@ -24,7 +24,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NHCreditItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int CREDIT_TAG_LENGTH = 5;
@@ -139,7 +139,7 @@ public class NHCreditItem extends BaseItemView {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHCreditItem f61605a;
+                        public final /* synthetic */ NHCreditItem f58490a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -156,14 +156,14 @@ public class NHCreditItem extends BaseItemView {
                                     return;
                                 }
                             }
-                            this.f61605a = this;
+                            this.f58490a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f61605a.getWalletInterface().jump(this.f61605a.getData().getName(), this.f61605a.getData().getType(), this.f61605a.getData().getLinkAddr(), this.f61605a.getData().getPrevlogin());
+                                this.f58490a.getWalletInterface().jump(this.f58490a.getData().getName(), this.f58490a.getData().getType(), this.f58490a.getData().getLinkAddr(), this.f58490a.getData().getPrevlogin());
                             }
                         }
                     });
@@ -182,7 +182,7 @@ public class NHCreditItem extends BaseItemView {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHCreditItem f61606a;
+                        public final /* synthetic */ NHCreditItem f58491a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -199,14 +199,14 @@ public class NHCreditItem extends BaseItemView {
                                     return;
                                 }
                             }
-                            this.f61606a = this;
+                            this.f58491a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f61606a.getWalletInterface().jump(this.f61606a.getData().buttons[0].name, this.f61606a.getData().buttons[0].type, this.f61606a.getData().buttons[0].link_addr, this.f61606a.getData().getPrevlogin());
+                                this.f58491a.getWalletInterface().jump(this.f58491a.getData().buttons[0].name, this.f58491a.getData().buttons[0].type, this.f58491a.getData().buttons[0].link_addr, this.f58491a.getData().getPrevlogin());
                             }
                         }
                     });
@@ -261,7 +261,7 @@ public class NHCreditItem extends BaseItemView {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHCreditItem f61607a;
+                        public final /* synthetic */ NHCreditItem f58492a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -278,14 +278,14 @@ public class NHCreditItem extends BaseItemView {
                                     return;
                                 }
                             }
-                            this.f61607a = this;
+                            this.f58492a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f61607a.getWalletInterface().jump(this.f61607a.getData().buttons[1].name, this.f61607a.getData().buttons[1].type, this.f61607a.getData().buttons[1].link_addr, this.f61607a.getData().getPrevlogin());
+                                this.f58492a.getWalletInterface().jump(this.f58492a.getData().buttons[1].name, this.f58492a.getData().buttons[1].type, this.f58492a.getData().buttons[1].link_addr, this.f58492a.getData().getPrevlogin());
                             }
                         }
                     });

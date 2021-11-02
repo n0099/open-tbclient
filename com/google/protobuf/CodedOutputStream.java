@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CodedOutputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 4096;
@@ -27,7 +27,7 @@ public final class CodedOutputStream {
     public final OutputStream output;
     public int position;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class OutOfSpaceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6947486886997889499L;
@@ -142,16 +142,16 @@ public final class CodedOutputStream {
         return invokeI.intValue;
     }
 
-    public static int computeFixed64Size(int i2, long j2) {
+    public static int computeFixed64Size(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? computeTagSize(i2) + computeFixed64SizeNoTag(j2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? computeTagSize(i2) + computeFixed64SizeNoTag(j) : invokeCommon.intValue;
     }
 
-    public static int computeFixed64SizeNoTag(long j2) {
+    public static int computeFixed64SizeNoTag(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
             return 8;
         }
         return invokeJ.intValue;
@@ -202,16 +202,16 @@ public final class CodedOutputStream {
         return invokeI.intValue;
     }
 
-    public static int computeInt64Size(int i2, long j2) {
+    public static int computeInt64Size(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? computeTagSize(i2) + computeInt64SizeNoTag(j2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? computeTagSize(i2) + computeInt64SizeNoTag(j) : invokeCommon.intValue;
     }
 
-    public static int computeInt64SizeNoTag(long j2) {
+    public static int computeInt64SizeNoTag(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j2)) == null) ? computeRawVarint64Size(j2) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j)) == null) ? computeRawVarint64Size(j) : invokeJ.intValue;
     }
 
     public static int computeLazyFieldMessageSetExtensionSize(int i2, LazyField lazyField) {
@@ -280,7 +280,7 @@ public final class CodedOutputStream {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65566, null, i2)) == null) {
-            if ((i2 & a.f36025g) == 0) {
+            if ((i2 & a.f34123g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -294,35 +294,35 @@ public final class CodedOutputStream {
         return invokeI.intValue;
     }
 
-    public static int computeRawVarint64Size(long j2) {
+    public static int computeRawVarint64Size(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65567, null, j2)) == null) {
-            if (((-128) & j2) == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65567, null, j)) == null) {
+            if (((-128) & j) == 0) {
                 return 1;
             }
-            if (((-16384) & j2) == 0) {
+            if (((-16384) & j) == 0) {
                 return 2;
             }
-            if ((CoroutineScheduler.PARKED_VERSION_MASK & j2) == 0) {
+            if ((CoroutineScheduler.PARKED_VERSION_MASK & j) == 0) {
                 return 3;
             }
-            if (((-268435456) & j2) == 0) {
+            if (((-268435456) & j) == 0) {
                 return 4;
             }
-            if (((-34359738368L) & j2) == 0) {
+            if (((-34359738368L) & j) == 0) {
                 return 5;
             }
-            if (((-4398046511104L) & j2) == 0) {
+            if (((-4398046511104L) & j) == 0) {
                 return 6;
             }
-            if (((-562949953421312L) & j2) == 0) {
+            if (((-562949953421312L) & j) == 0) {
                 return 7;
             }
-            if (((-72057594037927936L) & j2) == 0) {
+            if (((-72057594037927936L) & j) == 0) {
                 return 8;
             }
-            return (j2 & Long.MIN_VALUE) == 0 ? 9 : 10;
+            return (j & Long.MIN_VALUE) == 0 ? 9 : 10;
         }
         return invokeJ.intValue;
     }
@@ -342,16 +342,16 @@ public final class CodedOutputStream {
         return invokeI.intValue;
     }
 
-    public static int computeSFixed64Size(int i2, long j2) {
+    public static int computeSFixed64Size(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? computeTagSize(i2) + computeSFixed64SizeNoTag(j2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? computeTagSize(i2) + computeSFixed64SizeNoTag(j) : invokeCommon.intValue;
     }
 
-    public static int computeSFixed64SizeNoTag(long j2) {
+    public static int computeSFixed64SizeNoTag(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65571, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65571, null, j)) == null) {
             return 8;
         }
         return invokeJ.intValue;
@@ -369,16 +369,16 @@ public final class CodedOutputStream {
         return (interceptable == null || (invokeI = interceptable.invokeI(65573, null, i2)) == null) ? computeRawVarint32Size(encodeZigZag32(i2)) : invokeI.intValue;
     }
 
-    public static int computeSInt64Size(int i2, long j2) {
+    public static int computeSInt64Size(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65574, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? computeTagSize(i2) + computeSInt64SizeNoTag(j2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65574, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? computeTagSize(i2) + computeSInt64SizeNoTag(j) : invokeCommon.intValue;
     }
 
-    public static int computeSInt64SizeNoTag(long j2) {
+    public static int computeSInt64SizeNoTag(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65575, null, j2)) == null) ? computeRawVarint64Size(encodeZigZag64(j2)) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65575, null, j)) == null) ? computeRawVarint64Size(encodeZigZag64(j)) : invokeJ.intValue;
     }
 
     public static int computeStringSize(int i2, String str) {
@@ -419,16 +419,16 @@ public final class CodedOutputStream {
         return (interceptable == null || (invokeI = interceptable.invokeI(65580, null, i2)) == null) ? computeRawVarint32Size(i2) : invokeI.intValue;
     }
 
-    public static int computeUInt64Size(int i2, long j2) {
+    public static int computeUInt64Size(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65581, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? computeTagSize(i2) + computeUInt64SizeNoTag(j2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65581, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? computeTagSize(i2) + computeUInt64SizeNoTag(j) : invokeCommon.intValue;
     }
 
-    public static int computeUInt64SizeNoTag(long j2) {
+    public static int computeUInt64SizeNoTag(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65582, null, j2)) == null) ? computeRawVarint64Size(j2) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65582, null, j)) == null) ? computeRawVarint64Size(j) : invokeJ.intValue;
     }
 
     @Deprecated
@@ -451,10 +451,10 @@ public final class CodedOutputStream {
         return (interceptable == null || (invokeI = interceptable.invokeI(65585, null, i2)) == null) ? (i2 >> 31) ^ (i2 << 1) : invokeI.intValue;
     }
 
-    public static long encodeZigZag64(long j2) {
+    public static long encodeZigZag64(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65586, null, j2)) == null) ? (j2 >> 63) ^ (j2 << 1) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65586, null, j)) == null) ? (j >> 63) ^ (j << 1) : invokeJ.longValue;
     }
 
     public static CodedOutputStream newInstance(OutputStream outputStream) {
@@ -579,18 +579,18 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeFixed64(int i2, long j2) throws IOException {
+    public void writeFixed64(int i2, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             writeTag(i2, 1);
-            writeFixed64NoTag(j2);
+            writeFixed64NoTag(j);
         }
     }
 
-    public void writeFixed64NoTag(long j2) throws IOException {
+    public void writeFixed64NoTag(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            writeRawLittleEndian64(j2);
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            writeRawLittleEndian64(j);
         }
     }
 
@@ -644,18 +644,18 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeInt64(int i2, long j2) throws IOException {
+    public void writeInt64(int i2, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             writeTag(i2, 0);
-            writeInt64NoTag(j2);
+            writeInt64NoTag(j);
         }
     }
 
-    public void writeInt64NoTag(long j2) throws IOException {
+    public void writeInt64NoTag(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            writeRawVarint64(j2);
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            writeRawVarint64(j);
         }
     }
 
@@ -715,17 +715,17 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeRawLittleEndian64(long j2) throws IOException {
+    public void writeRawLittleEndian64(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048609, this, j2) == null) {
-            writeRawByte(((int) j2) & 255);
-            writeRawByte(((int) (j2 >> 8)) & 255);
-            writeRawByte(((int) (j2 >> 16)) & 255);
-            writeRawByte(((int) (j2 >> 24)) & 255);
-            writeRawByte(((int) (j2 >> 32)) & 255);
-            writeRawByte(((int) (j2 >> 40)) & 255);
-            writeRawByte(((int) (j2 >> 48)) & 255);
-            writeRawByte(((int) (j2 >> 56)) & 255);
+        if (interceptable == null || interceptable.invokeJ(1048609, this, j) == null) {
+            writeRawByte(((int) j) & 255);
+            writeRawByte(((int) (j >> 8)) & 255);
+            writeRawByte(((int) (j >> 16)) & 255);
+            writeRawByte(((int) (j >> 24)) & 255);
+            writeRawByte(((int) (j >> 32)) & 255);
+            writeRawByte(((int) (j >> 40)) & 255);
+            writeRawByte(((int) (j >> 48)) & 255);
+            writeRawByte(((int) (j >> 56)) & 255);
         }
     }
 
@@ -742,7 +742,7 @@ public final class CodedOutputStream {
     public void writeRawVarint32(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            while ((i2 & a.f36025g) != 0) {
+            while ((i2 & a.f34123g) != 0) {
                 writeRawByte((i2 & 127) | 128);
                 i2 >>>= 7;
             }
@@ -750,14 +750,14 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeRawVarint64(long j2) throws IOException {
+    public void writeRawVarint64(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048612, this, j2) == null) {
-            while (((-128) & j2) != 0) {
-                writeRawByte((((int) j2) & 127) | 128);
-                j2 >>>= 7;
+        if (interceptable == null || interceptable.invokeJ(1048612, this, j) == null) {
+            while (((-128) & j) != 0) {
+                writeRawByte((((int) j) & 127) | 128);
+                j >>>= 7;
             }
-            writeRawByte((int) j2);
+            writeRawByte((int) j);
         }
     }
 
@@ -776,18 +776,18 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeSFixed64(int i2, long j2) throws IOException {
+    public void writeSFixed64(int i2, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             writeTag(i2, 1);
-            writeSFixed64NoTag(j2);
+            writeSFixed64NoTag(j);
         }
     }
 
-    public void writeSFixed64NoTag(long j2) throws IOException {
+    public void writeSFixed64NoTag(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
-            writeRawLittleEndian64(j2);
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            writeRawLittleEndian64(j);
         }
     }
 
@@ -806,18 +806,18 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeSInt64(int i2, long j2) throws IOException {
+    public void writeSInt64(int i2, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             writeTag(i2, 0);
-            writeSInt64NoTag(j2);
+            writeSInt64NoTag(j);
         }
     }
 
-    public void writeSInt64NoTag(long j2) throws IOException {
+    public void writeSInt64NoTag(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
-            writeRawVarint64(encodeZigZag64(j2));
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
+            writeRawVarint64(encodeZigZag64(j));
         }
     }
 
@@ -860,18 +860,18 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeUInt64(int i2, long j2) throws IOException {
+    public void writeUInt64(int i2, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             writeTag(i2, 0);
-            writeUInt64NoTag(j2);
+            writeUInt64NoTag(j);
         }
     }
 
-    public void writeUInt64NoTag(long j2) throws IOException {
+    public void writeUInt64NoTag(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j2) == null) {
-            writeRawVarint64(j2);
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+            writeRawVarint64(j);
         }
     }
 
@@ -991,8 +991,8 @@ public final class CodedOutputStream {
                 return;
             }
             InputStream newInput = byteString.newInput();
-            long j2 = i7;
-            if (j2 != newInput.skip(j2)) {
+            long j = i7;
+            if (j != newInput.skip(j)) {
                 throw new IllegalStateException("Skip failed? Should never happen.");
             }
             while (i8 > 0) {

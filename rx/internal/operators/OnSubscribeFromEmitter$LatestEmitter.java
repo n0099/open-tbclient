@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.j;
+import h.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4023437720691792495L;
@@ -86,7 +86,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
         if (r9 == 0) goto L49;
      */
     /* JADX WARN: Code restructure failed: missing block: B:46:0x0080, code lost:
-        i.o.a.a.g(r17, r9);
+        h.o.a.a.g(r17, r9);
      */
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0083, code lost:
         r4 = r17.wip.addAndGet(-r4);
@@ -104,11 +104,11 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
             AtomicReference<Object> atomicReference = this.queue;
             int i2 = 1;
             do {
-                long j2 = get();
-                long j3 = 0;
+                long j = get();
+                long j2 = 0;
                 while (true) {
                     boolean z = false;
-                    int i3 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
+                    int i3 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                     if (i3 == 0) {
                         break;
                     } else if (jVar.isUnsubscribed()) {
@@ -131,7 +131,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                             break;
                         } else {
                             jVar.onNext((Object) NotificationLite.e(andSet));
-                            j3++;
+                            j2++;
                         }
                     }
                 }

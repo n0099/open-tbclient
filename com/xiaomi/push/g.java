@@ -28,31 +28,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f78022a;
+        public static final a f70979a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final /* synthetic */ a[] f425a;
+        public static final /* synthetic */ a[] f426a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f78023b;
+        public static final a f70980b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f78024c;
+        public static final a f70981c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public final int f426a;
+        public final int f427a;
 
         static {
             InterceptResult invokeClinit;
@@ -67,11 +67,11 @@ public class g {
                     return;
                 }
             }
-            f78022a = new a(RomUtils.UNKNOWN, 0, 0);
-            f78023b = new a("ALLOWED", 1, 1);
+            f70979a = new a(RomUtils.UNKNOWN, 0, 0);
+            f70980b = new a("ALLOWED", 1, 1);
             a aVar = new a("NOT_ALLOWED", 2, 2);
-            f78024c = aVar;
-            f425a = new a[]{f78022a, f78023b, aVar};
+            f70981c = aVar;
+            f426a = new a[]{f70979a, f70980b, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -92,7 +92,7 @@ public class g {
                     return;
                 }
             }
-            this.f426a = i3;
+            this.f427a = i3;
         }
 
         public static a valueOf(String str) {
@@ -104,13 +104,13 @@ public class g {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f425a.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f426a.clone() : (a[]) invokeV.objValue;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f426a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f427a : invokeV.intValue;
         }
     }
 
@@ -179,7 +179,7 @@ public class g {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, applicationInfo)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (applicationInfo == null || i2 < 24) {
-                return a.f78022a;
+                return a.f70979a;
             }
             Boolean bool = null;
             try {
@@ -192,12 +192,12 @@ public class g {
                     }
                 }
                 if (bool != null) {
-                    return bool.booleanValue() ? a.f78023b : a.f78024c;
+                    return bool.booleanValue() ? a.f70980b : a.f70981c;
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m73a("are notifications enabled error " + e2);
             }
-            return a.f78022a;
+            return a.f70979a;
         }
         return (a) invokeLL.objValue;
     }
@@ -210,7 +210,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z)) == null) {
             if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {
-                return a.f78022a;
+                return a.f70979a;
             }
             try {
                 applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
@@ -218,12 +218,12 @@ public class g {
             } catch (Throwable th) {
                 com.xiaomi.channel.commonutils.logger.b.m73a("get app op error " + th);
             }
-            if (a2 != a.f78022a) {
+            if (a2 != a.f70979a) {
                 return a2;
             }
             Integer num = (Integer) bh.a((Class<? extends Object>) AppOpsManager.class, NotificationManagerCompat.OP_POST_NOTIFICATION);
             if (num == null) {
-                return a.f78022a;
+                return a.f70979a;
             }
             Integer num2 = (Integer) bh.a((Object) ((AppOpsManager) context.getSystemService("appops")), NotificationManagerCompat.CHECK_OP_NO_THROW, num, Integer.valueOf(applicationInfo.uid), str);
             int i2 = (Integer) bh.a((Class<? extends Object>) AppOpsManager.class, "MODE_ALLOWED");
@@ -236,9 +236,9 @@ public class g {
                 i3 = 1;
             }
             if (num2 != null) {
-                return z ? !num2.equals(i3) ? a.f78023b : a.f78024c : num2.equals(i2) ? a.f78023b : a.f78024c;
+                return z ? !num2.equals(i3) ? a.f70980b : a.f70981c : num2.equals(i2) ? a.f70980b : a.f70981c;
             }
-            return a.f78022a;
+            return a.f70979a;
         }
         return (a) invokeLLZ.objValue;
     }

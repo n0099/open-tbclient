@@ -12,7 +12,7 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.fuseable.ScalarCallable;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableEmpty extends Observable<Object> implements ScalarCallable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final Observable<Object> INSTANCE;

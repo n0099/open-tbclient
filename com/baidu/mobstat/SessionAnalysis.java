@@ -14,45 +14,43 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SessionAnalysis {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f43119a;
+    public boolean f40920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, a> f43120b;
+    public Map<String, a> f40921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f43121c;
+    public a f40922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f43122d;
+    public a f40923d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f43123e;
+    public boolean f40924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f43124f;
+    public long f40925f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Session f43125g;
+    public Session f40926g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43126h;
+    public int f40927h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f43127i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f43128j;
+    public int f40928i;
+    public long j;
     public LaunchInfo k;
     public LaunchInfo l;
     public Callback mCallback;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
@@ -70,39 +68,39 @@ public class SessionAnalysis {
                 return;
             }
         }
-        this.f43119a = false;
-        this.f43120b = new HashMap();
-        this.f43121c = new a();
-        this.f43122d = new a();
-        this.f43123e = false;
-        this.f43124f = 0L;
-        this.f43125g = new Session();
-        this.f43126h = 0;
-        this.f43127i = 0;
-        this.f43128j = 0L;
+        this.f40920a = false;
+        this.f40921b = new HashMap();
+        this.f40922c = new a();
+        this.f40923d = new a();
+        this.f40924e = false;
+        this.f40925f = 0L;
+        this.f40926g = new Session();
+        this.f40927h = 0;
+        this.f40928i = 0;
+        this.j = 0L;
     }
 
-    private void a(Context context, long j2, long j3, int i2, int i3) {
+    private void a(Context context, long j, long j2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (j3 - j2 > ((long) getSessionTimeOut())) {
-                if (j2 > 0) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (j2 - j > ((long) getSessionTimeOut())) {
+                if (j > 0) {
                     if (2 == i3) {
-                        this.f43125g.setEndTime(j2);
+                        this.f40926g.setEndTime(j);
                     }
                     LaunchInfo launchInfo = this.l;
-                    a(context, j3, false, false, launchInfo != null ? launchInfo.getLaunchType(context) : 0);
+                    a(context, j2, false, false, launchInfo != null ? launchInfo.getLaunchType(context) : 0);
                 }
-                this.f43125g.setTrackStartTime(this.f43128j);
-                this.f43125g.setInvokeType(i2);
+                this.f40926g.setTrackStartTime(this.j);
+                this.f40926g.setInvokeType(i2);
             }
         }
     }
 
     private void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && !TextUtils.isEmpty(str) && this.f43120b.containsKey(str)) {
-            this.f43120b.remove(str);
+        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && !TextUtils.isEmpty(str) && this.f40921b.containsKey(str)) {
+            this.f40921b.remove(str);
         }
     }
 
@@ -117,22 +115,22 @@ public class SessionAnalysis {
         }
     }
 
-    public void autoTrackSessionEndTime(Context context, long j2) {
+    public void autoTrackSessionEndTime(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j) == null) || context == null) {
             return;
         }
-        this.f43125g.setTrackEndTime(j2);
+        this.f40926g.setTrackEndTime(j);
         a(context);
     }
 
-    public void autoTrackSessionStartTime(Context context, long j2) {
+    public void autoTrackSessionStartTime(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j) == null) || context == null) {
             return;
         }
-        this.f43125g.setTrackStartTime(j2);
-        this.f43128j = j2;
+        this.f40926g.setTrackStartTime(j);
+        this.j = j;
     }
 
     public void clearLastSessionCache(Context context) {
@@ -145,11 +143,11 @@ public class SessionAnalysis {
         bo.a(context, u + Config.LAST_SESSION_FILE_NAME, jSONObject, false);
     }
 
-    public void doSendLogCheck(Context context, long j2) {
+    public void doSendLogCheck(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, context, j2) == null) {
-            long j3 = this.f43124f;
-            if (j3 <= 0 || j2 - j3 <= getSessionTimeOut()) {
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, context, j) == null) {
+            long j2 = this.f40925f;
+            if (j2 <= 0 || j - j2 <= getSessionTimeOut()) {
                 return;
             }
             a(context, -1L, false, false, 0);
@@ -159,29 +157,29 @@ public class SessionAnalysis {
     public JSONObject getPageSessionHead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43125g.getPageSessionHead() : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f40926g.getPageSessionHead() : (JSONObject) invokeV.objValue;
     }
 
     public int getSessionSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43127i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40928i : invokeV.intValue;
     }
 
     public long getSessionStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43125g.getStartTime() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40926g.getStartTime() : invokeV.longValue;
     }
 
     public int getSessionTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f43126h <= 0) {
-                this.f43126h = 30000;
+            if (this.f40927h <= 0) {
+                this.f40927h = 30000;
             }
-            return this.f43126h;
+            return this.f40927h;
         }
         return invokeV.intValue;
     }
@@ -189,37 +187,37 @@ public class SessionAnalysis {
     public boolean isSessionStart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f43125g.getStartTime() > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40926g.getStartTime() > 0 : invokeV.booleanValue;
     }
 
-    public void onPageEnd(Context context, String str, String str2, String str3, long j2, ExtraInfo extraInfo, boolean z) {
+    public void onPageEnd(Context context, String str, String str2, String str3, long j, ExtraInfo extraInfo, boolean z) {
         a a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, str, str2, str3, Long.valueOf(j2), extraInfo, Boolean.valueOf(z)}) == null) {
-            this.f43123e = false;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, str, str2, str3, Long.valueOf(j), extraInfo, Boolean.valueOf(z)}) == null) {
+            this.f40924e = false;
             if (TextUtils.isEmpty(str) || (a2 = a(str)) == null) {
                 return;
             }
-            if (!a2.f43131c) {
+            if (!a2.f40931c) {
                 bc c2 = bc.c();
                 c2.c("[WARNING] 遗漏StatService.onPageStart(), 请检查邻近页面埋点: " + str);
                 return;
             }
-            a(context, a2.f43129a, str, a2.f43130b, j2, str2, "", str3, false, extraInfo, z);
+            a(context, a2.f40929a, str, a2.f40930b, j, str2, "", str3, false, extraInfo, z);
             b(str);
-            this.f43124f = j2;
+            this.f40925f = j;
         }
     }
 
-    public void onPageEndAct(Context context, String str, String str2, String str3, long j2, boolean z, ExtraInfo extraInfo) {
+    public void onPageEndAct(Context context, String str, String str2, String str3, long j, boolean z, ExtraInfo extraInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, str3, Long.valueOf(j2), Boolean.valueOf(z), extraInfo}) == null) {
-            this.f43123e = false;
-            a aVar = z ? this.f43122d : this.f43121c;
-            if (aVar.f43131c) {
-                a(context, aVar.f43129a, str, aVar.f43130b, j2, str2, str3, str, z, extraInfo, false);
-                aVar.f43131c = false;
-                this.f43124f = j2;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, str3, Long.valueOf(j), Boolean.valueOf(z), extraInfo}) == null) {
+            this.f40924e = false;
+            a aVar = z ? this.f40923d : this.f40922c;
+            if (aVar.f40931c) {
+                a(context, aVar.f40929a, str, aVar.f40930b, j, str2, str3, str, z, extraInfo, false);
+                aVar.f40931c = false;
+                this.f40925f = j;
             } else if (z) {
             } else {
                 bc c2 = bc.c();
@@ -228,87 +226,87 @@ public class SessionAnalysis {
         }
     }
 
-    public void onPageEndFrag(Context context, String str, String str2, String str3, long j2) {
+    public void onPageEndFrag(Context context, String str, String str2, String str3, long j) {
         a a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, str, str2, str3, Long.valueOf(j2)}) == null) || TextUtils.isEmpty(str) || (a2 = a(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, str, str2, str3, Long.valueOf(j)}) == null) || TextUtils.isEmpty(str) || (a2 = a(str)) == null) {
             return;
         }
-        if (!a2.f43131c) {
+        if (!a2.f40931c) {
             bc c2 = bc.c();
             c2.c("[WARNING] 遗漏StatService.onResume(Fragment), 请检查邻近页面埋点: " + str);
             return;
         }
-        a(context, a2.f43129a, str, a2.f43130b, j2, str2, str3, null, false, null, false);
+        a(context, a2.f40929a, str, a2.f40930b, j, str2, str3, null, false, null, false);
         b(str);
-        this.f43124f = j2;
+        this.f40925f = j;
     }
 
-    public void onPageStart(Context context, String str, int i2, long j2) {
+    public void onPageStart(Context context, String str, int i2, long j) {
         a a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            onSessionStart(context, j2, false);
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            onSessionStart(context, j, false);
             if (TextUtils.isEmpty(str) || (a2 = a(str)) == null) {
                 return;
             }
-            if (a2.f43131c) {
+            if (a2.f40931c) {
                 bc c2 = bc.c();
                 c2.c("[WARNING] 遗漏StatService.onPageEnd(), 请检查邻近页面埋点: " + str);
             }
-            if (!this.f43123e) {
-                a(context, this.f43124f, j2, i2, 3);
-                this.f43123e = true;
+            if (!this.f40924e) {
+                a(context, this.f40925f, j, i2, 3);
+                this.f40924e = true;
             }
-            a2.f43131c = true;
-            a2.f43130b = j2;
+            a2.f40931c = true;
+            a2.f40930b = j;
         }
     }
 
-    public void onPageStartAct(Context context, String str, long j2, boolean z) {
+    public void onPageStartAct(Context context, String str, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, str, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            onSessionStart(context, j2, false);
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            onSessionStart(context, j, false);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            a aVar = z ? this.f43122d : this.f43121c;
-            if (aVar.f43131c && !z) {
+            a aVar = z ? this.f40923d : this.f40922c;
+            if (aVar.f40931c && !z) {
                 bc c2 = bc.c();
                 c2.c("[WARNING] 遗漏StatService.onPause(Activity), 请检查邻近页面埋点: " + str);
             }
-            if (!this.f43123e) {
-                a(context, this.f43124f, j2, 1, 1);
-                this.f43123e = true;
+            if (!this.f40924e) {
+                a(context, this.f40925f, j, 1, 1);
+                this.f40924e = true;
             }
-            aVar.f43131c = true;
-            aVar.f43129a = str;
-            aVar.f43130b = j2;
+            aVar.f40931c = true;
+            aVar.f40929a = str;
+            aVar.f40930b = j;
         }
     }
 
-    public void onPageStartFrag(Context context, String str, long j2) {
+    public void onPageStartFrag(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{context, str, Long.valueOf(j2)}) == null) {
-            onSessionStart(context, j2, false);
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{context, str, Long.valueOf(j)}) == null) {
+            onSessionStart(context, j, false);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
             a a2 = a(str);
-            if (a2.f43131c) {
+            if (a2.f40931c) {
                 bc c2 = bc.c();
                 c2.c("[WARNING] 遗漏StatService.onPause(Fragment), 请检查邻近页面埋点: " + str);
             }
-            a(context, this.f43124f, j2, 2, 2);
-            a2.f43131c = true;
-            a2.f43129a = str;
-            a2.f43130b = j2;
+            a(context, this.f40925f, j, 2, 2);
+            a2.f40931c = true;
+            a2.f40929a = str;
+            a2.f40930b = j;
         }
     }
 
-    public void onSessionStart(Context context, long j2, boolean z) {
+    public void onSessionStart(Context context, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{context, Long.valueOf(j2), Boolean.valueOf(z)}) == null) || this.f43119a) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z)}) == null) || this.f40920a) {
             return;
         }
         DataCore.instance().init(context);
@@ -317,8 +315,8 @@ public class SessionAnalysis {
         } catch (Exception unused) {
         }
         LaunchInfo launchInfo = this.k;
-        a(context, j2, z, true, launchInfo != null ? launchInfo.getLaunchType(context) : 0);
-        this.f43119a = true;
+        a(context, j, z, true, launchInfo != null ? launchInfo.getLaunchType(context) : 0);
+        this.f40920a = true;
     }
 
     public void setSessionTimeOut(int i2) {
@@ -331,23 +329,23 @@ public class SessionAnalysis {
                 bc.c().b("[WARNING] SessionTimeout should be between 1 and 600. Default value[600] is used");
                 i2 = 600;
             }
-            this.f43126h = i2 * 1000;
+            this.f40927h = i2 * 1000;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f43129a;
+        public String f40929a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f43130b;
+        public long f40930b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f43131c;
+        public boolean f40931c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -362,7 +360,7 @@ public class SessionAnalysis {
                     return;
                 }
             }
-            this.f43131c = false;
+            this.f40931c = false;
         }
 
         public a(String str) {
@@ -380,18 +378,18 @@ public class SessionAnalysis {
                     return;
                 }
             }
-            this.f43131c = false;
-            this.f43129a = str;
+            this.f40931c = false;
+            this.f40929a = str;
         }
     }
 
-    private void a(Context context, String str, String str2, long j2, long j3, String str3, String str4, String str5, boolean z, ExtraInfo extraInfo, boolean z2) {
+    private void a(Context context, String str, String str2, long j, long j2, String str3, String str4, String str5, boolean z, ExtraInfo extraInfo, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{context, str, str2, Long.valueOf(j2), Long.valueOf(j3), str3, str4, str5, Boolean.valueOf(z), extraInfo, Boolean.valueOf(z2)}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !str.equals(str2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{context, str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4, str5, Boolean.valueOf(z), extraInfo, Boolean.valueOf(z2)}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !str.equals(str2)) {
             return;
         }
-        this.f43125g.addPageView(new Session.a(str3, str4, str5, j3 - j2, j2, z, extraInfo, z2));
-        this.f43125g.setEndTime(j3);
+        this.f40926g.addPageView(new Session.a(str3, str4, str5, j2 - j, j, z, extraInfo, z2));
+        this.f40926g.setEndTime(j2);
         a(context);
     }
 
@@ -410,16 +408,16 @@ public class SessionAnalysis {
                 return;
             }
         }
-        this.f43119a = false;
-        this.f43120b = new HashMap();
-        this.f43121c = new a();
-        this.f43122d = new a();
-        this.f43123e = false;
-        this.f43124f = 0L;
-        this.f43125g = new Session();
-        this.f43126h = 0;
-        this.f43127i = 0;
-        this.f43128j = 0L;
+        this.f40920a = false;
+        this.f40921b = new HashMap();
+        this.f40922c = new a();
+        this.f40923d = new a();
+        this.f40924e = false;
+        this.f40925f = 0L;
+        this.f40926g = new Session();
+        this.f40927h = 0;
+        this.f40928i = 0;
+        this.j = 0L;
         this.mCallback = callback;
     }
 
@@ -427,10 +425,10 @@ public class SessionAnalysis {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (!this.f43120b.containsKey(str)) {
-                this.f43120b.put(str, new a(str));
+            if (!this.f40921b.containsKey(str)) {
+                this.f40921b.put(str, new a(str));
             }
-            return this.f43120b.get(str);
+            return this.f40921b.get(str);
         }
         return (a) invokeL.objValue;
     }
@@ -440,20 +438,20 @@ public class SessionAnalysis {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(Context context, long j2, boolean z, boolean z2, int i2) {
+    private void a(Context context, long j, boolean z, boolean z2, int i2) {
         String launcherHomePkgName;
         String str;
         Callback callback;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{context, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
-            if (this.f43125g.hasEnd()) {
-                DataCore.instance().putSession(this.f43125g);
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
+            if (this.f40926g.hasEnd()) {
+                DataCore.instance().putSession(this.f40926g);
                 DataCore.instance().flush(context);
-                av.a(this.f43125g.getPageSessionHead());
-                this.f43125g.setEndTime(0L);
+                av.a(this.f40926g.getPageSessionHead());
+                this.f40926g.setEndTime(0L);
             }
-            boolean z3 = j2 > 0;
-            long startTime = z3 ? j2 : this.f43125g.getStartTime();
+            boolean z3 = j > 0;
+            long startTime = z3 ? j : this.f40926g.getStartTime();
             String str2 = "";
             if (i2 == 0) {
                 launcherHomePkgName = LaunchInfo.getLauncherHomePkgName(context);
@@ -475,10 +473,10 @@ public class SessionAnalysis {
                 }
                 JSONObject convertedJson = LaunchInfo.getConvertedJson(i2, str2, str);
                 if (z3) {
-                    this.f43125g.reset();
-                    this.f43125g.setStartTime(j2);
+                    this.f40926g.reset();
+                    this.f40926g.setStartTime(j);
                     if (convertedJson != null) {
-                        this.f43125g.setLaunchInfo(convertedJson);
+                        this.f40926g.setLaunchInfo(convertedJson);
                     }
                 }
                 DataCore.instance().saveLogData(context, z3, z, startTime, z2, convertedJson);
@@ -506,9 +504,9 @@ public class SessionAnalysis {
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, context) == null) && this.f43125g.hasStart()) {
-            String jSONObject = this.f43125g.constructJSONObject().toString();
-            this.f43127i = jSONObject.getBytes().length;
+        if ((interceptable == null || interceptable.invokeL(65539, this, context) == null) && this.f40926g.hasStart()) {
+            String jSONObject = this.f40926g.constructJSONObject().toString();
+            this.f40928i = jSONObject.getBytes().length;
             String u = bw.u(context);
             bo.a(context, u + Config.LAST_SESSION_FILE_NAME, jSONObject, false);
         }

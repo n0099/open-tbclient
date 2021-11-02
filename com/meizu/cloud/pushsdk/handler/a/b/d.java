@@ -1,38 +1,38 @@
 package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.text.TextUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f75252a;
+    public String f67610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75253b;
+    public String f67611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f75254c;
+    public String f67612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f75255d;
+    public String f67613d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f75256a;
+        public String f67614a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f75257b;
+        public String f67615b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f75258c;
+        public String f67616c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f75259d;
+        public String f67617d;
 
         public a a(String str) {
-            this.f75256a = str;
+            this.f67614a = str;
             return this;
         }
 
@@ -41,17 +41,17 @@ public class d {
         }
 
         public a b(String str) {
-            this.f75257b = str;
+            this.f67615b = str;
             return this;
         }
 
         public a c(String str) {
-            this.f75258c = str;
+            this.f67616c = str;
             return this;
         }
 
         public a d(String str) {
-            this.f75259d = str;
+            this.f67617d = str;
             return this;
         }
     }
@@ -60,10 +60,10 @@ public class d {
     }
 
     public d(a aVar) {
-        this.f75252a = !TextUtils.isEmpty(aVar.f75256a) ? aVar.f75256a : "";
-        this.f75253b = !TextUtils.isEmpty(aVar.f75257b) ? aVar.f75257b : "";
-        this.f75254c = !TextUtils.isEmpty(aVar.f75258c) ? aVar.f75258c : "";
-        this.f75255d = TextUtils.isEmpty(aVar.f75259d) ? "" : aVar.f75259d;
+        this.f67610a = !TextUtils.isEmpty(aVar.f67614a) ? aVar.f67614a : "";
+        this.f67611b = !TextUtils.isEmpty(aVar.f67615b) ? aVar.f67615b : "";
+        this.f67612c = !TextUtils.isEmpty(aVar.f67616c) ? aVar.f67616c : "";
+        this.f67613d = TextUtils.isEmpty(aVar.f67617d) ? "" : aVar.f67617d;
     }
 
     public static a a() {
@@ -72,26 +72,26 @@ public class d {
 
     public String b() {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-        cVar.a("task_id", this.f75252a);
-        cVar.a("seq_id", this.f75253b);
-        cVar.a("push_timestamp", this.f75254c);
-        cVar.a("device_id", this.f75255d);
+        cVar.a("task_id", this.f67610a);
+        cVar.a("seq_id", this.f67611b);
+        cVar.a("push_timestamp", this.f67612c);
+        cVar.a("device_id", this.f67613d);
         return cVar.toString();
     }
 
     public String c() {
-        return this.f75252a;
+        return this.f67610a;
     }
 
     public String d() {
-        return this.f75253b;
+        return this.f67611b;
     }
 
     public String e() {
-        return this.f75254c;
+        return this.f67612c;
     }
 
     public String f() {
-        return this.f75255d;
+        return this.f67613d;
     }
 }

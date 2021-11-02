@@ -1,5 +1,5 @@
 package com.baidu.searchbox.perfframe.ioc;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IPerfFrame {
-    void submitPerformanceData(String str, String str2, long j2, long j3, String str3, String str4, String str5);
+    void submitPerformanceData(String str, String str2, long j, long j2, String str3, String str4, String str5);
 }

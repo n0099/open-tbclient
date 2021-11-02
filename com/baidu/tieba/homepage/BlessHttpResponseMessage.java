@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.UserPk.DataRes;
 import tbclient.UserPk.UserPkResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BlessHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

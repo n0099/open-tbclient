@@ -14,7 +14,7 @@ import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class a extends d<com.vivo.push.model.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,15 +77,15 @@ public final class a extends d<com.vivo.push.model.a> {
     public final String b(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new String(g.a(g.a(d.f76946a), g.a(d.f76947b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new String(g.a(g.a(d.f70295a), g.a(d.f70296b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
     }
 
     public final com.vivo.push.model.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (d.f76948c) {
-                for (T t : this.f76949d) {
+            synchronized (d.f70297c) {
+                for (T t : this.f70298d) {
                     if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                         return t;
                     }

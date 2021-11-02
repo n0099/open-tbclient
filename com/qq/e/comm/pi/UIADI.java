@@ -6,9 +6,10 @@ import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.interstitial2.ADRewardListener;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialMediaListener;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
+import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface UIADI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 
@@ -29,6 +30,8 @@ public interface UIADI extends LADI {
     void loadFullScreenAD();
 
     void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy);
+
+    void setLoadAdParams(LoadAdParams loadAdParams);
 
     void setMaxVideoDuration(int i2);
 

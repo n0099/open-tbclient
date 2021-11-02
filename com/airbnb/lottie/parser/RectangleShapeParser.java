@@ -10,9 +10,9 @@ import com.airbnb.lottie.model.content.RectangleShape;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RectangleShapeParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", r.f42346a, "hd");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", r.f40168a, "hd");
 
     public static RectangleShape parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         String str = null;

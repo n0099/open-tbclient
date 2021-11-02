@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class b implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f59903a;
+    public final /* synthetic */ e f56822a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f59904b;
+    public final /* synthetic */ a f56823b;
 
     public b(a aVar, e eVar) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class b implements View.OnClickListener {
                 return;
             }
         }
-        this.f59904b = aVar;
-        this.f59903a = eVar;
+        this.f56823b = aVar;
+        this.f56822a = eVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:21:0x0087 */
@@ -60,50 +60,50 @@ public final class b implements View.OnClickListener {
         if (interceptable != null && interceptable.invokeL(1048576, this, view) != null) {
             return;
         }
-        e eVar = this.f59903a;
-        boolean z = !eVar.f60030a;
-        eVar.f60030a = z;
+        e eVar = this.f56822a;
+        boolean z = !eVar.f56948a;
+        eVar.f56948a = z;
         eVar.a(z);
-        if (this.f59903a.f60030a) {
-            arrayList5 = this.f59904b.f59870d;
-            arrayList5.add(this.f59903a.b());
-            if (this.f59903a.b().contains("抄袭")) {
-                this.f59904b.f59872f = 1;
+        if (this.f56822a.f56948a) {
+            arrayList5 = this.f56823b.f56789d;
+            arrayList5.add(this.f56822a.b());
+            if (this.f56822a.b().contains("抄袭")) {
+                this.f56823b.f56791f = 1;
             }
-            if (this.f59903a.b().equals("播放问题")) {
-                aVar = this.f59904b;
+            if (this.f56822a.b().equals("播放问题")) {
+                aVar = this.f56823b;
                 i2 = 2;
-                aVar.f59872f = i2;
+                aVar.f56791f = i2;
             }
             for (i3 = 0; i3 < arrayList2.size(); i3++) {
                 StringBuilder sb = new StringBuilder("选中的原因：");
-                arrayList4 = this.f59904b.f59870d;
+                arrayList4 = this.f56823b.f56789d;
                 sb.append((String) arrayList4.get(i3));
                 com.baidu.ufosdk.f.c.a(sb.toString());
             }
-            dVar = this.f59904b.f59871e;
+            dVar = this.f56823b.f56790e;
             if (dVar == null) {
-                dVar2 = this.f59904b.f59871e;
-                arrayList3 = this.f59904b.f59870d;
-                i4 = this.f59904b.f59872f;
+                dVar2 = this.f56823b.f56790e;
+                arrayList3 = this.f56823b.f56789d;
+                i4 = this.f56823b.f56791f;
                 dVar2.a(arrayList3, i4);
                 return;
             }
             return;
         }
-        arrayList = this.f59904b.f59870d;
-        arrayList.remove(this.f59903a.b());
-        if (this.f59903a.b().contains("抄袭")) {
-            this.f59904b.f59872f = 3;
+        arrayList = this.f56823b.f56789d;
+        arrayList.remove(this.f56822a.b());
+        if (this.f56822a.b().contains("抄袭")) {
+            this.f56823b.f56791f = 3;
         }
-        if (this.f59903a.b().equals("播放问题")) {
-            aVar = this.f59904b;
+        if (this.f56822a.b().equals("播放问题")) {
+            aVar = this.f56823b;
             i2 = 4;
-            aVar.f59872f = i2;
+            aVar.f56791f = i2;
         }
         while (i3 < arrayList2.size()) {
         }
-        dVar = this.f59904b.f59871e;
+        dVar = this.f56823b.f56790e;
         if (dVar == null) {
         }
     }

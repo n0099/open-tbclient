@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonGroupAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static int page_count = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f53268a;
+    public int[] f50522a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<PersonalGroupFragment> f53269b;
+    public ArrayList<PersonalGroupFragment> f50523b;
 
     static {
         InterceptResult invokeClinit;
@@ -59,26 +59,26 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f53269b = new ArrayList<>();
+        this.f50523b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.f53269b.add(personalGroupFragment);
+        this.f50523b.add(personalGroupFragment);
         if (z) {
-            this.f53268a = new int[]{0};
+            this.f50522a = new int[]{0};
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.f53269b.add(personalGroupFragment2);
-            this.f53268a = new int[]{0, 1};
+            this.f50523b.add(personalGroupFragment2);
+            this.f50522a = new int[]{0, 1};
         }
-        page_count = this.f53268a.length;
-        Iterator<PersonalGroupFragment> it = this.f53269b.iterator();
+        page_count = this.f50522a.length;
+        Iterator<PersonalGroupFragment> it = this.f50523b.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.f53269b.size());
+            it.next().getArguments().putInt("page_size", this.f50523b.size());
         }
     }
 
@@ -97,7 +97,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
             if (i2 >= page_count || i2 < 0) {
                 return null;
             }
-            return this.f53269b.get(i2);
+            return this.f50523b.get(i2);
         }
         return (Fragment) invokeI.objValue;
     }
@@ -105,6 +105,6 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
     public int getItemPageType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f53268a[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f50522a[i2] : invokeI.intValue;
     }
 }

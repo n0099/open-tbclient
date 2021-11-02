@@ -32,7 +32,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowablePublish<T> extends ConnectableFlowable<T> implements HasUpstreamPublisher<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CANCELLED = Long.MIN_VALUE;
@@ -42,7 +42,7 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
     public final Publisher<T> onSubscribe;
     public final Flowable<T> source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class FlowablePublisher<T> implements Publisher<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class InnerSubscriber<T> extends AtomicLong implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4453897557930727610L;
@@ -138,10 +138,10 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.addCancel(this, j2);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.addCancel(this, j);
                 PublishSubscriber<T> publishSubscriber = this.parent;
                 if (publishSubscriber != null) {
                     publishSubscriber.dispatch();
@@ -150,7 +150,7 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class PublishSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final InnerSubscriber[] EMPTY;
@@ -271,7 +271,7 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
         */
         public void dispatch() {
             T t;
-            long j2;
+            long j;
             T t2;
             SimpleQueue<T> simpleQueue;
             boolean z;
@@ -293,11 +293,11 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                 if (!z2) {
                     int length = innerSubscriberArr.length;
                     int i4 = 0;
-                    long j3 = Long.MAX_VALUE;
+                    long j2 = Long.MAX_VALUE;
                     for (InnerSubscriber<T> innerSubscriber : innerSubscriberArr) {
-                        long j4 = innerSubscriber.get();
-                        if (j4 != Long.MIN_VALUE) {
-                            j3 = Math.min(j3, j4 - innerSubscriber.emitted);
+                        long j3 = innerSubscriber.get();
+                        if (j3 != Long.MIN_VALUE) {
+                            j2 = Math.min(j2, j3 - innerSubscriber.emitted);
                         } else {
                             i4++;
                         }
@@ -322,8 +322,8 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                     } else {
                         int i5 = 0;
                         while (true) {
-                            j2 = i5;
-                            if (j2 >= j3) {
+                            j = i5;
+                            if (j >= j2) {
                                 break;
                             }
                             Object obj3 = this.terminalEvent;
@@ -350,9 +350,9 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                             boolean z4 = false;
                             while (i6 < length2) {
                                 InnerSubscriber<T> innerSubscriber2 = innerSubscriberArr[i6];
-                                long j5 = innerSubscriber2.get();
-                                if (j5 != Long.MIN_VALUE) {
-                                    int i7 = (j5 > Long.MAX_VALUE ? 1 : (j5 == Long.MAX_VALUE ? 0 : -1));
+                                long j4 = innerSubscriber2.get();
+                                if (j4 != Long.MIN_VALUE) {
+                                    int i7 = (j4 > Long.MAX_VALUE ? 1 : (j4 == Long.MAX_VALUE ? 0 : -1));
                                     simpleQueue = simpleQueue2;
                                     z = z3;
                                     if (i7 != 0) {
@@ -381,12 +381,12 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                         if (i5 > 0) {
                             i2 = 1;
                             if (this.sourceMode != 1) {
-                                this.s.get().request(j2);
+                                this.s.get().request(j);
                             }
                         } else {
                             i2 = 1;
                         }
-                        if (j3 != 0 && !z2) {
+                        if (j2 != 0 && !z2) {
                         }
                     }
                 }

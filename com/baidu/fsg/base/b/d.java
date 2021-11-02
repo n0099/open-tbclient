@@ -24,40 +24,38 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f39412a = 1000;
+    public static final long f37359a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f39413b;
+    public static final boolean f37360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39414c;
+    public static final String f37361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f39415d = Long.MAX_VALUE;
+    public static final long f37362d = Long.MAX_VALUE;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39416e = 5;
+    public static final int f37363e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39417f = 128;
+    public static final int f37364f = 128;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f39418g = 1;
+    public static final int f37365g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HashMap<String, d> f39419h;
+    public static HashMap<String, d> f37366h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static d f39420i;
+    public static d f37367i;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final HashMap<String, ArrayList<c>> f39421j;
+    public final HashMap<String, ArrayList<c>> j;
     public final HashMap<Future<?>, Runnable> k;
     public final ThreadFactory l;
     public long m;
@@ -66,22 +64,22 @@ public final class d {
     public a p;
     public b q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a extends ThreadPoolExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f39422a;
+        public final /* synthetic */ d f37368a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(d dVar, int i2, int i3, long j2, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
-            super(i2, i3, j2, timeUnit, blockingQueue, threadFactory);
+        public a(d dVar, int i2, int i3, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+            super(i2, i3, j, timeUnit, blockingQueue, threadFactory);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), timeUnit, blockingQueue, threadFactory};
+                Object[] objArr = {dVar, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), timeUnit, blockingQueue, threadFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
@@ -93,32 +91,32 @@ public final class d {
                     return;
                 }
             }
-            this.f39422a = dVar;
+            this.f37368a = dVar;
         }
 
         @Override // java.util.concurrent.ThreadPoolExecutor
         public void afterExecute(Runnable runnable, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, th) == null) {
-                this.f39422a.k.remove((Future) runnable);
+                this.f37368a.k.remove((Future) runnable);
                 super.afterExecute(runnable, th);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedList<Runnable> f39423a;
+        public final LinkedList<Runnable> f37369a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f39424b;
+        public Runnable f37370b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f39425c;
+        public final /* synthetic */ d f37371c;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -135,8 +133,8 @@ public final class d {
                     return;
                 }
             }
-            this.f39425c = dVar;
-            this.f39423a = new LinkedList<>();
+            this.f37371c = dVar;
+            this.f37369a = new LinkedList<>();
         }
 
         public /* synthetic */ b(d dVar, com.baidu.fsg.base.b.a aVar) {
@@ -147,10 +145,10 @@ public final class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    Runnable poll = this.f39423a.poll();
-                    this.f39424b = poll;
+                    Runnable poll = this.f37369a.poll();
+                    this.f37370b = poll;
                     if (poll != null) {
-                        this.f39425c.p.execute(this.f39424b);
+                        this.f37371c.p.execute(this.f37370b);
                     }
                 }
             }
@@ -160,7 +158,7 @@ public final class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
                 synchronized (this) {
-                    this.f39423a.remove(runnable);
+                    this.f37369a.remove(runnable);
                 }
             }
         }
@@ -170,8 +168,8 @@ public final class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
                 synchronized (this) {
-                    this.f39423a.offer(new e(this, runnable));
-                    if (this.f39424b == null) {
+                    this.f37369a.offer(new e(this, runnable));
+                    if (this.f37370b == null) {
                         a();
                     }
                 }
@@ -179,38 +177,38 @@ public final class d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39426a;
+        public String f37372a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f39427b;
+        public Runnable f37373b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f39428c;
+        public long f37374c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f39429d;
+        public long f37375d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f39430e;
+        public boolean f37376e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f39431f;
+        public long f37377f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f39432g;
+        public final /* synthetic */ d f37378g;
 
-        public c(d dVar, long j2, long j3, boolean z, String str, Runnable runnable) {
+        public c(d dVar, long j, long j2, boolean z, String str, Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), str, runnable};
+                Object[] objArr = {dVar, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), str, runnable};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -220,13 +218,13 @@ public final class d {
                     return;
                 }
             }
-            this.f39432g = dVar;
-            this.f39429d = j2;
-            this.f39431f = System.currentTimeMillis() + j2;
-            this.f39428c = j3;
-            this.f39430e = z;
-            this.f39427b = runnable;
-            this.f39426a = str;
+            this.f37378g = dVar;
+            this.f37375d = j;
+            this.f37377f = System.currentTimeMillis() + j;
+            this.f37374c = j2;
+            this.f37376e = z;
+            this.f37373b = runnable;
+            this.f37372a = str;
         }
     }
 
@@ -243,10 +241,10 @@ public final class d {
                 return;
             }
         }
-        f39413b = ApollonConstants.DEBUG;
-        f39414c = d.class.getSimpleName();
-        f39419h = new HashMap<>();
-        f39420i = null;
+        f37360b = ApollonConstants.DEBUG;
+        f37361c = d.class.getSimpleName();
+        f37366h = new HashMap<>();
+        f37367i = null;
     }
 
     public d() {
@@ -269,7 +267,7 @@ public final class d {
         this.o = new LinkedBlockingQueue(10);
         this.p = new a(this, 5, 128, 1L, TimeUnit.SECONDS, this.o, this.l);
         this.q = new b(this, null);
-        this.f39421j = new HashMap<>();
+        this.j = new HashMap<>();
     }
 
     private c a(String str, ArrayList<c> arrayList) {
@@ -279,7 +277,7 @@ public final class d {
             Iterator<c> it = arrayList.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (TextUtils.equals(str, next.f39426a)) {
+                if (TextUtils.equals(str, next.f37372a)) {
                     return next;
                 }
             }
@@ -292,30 +290,30 @@ public final class d {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            boolean z = f39413b;
-            synchronized (this.f39421j) {
+            boolean z = f37360b;
+            synchronized (this.j) {
                 long currentTimeMillis = System.currentTimeMillis();
                 this.m = Long.MAX_VALUE;
-                for (String str : this.f39421j.keySet()) {
+                for (String str : this.j.keySet()) {
                     ArrayList arrayList = new ArrayList();
                     Iterator<c> it = c(str).iterator();
                     while (it.hasNext()) {
                         c next = it.next();
-                        if (next.f39431f - currentTimeMillis < 1000) {
-                            if (f39413b) {
+                        if (next.f37377f - currentTimeMillis < 1000) {
+                            if (f37360b) {
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("task.mNextRunTime - current = ");
-                                sb.append(next.f39431f - currentTimeMillis);
+                                sb.append(next.f37377f - currentTimeMillis);
                                 sb.toString();
                             }
                             c(next);
-                            if (next.f39428c > 0) {
-                                next.f39431f = next.f39428c + currentTimeMillis;
+                            if (next.f37374c > 0) {
+                                next.f37377f = next.f37374c + currentTimeMillis;
                                 arrayList.add(next);
                             }
                         }
-                        if (next.f39431f < this.m) {
-                            this.m = next.f39431f;
+                        if (next.f37377f < this.m) {
+                            this.m = next.f37377f;
                         }
                     }
                     if (this.m < Long.MAX_VALUE) {
@@ -326,11 +324,11 @@ public final class d {
         }
     }
 
-    private void a(long j2) {
+    private void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
-            if (f39413b) {
-                String str = "intervalMillis: " + j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            if (f37360b) {
+                String str = "intervalMillis: " + j;
             }
             Timer timer = this.n;
             if (timer != null) {
@@ -338,29 +336,29 @@ public final class d {
                 this.n = null;
             }
             this.n = new Timer();
-            this.n.schedule(new com.baidu.fsg.base.b.b(this), j2);
+            this.n.schedule(new com.baidu.fsg.base.b.b(this), j);
         }
     }
 
     private void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, cVar) == null) {
-            if (cVar.f39430e) {
-                this.q.a(cVar.f39427b);
+            if (cVar.f37376e) {
+                this.q.a(cVar.f37373b);
                 return;
             }
             for (Future<?> future : this.k.keySet()) {
-                if (this.k.get(future) == cVar.f39427b && future != null && (!future.isCancelled() || !future.isDone())) {
+                if (this.k.get(future) == cVar.f37373b && future != null && (!future.isCancelled() || !future.isDone())) {
                     future.cancel(true);
                 }
             }
         }
     }
 
-    private void a(c cVar, long j2) {
+    private void a(c cVar, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, this, cVar, j2) == null) {
-            this.p.execute(new com.baidu.fsg.base.b.c(this, j2, cVar));
+        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, this, cVar, j) == null) {
+            this.p.execute(new com.baidu.fsg.base.b.c(this, j, cVar));
         }
     }
 
@@ -370,7 +368,7 @@ public final class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, cVar, arrayList)) == null) {
             Iterator<c> it = arrayList.iterator();
             while (it.hasNext()) {
-                if (TextUtils.equals(it.next().f39426a, cVar.f39426a)) {
+                if (TextUtils.equals(it.next().f37372a, cVar.f37372a)) {
                     return true;
                 }
             }
@@ -385,12 +383,12 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             synchronized (d.class) {
-                if (f39419h.get(str) == null) {
+                if (f37366h.get(str) == null) {
                     d dVar2 = new d();
-                    f39420i = dVar2;
-                    f39419h.put(str, dVar2);
+                    f37367i = dVar2;
+                    f37366h.put(str, dVar2);
                 }
-                dVar = f39420i;
+                dVar = f37367i;
             }
             return dVar;
         }
@@ -401,16 +399,16 @@ public final class d {
     public void b(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, cVar) == null) {
-            if (cVar.f39428c > 0) {
-                cVar.f39429d = 0L;
+            if (cVar.f37374c > 0) {
+                cVar.f37375d = 0L;
             }
-            if (cVar.f39430e) {
-                this.q.execute(cVar.f39427b);
+            if (cVar.f37376e) {
+                this.q.execute(cVar.f37373b);
                 return;
             }
-            this.k.put(this.p.submit(cVar.f39427b), cVar.f39427b);
-            if (f39413b) {
-                String str = "execute task, " + cVar.f39426a + " execute time is " + System.currentTimeMillis();
+            this.k.put(this.p.submit(cVar.f37373b), cVar.f37373b);
+            if (f37360b) {
+                String str = "execute task, " + cVar.f37372a + " execute time is " + System.currentTimeMillis();
             }
         }
     }
@@ -419,12 +417,12 @@ public final class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, cVar, str)) == null) {
-            if (cVar == null || cVar.f39427b == null) {
+            if (cVar == null || cVar.f37373b == null) {
                 return false;
             }
-            synchronized (this.f39421j) {
+            synchronized (this.j) {
                 ArrayList<c> c2 = c(str);
-                c a2 = a(cVar.f39426a, c2);
+                c a2 = a(cVar.f37372a, c2);
                 if (a2 != null) {
                     a(a2);
                     c2.remove(a2);
@@ -441,11 +439,11 @@ public final class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, str)) == null) {
-            ArrayList<c> arrayList = this.f39421j.get(str);
+            ArrayList<c> arrayList = this.j.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
-            this.f39421j.put(str, arrayList);
+            this.j.put(str, arrayList);
             return arrayList;
         }
         return (ArrayList) invokeL.objValue;
@@ -454,8 +452,8 @@ public final class d {
     private void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, cVar) == null) {
-            if (cVar.f39429d > 0) {
-                a(cVar, cVar.f39431f - System.currentTimeMillis());
+            if (cVar.f37375d > 0) {
+                a(cVar, cVar.f37377f - System.currentTimeMillis());
             } else {
                 b(cVar);
             }
@@ -465,9 +463,9 @@ public final class d {
     private void d(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, this, cVar) == null) {
-            long j2 = cVar.f39431f;
-            if (j2 < this.m) {
-                a(Math.max(j2 - System.currentTimeMillis(), 1000L));
+            long j = cVar.f37377f;
+            if (j < this.m) {
+                a(Math.max(j - System.currentTimeMillis(), 1000L));
             }
         }
     }
@@ -475,14 +473,14 @@ public final class d {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this.f39421j) {
+            synchronized (this.j) {
                 ArrayList<c> c2 = c(str);
                 Iterator<c> it = c2.iterator();
                 while (it.hasNext()) {
                     a(it.next());
                 }
                 c2.clear();
-                this.f39421j.remove(str);
+                this.j.remove(str);
             }
         }
     }
@@ -490,14 +488,14 @@ public final class d {
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            synchronized (this.f39421j) {
+            synchronized (this.j) {
                 ArrayList<c> c2 = c(str);
                 Iterator<c> it = c2.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.f39426a.equals(str2)) {
+                    if (next.f37372a.equals(str2)) {
                         a(next);
-                        c2.remove(next.f39426a);
+                        c2.remove(next.f37372a);
                     }
                 }
             }
@@ -505,7 +503,7 @@ public final class d {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0029, code lost:
-        if (r9.f39429d > 0) goto L14;
+        if (r9.f37375d > 0) goto L14;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -514,19 +512,19 @@ public final class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str)) == null) {
-            if (cVar == null || cVar.f39427b == null) {
+            if (cVar == null || cVar.f37373b == null) {
                 return false;
             }
-            synchronized (this.f39421j) {
+            synchronized (this.j) {
                 ArrayList<c> c2 = c(str);
                 if (a(cVar, c2)) {
                     b(cVar, str);
                 } else {
-                    if (cVar.f39431f > System.currentTimeMillis()) {
+                    if (cVar.f37377f > System.currentTimeMillis()) {
                     }
                     c(cVar);
-                    if (cVar.f39428c > 0) {
-                        cVar.f39431f = System.currentTimeMillis() + cVar.f39429d + cVar.f39428c;
+                    if (cVar.f37374c > 0) {
+                        cVar.f37377f = System.currentTimeMillis() + cVar.f37375d + cVar.f37374c;
                         c2.add(cVar);
                         d(cVar);
                     }

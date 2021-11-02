@@ -41,28 +41,28 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d implements KsLoadManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f72170a;
+    public static final Handler f64632a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.g.d$5  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class AnonymousClass5 implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ KsLoadManager.FeedAdListener f72240a;
+        public final /* synthetic */ KsLoadManager.FeedAdListener f64702a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ KsScene f72241b;
+        public final /* synthetic */ KsScene f64703b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f72242c;
+        public final /* synthetic */ d f64704c;
 
         public AnonymousClass5(d dVar, KsLoadManager.FeedAdListener feedAdListener, KsScene ksScene) {
             Interceptable interceptable = $ic;
@@ -79,27 +79,27 @@ public class d implements KsLoadManager {
                     return;
                 }
             }
-            this.f72242c = dVar;
-            this.f72240a = feedAdListener;
-            this.f72241b = ksScene;
+            this.f64704c = dVar;
+            this.f64702a = feedAdListener;
+            this.f64703b = ksScene;
         }
 
         @Override // com.kwad.sdk.core.g.d.a
         public void a(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                d.f72170a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.5.1
+                d.f64632a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.5.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f72243a;
+                    public final /* synthetic */ int f64705a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f72244b;
+                    public final /* synthetic */ String f64706b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass5 f72245c;
+                    public final /* synthetic */ AnonymousClass5 f64707c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -116,17 +116,17 @@ public class d implements KsLoadManager {
                                 return;
                             }
                         }
-                        this.f72245c = this;
-                        this.f72243a = i2;
-                        this.f72244b = str;
+                        this.f64707c = this;
+                        this.f64705a = i2;
+                        this.f64706b = str;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFeedAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f72243a), this.f72244b));
-                            this.f72245c.f72240a.onError(this.f72243a, this.f72244b);
+                            com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFeedAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f64705a), this.f64706b));
+                            this.f64707c.f64702a.onError(this.f64705a, this.f64706b);
                         }
                     }
                 });
@@ -143,26 +143,26 @@ public class d implements KsLoadManager {
                     if (adTemplate != null) {
                         AdInfo i2 = com.kwad.sdk.core.response.b.c.i(adTemplate);
                         if (FeedType.checkTypeValid(adTemplate)) {
-                            KsScene ksScene = this.f72241b;
+                            KsScene ksScene = this.f64703b;
                             if (ksScene instanceof SceneImpl) {
                                 adTemplate.mAdScene = (SceneImpl) ksScene;
                             }
-                            arrayList.add(new com.kwad.sdk.feed.b(adTemplate, this.f72241b.getWidth(), true));
+                            arrayList.add(new com.kwad.sdk.feed.b(adTemplate, this.f64703b.getWidth(), true));
                         } else {
                             str = String.format("(模板不匹配materialType:%s_feedType:%s)", Integer.valueOf(com.kwad.sdk.core.response.b.a.H(i2)), FeedType.fromInt(adTemplate.type));
                         }
                     }
                 }
                 if (!arrayList.isEmpty()) {
-                    d.f72170a.post(new Runnable(this, arrayList) { // from class: com.kwad.sdk.core.g.d.5.2
+                    d.f64632a.post(new Runnable(this, arrayList) { // from class: com.kwad.sdk.core.g.d.5.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ List f72246a;
+                        public final /* synthetic */ List f64708a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass5 f72247b;
+                        public final /* synthetic */ AnonymousClass5 f64709b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -179,30 +179,30 @@ public class d implements KsLoadManager {
                                     return;
                                 }
                             }
-                            this.f72247b = this;
-                            this.f72246a = arrayList;
+                            this.f64709b = this;
+                            this.f64708a = arrayList;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                int size = this.f72246a.size();
+                                int size = this.f64708a.size();
                                 if (size == 0) {
-                                    this.f72247b.f72240a.onFeedAdLoad(this.f72246a);
+                                    this.f64709b.f64702a.onFeedAdLoad(this.f64708a);
                                     return;
                                 }
                                 b.a aVar = new b.a(size);
-                                for (KsFeedAd ksFeedAd : this.f72246a) {
-                                    ((com.kwad.sdk.feed.b) ksFeedAd).a(new b.InterfaceC2014b(this, aVar) { // from class: com.kwad.sdk.core.g.d.5.2.1
+                                for (KsFeedAd ksFeedAd : this.f64708a) {
+                                    ((com.kwad.sdk.feed.b) ksFeedAd).a(new b.InterfaceC1924b(this, aVar) { // from class: com.kwad.sdk.core.g.d.5.2.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ b.a f72248a;
+                                        public final /* synthetic */ b.a f64710a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass2 f72249b;
+                                        public final /* synthetic */ AnonymousClass2 f64711b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -219,16 +219,16 @@ public class d implements KsLoadManager {
                                                     return;
                                                 }
                                             }
-                                            this.f72249b = this;
-                                            this.f72248a = aVar;
+                                            this.f64711b = this;
+                                            this.f64710a = aVar;
                                         }
 
-                                        @Override // com.kwad.sdk.feed.b.InterfaceC2014b
+                                        @Override // com.kwad.sdk.feed.b.InterfaceC1924b
                                         public void a() {
                                             Interceptable interceptable3 = $ic;
-                                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && this.f72248a.a()) {
-                                                AnonymousClass2 anonymousClass2 = this.f72249b;
-                                                anonymousClass2.f72247b.f72240a.onFeedAdLoad(anonymousClass2.f72246a);
+                                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && this.f64710a.a()) {
+                                                AnonymousClass2 anonymousClass2 = this.f64711b;
+                                                anonymousClass2.f64709b.f64702a.onFeedAdLoad(anonymousClass2.f64708a);
                                             }
                                         }
                                     });
@@ -238,13 +238,13 @@ public class d implements KsLoadManager {
                     });
                     return;
                 }
-                int i3 = f.f72343e.m;
-                a(i3, f.f72343e.n + str);
+                int i3 = f.f64805e.m;
+                a(i3, f.f64805e.n + str);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         @WorkerThread
         void a(int i2, String str);
@@ -253,13 +253,13 @@ public class d implements KsLoadManager {
         void a(@NonNull AdResultData adResultData);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile boolean f72275a;
+        public volatile boolean f64737a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class d implements KsLoadManager {
                     return;
                 }
             }
-            this.f72275a = false;
+            this.f64737a = false;
         }
     }
 
@@ -291,7 +291,7 @@ public class d implements KsLoadManager {
                 return;
             }
         }
-        f72170a = new Handler(Looper.getMainLooper());
+        f64632a = new Handler(Looper.getMainLooper());
     }
 
     public d() {
@@ -332,7 +332,7 @@ public class d implements KsLoadManager {
             }
             k kVar = new k();
             if (z) {
-                kVar.f72160a = r0;
+                kVar.f64622a = r0;
             }
             return kVar;
         }
@@ -342,7 +342,7 @@ public class d implements KsLoadManager {
     public static void a(com.kwad.sdk.core.g.a.f fVar, @NonNull a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, fVar, aVar, z) == null) {
-            a(fVar, null, false, z, a((KsScene) fVar.f72136a, false), aVar);
+            a(fVar, null, false, z, a((KsScene) fVar.f64599a, false), aVar);
         }
     }
 
@@ -354,19 +354,19 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.kwad.sdk.core.g.a.f f72269a;
+                public final /* synthetic */ com.kwad.sdk.core.g.a.f f64731a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ List f72270b;
+                public final /* synthetic */ List f64732b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f72271c;
+                public final /* synthetic */ boolean f64733c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ k f72272d;
+                public final /* synthetic */ k f64734d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ boolean f72273e;
+                public final /* synthetic */ boolean f64735e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -383,11 +383,11 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72269a = fVar;
-                    this.f72270b = list;
-                    this.f72271c = z;
-                    this.f72272d = kVar;
-                    this.f72273e = z2;
+                    this.f64731a = fVar;
+                    this.f64732b = list;
+                    this.f64733c = z;
+                    this.f64734d = kVar;
+                    this.f64735e = z2;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -398,8 +398,8 @@ public class d implements KsLoadManager {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        com.kwad.sdk.core.g.a aVar2 = new com.kwad.sdk.core.g.a(this.f72269a, this.f72270b, this.f72271c, null, this.f72272d);
-                        aVar2.a(this.f72273e ? 1 : 0);
+                        com.kwad.sdk.core.g.a aVar2 = new com.kwad.sdk.core.g.a(this.f64731a, this.f64732b, this.f64733c, null, this.f64734d);
+                        aVar2.a(this.f64735e ? 1 : 0);
                         return aVar2;
                     }
                     return (com.kwad.sdk.core.g.a) invokeV.objValue;
@@ -414,7 +414,7 @@ public class d implements KsLoadManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                         JSONObject jSONObject = new JSONObject(str);
-                        AdResultData adResultData = new AdResultData(this.f72269a.f72136a);
+                        AdResultData adResultData = new AdResultData(this.f64731a.f64599a);
                         adResultData.parseJson(jSONObject);
                         return adResultData;
                     }
@@ -425,7 +425,7 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f72274a;
+                public final /* synthetic */ a f64736a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -442,7 +442,7 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72274a = aVar;
+                    this.f64736a = aVar;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -450,7 +450,7 @@ public class d implements KsLoadManager {
                 public void a(@NonNull com.kwad.sdk.core.g.a aVar2, int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, aVar2, i2, str) == null) {
-                        this.f72274a.a(i2, str);
+                        this.f64736a.a(i2, str);
                     }
                 }
 
@@ -460,11 +460,11 @@ public class d implements KsLoadManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar2, adResultData) == null) {
                         if (!adResultData.isAdResultDataEmpty()) {
-                            this.f72274a.a(adResultData);
+                            this.f64736a.a(adResultData);
                             return;
                         }
-                        a aVar3 = this.f72274a;
-                        f fVar2 = f.f72343e;
+                        a aVar3 = this.f64736a;
+                        f fVar2 = f.f64805e;
                         aVar3.a(fVar2.m, fVar2.n);
                     }
                 }
@@ -478,7 +478,7 @@ public class d implements KsLoadManager {
             if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
                 runnable.run();
             } else {
-                f72170a.post(runnable);
+                f64632a.post(runnable);
             }
         }
     }
@@ -491,15 +491,15 @@ public class d implements KsLoadManager {
         new KSApiWebView(KsAdSDKImpl.get().getContext()).loadUrl(com.kwad.sdk.core.response.b.c.i(adResultData.adTemplateList.get(0)).adStyleInfo.playDetailInfo.detailWebCardInfo.cardUrl);
     }
 
-    public static void b(AdResultData adResultData, long j2) {
+    public static void b(AdResultData adResultData, long j) {
         AdTemplate adTemplate;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65546, null, adResultData, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65546, null, adResultData, j) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (adResultData.adTemplateList.size() <= 0 || (adTemplate = adResultData.adTemplateList.get(0)) == null) {
                 return;
             }
-            com.kwad.sdk.core.report.d.a(adTemplate, elapsedRealtime - j2);
+            com.kwad.sdk.core.report.d.a(adTemplate, elapsedRealtime - j);
         }
     }
 
@@ -515,7 +515,7 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f72190a;
+                public final /* synthetic */ d f64652a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -532,7 +532,7 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72190a = this;
+                    this.f64652a = this;
                 }
 
                 @Override // com.kwad.sdk.core.g.d.a
@@ -578,10 +578,10 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ KsLoadManager.DrawAdListener f72250a;
+                public final /* synthetic */ KsLoadManager.DrawAdListener f64712a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f72251b;
+                public final /* synthetic */ d f64713b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -598,26 +598,26 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72251b = this;
-                    this.f72250a = drawAdListener;
+                    this.f64713b = this;
+                    this.f64712a = drawAdListener;
                 }
 
                 @Override // com.kwad.sdk.core.g.d.a
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        d.f72170a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.6.1
+                        d.f64632a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.6.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ int f72252a;
+                            public final /* synthetic */ int f64714a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f72253b;
+                            public final /* synthetic */ String f64715b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass6 f72254c;
+                            public final /* synthetic */ AnonymousClass6 f64716c;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -634,17 +634,17 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72254c = this;
-                                this.f72252a = i2;
-                                this.f72253b = str;
+                                this.f64716c = this;
+                                this.f64714a = i2;
+                                this.f64715b = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadDrawAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f72252a), this.f72253b));
-                                    this.f72254c.f72250a.onError(this.f72252a, this.f72253b);
+                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadDrawAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f64714a), this.f64715b));
+                                    this.f64716c.f64712a.onError(this.f64714a, this.f64715b);
                                 }
                             }
                         });
@@ -662,15 +662,15 @@ public class d implements KsLoadManager {
                             }
                         }
                         if (!arrayList.isEmpty()) {
-                            d.f72170a.post(new Runnable(this, arrayList) { // from class: com.kwad.sdk.core.g.d.6.2
+                            d.f64632a.post(new Runnable(this, arrayList) { // from class: com.kwad.sdk.core.g.d.6.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ List f72255a;
+                                public final /* synthetic */ List f64717a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass6 f72256b;
+                                public final /* synthetic */ AnonymousClass6 f64718b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -687,22 +687,22 @@ public class d implements KsLoadManager {
                                             return;
                                         }
                                     }
-                                    this.f72256b = this;
-                                    this.f72255a = arrayList;
+                                    this.f64718b = this;
+                                    this.f64717a = arrayList;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f72256b.f72250a.onDrawAdLoad(this.f72255a);
+                                        this.f64718b.f64712a.onDrawAdLoad(this.f64717a);
                                     }
                                 }
                             });
                             return;
                         }
-                        int i2 = f.f72343e.m;
-                        a(i2, f.f72343e.n + "(无视频资源)");
+                        int i2 = f.f64805e.m;
+                        a(i2, f.f64805e.n + "(无视频资源)");
                     }
                 }
             }, a2);
@@ -720,13 +720,13 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ KsLoadManager.FeedAdListener f72232a;
+                public final /* synthetic */ KsLoadManager.FeedAdListener f64694a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ KsScene f72233b;
+                public final /* synthetic */ KsScene f64695b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ d f72234c;
+                public final /* synthetic */ d f64696c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -743,27 +743,27 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72234c = this;
-                    this.f72232a = feedAdListener;
-                    this.f72233b = ksScene;
+                    this.f64696c = this;
+                    this.f64694a = feedAdListener;
+                    this.f64695b = ksScene;
                 }
 
                 @Override // com.kwad.sdk.core.g.d.a
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        d.f72170a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.4.1
+                        d.f64632a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.4.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ int f72235a;
+                            public final /* synthetic */ int f64697a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f72236b;
+                            public final /* synthetic */ String f64698b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass4 f72237c;
+                            public final /* synthetic */ AnonymousClass4 f64699c;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -780,17 +780,17 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72237c = this;
-                                this.f72235a = i2;
-                                this.f72236b = str;
+                                this.f64699c = this;
+                                this.f64697a = i2;
+                                this.f64698b = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFeedAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f72235a), this.f72236b));
-                                    this.f72237c.f72232a.onError(this.f72235a, this.f72236b);
+                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFeedAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f64697a), this.f64698b));
+                                    this.f64699c.f64694a.onError(this.f64697a, this.f64698b);
                                 }
                             }
                         });
@@ -807,7 +807,7 @@ public class d implements KsLoadManager {
                             if (adTemplate != null) {
                                 AdInfo i2 = com.kwad.sdk.core.response.b.c.i(adTemplate);
                                 if (FeedType.checkTypeValid(adTemplate)) {
-                                    KsScene ksScene2 = this.f72233b;
+                                    KsScene ksScene2 = this.f64695b;
                                     if (ksScene2 instanceof SceneImpl) {
                                         adTemplate.mAdScene = (SceneImpl) ksScene2;
                                     }
@@ -818,15 +818,15 @@ public class d implements KsLoadManager {
                             }
                         }
                         if (!arrayList.isEmpty()) {
-                            d.f72170a.post(new Runnable(this, arrayList) { // from class: com.kwad.sdk.core.g.d.4.2
+                            d.f64632a.post(new Runnable(this, arrayList) { // from class: com.kwad.sdk.core.g.d.4.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ List f72238a;
+                                public final /* synthetic */ List f64700a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass4 f72239b;
+                                public final /* synthetic */ AnonymousClass4 f64701b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -843,22 +843,22 @@ public class d implements KsLoadManager {
                                             return;
                                         }
                                     }
-                                    this.f72239b = this;
-                                    this.f72238a = arrayList;
+                                    this.f64701b = this;
+                                    this.f64700a = arrayList;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f72239b.f72232a.onFeedAdLoad(this.f72238a);
+                                        this.f64701b.f64694a.onFeedAdLoad(this.f64700a);
                                     }
                                 }
                             });
                             return;
                         }
-                        int i3 = f.f72343e.m;
-                        a(i3, f.f72343e.n + str);
+                        int i3 = f.f64805e.m;
+                        a(i3, f.f64805e.n + str);
                     }
                 }
             });
@@ -877,16 +877,16 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ KsLoadManager.FullScreenVideoAdListener f72191a;
+                public final /* synthetic */ KsLoadManager.FullScreenVideoAdListener f64653a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ KsScene f72192b;
+                public final /* synthetic */ KsScene f64654b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f72193c;
+                public final /* synthetic */ long f64655c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ d f72194d;
+                public final /* synthetic */ d f64656d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -903,28 +903,28 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72194d = this;
-                    this.f72191a = fullScreenVideoAdListener;
-                    this.f72192b = ksScene;
-                    this.f72193c = elapsedRealtime;
+                    this.f64656d = this;
+                    this.f64653a = fullScreenVideoAdListener;
+                    this.f64654b = ksScene;
+                    this.f64655c = elapsedRealtime;
                 }
 
                 @Override // com.kwad.sdk.core.g.d.a
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        d.f72170a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.13.1
+                        d.f64632a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.13.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ int f72195a;
+                            public final /* synthetic */ int f64657a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f72196b;
+                            public final /* synthetic */ String f64658b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass13 f72197c;
+                            public final /* synthetic */ AnonymousClass13 f64659c;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -941,17 +941,17 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72197c = this;
-                                this.f72195a = i2;
-                                this.f72196b = str;
+                                this.f64659c = this;
+                                this.f64657a = i2;
+                                this.f64658b = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFullScreenVideoAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f72195a), this.f72196b));
-                                    this.f72197c.f72191a.onError(this.f72195a, this.f72196b);
+                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFullScreenVideoAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f64657a), this.f64658b));
+                                    this.f64659c.f64653a.onError(this.f64657a, this.f64658b);
                                 }
                             }
                         });
@@ -962,15 +962,15 @@ public class d implements KsLoadManager {
                 public void a(@NonNull AdResultData adResultData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adResultData) == null) {
-                        d.f72170a.post(new Runnable(this, adResultData) { // from class: com.kwad.sdk.core.g.d.13.2
+                        d.f64632a.post(new Runnable(this, adResultData) { // from class: com.kwad.sdk.core.g.d.13.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AdResultData f72198a;
+                            public final /* synthetic */ AdResultData f64660a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass13 f72199b;
+                            public final /* synthetic */ AnonymousClass13 f64661b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -987,8 +987,8 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72199b = this;
-                                this.f72198a = adResultData;
+                                this.f64661b = this;
+                                this.f64660a = adResultData;
                             }
 
                             @Override // java.lang.Runnable
@@ -996,7 +996,7 @@ public class d implements KsLoadManager {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f72199b.f72191a.onRequestResult(this.f72198a.adTemplateList.size());
+                                        this.f64661b.f64653a.onRequestResult(this.f64660a.adTemplateList.size());
                                     } catch (Throwable th) {
                                         com.kwad.sdk.core.d.a.b(th);
                                     }
@@ -1010,7 +1010,7 @@ public class d implements KsLoadManager {
                         for (AdTemplate adTemplate : adResultData.adTemplateList) {
                             if (adTemplate != null) {
                                 if (adTemplate.mAdScene == null) {
-                                    KsScene ksScene2 = this.f72192b;
+                                    KsScene ksScene2 = this.f64654b;
                                     if (ksScene2 instanceof SceneImpl) {
                                         adTemplate.mAdScene = (SceneImpl) ksScene2;
                                     }
@@ -1036,18 +1036,18 @@ public class d implements KsLoadManager {
                         }
                         if (z) {
                             if (z2) {
-                                d.f72170a.post(new Runnable(this, arrayList, adResultData) { // from class: com.kwad.sdk.core.g.d.13.3
+                                d.f64632a.post(new Runnable(this, arrayList, adResultData) { // from class: com.kwad.sdk.core.g.d.13.3
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ List f72200a;
+                                    public final /* synthetic */ List f64662a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ AdResultData f72201b;
+                                    public final /* synthetic */ AdResultData f64663b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass13 f72202c;
+                                    public final /* synthetic */ AnonymousClass13 f64664c;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -1064,19 +1064,19 @@ public class d implements KsLoadManager {
                                                 return;
                                             }
                                         }
-                                        this.f72202c = this;
-                                        this.f72200a = arrayList;
-                                        this.f72201b = adResultData;
+                                        this.f64664c = this;
+                                        this.f64662a = arrayList;
+                                        this.f64663b = adResultData;
                                     }
 
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.f72202c.f72191a.onFullScreenVideoAdLoad(this.f72200a);
-                                            d.b(this.f72201b, this.f72202c.f72193c);
+                                            this.f64664c.f64653a.onFullScreenVideoAdLoad(this.f64662a);
+                                            d.b(this.f64663b, this.f64664c.f64655c);
                                             try {
-                                                d.b(this.f72201b);
+                                                d.b(this.f64663b);
                                             } catch (Throwable th) {
                                                 com.kwad.sdk.core.d.a.a(th);
                                             }
@@ -1085,12 +1085,12 @@ public class d implements KsLoadManager {
                                 });
                                 return;
                             }
-                            f fVar = f.f72344f;
+                            f fVar = f.f64806f;
                             a(fVar.m, fVar.n);
                             return;
                         }
-                        int i2 = f.f72343e.m;
-                        a(i2, f.f72343e.n + "(无视频资源)");
+                        int i2 = f.f64805e.m;
+                        a(i2, f.f64805e.n + "(无视频资源)");
                     }
                 }
             }, a2);
@@ -1109,16 +1109,16 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ KsLoadManager.InterstitialAdListener f72257a;
+                public final /* synthetic */ KsLoadManager.InterstitialAdListener f64719a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ KsScene f72258b;
+                public final /* synthetic */ KsScene f64720b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f72259c;
+                public final /* synthetic */ long f64721c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ d f72260d;
+                public final /* synthetic */ d f64722d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1135,28 +1135,28 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72260d = this;
-                    this.f72257a = interstitialAdListener;
-                    this.f72258b = ksScene;
-                    this.f72259c = elapsedRealtime;
+                    this.f64722d = this;
+                    this.f64719a = interstitialAdListener;
+                    this.f64720b = ksScene;
+                    this.f64721c = elapsedRealtime;
                 }
 
                 @Override // com.kwad.sdk.core.g.d.a
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        d.f72170a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.7.1
+                        d.f64632a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.7.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ int f72261a;
+                            public final /* synthetic */ int f64723a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f72262b;
+                            public final /* synthetic */ String f64724b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass7 f72263c;
+                            public final /* synthetic */ AnonymousClass7 f64725c;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1173,17 +1173,17 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72263c = this;
-                                this.f72261a = i2;
-                                this.f72262b = str;
+                                this.f64725c = this;
+                                this.f64723a = i2;
+                                this.f64724b = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadInterstitialAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f72261a), this.f72262b));
-                                    this.f72263c.f72257a.onError(this.f72261a, this.f72262b);
+                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadInterstitialAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f64723a), this.f64724b));
+                                    this.f64725c.f64719a.onError(this.f64723a, this.f64724b);
                                 }
                             }
                         });
@@ -1195,15 +1195,15 @@ public class d implements KsLoadManager {
                     com.kwad.sdk.a.a aVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adResultData) == null) {
-                        d.f72170a.post(new Runnable(this, adResultData) { // from class: com.kwad.sdk.core.g.d.7.2
+                        d.f64632a.post(new Runnable(this, adResultData) { // from class: com.kwad.sdk.core.g.d.7.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AdResultData f72264a;
+                            public final /* synthetic */ AdResultData f64726a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass7 f72265b;
+                            public final /* synthetic */ AnonymousClass7 f64727b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1220,8 +1220,8 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72265b = this;
-                                this.f72264a = adResultData;
+                                this.f64727b = this;
+                                this.f64726a = adResultData;
                             }
 
                             @Override // java.lang.Runnable
@@ -1229,7 +1229,7 @@ public class d implements KsLoadManager {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f72265b.f72257a.onRequestResult(this.f72264a.adTemplateList.size());
+                                        this.f64727b.f64719a.onRequestResult(this.f64726a.adTemplateList.size());
                                     } catch (Throwable th) {
                                         com.kwad.sdk.core.d.a.b(th);
                                     }
@@ -1241,37 +1241,37 @@ public class d implements KsLoadManager {
                         for (AdTemplate adTemplate : adResultData.adTemplateList) {
                             if (adTemplate != null) {
                                 if (adTemplate.mAdScene == null) {
-                                    KsScene ksScene2 = this.f72258b;
+                                    KsScene ksScene2 = this.f64720b;
                                     if (ksScene2 instanceof SceneImpl) {
                                         adTemplate.mAdScene = (SceneImpl) ksScene2;
                                     }
                                 }
                                 String a3 = com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.i(adTemplate));
                                 if (TextUtils.isEmpty(a3)) {
-                                    aVar = new com.kwad.sdk.a.a(this.f72258b, adTemplate);
+                                    aVar = new com.kwad.sdk.a.a(this.f64720b, adTemplate);
                                 } else if (C >= 0) {
                                     if (C > 0 && !com.kwad.sdk.core.videocache.c.a.a(KsAdSDKImpl.get().getContext()).a(a3, C * 1024)) {
                                     }
-                                    aVar = new com.kwad.sdk.a.a(this.f72258b, adTemplate);
+                                    aVar = new com.kwad.sdk.a.a(this.f64720b, adTemplate);
                                 } else if (g.a(adTemplate)) {
-                                    aVar = new com.kwad.sdk.a.a(this.f72258b, adTemplate);
+                                    aVar = new com.kwad.sdk.a.a(this.f64720b, adTemplate);
                                 }
                                 arrayList.add(aVar);
                             }
                         }
                         if (arrayList.size() != 0) {
-                            d.f72170a.post(new Runnable(this, arrayList, adResultData) { // from class: com.kwad.sdk.core.g.d.7.3
+                            d.f64632a.post(new Runnable(this, arrayList, adResultData) { // from class: com.kwad.sdk.core.g.d.7.3
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ List f72266a;
+                                public final /* synthetic */ List f64728a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AdResultData f72267b;
+                                public final /* synthetic */ AdResultData f64729b;
 
                                 /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass7 f72268c;
+                                public final /* synthetic */ AnonymousClass7 f64730c;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -1288,23 +1288,23 @@ public class d implements KsLoadManager {
                                             return;
                                         }
                                     }
-                                    this.f72268c = this;
-                                    this.f72266a = arrayList;
-                                    this.f72267b = adResultData;
+                                    this.f64730c = this;
+                                    this.f64728a = arrayList;
+                                    this.f64729b = adResultData;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f72268c.f72257a.onInterstitialAdLoad(this.f72266a);
-                                        d.b(this.f72267b, this.f72268c.f72259c);
+                                        this.f64730c.f64719a.onInterstitialAdLoad(this.f64728a);
+                                        d.b(this.f64729b, this.f64730c.f64721c);
                                     }
                                 }
                             });
                             return;
                         }
-                        f fVar = f.f72343e;
+                        f fVar = f.f64805e;
                         a(fVar.m, fVar.n);
                     }
                 }
@@ -1323,10 +1323,10 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ KsLoadManager.NativeAdListener f72215a;
+                public final /* synthetic */ KsLoadManager.NativeAdListener f64677a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f72216b;
+                public final /* synthetic */ d f64678b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1343,26 +1343,26 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72216b = this;
-                    this.f72215a = nativeAdListener;
+                    this.f64678b = this;
+                    this.f64677a = nativeAdListener;
                 }
 
                 @Override // com.kwad.sdk.core.g.d.a
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        d.f72170a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.15.1
+                        d.f64632a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.15.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ int f72217a;
+                            public final /* synthetic */ int f64679a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f72218b;
+                            public final /* synthetic */ String f64680b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass15 f72219c;
+                            public final /* synthetic */ AnonymousClass15 f64681c;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1379,17 +1379,17 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72219c = this;
-                                this.f72217a = i2;
-                                this.f72218b = str;
+                                this.f64681c = this;
+                                this.f64679a = i2;
+                                this.f64680b = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadNativeAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f72217a), this.f72218b));
-                                    this.f72219c.f72215a.onError(this.f72217a, this.f72218b);
+                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadNativeAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f64679a), this.f64680b));
+                                    this.f64681c.f64677a.onError(this.f64679a, this.f64680b);
                                 }
                             }
                         });
@@ -1406,15 +1406,15 @@ public class d implements KsLoadManager {
                                 arrayList.add(new com.kwad.sdk.b.a(adTemplate));
                             }
                         }
-                        d.f72170a.post(new Runnable(this, arrayList) { // from class: com.kwad.sdk.core.g.d.15.2
+                        d.f64632a.post(new Runnable(this, arrayList) { // from class: com.kwad.sdk.core.g.d.15.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ List f72220a;
+                            public final /* synthetic */ List f64682a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass15 f72221b;
+                            public final /* synthetic */ AnonymousClass15 f64683b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1431,15 +1431,15 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72221b = this;
-                                this.f72220a = arrayList;
+                                this.f64683b = this;
+                                this.f64682a = arrayList;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f72221b.f72215a.onNativeAdLoad(this.f72220a);
+                                    this.f64683b.f64677a.onNativeAdLoad(this.f64682a);
                                 }
                             }
                         });
@@ -1463,10 +1463,10 @@ public class d implements KsLoadManager {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ KsLoadManager.NativeAdListener f72222a;
+                    public final /* synthetic */ KsLoadManager.NativeAdListener f64684a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ d f72223b;
+                    public final /* synthetic */ d f64685b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1483,8 +1483,8 @@ public class d implements KsLoadManager {
                                 return;
                             }
                         }
-                        this.f72223b = this;
-                        this.f72222a = nativeAdListener;
+                        this.f64685b = this;
+                        this.f64684a = nativeAdListener;
                     }
 
                     @Override // java.lang.Runnable
@@ -1492,8 +1492,8 @@ public class d implements KsLoadManager {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             com.kwad.sdk.core.d.a.e("AdRequestManager", "method parseJson params jsonResult is empty");
-                            KsLoadManager.NativeAdListener nativeAdListener2 = this.f72222a;
-                            f fVar = f.f72343e;
+                            KsLoadManager.NativeAdListener nativeAdListener2 = this.f64684a;
+                            f fVar = f.f64805e;
                             nativeAdListener2.onError(fVar.m, fVar.n);
                         }
                     }
@@ -1509,13 +1509,13 @@ public class d implements KsLoadManager {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AdResultData f72224a;
+                        public final /* synthetic */ AdResultData f64686a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ KsLoadManager.NativeAdListener f72225b;
+                        public final /* synthetic */ KsLoadManager.NativeAdListener f64687b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ d f72226c;
+                        public final /* synthetic */ d f64688c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1532,18 +1532,18 @@ public class d implements KsLoadManager {
                                     return;
                                 }
                             }
-                            this.f72226c = this;
-                            this.f72224a = adResultData;
-                            this.f72225b = nativeAdListener;
+                            this.f64688c = this;
+                            this.f64686a = adResultData;
+                            this.f64687b = nativeAdListener;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                com.kwad.sdk.core.d.a.e("AdRequestManager", "loadNativeAd onError:" + String.format("%s__%s", Integer.valueOf(this.f72224a.result), this.f72224a.errorMsg));
-                                KsLoadManager.NativeAdListener nativeAdListener2 = this.f72225b;
-                                AdResultData adResultData2 = this.f72224a;
+                                com.kwad.sdk.core.d.a.e("AdRequestManager", "loadNativeAd onError:" + String.format("%s__%s", Integer.valueOf(this.f64686a.result), this.f64686a.errorMsg));
+                                KsLoadManager.NativeAdListener nativeAdListener2 = this.f64687b;
+                                AdResultData adResultData2 = this.f64686a;
                                 nativeAdListener2.onError(adResultData2.result, adResultData2.errorMsg);
                             }
                         }
@@ -1556,10 +1556,10 @@ public class d implements KsLoadManager {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ KsLoadManager.NativeAdListener f72227a;
+                        public final /* synthetic */ KsLoadManager.NativeAdListener f64689a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ d f72228b;
+                        public final /* synthetic */ d f64690b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1576,16 +1576,16 @@ public class d implements KsLoadManager {
                                     return;
                                 }
                             }
-                            this.f72228b = this;
-                            this.f72227a = nativeAdListener;
+                            this.f64690b = this;
+                            this.f64689a = nativeAdListener;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                KsLoadManager.NativeAdListener nativeAdListener2 = this.f72227a;
-                                f fVar = f.f72343e;
+                                KsLoadManager.NativeAdListener nativeAdListener2 = this.f64689a;
+                                f fVar = f.f64805e;
                                 nativeAdListener2.onError(fVar.m, fVar.n);
                             }
                         }
@@ -1602,13 +1602,13 @@ public class d implements KsLoadManager {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ KsLoadManager.NativeAdListener f72229a;
+                        public final /* synthetic */ KsLoadManager.NativeAdListener f64691a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ List f72230b;
+                        public final /* synthetic */ List f64692b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ d f72231c;
+                        public final /* synthetic */ d f64693c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1625,16 +1625,16 @@ public class d implements KsLoadManager {
                                     return;
                                 }
                             }
-                            this.f72231c = this;
-                            this.f72229a = nativeAdListener;
-                            this.f72230b = arrayList;
+                            this.f64693c = this;
+                            this.f64691a = nativeAdListener;
+                            this.f64692b = arrayList;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f72229a.onNativeAdLoad(this.f72230b);
+                                this.f64691a.onNativeAdLoad(this.f64692b);
                             }
                         }
                     };
@@ -1642,7 +1642,7 @@ public class d implements KsLoadManager {
                 a(runnable);
             } catch (JSONException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
-                f fVar = f.f72342d;
+                f fVar = f.f64804d;
                 nativeAdListener.onError(fVar.m, fVar.n);
             }
         }
@@ -1660,16 +1660,16 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ KsLoadManager.RewardVideoAdListener f72203a;
+                public final /* synthetic */ KsLoadManager.RewardVideoAdListener f64665a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ KsScene f72204b;
+                public final /* synthetic */ KsScene f64666b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f72205c;
+                public final /* synthetic */ long f64667c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ d f72206d;
+                public final /* synthetic */ d f64668d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1686,28 +1686,28 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72206d = this;
-                    this.f72203a = rewardVideoAdListener;
-                    this.f72204b = ksScene;
-                    this.f72205c = elapsedRealtime;
+                    this.f64668d = this;
+                    this.f64665a = rewardVideoAdListener;
+                    this.f64666b = ksScene;
+                    this.f64667c = elapsedRealtime;
                 }
 
                 @Override // com.kwad.sdk.core.g.d.a
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        d.f72170a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.14.1
+                        d.f64632a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.14.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ int f72207a;
+                            public final /* synthetic */ int f64669a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f72208b;
+                            public final /* synthetic */ String f64670b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass14 f72209c;
+                            public final /* synthetic */ AnonymousClass14 f64671c;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1724,17 +1724,17 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72209c = this;
-                                this.f72207a = i2;
-                                this.f72208b = str;
+                                this.f64671c = this;
+                                this.f64669a = i2;
+                                this.f64670b = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadRewardVideoAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f72207a), this.f72208b));
-                                    this.f72209c.f72203a.onError(this.f72207a, this.f72208b);
+                                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadRewardVideoAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f64669a), this.f64670b));
+                                    this.f64671c.f64665a.onError(this.f64669a, this.f64670b);
                                 }
                             }
                         });
@@ -1745,15 +1745,15 @@ public class d implements KsLoadManager {
                 public void a(@NonNull AdResultData adResultData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adResultData) == null) {
-                        d.f72170a.post(new Runnable(this, adResultData) { // from class: com.kwad.sdk.core.g.d.14.2
+                        d.f64632a.post(new Runnable(this, adResultData) { // from class: com.kwad.sdk.core.g.d.14.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AdResultData f72210a;
+                            public final /* synthetic */ AdResultData f64672a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass14 f72211b;
+                            public final /* synthetic */ AnonymousClass14 f64673b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1770,8 +1770,8 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72211b = this;
-                                this.f72210a = adResultData;
+                                this.f64673b = this;
+                                this.f64672a = adResultData;
                             }
 
                             @Override // java.lang.Runnable
@@ -1779,7 +1779,7 @@ public class d implements KsLoadManager {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f72211b.f72203a.onRequestResult(this.f72210a.adTemplateList.size());
+                                        this.f64673b.f64665a.onRequestResult(this.f64672a.adTemplateList.size());
                                     } catch (Throwable th) {
                                         com.kwad.sdk.core.d.a.b(th);
                                     }
@@ -1794,7 +1794,7 @@ public class d implements KsLoadManager {
                         for (AdTemplate adTemplate : adResultData.adTemplateList) {
                             if (adTemplate != null) {
                                 if (adTemplate.mAdScene == null) {
-                                    KsScene ksScene2 = this.f72204b;
+                                    KsScene ksScene2 = this.f64666b;
                                     if (ksScene2 instanceof SceneImpl) {
                                         adTemplate.mAdScene = (SceneImpl) ksScene2;
                                     }
@@ -1824,27 +1824,27 @@ public class d implements KsLoadManager {
                         }
                         if (!z) {
                             if (!z2) {
-                                int i3 = f.f72343e.m;
-                                a(i3, f.f72343e.n + "(无视频资源)");
+                                int i3 = f.f64805e.m;
+                                a(i3, f.f64805e.n + "(无视频资源)");
                                 return;
                             } else if (!z3) {
-                                f fVar = f.f72344f;
+                                f fVar = f.f64806f;
                                 a(fVar.m, fVar.n);
                                 return;
                             }
                         }
-                        d.f72170a.post(new Runnable(this, arrayList, adResultData) { // from class: com.kwad.sdk.core.g.d.14.3
+                        d.f64632a.post(new Runnable(this, arrayList, adResultData) { // from class: com.kwad.sdk.core.g.d.14.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ List f72212a;
+                            public final /* synthetic */ List f64674a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AdResultData f72213b;
+                            public final /* synthetic */ AdResultData f64675b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass14 f72214c;
+                            public final /* synthetic */ AnonymousClass14 f64676c;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1861,19 +1861,19 @@ public class d implements KsLoadManager {
                                         return;
                                     }
                                 }
-                                this.f72214c = this;
-                                this.f72212a = arrayList;
-                                this.f72213b = adResultData;
+                                this.f64676c = this;
+                                this.f64674a = arrayList;
+                                this.f64675b = adResultData;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f72214c.f72203a.onRewardVideoAdLoad(this.f72212a);
-                                    d.b(this.f72213b, this.f72214c.f72205c);
+                                    this.f64676c.f64665a.onRewardVideoAdLoad(this.f64674a);
+                                    d.b(this.f64675b, this.f64676c.f64667c);
                                     try {
-                                        d.b(this.f72213b);
+                                        d.b(this.f64675b);
                                     } catch (Throwable th) {
                                         com.kwad.sdk.core.d.a.a(th);
                                     }
@@ -1897,15 +1897,15 @@ public class d implements KsLoadManager {
             com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashScreenAd ");
             b bVar = new b();
             com.kwad.sdk.core.report.d.a();
-            f72170a.postDelayed(new Runnable(this, ksScene) { // from class: com.kwad.sdk.core.g.d.1
+            f64632a.postDelayed(new Runnable(this, ksScene) { // from class: com.kwad.sdk.core.g.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ KsScene f72171a;
+                public final /* synthetic */ KsScene f64633a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f72172b;
+                public final /* synthetic */ d f64634b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1922,15 +1922,15 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72172b = this;
-                    this.f72171a = ksScene;
+                    this.f64634b = this;
+                    this.f64633a = ksScene;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f72172b.a(this.f72171a);
+                        this.f64634b.a(this.f64633a);
                     }
                 }
             }, 15000L);
@@ -1939,13 +1939,13 @@ public class d implements KsLoadManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f72173a;
+                public final /* synthetic */ b f64635a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ KsLoadManager.SplashScreenAdListener f72174b;
+                public final /* synthetic */ KsLoadManager.SplashScreenAdListener f64636b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ d f72175c;
+                public final /* synthetic */ d f64637c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1962,43 +1962,43 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72175c = this;
-                    this.f72173a = bVar;
-                    this.f72174b = splashScreenAdListener;
+                    this.f64637c = this;
+                    this.f64635a = bVar;
+                    this.f64636b = splashScreenAdListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f72173a.f72275a = true;
+                        this.f64635a.f64737a = true;
                         com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd mTimeOutRunnable timeOut");
-                        KsLoadManager.SplashScreenAdListener splashScreenAdListener2 = this.f72174b;
-                        f fVar = f.f72345g;
+                        KsLoadManager.SplashScreenAdListener splashScreenAdListener2 = this.f64636b;
+                        f fVar = f.f64807g;
                         splashScreenAdListener2.onError(fVar.m, fVar.n);
                         com.kwad.sdk.core.report.d.a(4);
                     }
                 }
             };
-            f72170a.postDelayed(runnable, com.kwad.sdk.core.config.c.l());
+            f64632a.postDelayed(runnable, com.kwad.sdk.core.config.c.l());
             a(new com.kwad.sdk.core.g.a.f(ksScene), c2, true, a2, a(ksScene, false), new a(this, bVar, runnable, splashScreenAdListener, ksScene) { // from class: com.kwad.sdk.core.g.d.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f72176a;
+                public final /* synthetic */ b f64638a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Runnable f72177b;
+                public final /* synthetic */ Runnable f64639b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ KsLoadManager.SplashScreenAdListener f72178c;
+                public final /* synthetic */ KsLoadManager.SplashScreenAdListener f64640c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ KsScene f72179d;
+                public final /* synthetic */ KsScene f64641d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ d f72180e;
+                public final /* synthetic */ d f64642e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2015,31 +2015,31 @@ public class d implements KsLoadManager {
                             return;
                         }
                     }
-                    this.f72180e = this;
-                    this.f72176a = bVar;
-                    this.f72177b = runnable;
-                    this.f72178c = splashScreenAdListener;
-                    this.f72179d = ksScene;
+                    this.f64642e = this;
+                    this.f64638a = bVar;
+                    this.f64639b = runnable;
+                    this.f64640c = splashScreenAdListener;
+                    this.f64641d = ksScene;
                 }
 
                 @Override // com.kwad.sdk.core.g.d.a
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        if (!this.f72176a.f72275a) {
-                            d.f72170a.removeCallbacks(this.f72177b);
-                            d.f72170a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.11.1
+                        if (!this.f64638a.f64737a) {
+                            d.f64632a.removeCallbacks(this.f64639b);
+                            d.f64632a.post(new Runnable(this, i2, str) { // from class: com.kwad.sdk.core.g.d.11.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ int f72181a;
+                                public final /* synthetic */ int f64643a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ String f72182b;
+                                public final /* synthetic */ String f64644b;
 
                                 /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass11 f72183c;
+                                public final /* synthetic */ AnonymousClass11 f64645c;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -2056,18 +2056,18 @@ public class d implements KsLoadManager {
                                             return;
                                         }
                                     }
-                                    this.f72183c = this;
-                                    this.f72181a = i2;
-                                    this.f72182b = str;
+                                    this.f64645c = this;
+                                    this.f64643a = i2;
+                                    this.f64644b = str;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f72181a), this.f72182b));
-                                        this.f72183c.f72178c.onError(this.f72181a, this.f72182b);
-                                        if (this.f72181a == f.f72346h.m) {
+                                        com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.f64643a), this.f64644b));
+                                        this.f64645c.f64640c.onError(this.f64643a, this.f64644b);
+                                        if (this.f64643a == f.f64808h.m) {
                                             com.kwad.sdk.core.report.d.a(0);
                                         } else {
                                             com.kwad.sdk.core.report.d.a(3);
@@ -2086,16 +2086,16 @@ public class d implements KsLoadManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adResultData) == null) {
                         if (adResultData.adTemplateList.size() > 0) {
-                            com.kwad.sdk.splashscreen.b bVar2 = new com.kwad.sdk.splashscreen.b(this.f72179d, adResultData);
-                            d.f72170a.post(new Runnable(this, adResultData) { // from class: com.kwad.sdk.core.g.d.11.2
+                            com.kwad.sdk.splashscreen.b bVar2 = new com.kwad.sdk.splashscreen.b(this.f64641d, adResultData);
+                            d.f64632a.post(new Runnable(this, adResultData) { // from class: com.kwad.sdk.core.g.d.11.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AdResultData f72184a;
+                                public final /* synthetic */ AdResultData f64646a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass11 f72185b;
+                                public final /* synthetic */ AnonymousClass11 f64647b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -2112,8 +2112,8 @@ public class d implements KsLoadManager {
                                             return;
                                         }
                                     }
-                                    this.f72185b = this;
-                                    this.f72184a = adResultData;
+                                    this.f64647b = this;
+                                    this.f64646a = adResultData;
                                 }
 
                                 @Override // java.lang.Runnable
@@ -2121,7 +2121,7 @@ public class d implements KsLoadManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         try {
-                                            this.f72185b.f72178c.onRequestResult(this.f72184a.adTemplateList.size());
+                                            this.f64647b.f64640c.onRequestResult(this.f64646a.adTemplateList.size());
                                         } catch (Throwable th) {
                                             com.kwad.sdk.core.d.a.b(th);
                                         }
@@ -2131,20 +2131,20 @@ public class d implements KsLoadManager {
                             boolean a3 = SplashPreloadManager.b().a(adResultData);
                             com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd onSuccess " + a3);
                             if (a3) {
-                                if (this.f72176a.f72275a) {
+                                if (this.f64638a.f64737a) {
                                     com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd isTimeOut return ");
                                     return;
                                 }
-                                d.f72170a.removeCallbacks(this.f72177b);
-                                d.f72170a.post(new Runnable(this, bVar2) { // from class: com.kwad.sdk.core.g.d.11.3
+                                d.f64632a.removeCallbacks(this.f64639b);
+                                d.f64632a.post(new Runnable(this, bVar2) { // from class: com.kwad.sdk.core.g.d.11.3
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ KsSplashScreenAd f72186a;
+                                    public final /* synthetic */ KsSplashScreenAd f64648a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass11 f72187b;
+                                    public final /* synthetic */ AnonymousClass11 f64649b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -2161,15 +2161,15 @@ public class d implements KsLoadManager {
                                                 return;
                                             }
                                         }
-                                        this.f72187b = this;
-                                        this.f72186a = bVar2;
+                                        this.f64649b = this;
+                                        this.f64648a = bVar2;
                                     }
 
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.f72187b.f72178c.onSplashScreenAdLoad(this.f72186a);
+                                            this.f64649b.f64640c.onSplashScreenAdLoad(this.f64648a);
                                         }
                                     }
                                 });
@@ -2179,21 +2179,21 @@ public class d implements KsLoadManager {
                             } else if (SplashPreloadManager.b().b(adResultData)) {
                                 com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd image returned");
                                 int a4 = SplashPreloadManager.b().a(adResultData, true);
-                                if (this.f72176a.f72275a) {
+                                if (this.f64638a.f64737a) {
                                     com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd isTimeOut return ");
                                     return;
                                 }
-                                d.f72170a.removeCallbacks(this.f72177b);
+                                d.f64632a.removeCallbacks(this.f64639b);
                                 if (a4 > 0) {
-                                    d.f72170a.post(new Runnable(this, bVar2) { // from class: com.kwad.sdk.core.g.d.11.4
+                                    d.f64632a.post(new Runnable(this, bVar2) { // from class: com.kwad.sdk.core.g.d.11.4
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ KsSplashScreenAd f72188a;
+                                        public final /* synthetic */ KsSplashScreenAd f64650a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass11 f72189b;
+                                        public final /* synthetic */ AnonymousClass11 f64651b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -2210,38 +2210,38 @@ public class d implements KsLoadManager {
                                                     return;
                                                 }
                                             }
-                                            this.f72189b = this;
-                                            this.f72188a = bVar2;
+                                            this.f64651b = this;
+                                            this.f64650a = bVar2;
                                         }
 
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                this.f72189b.f72178c.onSplashScreenAdLoad(this.f72188a);
+                                                this.f64651b.f64640c.onSplashScreenAdLoad(this.f64650a);
                                             }
                                         }
                                     });
                                     com.kwad.sdk.core.report.d.a(2);
                                     return;
                                 }
-                                f fVar = f.f72346h;
+                                f fVar = f.f64808h;
                                 a(fVar.m, fVar.n);
                                 return;
-                            } else if (this.f72176a.f72275a) {
+                            } else if (this.f64638a.f64737a) {
                                 com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd isTimeOut return ");
                                 return;
                             } else {
-                                d.f72170a.removeCallbacks(this.f72177b);
-                                a(f.f72344f.m, "请求成功，但缓存未命中");
+                                d.f64632a.removeCallbacks(this.f64639b);
+                                a(f.f64806f.m, "请求成功，但缓存未命中");
                                 com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd no cache returned");
                             }
-                        } else if (this.f72176a.f72275a) {
+                        } else if (this.f64638a.f64737a) {
                             com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd isTimeOut return ");
                             return;
                         } else {
-                            d.f72170a.removeCallbacks(this.f72177b);
-                            f fVar2 = f.f72343e;
+                            d.f64632a.removeCallbacks(this.f64639b);
+                            f fVar2 = f.f64805e;
                             a(fVar2.m, fVar2.n);
                         }
                         com.kwad.sdk.core.report.d.a(3);

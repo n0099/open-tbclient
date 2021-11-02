@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.download.a;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -19,35 +18,35 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Dialog f71975a;
+    public final b f64444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f71976b;
+    public AdBaseFrameLayout f64445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f71977c;
+    public d f64446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Presenter f71978d;
+    public Presenter f64447d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f71979e;
+    public AdTemplate f64448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f71980f;
+    public AdInfo f64449f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f71981g;
+    public final int f64450g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f71982h;
+    public String f64451h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, @NonNull b bVar, @NonNull AdTemplate adTemplate, int i2, String str) {
@@ -67,9 +66,9 @@ public class a extends KSFrameLayout {
                 return;
             }
         }
-        this.f71982h = str;
-        this.f71981g = i2;
-        this.f71975a = bVar;
+        this.f64451h = str;
+        this.f64450g = i2;
+        this.f64444a = bVar;
         a(context);
         a(adTemplate);
     }
@@ -78,7 +77,7 @@ public class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             FrameLayout.inflate(context, R.layout.ksad_download_dialog_layout, this);
-            this.f71976b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
+            this.f64445b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
         }
     }
 
@@ -87,18 +86,18 @@ public class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             d dVar = new d();
-            dVar.f71992c = this.f71976b;
-            dVar.f71993d = this.f71979e;
-            dVar.f71990a = this.f71981g;
-            if (com.kwad.sdk.core.response.b.a.v(this.f71980f)) {
-                dVar.f71994e = new com.kwad.sdk.core.download.b.b(this.f71979e);
+            dVar.f64462c = this.f64445b;
+            dVar.f64463d = this.f64448e;
+            dVar.f64460a = this.f64450g;
+            if (com.kwad.sdk.core.response.b.a.v(this.f64449f)) {
+                dVar.f64464e = new com.kwad.sdk.core.download.b.b(this.f64448e);
             }
-            dVar.f71991b = new e(this) { // from class: com.kwad.sdk.core.download.a.a.1
+            dVar.f64461b = new e(this) { // from class: com.kwad.sdk.core.download.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f71983a;
+                public final /* synthetic */ a f64452a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -115,19 +114,19 @@ public class a extends KSFrameLayout {
                             return;
                         }
                     }
-                    this.f71983a = this;
+                    this.f64452a = this;
                 }
 
                 @Override // com.kwad.sdk.core.download.a.e
-                public void a() {
+                public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
                         com.kwad.sdk.core.d.a.a("DownloadDialogView", "onClose()");
-                        com.kwad.sdk.core.report.a.n(this.f71983a.f71979e);
-                        if (this.f71983a.f71975a == null || !this.f71983a.f71975a.isShowing()) {
+                        com.kwad.sdk.core.report.a.n(this.f64452a.f64448e);
+                        if (this.f64452a.f64444a == null || !this.f64452a.f64444a.isShowing()) {
                             return;
                         }
-                        this.f71983a.f71975a.dismiss();
+                        this.f64452a.f64444a.a(z);
                     }
                 }
             };
@@ -141,7 +140,7 @@ public class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
             Presenter presenter = new Presenter();
-            presenter.a((Presenter) new f(this.f71982h));
+            presenter.a((Presenter) new f(this.f64451h));
             return presenter;
         }
         return (Presenter) invokeV.objValue;
@@ -152,19 +151,19 @@ public class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f71977c = d();
+            this.f64446c = d();
             Presenter e2 = e();
-            this.f71978d = e2;
-            e2.a((View) this.f71976b);
-            this.f71978d.a(this.f71977c);
+            this.f64447d = e2;
+            e2.a((View) this.f64445b);
+            this.f64447d.a(this.f64446c);
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f71979e = adTemplate;
-            this.f71980f = com.kwad.sdk.core.response.b.c.i(adTemplate);
+            this.f64448e = adTemplate;
+            this.f64449f = com.kwad.sdk.core.response.b.c.i(adTemplate);
         }
     }
 
@@ -173,11 +172,11 @@ public class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.b();
-            d dVar = this.f71977c;
+            d dVar = this.f64446c;
             if (dVar != null) {
                 dVar.a();
             }
-            Presenter presenter = this.f71978d;
+            Presenter presenter = this.f64447d;
             if (presenter != null) {
                 presenter.h();
             }

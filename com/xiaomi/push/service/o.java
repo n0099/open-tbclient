@@ -12,25 +12,25 @@ import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
 import java.util.Collection;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class o extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public XMPushService f78580a;
+    public XMPushService f71518a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f970a;
+    public String f971a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f971a;
+    public byte[] f972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f78581b;
+    public String f71519b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f78582c;
+    public String f71520c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
@@ -50,11 +50,11 @@ public class o extends XMPushService.i {
                 return;
             }
         }
-        this.f78580a = xMPushService;
-        this.f970a = str;
-        this.f971a = bArr;
-        this.f78581b = str2;
-        this.f78582c = str3;
+        this.f71518a = xMPushService;
+        this.f971a = str;
+        this.f972a = bArr;
+        this.f71519b = str2;
+        this.f71520c = str3;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -69,43 +69,43 @@ public class o extends XMPushService.i {
         av.b next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            l a2 = m.a((Context) this.f78580a);
+            l a2 = m.a((Context) this.f71518a);
             if (a2 == null) {
                 try {
-                    a2 = m.a(this.f78580a, this.f970a, this.f78581b, this.f78582c);
+                    a2 = m.a(this.f71518a, this.f971a, this.f71519b, this.f71520c);
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e2);
                 }
             }
             if (a2 == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("no account for mipush");
-                p.a(this.f78580a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
+                p.a(this.f71518a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
             Collection<av.b> m604a = av.a().m604a("5");
             if (m604a.isEmpty()) {
-                next = a2.a(this.f78580a);
-                y.a(this.f78580a, next);
+                next = a2.a(this.f71518a);
+                y.a(this.f71518a, next);
                 av.a().a(next);
             } else {
                 next = m604a.iterator().next();
             }
-            if (!this.f78580a.m570c()) {
-                this.f78580a.a(true);
+            if (!this.f71518a.m570c()) {
+                this.f71518a.a(true);
                 return;
             }
             try {
-                if (next.f913a == av.c.f78500c) {
-                    y.a(this.f78580a, this.f970a, this.f971a);
-                } else if (next.f913a == av.c.f78498a) {
-                    XMPushService xMPushService = this.f78580a;
-                    XMPushService xMPushService2 = this.f78580a;
+                if (next.f914a == av.c.f71439c) {
+                    y.a(this.f71518a, this.f971a, this.f972a);
+                } else if (next.f914a == av.c.f71437a) {
+                    XMPushService xMPushService = this.f71518a;
+                    XMPushService xMPushService2 = this.f71518a;
                     xMPushService2.getClass();
                     xMPushService.a(new XMPushService.a(xMPushService2, next));
                 }
             } catch (fw e3) {
                 com.xiaomi.channel.commonutils.logger.b.d("meet error, disconnect connection. " + e3);
-                this.f78580a.a(10, e3);
+                this.f71518a.a(10, e3);
             }
         }
     }

@@ -4,9 +4,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.apollon.a;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RSSExpandedReader extends AbstractRSSReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] EVEN_TOTAL_SUBSET;
@@ -73,7 +73,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         EVEN_TOTAL_SUBSET = new int[]{4, 20, 52, 104, 204};
         GSUM = new int[]{0, 348, 1388, 2948, 3988};
         FINDER_PATTERNS = new int[][]{new int[]{1, 8, 4, 1}, new int[]{3, 6, 4, 1}, new int[]{3, 4, 6, 1}, new int[]{3, 2, 8, 1}, new int[]{2, 6, 5, 1}, new int[]{2, 2, 9, 1}};
-        WEIGHTS = new int[][]{new int[]{1, 3, 9, 27, 81, 32, 96, 77}, new int[]{20, 60, 180, 118, 143, 7, 21, 63}, new int[]{189, 145, 13, 39, 117, 140, 209, 205}, new int[]{193, 157, 49, 147, 19, 57, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 91}, new int[]{62, 186, 136, Constants.METHOD_IM_DELIVER_CONFIG_MSG, Opcodes.RET, 85, 44, 132}, new int[]{185, 133, Opcodes.NEWARRAY, 142, 4, 12, 36, 108}, new int[]{113, 128, 173, 97, 80, 29, 87, 50}, new int[]{150, 28, 84, 41, 123, 158, 52, 156}, new int[]{46, 138, 203, Opcodes.NEW, 139, 206, 196, 166}, new int[]{76, 17, 51, 153, 37, 111, 122, a.f37803e}, new int[]{43, 129, Opcodes.ARETURN, 106, 107, 110, 119, 146}, new int[]{16, 48, 144, 10, 30, 90, 59, Opcodes.RETURN}, new int[]{109, 116, ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS, 200, 178, 112, 125, IChannelPay.ID_IPAY_PAY_GAME}, new int[]{70, 210, 208, 202, Opcodes.INVOKESTATIC, IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, 179, 115}, new int[]{134, 191, Opcodes.DCMPL, 31, 93, 68, 204, 190}, new int[]{Opcodes.LCMP, 22, 66, Opcodes.IFNULL, 172, 94, 71, 2}, new int[]{6, 18, 54, 162, 64, 192, Opcodes.IFNE, 40}, new int[]{120, Opcodes.FCMPL, 25, 75, 14, 42, 126, 167}, new int[]{79, 26, 78, 23, 69, 207, Opcodes.IFNONNULL, 175}, new int[]{103, 98, 83, 38, 114, IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER, Opcodes.INVOKEVIRTUAL, 124}, new int[]{161, 61, 183, 127, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 88, 53, Opcodes.IF_ICMPEQ}, new int[]{55, 165, 73, 8, 24, 72, 5, 15}, new int[]{45, 135, 194, 160, 58, 174, 100, 89}};
+        WEIGHTS = new int[][]{new int[]{1, 3, 9, 27, 81, 32, 96, 77}, new int[]{20, 60, 180, 118, 143, 7, 21, 63}, new int[]{189, 145, 13, 39, 117, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 209, 205}, new int[]{193, 157, 49, 147, 19, 57, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 91}, new int[]{62, 186, 136, Constants.METHOD_IM_DELIVER_CONFIG_MSG, Opcodes.RET, 85, 44, 132}, new int[]{185, 133, Opcodes.NEWARRAY, 142, 4, 12, 36, 108}, new int[]{113, 128, 173, 97, 80, 29, 87, 50}, new int[]{150, 28, 84, 41, 123, 158, 52, 156}, new int[]{46, 138, 203, Opcodes.NEW, 139, 206, 196, 166}, new int[]{76, 17, 51, 153, 37, 111, 122, a.f35825e}, new int[]{43, 129, Opcodes.ARETURN, 106, 107, 110, 119, 146}, new int[]{16, 48, 144, 10, 30, 90, 59, Opcodes.RETURN}, new int[]{109, 116, ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS, 200, 178, 112, 125, 164}, new int[]{70, 210, 208, 202, Opcodes.INVOKESTATIC, IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, 179, 115}, new int[]{134, 191, Opcodes.DCMPL, 31, 93, 68, 204, 190}, new int[]{Opcodes.LCMP, 22, 66, Opcodes.IFNULL, 172, 94, 71, 2}, new int[]{6, 18, 54, 162, 64, 192, Opcodes.IFNE, 40}, new int[]{120, Opcodes.FCMPL, 25, 75, 14, 42, 126, 167}, new int[]{79, 26, 78, 23, 69, 207, Opcodes.IFNONNULL, 175}, new int[]{103, 98, 83, 38, 114, IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER, Opcodes.INVOKEVIRTUAL, 124}, new int[]{161, 61, 183, 127, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 88, 53, Opcodes.IF_ICMPEQ}, new int[]{55, 165, 73, 8, 24, 72, 5, 15}, new int[]{45, 135, 194, 160, 58, 174, 100, 89}};
         FINDER_PATTERN_SEQUENCES = new int[][]{new int[]{0, 0}, new int[]{0, 1, 1}, new int[]{0, 2, 1, 3}, new int[]{0, 4, 1, 3, 2}, new int[]{0, 4, 1, 3, 3, 5}, new int[]{0, 4, 1, 3, 4, 5, 5}, new int[]{0, 0, 1, 1, 2, 2, 3, 3}, new int[]{0, 0, 1, 1, 2, 2, 3, 4, 4}, new int[]{0, 0, 1, 1, 2, 2, 3, 4, 5, 5}, new int[]{0, 0, 1, 1, 2, 3, 3, 4, 4, 5, 5}};
     }
 

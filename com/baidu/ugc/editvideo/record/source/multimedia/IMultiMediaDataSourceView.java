@@ -4,7 +4,7 @@ import android.graphics.SurfaceTexture;
 import android.opengl.GLSurfaceView;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IMultiMediaDataSourceView extends SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer, IVLogLifeProtocol, OnMultiMediaCaptureCallback, OnPreRunnableTask {
     void addCoverStickerData(MultiMediaData multiMediaData);
 
@@ -24,7 +24,7 @@ public interface IMultiMediaDataSourceView extends SurfaceTexture.OnFrameAvailab
 
     void replaceCoverStickerData(MultiMediaData multiMediaData);
 
-    void seek(long j2);
+    void seek(long j);
 
     void setCurrentStickerData(int i2, String str);
 

@@ -52,7 +52,7 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Utility";
@@ -96,25 +96,25 @@ public class Utility {
         return invokeL.booleanValue;
     }
 
-    public static String formatTimeDuration(long j2) {
+    public static String formatTimeDuration(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
-            if (j2 <= 0) {
-                return String.valueOf(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            if (j <= 0) {
+                return String.valueOf(j);
             }
-            long j3 = 86400000;
-            long j4 = j2 / j3;
-            long j5 = j2 - (j3 * j4);
-            long j6 = 3600000;
-            long j7 = j5 / j6;
-            long j8 = j5 - (j6 * j7);
-            long j9 = 60000;
-            long j10 = j8 / j9;
-            long j11 = j8 - (j9 * j10);
-            long j12 = 1000;
-            long j13 = j11 / j12;
-            return j4 + " " + j7 + ":" + j10 + ":" + j13 + ":" + (j11 - (j12 * j13));
+            long j2 = 86400000;
+            long j3 = j / j2;
+            long j4 = j - (j2 * j3);
+            long j5 = 3600000;
+            long j6 = j4 / j5;
+            long j7 = j4 - (j5 * j6);
+            long j8 = 60000;
+            long j9 = j7 / j8;
+            long j10 = j7 - (j8 * j9);
+            long j11 = 1000;
+            long j12 = j10 / j11;
+            return j3 + " " + j6 + ":" + j9 + ":" + j12 + ":" + (j10 - (j11 * j12));
         }
         return (String) invokeJ.objValue;
     }
@@ -153,7 +153,7 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f36026h);
+            sb.append(a.f34124h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append(ExtendedMessageFormat.END_FE);

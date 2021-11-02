@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ConstrastLoadingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f40386a;
+    public ImageView f38290a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f40387b;
+    public ImageView f38291b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConstrastLoadingView(Context context) {
@@ -52,8 +52,8 @@ public class ConstrastLoadingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
-            this.f40386a = (ImageView) findViewById(R.id.iv_recog_circle);
-            this.f40387b = (ImageView) findViewById(R.id.iv_recog_logo);
+            this.f38290a = (ImageView) findViewById(R.id.iv_recog_circle);
+            this.f38291b = (ImageView) findViewById(R.id.iv_recog_logo);
             a();
         }
     }
@@ -61,7 +61,7 @@ public class ConstrastLoadingView extends LinearLayout {
     public void clearAnim() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40386a.clearAnimation();
+            this.f38290a.clearAnimation();
             clearAnimation();
             setVisibility(4);
         }
@@ -97,11 +97,11 @@ public class ConstrastLoadingView extends LinearLayout {
         a(context);
     }
 
-    private RotateAnimation a(boolean z, long j2) {
+    private RotateAnimation a(boolean z, long j) {
         InterceptResult invokeCommon;
         RotateAnimation rotateAnimation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
             LinearInterpolator linearInterpolator = new LinearInterpolator();
             if (z) {
                 rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
@@ -110,7 +110,7 @@ public class ConstrastLoadingView extends LinearLayout {
             }
             rotateAnimation.setRepeatCount(-1);
             rotateAnimation.setRepeatMode(1);
-            rotateAnimation.setDuration(j2);
+            rotateAnimation.setDuration(j);
             rotateAnimation.setInterpolator(linearInterpolator);
             return rotateAnimation;
         }
@@ -120,7 +120,7 @@ public class ConstrastLoadingView extends LinearLayout {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f40386a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
+            this.f38290a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
         }
     }
 }

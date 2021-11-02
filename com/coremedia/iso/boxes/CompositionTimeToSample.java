@@ -20,7 +20,7 @@ import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CompositionTimeToSample extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -30,7 +30,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,11 +137,11 @@ public class CompositionTimeToSample extends AbstractFullBox {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (Entry entry : list) {
-                j2 += entry.getCount();
+                j += entry.getCount();
             }
-            int[] iArr = new int[(int) j2];
+            int[] iArr = new int[(int) j];
             int i2 = 0;
             for (Entry entry2 : list) {
                 int i3 = 0;

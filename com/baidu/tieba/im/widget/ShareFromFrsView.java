@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.e.e.p.k;
+import b.a.e.e.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
@@ -16,28 +16,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShareFromFrsView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f53324e;
+    public TextView f50574e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f53325f;
+    public HeadImageView f50575f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f53326g;
+    public TextView f50576g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f53327h;
+    public TextView f50577h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f53328i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f53329j;
+    public TextView f50578i;
+    public TextView j;
     public Context k;
     public ShareFromFrsMsgData l;
 
@@ -77,24 +75,24 @@ public class ShareFromFrsView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.share_from_frs_view, this);
-            this.f53324e = (TextView) findViewById(R.id.frs_name);
-            this.f53325f = (HeadImageView) findViewById(R.id.frs_img);
-            this.f53327h = (TextView) findViewById(R.id.frs_member_num);
-            this.f53329j = (TextView) findViewById(R.id.frs_post_num);
-            this.f53326g = (TextView) findViewById(R.id.frs_member_num_label);
-            this.f53328i = (TextView) findViewById(R.id.frs_post_num_label);
+            this.f50574e = (TextView) findViewById(R.id.frs_name);
+            this.f50575f = (HeadImageView) findViewById(R.id.frs_img);
+            this.f50577h = (TextView) findViewById(R.id.frs_member_num);
+            this.j = (TextView) findViewById(R.id.frs_post_num);
+            this.f50576g = (TextView) findViewById(R.id.frs_member_num_label);
+            this.f50578i = (TextView) findViewById(R.id.frs_post_num_label);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f53324e.setText(a(this.l.getName()));
-            this.f53325f.setPlaceHolder(1);
-            this.f53325f.setAutoChangeStyle(false);
-            this.f53325f.startLoad(this.l.getImageUrl(), 10, false);
-            this.f53327h.setText(StringHelper.numFormatOver10000(this.l.getMemberNum()));
-            this.f53329j.setText(StringHelper.numFormatOver10000(this.l.getPostNum()));
+            this.f50574e.setText(a(this.l.getName()));
+            this.f50575f.setPlaceHolder(1);
+            this.f50575f.setAutoChangeStyle(false);
+            this.f50575f.startLoad(this.l.getImageUrl(), 10, false);
+            this.f50577h.setText(StringHelper.numFormatOver10000(this.l.getMemberNum()));
+            this.j.setText(StringHelper.numFormatOver10000(this.l.getPostNum()));
         }
     }
 
@@ -110,18 +108,18 @@ public class ShareFromFrsView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f53324e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-                this.f53327h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f53329j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f53326g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f53328i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f50574e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+                this.f50577h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f50576g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f50578i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
                 return;
             }
-            this.f53324e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f53327h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f53329j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f53326g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f53328i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f50574e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f50577h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f50576g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f50578i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
     }
 

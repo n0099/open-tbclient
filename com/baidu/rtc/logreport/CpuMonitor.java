@@ -8,6 +8,7 @@ import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CpuMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_STAT_LOG_PERIOD_MS = 6000;
@@ -47,7 +48,7 @@ public class CpuMonitor {
     public final MovingAverage totalCpuUsage;
     public final MovingAverage userCpuUsage;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class MovingAverage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +123,7 @@ public class CpuMonitor {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ProcStat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,12 +131,12 @@ public class CpuMonitor {
         public final long systemTime;
         public final long userTime;
 
-        public ProcStat(long j2, long j3, long j4) {
+        public ProcStat(long j, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -145,9 +146,9 @@ public class CpuMonitor {
                     return;
                 }
             }
-            this.userTime = j2;
-            this.systemTime = j3;
-            this.idleTime = j4;
+            this.userTime = j;
+            this.systemTime = j2;
+            this.idleTime = j3;
         }
     }
 
@@ -197,7 +198,7 @@ public class CpuMonitor {
             Intent registerReceiver = this.appContext.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             int intExtra = registerReceiver.getIntExtra("scale", 100);
             if (intExtra > 0) {
-                return (int) ((registerReceiver.getIntExtra("level", 0) * 100.0f) / intExtra);
+                return (int) ((registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0) * 100.0f) / intExtra);
             }
             return 0;
         }
@@ -297,22 +298,22 @@ public class CpuMonitor {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
-            long j2 = 0;
+            long j = 0;
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(str));
-                j2 = parseLong(bufferedReader.readLine());
+                j = parseLong(bufferedReader.readLine());
                 bufferedReader.close();
             } catch (FileNotFoundException | IOException unused) {
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
 
     private ProcStat readProcStat() {
         InterceptResult invokeV;
+        long j;
         long j2;
-        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             try {
@@ -320,23 +321,23 @@ public class CpuMonitor {
                 try {
                     String[] split = bufferedReader.readLine().split("\\s+");
                     int length = split.length;
-                    long j4 = 0;
+                    long j3 = 0;
                     if (length >= 5) {
-                        j4 = parseLong(split[1]) + parseLong(split[2]);
-                        j2 = parseLong(split[3]);
-                        j3 = parseLong(split[4]);
+                        j3 = parseLong(split[1]) + parseLong(split[2]);
+                        j = parseLong(split[3]);
+                        j2 = parseLong(split[4]);
                     } else {
+                        j = 0;
                         j2 = 0;
-                        j3 = 0;
                     }
                     if (length >= 8) {
-                        j4 += parseLong(split[5]);
-                        j2 = j2 + parseLong(split[6]) + parseLong(split[7]);
+                        j3 += parseLong(split[5]);
+                        j = j + parseLong(split[6]) + parseLong(split[7]);
                     }
-                    long j5 = j4;
-                    long j6 = j2;
+                    long j4 = j3;
+                    long j5 = j;
                     bufferedReader.close();
-                    return new ProcStat(j5, j6, j3);
+                    return new ProcStat(j4, j5, j2);
                 } catch (Exception unused) {
                     bufferedReader.close();
                     return null;
@@ -373,9 +374,9 @@ public class CpuMonitor {
                     return false;
                 }
                 this.actualCpusPresent = 0;
+                long j = 0;
                 long j2 = 0;
                 long j3 = 0;
-                long j4 = 0;
                 for (int i2 = 0; i2 < this.cpusPresent; i2++) {
                     this.curFreqScales[i2] = 0.0d;
                     if (this.cpuFreqMax[i2] == 0) {
@@ -384,26 +385,26 @@ public class CpuMonitor {
                             String str = "Core " + i2 + ". Max frequency: " + readFreqFromFile;
                             this.cpuFreqMax[i2] = readFreqFromFile;
                             this.maxPath[i2] = null;
-                            j4 = readFreqFromFile;
+                            j3 = readFreqFromFile;
                         }
                     } else {
-                        j4 = this.cpuFreqMax[i2];
+                        j3 = this.cpuFreqMax[i2];
                     }
                     long readFreqFromFile2 = readFreqFromFile(this.curPath[i2]);
                     int i3 = (readFreqFromFile2 > 0L ? 1 : (readFreqFromFile2 == 0L ? 0 : -1));
-                    if (i3 != 0 || j4 != 0) {
+                    if (i3 != 0 || j3 != 0) {
                         if (i3 > 0) {
                             this.actualCpusPresent++;
                         }
-                        j2 += readFreqFromFile2;
-                        j3 += j4;
-                        if (j4 > 0) {
-                            this.curFreqScales[i2] = readFreqFromFile2 / j4;
+                        j += readFreqFromFile2;
+                        j2 += j3;
+                        if (j3 > 0) {
+                            this.curFreqScales[i2] = readFreqFromFile2 / j3;
                         }
                     }
                 }
-                if (j2 != 0 && j3 != 0) {
-                    double d2 = j2 / j3;
+                if (j != 0 && j2 != 0) {
+                    double d2 = j / j2;
                     if (this.frequencyScale.getCurrent() > 0.0d) {
                         d2 = 0.5d * (this.frequencyScale.getCurrent() + d2);
                     }
@@ -413,14 +414,14 @@ public class CpuMonitor {
                         if (readProcStat == null) {
                             return false;
                         }
-                        long j5 = readProcStat.userTime - this.lastProcStat.userTime;
-                        long j6 = readProcStat.systemTime - this.lastProcStat.systemTime;
-                        long j7 = j5 + j6 + (readProcStat.idleTime - this.lastProcStat.idleTime);
-                        if (d2 != 0.0d && j7 != 0) {
-                            double d3 = j7;
-                            double d4 = j5 / d3;
+                        long j4 = readProcStat.userTime - this.lastProcStat.userTime;
+                        long j5 = readProcStat.systemTime - this.lastProcStat.systemTime;
+                        long j6 = j4 + j5 + (readProcStat.idleTime - this.lastProcStat.idleTime);
+                        if (d2 != 0.0d && j6 != 0) {
+                            double d3 = j6;
+                            double d4 = j4 / d3;
                             this.userCpuUsage.addValue(d4);
-                            double d5 = j6 / d3;
+                            double d5 = j5 / d3;
                             this.systemCpuUsage.addValue(d5);
                             this.totalCpuUsage.addValue((d4 + d5) * d2);
                             this.lastProcStat = readProcStat;

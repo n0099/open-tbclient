@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Locale;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class FieldNamingPolicy implements FieldNamingStrategy {
     public static final /* synthetic */ FieldNamingPolicy[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

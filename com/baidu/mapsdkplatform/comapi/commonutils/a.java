@@ -19,12 +19,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42199a;
+    public static final boolean f40027a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class a {
                 return;
             }
         }
-        f42199a = Build.VERSION.SDK_INT >= 8;
+        f40027a = Build.VERSION.SDK_INT >= 8;
     }
 
     public a() {
@@ -208,7 +208,7 @@ public class a {
             ZipFile zipFile2 = null;
             try {
                 try {
-                    zipFile = new ZipFile(f42199a ? context.getPackageCodePath() : "");
+                    zipFile = new ZipFile(f40027a ? context.getPackageCodePath() : "");
                 } catch (IOException unused) {
                 }
                 try {

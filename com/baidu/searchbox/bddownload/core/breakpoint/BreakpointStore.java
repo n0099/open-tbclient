@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface BreakpointStore {
     @NonNull
     BreakpointInfo createAndInsert(@NonNull DownloadTask downloadTask) throws IOException;

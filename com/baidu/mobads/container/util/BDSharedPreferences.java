@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BDSharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PREFIX_LOCAL_PATH = "localPath_";
@@ -51,10 +51,10 @@ public class BDSharedPreferences {
         return (String) invokeL.objValue;
     }
 
-    public long getLong(String str, long j2) {
+    public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) ? this.mSharedPreferences.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this.mSharedPreferences.getLong(str, j) : invokeLJ.longValue;
     }
 
     public String getString(String str, String str2) {
@@ -63,11 +63,11 @@ public class BDSharedPreferences {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this.mSharedPreferences.getString(str, str2) : (String) invokeLL.objValue;
     }
 
-    public void putLong(String str, long j2) {
+    public void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, str, j) == null) {
             SharedPreferences.Editor edit = this.mSharedPreferences.edit();
-            edit.putLong(str, j2);
+            edit.putLong(str, j);
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {
@@ -89,12 +89,12 @@ public class BDSharedPreferences {
         }
     }
 
-    public void saveFileInfo(String str, String str2, long j2) {
+    public void saveFileInfo(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             SharedPreferences.Editor edit = this.mSharedPreferences.edit();
             edit.putString(KEY_PREFIX_LOCAL_PATH + str, str2);
-            edit.putLong(KEY_PREFIX_TIME + str, j2);
+            edit.putLong(KEY_PREFIX_TIME + str, j);
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {

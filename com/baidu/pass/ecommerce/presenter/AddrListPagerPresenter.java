@@ -10,6 +10,7 @@ import com.baidu.pass.ecommerce.view.addressdialog.ListPagerView;
 import com.baidu.sapi2.ecommerce.result.AddrSelectorRequestParam;
 import com.baidu.sapi2.ecommerce.result.AddrSelectorResponseParam;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +136,7 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
     public String getErrorMsg(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? "网络不给力，请稍后重试" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? CoolPraiseView.NET_ERROR_TIP : (String) invokeI.objValue;
     }
 
     public List<AddressBean> makeSelectedEntity(ElementNode.AddressEntity addressEntity, String str) {

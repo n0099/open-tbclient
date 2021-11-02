@@ -11,13 +11,13 @@ import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.a;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
-/* loaded from: classes8.dex */
-public class a implements a.InterfaceC1855a {
+/* loaded from: classes10.dex */
+public class a implements a.InterfaceC1814a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f62999a;
+    public a.b f59866a;
 
     public a(a.b bVar) {
         Interceptable interceptable = $ic;
@@ -34,24 +34,24 @@ public class a implements a.InterfaceC1855a {
                 return;
             }
         }
-        this.f62999a = bVar;
+        this.f59866a = bVar;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1855a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1814a
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1855a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1814a
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) && str.trim().replace(" ", "").length() >= 9 : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1855a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1814a
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {

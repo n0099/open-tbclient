@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import c.a.e.e.p.h;
+import b.a.e.e.p.h;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class StringU {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f49113a;
+    public static boolean f46589a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,9 +33,9 @@ public class StringU {
             }
         }
         try {
-            boolean j2 = h.f().j("stringu", 2);
-            f49113a = j2;
-            if (j2) {
+            boolean j = h.f().j("stringu", 2);
+            f46589a = j;
+            if (j) {
                 a("stringu_so_load_success", null);
             } else {
                 a("stringu_so_load_retry_fail", "retry to load so failed at 2 times");
@@ -80,7 +80,7 @@ public class StringU {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!f49113a || TextUtils.isEmpty(str)) {
+            if (!f46589a || TextUtils.isEmpty(str)) {
                 str2 = "";
             } else {
                 try {

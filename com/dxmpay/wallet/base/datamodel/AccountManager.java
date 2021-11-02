@@ -17,7 +17,7 @@ import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class AccountManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_PREFERENCE_ACCOUNT = "account";
@@ -29,7 +29,7 @@ public final class AccountManager implements NoProguard {
     public final SharedPreferences mPreferences;
     public String mbfbToken;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class User implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;

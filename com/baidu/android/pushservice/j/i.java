@@ -11,7 +11,7 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,12 +35,12 @@ public class i {
         }
     }
 
-    public static void a(Context context, String str, long j2) {
+    public static void a(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
             try {
                 SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
-                edit.putLong(str, j2);
+                edit.putLong(str, j);
                 edit.commit();
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();
@@ -48,13 +48,13 @@ public class i {
         }
     }
 
-    public static void a(Context context, String str, String str2, String str3, String str4, String str5, long j2, String str6, String str7) {
+    public static void a(Context context, String str, String str2, String str3, String str4, String str5, long j, String str6, String str7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, str3, str4, str5, Long.valueOf(j2), str6, str7}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, str3, str4, str5, Long.valueOf(j), str6, str7}) == null) {
             try {
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
-                if (j2 != 0) {
-                    edit.putLong("currbindtime", j2);
+                if (j != 0) {
+                    edit.putLong("currbindtime", j);
                 }
                 if (!TextUtils.isEmpty(str6)) {
                     edit.putString("access_token", str6);
@@ -70,7 +70,7 @@ public class i {
                 edit.putString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str4);
                 edit.putString("user_id", str5);
                 edit.putBoolean("bind_status", true);
-                m.f37695a = 1;
+                m.f35719a = 1;
                 edit.putLong("version_code", m.c(context, context.getPackageName()));
                 edit.apply();
             } catch (Exception e2) {

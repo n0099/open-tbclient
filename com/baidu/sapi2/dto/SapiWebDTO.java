@@ -1,17 +1,19 @@
 package com.baidu.sapi2.dto;
 
+import android.view.View;
 import com.baidu.sapi2.enums.LoginTypes;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SapiWebDTO extends SapiDTO {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int closeEnterAnimId;
     public int closeExitAnimId;
     public LoginTypes excludeTypes;
+    public View loadingView;
     public int openEnterAnimId;
     public int openExitAnimId;
     public boolean sweepLightLoading;

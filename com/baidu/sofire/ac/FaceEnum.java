@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FaceEnum {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class FaceType {
         public static final /* synthetic */ FaceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class ImageType {
         public static final /* synthetic */ ImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -141,7 +141,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class LivenessControl {
         public static final /* synthetic */ LivenessControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -205,7 +205,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class QualityControl {
         public static final /* synthetic */ QualityControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -269,7 +269,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class SpoofingControl {
         public static final /* synthetic */ SpoofingControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

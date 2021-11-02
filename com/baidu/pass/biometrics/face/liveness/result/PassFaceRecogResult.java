@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PassFaceRecogResult extends PassBiometricResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_CONTRAST_FAIL = -302;
@@ -94,7 +94,7 @@ public class PassFaceRecogResult extends PassBiometricResult {
         this.msgMap.put(-12, "活体验证失败");
         this.msgMap.put(-13, "人脸SDK初始化失败");
         this.msgMap.put(-14, "请先同意隐私协议");
-        this.msgMap.put(-15, "安全模块未成功加载");
+        this.msgMap.put(-15, "安全模块未成功加载，请稍后重试");
         this.msgMap.put(-18, "未检测到人脸");
     }
 }

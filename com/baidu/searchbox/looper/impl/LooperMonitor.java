@@ -1,9 +1,9 @@
 package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
-import c.h.b.a.b;
-import c.h.b.a.c;
-import c.h.b.a.d;
+import b.h.b.a.b;
+import b.h.b.a.c;
+import b.h.b.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LooperMonitor implements ILooperMonitor {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean sIsStartTrack;
@@ -64,7 +64,7 @@ public class LooperMonitor implements ILooperMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.h());
+        sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.g());
     }
 
     public static void startTrack(Context context) {
@@ -106,10 +106,10 @@ public class LooperMonitor implements ILooperMonitor {
                 sLooperContextDispatcher = new LooperContextDispatcher();
             }
             b.init(context, sLooperContextDispatcher, i2);
-            c.l(b.get());
-            c f2 = c.f();
-            this.mBlockCanaryCore = f2;
-            f2.b(b.get());
+            c.k(b.get());
+            c e2 = c.e();
+            this.mBlockCanaryCore = e2;
+            e2.b(b.get());
             startLooperPrint();
             startTrack(context);
         }
@@ -120,9 +120,9 @@ public class LooperMonitor implements ILooperMonitor {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.mMonitorStarted) {
             this.mMonitorStarted = false;
-            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.h());
-            this.mBlockCanaryCore.k().d();
-            this.mBlockCanaryCore.e().d();
+            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.g());
+            this.mBlockCanaryCore.j().d();
+            this.mBlockCanaryCore.d().d();
         }
     }
 }

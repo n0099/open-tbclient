@@ -7,7 +7,7 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class cy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class cy {
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, iqVar, hfVar)) == null) {
-            switch (cz.f77817a[hfVar.ordinal()]) {
+            switch (cz.f70779a[hfVar.ordinal()]) {
                 case 1:
                 case 2:
                 case 3:
@@ -53,13 +53,13 @@ public class cy {
                     if (iqVar != null) {
                         try {
                             if (iqVar instanceof hw) {
-                                String str = ((hw) iqVar).f598d;
+                                String str = ((hw) iqVar).f599d;
                                 if (!TextUtils.isEmpty(str) && ek.a(ek.m288a(str)) != -1) {
                                     a2 = ek.a(ek.m288a(str));
                                     break;
                                 }
                             } else if (iqVar instanceof ie) {
-                                String str2 = ((ie) iqVar).f659d;
+                                String str2 = ((ie) iqVar).f660d;
                                 if (!TextUtils.isEmpty(str2)) {
                                     if (ek.a(ek.m288a(str2)) != -1) {
                                         a2 = ek.a(ek.m288a(str2));

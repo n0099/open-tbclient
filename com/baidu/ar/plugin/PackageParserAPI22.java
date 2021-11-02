@@ -29,7 +29,7 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PackageParserAPI22 extends PackageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PackageParserAPI22";
@@ -165,11 +165,11 @@ public class PackageParserAPI22 extends PackageParser {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:9:0x0054 */
     @Override // com.baidu.ar.plugin.PackageParser
-    public PackageInfo generatePackageInfo(int[] iArr, int i2, long j2, long j3, HashSet<String> hashSet) {
+    public PackageInfo generatePackageInfo(int[] iArr, int i2, long j, long j2, HashSet<String> hashSet) {
         InterceptResult invokeCommon;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{iArr, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), hashSet})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{iArr, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), hashSet})) == null) {
             Class<?> cls = Class.forName("java.util.Set");
             Class<?> cls2 = this.sPackageParserClass;
             Class cls3 = Long.TYPE;
@@ -183,7 +183,7 @@ public class PackageParserAPI22 extends PackageParser {
             if (obj == null) {
                 obj = hashSet;
             }
-            return (PackageInfo) accessibleMethod.invoke(null, this.mPackage, iArr, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), obj, this.mDefaultPackageUserState);
+            return (PackageInfo) accessibleMethod.invoke(null, this.mPackage, iArr, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), obj, this.mDefaultPackageUserState);
         }
         return (PackageInfo) invokeCommon.objValue;
     }

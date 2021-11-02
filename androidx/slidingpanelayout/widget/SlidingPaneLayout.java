@@ -763,10 +763,10 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j2) {
+    public boolean drawChild(Canvas canvas, View view, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             int save = canvas.save();
             if (this.mCanSlide && !layoutParams.slideable && this.mSlideableView != null) {
@@ -780,7 +780,7 @@ public class SlidingPaneLayout extends ViewGroup {
                 }
                 canvas.clipRect(this.mTmpRect);
             }
-            boolean drawChild = super.drawChild(canvas, view, j2);
+            boolean drawChild = super.drawChild(canvas, view, j);
             canvas.restoreToCount(save);
             return drawChild;
         }

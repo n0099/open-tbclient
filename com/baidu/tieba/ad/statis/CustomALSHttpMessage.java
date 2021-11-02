@@ -3,7 +3,7 @@ package com.baidu.tieba.ad.statis;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import c.a.e.e.p.j;
+import b.a.e.e.p.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -20,20 +20,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CustomALSHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final TbHttpMessageTask task;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler mUIHandler;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CustomALSHttpMessage f49243e;
+        public final /* synthetic */ CustomALSHttpMessage f46712e;
 
         public a(CustomALSHttpMessage customALSHttpMessage) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class CustomALSHttpMessage extends HttpMessage {
                     return;
                 }
             }
-            this.f49243e = customALSHttpMessage;
+            this.f46712e = customALSHttpMessage;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.f49243e, CustomALSHttpMessage.task);
+                MessageManager.getInstance().sendMessage(this.f46712e, CustomALSHttpMessage.task);
             }
         }
     }

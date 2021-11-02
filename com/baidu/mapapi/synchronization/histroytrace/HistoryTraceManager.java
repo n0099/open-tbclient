@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HistoryTraceManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.b.b f42067a;
+    public com.baidu.mapsdkplatform.comapi.synchronization.b.b f39896a;
 
     public HistoryTraceManager() {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class HistoryTraceManager {
                 return;
             }
         }
-        this.f42067a = new com.baidu.mapsdkplatform.comapi.synchronization.b.b();
+        this.f39896a = new com.baidu.mapsdkplatform.comapi.synchronization.b.b();
     }
 
     public boolean isHttpsEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar = this.f42067a;
+            com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar = this.f39896a;
             if (bVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b("HistoryTraceManager", "The implement instance is null");
                 return true;
@@ -48,7 +48,7 @@ public class HistoryTraceManager {
     public void queryHistoryTraceData(HistoryTraceQueryOptions historyTraceQueryOptions) {
         com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, historyTraceQueryOptions) == null) || (bVar = this.f42067a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, historyTraceQueryOptions) == null) || (bVar = this.f39896a) == null) {
             return;
         }
         bVar.a(historyTraceQueryOptions);
@@ -57,7 +57,7 @@ public class HistoryTraceManager {
     public void release() {
         com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f42067a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f39896a) == null) {
             return;
         }
         bVar.a();
@@ -66,7 +66,7 @@ public class HistoryTraceManager {
     public void renderHistoryTrace(BaiduMap baiduMap, HistoryTraceData historyTraceData, HistoryTraceDisplayOptions historyTraceDisplayOptions, int i2) {
         com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, baiduMap, historyTraceData, historyTraceDisplayOptions, i2) == null) || (bVar = this.f42067a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, baiduMap, historyTraceData, historyTraceDisplayOptions, i2) == null) || (bVar = this.f39896a) == null) {
             return;
         }
         bVar.a(baiduMap, historyTraceData, historyTraceDisplayOptions, i2);
@@ -75,7 +75,7 @@ public class HistoryTraceManager {
     public void setHttpsEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar = this.f42067a;
+            com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar = this.f39896a;
             if (bVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b("HistoryTraceManager", "The implement instance is null");
             } else {
@@ -90,7 +90,7 @@ public class HistoryTraceManager {
             if (onHistoryTraceListener == null) {
                 throw new IllegalArgumentException("HistoryTraceManager-- OnHistoryTraceListener must not be null.");
             }
-            com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar = this.f42067a;
+            com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar = this.f39896a;
             if (bVar != null) {
                 bVar.a(onHistoryTraceListener);
             }

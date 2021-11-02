@@ -33,7 +33,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_NUM = 4;
@@ -66,12 +66,12 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     public byte[] rotatedFrame;
     public SurfaceHolder surfaceHolder;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface Callback {
         void onFrame(byte[] bArr, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class LooperThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FRAME_INTERVAL = 200;

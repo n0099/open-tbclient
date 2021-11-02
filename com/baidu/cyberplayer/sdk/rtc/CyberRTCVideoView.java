@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CyberRTCVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RTCVideoViewProvider f39268a;
+    public RTCVideoViewProvider f37218a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CyberRTCVideoView(Context context) {
@@ -75,14 +75,14 @@ public class CyberRTCVideoView {
                 return;
             }
         }
-        this.f39268a = a.a().a(context, attributeSet, z);
+        this.f37218a = a.a().a(context, attributeSet, z);
     }
 
     public SurfaceView getRTCVideoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            RTCVideoViewProvider rTCVideoViewProvider = this.f39268a;
+            RTCVideoViewProvider rTCVideoViewProvider = this.f37218a;
             if (rTCVideoViewProvider != null) {
                 return rTCVideoViewProvider.getRTCVideoView();
             }

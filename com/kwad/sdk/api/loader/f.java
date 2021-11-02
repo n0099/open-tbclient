@@ -4,27 +4,26 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f71460a = "newversion";
+    public static String f63939a = "newversion";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f71461b = "curversion";
+    public static String f63940b = "curversion";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f71462c = "apiversion";
+    public static String f63941c = "apiversion";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f71463d = "_enable";
+    public static String f63942d = "_enable";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +44,7 @@ public class f {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? a(context, f71462c) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? a(context, f63941c) : (String) invokeL.objValue;
     }
 
     public static String a(Context context, String str) {
@@ -72,8 +71,8 @@ public class f {
                 return false;
             }
             if (TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = str.split("\\.");
+                String[] split2 = str2.split("\\.");
                 for (int i2 = 0; i2 < split.length && i2 < split2.length; i2++) {
                     try {
                         int parseInt = Integer.parseInt(split[i2]) - Integer.parseInt(split2[i2]);
@@ -97,7 +96,7 @@ public class f {
     public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
-            a(context, f71462c, str);
+            a(context, f63941c, str);
         }
     }
 }

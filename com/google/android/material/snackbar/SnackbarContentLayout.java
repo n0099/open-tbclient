@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,12 +86,12 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             this.messageView.setAlpha(0.0f);
-            long j2 = i3;
-            long j3 = i2;
-            this.messageView.animate().alpha(1.0f).setDuration(j2).setStartDelay(j3).start();
+            long j = i3;
+            long j2 = i2;
+            this.messageView.animate().alpha(1.0f).setDuration(j).setStartDelay(j2).start();
             if (this.actionView.getVisibility() == 0) {
                 this.actionView.setAlpha(0.0f);
-                this.actionView.animate().alpha(1.0f).setDuration(j2).setStartDelay(j3).start();
+                this.actionView.animate().alpha(1.0f).setDuration(j).setStartDelay(j2).start();
             }
         }
     }
@@ -101,12 +101,12 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             this.messageView.setAlpha(1.0f);
-            long j2 = i3;
-            long j3 = i2;
-            this.messageView.animate().alpha(0.0f).setDuration(j2).setStartDelay(j3).start();
+            long j = i3;
+            long j2 = i2;
+            this.messageView.animate().alpha(0.0f).setDuration(j).setStartDelay(j2).start();
             if (this.actionView.getVisibility() == 0) {
                 this.actionView.setAlpha(1.0f);
-                this.actionView.animate().alpha(0.0f).setDuration(j2).setStartDelay(j3).start();
+                this.actionView.animate().alpha(0.0f).setDuration(j).setStartDelay(j2).start();
             }
         }
     }

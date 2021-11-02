@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static void a(String str, String str2) {
         try {
@@ -80,7 +80,7 @@ public class a {
                 try {
                     return Long.valueOf(str2).longValue() > Long.valueOf(file2.getName().split("-")[1]).longValue();
                 } catch (Exception e2) {
-                    c.l.a.a.a.b("FileUtil", "filters file error " + e2.getMessage());
+                    b.l.a.a.a.b("FileUtil", "filters file error " + e2.getMessage());
                     return true;
                 }
             }

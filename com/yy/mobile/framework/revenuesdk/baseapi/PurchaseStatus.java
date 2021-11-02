@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PurchaseStatus {
     public static final /* synthetic */ PurchaseStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

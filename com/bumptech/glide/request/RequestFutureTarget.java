@@ -24,7 +24,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R>, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final Waiter DEFAULT_WAITER;
@@ -45,7 +45,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     public final int width;
 
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class Waiter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,10 +71,10 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
             }
         }
 
-        public void waitForTimeout(Object obj, long j2) throws InterruptedException {
+        public void waitForTimeout(Object obj, long j) throws InterruptedException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, j2) == null) {
-                obj.wait(j2);
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, j) == null) {
+                obj.wait(j);
             }
         }
     }
@@ -380,9 +380,9 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     }
 
     @Override // java.util.concurrent.Future
-    public R get(long j2, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public R get(long j, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit)) == null) ? doGet(Long.valueOf(timeUnit.toMillis(j2))) : (R) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit)) == null) ? doGet(Long.valueOf(timeUnit.toMillis(j))) : (R) invokeJL.objValue;
     }
 }

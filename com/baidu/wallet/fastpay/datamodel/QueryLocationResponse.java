@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigDecimal;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class QueryLocationResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HUODONG_PRICE_NO = "0";

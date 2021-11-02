@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f45127a;
+    public static e f42861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f45128b;
+    public static long f42862b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -37,11 +37,11 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (f.class) {
-                if (f45127a != null) {
-                    e eVar = f45127a;
-                    f45127a = eVar.f45125f;
-                    eVar.f45125f = null;
-                    f45128b -= 8192;
+                if (f42861a != null) {
+                    e eVar = f42861a;
+                    f42861a = eVar.f42859f;
+                    eVar.f42859f = null;
+                    f42862b -= 8192;
                     return eVar;
                 }
                 return new e();
@@ -53,19 +53,19 @@ public final class f {
     public static void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, eVar) == null) {
-            if (eVar.f45125f == null && eVar.f45126g == null) {
-                if (eVar.f45123d) {
+            if (eVar.f42859f == null && eVar.f42860g == null) {
+                if (eVar.f42857d) {
                     return;
                 }
                 synchronized (f.class) {
-                    if (f45128b + 8192 > 65536) {
+                    if (f42862b + 8192 > 65536) {
                         return;
                     }
-                    f45128b += 8192;
-                    eVar.f45125f = f45127a;
-                    eVar.f45122c = 0;
-                    eVar.f45121b = 0;
-                    f45127a = eVar;
+                    f42862b += 8192;
+                    eVar.f42859f = f42861a;
+                    eVar.f42856c = 0;
+                    eVar.f42855b = 0;
+                    f42861a = eVar;
                     return;
                 }
             }

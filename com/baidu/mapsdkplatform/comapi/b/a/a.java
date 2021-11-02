@@ -16,27 +16,27 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f42184b;
+    public static volatile boolean f40012b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42185a;
+    public String f40013a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f42186c;
+    public Thread.UncaughtExceptionHandler f40014c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C1673a {
+    /* loaded from: classes7.dex */
+    public static class C1630a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f42187a;
+        public static final a f40015a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +52,7 @@ public class a implements Thread.UncaughtExceptionHandler {
                     return;
                 }
             }
-            f42187a = new a(null);
+            f40015a = new a(null);
         }
     }
 
@@ -84,8 +84,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f42185a = "";
-        this.f42186c = Thread.getDefaultUncaughtExceptionHandler();
+        this.f40013a = "";
+        this.f40014c = Thread.getDefaultUncaughtExceptionHandler();
     }
 
     public /* synthetic */ a(b bVar) {
@@ -95,7 +95,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1673a.f42187a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1630a.f40015a : (a) invokeV.objValue;
     }
 
     private void a(Throwable th) {
@@ -118,8 +118,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 }
                 printWriter.close();
                 String obj = stringWriter.toString();
-                if (!obj.isEmpty() && this.f42185a != null && !this.f42185a.isEmpty()) {
-                    File file = new File(URLEncoder.encode(this.f42185a + (System.currentTimeMillis() / 1000) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "UTF-8"));
+                if (!obj.isEmpty() && this.f40013a != null && !this.f40013a.isEmpty()) {
+                    File file = new File(URLEncoder.encode(this.f40013a + (System.currentTimeMillis() / 1000) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "UTF-8"));
                     if (file.exists() || file.createNewFile()) {
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         fileOutputStream.write(obj.getBytes());
@@ -134,7 +134,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f42185a = str;
+            this.f40013a = str;
             if (Thread.getDefaultUncaughtExceptionHandler() instanceof a) {
                 return;
             }
@@ -145,12 +145,12 @@ public class a implements Thread.UncaughtExceptionHandler {
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) || f42184b) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) || f40012b) {
             return;
         }
-        f42184b = true;
+        f40012b = true;
         a(th);
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f42186c;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f40014c;
         if (uncaughtExceptionHandler != null) {
             uncaughtExceptionHandler.uncaughtException(thread, th);
         }

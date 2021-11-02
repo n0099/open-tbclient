@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaStreamTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_TRACK_KIND = "audio";
@@ -19,7 +19,7 @@ public class MediaStreamTrack {
     public long nativeTrack;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class MediaType {
         public static final /* synthetic */ MediaType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -105,7 +105,7 @@ public class MediaStreamTrack {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -171,12 +171,12 @@ public class MediaStreamTrack {
         }
     }
 
-    public MediaStreamTrack(long j2) {
+    public MediaStreamTrack(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -186,8 +186,8 @@ public class MediaStreamTrack {
                 return;
             }
         }
-        if (j2 != 0) {
-            this.nativeTrack = j2;
+        if (j != 0) {
+            this.nativeTrack = j;
             return;
         }
         throw new IllegalArgumentException("nativeTrack may not be null");
@@ -201,34 +201,34 @@ public class MediaStreamTrack {
     }
 
     @Nullable
-    public static MediaStreamTrack createMediaStreamTrack(long j2) {
+    public static MediaStreamTrack createMediaStreamTrack(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
-            if (j2 == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            if (j == 0) {
                 return null;
             }
-            String nativeGetKind = nativeGetKind(j2);
+            String nativeGetKind = nativeGetKind(j);
             if (nativeGetKind.equals(AUDIO_TRACK_KIND)) {
-                return new AudioTrack(j2);
+                return new AudioTrack(j);
             }
             if (nativeGetKind.equals("video")) {
-                return new VideoTrack(j2);
+                return new VideoTrack(j);
             }
             return null;
         }
         return (MediaStreamTrack) invokeJ.objValue;
     }
 
-    public static native boolean nativeGetEnabled(long j2);
+    public static native boolean nativeGetEnabled(long j);
 
-    public static native String nativeGetId(long j2);
+    public static native String nativeGetId(long j);
 
-    public static native String nativeGetKind(long j2);
+    public static native String nativeGetKind(long j);
 
-    public static native State nativeGetState(long j2);
+    public static native State nativeGetState(long j);
 
-    public static native boolean nativeSetEnabled(long j2, boolean z);
+    public static native boolean nativeSetEnabled(long j, boolean z);
 
     public void dispose() {
         Interceptable interceptable = $ic;

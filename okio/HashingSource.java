@@ -14,7 +14,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HashingSource extends ForwardingSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,30 +88,30 @@ public final class HashingSource extends ForwardingSource {
     }
 
     @Override // okio.ForwardingSource, okio.Source
-    public long read(Buffer buffer, long j2) throws IOException {
+    public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
-            long read = super.read(buffer, j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+            long read = super.read(buffer, j);
             if (read != -1) {
-                long j3 = buffer.size;
-                long j4 = j3 - read;
+                long j2 = buffer.size;
+                long j3 = j2 - read;
                 Segment segment = buffer.head;
-                while (j3 > j4) {
+                while (j2 > j3) {
                     segment = segment.prev;
-                    j3 -= segment.limit - segment.pos;
+                    j2 -= segment.limit - segment.pos;
                 }
-                while (j3 < buffer.size) {
-                    int i2 = (int) ((segment.pos + j4) - j3);
+                while (j2 < buffer.size) {
+                    int i2 = (int) ((segment.pos + j3) - j2);
                     MessageDigest messageDigest = this.messageDigest;
                     if (messageDigest != null) {
                         messageDigest.update(segment.data, i2, segment.limit - i2);
                     } else {
                         this.mac.update(segment.data, i2, segment.limit - i2);
                     }
-                    j4 = (segment.limit - segment.pos) + j3;
+                    j3 = (segment.limit - segment.pos) + j2;
                     segment = segment.next;
-                    j3 = j4;
+                    j2 = j3;
                 }
             }
             return read;

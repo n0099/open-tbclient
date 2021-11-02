@@ -11,8 +11,9 @@ import com.facebook.datasource.BaseDataSubscriber;
 import com.facebook.datasource.DataSource;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.CloseableStaticBitmap;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseBitmapReferenceDataSubscriber extends BaseDataSubscriber<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +35,7 @@ public abstract class BaseBitmapReferenceDataSubscriber extends BaseDataSubscrib
     public abstract void onNewResultImpl(@Nullable CloseableReference<Bitmap> closeableReference);
 
     @Override // com.facebook.datasource.BaseDataSubscriber
-    public void onNewResultImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+    public void onNewResultImpl(@Nonnull DataSource<CloseableReference<CloseableImage>> dataSource) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) && dataSource.isFinished()) {
             CloseableReference<CloseableImage> result = dataSource.getResult();

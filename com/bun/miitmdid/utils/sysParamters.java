@@ -15,25 +15,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class sysParamters {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile sysParamters f64386e;
+    public static volatile sysParamters f61224e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64387a;
+    public String f61225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64388b;
+    public String f61226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64389c;
+    public String f61227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64390d;
+    public String f61228d;
     @Keep
     public String sdk_version;
     @Keep
@@ -52,7 +52,7 @@ public class sysParamters {
                 return;
             }
         }
-        this.f64390d = "Android";
+        this.f61228d = "Android";
         this.sdk_version = "10011";
         this.sdk_vname = "1.0.11";
     }
@@ -74,14 +74,14 @@ public class sysParamters {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f64386e == null) {
+            if (f61224e == null) {
                 synchronized (sysParamters.class) {
-                    if (f64386e == null) {
-                        f64386e = new sysParamters();
+                    if (f61224e == null) {
+                        f61224e = new sysParamters();
                     }
                 }
             }
-            return f64386e;
+            return f61224e;
         }
         return (sysParamters) invokeV.objValue;
     }
@@ -128,12 +128,12 @@ public class sysParamters {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f64387a)) {
+            if (TextUtils.isEmpty(this.f61225a)) {
                 String a2 = a(b.a());
-                this.f64387a = a2;
+                this.f61225a = a2;
                 return a2;
             }
-            return this.f64387a;
+            return this.f61225a;
         }
         return (String) invokeV.objValue;
     }
@@ -148,14 +148,14 @@ public class sysParamters {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f64388b)) {
+            if (TextUtils.isEmpty(this.f61226b)) {
                 String str = Build.MODEL;
-                this.f64388b = str;
+                this.f61226b = str;
                 String replace = str.replace(" ", "-");
-                this.f64388b = replace;
+                this.f61226b = replace;
                 return replace;
             }
-            return this.f64388b;
+            return this.f61226b;
         }
         return (String) invokeV.objValue;
     }
@@ -164,12 +164,12 @@ public class sysParamters {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f64389c)) {
+            if (TextUtils.isEmpty(this.f61227c)) {
                 String encode = Uri.encode(Build.MANUFACTURER);
-                this.f64389c = encode;
+                this.f61227c = encode;
                 return encode;
             }
-            return this.f64389c;
+            return this.f61227c;
         }
         return (String) invokeV.objValue;
     }

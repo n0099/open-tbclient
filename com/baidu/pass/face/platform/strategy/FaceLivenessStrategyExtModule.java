@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FaceLivenessStrategyExtModule implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceLivenessStrategyExtModule";
@@ -69,7 +69,7 @@ public class FaceLivenessStrategyExtModule implements c {
     public Map<FaceStatusNewEnum, String> mTipsMap;
 
     /* renamed from: com.baidu.pass.face.platform.strategy.FaceLivenessStrategyExtModule$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$face$platform$FaceStatusNewEnum;
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$face$platform$strategy$FaceLivenessStrategyExtModule$LivenessStatus;
@@ -112,7 +112,7 @@ public class FaceLivenessStrategyExtModule implements c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class FaceProcessRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +149,7 @@ public class FaceLivenessStrategyExtModule implements c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class LivenessStatus {
         public static final /* synthetic */ LivenessStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

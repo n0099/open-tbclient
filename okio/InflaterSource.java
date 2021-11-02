@@ -10,7 +10,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class InflaterSource implements Source {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,13 +82,13 @@ public final class InflaterSource implements Source {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public long read(Buffer buffer, long j2) throws IOException {
+    public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) != null) {
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) != null) {
             return invokeLJ.longValue;
         }
-        int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i2 >= 0) {
             if (this.closed) {
                 throw new IllegalStateException("closed");
@@ -100,12 +100,12 @@ public final class InflaterSource implements Source {
                 boolean refill = refill();
                 try {
                     Segment writableSegment = buffer.writableSegment(1);
-                    int inflate = this.inflater.inflate(writableSegment.data, writableSegment.limit, (int) Math.min(j2, 8192 - writableSegment.limit));
+                    int inflate = this.inflater.inflate(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
                     if (inflate > 0) {
                         writableSegment.limit += inflate;
-                        long j3 = inflate;
-                        buffer.size += j3;
-                        return j3;
+                        long j2 = inflate;
+                        buffer.size += j2;
+                        return j2;
                     } else if (this.inflater.finished() || this.inflater.needsDictionary()) {
                         break;
                     } else if (refill) {
@@ -116,7 +116,7 @@ public final class InflaterSource implements Source {
                 }
             }
         } else {
-            throw new IllegalArgumentException("byteCount < 0: " + j2);
+            throw new IllegalArgumentException("byteCount < 0: " + j);
         }
     }
 

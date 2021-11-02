@@ -3,13 +3,13 @@ package com.meizu.flyme.openidsdk;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.l.b.a.a;
+import b.l.b.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class d extends BroadcastReceiver {
         }
         boolean z = false;
         int intExtra = intent.getIntExtra("openIdNotifyFlag", 0);
-        c.l.b.a.d.e("shouldUpdateId, notifyFlag : " + intExtra);
+        b.l.b.a.d.e("shouldUpdateId, notifyFlag : " + intExtra);
         if (intExtra != 1) {
             if (intExtra == 2) {
                 ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("openIdPackageList");
@@ -58,7 +58,7 @@ public class d extends BroadcastReceiver {
             }
         }
         if (z) {
-            a g2 = c.l.b.a.d.b().g(intent.getStringExtra("openIdType"));
+            a g2 = b.l.b.a.d.b().g(intent.getStringExtra("openIdType"));
             if (g2 == null) {
                 return;
             }

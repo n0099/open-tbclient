@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class az implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f59902a;
+    public final /* synthetic */ FeedbackHotActivity f56821a;
 
     public az(FeedbackHotActivity feedbackHotActivity) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class az implements View.OnClickListener {
                 return;
             }
         }
-        this.f59902a = feedbackHotActivity;
+        this.f56821a = feedbackHotActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -49,24 +49,24 @@ public final class az implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        view2 = this.f59902a.l;
+        view2 = this.f56821a.l;
         view2.setVisibility(0);
-        linearLayout = this.f59902a.f59832h;
+        linearLayout = this.f56821a.f56755h;
         linearLayout.setVisibility(8);
-        if (!com.baidu.ufosdk.b.d.b(this.f59902a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.f59902a.getApplicationContext()).contains("NONE")) {
-            this.f59902a.a();
-            linearLayout3 = this.f59902a.f59832h;
+        if (!com.baidu.ufosdk.b.d.b(this.f56821a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.f56821a.getApplicationContext()).contains("NONE")) {
+            this.f56821a.a();
+            linearLayout3 = this.f56821a.f56755h;
             linearLayout3.setVisibility(8);
-            webView = this.f59902a.f59834j;
+            webView = this.f56821a.j;
             webView.setVisibility(0);
             return;
         }
-        view3 = this.f59902a.l;
+        view3 = this.f56821a.l;
         view3.setVisibility(8);
-        Context applicationContext = this.f59902a.getApplicationContext();
-        textView = this.f59902a.m;
+        Context applicationContext = this.f56821a.getApplicationContext();
+        textView = this.f56821a.m;
         com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout2 = this.f59902a.f59832h;
+        linearLayout2 = this.f56821a.f56755h;
         linearLayout2.setVisibility(0);
     }
 }

@@ -7,8 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.h.j.g.d;
-import c.a.r0.p3.a;
+import b.a.e.h.j.g.d;
+import b.a.r0.q3.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FlutterBoost {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sInit;
@@ -58,14 +58,14 @@ public class FlutterBoost {
     public FlutterViewContainerManager mManager;
     public Platform mPlatform;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface BoostLifecycleListener {
         void beforeCreateEngine();
 
         void onEngineCreated();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class ConfigBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static int ANY_ACTIVITY_CREATED = 1;
@@ -298,12 +298,12 @@ public class FlutterBoost {
                 a.getInstance().setFlutterPath("createEngine1");
             }
             if (this.mEngine == null) {
-                synchronized (c.a.e.h.k.a.f2871a) {
+                synchronized (b.a.e.h.k.a.f2335a) {
                     PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
                     try {
                         if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {
-                            Object i2 = c.a.e.h.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
-                            Object h3 = c.a.e.h.k.a.h(i2);
+                            Object i2 = b.a.e.h.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
+                            Object h3 = b.a.e.h.k.a.h(i2);
                             if (h3 instanceof File[]) {
                                 File[] fileArr = (File[]) h3;
                                 z = false;
@@ -326,7 +326,7 @@ public class FlutterBoost {
                             if (!z) {
                                 String replace = h2.apkPath.replace(".apk", "/lib");
                                 if (h3 instanceof File[]) {
-                                    list = c.a.e.h.k.a.c(h3, new File(replace));
+                                    list = b.a.e.h.k.a.c(h3, new File(replace));
                                 } else {
                                     boolean z2 = h3 instanceof List;
                                     list = h3;
@@ -336,19 +336,19 @@ public class FlutterBoost {
                                         list = list3;
                                     }
                                 }
-                                c.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
+                                b.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
                                 if (Build.VERSION.SDK_INT <= 25 && (Build.VERSION.SDK_INT != 25 || !Util.t())) {
                                     if (Build.VERSION.SDK_INT >= 23) {
                                         Method declaredMethod = i2.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                                         declaredMethod.setAccessible(true);
-                                        c.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i2.getClass(), (List) list, null, new ArrayList()));
+                                        b.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i2.getClass(), (List) list, null, new ArrayList()));
                                     } else {
-                                        c.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
+                                        b.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
                                     }
                                 }
                                 Method declaredMethod2 = i2.getClass().getDeclaredMethod("makePathElements", List.class);
                                 declaredMethod2.setAccessible(true);
-                                c.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i2.getClass(), (List) list));
+                                b.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i2.getClass(), (List) list));
                             }
                         }
                     } catch (Exception e2) {
@@ -567,9 +567,9 @@ public class FlutterBoost {
         }
     }
 
-    public void setFlutterPostFrameCallTime(long j2) {
+    public void setFlutterPostFrameCallTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
         }
     }
 }

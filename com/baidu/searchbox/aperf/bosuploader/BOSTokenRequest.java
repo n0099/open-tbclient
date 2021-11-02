@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BOSTokenRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT = "accept";

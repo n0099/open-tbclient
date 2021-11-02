@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class p extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class p extends Handler {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x0065  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0080  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // android.os.Handler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -53,7 +53,7 @@ public final class p extends Handler {
         }
         int i2 = message.getData().getInt("type");
         String string = message.getData().getString("appid");
-        o oVar = q.f70405j;
+        o oVar = q.j;
         oVar.getClass();
         if (i2 != 0) {
             if (i2 == 1) {
@@ -64,15 +64,15 @@ public final class p extends Handler {
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
             } else if (i2 != 4) {
                 parse = null;
-                query = oVar.f70395a.getContentResolver().query(parse, null, null, null, null);
+                query = oVar.f62910a.getContentResolver().query(parse, null, null, null, null);
                 if (query != null) {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 }
-                q.f70402g = r2;
-                Context context = q.f70396a;
-                synchronized (q.f70399d) {
-                    q.f70399d.notify();
+                q.f62917g = r2;
+                Context context = q.f62911a;
+                synchronized (q.f62914d) {
+                    q.f62914d.notify();
                 }
                 return;
             } else {
@@ -85,12 +85,12 @@ public final class p extends Handler {
             str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str);
-        query = oVar.f70395a.getContentResolver().query(parse, null, null, null, null);
+        query = oVar.f62910a.getContentResolver().query(parse, null, null, null, null);
         if (query != null) {
         }
-        q.f70402g = r2;
-        Context context2 = q.f70396a;
-        synchronized (q.f70399d) {
+        q.f62917g = r2;
+        Context context2 = q.f62911a;
+        synchronized (q.f62914d) {
         }
     }
 }

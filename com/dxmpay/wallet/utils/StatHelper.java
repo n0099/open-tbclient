@@ -2,7 +2,7 @@ package com.dxmpay.wallet.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.f.b.g.a;
+import b.f.b.g.a;
 import com.baidu.mobads.container.config.AppConfigImp;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class StatHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BANK_CODE = "bank_code";
@@ -55,17 +55,17 @@ public class StatHelper {
     public static final String STD_PAY_CHANNEL = "0";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f70286a = false;
+    public static boolean f62703a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f70287b = false;
+    public static boolean f62704b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f70288c = "";
+    public static String f62705c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Key {
         public static final /* synthetic */ Key[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -221,10 +221,10 @@ public class StatHelper {
         hashMap.put("card_type", getCardType());
         hashMap.put("pay_from", getPayFrom());
         hashMap.put(HAS_BANK_CARD, getHasBankCard());
-        if (f70286a) {
+        if (f62703a) {
             hashMap.put(PAY_BANKSIGN, "1");
         }
-        if (f70287b) {
+        if (f62704b) {
             hashMap.put(PAY_CATEGORY, "1");
         }
         if ("4".equals(getPayFrom())) {
@@ -245,9 +245,9 @@ public class StatHelper {
         }
     }
 
-    public static void bankCardDetctionDuration(String str, String str2, long j2) {
+    public static void bankCardDetctionDuration(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             ArrayList arrayList = new ArrayList();
             HashMap hashMap = new HashMap();
             if (TextUtils.isEmpty(getPayFrom())) {
@@ -261,8 +261,8 @@ public class StatHelper {
             if (!TextUtils.isEmpty(str2)) {
                 hashMap.put("error_code", str2);
             }
-            if (j2 >= 0) {
-                hashMap.put("duration", Long.valueOf(j2));
+            if (j >= 0) {
+                hashMap.put("duration", Long.valueOf(j));
             }
             StatisticManager.onEventWithValues(str, arrayList, hashMap);
         }
@@ -296,10 +296,10 @@ public class StatHelper {
         }
     }
 
-    public static void cacheBankCardStartTime(long j2) {
+    public static void cacheBankCardStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, null, j2) == null) {
-            a.c(Key.bankCardStartTime.name(), Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+            a.c(Key.bankCardStartTime.name(), Long.valueOf(j));
         }
     }
 
@@ -433,7 +433,7 @@ public class StatHelper {
     public static void clearProcesssId() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, null) == null) {
-            f70288c = null;
+            f62705c = null;
         }
     }
 
@@ -457,8 +457,8 @@ public class StatHelper {
             a.c(Key.code.name(), null);
             a.c(Key.msg.name(), null);
             a.c(Key.alipayVersion.name(), null);
-            f70286a = false;
-            f70287b = false;
+            f62703a = false;
+            f62704b = false;
         }
     }
 
@@ -618,11 +618,11 @@ public class StatHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
-            if (!TextUtils.isEmpty(f70288c)) {
-                return f70288c;
+            if (!TextUtils.isEmpty(f62705c)) {
+                return f62705c;
             }
             String a2 = a();
-            f70288c = a2;
+            f62705c = a2;
             return a2;
         }
         return (String) invokeV.objValue;
@@ -714,14 +714,14 @@ public class StatHelper {
     public static void setDowngrade(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65596, null, z) == null) {
-            f70287b = z;
+            f62704b = z;
         }
     }
 
     public static void setPayBankSign(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65597, null, z) == null) {
-            f70286a = z;
+            f62703a = z;
         }
     }
 

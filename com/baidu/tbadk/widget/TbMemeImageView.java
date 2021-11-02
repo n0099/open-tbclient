@@ -11,8 +11,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.l.c;
-import c.a.e.e.l.d;
+import b.a.e.e.l.c;
+import b.a.e.e.l.d;
 import com.baidu.adp.gif.NSGif;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,42 +23,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.e.d.b f48661e;
+    public b.a.e.d.b f46173e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f48662f;
+    public Bitmap f46174f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48663g;
+    public int f46175g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.l.d.a f48664h;
+    public b.a.e.l.d.a f46176h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f48665i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Drawable f48666j;
+    public boolean f46177i;
+    public Drawable j;
     public Drawable k;
     public String l;
     public View.OnClickListener m;
     public TbRichTextView.x n;
     public final Handler o;
-    public c<c.a.e.l.d.a> p;
+    public c<b.a.e.l.d.a> p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbMemeImageView f48667a;
+        public final /* synthetic */ TbMemeImageView f46178a;
 
         public a(TbMemeImageView tbMemeImageView) {
             Interceptable interceptable = $ic;
@@ -75,34 +73,34 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                     return;
                 }
             }
-            this.f48667a = tbMemeImageView;
+            this.f46178a = tbMemeImageView;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            c.a.e.d.b gif;
+            b.a.e.d.b gif;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (gif = this.f48667a.getGif()) != null && message.what == 1) {
-                this.f48667a.f48663g++;
-                if (this.f48667a.f48663g >= gif.getFrameCount()) {
-                    this.f48667a.f48663g = 0;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (gif = this.f46178a.getGif()) != null && message.what == 1) {
+                this.f46178a.f46175g++;
+                if (this.f46178a.f46175g >= gif.getFrameCount()) {
+                    this.f46178a.f46175g = 0;
                 }
-                gif.c(this.f48667a.f48663g);
-                gif.a(this.f48667a.f48662f, null);
-                this.f48667a.invalidate();
-                this.f48667a.o.removeMessages(1);
-                this.f48667a.o.sendEmptyMessageDelayed(1, gif.b(this.f48667a.f48663g));
+                gif.c(this.f46178a.f46175g);
+                gif.a(this.f46178a.f46174f, null);
+                this.f46178a.invalidate();
+                this.f46178a.o.removeMessages(1);
+                this.f46178a.o.sendEmptyMessageDelayed(1, gif.b(this.f46178a.f46175g));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends c<c.a.e.l.d.a> {
+    /* loaded from: classes8.dex */
+    public class b extends c<b.a.e.l.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbMemeImageView f48668a;
+        public final /* synthetic */ TbMemeImageView f46179a;
 
         public b(TbMemeImageView tbMemeImageView) {
             Interceptable interceptable = $ic;
@@ -119,10 +117,10 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                     return;
                 }
             }
-            this.f48668a = tbMemeImageView;
+            this.f46179a = tbMemeImageView;
         }
 
-        @Override // c.a.e.e.l.c
+        @Override // b.a.e.e.l.c
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -131,13 +129,13 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.e.e.l.c
-        public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.e.l.c
+        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) || aVar == null) {
                 return;
             }
-            this.f48668a.startLoad(aVar);
+            this.f46179a.startLoad(aVar);
         }
     }
 
@@ -159,8 +157,8 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                 return;
             }
         }
-        this.f48665i = true;
-        this.f48666j = SkinManager.getDrawable(R.color.common_color_10220);
+        this.f46177i = true;
+        this.j = SkinManager.getDrawable(R.color.common_color_10220);
         this.k = SkinManager.getDrawable(R.drawable.icon_click);
         SkinManager.getDrawable(R.drawable.img_default_100);
         new Rect();
@@ -186,38 +184,38 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setBackgroundDrawable(this.f48666j);
+            setBackgroundDrawable(this.j);
             setOnClickListener(null);
         }
     }
 
-    public c.a.e.l.d.a getBdImage() {
+    public b.a.e.l.d.a getBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48664h : (c.a.e.l.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46176h : (b.a.e.l.d.a) invokeV.objValue;
     }
 
-    public c.a.e.d.b getGif() {
+    public b.a.e.d.b getGif() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.e.d.b bVar = this.f48661e;
+            b.a.e.d.b bVar = this.f46173e;
             if (bVar == null) {
                 return null;
             }
             return bVar;
         }
-        return (c.a.e.d.b) invokeV.objValue;
+        return (b.a.e.d.b) invokeV.objValue;
     }
 
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.l = str;
-            c.a.e.l.d.a aVar = (c.a.e.l.d.a) d.h().n(this.l, 33, this.p, 0, 0, Boolean.FALSE, null);
+            b.a.e.l.d.a aVar = (b.a.e.l.d.a) d.h().n(this.l, 33, this.p, 0, 0, Boolean.FALSE, null);
             if (aVar != null) {
                 startLoad(aVar);
-            } else if (!d.h().j(33) && this.f48665i) {
+            } else if (!d.h().j(33) && this.f46177i) {
                 setHasNoImage(true);
             } else {
                 d.h().l(this.l, 33, this.p, 0, 0, false, null, new Object[0]);
@@ -229,7 +227,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            if (this.f48664h == null && this.f48665i) {
+            if (this.f46176h == null && this.f46177i) {
                 d.h().l(this.l, 33, this.p, 0, 0, false, null, new Object[0]);
                 return;
             }
@@ -246,20 +244,20 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
             this.o.removeMessages(1);
-            c.a.e.d.b bVar = this.f48661e;
+            b.a.e.d.b bVar = this.f46173e;
             if (bVar != null) {
                 bVar.close();
-                this.f48661e = null;
+                this.f46173e = null;
             }
-            if (this.f48664h != null) {
-                this.f48664h = null;
+            if (this.f46176h != null) {
+                this.f46176h = null;
             }
-            Bitmap bitmap = this.f48662f;
+            Bitmap bitmap = this.f46174f;
             if (bitmap != null) {
                 bitmap.recycle();
-                this.f48662f = null;
+                this.f46174f = null;
             }
-            this.f48663g = 0;
+            this.f46175g = 0;
         }
     }
 
@@ -269,20 +267,20 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStartTemporaryDetach();
             this.o.removeMessages(1);
-            c.a.e.d.b bVar = this.f48661e;
+            b.a.e.d.b bVar = this.f46173e;
             if (bVar != null) {
                 bVar.close();
-                this.f48661e = null;
+                this.f46173e = null;
             }
-            if (this.f48664h != null) {
-                this.f48664h = null;
+            if (this.f46176h != null) {
+                this.f46176h = null;
             }
-            Bitmap bitmap = this.f48662f;
+            Bitmap bitmap = this.f46174f;
             if (bitmap != null) {
                 bitmap.recycle();
-                this.f48662f = null;
+                this.f46174f = null;
             }
-            this.f48663g = 0;
+            this.f46175g = 0;
         }
     }
 
@@ -291,7 +289,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            if (this.f48661e == null) {
+            if (this.f46173e == null) {
                 return;
             }
             if (i2 == 4 || i2 == 8) {
@@ -303,17 +301,17 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     public void play() {
-        c.a.e.d.b gif;
+        b.a.e.d.b gif;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (gif = getGif()) == null) {
             return;
         }
-        if (this.f48663g != 0) {
-            this.f48663g = 0;
+        if (this.f46175g != 0) {
+            this.f46175g = 0;
         }
         gif.c(0);
         this.o.removeMessages(1);
-        this.o.sendEmptyMessageDelayed(1, gif.b(this.f48663g));
+        this.o.sendEmptyMessageDelayed(1, gif.b(this.f46175g));
     }
 
     public void setDispatchTouchListener(TbRichTextView.x xVar) {
@@ -326,9 +324,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public void setHasNoImage(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if (z && (this.f48666j != null || this.k != null)) {
-                int intrinsicWidth = this.f48666j.getIntrinsicWidth();
-                int intrinsicHeight = this.f48666j.getIntrinsicHeight();
+            if (z && (this.j != null || this.k != null)) {
+                int intrinsicWidth = this.j.getIntrinsicWidth();
+                int intrinsicHeight = this.j.getIntrinsicHeight();
                 int measuredWidth = getMeasuredWidth();
                 int measuredHeight = getMeasuredHeight();
                 if (intrinsicWidth > measuredWidth) {
@@ -339,7 +337,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                 }
                 int paddingLeft = ((measuredWidth - intrinsicWidth) / 2) + getPaddingLeft();
                 int paddingTop = ((measuredHeight - intrinsicHeight) / 2) + getPaddingTop();
-                this.f48666j.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
+                this.j.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
             }
             invalidate();
         }
@@ -360,29 +358,29 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public void setSupportNoImage(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f48665i = z;
+            this.f46177i = z;
         }
     }
 
-    public void startLoad(c.a.e.l.d.a aVar) {
+    public void startLoad(b.a.e.l.d.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f48664h = aVar;
+        this.f46176h = aVar;
         if (aVar.t() && aVar.k() != null && aVar.k().length > 0) {
             NSGif f2 = NSGif.f(aVar.k(), 0, aVar.k().length);
             if (f2 == null) {
                 return;
             }
-            this.f48661e = f2;
+            this.f46173e = f2;
             f2.c(0);
-            Bitmap bitmap = this.f48662f;
-            if (bitmap == null || (bitmap.getWidth() != this.f48661e.getWidth() && this.f48662f.getHeight() != this.f48661e.getHeight())) {
-                this.f48662f = Bitmap.createBitmap(this.f48661e.getWidth(), this.f48661e.getHeight(), Bitmap.Config.ARGB_4444);
+            Bitmap bitmap = this.f46174f;
+            if (bitmap == null || (bitmap.getWidth() != this.f46173e.getWidth() && this.f46174f.getHeight() != this.f46173e.getHeight())) {
+                this.f46174f = Bitmap.createBitmap(this.f46173e.getWidth(), this.f46173e.getHeight(), Bitmap.Config.ARGB_4444);
             }
-            this.f48661e.a(this.f48662f, null);
-            setImageBitmap(this.f48662f);
+            this.f46173e.a(this.f46174f, null);
+            setImageBitmap(this.f46174f);
             play();
         } else if (aVar.p() != null) {
             setImageBitmap(aVar.p());
@@ -416,8 +414,8 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                 return;
             }
         }
-        this.f48665i = true;
-        this.f48666j = SkinManager.getDrawable(R.color.common_color_10220);
+        this.f46177i = true;
+        this.j = SkinManager.getDrawable(R.color.common_color_10220);
         this.k = SkinManager.getDrawable(R.drawable.icon_click);
         SkinManager.getDrawable(R.drawable.img_default_100);
         new Rect();
@@ -445,8 +443,8 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                 return;
             }
         }
-        this.f48665i = true;
-        this.f48666j = SkinManager.getDrawable(R.color.common_color_10220);
+        this.f46177i = true;
+        this.j = SkinManager.getDrawable(R.color.common_color_10220);
         this.k = SkinManager.getDrawable(R.drawable.icon_click);
         SkinManager.getDrawable(R.drawable.img_default_100);
         new Rect();

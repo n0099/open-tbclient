@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 @NotProguard
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class JavaBoundObjectManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "JavaBoundObjectManager";
@@ -39,23 +39,23 @@ public class JavaBoundObjectManager {
         }
     }
 
-    public Object getJavaBoundObject(long j2) {
+    public Object getJavaBoundObject(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.mJavaBoundObjectMap.get(Long.valueOf(j2)) : invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.mJavaBoundObjectMap.get(Long.valueOf(j)) : invokeJ.objValue;
     }
 
-    public void putJavaBoundObject(long j2, Object obj) {
+    public void putJavaBoundObject(long j, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, obj) == null) {
-            this.mJavaBoundObjectMap.put(Long.valueOf(j2), obj);
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, obj) == null) {
+            this.mJavaBoundObjectMap.put(Long.valueOf(j), obj);
         }
     }
 
-    public void removeJavaBoundObject(long j2) {
+    public void removeJavaBoundObject(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.mJavaBoundObjectMap.remove(Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mJavaBoundObjectMap.remove(Long.valueOf(j));
         }
     }
 }

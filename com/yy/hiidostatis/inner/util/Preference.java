@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @SuppressLint({"NewApi"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Preference {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,10 +113,10 @@ public class Preference {
         return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, context, str, i2)) == null) ? getSharedPreferences(context).getInt(str, i2) : invokeLLI.intValue;
     }
 
-    public long getPrefLong(Context context, String str, long j2) {
+    public long getPrefLong(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, str, Long.valueOf(j2)})) == null) ? getSharedPreferences(context).getLong(str, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, str, Long.valueOf(j)})) == null) ? getSharedPreferences(context).getLong(str, j) : invokeCommon.longValue;
     }
 
     public String getPrefString(Context context, String str, String str2) {
@@ -167,14 +167,14 @@ public class Preference {
         }
     }
 
-    public void setPrefLong(Context context, String str, long j2) {
+    public void setPrefLong(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, str, Long.valueOf(j)}) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences(context);
             if (Build.VERSION.SDK_INT >= 9) {
-                sharedPreferences.edit().putLong(str, j2).apply();
+                sharedPreferences.edit().putLong(str, j).apply();
             } else {
-                sharedPreferences.edit().putLong(str, j2).commit();
+                sharedPreferences.edit().putLong(str, j).commit();
             }
         }
     }

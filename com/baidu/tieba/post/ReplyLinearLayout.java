@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,27 +20,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ReplyLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static ViewGroup.LayoutParams f56270g;
+    public static ViewGroup.LayoutParams f53392g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<TextView> f56271e;
+    public List<TextView> f53393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f56272f;
+    public View.OnClickListener f53394f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReplyLinearLayout f56273e;
+        public final /* synthetic */ ReplyLinearLayout f53395e;
 
         public a(ReplyLinearLayout replyLinearLayout) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class ReplyLinearLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f56273e = replyLinearLayout;
+            this.f53395e = replyLinearLayout;
         }
 
         @Override // android.view.View.OnClickListener
@@ -67,7 +67,7 @@ public class ReplyLinearLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (strArr = (String[]) view.getTag()) == null) {
                 return;
             }
-            Context context = this.f56273e.getContext();
+            Context context = this.f53395e.getContext();
             if ("0".equals(strArr[3])) {
                 PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(strArr[1], strArr[2], "person_page");
                 createNormalCfg.setStartFrom(4);
@@ -132,19 +132,19 @@ public class ReplyLinearLayout extends LinearLayout {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            if (f56270g == null) {
-                f56270g = new LinearLayout.LayoutParams(-1, -2);
+            if (f53392g == null) {
+                f53392g = new LinearLayout.LayoutParams(-1, -2);
             }
             ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
             int size = ((arrayList.size() - 1) * 3) + 1;
-            int size2 = size - this.f56271e.size();
+            int size2 = size - this.f53393e.size();
             for (int i5 = 0; i5 < size2; i5++) {
                 TextView textView = new TextView(getContext());
-                this.f56271e.add(textView);
+                this.f53393e.add(textView);
                 addView(textView);
             }
-            for (int i6 = 0; i6 < this.f56271e.size(); i6++) {
-                TextView textView2 = this.f56271e.get(i6);
+            for (int i6 = 0; i6 < this.f53393e.size(); i6++) {
+                TextView textView2 = this.f53393e.get(i6);
                 if (i6 < size) {
                     if (i6 != 0 && i6 != 1) {
                         int i7 = i6 % 3;
@@ -160,12 +160,12 @@ public class ReplyLinearLayout extends LinearLayout {
                             textView2.setText(charSequenceArr[4]);
                         }
                         textView2.setTag(charSequenceArr);
-                        textView2.setOnClickListener(this.f56272f);
+                        textView2.setOnClickListener(this.f53394f);
                         a(textView2, i6);
                         if (i6 != 0) {
                             textView2.setTextSize(17.0f);
                             textView2.setMaxLines(3);
-                            textView2.setLayoutParams(f56270g);
+                            textView2.setLayoutParams(f53392g);
                             SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
                         } else if (i6 == 1 || (i3 = i6 % 3) == 1) {
                             textView2.setLayoutParams(layoutParams);
@@ -173,11 +173,11 @@ public class ReplyLinearLayout extends LinearLayout {
                         } else if (i3 == 2) {
                             textView2.setTextSize(15.0f);
                             textView2.setMaxLines(2);
-                            textView2.setLayoutParams(f56270g);
+                            textView2.setLayoutParams(f53392g);
                             SkinManager.setViewTextColor(textView2, R.color.CAM_X0106, 1);
                         } else if (i3 == 0) {
                             textView2.setTextSize(10.0f);
-                            textView2.setLayoutParams(f56270g);
+                            textView2.setLayoutParams(f53392g);
                             SkinManager.setViewTextColor(textView2, R.color.CAM_X0109, 1);
                         }
                         textView2.setVisibility(0);
@@ -188,7 +188,7 @@ public class ReplyLinearLayout extends LinearLayout {
                     }
                     textView2.setText(charSequenceArr[0]);
                     textView2.setTag(charSequenceArr);
-                    textView2.setOnClickListener(this.f56272f);
+                    textView2.setOnClickListener(this.f53394f);
                     a(textView2, i6);
                     if (i6 != 0) {
                     }
@@ -219,7 +219,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f56272f = new a(this);
-        this.f56271e = new ArrayList();
+        this.f53394f = new a(this);
+        this.f53393e = new ArrayList();
     }
 }

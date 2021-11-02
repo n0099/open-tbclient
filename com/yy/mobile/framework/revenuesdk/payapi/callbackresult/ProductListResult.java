@@ -13,26 +13,27 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ProductListResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String currencyName;
     public int currencyType;
+    public int defaultCid;
     public List<PayWayInfo> payWayInfoList;
     public PaysSettingInfo paysSettingInfo;
     public List<ProductInfo> productInfoList;
 
-    public ProductListResult(int i2, String str, PaysSettingInfo paysSettingInfo, List<ProductInfo> list, List<PayWayInfo> list2) {
+    public ProductListResult(int i2, String str, PaysSettingInfo paysSettingInfo, List<ProductInfo> list, List<PayWayInfo> list2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, paysSettingInfo, list, list2};
+            Object[] objArr = {Integer.valueOf(i2), str, paysSettingInfo, list, list2, Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,6 +44,7 @@ public class ProductListResult {
         this.payWayInfoList = list2;
         this.currencyName = str;
         this.paysSettingInfo = paysSettingInfo;
+        this.defaultCid = i3;
     }
 
     public String getCurrencyName() {
@@ -79,7 +81,7 @@ public class ProductListResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ProductListResult{currencyType=" + this.currencyType + ", productInfoList=" + this.productInfoList + ", payWayInfoList=" + this.payWayInfoList + ", currencyName=" + this.currencyName + ", paysSettingInfo=" + this.paysSettingInfo + ExtendedMessageFormat.END_FE;
+            return "ProductListResult{currencyType=" + this.currencyType + ", productInfoList=" + this.productInfoList + ", payWayInfoList=" + this.payWayInfoList + ", currencyName=" + this.currencyName + ", paysSettingInfo=" + this.paysSettingInfo + ", defaultCid=" + this.defaultCid + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

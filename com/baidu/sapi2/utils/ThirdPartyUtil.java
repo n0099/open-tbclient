@@ -8,6 +8,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,8 +20,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class ThirdPartyUtil {
+/* loaded from: classes7.dex */
+public class ThirdPartyUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_QQ = "qzone";
     public static final String TYPE_WEIBO = "tsina";

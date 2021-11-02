@@ -10,24 +10,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hk;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<e, a> f77669a;
+    public static HashMap<e, a> f70632a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f77670a;
+        public String f70633a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f77671b;
+        public String f70634b;
 
         public a(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class l {
                     return;
                 }
             }
-            this.f77670a = str;
-            this.f77671b = str2;
+            this.f70633a = str;
+            this.f70634b = str2;
         }
     }
 
@@ -62,31 +62,31 @@ public class l {
                 return;
             }
         }
-        f77669a = new HashMap<>();
-        a(e.f77659a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
-        a(e.f77660b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
-        a(e.f77661c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
-        a(e.f77662d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+        f70632a = new HashMap<>();
+        a(e.f70622a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
+        a(e.f70623b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(e.f70624c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(e.f70625d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
     }
 
     public static at a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, eVar)) == null) {
-            int i2 = m.f77672a[eVar.ordinal()];
+            int i2 = m.f70635a[eVar.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
                             return null;
                         }
-                        return at.f77648f;
+                        return at.f70611f;
                     }
-                    return at.f77647e;
+                    return at.f70610e;
                 }
-                return at.f77646d;
+                return at.f70609d;
             }
-            return at.f77645c;
+            return at.f70608c;
         }
         return (at) invokeL.objValue;
     }
@@ -95,7 +95,7 @@ public class l {
     public static a m137a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? f77669a.get(eVar) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? f70632a.get(eVar) : (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -110,6 +110,6 @@ public class l {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar, aVar) == null) || aVar == null) {
             return;
         }
-        f77669a.put(eVar, aVar);
+        f70632a.put(eVar, aVar);
     }
 }

@@ -1040,8 +1040,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public final boolean isMenuVisible() {
         InterceptResult invokeV;
+        FragmentManager fragmentManager;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.mMenuVisible : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.mMenuVisible && ((fragmentManager = this.mFragmentManager) == null || fragmentManager.isParentMenuVisible(this.mParentFragment)) : invokeV.booleanValue;
     }
 
     public boolean isPostponed() {
@@ -2460,10 +2461,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i2, objArr)) == null) ? getResources().getString(i2, objArr) : (String) invokeIL.objValue;
     }
 
-    public final void postponeEnterTransition(long j2, @NonNull TimeUnit timeUnit) {
+    public final void postponeEnterTransition(long j, @NonNull TimeUnit timeUnit) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048700, this, j2, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048700, this, j, timeUnit) == null) {
             ensureAnimationInfo().mEnterTransitionPostponed = true;
             FragmentManager fragmentManager = this.mFragmentManager;
             if (fragmentManager != null) {
@@ -2472,7 +2473,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 handler = new Handler(Looper.getMainLooper());
             }
             handler.removeCallbacks(this.mPostponedDurationRunnable);
-            handler.postDelayed(this.mPostponedDurationRunnable, timeUnit.toMillis(j2));
+            handler.postDelayed(this.mPostponedDurationRunnable, timeUnit.toMillis(j));
         }
     }
 

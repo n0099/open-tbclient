@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class b extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f64107a;
+    public final String[] f60950a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public final class b extends g {
                 return;
             }
         }
-        this.f64107a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+        this.f60950a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
     }
 
     private boolean a(String str) {
@@ -58,7 +58,7 @@ public final class b extends g {
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f64107a;
+            String[] strArr = this.f60950a;
             if (i2 >= strArr.length) {
                 return false;
             }
@@ -100,7 +100,7 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f64109a;
+                            public final /* synthetic */ b f60952a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -117,7 +117,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f64109a = this;
+                                this.f60952a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnClickListener
@@ -131,7 +131,7 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f64108a;
+                            public final /* synthetic */ b f60951a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -148,7 +148,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f64108a = this;
+                                this.f60951a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnCancelListener
@@ -164,10 +164,10 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AlertDialog f64110a;
+                            public final /* synthetic */ AlertDialog f60953a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f64111b;
+                            public final /* synthetic */ b f60954b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -184,8 +184,8 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f64111b = this;
-                                this.f64110a = show;
+                                this.f60954b = this;
+                                this.f60953a = show;
                             }
 
                             @Override // java.lang.Runnable
@@ -193,7 +193,7 @@ public final class b extends g {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f64110a.dismiss();
+                                        this.f60953a.dismiss();
                                     } catch (Exception e2) {
                                         e2.printStackTrace();
                                     }

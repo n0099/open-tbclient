@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IRemoteUBCService extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class Default implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,9 +52,9 @@ public interface IRemoteUBCService extends IInterface {
         }
 
         @Override // com.baidu.swan.ubc.IRemoteUBCService
-        public void flowAddEventWithTime(Flow flow, String str, String str2, long j2) throws RemoteException {
+        public void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{flow, str, str2, Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) {
             }
         }
 
@@ -118,7 +118,7 @@ public interface IRemoteUBCService extends IInterface {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.ubc.IRemoteUBCService";
@@ -134,7 +134,7 @@ public interface IRemoteUBCService extends IInterface {
         public static final int TRANSACTION_ubcOnEvent = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static class Proxy implements IRemoteUBCService {
             public static /* synthetic */ Interceptable $ic;
             public static IRemoteUBCService sDefaultImpl;
@@ -195,9 +195,9 @@ public interface IRemoteUBCService extends IInterface {
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService
-            public void flowAddEventWithTime(Flow flow, String str, String str2, long j2) throws RemoteException {
+            public void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{flow, str, str2, Long.valueOf(j2)}) == null) {
+                if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
@@ -210,9 +210,9 @@ public interface IRemoteUBCService extends IInterface {
                         }
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        obtain.writeLong(j2);
+                        obtain.writeLong(j);
                         if (!this.mRemote.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().flowAddEventWithTime(flow, str, str2, j2);
+                            Stub.getDefaultImpl().flowAddEventWithTime(flow, str, str2, j);
                         } else {
                             obtain2.readException();
                         }
@@ -573,7 +573,7 @@ public interface IRemoteUBCService extends IInterface {
 
     void flowAddEvent(Flow flow, String str, String str2) throws RemoteException;
 
-    void flowAddEventWithTime(Flow flow, String str, String str2, long j2) throws RemoteException;
+    void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException;
 
     void flowCancel(Flow flow) throws RemoteException;
 

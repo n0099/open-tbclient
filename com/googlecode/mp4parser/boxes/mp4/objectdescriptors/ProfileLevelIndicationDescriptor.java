@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {20})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ProfileLevelIndicationDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

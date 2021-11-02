@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LaunchStatsUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD = "ad";
@@ -101,17 +101,17 @@ public class LaunchStatsUtils {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sHomePageFirstRenderEndTimeStamp != -1 : invokeV.booleanValue;
     }
 
-    public static void setAppCreateTime(long j2) {
+    public static void setAppCreateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, null, j2) == null) {
-            sAppCreateTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+            sAppCreateTimeStamp = j;
         }
     }
 
-    public static void setHomePageFirstRenderEndTime(long j2) {
+    public static void setHomePageFirstRenderEndTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, null, j2) == null) {
-            sHomePageFirstRenderEndTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65545, null, j) == null) {
+            sHomePageFirstRenderEndTimeStamp = j;
         }
     }
 

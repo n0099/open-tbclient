@@ -14,7 +14,6 @@ import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -29,7 +28,7 @@ import com.google.android.material.circularreveal.CircularRevealWidget;
 import com.google.android.material.math.MathUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CircularRevealHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITMAP_SHADER = 0;
@@ -55,7 +54,7 @@ public class CircularRevealHelper {
     @NonNull
     public final View view;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface Delegate {
         void actualDraw(Canvas canvas);
 
@@ -63,7 +62,7 @@ public class CircularRevealHelper {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public @interface Strategy {
     }
 
@@ -136,7 +135,7 @@ public class CircularRevealHelper {
             }
             if (shouldDrawCircularReveal()) {
                 drawDebugCircle(canvas, -16777216, 10.0f);
-                drawDebugCircle(canvas, SupportMenu.CATEGORY_MASK, 5.0f);
+                drawDebugCircle(canvas, -65536, 5.0f);
             }
             drawOverlayDrawable(canvas);
         }

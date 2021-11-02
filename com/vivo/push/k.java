@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.LocalAliasTagsManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class k implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ j f76965a;
+    public final /* synthetic */ j f70314a;
 
     public k(j jVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class k implements Runnable {
                 return;
             }
         }
-        this.f76965a = jVar;
+        this.f70314a = jVar;
     }
 
     @Override // java.lang.Runnable
@@ -37,10 +37,10 @@ public final class k implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j jVar = this.f76965a;
-            LocalAliasTagsManager.LocalMessageCallback localMessageCallback = jVar.f76963b;
-            context = jVar.f76964c.mContext;
-            localMessageCallback.onTransmissionMessage(context, this.f76965a.f76962a);
+            j jVar = this.f70314a;
+            LocalAliasTagsManager.LocalMessageCallback localMessageCallback = jVar.f70312b;
+            context = jVar.f70313c.mContext;
+            localMessageCallback.onTransmissionMessage(context, this.f70314a.f70311a);
         }
     }
 }

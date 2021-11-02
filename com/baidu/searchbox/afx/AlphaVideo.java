@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AlphaVideo extends GLTextureView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GL_CONTEXT_VERSION = 2;
@@ -272,13 +272,13 @@ public class AlphaVideo extends GLTextureView {
         }
     }
 
-    public void setLoopSection(long j2, long j3) {
+    public void setLoopSection(long j, long j2) {
         IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (iPlayer = this.mPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (iPlayer = this.mPlayer) == null) {
             return;
         }
-        iPlayer.setLoopSection(j2, j3);
+        iPlayer.setLoopSection(j, j2);
     }
 
     public void setLooping(boolean z) {
@@ -411,13 +411,13 @@ public class AlphaVideo extends GLTextureView {
         iPlayer.stop();
     }
 
-    public void setLoopSection(long j2) {
+    public void setLoopSection(long j) {
         IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) || (iPlayer = this.mPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048592, this, j) == null) || (iPlayer = this.mPlayer) == null) {
             return;
         }
-        iPlayer.setLoopSection(j2);
+        iPlayer.setLoopSection(j);
     }
 
     public void setLoopSection(int i2, int i3) {

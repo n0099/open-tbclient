@@ -1,0 +1,235 @@
+package i.a.a.e.i.a;
+
+import android.app.Activity;
+import android.graphics.Rect;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Activity f72223a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Window f72224b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f72225c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f72226d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f72227e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public b f72228f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f72229g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f72230h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f72231i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public boolean o;
+    public ViewTreeObserver.OnGlobalLayoutListener p;
+
+    /* loaded from: classes3.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f72232e;
+
+        public a(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f72232e = eVar;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            int i2;
+            int i3;
+            int i4;
+            int height;
+            int i5;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f72232e.o) {
+                Rect rect = new Rect();
+                this.f72232e.f72225c.getWindowVisibleDisplayFrame(rect);
+                if (this.f72232e.f72228f.B) {
+                    int height2 = (this.f72232e.f72226d.getHeight() - rect.bottom) - this.f72232e.n;
+                    if (this.f72232e.f72228f.D != null) {
+                        this.f72232e.f72228f.D.a(height2 > this.f72232e.n, height2);
+                    }
+                } else if (this.f72232e.f72227e != null) {
+                    if (this.f72232e.f72228f.w) {
+                        height = this.f72232e.f72226d.getHeight() + this.f72232e.l + this.f72232e.m;
+                        i5 = rect.bottom;
+                    } else if (this.f72232e.f72228f.r) {
+                        height = this.f72232e.f72226d.getHeight() + this.f72232e.l;
+                        i5 = rect.bottom;
+                    } else {
+                        height = this.f72232e.f72226d.getHeight();
+                        i5 = rect.bottom;
+                    }
+                    int i6 = height - i5;
+                    int i7 = this.f72232e.f72228f.f72207i ? i6 - this.f72232e.n : i6;
+                    if (this.f72232e.f72228f.f72207i && i6 == this.f72232e.n) {
+                        i6 -= this.f72232e.n;
+                    }
+                    if (i7 != this.f72232e.k) {
+                        this.f72232e.f72226d.setPadding(this.f72232e.f72229g, this.f72232e.f72230h, this.f72232e.f72231i, i6 + this.f72232e.j);
+                        this.f72232e.k = i7;
+                        if (this.f72232e.f72228f.D != null) {
+                            this.f72232e.f72228f.D.a(i7 > this.f72232e.n, i7);
+                        }
+                    }
+                } else {
+                    int height3 = this.f72232e.f72226d.getHeight() - rect.bottom;
+                    if (this.f72232e.f72228f.z && this.f72232e.f72228f.A) {
+                        if (Build.VERSION.SDK_INT == 19 || f.i()) {
+                            i3 = this.f72232e.n;
+                        } else if (!this.f72232e.f72228f.f72207i) {
+                            i4 = height3;
+                            if (this.f72232e.f72228f.f72207i && height3 == this.f72232e.n) {
+                                height3 -= this.f72232e.n;
+                            }
+                            int i8 = height3;
+                            height3 = i4;
+                            i2 = i8;
+                        } else {
+                            i3 = this.f72232e.n;
+                        }
+                        i4 = height3 - i3;
+                        if (this.f72232e.f72228f.f72207i) {
+                            height3 -= this.f72232e.n;
+                        }
+                        int i82 = height3;
+                        height3 = i4;
+                        i2 = i82;
+                    } else {
+                        i2 = height3;
+                    }
+                    if (height3 != this.f72232e.k) {
+                        if (this.f72232e.f72228f.w) {
+                            this.f72232e.f72226d.setPadding(0, this.f72232e.l + this.f72232e.m, 0, i2);
+                        } else if (this.f72232e.f72228f.r) {
+                            this.f72232e.f72226d.setPadding(0, this.f72232e.l, 0, i2);
+                        } else {
+                            this.f72232e.f72226d.setPadding(0, 0, 0, i2);
+                        }
+                        this.f72232e.k = height3;
+                        if (this.f72232e.f72228f.D != null) {
+                            this.f72232e.f72228f.D.a(height3 > this.f72232e.n, height3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public e(Activity activity, Window window) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, window};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.p = new a(this);
+        this.f72223a = activity;
+        this.f72224b = window;
+        View decorView = window.getDecorView();
+        this.f72225c = decorView;
+        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
+        if (frameLayout == null) {
+            return;
+        }
+        View childAt = frameLayout.getChildAt(0);
+        this.f72227e = childAt;
+        frameLayout = childAt != null ? childAt : frameLayout;
+        this.f72226d = frameLayout;
+        this.f72229g = frameLayout.getPaddingLeft();
+        this.f72230h = this.f72226d.getPaddingTop();
+        this.f72231i = this.f72226d.getPaddingRight();
+        this.j = this.f72226d.getPaddingBottom();
+        i.a.a.e.i.a.a aVar = new i.a.a.e.i.a.a(this.f72223a);
+        this.l = aVar.i();
+        this.n = aVar.d();
+        this.m = aVar.a();
+        this.o = aVar.l();
+    }
+
+    public static e q(Activity activity, Window window) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) ? new e(activity, window) : (e) invokeLL.objValue;
+    }
+
+    public void o(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                this.f72224b.setSoftInputMode(i2);
+                this.f72225c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
+            }
+            this.f72223a = null;
+        }
+    }
+
+    public void p(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || Build.VERSION.SDK_INT < 19) {
+            return;
+        }
+        this.f72224b.setSoftInputMode(i2);
+        this.f72225c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
+    }
+
+    public void r(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f72228f = bVar;
+        }
+    }
+}

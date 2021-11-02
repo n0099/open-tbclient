@@ -1,8 +1,8 @@
 package com.faceunity;
 
 import android.content.Context;
-import c.a.e.j.h;
-import c.a.r0.y3.l.e;
+import b.a.e.j.i;
+import b.a.r0.z3.l.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.wrapper.faceunity;
 import java.io.File;
 import java.io.FileInputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FaceUnityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FILTER_VALUE = "normal";
@@ -36,14 +36,14 @@ public class FaceUnityUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                String b2 = h.b("v3.mp3");
+                String b2 = i.b("v3.mp3");
                 File file = new File(b2);
                 if (file.exists() && file.isFile()) {
                     FileInputStream fileInputStream = new FileInputStream(b2);
                     fileInputStream.close();
                     faceunity.fuSetup(new byte[fileInputStream.available()], null, e.a());
                 }
-                String b3 = h.b("face_beautification.mp3");
+                String b3 = i.b("face_beautification.mp3");
                 File file2 = new File(b3);
                 if (file2.exists() && file2.isFile()) {
                     FileInputStream fileInputStream2 = new FileInputStream(b3);

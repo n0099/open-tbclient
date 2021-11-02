@@ -41,7 +41,7 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.io.Serializable;
 import java.security.KeyStoreException;
 @TargetApi(23)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SysFingerprintPay implements IFingerprintPay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_DISMISS_LOADING_DIALOG = 4097;
@@ -50,7 +50,7 @@ public class SysFingerprintPay implements IFingerprintPay {
     public transient /* synthetic */ FieldHolder $fh;
     public FingerprintHandler mSysFpHander;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class FingerprintHandler extends Handler implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,13 +157,13 @@ public class SysFingerprintPay implements IFingerprintPay {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f62837a;
+                public final /* synthetic */ Activity f59706a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FingerprintCallback f62838b;
+                public final /* synthetic */ FingerprintCallback f59707b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ SysFingerprintPay f62839c;
+                public final /* synthetic */ SysFingerprintPay f59708c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -180,9 +180,9 @@ public class SysFingerprintPay implements IFingerprintPay {
                             return;
                         }
                     }
-                    this.f62839c = this;
-                    this.f62837a = activity;
-                    this.f62838b = fingerprintCallback;
+                    this.f59708c = this;
+                    this.f59706a = activity;
+                    this.f59707b = fingerprintCallback;
                 }
 
                 @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
@@ -190,15 +190,15 @@ public class SysFingerprintPay implements IFingerprintPay {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, str) == null) {
                         WalletGlobalUtils.DismissLoadingDialog();
-                        this.f62839c.mSysFpHander.post(new Runnable(this, str) { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.4.2
+                        this.f59708c.mSysFpHander.post(new Runnable(this, str) { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.4.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ String f62841a;
+                            public final /* synthetic */ String f59710a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass4 f62842b;
+                            public final /* synthetic */ AnonymousClass4 f59711b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -215,15 +215,15 @@ public class SysFingerprintPay implements IFingerprintPay {
                                         return;
                                     }
                                 }
-                                this.f62842b = this;
-                                this.f62841a = str;
+                                this.f59711b = this;
+                                this.f59710a = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f62842b.f62838b.onAuthorizeResult(IFingerprintPay.Action.CLOSE, 2, this.f62841a);
+                                    this.f59711b.f59707b.onAuthorizeResult(IFingerprintPay.Action.CLOSE, 2, this.f59710a);
                                 }
                             }
                         });
@@ -235,13 +235,13 @@ public class SysFingerprintPay implements IFingerprintPay {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
                         WalletGlobalUtils.DismissLoadingDialog();
-                        WalletFingerprint.getInstance(this.f62837a).clearOTPToken();
-                        this.f62839c.mSysFpHander.post(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.4.1
+                        WalletFingerprint.getInstance(this.f59706a).clearOTPToken();
+                        this.f59708c.mSysFpHander.post(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.4.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass4 f62840a;
+                            public final /* synthetic */ AnonymousClass4 f59709a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -258,14 +258,14 @@ public class SysFingerprintPay implements IFingerprintPay {
                                         return;
                                     }
                                 }
-                                this.f62840a = this;
+                                this.f59709a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f62840a.f62838b.onAuthorizeResult(IFingerprintPay.Action.CLOSE, 0, "");
+                                    this.f59709a.f59707b.onAuthorizeResult(IFingerprintPay.Action.CLOSE, 0, "");
                                 }
                             }
                         });
@@ -300,13 +300,13 @@ public class SysFingerprintPay implements IFingerprintPay {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f62831a;
+                public final /* synthetic */ Activity f59700a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FingerprintCallback f62832b;
+                public final /* synthetic */ FingerprintCallback f59701b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ SysFingerprintPay f62833c;
+                public final /* synthetic */ SysFingerprintPay f59702c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -323,16 +323,16 @@ public class SysFingerprintPay implements IFingerprintPay {
                             return;
                         }
                     }
-                    this.f62833c = this;
-                    this.f62831a = activity;
-                    this.f62832b = fingerprintCallback;
+                    this.f59702c = this;
+                    this.f59700a = activity;
+                    this.f59701b = fingerprintCallback;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.f62833c.fetchCloseSysFingerprint(this.f62831a, this.f62832b);
+                        this.f59702c.fetchCloseSysFingerprint(this.f59700a, this.f59701b);
                     }
                 }
 
@@ -340,7 +340,7 @@ public class SysFingerprintPay implements IFingerprintPay {
                 public void onSuccess(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                        this.f62833c.fetchCloseSysFingerprint(this.f62831a, this.f62832b);
+                        this.f59702c.fetchCloseSysFingerprint(this.f59700a, this.f59701b);
                     }
                 }
             }));
@@ -360,13 +360,13 @@ public class SysFingerprintPay implements IFingerprintPay {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.baidu.wallet.paysdk.fingerprint.bean.a f62834a;
+                public final /* synthetic */ com.baidu.wallet.paysdk.fingerprint.bean.a f59703a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f62835b;
+                public final /* synthetic */ Context f59704b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ SysFingerprintPay f62836c;
+                public final /* synthetic */ SysFingerprintPay f59705c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -383,16 +383,16 @@ public class SysFingerprintPay implements IFingerprintPay {
                             return;
                         }
                     }
-                    this.f62836c = this;
-                    this.f62834a = aVar;
-                    this.f62835b = context;
+                    this.f59705c = this;
+                    this.f59703a = aVar;
+                    this.f59704b = context;
                 }
 
                 @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
                 public void onBeanExecFailure(int i2, int i3, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, str) == null) {
-                        this.f62834a.destroyBean();
+                        this.f59703a.destroyBean();
                     }
                 }
 
@@ -400,8 +400,8 @@ public class SysFingerprintPay implements IFingerprintPay {
                 public void onBeanExecSuccess(int i2, Object obj, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-                        this.f62834a.destroyBean();
-                        WalletFingerprint.getInstance(this.f62835b).clearOTPToken();
+                        this.f59703a.destroyBean();
+                        WalletFingerprint.getInstance(this.f59704b).clearOTPToken();
                     }
                 }
             });
@@ -432,13 +432,13 @@ public class SysFingerprintPay implements IFingerprintPay {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Activity f62828a;
+                    public final /* synthetic */ Activity f59697a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ FingerprintCallback f62829b;
+                    public final /* synthetic */ FingerprintCallback f59698b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ SysFingerprintPay f62830c;
+                    public final /* synthetic */ SysFingerprintPay f59699c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -455,16 +455,16 @@ public class SysFingerprintPay implements IFingerprintPay {
                                 return;
                             }
                         }
-                        this.f62830c = this;
-                        this.f62828a = activity;
-                        this.f62829b = fingerprintCallback;
+                        this.f59699c = this;
+                        this.f59697a = activity;
+                        this.f59698b = fingerprintCallback;
                     }
 
                     @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                     public void onFail(int i2, String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                            this.f62829b.onAuthorizeResult(IFingerprintPay.Action.OPEN, 1, str);
+                            this.f59698b.onAuthorizeResult(IFingerprintPay.Action.OPEN, 1, str);
                         }
                     }
 
@@ -473,7 +473,7 @@ public class SysFingerprintPay implements IFingerprintPay {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                             ((PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD)).mPayPass = str;
-                            this.f62830c.register(this.f62828a, this.f62829b);
+                            this.f59699c.register(this.f59697a, this.f59698b);
                         }
                     }
                 });
@@ -500,16 +500,16 @@ public class SysFingerprintPay implements IFingerprintPay {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ com.baidu.wallet.paysdk.fingerprint.bean.b f62843a;
+                            public final /* synthetic */ com.baidu.wallet.paysdk.fingerprint.bean.b f59712a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ Activity f62844b;
+                            public final /* synthetic */ Activity f59713b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ FingerprintCallback f62845c;
+                            public final /* synthetic */ FingerprintCallback f59714c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ SysFingerprintPay f62846d;
+                            public final /* synthetic */ SysFingerprintPay f59715d;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -526,24 +526,24 @@ public class SysFingerprintPay implements IFingerprintPay {
                                         return;
                                     }
                                 }
-                                this.f62846d = this;
-                                this.f62843a = bVar;
-                                this.f62844b = activity;
-                                this.f62845c = fingerprintCallback;
+                                this.f59715d = this;
+                                this.f59712a = bVar;
+                                this.f59713b = activity;
+                                this.f59714c = fingerprintCallback;
                             }
 
                             @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
                             public void onBeanExecFailure(int i2, int i3, String str) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, str) == null) {
-                                    this.f62843a.destroyBean();
-                                    this.f62846d.mSysFpHander.sendEmptyMessage(4097);
-                                    this.f62846d.mSysFpHander.post(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.5.2
+                                    this.f59712a.destroyBean();
+                                    this.f59715d.mSysFpHander.sendEmptyMessage(4097);
+                                    this.f59715d.mSysFpHander.post(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.5.2
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass5 f62848a;
+                                        public final /* synthetic */ AnonymousClass5 f59717a;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -560,15 +560,15 @@ public class SysFingerprintPay implements IFingerprintPay {
                                                     return;
                                                 }
                                             }
-                                            this.f62848a = this;
+                                            this.f59717a = this;
                                         }
 
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                AnonymousClass5 anonymousClass5 = this.f62848a;
-                                                anonymousClass5.f62845c.onAuthorizeResult(IFingerprintPay.Action.OPEN, 2, ResUtils.getString(anonymousClass5.f62844b, "wallet_fp_open_failed"));
+                                                AnonymousClass5 anonymousClass5 = this.f59717a;
+                                                anonymousClass5.f59714c.onAuthorizeResult(IFingerprintPay.Action.OPEN, 2, ResUtils.getString(anonymousClass5.f59713b, "wallet_fp_open_failed"));
                                             }
                                         }
                                     });
@@ -579,16 +579,16 @@ public class SysFingerprintPay implements IFingerprintPay {
                             public void onBeanExecSuccess(int i2, Object obj, String str) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-                                    this.f62843a.destroyBean();
-                                    this.f62846d.mSysFpHander.sendEmptyMessage(4097);
+                                    this.f59712a.destroyBean();
+                                    this.f59715d.mSysFpHander.sendEmptyMessage(4097);
                                     OpenFingerprintResponse openFingerprintResponse = (obj == null || !(obj instanceof OpenFingerprintResponse)) ? null : (OpenFingerprintResponse) obj;
                                     if (openFingerprintResponse == null || TextUtils.isEmpty(openFingerprintResponse.token_info)) {
-                                        this.f62846d.mSysFpHander.post(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.5.1
+                                        this.f59715d.mSysFpHander.post(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.SysFingerprintPay.5.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
 
                                             /* renamed from: a  reason: collision with root package name */
-                                            public final /* synthetic */ AnonymousClass5 f62847a;
+                                            public final /* synthetic */ AnonymousClass5 f59716a;
 
                                             {
                                                 Interceptable interceptable3 = $ic;
@@ -605,23 +605,23 @@ public class SysFingerprintPay implements IFingerprintPay {
                                                         return;
                                                     }
                                                 }
-                                                this.f62847a = this;
+                                                this.f59716a = this;
                                             }
 
                                             @Override // java.lang.Runnable
                                             public void run() {
                                                 Interceptable interceptable3 = $ic;
                                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                    AnonymousClass5 anonymousClass5 = this.f62847a;
-                                                    anonymousClass5.f62845c.onAuthorizeResult(IFingerprintPay.Action.OPEN, 2, ResUtils.getString(anonymousClass5.f62844b, "wallet_fp_open_failed"));
+                                                    AnonymousClass5 anonymousClass5 = this.f59716a;
+                                                    anonymousClass5.f59714c.onAuthorizeResult(IFingerprintPay.Action.OPEN, 2, ResUtils.getString(anonymousClass5.f59713b, "wallet_fp_open_failed"));
                                                 }
                                             }
                                         });
                                         return;
                                     }
-                                    String safeSavedDataByUnionId = OtpTokenUtils.toSafeSavedDataByUnionId(SecurePay.getInstance().decryptProxy(openFingerprintResponse.token_info), this.f62844b.getApplicationContext());
+                                    String safeSavedDataByUnionId = OtpTokenUtils.toSafeSavedDataByUnionId(SecurePay.getInstance().decryptProxy(openFingerprintResponse.token_info), this.f59713b.getApplicationContext());
                                     String localEncrypt1 = SecurePay.getInstance().localEncrypt1(OtpTokenUtils.getSN(openFingerprintResponse.token_info));
-                                    this.f62846d.saveOTPTokenByFingerprint(this.f62844b, localEncrypt1 + "|" + safeSavedDataByUnionId, this.f62845c);
+                                    this.f59715d.saveOTPTokenByFingerprint(this.f59713b, localEncrypt1 + "|" + safeSavedDataByUnionId, this.f59714c);
                                 }
                             }
                         });

@@ -2,9 +2,9 @@ package com.baidu.tieba.card;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.e.l.e.n;
-import c.a.e.l.e.s;
-import c.a.q0.s.u.c;
+import b.a.e.l.e.n;
+import b.a.e.l.e.s;
+import b.a.q0.s.u.c;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CardLinkageManager {
     public static final /* synthetic */ CardLinkageManager[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -78,13 +78,13 @@ public final class CardLinkageManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CardLinkageManager[]) $VALUES.clone() : (CardLinkageManager[]) invokeV.objValue;
     }
 
-    public void addThreadId(long j2) {
+    public void addThreadId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             if (this.mThreadIdList == null) {
                 this.mThreadIdList = new ArrayList();
             }
-            this.mThreadIdList.add(Long.valueOf(j2));
+            this.mThreadIdList.add(Long.valueOf(j));
         }
     }
 

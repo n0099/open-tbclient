@@ -18,15 +18,15 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConnectivityManager f37691a;
+    public static ConnectivityManager f35715a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f37692b;
+    public static TelephonyManager f35716b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -72,9 +72,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                ConnectivityManager j2 = j(context.getApplicationContext());
-                if (j2 != null) {
-                    return j2.getActiveNetworkInfo();
+                ConnectivityManager j = j(context.getApplicationContext());
+                if (j != null) {
+                    return j.getActiveNetworkInfo();
                 }
                 return null;
             } catch (Exception e2) {
@@ -232,12 +232,12 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (context == null) {
-                return f37691a;
+                return f35715a;
             }
-            if (f37691a == null) {
-                f37691a = (ConnectivityManager) context.getSystemService("connectivity");
+            if (f35715a == null) {
+                f35715a = (ConnectivityManager) context.getSystemService("connectivity");
             }
-            return f37691a;
+            return f35715a;
         }
         return (ConnectivityManager) invokeL.objValue;
     }
@@ -248,13 +248,13 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
                 if (context == null) {
-                    return f37692b;
+                    return f35716b;
                 }
-                if (f37692b == null) {
-                    f37692b = (TelephonyManager) context.getSystemService("phone");
+                if (f35716b == null) {
+                    f35716b = (TelephonyManager) context.getSystemService("phone");
                 }
             }
-            return f37692b;
+            return f35716b;
         }
         return (TelephonyManager) invokeL.objValue;
     }

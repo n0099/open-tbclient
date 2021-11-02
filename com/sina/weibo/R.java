@@ -4,19 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int retry_btn_default = 0x7f080efd;
-        public static final int retry_btn_press = 0x7f080efe;
-        public static final int retry_btn_selector = 0x7f080eff;
-        public static final int weibosdk_common_shadow_top = 0x7f081450;
-        public static final int weibosdk_empty_failed = 0x7f081451;
+        public static final int retry_btn_default = 0x7f080fcb;
+        public static final int retry_btn_press = 0x7f080fcc;
+        public static final int retry_btn_selector = 0x7f080fcd;
+        public static final int weibosdk_common_shadow_top = 0x7f0814cb;
+        public static final int weibosdk_empty_failed = 0x7f0814cc;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {

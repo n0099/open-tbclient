@@ -1,0 +1,10 @@
+package b.a.n.c;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes.dex */
+public final class g {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int tnconfig = 2131820632;
+    public transient /* synthetic */ FieldHolder $fh;
+}

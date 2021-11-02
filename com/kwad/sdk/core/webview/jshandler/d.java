@@ -14,45 +14,43 @@ import com.kwad.sdk.utils.ap;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.utils.z;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f72842a;
+        public String f65292a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f72843b;
+        public String f65293b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f72844c;
+        public String f65294c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f72845d;
+        public String f65295d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f72846e;
+        public String f65296e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f72847f;
+        public String f65297f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f72848g;
+        public String f65298g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f72849h;
+        public String f65299h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f72850i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public int f72851j;
+        public int f65300i;
+        public int j;
         public String k;
         public String l;
         public String m;
@@ -79,18 +77,18 @@ public class d implements com.kwad.sdk.core.webview.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 a aVar = new a();
-                aVar.f72842a = ap.p(KsAdSDKImpl.get().getContext());
-                aVar.f72843b = "";
-                aVar.f72844c = String.valueOf(z.c(KsAdSDKImpl.get().getContext()));
-                aVar.f72845d = ap.g();
-                aVar.f72846e = ap.e();
-                aVar.f72847f = ap.j();
-                aVar.f72848g = ap.d();
-                aVar.f72849h = ap.n();
-                aVar.f72850i = av.c(KsAdSDKImpl.get().getContext());
-                aVar.f72851j = av.b(KsAdSDKImpl.get().getContext());
+                aVar.f65292a = ap.p(KsAdSDKImpl.get().getContext());
+                aVar.f65293b = "";
+                aVar.f65294c = String.valueOf(z.c(KsAdSDKImpl.get().getContext()));
+                aVar.f65295d = ap.g();
+                aVar.f65296e = ap.e();
+                aVar.f65297f = ap.j();
+                aVar.f65298g = ap.d();
+                aVar.f65299h = ap.n();
+                aVar.f65300i = av.c(KsAdSDKImpl.get().getContext());
+                aVar.j = av.b(KsAdSDKImpl.get().getContext());
                 aVar.k = ap.d(KsAdSDKImpl.get().getContext());
-                aVar.l = com.kwad.sdk.core.f.b.a();
+                aVar.l = com.kwad.sdk.core.f.a.a();
                 aVar.m = ap.m(KsAdSDKImpl.get().getContext());
                 aVar.n = ap.o(KsAdSDKImpl.get().getContext());
                 aVar.o = av.a(KsAdSDKImpl.get().getContext());
@@ -113,16 +111,16 @@ public class d implements com.kwad.sdk.core.webview.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, "appVersion", this.f72842a);
-                com.kwad.sdk.utils.q.a(jSONObject, "globalId", this.f72843b);
-                com.kwad.sdk.utils.q.a(jSONObject, "networkType", this.f72844c);
-                com.kwad.sdk.utils.q.a(jSONObject, HttpConstants.HTTP_MANUFACTURER, this.f72845d);
-                com.kwad.sdk.utils.q.a(jSONObject, "model", this.f72846e);
-                com.kwad.sdk.utils.q.a(jSONObject, "systemVersion", this.f72847f);
-                com.kwad.sdk.utils.q.a(jSONObject, "locale", this.f72848g);
-                com.kwad.sdk.utils.q.a(jSONObject, "uuid", this.f72849h);
-                com.kwad.sdk.utils.q.a(jSONObject, "screenWidth", this.f72850i);
-                com.kwad.sdk.utils.q.a(jSONObject, "screenHeight", this.f72851j);
+                com.kwad.sdk.utils.q.a(jSONObject, "appVersion", this.f65292a);
+                com.kwad.sdk.utils.q.a(jSONObject, "globalId", this.f65293b);
+                com.kwad.sdk.utils.q.a(jSONObject, "networkType", this.f65294c);
+                com.kwad.sdk.utils.q.a(jSONObject, HttpConstants.HTTP_MANUFACTURER, this.f65295d);
+                com.kwad.sdk.utils.q.a(jSONObject, "model", this.f65296e);
+                com.kwad.sdk.utils.q.a(jSONObject, "systemVersion", this.f65297f);
+                com.kwad.sdk.utils.q.a(jSONObject, "locale", this.f65298g);
+                com.kwad.sdk.utils.q.a(jSONObject, "uuid", this.f65299h);
+                com.kwad.sdk.utils.q.a(jSONObject, "screenWidth", this.f65300i);
+                com.kwad.sdk.utils.q.a(jSONObject, "screenHeight", this.j);
                 com.kwad.sdk.utils.q.a(jSONObject, "imei", this.k);
                 com.kwad.sdk.utils.q.a(jSONObject, "oaid", this.l);
                 com.kwad.sdk.utils.q.a(jSONObject, "androidId", this.m);

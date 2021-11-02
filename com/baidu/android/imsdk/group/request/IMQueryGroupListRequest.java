@@ -16,6 +16,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMQueryGroupListRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryGroupListRequest";
@@ -37,7 +38,7 @@ public class IMQueryGroupListRequest extends GroupBaseHttpRequest {
     public String mBuid;
     public String mKey;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +76,7 @@ public class IMQueryGroupListRequest extends GroupBaseHttpRequest {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i2 = jSONObject.getInt("error_code");
-                    str = jSONObject.optString("error_msg", "");
+                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     if (i2 == 0 && jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("groups");
                         DBOperation newDb = DBOperationFactory.getNewDb(this.this$0.mContext);
@@ -124,12 +125,12 @@ public class IMQueryGroupListRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMQueryGroupListRequest(Context context, String str, long j2) {
+    public IMQueryGroupListRequest(Context context, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2)};
+            Object[] objArr = {context, str, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -140,7 +141,7 @@ public class IMQueryGroupListRequest extends GroupBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
     }
 

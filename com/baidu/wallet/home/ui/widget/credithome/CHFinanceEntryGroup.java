@@ -20,7 +20,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.credithome.CHFinanceEntryItem;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CHFinanceEntryGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float BOTTOM_PANEL_HEIGHT_DP = 28.0f;

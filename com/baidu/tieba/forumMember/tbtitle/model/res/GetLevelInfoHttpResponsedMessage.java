@@ -1,6 +1,6 @@
 package com.baidu.tieba.forumMember.tbtitle.model.res;
 
-import c.a.r0.v0.d.a.b.a;
+import b.a.r0.v0.d.a.b.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

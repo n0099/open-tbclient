@@ -29,7 +29,7 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class InstallReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InstallReceiver";
@@ -41,7 +41,7 @@ public class InstallReceiver extends BroadcastReceiver {
     public XAdRemoteAPKDownloadExtraInfo mExtraInfo;
     public ArrayList<SoftReference<InstallListener>> mListeners;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface InstallListener {
         void onPackageInstalled(Context context, Intent intent);
     }

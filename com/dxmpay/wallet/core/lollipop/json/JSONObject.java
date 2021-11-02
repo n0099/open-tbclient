@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class JSONObject {
     public static /* synthetic */ Interceptable $ic;
     public static final Double NEGATIVE_ZERO;
@@ -524,12 +524,12 @@ public class JSONObject {
         return invokeLI.intValue;
     }
 
-    public long optLong(String str, long j2) {
+    public long optLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048603, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048603, this, str, j)) == null) {
             Long l = JSON.toLong(opt(str));
-            return l != null ? l.longValue() : j2;
+            return l != null ? l.longValue() : j;
         }
         return invokeLJ.longValue;
     }
@@ -592,11 +592,11 @@ public class JSONObject {
         return (JSONObject) invokeLI.objValue;
     }
 
-    public JSONObject put(String str, long j2) throws JSONException {
+    public JSONObject put(String str, long j) throws JSONException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048608, this, str, j2)) == null) {
-            this.nameValuePairs.put(checkName(str), Long.valueOf(j2));
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048608, this, str, j)) == null) {
+            this.nameValuePairs.put(checkName(str), Long.valueOf(j));
             return this;
         }
         return (JSONObject) invokeLJ.objValue;

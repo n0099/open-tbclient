@@ -3,6 +3,7 @@ package com.baidu.ar.child.b;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpException;
@@ -17,12 +18,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void e(byte[] bArr);
     }
@@ -68,7 +69,7 @@ public class b {
     private String x(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) ? i2 != -90 ? i2 != 0 ? i2 != 90 ? i2 != 180 ? "V" : "FV" : "HL" : "V" : "HR" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) ? i2 != -90 ? i2 != 0 ? i2 != 90 ? i2 != 180 ? ExifInterface.GPS_MEASUREMENT_INTERRUPTED : "FV" : "HL" : ExifInterface.GPS_MEASUREMENT_INTERRUPTED : "HR" : (String) invokeI.objValue;
     }
 
     public void a(byte[] bArr, int i2, a aVar) {

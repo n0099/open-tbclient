@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Stack;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RopeByteString extends ByteString {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] minLengthByDepth;
@@ -36,13 +36,13 @@ public class RopeByteString extends ByteString {
     public final int treeDepth;
 
     /* renamed from: com.google.protobuf.RopeByteString$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class PieceIterator implements Iterator<LiteralByteString> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class RopeByteIterator implements ByteString.ByteIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -597,7 +597,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Balancer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -724,7 +724,7 @@ public class RopeByteString extends ByteString {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new RopeByteIterator(this, null) : (ByteString.ByteIterator) invokeV.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class RopeInputStream extends InputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -869,15 +869,15 @@ public class RopeByteString extends ByteString {
         }
 
         @Override // java.io.InputStream
-        public long skip(long j2) {
+        public long skip(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-                if (j2 >= 0) {
-                    if (j2 > 2147483647L) {
-                        j2 = 2147483647L;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                if (j >= 0) {
+                    if (j > 2147483647L) {
+                        j = 2147483647L;
                     }
-                    return readSkipInternal(null, 0, (int) j2);
+                    return readSkipInternal(null, 0, (int) j);
                 }
                 throw new IndexOutOfBoundsException();
             }

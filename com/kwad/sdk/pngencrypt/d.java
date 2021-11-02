@@ -6,34 +6,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.ChunkReader;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class d extends ChunkReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final DeflatedChunksSet f73546e;
+    public final DeflatedChunksSet f65959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f73547f;
+    public boolean f65960f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f73548g;
+    public boolean f65961g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f73549h;
+    public byte[] f65962h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f73550i;
+    public int f65963i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(int i2, String str, boolean z, long j2, DeflatedChunksSet deflatedChunksSet) {
-        super(i2, str, j2, ChunkReader.ChunkReaderMode.PROCESS);
+    public d(int i2, String str, boolean z, long j, DeflatedChunksSet deflatedChunksSet) {
+        super(i2, str, j, ChunkReader.ChunkReaderMode.PROCESS);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {Integer.valueOf(i2), str, Boolean.valueOf(z), Long.valueOf(j2), deflatedChunksSet};
+            Object[] objArr = {Integer.valueOf(i2), str, Boolean.valueOf(z), Long.valueOf(j), deflatedChunksSet};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -45,13 +45,13 @@ public abstract class d extends ChunkReader {
                 return;
             }
         }
-        this.f73547f = false;
-        this.f73548g = false;
-        this.f73550i = -1;
-        this.f73546e = deflatedChunksSet;
+        this.f65960f = false;
+        this.f65961g = false;
+        this.f65963i = -1;
+        this.f65959e = deflatedChunksSet;
         if (str.equals("fdAT")) {
-            this.f73548g = true;
-            this.f73549h = new byte[4];
+            this.f65961g = true;
+            this.f65962h = new byte[4];
         }
         deflatedChunksSet.a(this);
     }
@@ -59,7 +59,7 @@ public abstract class d extends ChunkReader {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f73550i = i2;
+            this.f65963i = i2;
         }
     }
 
@@ -67,18 +67,18 @@ public abstract class d extends ChunkReader {
     public void a(int i2, byte[] bArr, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            if (this.f73548g && i2 < 4) {
+            if (this.f65961g && i2 < 4) {
                 while (i2 < 4 && i4 > 0) {
-                    this.f73549h[i2] = bArr[i3];
+                    this.f65962h[i2] = bArr[i3];
                     i2++;
                     i3++;
                     i4--;
                 }
             }
             if (i4 > 0) {
-                this.f73546e.a(bArr, i3, i4);
-                if (this.f73547f) {
-                    System.arraycopy(bArr, i3, a().f73497d, this.f73426b, i4);
+                this.f65959e.a(bArr, i3, i4);
+                if (this.f65960f) {
+                    System.arraycopy(bArr, i3, a().f65920d, this.f65854b, i4);
                 }
             }
         }
@@ -88,8 +88,8 @@ public abstract class d extends ChunkReader {
     public void c() {
         int c2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f73548g && a().f73496c.equals("fdAT") && this.f73550i >= 0 && (c2 = n.c(this.f73549h, 0)) != this.f73550i) {
-            com.kwad.sdk.core.d.a.a(new PngjException("bad chunk sequence for fDAT chunk " + c2 + " expected " + this.f73550i));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f65961g && a().f65919c.equals("fdAT") && this.f65963i >= 0 && (c2 = n.c(this.f65962h, 0)) != this.f65963i) {
+            com.kwad.sdk.core.d.a.a(new PngjException("bad chunk sequence for fDAT chunk " + c2 + " expected " + this.f65963i));
         }
     }
 }

@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f74327a = -1;
+    public static long f66710a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public class j {
         if (!(interceptable == null || interceptable.invokeL(65537, null, adTemplate) == null) || adTemplate == null) {
             return;
         }
-        adTemplate.mVisibleTimeParam = f74327a;
-        adTemplate.mOutClickTimeParam = f74327a;
+        adTemplate.mVisibleTimeParam = f66710a;
+        adTemplate.mOutClickTimeParam = f66710a;
     }
 
     public static void b(AdTemplate adTemplate) {
@@ -62,8 +62,8 @@ public class j {
             if (adTemplate == null) {
                 return System.currentTimeMillis();
             }
-            long j2 = adTemplate.mOutClickTimeParam;
-            return j2 > 0 ? j2 : adTemplate.mVisibleTimeParam;
+            long j = adTemplate.mOutClickTimeParam;
+            return j > 0 ? j : adTemplate.mVisibleTimeParam;
         }
         return invokeL.longValue;
     }

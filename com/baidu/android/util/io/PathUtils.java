@@ -1,6 +1,5 @@
 package com.baidu.android.util.io;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
@@ -8,7 +7,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class PathUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -41,19 +39,16 @@ public final class PathUtils {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1122379591, "Lcom/baidu/android/util/io/PathUtils;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1122379591, "Lcom/baidu/android/util/io/PathUtils;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1122379591, "Lcom/baidu/android/util/io/PathUtils;")) == null) {
+            return;
         }
-        sImageCacheDirBaseForFresco = getCacheDirectory(AppRuntime.getAppContext());
-        sImageCacheDirForImageloader = getImageCacheDirForImageLoader(AppRuntime.getAppContext());
-        sImageCacheDirForOther = getImageCacheDirForOthers(AppRuntime.getAppContext());
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1122379591, "Lcom/baidu/android/util/io/PathUtils;");
+        }
     }
 
     public PathUtils() {
@@ -142,7 +137,6 @@ public final class PathUtils {
         }
     }
 
-    @SuppressLint({"NewApi"})
     public static String getCacheDirectory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -224,7 +218,6 @@ public final class PathUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(46)) > 0) ? str.substring(lastIndexOf + 1) : "" : (String) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public static String getImageCacheDirForImageLoader(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -235,7 +228,6 @@ public final class PathUtils {
         return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public static String getImageCacheDirForOthers(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

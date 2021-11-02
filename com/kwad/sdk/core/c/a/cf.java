@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class cf implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,8 +33,8 @@ public class cf implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.f> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, fVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        fVar.f71669a = jSONObject.optInt("phoneCount");
-        fVar.f71670b = jSONObject.optInt("activePhoneCount");
+        fVar.f64145a = jSONObject.optInt("phoneCount");
+        fVar.f64146b = jSONObject.optInt("activePhoneCount");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,8 +46,8 @@ public class cf implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.f> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "phoneCount", fVar.f71669a);
-            com.kwad.sdk.utils.q.a(jSONObject, "activePhoneCount", fVar.f71670b);
+            com.kwad.sdk.utils.q.a(jSONObject, "phoneCount", fVar.f64145a);
+            com.kwad.sdk.utils.q.a(jSONObject, "activePhoneCount", fVar.f64146b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

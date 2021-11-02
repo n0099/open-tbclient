@@ -5,7 +5,7 @@ import android.content.Context;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.container.util.XAdRemoteEventDispatcher;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface XAdContainerContext {
     Activity getActivity();
 

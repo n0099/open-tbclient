@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.Reader;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JsonReader implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
@@ -588,7 +588,7 @@ public class JsonReader implements Closeable {
         int i5 = 0;
         char c2 = 0;
         boolean z = true;
-        long j2 = 0;
+        long j = 0;
         boolean z2 = false;
         while (true) {
             if (i2 + i5 == i3) {
@@ -626,18 +626,18 @@ public class JsonReader implements Closeable {
                 } else if (c3 < '0' || c3 > '9') {
                     break;
                 } else if (c2 == 1 || c2 == 0) {
-                    j2 = -(c3 - '0');
+                    j = -(c3 - '0');
                     i4 = 0;
                     c2 = 2;
                 } else {
                     if (c2 == 2) {
-                        if (j2 == 0) {
+                        if (j == 0) {
                             return 0;
                         }
-                        long j3 = (10 * j2) - (c3 - '0');
-                        int i6 = (j2 > (-922337203685477580L) ? 1 : (j2 == (-922337203685477580L) ? 0 : -1));
-                        z &= i6 > 0 || (i6 == 0 && j3 < j2);
-                        j2 = j3;
+                        long j2 = (10 * j) - (c3 - '0');
+                        int i6 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
+                        z &= i6 > 0 || (i6 == 0 && j2 < j);
+                        j = j2;
                     } else if (c2 == 3) {
                         i4 = 0;
                         c2 = 4;
@@ -1240,9 +1240,9 @@ public class JsonReader implements Closeable {
                 i2 = doPeek();
             }
             if (i2 == 15) {
-                long j2 = this.peekedLong;
-                int i3 = (int) j2;
-                if (j2 == i3) {
+                long j = this.peekedLong;
+                int i3 = (int) j;
+                if (j == i3) {
                     this.peeked = 0;
                     int[] iArr = this.pathIndices;
                     int i4 = this.stackSize - 1;
@@ -1326,14 +1326,14 @@ public class JsonReader implements Closeable {
             }
             this.peeked = 11;
             double parseDouble = Double.parseDouble(this.peekedString);
-            long j2 = (long) parseDouble;
-            if (j2 == parseDouble) {
+            long j = (long) parseDouble;
+            if (j == parseDouble) {
                 this.peekedString = null;
                 this.peeked = 0;
                 int[] iArr3 = this.pathIndices;
                 int i5 = this.stackSize - 1;
                 iArr3[i5] = iArr3[i5] + 1;
-                return j2;
+                return j;
             }
             throw new NumberFormatException("Expected a long but was " + this.peekedString + locationString());
         }

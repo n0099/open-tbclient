@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
-import c.a.r0.q1.o.k.b;
+import b.a.r0.q1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FocusListCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_FOCUS_ITEMS = 3;
@@ -23,31 +23,31 @@ public class FocusListCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53847a;
+        public String f51072a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53848b;
+        public String f51073b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53849c;
+        public String f51074c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53850d;
+        public int f51075d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f53851e;
+        public int f51076e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f53852f;
+        public String f51077f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f53853g;
+        public long f51078g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -96,18 +96,18 @@ public class FocusListCard extends BaseCardInfo {
                 a aVar = new a();
                 try {
                     if (optJSONArray.length() > 0) {
-                        aVar.f53847a = optJSONArray.getString(0);
+                        aVar.f51072a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f53848b = optJSONArray.getString(1);
+                        aVar.f51073b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f53849c = optJSONArray.getString(2);
+                        aVar.f51074c = optJSONArray.getString(2);
                     }
-                    aVar.f53850d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f53851e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f53852f = optJSONObject.optString("scheme");
-                    aVar.f53853g = optJSONObject.optLong("resourceId");
+                    aVar.f51075d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f51076e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f51077f = optJSONObject.optString("scheme");
+                    aVar.f51078g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

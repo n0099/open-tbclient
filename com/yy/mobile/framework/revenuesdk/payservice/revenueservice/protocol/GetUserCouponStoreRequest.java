@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class GetUserCouponStoreRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,12 +24,12 @@ public class GetUserCouponStoreRequest implements IRequestProtocol {
     public String seq;
     public long uid;
 
-    public GetUserCouponStoreRequest(String str, long j2, int i2, String str2, int i3, boolean z, int i4, int i5, boolean z2) {
+    public GetUserCouponStoreRequest(String str, long j, int i2, String str2, int i3, boolean z, int i4, int i5, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), Integer.valueOf(i2), str2, Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z2)};
+            Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i2), str2, Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
@@ -40,7 +40,7 @@ public class GetUserCouponStoreRequest implements IRequestProtocol {
             }
         }
         this.seq = str;
-        this.uid = j2;
+        this.uid = j;
         this.appId = i2;
         this.goodsType = i3;
         this.hasUsed = z;

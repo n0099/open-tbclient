@@ -1,5 +1,5 @@
 package com.baidu.pass.ecommerce.common.mvp;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IBaseView {
     public static final int DEFAULT_CODE = Integer.MIN_VALUE;
 

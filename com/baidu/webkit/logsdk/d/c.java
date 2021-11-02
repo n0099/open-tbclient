@@ -21,12 +21,12 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f64245a;
+    public static String f61086a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(String str) {
@@ -46,7 +46,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f64245a)) {
+            if (TextUtils.isEmpty(f61086a)) {
                 Context d2 = com.baidu.webkit.logsdk.a.b.d();
                 if (d2 == null || d2.getFilesDir() == null) {
                     return "";
@@ -55,12 +55,12 @@ public final class c {
                 if (str.endsWith(File.separator)) {
                     str = str.substring(0, str.length() - 1);
                 }
-                f64245a = str;
-                new File(f64245a).mkdirs();
-                e("BdLogSDK", "Workspace = " + f64245a);
-                return f64245a;
+                f61086a = str;
+                new File(f61086a).mkdirs();
+                e("BdLogSDK", "Workspace = " + f61086a);
+                return f61086a;
             }
-            return f64245a;
+            return f61086a;
         }
         return (String) invokeV.objValue;
     }
@@ -190,8 +190,8 @@ public final class c {
     public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) {
-            if (!com.baidu.webkit.logsdk.a.f64182b || TextUtils.isEmpty(str3)) {
-                boolean z = com.baidu.webkit.logsdk.a.f64181a;
+            if (!com.baidu.webkit.logsdk.a.f61025b || TextUtils.isEmpty(str3)) {
+                boolean z = com.baidu.webkit.logsdk.a.f61024a;
                 return;
             }
             String str4 = str2 + " = " + str3;
@@ -202,7 +202,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) {
             th.printStackTrace();
-            if (com.baidu.webkit.logsdk.a.f64182b) {
+            if (com.baidu.webkit.logsdk.a.f61025b) {
                 System.exit(0);
             }
         }
@@ -377,7 +377,7 @@ public final class c {
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) {
-            boolean z = com.baidu.webkit.logsdk.a.f64181a;
+            boolean z = com.baidu.webkit.logsdk.a.f61024a;
         }
     }
 }

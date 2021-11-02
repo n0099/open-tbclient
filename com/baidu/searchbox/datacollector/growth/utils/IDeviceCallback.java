@@ -1,5 +1,5 @@
 package com.baidu.searchbox.datacollector.growth.utils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IDeviceCallback {
     void onFail();
 

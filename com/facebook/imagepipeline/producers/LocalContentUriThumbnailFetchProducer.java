@@ -28,7 +28,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Rect MICRO_THUMBNAIL_DIMENSIONS;
@@ -84,25 +84,20 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     }
 
     @Nullable
-    private EncodedImage getCameraImage(Uri uri, ResizeOptions resizeOptions) throws IOException {
+    private EncodedImage getCameraImage(Uri uri, @Nullable ResizeOptions resizeOptions) throws IOException {
         InterceptResult invokeLL;
+        Cursor query;
         EncodedImage thumbnail;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, uri, resizeOptions)) == null) {
-            Cursor query = this.mContentResolver.query(uri, PROJECTION, null, null, null);
-            if (query == null) {
+            if (resizeOptions == null || (query = this.mContentResolver.query(uri, PROJECTION, null, null, null)) == null) {
                 return null;
             }
             try {
-                if (query.getCount() == 0) {
+                if (!query.moveToFirst() || (thumbnail = getThumbnail(resizeOptions, query.getLong(query.getColumnIndex("_id")))) == null) {
                     return null;
                 }
-                query.moveToFirst();
-                String string = query.getString(query.getColumnIndex("_data"));
-                if (resizeOptions == null || (thumbnail = getThumbnail(resizeOptions, query.getInt(query.getColumnIndex("_id")))) == null) {
-                    return null;
-                }
-                thumbnail.setRotationAngle(getRotationAngle(string));
+                thumbnail.setRotationAngle(getRotationAngle(query.getString(query.getColumnIndex("_data"))));
                 return thumbnail;
             } finally {
                 query.close();
@@ -129,7 +124,7 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str != null) {
                 try {
-                    return JfifUtil.getAutoRotateAngleFromOrientation(new ExifInterface(str).getAttributeInt("Orientation", 1));
+                    return JfifUtil.getAutoRotateAngleFromOrientation(new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1));
                 } catch (IOException e2) {
                     FLog.e(TAG, e2, "Unable to retrieve thumbnail rotation for %s", str);
                 }
@@ -140,52 +135,28 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     }
 
     @Nullable
-    private EncodedImage getThumbnail(ResizeOptions resizeOptions, int i2) throws IOException {
-        InterceptResult invokeLI;
+    private EncodedImage getThumbnail(ResizeOptions resizeOptions, long j) throws IOException {
+        InterceptResult invokeLJ;
+        Cursor queryMiniThumbnail;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, resizeOptions, i2)) != null) {
-            return (EncodedImage) invokeLI.objValue;
-        }
-        int thumbnailKind = getThumbnailKind(resizeOptions);
-        Cursor cursor = null;
-        if (thumbnailKind == 0) {
-            return null;
-        }
-        try {
-            Cursor queryMiniThumbnail = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i2, thumbnailKind, THUMBNAIL_PROJECTION);
-            if (queryMiniThumbnail == null) {
-                if (queryMiniThumbnail != null) {
-                    queryMiniThumbnail.close();
-                }
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, this, resizeOptions, j)) == null) {
+            int thumbnailKind = getThumbnailKind(resizeOptions);
+            if (thumbnailKind == 0 || (queryMiniThumbnail = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, j, thumbnailKind, THUMBNAIL_PROJECTION)) == null) {
                 return null;
             }
             try {
-                queryMiniThumbnail.moveToFirst();
-                if (queryMiniThumbnail.getCount() > 0) {
+                if (queryMiniThumbnail.moveToFirst()) {
                     String string = queryMiniThumbnail.getString(queryMiniThumbnail.getColumnIndex("_data"));
                     if (new File(string).exists()) {
-                        EncodedImage encodedImage = getEncodedImage(new FileInputStream(string), getLength(string));
-                        if (queryMiniThumbnail != null) {
-                            queryMiniThumbnail.close();
-                        }
-                        return encodedImage;
+                        return getEncodedImage(new FileInputStream(string), getLength(string));
                     }
                 }
-                if (queryMiniThumbnail != null) {
-                    queryMiniThumbnail.close();
-                }
                 return null;
-            } catch (Throwable th) {
-                th = th;
-                cursor = queryMiniThumbnail;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                throw th;
+            } finally {
+                queryMiniThumbnail.close();
             }
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (EncodedImage) invokeLJ.objValue;
     }
 
     public static int getThumbnailKind(ResizeOptions resizeOptions) {
@@ -211,14 +182,13 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     @Nullable
     public EncodedImage getEncodedImage(ImageRequest imageRequest) throws IOException {
         InterceptResult invokeL;
-        EncodedImage cameraImage;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest)) == null) {
             Uri sourceUri = imageRequest.getSourceUri();
-            if (!UriUtil.isLocalCameraUri(sourceUri) || (cameraImage = getCameraImage(sourceUri, imageRequest.getResizeOptions())) == null) {
-                return null;
+            if (UriUtil.isLocalCameraUri(sourceUri)) {
+                return getCameraImage(sourceUri, imageRequest.getResizeOptions());
             }
-            return cameraImage;
+            return null;
         }
         return (EncodedImage) invokeL.objValue;
     }

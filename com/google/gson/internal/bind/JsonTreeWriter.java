@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JsonTreeWriter extends JsonWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonPrimitive SENTINEL_CLOSED;
@@ -313,11 +313,11 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.google.gson.stream.JsonWriter
-    public JsonWriter value(long j2) throws IOException {
+    public JsonWriter value(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
-            put(new JsonPrimitive((Number) Long.valueOf(j2)));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            put(new JsonPrimitive((Number) Long.valueOf(j)));
             return this;
         }
         return (JsonWriter) invokeJ.objValue;

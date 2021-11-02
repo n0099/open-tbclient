@@ -8,12 +8,14 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
+import b.a.r0.x0.b1;
+import b.a.r0.x0.c1;
+import b.a.r0.x0.d1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ItemTableRowView extends View {
     public static /* synthetic */ Interceptable $ic;
     public static final int A;
@@ -34,22 +36,20 @@ public class ItemTableRowView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51836e;
+    public int f49167e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51837f;
+    public int f49168f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f51838g;
+    public float f49169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51839h;
+    public int f49170h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51840i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f51841j;
+    public int f49171i;
+    public int j;
     public int k;
     public int l;
     public int m;
@@ -77,13 +77,13 @@ public class ItemTableRowView extends View {
                 return;
             }
         }
-        x = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
-        y = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        z = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
-        A = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        B = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-        C = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-        D = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
+        x = l.g(TbadkCoreApplication.getInst().getContext(), c1.tbds16);
+        y = l.g(TbadkCoreApplication.getInst().getContext(), c1.M_W_X001);
+        z = l.g(TbadkCoreApplication.getInst().getContext(), c1.tbds644);
+        A = l.g(TbadkCoreApplication.getInst().getContext(), c1.tbds10);
+        B = l.g(TbadkCoreApplication.getInst().getContext(), c1.tbds2);
+        C = l.g(TbadkCoreApplication.getInst().getContext(), c1.M_W_X003);
+        D = l.g(TbadkCoreApplication.getInst().getContext(), c1.tbds6);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -110,8 +110,8 @@ public class ItemTableRowView extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f51840i = x;
-            this.f51839h = y;
+            this.f49171i = x;
+            this.f49170h = y;
             this.r = z;
             this.s = A;
             this.t = B;
@@ -125,7 +125,7 @@ public class ItemTableRowView extends View {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f51838g = 0.0f;
+            this.f49169g = 0.0f;
         }
     }
 
@@ -149,28 +149,28 @@ public class ItemTableRowView extends View {
             int paddingLeft = getPaddingLeft();
             int i3 = 0;
             while (true) {
-                i2 = this.f51836e;
+                i2 = this.f49167e;
                 if (i3 >= i2) {
                     break;
                 }
                 Drawable drawable = this.n;
                 int paddingTop = getPaddingTop();
-                int i4 = this.f51840i;
+                int i4 = this.f49171i;
                 drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i4, i4 + getPaddingTop());
                 this.n.draw(canvas);
-                paddingLeft += this.f51839h + this.f51840i;
+                paddingLeft += this.f49170h + this.f49171i;
                 i3++;
             }
-            while (i2 < this.f51837f) {
+            while (i2 < this.f49168f) {
                 Drawable drawable2 = this.o;
                 int paddingTop2 = getPaddingTop();
-                int i5 = this.f51840i;
+                int i5 = this.f49171i;
                 drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i5, i5 + getPaddingTop());
                 this.o.draw(canvas);
-                paddingLeft += this.f51839h + this.f51840i;
+                paddingLeft += this.f49170h + this.f49171i;
                 i2++;
             }
-            int i6 = (paddingLeft - this.f51839h) + this.w;
+            int i6 = (paddingLeft - this.f49170h) + this.w;
             float measuredHeight = (((getMeasuredHeight() - getPaddingBottom()) - getPaddingTop()) - this.s) / 2;
             float f2 = i6;
             this.p.set(f2, measuredHeight, getMeasuredWidth(), this.s + measuredHeight);
@@ -179,7 +179,7 @@ public class ItemTableRowView extends View {
             int i7 = this.t;
             canvas.drawRoundRect(rectF, i7, i7, this.q);
             this.q.setColor(SkinManager.getColor(this.v));
-            this.p.set(f2, measuredHeight, ((getMeasuredWidth() - i6) * this.f51838g) + f2, this.s + measuredHeight);
+            this.p.set(f2, measuredHeight, ((getMeasuredWidth() - i6) * this.f49169g) + f2, this.s + measuredHeight);
             RectF rectF2 = this.p;
             int i8 = this.t;
             canvas.drawRoundRect(rectF2, i8, i8, this.q);
@@ -197,19 +197,19 @@ public class ItemTableRowView extends View {
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode2 == 1073741824) {
                 int paddingBottom = (size2 - getPaddingBottom()) - getPaddingTop();
-                this.f51840i = paddingBottom;
+                this.f49171i = paddingBottom;
                 this.s = Math.max(0, paddingBottom - D);
             } else {
-                size2 = this.f51840i + getPaddingBottom() + getPaddingTop();
+                size2 = this.f49171i + getPaddingBottom() + getPaddingTop();
             }
-            int i4 = this.f51840i;
-            int i5 = this.f51837f;
-            int i6 = (i4 * i5) + (this.f51839h * (i5 - 1));
-            this.f51841j = i6;
+            int i4 = this.f49171i;
+            int i5 = this.f49168f;
+            int i6 = (i4 * i5) + (this.f49170h * (i5 - 1));
+            this.j = i6;
             if (mode != 1073741824) {
                 size = this.w + i6 + getPaddingLeft() + getPaddingRight() + this.r;
             } else if (size < i6) {
-                this.r = Math.max(0, (((size - getPaddingLeft()) - getPaddingRight()) - this.f51841j) - this.w);
+                this.r = Math.max(0, (((size - getPaddingLeft()) - getPaddingRight()) - this.j) - this.w);
             }
             setMeasuredDimension(size, size2);
         }
@@ -218,14 +218,14 @@ public class ItemTableRowView extends View {
     public void setData(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f51838g = f2;
+            this.f49169g = f2;
         }
     }
 
     public void setEmptyStartCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f51836e = i2;
+            this.f49167e = i2;
         }
     }
 
@@ -277,12 +277,12 @@ public class ItemTableRowView extends View {
                 return;
             }
         }
-        this.f51837f = 5;
-        this.k = R.drawable.icon_pure_evaluation_star24_n;
+        this.f49168f = 5;
+        this.k = d1.icon_pure_evaluation_star24_n;
         this.l = 17170445;
-        this.m = R.color.CAM_X0109;
-        this.u = R.color.CAM_X0210;
-        this.v = R.color.CAM_X0305;
+        this.m = b1.CAM_X0109;
+        this.u = b1.CAM_X0210;
+        this.v = b1.CAM_X0305;
         a();
     }
 }

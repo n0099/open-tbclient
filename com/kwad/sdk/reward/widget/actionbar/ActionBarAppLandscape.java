@@ -28,44 +28,42 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ActionBarAppLandscape extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f73956a;
+    public ImageView f66355a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f73957b;
+    public TextView f66356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f73958c;
+    public TextView f66357c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AppScoreView f73959d;
+    public AppScoreView f66358d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f73960e;
+    public TextView f66359e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f73961f;
+    public TextProgressBar f66360f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f73962g;
+    public View f66361g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdTemplate f73963h;
+    public AdTemplate f66362h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AdInfo f73964i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public a f73965j;
+    public AdInfo f66363i;
+    public a j;
     public b k;
     public KsAppDownloadListener l;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
     }
@@ -138,42 +136,42 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.ksad_video_actionbar_app_landscape, this);
-            this.f73956a = (ImageView) findViewById(R.id.ksad_app_icon);
-            this.f73957b = (TextView) findViewById(R.id.ksad_app_title);
-            this.f73958c = (TextView) findViewById(R.id.ksad_app_desc);
-            this.f73959d = (AppScoreView) findViewById(R.id.ksad_app_score);
-            this.f73960e = (TextView) findViewById(R.id.ksad_app_download_count);
+            this.f66355a = (ImageView) findViewById(R.id.ksad_app_icon);
+            this.f66356b = (TextView) findViewById(R.id.ksad_app_title);
+            this.f66357c = (TextView) findViewById(R.id.ksad_app_desc);
+            this.f66358d = (AppScoreView) findViewById(R.id.ksad_app_score);
+            this.f66359e = (TextView) findViewById(R.id.ksad_app_download_count);
             TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
-            this.f73961f = textProgressBar;
+            this.f66360f = textProgressBar;
             textProgressBar.setTextDimen(av.a(getContext(), 16.0f));
-            this.f73961f.setTextColor(-1);
-            this.f73962g = findViewById(R.id.ksad_download_bar_cover);
+            this.f66360f.setTextColor(-1);
+            this.f66361g = findViewById(R.id.ksad_download_bar_cover);
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            float s = com.kwad.sdk.core.response.b.a.s(this.f73964i);
+            float s = com.kwad.sdk.core.response.b.a.s(this.f66363i);
             boolean z = s >= 3.0f;
             if (z) {
-                this.f73959d.setScore(s);
-                this.f73959d.setVisibility(0);
+                this.f66358d.setScore(s);
+                this.f66358d.setVisibility(0);
             }
-            String r = com.kwad.sdk.core.response.b.a.r(this.f73964i);
+            String r = com.kwad.sdk.core.response.b.a.r(this.f66363i);
             boolean isEmpty = true ^ TextUtils.isEmpty(r);
             if (isEmpty) {
-                this.f73960e.setText(r);
-                this.f73960e.setVisibility(0);
+                this.f66359e.setText(r);
+                this.f66359e.setVisibility(0);
             }
             if (isEmpty || z) {
-                this.f73958c.setVisibility(8);
+                this.f66357c.setVisibility(8);
                 return;
             }
-            this.f73958c.setText(com.kwad.sdk.core.response.b.a.m(this.f73964i));
-            this.f73959d.setVisibility(8);
-            this.f73960e.setVisibility(8);
-            this.f73958c.setVisibility(0);
+            this.f66357c.setText(com.kwad.sdk.core.response.b.a.m(this.f66363i));
+            this.f66358d.setVisibility(8);
+            this.f66359e.setVisibility(8);
+            this.f66357c.setVisibility(0);
         }
     }
 
@@ -187,7 +185,7 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ActionBarAppLandscape f73966b;
+                    public final /* synthetic */ ActionBarAppLandscape f66364b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -204,15 +202,15 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
                                 return;
                             }
                         }
-                        this.f73966b = this;
+                        this.f66364b = this;
                     }
 
                     @Override // com.kwad.sdk.core.download.b.c
                     public void a(int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                            this.f73966b.f73961f.a(com.kwad.sdk.core.response.b.a.b(i2), i2);
-                            this.f73966b.f73962g.setVisibility(8);
+                            this.f66364b.f66360f.a(com.kwad.sdk.core.response.b.a.b(i2), i2);
+                            this.f66364b.f66361g.setVisibility(8);
                         }
                     }
 
@@ -220,8 +218,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
                     public void onDownloadFailed() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.f73966b.f73961f.a(com.kwad.sdk.core.response.b.a.u(this.f73966b.f73964i), 0);
-                            this.f73966b.f73962g.setVisibility(0);
+                            this.f66364b.f66360f.a(com.kwad.sdk.core.response.b.a.u(this.f66364b.f66363i), 0);
+                            this.f66364b.f66361g.setVisibility(0);
                         }
                     }
 
@@ -229,8 +227,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
                     public void onDownloadFinished() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                            this.f73966b.f73961f.a(com.kwad.sdk.core.response.b.a.a(this.f73966b.f73963h), 0);
-                            this.f73966b.f73962g.setVisibility(0);
+                            this.f66364b.f66360f.a(com.kwad.sdk.core.response.b.a.a(this.f66364b.f66362h), 0);
+                            this.f66364b.f66361g.setVisibility(0);
                         }
                     }
 
@@ -238,8 +236,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
                     public void onIdle() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                            this.f73966b.f73961f.a(com.kwad.sdk.core.response.b.a.u(this.f73966b.f73964i), 0);
-                            this.f73966b.f73962g.setVisibility(0);
+                            this.f66364b.f66360f.a(com.kwad.sdk.core.response.b.a.u(this.f66364b.f66363i), 0);
+                            this.f66364b.f66361g.setVisibility(0);
                         }
                     }
 
@@ -247,8 +245,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
                     public void onInstalled() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                            this.f73966b.f73961f.a(com.kwad.sdk.core.response.b.a.j(this.f73966b.f73964i), 0);
-                            this.f73966b.f73962g.setVisibility(0);
+                            this.f66364b.f66360f.a(com.kwad.sdk.core.response.b.a.j(this.f66364b.f66363i), 0);
+                            this.f66364b.f66361g.setVisibility(0);
                         }
                     }
 
@@ -256,8 +254,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
                     public void onProgressUpdate(int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                            this.f73966b.f73961f.a(com.kwad.sdk.core.response.b.a.a(i2), i2);
-                            this.f73966b.f73962g.setVisibility(8);
+                            this.f66364b.f66360f.a(com.kwad.sdk.core.response.b.a.a(i2), i2);
+                            this.f66364b.f66361g.setVisibility(8);
                         }
                     }
                 };
@@ -270,21 +268,21 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
     public void a(@NonNull AdTemplate adTemplate, @Nullable b bVar, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, bVar, aVar) == null) {
-            this.f73963h = adTemplate;
+            this.f66362h = adTemplate;
             AdInfo i2 = com.kwad.sdk.core.response.b.c.i(adTemplate);
-            this.f73964i = i2;
-            this.f73965j = aVar;
+            this.f66363i = i2;
+            this.j = aVar;
             this.k = bVar;
-            KSImageLoader.loadAppIcon(this.f73956a, com.kwad.sdk.core.response.b.a.n(i2), adTemplate, 12);
-            this.f73957b.setText(com.kwad.sdk.core.response.b.a.o(this.f73964i));
+            KSImageLoader.loadAppIcon(this.f66355a, com.kwad.sdk.core.response.b.a.n(i2), adTemplate, 12);
+            this.f66356b.setText(com.kwad.sdk.core.response.b.a.o(this.f66363i));
             b();
-            this.f73961f.a(com.kwad.sdk.core.response.b.a.u(this.f73964i), 0);
+            this.f66360f.a(com.kwad.sdk.core.response.b.a.u(this.f66363i), 0);
             b bVar2 = this.k;
             if (bVar2 != null) {
                 bVar2.a(getAppDownloadListener());
             }
             setOnClickListener(this);
-            this.f73961f.setOnClickListener(this);
+            this.f66360f.setOnClickListener(this);
         }
     }
 
@@ -298,12 +296,12 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f73963h, new a.InterfaceC1992a(this) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f66362h, new a.InterfaceC1901a(this) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ActionBarAppLandscape f73967a;
+                public final /* synthetic */ ActionBarAppLandscape f66365a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -320,18 +318,18 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
                             return;
                         }
                     }
-                    this.f73967a = this;
+                    this.f66365a = this;
                 }
 
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1992a
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1901a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f73967a.f73965j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f66365a.j == null) {
                         return;
                     }
-                    this.f73967a.f73965j.a();
+                    this.f66365a.j.a();
                 }
-            }, this.k, view == this.f73961f);
+            }, this.k, view == this.f66360f);
         }
     }
 }

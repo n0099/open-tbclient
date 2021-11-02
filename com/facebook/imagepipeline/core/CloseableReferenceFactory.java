@@ -12,7 +12,10 @@ import com.facebook.common.references.ResourceReleaser;
 import com.facebook.common.references.SharedReference;
 import com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker;
 import java.io.Closeable;
-/* loaded from: classes9.dex */
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import javax.annotation.Nullable;
+/* loaded from: classes11.dex */
 public class CloseableReferenceFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,14 +62,35 @@ public class CloseableReferenceFactory {
             }
 
             @Override // com.facebook.common.references.CloseableReference.LeakHandler
-            public void reportLeak(SharedReference<Object> sharedReference) {
+            public void reportLeak(SharedReference<Object> sharedReference, @Nullable Throwable th) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, sharedReference) == null) {
-                    this.val$closeableReferenceLeakTracker.trackCloseableReferenceLeak(sharedReference);
-                    FLog.w("Fresco", "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(sharedReference)), sharedReference.get().getClass().getName());
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, sharedReference, th) == null) {
+                    this.val$closeableReferenceLeakTracker.trackCloseableReferenceLeak(sharedReference, th);
+                    FLog.w("Fresco", "Finalized without closing: %x %x (type = %s).\nStack:\n%s", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(sharedReference)), sharedReference.get().getClass().getName(), CloseableReferenceFactory.getStackTraceString(th));
                 }
             }
+
+            @Override // com.facebook.common.references.CloseableReference.LeakHandler
+            public boolean requiresStacktrace() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.val$closeableReferenceLeakTracker.isSet() : invokeV.booleanValue;
+            }
         };
+    }
+
+    public static String getStackTraceString(@Nullable Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
+            if (th == null) {
+                return "";
+            }
+            StringWriter stringWriter = new StringWriter();
+            th.printStackTrace(new PrintWriter(stringWriter));
+            return stringWriter.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     public <U extends Closeable> CloseableReference<U> create(U u) {

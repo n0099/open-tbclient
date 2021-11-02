@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import androidx.appcompat.widget.TooltipCompatHandler;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
@@ -20,31 +21,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.pulltorefresh.ui.LoadingLayout;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f61010c = 1200;
+    public static final int f57902c = 1200;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Animation f61011d;
+    public final Animation f57903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ObjectAnimator f61012e;
+    public final ObjectAnimator f57904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Matrix f61013f;
+    public final Matrix f57905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f61014g;
+    public float f57906g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f61015h;
+    public float f57907h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f61016i;
+    public final boolean f57908i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RotateLoadingLayout(Context context, LoadingLayout.Mode mode, LoadingLayout.Orientation orientation, TypedArray typedArray) {
@@ -65,28 +66,28 @@ public class RotateLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f61016i = true;
+        this.f57908i = true;
         this.mHeaderImage.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        this.f61013f = matrix;
+        this.f57905f = matrix;
         this.mHeaderImage.setImageMatrix(matrix);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
-        this.f61011d = rotateAnimation;
-        rotateAnimation.setInterpolator(LoadingLayout.f60989b);
-        this.f61011d.setDuration(IMLikeRequest.TIME_INTERVAL);
-        this.f61011d.setRepeatCount(-1);
-        this.f61011d.setRepeatMode(1);
-        this.f61012e = getRotateYAnim(this.mHeaderImage);
+        this.f57903d = rotateAnimation;
+        rotateAnimation.setInterpolator(LoadingLayout.f57883b);
+        this.f57903d.setDuration(IMLikeRequest.TIME_INTERVAL);
+        this.f57903d.setRepeatCount(-1);
+        this.f57903d.setRepeatMode(1);
+        this.f57904e = getRotateYAnim(this.mHeaderImage);
     }
 
     private void a() {
         Matrix matrix;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (matrix = this.f61013f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (matrix = this.f57905f) == null) {
             return;
         }
         matrix.reset();
-        this.mHeaderImage.setImageMatrix(this.f61013f);
+        this.mHeaderImage.setImageMatrix(this.f57905f);
     }
 
     public static int getProgress(float f2) {
@@ -113,7 +114,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            ObjectAnimator duration = ObjectAnimator.ofFloat(obj, "rotationY", 0.0f, 1800.0f).setDuration(TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(obj, Key.ROTATION_Y, 0.0f, 1800.0f).setDuration(TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
             duration.setRepeatMode(1);
             duration.setRepeatCount(-1);
             return duration;
@@ -141,8 +142,8 @@ public class RotateLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) || drawable == null) {
             return;
         }
-        this.f61014g = Math.round(drawable.getIntrinsicWidth() / 2.0f);
-        this.f61015h = Math.round(drawable.getIntrinsicHeight() / 2.0f);
+        this.f57906g = Math.round(drawable.getIntrinsicWidth() / 2.0f);
+        this.f57907h = Math.round(drawable.getIntrinsicHeight() / 2.0f);
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.LoadingLayout
@@ -155,8 +156,8 @@ public class RotateLoadingLayout extends LoadingLayout {
                 this.mHeaderImage.invalidate();
                 return;
             }
-            this.f61013f.setRotate(f2 * 90.0f, this.f61014g, this.f61015h);
-            this.mHeaderImage.setImageMatrix(this.f61013f);
+            this.f57905f.setRotate(f2 * 90.0f, this.f57906g, this.f57907h);
+            this.mHeaderImage.setImageMatrix(this.f57905f);
         }
     }
 
@@ -172,9 +173,9 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.mHeaderImage.getDrawable() instanceof RefreshLoadingDrawable) {
-                this.f61012e.start();
+                this.f57904e.start();
             } else {
-                this.mHeaderImage.startAnimation(this.f61011d);
+                this.mHeaderImage.startAnimation(this.f57903d);
             }
         }
     }
@@ -191,7 +192,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.mHeaderImage.getDrawable() instanceof RefreshLoadingDrawable) {
-                this.f61012e.cancel();
+                this.f57904e.cancel();
                 this.mHeaderImage.setRotationY(0.0f);
             } else {
                 this.mHeaderImage.clearAnimation();

@@ -3,8 +3,8 @@ package com.google.android.exoplayer2.metadata.scte35;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.i.b.a.i0.l;
-import c.i.b.a.i0.s;
+import b.i.b.a.i0.l;
+import b.i.b.a.i0.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class TimeSignalCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TimeSignalCommand> CREATOR;
@@ -21,7 +21,7 @@ public final class TimeSignalCommand extends SpliceCommand {
     public final long playbackPositionUs;
     public final long ptsTime;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<TimeSignalCommand> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,27 +75,27 @@ public final class TimeSignalCommand extends SpliceCommand {
         CREATOR = new a();
     }
 
-    public /* synthetic */ TimeSignalCommand(long j2, long j3, a aVar) {
-        this(j2, j3);
+    public /* synthetic */ TimeSignalCommand(long j, long j2, a aVar) {
+        this(j, j2);
     }
 
-    public static TimeSignalCommand parseFromSection(l lVar, long j2, s sVar) {
+    public static TimeSignalCommand parseFromSection(l lVar, long j, s sVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{lVar, Long.valueOf(j2), sVar})) == null) {
-            long parseSpliceTime = parseSpliceTime(lVar, j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{lVar, Long.valueOf(j), sVar})) == null) {
+            long parseSpliceTime = parseSpliceTime(lVar, j);
             return new TimeSignalCommand(parseSpliceTime, sVar.b(parseSpliceTime));
         }
         return (TimeSignalCommand) invokeCommon.objValue;
     }
 
-    public static long parseSpliceTime(l lVar, long j2) {
+    public static long parseSpliceTime(l lVar, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar, j)) == null) {
             long x = lVar.x();
             if ((128 & x) != 0) {
-                return 8589934591L & ((((x & 1) << 32) | lVar.z()) + j2);
+                return 8589934591L & ((((x & 1) << 32) | lVar.z()) + j);
             }
             return -9223372036854775807L;
         }
@@ -111,12 +111,12 @@ public final class TimeSignalCommand extends SpliceCommand {
         }
     }
 
-    public TimeSignalCommand(long j2, long j3) {
+    public TimeSignalCommand(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -126,7 +126,7 @@ public final class TimeSignalCommand extends SpliceCommand {
                 return;
             }
         }
-        this.ptsTime = j2;
-        this.playbackPositionUs = j3;
+        this.ptsTime = j;
+        this.playbackPositionUs = j2;
     }
 }

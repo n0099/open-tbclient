@@ -4,13 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PaysSettingInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String customerServiceHotline;
     public String customerServiceMsg;
     public int payChargeAmountLimit;
+    public String payRemindMsg;
     public String successMsg;
 
     public PaysSettingInfo() {

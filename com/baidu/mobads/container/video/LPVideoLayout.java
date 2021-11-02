@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LPVideoLayout extends RelativeLayout implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnTouchListener, ILpVideoLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUTTON_MARGIN = 15;
@@ -195,20 +195,20 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
                         this.this$0.seekBar.setMax(duration);
                         this.this$0.seekBar.setProgress(lastPosition);
                         int i4 = duration / 1000;
-                        long j2 = i4 % 60;
-                        long j3 = (i4 / 60) % 60;
-                        long j4 = (i4 / 3600) % 24;
+                        long j = i4 % 60;
+                        long j2 = (i4 / 60) % 60;
+                        long j3 = (i4 / 3600) % 24;
                         if (lastPosition == 0) {
-                            if (j4 > 0) {
+                            if (j3 > 0) {
                                 this.this$0.textElapsed.setText("00:00:00");
                             } else {
                                 this.this$0.textElapsed.setText("00:00");
                             }
                         }
-                        if (j4 > 0) {
-                            this.this$0.textTotal.setText(String.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)));
+                        if (j3 > 0) {
+                            this.this$0.textTotal.setText(String.format("%d:%02d:%02d", Long.valueOf(j3), Long.valueOf(j2), Long.valueOf(j)));
                         } else {
-                            this.this$0.textTotal.setText(String.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)));
+                            this.this$0.textTotal.setText(String.format("%02d:%02d", Long.valueOf(j2), Long.valueOf(j)));
                         }
                     }
                     this.this$0.videoControlsView.setVisibility(0);
@@ -377,13 +377,13 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
         }
         this.seekBar.setProgress(currentPosition);
         int round = Math.round(currentPosition / 1000.0f);
-        long j2 = round % 60;
-        long j3 = (round / 60) % 60;
-        long j4 = (round / 3600) % 24;
-        if (j4 > 0) {
-            this.textElapsed.setText(String.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)));
+        long j = round % 60;
+        long j2 = (round / 60) % 60;
+        long j3 = (round / 3600) % 24;
+        if (j3 > 0) {
+            this.textElapsed.setText(String.format("%d:%02d:%02d", Long.valueOf(j3), Long.valueOf(j2), Long.valueOf(j)));
         } else {
-            this.textElapsed.setText(String.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)));
+            this.textElapsed.setText(String.format("%02d:%02d", Long.valueOf(j2), Long.valueOf(j)));
         }
     }
 

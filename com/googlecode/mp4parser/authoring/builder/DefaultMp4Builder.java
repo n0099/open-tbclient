@@ -57,7 +57,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DefaultMp4Builder implements Mp4Builder {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public class DefaultMp4Builder implements Mp4Builder {
     public HashMap<Track, long[]> track2SampleSizes;
 
     /* renamed from: com.googlecode.mp4parser.authoring.builder.DefaultMp4Builder$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,21 +109,21 @@ public class DefaultMp4Builder implements Mp4Builder {
         this.track2SampleSizes = new HashMap<>();
     }
 
-    public static long gcd(long j2, long j3) {
+    public static long gcd(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j3 == 0 ? j2 : gcd(j3, j2 % j3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j2 == 0 ? j : gcd(j2, j % j2) : invokeCommon.longValue;
     }
 
     public static long sum(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iArr)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (int i2 : iArr) {
-                j2 += i2;
+                j += i2;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -161,11 +161,11 @@ public class DefaultMp4Builder implements Mp4Builder {
             MovieBox createMovieBox = createMovieBox(movie, hashMap);
             basicContainer.addBox(createMovieBox);
             Iterator<Box> it2 = Path.getPaths((Box) createMovieBox, "trak/mdia/minf/stbl/stsz").iterator();
-            long j2 = 0;
+            long j = 0;
             while (it2.hasNext()) {
-                j2 += sum(((SampleSizeBox) it2.next()).getSampleSizes());
+                j += sum(((SampleSizeBox) it2.next()).getSampleSizes());
             }
-            InterleaveChunkMdat interleaveChunkMdat = new InterleaveChunkMdat(this, movie, hashMap, j2, null);
+            InterleaveChunkMdat interleaveChunkMdat = new InterleaveChunkMdat(this, movie, hashMap, j, null);
             basicContainer.addBox(interleaveChunkMdat);
             long dataOffset = interleaveChunkMdat.getDataOffset();
             for (StaticChunkOffsetBox staticChunkOffsetBox : this.chunkOffsetBoxes) {
@@ -213,22 +213,22 @@ public class DefaultMp4Builder implements Mp4Builder {
             movieHeaderBox.setModificationTime(new Date());
             movieHeaderBox.setMatrix(movie.getMatrix());
             long timescale = getTimescale(movie);
+            long j = 0;
             long j2 = 0;
-            long j3 = 0;
             for (Track track : movie.getTracks()) {
                 long duration = (track.getDuration() * timescale) / track.getTrackMetaData().getTimescale();
-                if (duration > j3) {
-                    j3 = duration;
+                if (duration > j2) {
+                    j2 = duration;
                 }
             }
-            movieHeaderBox.setDuration(j3);
+            movieHeaderBox.setDuration(j2);
             movieHeaderBox.setTimescale(timescale);
             for (Track track2 : movie.getTracks()) {
-                if (j2 < track2.getTrackMetaData().getTrackId()) {
-                    j2 = track2.getTrackMetaData().getTrackId();
+                if (j < track2.getTrackMetaData().getTrackId()) {
+                    j = track2.getTrackMetaData().getTrackId();
                 }
             }
-            movieHeaderBox.setNextTrackId(j2 + 1);
+            movieHeaderBox.setNextTrackId(j + 1);
             movieBox.addBox(movieHeaderBox);
             for (Track track3 : movie.getTracks()) {
                 movieBox.addBox(createTrackBox(track3, movie, map));
@@ -288,7 +288,7 @@ public class DefaultMp4Builder implements Mp4Builder {
                 logger.fine("Calculating chunk offsets for track_" + track.getTrackMetaData().getTrackId());
             }
             int i2 = 0;
-            long j2 = 0;
+            long j = 0;
             while (i2 < iArr2.length) {
                 if (LOG.isLoggable(Level.FINER)) {
                     Logger logger2 = LOG;
@@ -308,23 +308,23 @@ public class DefaultMp4Builder implements Mp4Builder {
                     }
                     int[] iArr3 = map2.get(track3);
                     int i3 = 0;
-                    long j3 = 0;
+                    long j2 = 0;
                     while (i3 < i2) {
-                        j3 += iArr3[i3];
+                        j2 += iArr3[i3];
                         i3++;
                         track2 = track;
                     }
                     if (track3 == track2) {
-                        jArr[i2] = j2;
+                        jArr[i2] = j;
                     }
-                    int l2i = CastUtils.l2i(j3);
+                    int l2i = CastUtils.l2i(j2);
                     while (true) {
                         iArr = iArr2;
                         staticChunkOffsetBox = staticChunkOffsetBox2;
-                        if (l2i >= iArr3[i2] + j3) {
+                        if (l2i >= iArr3[i2] + j2) {
                             break;
                         }
-                        j2 += this.track2SampleSizes.get(track3)[l2i];
+                        j += this.track2SampleSizes.get(track3)[l2i];
                         l2i++;
                         iArr2 = iArr;
                         staticChunkOffsetBox2 = staticChunkOffsetBox;
@@ -348,11 +348,11 @@ public class DefaultMp4Builder implements Mp4Builder {
             int[] iArr = map.get(track);
             SampleToChunkBox sampleToChunkBox = new SampleToChunkBox();
             sampleToChunkBox.setEntries(new LinkedList());
-            long j2 = -2147483648L;
+            long j = -2147483648L;
             for (int i2 = 0; i2 < iArr.length; i2++) {
-                if (j2 != iArr[i2]) {
+                if (j != iArr[i2]) {
                     sampleToChunkBox.getEntries().add(new SampleToChunkBox.Entry(i2 + 1, iArr[i2], 1L));
-                    j2 = iArr[i2];
+                    j = iArr[i2];
                 }
             }
             sampleTableBox.addBox(sampleToChunkBox);
@@ -392,11 +392,11 @@ public class DefaultMp4Builder implements Mp4Builder {
         if (interceptable == null || interceptable.invokeLL(1048587, this, track, sampleTableBox) == null) {
             ArrayList arrayList = new ArrayList();
             TimeToSampleBox.Entry entry = null;
-            for (long j2 : track.getSampleDurations()) {
-                if (entry != null && entry.getDelta() == j2) {
+            for (long j : track.getSampleDurations()) {
+                if (entry != null && entry.getDelta() == j) {
                     entry.setCount(entry.getCount() + 1);
                 } else {
-                    entry = new TimeToSampleBox.Entry(1L, j2);
+                    entry = new TimeToSampleBox.Entry(1L, j);
                     arrayList.add(entry);
                 }
             }
@@ -465,21 +465,21 @@ public class DefaultMp4Builder implements Mp4Builder {
 
     public int[] getChunkSizes(Track track, Movie movie) {
         InterceptResult invokeLL;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, track, movie)) == null) {
             long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
             int[] iArr = new int[sampleNumbers.length];
             int i2 = 0;
             while (i2 < sampleNumbers.length) {
-                long j3 = sampleNumbers[i2] - 1;
+                long j2 = sampleNumbers[i2] - 1;
                 int i3 = i2 + 1;
                 if (sampleNumbers.length == i3) {
-                    j2 = track.getSamples().size();
+                    j = track.getSamples().size();
                 } else {
-                    j2 = sampleNumbers[i3] - 1;
+                    j = sampleNumbers[i3] - 1;
                 }
-                iArr[i2] = CastUtils.l2i(j2 - j3);
+                iArr[i2] = CastUtils.l2i(j - j2);
                 i2 = i3;
             }
             return iArr;
@@ -517,16 +517,16 @@ public class DefaultMp4Builder implements Mp4Builder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jArr)) == null) {
-            long j2 = 0;
-            for (long j3 : jArr) {
-                j2 += j3;
+            long j = 0;
+            for (long j2 : jArr) {
+                j += j2;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class InterleaveChunkMdat implements Box {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -536,12 +536,12 @@ public class DefaultMp4Builder implements Mp4Builder {
         public final /* synthetic */ DefaultMp4Builder this$0;
         public List<Track> tracks;
 
-        public InterleaveChunkMdat(DefaultMp4Builder defaultMp4Builder, Movie movie, Map<Track, int[]> map, long j2) {
+        public InterleaveChunkMdat(DefaultMp4Builder defaultMp4Builder, Movie movie, Map<Track, int[]> map, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {defaultMp4Builder, movie, map, Long.valueOf(j2)};
+                Object[] objArr = {defaultMp4Builder, movie, map, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -553,24 +553,24 @@ public class DefaultMp4Builder implements Mp4Builder {
             }
             this.this$0 = defaultMp4Builder;
             this.chunkList = new ArrayList();
-            this.contentSize = j2;
+            this.contentSize = j;
             this.tracks = movie.getTracks();
             for (int i4 = 0; i4 < map.values().iterator().next().length; i4++) {
                 for (Track track : this.tracks) {
                     int[] iArr = map.get(track);
-                    long j3 = 0;
+                    long j2 = 0;
                     for (int i5 = 0; i5 < i4; i5++) {
-                        j3 += iArr[i5];
+                        j2 += iArr[i5];
                     }
-                    this.chunkList.add(defaultMp4Builder.track2Sample.get(track).subList(CastUtils.l2i(j3), CastUtils.l2i(j3 + iArr[i4])));
+                    this.chunkList.add(defaultMp4Builder.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i4])));
                 }
             }
         }
 
-        private boolean isSmallBox(long j2) {
+        private boolean isSmallBox(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) ? j2 + 8 < 4294967296L : invokeJ.booleanValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) ? j + 8 < 4294967296L : invokeJ.booleanValue;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -605,17 +605,17 @@ public class DefaultMp4Builder implements Mp4Builder {
             Box next;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                long j2 = 16;
+                long j = 16;
                 Container container = this;
                 while (container instanceof Box) {
                     InterleaveChunkMdat interleaveChunkMdat = container;
                     Iterator<Box> it = interleaveChunkMdat.getParent().getBoxes().iterator();
                     while (it.hasNext() && container != (next = it.next())) {
-                        j2 += next.getSize();
+                        j += next.getSize();
                     }
                     container = interleaveChunkMdat.getParent();
                 }
-                return j2;
+                return j;
             }
             return invokeV.longValue;
         }
@@ -652,9 +652,9 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
 
         @Override // com.coremedia.iso.boxes.Box
-        public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+        public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             }
         }
 
@@ -666,8 +666,8 @@ public class DefaultMp4Builder implements Mp4Builder {
             }
         }
 
-        public /* synthetic */ InterleaveChunkMdat(DefaultMp4Builder defaultMp4Builder, Movie movie, Map map, long j2, InterleaveChunkMdat interleaveChunkMdat) {
-            this(defaultMp4Builder, movie, map, j2);
+        public /* synthetic */ InterleaveChunkMdat(DefaultMp4Builder defaultMp4Builder, Movie movie, Map map, long j, InterleaveChunkMdat interleaveChunkMdat) {
+            this(defaultMp4Builder, movie, map, j);
         }
     }
 }

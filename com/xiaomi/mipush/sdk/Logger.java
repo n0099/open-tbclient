@@ -14,7 +14,7 @@ import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.push.de;
 import com.xiaomi.push.df;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Logger {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sDisablePushLog;

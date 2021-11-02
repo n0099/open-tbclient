@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.mipush.sdk.l;
 import com.xiaomi.push.bh;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class aj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,10 +23,10 @@ public class aj {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, eVar)) == null) {
             l.a m137a = l.m137a(eVar);
-            if (m137a == null || TextUtils.isEmpty(m137a.f77670a) || TextUtils.isEmpty(m137a.f77671b)) {
+            if (m137a == null || TextUtils.isEmpty(m137a.f70633a) || TextUtils.isEmpty(m137a.f70634b)) {
                 return null;
             }
-            return (AbstractPushManager) bh.a(m137a.f77670a, m137a.f77671b, context);
+            return (AbstractPushManager) bh.a(m137a.f70633a, m137a.f70634b, context);
         }
         return (AbstractPushManager) invokeLL.objValue;
     }

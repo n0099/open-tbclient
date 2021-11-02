@@ -5,22 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f59737a;
+    public final /* synthetic */ int f56663a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f59738b;
+    public final /* synthetic */ int f56664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f59739c;
+    public final /* synthetic */ int f56665c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ int f59740d;
+    public final /* synthetic */ int f56666d;
 
     public d(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f59737a = i2;
-        this.f59738b = i3;
-        this.f59739c = i4;
-        this.f59740d = i5;
+        this.f56663a = i2;
+        this.f56664b = i3;
+        this.f56665c = i4;
+        this.f56666d = i5;
     }
 
     @Override // java.lang.Runnable
@@ -49,7 +49,7 @@ public final class d implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             context = UfoSDK.mApplication;
-            com.baidu.ufosdk.e.a.a(context, this.f59737a, this.f59738b, this.f59739c, this.f59740d, false);
+            com.baidu.ufosdk.e.a.a(context, this.f56663a, this.f56664b, this.f56665c, this.f56666d, false);
         }
     }
 }

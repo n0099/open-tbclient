@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FlatPackageWriterImpl implements PackageWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -208,15 +208,15 @@ public class FlatPackageWriterImpl implements PackageWriter {
                 Logger logger = LOG;
                 logger.finer("Created : " + file2.getCanonicalPath());
                 long[] calculateFragmentDurations = this.manifestWriter.calculateFragmentDurations(track2, correctTimescale);
-                long j2 = 0;
+                long j = 0;
                 char c2 = 0;
                 int i2 = 0;
                 while (it2.hasNext()) {
                     Box next2 = it2.next();
                     if ((next2 instanceof MovieFragmentBox) && ((MovieFragmentBox) next2).getTrackNumbers()[c2] == trackId) {
-                        FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file2, Long.toString(j2)));
+                        FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file2, Long.toString(j)));
                         int i3 = i2 + 1;
-                        j2 += calculateFragmentDurations[i2];
+                        j += calculateFragmentDurations[i2];
                         FileChannel channel = fileOutputStream4.getChannel();
                         next2.getBox(channel);
                         it2.next().getBox(channel);

@@ -17,8 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.u.j;
-import c.a.r0.k3.i0.n;
+import b.a.q0.u.k;
+import b.a.r0.l3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -45,28 +45,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NestedScrollHeader extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PublishButton f52170e;
+    public PublishButton f49479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f52171f;
+    public TbImageView f49480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52172g;
+    public TextView f49481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f52173h;
+    public f f49482h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f52174i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f52175j;
+    public Bitmap f49483i;
+    public float j;
     public View k;
     public ImageView l;
     public Context m;
@@ -74,13 +72,13 @@ public class NestedScrollHeader extends RelativeLayout {
     public CustomMessageListener o;
     public CustomMessageListener p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NestedScrollHeader f52176e;
+        public final /* synthetic */ NestedScrollHeader f49484e;
 
         public a(NestedScrollHeader nestedScrollHeader) {
             Interceptable interceptable = $ic;
@@ -97,7 +95,7 @@ public class NestedScrollHeader extends RelativeLayout {
                     return;
                 }
             }
-            this.f52176e = nestedScrollHeader;
+            this.f49484e = nestedScrollHeader;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -105,26 +103,26 @@ public class NestedScrollHeader extends RelativeLayout {
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f52176e.getLayoutParams() instanceof AppBarLayout.LayoutParams) {
-                    AppBarLayout.LayoutParams layoutParams = (AppBarLayout.LayoutParams) this.f52176e.getLayoutParams();
+                if (this.f49484e.getLayoutParams() instanceof AppBarLayout.LayoutParams) {
+                    AppBarLayout.LayoutParams layoutParams = (AppBarLayout.LayoutParams) this.f49484e.getLayoutParams();
                     layoutParams.setScrollFlags(5);
-                    this.f52176e.setLayoutParams(layoutParams);
+                    this.f49484e.setLayoutParams(layoutParams);
                 }
-                this.f52176e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                this.f49484e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends c.a.e.e.l.c<c.a.e.l.d.a> {
+    /* loaded from: classes9.dex */
+    public class b extends b.a.e.e.l.c<b.a.e.l.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f52177a;
+        public final /* synthetic */ String f49485a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NestedScrollHeader f52178b;
+        public final /* synthetic */ NestedScrollHeader f49486b;
 
         public b(NestedScrollHeader nestedScrollHeader, String str) {
             Interceptable interceptable = $ic;
@@ -141,11 +139,11 @@ public class NestedScrollHeader extends RelativeLayout {
                     return;
                 }
             }
-            this.f52178b = nestedScrollHeader;
-            this.f52177a = str;
+            this.f49486b = nestedScrollHeader;
+            this.f49485a = str;
         }
 
-        @Override // c.a.e.e.l.c
+        @Override // b.a.e.e.l.c
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -153,7 +151,7 @@ public class NestedScrollHeader extends RelativeLayout {
             }
         }
 
-        @Override // c.a.e.e.l.c
+        @Override // b.a.e.e.l.c
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -162,32 +160,32 @@ public class NestedScrollHeader extends RelativeLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.e.e.l.c
-        public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.e.l.c
+        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) {
                 super.onLoaded((b) aVar, str, i2);
                 if (aVar == null || aVar.p() == null || aVar.p().isRecycled()) {
-                    this.f52178b.f52174i = null;
-                    this.f52178b.f52171f.setImageResource(R.drawable.icon_mask_coin44);
-                    this.f52178b.f52171f.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+                    this.f49486b.f49483i = null;
+                    this.f49486b.f49480f.setImageResource(R.drawable.icon_mask_coin44);
+                    this.f49486b.f49480f.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
                     return;
                 }
-                this.f52178b.f52174i = aVar.p();
-                this.f52178b.f52171f.setImageBitmap(this.f52178b.f52174i);
-                this.f52178b.f52171f.setTag(R.id.homepage_mission_entrance_url, this.f52177a);
-                this.f52178b.f52171f.invalidate();
+                this.f49486b.f49483i = aVar.p();
+                this.f49486b.f49480f.setImageBitmap(this.f49486b.f49483i);
+                this.f49486b.f49480f.setTag(R.id.homepage_mission_entrance_url, this.f49485a);
+                this.f49486b.f49480f.invalidate();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NestedScrollHeader f52179e;
+        public final /* synthetic */ NestedScrollHeader f49487e;
 
         public c(NestedScrollHeader nestedScrollHeader) {
             Interceptable interceptable = $ic;
@@ -204,7 +202,7 @@ public class NestedScrollHeader extends RelativeLayout {
                     return;
                 }
             }
-            this.f52179e = nestedScrollHeader;
+            this.f49487e = nestedScrollHeader;
         }
 
         @Override // android.view.View.OnClickListener
@@ -212,34 +210,34 @@ public class NestedScrollHeader extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 try {
-                    if (this.f52179e.f52171f == view) {
-                        Object tag = this.f52179e.f52171f.getTag(R.id.homepage_mission_entrance_url);
+                    if (this.f49487e.f49480f == view) {
+                        Object tag = this.f49487e.f49480f.getTag(R.id.homepage_mission_entrance_url);
                         if (tag instanceof String) {
                             String str = (String) tag;
                             if (TextUtils.isEmpty(str)) {
                                 return;
                             }
-                            if (this.f52179e.f52173h != null) {
-                                this.f52179e.f52173h.a(str);
+                            if (this.f49487e.f49482h != null) {
+                                this.f49487e.f49482h.a(str);
                             }
-                            this.f52179e.l();
+                            this.f49487e.l();
                         }
-                    } else if (this.f52179e.f52172g != view) {
-                        if (this.f52179e.f52170e != view) {
-                            if (this.f52179e.l == view) {
+                    } else if (this.f49487e.f49481g != view) {
+                        if (this.f49487e.f49479e != view) {
+                            if (this.f49487e.l == view) {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("open_flag", "1");
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.f52179e.m, "GameCenterListPage", hashMap)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.f49487e.m, "GameCenterListPage", hashMap)));
                                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RECOMMEND_GAMECENTER).param("obj_type", "1"));
                             }
                         } else if (WriteActivityConfig.isAsyncWriting()) {
                         } else {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new j(1)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new k(1)));
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.UBS_TEST_PUBLISH_BUTTON_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()));
                         }
                     } else {
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.SEARCH_BAR_CLICK).param("obj_type", 1));
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(this.f52179e.getContext(), "", false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(this.f49487e.getContext(), "", false)));
                     }
                 } catch (Exception unused) {
                 }
@@ -247,13 +245,13 @@ public class NestedScrollHeader extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NestedScrollHeader f52180a;
+        public final /* synthetic */ NestedScrollHeader f49488a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(NestedScrollHeader nestedScrollHeader, int i2) {
@@ -273,7 +271,7 @@ public class NestedScrollHeader extends RelativeLayout {
                     return;
                 }
             }
-            this.f52180a = nestedScrollHeader;
+            this.f49488a = nestedScrollHeader;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -281,18 +279,18 @@ public class NestedScrollHeader extends RelativeLayout {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f52180a.setSearchHint(TbSingleton.getInstance().getHotSearch());
+                this.f49488a.setSearchHint(TbSingleton.getInstance().getHotSearch());
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NestedScrollHeader f52181a;
+        public final /* synthetic */ NestedScrollHeader f49489a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(NestedScrollHeader nestedScrollHeader, int i2) {
@@ -312,20 +310,20 @@ public class NestedScrollHeader extends RelativeLayout {
                     return;
                 }
             }
-            this.f52181a = nestedScrollHeader;
+            this.f49489a = nestedScrollHeader;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && this.f52181a.f52171f.getVisibility() == 0) {
-                this.f52181a.m();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && this.f49489a.f49480f.getVisibility() == 0) {
+                this.f49489a.m();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface f {
         void a(String str);
     }
@@ -362,7 +360,7 @@ public class NestedScrollHeader extends RelativeLayout {
     public ImageView getTaskView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52171f : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49480f : (ImageView) invokeV.objValue;
     }
 
     public final void k(Context context) {
@@ -371,14 +369,14 @@ public class NestedScrollHeader extends RelativeLayout {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4012);
             this.m = context;
             LayoutInflater.from(context).inflate(R.layout.layout_presenlize_scroll_header, (ViewGroup) this, true);
-            this.f52170e = (PublishButton) findViewById(R.id.publish_btn);
-            this.f52171f = (TbImageView) findViewById(R.id.task);
-            this.f52172g = (TextView) findViewById(R.id.search);
+            this.f49479e = (PublishButton) findViewById(R.id.publish_btn);
+            this.f49480f = (TbImageView) findViewById(R.id.task);
+            this.f49481g = (TextView) findViewById(R.id.search);
             this.k = findViewById(R.id.game_layout);
             this.l = (ImageView) findViewById(R.id.game_center);
-            this.f52170e.setOnClickListener(this.n);
-            this.f52171f.setOnClickListener(this.n);
-            this.f52172g.setOnClickListener(this.n);
+            this.f49479e.setOnClickListener(this.n);
+            this.f49480f.setOnClickListener(this.n);
+            this.f49481g.setOnClickListener(this.n);
             this.l.setOnClickListener(this.n);
             if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
                 this.l.setVisibility(0);
@@ -412,12 +410,12 @@ public class NestedScrollHeader extends RelativeLayout {
             String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
             String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
             if (!TextUtils.isEmpty(missionEntranceUrl) && !TextUtils.isEmpty(missionEntranceIcon)) {
-                c.a.e.e.l.d.h().m(missionEntranceIcon, 10, new b(this, missionEntranceUrl), null);
+                b.a.e.e.l.d.h().m(missionEntranceIcon, 10, new b(this, missionEntranceUrl), null);
                 return;
             }
-            this.f52174i = null;
-            this.f52171f.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
-            this.f52171f.setImageResource(R.drawable.icon_mask_coin44);
+            this.f49483i = null;
+            this.f49480f.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+            this.f49480f.setImageResource(R.drawable.icon_mask_coin44);
         }
     }
 
@@ -434,17 +432,17 @@ public class NestedScrollHeader extends RelativeLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f52172g);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f49481g);
             d2.v(R.color.CAM_X0109);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0210);
-            SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - this.f52175j, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - this.j, TbadkCoreApplication.getInst().getSkinType());
             WebPManager.setMaskDrawable(this.l, R.drawable.icon_home_new_games, WebPManager.ResourceStateType.NORMAL);
-            Bitmap bitmap = this.f52174i;
+            Bitmap bitmap = this.f49483i;
             if (bitmap == null) {
-                SkinManager.setImageResource(this.f52171f, R.drawable.icon_mask_coin44);
+                SkinManager.setImageResource(this.f49480f, R.drawable.icon_mask_coin44);
             } else {
-                TbImageView tbImageView = this.f52171f;
+                TbImageView tbImageView = this.f49480f;
                 if (tbImageView != null) {
                     tbImageView.setImageBitmap(bitmap);
                 }
@@ -452,7 +450,7 @@ public class NestedScrollHeader extends RelativeLayout {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_search_scan, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
             pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-            this.f52172g.setCompoundDrawables(pureDrawable, null, null, null);
+            this.f49481g.setCompoundDrawables(pureDrawable, null, null, null);
         }
     }
 
@@ -489,7 +487,7 @@ public class NestedScrollHeader extends RelativeLayout {
     public void setEntranceJumpListener(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
-            this.f52173h = fVar;
+            this.f49482h = fVar;
         }
     }
 
@@ -505,13 +503,13 @@ public class NestedScrollHeader extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f52172g.setText(str);
+        this.f49481g.setText(str);
     }
 
     public void setTaskViewVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f52171f.setVisibility(z ? 0 : 8);
+            this.f49480f.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -520,22 +518,22 @@ public class NestedScrollHeader extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeF(1048590, this, f2) == null) || f2 < 0.0f || f2 > 1.0f) {
             return;
         }
-        this.f52175j = f2;
+        this.j = f2;
         SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - f2, TbadkCoreApplication.getInst().getSkinType());
-        if (this.f52171f.getVisibility() == 0 && this.f52171f.getAlpha() != f2) {
-            this.f52171f.setAlpha(f2);
+        if (this.f49480f.getVisibility() == 0 && this.f49480f.getAlpha() != f2) {
+            this.f49480f.setAlpha(f2);
         }
         if (this.l.getVisibility() == 0 && this.l.getAlpha() != f2) {
             this.l.setAlpha(f2);
         }
-        if (this.f52172g.getAlpha() != f2) {
-            this.f52172g.setAlpha(f2);
+        if (this.f49481g.getAlpha() != f2) {
+            this.f49481g.setAlpha(f2);
         }
-        if (this.f52170e.getVisibility() != 0 || this.f52170e.getAlpha() == f2) {
+        if (this.f49479e.getVisibility() != 0 || this.f49479e.getAlpha() == f2) {
             return;
         }
-        this.f52170e.setAlpha(f2);
-        this.f52170e.setScrollAlpha(f2);
+        this.f49479e.setAlpha(f2);
+        this.f49479e.setScrollAlpha(f2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -578,7 +576,7 @@ public class NestedScrollHeader extends RelativeLayout {
                 return;
             }
         }
-        this.f52175j = 1.0f;
+        this.j = 1.0f;
         this.n = new c(this);
         this.o = new d(this, 2921396);
         this.p = new e(this, 2001371);

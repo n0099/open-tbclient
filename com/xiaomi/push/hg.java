@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class hg {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hg f78126a;
+    public static final hg f71080a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hg[] f477a;
+    public static final /* synthetic */ hg[] f478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hg f78127b;
+    public static final hg f71081b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f478a;
+    public final int f479a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,10 +38,10 @@ public final class hg {
                 return;
             }
         }
-        f78126a = new hg("START", 0, 0);
+        f71080a = new hg("START", 0, 0);
         hg hgVar = new hg("BIND", 1, 1);
-        f78127b = hgVar;
-        f477a = new hg[]{f78126a, hgVar};
+        f71081b = hgVar;
+        f478a = new hg[]{f71080a, hgVar};
     }
 
     public hg(String str, int i2, int i3) {
@@ -62,7 +62,7 @@ public final class hg {
                 return;
             }
         }
-        this.f478a = i3;
+        this.f479a = i3;
     }
 
     public static hg valueOf(String str) {
@@ -74,12 +74,12 @@ public final class hg {
     public static hg[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hg[]) f477a.clone() : (hg[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hg[]) f478a.clone() : (hg[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f478a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f479a : invokeV.intValue;
     }
 }

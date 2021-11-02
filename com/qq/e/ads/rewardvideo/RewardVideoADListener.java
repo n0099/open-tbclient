@@ -2,7 +2,7 @@ package com.qq.e.ads.rewardvideo;
 
 import com.qq.e.comm.util.AdError;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface RewardVideoADListener {
     void onADClick();
 

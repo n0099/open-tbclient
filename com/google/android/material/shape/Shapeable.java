@@ -1,7 +1,7 @@
 package com.google.android.material.shape;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface Shapeable {
     @NonNull
     ShapeAppearanceModel getShapeAppearanceModel();

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FaceMouthMask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceMouthMask";
@@ -56,12 +56,12 @@ public class FaceMouthMask {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native float[] nativeCheckMask(long j2, BDFaceImageInstance bDFaceImageInstance, FaceInfo[] faceInfoArr);
+    private native float[] nativeCheckMask(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo[] faceInfoArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeInitModel(long j2, byte[] bArr);
+    public native int nativeInitModel(long j, byte[] bArr);
 
-    private native int nativeUninitModel(long j2);
+    private native int nativeUninitModel(long j);
 
     public float[] checkMask(BDFaceImageInstance bDFaceImageInstance, FaceInfo[] faceInfoArr) {
         InterceptResult invokeLL;

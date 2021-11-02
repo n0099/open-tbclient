@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> implements FlowableSubscriber<T>, Subscription, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
     public final AtomicReference<Subscription> subscription;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class EmptySubscriber implements FlowableSubscriber<Object> {
         public static final /* synthetic */ EmptySubscriber[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -386,18 +386,18 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
     }
 
     @Override // org.reactivestreams.Subscription
-    public final void request(long j2) {
+    public final void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            SubscriptionHelper.deferredRequest(this.subscription, this.missedRequested, j2);
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            SubscriptionHelper.deferredRequest(this.subscription, this.missedRequested, j);
         }
     }
 
-    public final TestSubscriber<T> requestMore(long j2) {
+    public final TestSubscriber<T> requestMore(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j2)) == null) {
-            request(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
+            request(j);
             return this;
         }
         return (TestSubscriber) invokeJ.objValue;
@@ -414,13 +414,13 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TestSubscriber(long j2) {
-        this(EmptySubscriber.INSTANCE, j2);
+    public TestSubscriber(long j) {
+        this(EmptySubscriber.INSTANCE, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -434,10 +434,10 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
         }
     }
 
-    public static <T> TestSubscriber<T> create(long j2) {
+    public static <T> TestSubscriber<T> create(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j2)) == null) ? new TestSubscriber<>(j2) : (TestSubscriber) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j)) == null) ? new TestSubscriber<>(j) : (TestSubscriber) invokeJ.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -498,12 +498,12 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
         return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, subscriber)) == null) ? new TestSubscriber<>(subscriber) : (TestSubscriber) invokeL.objValue;
     }
 
-    public TestSubscriber(Subscriber<? super T> subscriber, long j2) {
+    public TestSubscriber(Subscriber<? super T> subscriber, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {subscriber, Long.valueOf(j2)};
+            Object[] objArr = {subscriber, Long.valueOf(j)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -513,10 +513,10 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
                 return;
             }
         }
-        if (j2 >= 0) {
+        if (j >= 0) {
             this.actual = subscriber;
             this.subscription = new AtomicReference<>();
-            this.missedRequested = new AtomicLong(j2);
+            this.missedRequested = new AtomicLong(j);
             return;
         }
         throw new IllegalArgumentException("Negative initial request not allowed");

@@ -15,7 +15,7 @@ import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class HandlerExecutorServiceImpl extends AbstractExecutorService implements HandlerExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,10 +40,10 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j2, TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeJL.booleanValue;
@@ -98,32 +98,32 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public ScheduledFuture<?> schedule(Runnable runnable, long j2, TimeUnit timeUnit) {
+    public ScheduledFuture<?> schedule(Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
             ScheduledFutureImpl newTaskFor = newTaskFor(runnable, (Runnable) null);
-            this.mHandler.postDelayed(newTaskFor, timeUnit.toMillis(j2));
+            this.mHandler.postDelayed(newTaskFor, timeUnit.toMillis(j));
             return newTaskFor;
         }
         return (ScheduledFuture) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public ScheduledFuture<?> scheduleAtFixedRate(Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
+    public ScheduledFuture<?> scheduleAtFixedRate(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
             throw new UnsupportedOperationException();
         }
         return (ScheduledFuture) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public ScheduledFuture<?> scheduleWithFixedDelay(Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
+    public ScheduledFuture<?> scheduleWithFixedDelay(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
             throw new UnsupportedOperationException();
         }
         return (ScheduledFuture) invokeCommon.objValue;
@@ -160,12 +160,12 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public <V> ScheduledFuture<V> schedule(Callable<V> callable, long j2, TimeUnit timeUnit) {
+    public <V> ScheduledFuture<V> schedule(Callable<V> callable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{callable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{callable, Long.valueOf(j), timeUnit})) == null) {
             ScheduledFutureImpl newTaskFor = newTaskFor((Callable) callable);
-            this.mHandler.postDelayed(newTaskFor, timeUnit.toMillis(j2));
+            this.mHandler.postDelayed(newTaskFor, timeUnit.toMillis(j));
             return newTaskFor;
         }
         return (ScheduledFuture) invokeCommon.objValue;

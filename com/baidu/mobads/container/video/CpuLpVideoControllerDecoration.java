@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CpuLpVideoControllerDecoration {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BACK_ICON = "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADB/VeXAAAA00lEQVRIDe2QOQoCQRBFB0MDA8EV1xO4oiiiN/BGXtBYRQUdNTHRcY/HJ3RgVANFdzYNjw5+1auiPC9+ri4QhmEJpk78iOtwAt/6AKQ1OMIFGlYHGPnBlbyK2IcrNG1vXvmTt1zI9wwIoG1bXka6M/KObXnKyG/8Xa08ITQmydIQwFmo00ds3oM7bKGoNwmdiPvwgA0UhFJ9hHgAT1hDXm8SOhEP4QUryAml+gjxyAxZ8mf1JqET8RjesICMUKqPEE/gA3O9JaIT+e9cs4iyOI6+wBd/v9uNmlHQWwAAAABJRU5ErkJggg==";

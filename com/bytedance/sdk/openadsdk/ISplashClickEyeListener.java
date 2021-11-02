@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface ISplashClickEyeListener {
     boolean isSupportSplashClickEye(boolean z);
 

@@ -14,6 +14,7 @@ import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +29,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMPaGetInfoRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetInfoRequest";
@@ -52,12 +53,12 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
         }
     }
 
-    public IMPaGetInfoRequest(Context context, String str, long j2, long j3) {
+    public IMPaGetInfoRequest(Context context, String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -68,9 +69,9 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
-        this.mUk = j3;
+        this.mUk = j2;
     }
 
     private void localSyncSubscribedPaList(Context context, List<PaInfo> list) {
@@ -175,7 +176,7 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i3 = jSONObject.getInt("error_code");
-                str = jSONObject.optString("error_msg", "");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 if (i3 == 0) {
                     if (jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONArray("response_params");

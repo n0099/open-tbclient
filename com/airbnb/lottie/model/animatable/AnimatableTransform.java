@@ -8,7 +8,7 @@ import com.airbnb.lottie.animation.content.ModifierContent;
 import com.airbnb.lottie.animation.keyframe.TransformKeyframeAnimation;
 import com.airbnb.lottie.model.content.ContentModel;
 import com.airbnb.lottie.model.layer.BaseLayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AnimatableTransform implements ModifierContent, ContentModel {
     @Nullable
     public final AnimatablePathValue anchorPoint;

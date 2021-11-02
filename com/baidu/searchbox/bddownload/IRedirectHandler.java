@@ -5,7 +5,7 @@ import com.baidu.searchbox.bddownload.core.connection.DownloadConnection;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IRedirectHandler {
     @Nullable
     String getRedirectLocation();

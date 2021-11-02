@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DateUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MILLIS_PER_DAY = 86400000;
@@ -36,7 +36,7 @@ public class DateUtils {
     public static final int[][] fields;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DateIterator implements Iterator<Calendar> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class DateUtils {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ModifyType {
         public static final /* synthetic */ ModifyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -714,7 +714,7 @@ public class DateUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65550, null, calendar, i2, timeUnit)) == null) {
             if (calendar != null) {
-                long j2 = 0;
+                long j = 0;
                 int i3 = timeUnit == TimeUnit.DAYS ? 0 : 1;
                 if (i2 == 1) {
                     convert = timeUnit.convert(calendar.get(6) - i3, TimeUnit.DAYS);
@@ -723,34 +723,34 @@ public class DateUtils {
                         convert = timeUnit.convert(calendar.get(5) - i3, TimeUnit.DAYS);
                     }
                     if (i2 != 1 || i2 == 2 || i2 == 5 || i2 == 6) {
-                        j2 += timeUnit.convert(calendar.get(11), TimeUnit.HOURS);
+                        j += timeUnit.convert(calendar.get(11), TimeUnit.HOURS);
                     } else {
                         switch (i2) {
                             case 11:
                                 break;
                             case 12:
-                                j2 += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
+                                j += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
                                 break;
                             case 13:
                                 break;
                             case 14:
-                                return j2;
+                                return j;
                             default:
                                 throw new IllegalArgumentException("The fragment " + i2 + " is not supported");
                         }
-                        return j2 + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
+                        return j + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
                     }
-                    j2 += timeUnit.convert(calendar.get(12), TimeUnit.MINUTES);
-                    j2 += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
-                    return j2 + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
+                    j += timeUnit.convert(calendar.get(12), TimeUnit.MINUTES);
+                    j += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
+                    return j + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
                 }
-                j2 = 0 + convert;
+                j = 0 + convert;
                 if (i2 != 1) {
                 }
-                j2 += timeUnit.convert(calendar.get(11), TimeUnit.HOURS);
-                j2 += timeUnit.convert(calendar.get(12), TimeUnit.MINUTES);
-                j2 += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
-                return j2 + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
+                j += timeUnit.convert(calendar.get(11), TimeUnit.HOURS);
+                j += timeUnit.convert(calendar.get(12), TimeUnit.MINUTES);
+                j += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
+                return j + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
             }
             throw new IllegalArgumentException("The date must not be null");
         }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.AddGroupUsers.AddGroupUsersReqIdl;
 import protobuf.AddGroupUsers.DataReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RequestAddGroupUserMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -116,17 +116,17 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.groupId = j;
         }
     }
 
-    public void setInviterUserId(long j2) {
+    public void setInviterUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.inviterUserId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.inviterUserId = j;
         }
     }
 

@@ -29,7 +29,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class HttpDns {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_ID = "0024";
@@ -46,7 +46,7 @@ public final class HttpDns {
     public CopyOnWriteArrayList<String> mRequstingHost;
     public ExecutorService pool;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class HostObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,17 +118,17 @@ public final class HttpDns {
             }
         }
 
-        public void setmQueryTime(long j2) {
+        public void setmQueryTime(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                this.mQueryTime = j2;
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+                this.mQueryTime = j;
             }
         }
 
-        public void setmTtl(long j2) {
+        public void setmTtl(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-                this.mTtl = j2;
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+                this.mTtl = j;
             }
         }
 
@@ -142,7 +142,7 @@ public final class HttpDns {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class QueryHostTask implements Callable<String[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,8 +171,8 @@ public final class HttpDns {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:86:0x01c3  */
-        /* JADX WARN: Removed duplicated region for block: B:88:0x01cb A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:86:0x01c4  */
+        /* JADX WARN: Removed duplicated region for block: B:88:0x01cc A[RETURN] */
         @Override // java.util.concurrent.Callable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -207,11 +207,11 @@ public final class HttpDns {
                                     sb.append(readLine);
                                 }
                                 JSONObject jSONObject = new JSONObject(sb.toString());
-                                long j2 = jSONObject.getLong(ResultTB.TTL);
+                                long j = jSONObject.getLong(ResultTB.TTL);
                                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                                 if (optJSONObject != null) {
-                                    if (j2 == 0) {
-                                        j2 = 300;
+                                    if (j == 0) {
+                                        j = 300;
                                     }
                                     HostObject hostObject = new HostObject(this.this$0);
                                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.hostName);
@@ -235,10 +235,10 @@ public final class HttpDns {
                                             String[] strArr = new String[optJSONArray.length()];
                                             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                                                 strArr[i2] = optJSONArray.getString(i2);
-                                                String str4 = "[QueryHostTask.call] - resolve host:" + this.hostName + " ip:" + strArr[i2] + " mTtl:" + j2;
+                                                String str4 = "[QueryHostTask.call] - resolve host:" + this.hostName + " ip:" + strArr[i2] + " mTtl:" + j;
                                             }
                                             hostObject.setHostName(this.hostName);
-                                            hostObject.setmTtl(j2);
+                                            hostObject.setmTtl(j);
                                             hostObject.setIp(strArr);
                                             hostObject.setmQueryTime(System.currentTimeMillis() / 1000);
                                             if (this.this$0.hostManager.size() < 100) {

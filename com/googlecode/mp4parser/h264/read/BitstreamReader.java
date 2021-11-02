@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.h264.CharCache;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BitstreamReader {
     public static /* synthetic */ Interceptable $ic;
     public static int bitsRead;
@@ -164,11 +164,11 @@ public class BitstreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
             if (i2 <= 64) {
-                long j2 = 0;
+                long j = 0;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    j2 = (j2 << 1) | read1Bit();
+                    j = (j << 1) | read1Bit();
                 }
-                return j2;
+                return j;
             }
             throw new IllegalArgumentException("Can not readByte more then 64 bit");
         }

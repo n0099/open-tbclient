@@ -18,7 +18,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 @RequiresApi(api = 16)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MediaCodecHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMEOUT_USEC = 10000;

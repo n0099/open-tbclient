@@ -8,7 +8,7 @@ import java.security.cert.Certificate;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ApkSignatureSchemeV1Verifier {
     public static final String TAG = "SignatureVerifierV1";
     public static Object mSync = new Object();

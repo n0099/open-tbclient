@@ -26,13 +26,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class MaybeMergeArray<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<? extends T>[] sources;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ClqSimpleQueue<T> extends ConcurrentLinkedQueue<T> implements SimpleQueueWithConsumerIndex<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4025173261791142821L;
@@ -115,7 +115,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class MergeMaybeObserver<T> extends BasicIntQueueSubscription<T> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -660395290758764731L;
@@ -255,12 +255,12 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 Subscriber<? super T> subscriber = this.actual;
                 SimpleQueueWithConsumerIndex<Object> simpleQueueWithConsumerIndex = this.queue;
-                long j2 = this.consumed;
+                long j = this.consumed;
                 int i2 = 1;
                 do {
-                    long j3 = this.requested.get();
+                    long j2 = this.requested.get();
                     while (true) {
-                        int i3 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+                        int i3 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
                         if (i3 == 0) {
                             break;
                         } else if (this.cancelled) {
@@ -279,7 +279,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
                                 break;
                             } else if (poll != NotificationLite.COMPLETE) {
                                 subscriber.onNext(poll);
-                                j2++;
+                                j++;
                             }
                         }
                     }
@@ -356,10 +356,10 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048588, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
@@ -379,7 +379,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface SimpleQueueWithConsumerIndex<T> extends SimpleQueue<T> {
         int consumerIndex();
 
@@ -436,7 +436,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class MpscFillOnceSimpleQueue<T> extends AtomicReferenceArray<T> implements SimpleQueueWithConsumerIndex<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7969063454040569579L;

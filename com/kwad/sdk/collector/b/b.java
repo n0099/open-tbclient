@@ -11,7 +11,7 @@ import com.kwad.sdk.core.network.d;
 import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,8 +33,8 @@ public class b extends d {
         }
         a("collectData", a(collection));
         a("collectType", 1);
-        b(CommandMessage.SDK_VERSION, "3.3.11");
-        a("sdkVersionCode", 3031100);
+        b(CommandMessage.SDK_VERSION, "3.3.11.4");
+        a("sdkVersionCode", 3031104);
     }
 
     private JSONArray a(Collection<e> collection) {

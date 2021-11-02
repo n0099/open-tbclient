@@ -1,8 +1,9 @@
 package com.baidu.tieba.pbextra.praise;
 
-import c.a.r0.l2.c.a;
+import b.a.r0.l2.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +54,7 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
             int error = getError();
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
-                this.mErrMsg = jSONObject.optString("error_msg");
+                this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 this.mTotalNum = jSONObject.optInt("num");
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
                 if (optJSONArray != null) {

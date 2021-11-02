@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class e extends Binder implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

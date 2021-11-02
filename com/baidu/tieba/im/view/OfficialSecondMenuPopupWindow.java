@@ -25,39 +25,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class OfficialSecondMenuPopupWindow extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53308e;
+    public int f50560e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53309f;
+    public int f50561f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53310g;
+    public int f50562g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53311h;
+    public int f50563h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f53312i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public b f53313j;
+    public Context f50564i;
+    public b j;
     public int k;
     public int l;
     public c m;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialSecondMenuPopupWindow f53314e;
+        public final /* synthetic */ OfficialSecondMenuPopupWindow f50565e;
 
         public a(OfficialSecondMenuPopupWindow officialSecondMenuPopupWindow) {
             Interceptable interceptable = $ic;
@@ -74,42 +72,42 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     return;
                 }
             }
-            this.f53314e = officialSecondMenuPopupWindow;
+            this.f50565e = officialSecondMenuPopupWindow;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                Object item = this.f53314e.f53313j.getItem(i2);
-                if (item instanceof c.a.r0.l1.g.b) {
-                    c.a.r0.l1.g.b bVar = (c.a.r0.l1.g.b) item;
-                    if (this.f53314e.m != null) {
-                        this.f53314e.m.onItemClick(this.f53314e.k, bVar);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                Object item = this.f50565e.j.getItem(i2);
+                if (item instanceof b.a.r0.l1.g.b) {
+                    b.a.r0.l1.g.b bVar = (b.a.r0.l1.g.b) item;
+                    if (this.f50565e.m != null) {
+                        this.f50565e.m.onItemClick(this.f50565e.k, bVar);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f53315e;
+        public Context f50566e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<c.a.r0.l1.g.b> f53316f;
+        public List<b.a.r0.l1.g.b> f50567f;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public TextView f53317a;
+            public TextView f50568a;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -128,7 +126,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             }
         }
 
-        public b(Context context, List<c.a.r0.l1.g.b> list) {
+        public b(Context context, List<b.a.r0.l1.g.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,8 +141,8 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     return;
                 }
             }
-            this.f53315e = context;
-            this.f53316f = list;
+            this.f50566e = context;
+            this.f50567f = list;
         }
 
         @Override // android.widget.Adapter
@@ -152,7 +150,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<c.a.r0.l1.g.b> list = this.f53316f;
+                List<b.a.r0.l1.g.b> list = this.f50567f;
                 if (list == null) {
                     return 0;
                 }
@@ -167,9 +165,9 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
                 int itemId = (int) getItemId(i2);
-                List<c.a.r0.l1.g.b> list = this.f53316f;
+                List<b.a.r0.l1.g.b> list = this.f50567f;
                 if (list != null && itemId >= 0 && itemId < list.size()) {
-                    return this.f53316f.get(itemId);
+                    return this.f50567f.get(itemId);
                 }
                 return null;
             }
@@ -207,26 +205,26 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                 if (view == null) {
                     a aVar = new a(this);
                     if (itemViewType == 0) {
-                        TextView textView = new TextView(this.f53315e);
-                        textView.setLayoutParams(new AbsListView.LayoutParams(-1, c.a.r0.l1.w.c.d(this.f53315e, R.dimen.ds96)));
-                        textView.setTextSize(0, c.a.r0.l1.w.c.d(this.f53315e, R.dimen.ds32));
-                        textView.setTextColor(this.f53315e.getResources().getColor(R.color.CAM_X0105));
+                        TextView textView = new TextView(this.f50566e);
+                        textView.setLayoutParams(new AbsListView.LayoutParams(-1, b.a.r0.l1.w.c.d(this.f50566e, R.dimen.ds96)));
+                        textView.setTextSize(0, b.a.r0.l1.w.c.d(this.f50566e, R.dimen.ds32));
+                        textView.setTextColor(this.f50566e.getResources().getColor(R.color.CAM_X0105));
                         textView.setGravity(17);
                         textView.setBackgroundResource(R.drawable.official_bar_menu_text_bg);
                         textView.setSingleLine();
                         textView.setEllipsize(TextUtils.TruncateAt.END);
-                        aVar.f53317a = textView;
+                        aVar.f50568a = textView;
                         linearLayout = textView;
                     } else {
                         linearLayout = view;
                         if (itemViewType == 1) {
-                            LinearLayout linearLayout2 = new LinearLayout(this.f53315e);
-                            linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, c.a.r0.l1.w.c.d(this.f53315e, R.dimen.ds1)));
-                            ImageView imageView = new ImageView(this.f53315e);
+                            LinearLayout linearLayout2 = new LinearLayout(this.f50566e);
+                            linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, b.a.r0.l1.w.c.d(this.f50566e, R.dimen.ds1)));
+                            ImageView imageView = new ImageView(this.f50566e);
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-                            layoutParams.setMargins(c.a.r0.l1.w.c.d(this.f53315e, R.dimen.ds30), 0, c.a.r0.l1.w.c.d(this.f53315e, R.dimen.ds30), 0);
+                            layoutParams.setMargins(b.a.r0.l1.w.c.d(this.f50566e, R.dimen.ds30), 0, b.a.r0.l1.w.c.d(this.f50566e, R.dimen.ds30), 0);
                             imageView.setLayoutParams(layoutParams);
-                            imageView.setBackgroundColor(this.f53315e.getResources().getColor(R.color.CAM_X0204));
+                            imageView.setBackgroundColor(this.f50566e.getResources().getColor(R.color.CAM_X0204));
                             linearLayout2.addView(imageView);
                             linearLayout = linearLayout2;
                         }
@@ -236,7 +234,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                 }
                 a aVar2 = (a) view2.getTag();
                 if (itemViewType == 0) {
-                    aVar2.f53317a.setText(((c.a.r0.l1.g.b) getItem(i2)).d());
+                    aVar2.f50568a.setText(((b.a.r0.l1.g.b) getItem(i2)).d());
                 }
                 return view2;
             }
@@ -254,9 +252,9 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface c {
-        void onItemClick(int i2, c.a.r0.l1.g.b bVar);
+        void onItemClick(int i2, b.a.r0.l1.g.b bVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -277,40 +275,40 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                 return;
             }
         }
-        this.f53312i = context;
+        this.f50564i = context;
         addView(d(new ArrayList<>(), -2));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        layoutParams.bottomMargin = c.a.r0.l1.w.c.d(this.f53312i, R.dimen.ds14);
+        layoutParams.bottomMargin = b.a.r0.l1.w.c.d(this.f50564i, R.dimen.ds14);
         setLayoutParams(layoutParams);
         setBackgroundResource(R.drawable.bg_bottombar_meun_float);
-        this.f53308e = c.a.r0.l1.w.c.d(this.f53312i, R.dimen.ds36);
-        this.f53310g = c.a.r0.l1.w.c.d(this.f53312i, R.dimen.ds200);
-        this.f53309f = c.a.r0.l1.w.c.d(this.f53312i, R.dimen.ds504);
+        this.f50560e = b.a.r0.l1.w.c.d(this.f50564i, R.dimen.ds36);
+        this.f50562g = b.a.r0.l1.w.c.d(this.f50564i, R.dimen.ds200);
+        this.f50561f = b.a.r0.l1.w.c.d(this.f50564i, R.dimen.ds504);
     }
 
     public void applyAniamtion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                startAnimation(AnimationUtils.loadAnimation(this.f53312i, R.anim.sub_menu_up));
+                startAnimation(AnimationUtils.loadAnimation(this.f50564i, R.anim.sub_menu_up));
             } else {
-                startAnimation(AnimationUtils.loadAnimation(this.f53312i, R.anim.sub_menu_down));
+                startAnimation(AnimationUtils.loadAnimation(this.f50564i, R.anim.sub_menu_down));
             }
         }
     }
 
-    public final ListView d(List<c.a.r0.l1.g.b> list, int i2) {
+    public final ListView d(List<b.a.r0.l1.g.b> list, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i2)) == null) {
-            ListView listView = new ListView(this.f53312i);
+            ListView listView = new ListView(this.f50564i);
             listView.setLayoutParams(new RelativeLayout.LayoutParams(i2, -2));
-            listView.setCacheColorHint(this.f53312i.getResources().getColor(17170445));
+            listView.setCacheColorHint(this.f50564i.getResources().getColor(17170445));
             listView.setDivider(null);
             listView.setDividerHeight(0);
-            b bVar = new b(this.f53312i, list);
-            this.f53313j = bVar;
+            b bVar = new b(this.f50564i, list);
+            this.j = bVar;
             listView.setAdapter((ListAdapter) bVar);
             listView.setOnItemClickListener(new a(this));
             return listView;
@@ -318,13 +316,13 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         return (ListView) invokeLI.objValue;
     }
 
-    public final int e(List<c.a.r0.l1.g.b> list) {
+    public final int e(List<b.a.r0.l1.g.b> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
             Paint paint = new Paint(1);
-            paint.setColor(this.f53312i.getResources().getColor(17170443));
-            paint.setTextSize(c.a.r0.l1.w.c.d(this.f53312i, R.dimen.ds32));
+            paint.setColor(this.f50564i.getResources().getColor(17170443));
+            paint.setTextSize(b.a.r0.l1.w.c.d(this.f50564i, R.dimen.ds32));
             float f2 = 0.0f;
             for (int i2 = 0; i2 < list.size(); i2++) {
                 float measureText = paint.measureText(list.get(i2).d());
@@ -332,7 +330,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     f2 = measureText;
                 }
             }
-            return (int) Math.min(Math.max((this.f53308e * 2) + f2, this.f53310g), this.f53309f);
+            return (int) Math.min(Math.max((this.f50560e * 2) + f2, this.f50562g), this.f50561f);
         }
         return invokeL.intValue;
     }
@@ -352,16 +350,16 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         }
     }
 
-    public void setData(int i2, int i3, List<c.a.r0.l1.g.b> list) {
+    public void setData(int i2, int i3, List<b.a.r0.l1.g.b> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, list) == null) || list == null) {
             return;
         }
         this.l = i2;
         this.k = i3;
-        this.f53311h = e(list);
+        this.f50563h = e(list);
         removeAllViews();
-        addView(d(list, this.f53311h));
+        addView(d(list, this.f50563h));
     }
 
     public void setOnItemClickListener(c cVar) {
@@ -379,12 +377,12 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         }
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
-        int width = (iArr[0] + (view.getWidth() / 2)) - (this.f53311h / 2);
+        int width = (iArr[0] + (view.getWidth() / 2)) - (this.f50563h / 2);
         if (this.k == this.l - 1) {
-            width = ((iArr[0] + view.getWidth()) - c.a.r0.l1.w.c.d(this.f53312i, R.dimen.ds20)) - this.f53311h;
+            width = ((iArr[0] + view.getWidth()) - b.a.r0.l1.w.c.d(this.f50564i, R.dimen.ds20)) - this.f50563h;
         }
         if (width <= 0) {
-            width = c.a.r0.l1.w.c.d(this.f53312i, R.dimen.ds20);
+            width = b.a.r0.l1.w.c.d(this.f50564i, R.dimen.ds20);
         }
         layoutParams.leftMargin = width;
         setLayoutParams(layoutParams);

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AddFriendActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_MESSAGE = "default_message";

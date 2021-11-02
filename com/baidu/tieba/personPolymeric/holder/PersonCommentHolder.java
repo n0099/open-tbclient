@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.e.l.d.a;
+import b.a.e.e.p.l;
+import b.a.e.l.d.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ColumnLayout;
@@ -27,28 +27,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f56053i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static String f56054j;
+    public static a f53194i;
+    public static String j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinearLayout f56055e;
+    public final LinearLayout f53195e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56056f;
+    public int f53196f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f56057g;
+    public TbPageContext<?> f53197g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f56058h;
+    public boolean f53198h;
     public final LinearLayout mChildLayout;
     public TextView mForumName;
     public final ColumnLayout mItemFooter;
@@ -79,11 +77,11 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
                 return;
             }
         }
-        this.f56057g = tbPageContext;
-        this.f56058h = z;
+        this.f53197g = tbPageContext;
+        this.f53198h = z;
         ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view.findViewById(R.id.content_container);
         this.mReplyContent = replyLinearLayout;
-        replyLinearLayout.setIsHost(this.f56058h);
+        replyLinearLayout.setIsHost(this.f53198h);
         this.mOriginalPostTitle = (TextView) view.findViewById(R.id.original_post_title);
         this.mTopLine = (LinearLayout) view.findViewById(R.id.top_line);
         this.mPortrait = (HeadImageView) view.findViewById(R.id.portrait);
@@ -91,12 +89,12 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         this.mReplyTime = (TextView) view.findViewById(R.id.reply_time);
         this.mForumName = (TextView) view.findViewById(R.id.forum_name);
         this.mReplyCount = (TextView) view.findViewById(R.id.reply_count);
-        this.f56055e = (LinearLayout) view.findViewById(R.id.item_content);
+        this.f53195e = (LinearLayout) view.findViewById(R.id.item_content);
         this.mItemHeader = (ColumnLayout) view.findViewById(R.id.item_header);
         this.mItemFooter = (ColumnLayout) view.findViewById(R.id.item_footer);
         this.mChildLayout = (LinearLayout) view.findViewById(R.id.person_child);
-        this.f56056f = l.e(view.getContext(), 42.0f);
-        LinearLayout linearLayout = this.f56055e;
+        this.f53196f = l.e(view.getContext(), 42.0f);
+        LinearLayout linearLayout = this.f53195e;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
         }
@@ -112,18 +110,18 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            String str2 = f56054j;
+            String str2 = j;
             if (str2 != null && !str2.equals(str)) {
-                f56053i = null;
+                f53194i = null;
             }
-            a aVar = f56053i;
+            a aVar = f53194i;
             if (aVar != null) {
                 this.mPortrait.setImageBitmap(aVar.p());
-                f56054j = str;
+                j = str;
                 return;
             }
             HeadImageView headImageView = this.mPortrait;
-            int i2 = this.f56056f;
+            int i2 = this.f53196f;
             headImageView.startLoad(str, 12, i2, i2, false);
         }
     }
@@ -146,15 +144,15 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            TiebaStatic.log(new StatisticItem("c12043").param("obj_type", this.f56058h ? 1 : 2));
+            TiebaStatic.log(new StatisticItem("c12043").param("obj_type", this.f53198h ? 1 : 2));
             if (view == this.mForumName) {
-                if (this.f56057g != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f56057g.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
+                if (this.f53197g != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f53197g.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
                 }
             } else if (view != this.mOriginalPostTitle || (strArr = (String[]) view.getTag()) == null || strArr.length < 4 || strArr[3] == null) {
             } else {
                 if ("0".equals(strArr[2]) || strArr[1] == null) {
-                    PbActivityConfig createNormalCfg = new PbActivityConfig(this.f56057g.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
+                    PbActivityConfig createNormalCfg = new PbActivityConfig(this.f53197g.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                     createNormalCfg.setStartFrom(4);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
                 }
@@ -324,7 +322,7 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             this.mReplyCount.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), new Object[]{obj6}));
             this.mForumName.setOnClickListener(this);
             a(str);
-            LinearLayout linearLayout = this.f56055e;
+            LinearLayout linearLayout = this.f53195e;
             if (linearLayout != null) {
                 linearLayout.setTag(strArr);
             }

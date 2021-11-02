@@ -34,20 +34,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaiduPayServiceController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ILightappInvokerCallback f60175a;
+    public ILightappInvokerCallback f57090a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduPayServiceController f60179a;
+        public static BaiduPayServiceController f57094a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -63,7 +63,7 @@ public class BaiduPayServiceController {
                     return;
                 }
             }
-            f60179a = new BaiduPayServiceController();
+            f57094a = new BaiduPayServiceController();
         }
     }
 
@@ -107,7 +107,7 @@ public class BaiduPayServiceController {
     public static BaiduPayServiceController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? a.f60179a : (BaiduPayServiceController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? a.f57094a : (BaiduPayServiceController) invokeV.objValue;
     }
 
     public void doScanCode(Context context) {
@@ -125,10 +125,10 @@ public class BaiduPayServiceController {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f60177a;
+                public final /* synthetic */ RouterCallback f57092a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayServiceController f60178b;
+                public final /* synthetic */ BaiduPayServiceController f57093b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -145,8 +145,8 @@ public class BaiduPayServiceController {
                             return;
                         }
                     }
-                    this.f60178b = this;
-                    this.f60177a = routerCallback;
+                    this.f57093b = this;
+                    this.f57092a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.api.CheckCallBack
@@ -156,7 +156,7 @@ public class BaiduPayServiceController {
                         HashMap hashMap = new HashMap();
                         hashMap.put("errorCode", Integer.valueOf(i2));
                         StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_CHECK_PWD_FROM_H5_RESULT, new ArrayList(), hashMap);
-                        if (this.f60177a != null) {
+                        if (this.f57092a != null) {
                             HashMap hashMap2 = new HashMap();
                             HashMap hashMap3 = new HashMap();
                             if (i2 == 0) {
@@ -166,7 +166,7 @@ public class BaiduPayServiceController {
                                 hashMap3.put("des", str2);
                             }
                             hashMap2.put("result", BaiduPayDelegate.getInstance().assembleResult(hashMap3, i2 == 0));
-                            this.f60177a.onResult(i2 == 0 ? 0 : 1, hashMap2);
+                            this.f57092a.onResult(i2 == 0 ? 0 : 1, hashMap2);
                         }
                     }
                 }
@@ -205,7 +205,7 @@ public class BaiduPayServiceController {
                 return;
             }
         }
-        this.f60175a = null;
+        this.f57090a = null;
     }
 
     public void doScanCode(Context context, boolean z, String str) {
@@ -215,10 +215,10 @@ public class BaiduPayServiceController {
         }
     }
 
-    public void gotoWalletService(Context context, long j2, String str) {
+    public void gotoWalletService(Context context, long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j2), str}) == null) {
-            gotoWalletService(context, j2, str, true);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j), str}) == null) {
+            gotoWalletService(context, j, str, true);
         }
     }
 
@@ -274,7 +274,7 @@ public class BaiduPayServiceController {
         if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2, iLightappInvokerCallback) == null) || iLightappInvokerCallback == null) {
             return;
         }
-        this.f60175a = iLightappInvokerCallback;
+        this.f57090a = iLightappInvokerCallback;
         gotoWalletService(context, str, str2, true);
     }
 
@@ -310,39 +310,39 @@ public class BaiduPayServiceController {
         }
     }
 
-    public void gotoWalletService(Context context, long j2, String str, boolean z) {
+    public void gotoWalletService(Context context, long j, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Long.valueOf(j2), str, Boolean.valueOf(z)}) == null) || context == null || j2 < 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Long.valueOf(j), str, Boolean.valueOf(z)}) == null) || context == null || j < 0) {
             return;
         }
-        if (j2 == 4) {
+        if (j == 4) {
             StatisticManager.onEvent("#myBankInfo");
             a(context);
-        } else if (j2 == 16) {
+        } else if (j == 16) {
             StatisticManager.onEvent("#transRecord");
             b(context, str, z);
-        } else if (j2 == 8) {
+        } else if (j == 8) {
             StatisticManager.onEvent("#securityCenter");
             c(context);
-        } else if (j2 == 128) {
+        } else if (j == 128) {
             StatisticManager.onEvent("#o2oParser");
             a(context, str);
-        } else if (j2 == WalletServiceBeanConst.SERVICE_ID_WALLET_PAY_SET) {
+        } else if (j == WalletServiceBeanConst.SERVICE_ID_WALLET_PAY_SET) {
             StatisticManager.onEvent("#paySet");
             gotoPaySetActivity(context);
-        } else if (j2 == WalletServiceBeanConst.SERVICE_ID_WALLET_PWD_SET) {
+        } else if (j == WalletServiceBeanConst.SERVICE_ID_WALLET_PWD_SET) {
             StatisticManager.onEvent("#pwdSet");
             b(context);
-        } else if (j2 == WalletServiceBeanConst.SERVICE_ID_WALLET_PWD_CHECK) {
+        } else if (j == WalletServiceBeanConst.SERVICE_ID_WALLET_PWD_CHECK) {
             StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_CHECK_PWD_FROM_H5_ENTER, str);
             b(context, str);
-        } else if (j2 == 512) {
+        } else if (j == 512) {
             StatisticManager.onEvent("#scanQrCode");
             doScanCode(context, false, str);
-        } else if (j2 == 32) {
+        } else if (j == 32) {
             StatisticManager.onEvent("#balanceInfo");
             a(context, str, z);
-        } else if (j2 == 8192) {
+        } else if (j == 8192) {
             StatisticManager.onEvent("#cashBack");
             GlobalUtils.toast(context, ResUtils.getString(context, "wallet_base_service_offline_tips"));
         } else {
@@ -358,7 +358,7 @@ public class BaiduPayServiceController {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayServiceController f60176a;
+                public final /* synthetic */ BaiduPayServiceController f57091a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -375,7 +375,7 @@ public class BaiduPayServiceController {
                             return;
                         }
                     }
-                    this.f60176a = this;
+                    this.f57091a = this;
                 }
 
                 @Override // com.baidu.wallet.api.CheckCallBack
@@ -385,7 +385,7 @@ public class BaiduPayServiceController {
                         HashMap hashMap = new HashMap();
                         hashMap.put("errorCode", Integer.valueOf(i2));
                         StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_CHECK_PWD_FROM_H5_RESULT, new ArrayList(), hashMap);
-                        if (this.f60176a.f60175a != null) {
+                        if (this.f57091a.f57090a != null) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("{\"result\":");
                             sb.append(i2 == 0 ? 0 : 1);
@@ -404,8 +404,8 @@ public class BaiduPayServiceController {
                                 sb.append(str2);
                                 sb.append("\"}}");
                             }
-                            this.f60176a.f60175a.onResult(i2 != 0 ? 1 : 0, sb.toString());
-                            this.f60176a.f60175a = null;
+                            this.f57091a.f57090a.onResult(i2 != 0 ? 1 : 0, sb.toString());
+                            this.f57091a.f57090a = null;
                         }
                     }
                 }

@@ -13,7 +13,7 @@ import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class IsoTypeReader {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] codeBytes;
@@ -164,8 +164,8 @@ public final class IsoTypeReader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, byteBuffer)) == null) {
-            long j2 = byteBuffer.getInt();
-            return j2 < 0 ? j2 + 4294967296L : j2;
+            long j = byteBuffer.getInt();
+            return j < 0 ? j + 4294967296L : j;
         }
         return invokeL.longValue;
     }

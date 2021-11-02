@@ -13,19 +13,19 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.q;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class f implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SceneImpl f72136a;
+    public SceneImpl f64599a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f72137b;
+    public long f64600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f72138c;
+    public long f64601c;
 
     public f(KsScene ksScene) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class f implements com.kwad.sdk.core.b {
                 return;
             }
         }
-        this.f72136a = (SceneImpl) ksScene;
-        this.f72137b = 0L;
-        this.f72138c = 0L;
+        this.f64599a = (SceneImpl) ksScene;
+        this.f64600b = 0L;
+        this.f64601c = 0L;
     }
 
     @Nullable
@@ -54,7 +54,7 @@ public class f implements com.kwad.sdk.core.b {
         Map<String, String> rewardCallbackExtraData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null || (sceneImpl = this.f72136a) == null || (rewardCallbackExtraData = sceneImpl.getRewardCallbackExtraData()) == null || !rewardCallbackExtraData.containsKey(str)) {
+            if (str == null || (sceneImpl = this.f64599a) == null || (rewardCallbackExtraData = sceneImpl.getRewardCallbackExtraData()) == null || !rewardCallbackExtraData.containsKey(str)) {
                 return null;
             }
             return rewardCallbackExtraData.get(str);
@@ -74,9 +74,9 @@ public class f implements com.kwad.sdk.core.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject json = this.f72136a.toJson();
-            q.a(json, "pageScene", this.f72137b);
-            q.a(json, "subPageScene", this.f72138c);
+            JSONObject json = this.f64599a.toJson();
+            q.a(json, "pageScene", this.f64600b);
+            q.a(json, "subPageScene", this.f64601c);
             String a2 = a(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
             if (a2 != null) {
                 q.a(json, PrefetchEvent.EVENT_DATA_EXTRA_DATA, a2);

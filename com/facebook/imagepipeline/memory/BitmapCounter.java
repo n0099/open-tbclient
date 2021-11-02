@@ -11,7 +11,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.ResourceReleaser;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BitmapCounter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,9 +86,9 @@ public class BitmapCounter {
             synchronized (this) {
                 int sizeInBytes = BitmapUtil.getSizeInBytes(bitmap);
                 Preconditions.checkArgument(this.mCount > 0, "No bitmaps registered.");
-                long j2 = sizeInBytes;
-                Preconditions.checkArgument(j2 <= this.mSize, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(sizeInBytes), Long.valueOf(this.mSize));
-                this.mSize -= j2;
+                long j = sizeInBytes;
+                Preconditions.checkArgument(j <= this.mSize, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(sizeInBytes), Long.valueOf(this.mSize));
+                this.mSize -= j;
                 this.mCount--;
             }
         }
@@ -141,13 +141,13 @@ public class BitmapCounter {
 
     public synchronized long getSize() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                j2 = this.mSize;
+                j = this.mSize;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -159,10 +159,10 @@ public class BitmapCounter {
             synchronized (this) {
                 int sizeInBytes = BitmapUtil.getSizeInBytes(bitmap);
                 if (this.mCount < this.mMaxCount) {
-                    long j2 = sizeInBytes;
-                    if (this.mSize + j2 <= this.mMaxSize) {
+                    long j = sizeInBytes;
+                    if (this.mSize + j <= this.mMaxSize) {
                         this.mCount++;
-                        this.mSize += j2;
+                        this.mSize += j;
                         return true;
                     }
                 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.pdf417.PDF417Common;
 import java.lang.reflect.Array;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PDF417CodewordDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final float[][] RATIOS_TABLE;
@@ -77,18 +77,18 @@ public final class PDF417CodewordDecoder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (int i2 = 0; i2 < iArr.length; i2++) {
                 for (int i3 = 0; i3 < iArr[i2]; i3++) {
                     int i4 = 1;
-                    long j3 = j2 << 1;
+                    long j2 = j << 1;
                     if (i2 % 2 != 0) {
                         i4 = 0;
                     }
-                    j2 = j3 | i4;
+                    j = j2 | i4;
                 }
             }
-            return (int) j2;
+            return (int) j;
         }
         return invokeL.intValue;
     }

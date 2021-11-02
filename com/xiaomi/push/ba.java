@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ay;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ba implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IBinder f77739a;
+    public final /* synthetic */ IBinder f70702a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ay.b f151a;
+    public final /* synthetic */ ay.b f152a;
 
     public ba(ay.b bVar, IBinder iBinder) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class ba implements Runnable {
                 return;
             }
         }
-        this.f151a = bVar;
-        this.f77739a = iBinder;
+        this.f152a = bVar;
+        this.f70702a = iBinder;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -51,43 +51,43 @@ public class ba implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                context = this.f151a.f77729a.f144a;
+                context = this.f152a.f70692a.f145a;
                 String packageName = context.getPackageName();
-                e2 = this.f151a.f77729a.e();
-                ay.a aVar = new ay.a(this.f151a.f77729a, null);
-                aVar.f148a = ay.c.a(this.f77739a, packageName, e2, "GUID");
-                aVar.f77726b = ay.c.a(this.f77739a, packageName, e2, "OUID");
-                aVar.f77727c = ay.c.a(this.f77739a, packageName, e2, "DUID");
-                aVar.f77728d = ay.c.a(this.f77739a, packageName, e2, "AUID");
-                this.f151a.f77729a.f146a = aVar;
-                this.f151a.f77729a.b();
-                this.f151a.f77729a.f143a = 2;
-                obj5 = this.f151a.f77729a.f147a;
+                e2 = this.f152a.f70692a.e();
+                ay.a aVar = new ay.a(this.f152a.f70692a, null);
+                aVar.f149a = ay.c.a(this.f70702a, packageName, e2, "GUID");
+                aVar.f70689b = ay.c.a(this.f70702a, packageName, e2, "OUID");
+                aVar.f70690c = ay.c.a(this.f70702a, packageName, e2, "DUID");
+                aVar.f70691d = ay.c.a(this.f70702a, packageName, e2, "AUID");
+                this.f152a.f70692a.f147a = aVar;
+                this.f152a.f70692a.b();
+                this.f152a.f70692a.f144a = 2;
+                obj5 = this.f152a.f70692a.f148a;
                 synchronized (obj5) {
                     try {
-                        obj6 = this.f151a.f77729a.f147a;
+                        obj6 = this.f152a.f70692a.f148a;
                         obj6.notifyAll();
                     } catch (Exception unused) {
                     }
                 }
             } catch (Exception unused2) {
-                this.f151a.f77729a.b();
-                this.f151a.f77729a.f143a = 2;
-                obj3 = this.f151a.f77729a.f147a;
+                this.f152a.f70692a.b();
+                this.f152a.f70692a.f144a = 2;
+                obj3 = this.f152a.f70692a.f148a;
                 synchronized (obj3) {
                     try {
-                        obj4 = this.f151a.f77729a.f147a;
+                        obj4 = this.f152a.f70692a.f148a;
                         obj4.notifyAll();
                     } catch (Exception unused3) {
                     }
                 }
             } catch (Throwable th) {
-                this.f151a.f77729a.b();
-                this.f151a.f77729a.f143a = 2;
-                obj = this.f151a.f77729a.f147a;
+                this.f152a.f70692a.b();
+                this.f152a.f70692a.f144a = 2;
+                obj = this.f152a.f70692a.f148a;
                 synchronized (obj) {
                     try {
-                        obj2 = this.f151a.f77729a.f147a;
+                        obj2 = this.f152a.f70692a.f148a;
                         obj2.notifyAll();
                     } catch (Exception unused4) {
                     }

@@ -16,19 +16,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TextureMapFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41678a;
+    public static final String f39519a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextureMapView f41679b;
+    public TextureMapView f39520b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaiduMapOptions f41680c;
+    public BaiduMapOptions f39521c;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class TextureMapFragment extends Fragment {
                 return;
             }
         }
-        f41678a = TextureMapFragment.class.getSimpleName();
+        f39519a = TextureMapFragment.class.getSimpleName();
     }
 
     public TextureMapFragment() {
@@ -75,7 +75,7 @@ public class TextureMapFragment extends Fragment {
                 return;
             }
         }
-        this.f41680c = baiduMapOptions;
+        this.f39521c = baiduMapOptions;
     }
 
     public static TextureMapFragment newInstance() {
@@ -94,7 +94,7 @@ public class TextureMapFragment extends Fragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TextureMapView textureMapView = this.f41679b;
+            TextureMapView textureMapView = this.f39520b;
             if (textureMapView == null) {
                 return null;
             }
@@ -106,7 +106,7 @@ public class TextureMapFragment extends Fragment {
     public TextureMapView getMapView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41679b : (TextureMapView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39520b : (TextureMapView) invokeV.objValue;
     }
 
     @Override // android.app.Fragment
@@ -146,8 +146,8 @@ public class TextureMapFragment extends Fragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            TextureMapView textureMapView = new TextureMapView(getActivity(), this.f41680c);
-            this.f41679b = textureMapView;
+            TextureMapView textureMapView = new TextureMapView(getActivity(), this.f39521c);
+            this.f39520b = textureMapView;
             return textureMapView;
         }
         return (View) invokeLLL.objValue;
@@ -166,7 +166,7 @@ public class TextureMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroyView();
-            this.f41679b.onDestroy();
+            this.f39520b.onDestroy();
         }
     }
 
@@ -183,7 +183,7 @@ public class TextureMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            this.f41679b.onPause();
+            this.f39520b.onPause();
         }
     }
 
@@ -192,7 +192,7 @@ public class TextureMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            this.f41679b.onResume();
+            this.f39520b.onResume();
         }
     }
 

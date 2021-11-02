@@ -1,5 +1,5 @@
 package com.alipay.android.phone.mrpc.core;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface g {
     String a();
 

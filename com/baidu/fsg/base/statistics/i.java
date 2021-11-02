@@ -13,37 +13,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class i extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39570a = "logsender";
+    public static final String f37512a = "logsender";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39571b = "rim_stat_event";
+    public static final String f37513b = "rim_stat_event";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39572c = "rim_stat_event.db";
+    public static final String f37514c = "rim_stat_event.db";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f39573d = 1;
+    public static final int f37515d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39574e = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
+    public static final String f37516e = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
 
     /* renamed from: f  reason: collision with root package name */
-    public static i f39575f;
+    public static i f37517f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public SQLiteDatabase f39576g;
+    public SQLiteDatabase f37518g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final byte[] f39577h;
+    public final byte[] f37519h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39578i;
+    public int f37520i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
@@ -64,9 +64,9 @@ public class i extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f39577h = new byte[0];
-        this.f39578i = 200;
-        this.f39576g = getWritableDatabase();
+        this.f37519h = new byte[0];
+        this.f37520i = 200;
+        this.f37518g = getWritableDatabase();
     }
 
     public static synchronized i a(Context context) {
@@ -75,10 +75,10 @@ public class i extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (i.class) {
-                if (f39575f == null) {
-                    f39575f = new i(context, f39572c, null, 1);
+                if (f37517f == null) {
+                    f37517f = new i(context, f37514c, null, 1);
                 }
-                iVar = f39575f;
+                iVar = f37517f;
             }
             return iVar;
         }
@@ -88,17 +88,17 @@ public class i extends SQLiteOpenHelper {
     public void a(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) {
-            synchronized (this.f39577h) {
+            synchronized (this.f37519h) {
                 if (hVar != null) {
                     if (!TextUtils.isEmpty(hVar.p)) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put(h.f39560a, hVar.p);
+                        contentValues.put(h.f37503a, hVar.p);
                         contentValues.put("et", Long.valueOf(hVar.q));
                         contentValues.put("ev", hVar.r);
-                        contentValues.put(h.f39563d, hVar.s);
-                        contentValues.put(h.f39564e, hVar.t);
+                        contentValues.put(h.f37506d, hVar.s);
+                        contentValues.put(h.f37507e, hVar.t);
                         try {
-                            this.f39576g.insert(f39571b, null, contentValues);
+                            this.f37518g.insert(f37513b, null, contentValues);
                         } catch (Exception unused) {
                         }
                         StringBuilder sb = new StringBuilder();
@@ -114,7 +114,7 @@ public class i extends SQLiteOpenHelper {
     public void a(h[] hVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVarArr) == null) {
-            synchronized (this.f39577h) {
+            synchronized (this.f37519h) {
                 if (hVarArr != null) {
                     if (hVarArr.length != 0) {
                         StringBuilder sb = new StringBuilder();
@@ -123,11 +123,11 @@ public class i extends SQLiteOpenHelper {
                         LogUtil.d("logsender", sb.toString());
                         for (h hVar : hVarArr) {
                             if (hVar != null) {
-                                SQLiteDatabase sQLiteDatabase = this.f39576g;
+                                SQLiteDatabase sQLiteDatabase = this.f37518g;
                                 StringBuilder sb2 = new StringBuilder();
                                 sb2.append("nu=");
                                 sb2.append(hVar.u);
-                                sQLiteDatabase.delete(f39571b, sb2.toString(), null);
+                                sQLiteDatabase.delete(f37513b, sb2.toString(), null);
                             }
                         }
                         LogUtil.d("logsender", "=====removeEvents-end=====");
@@ -154,11 +154,11 @@ public class i extends SQLiteOpenHelper {
         if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) != null) {
             return (h[]) invokeV.objValue;
         }
-        synchronized (this.f39577h) {
+        synchronized (this.f37519h) {
             Cursor cursor = null;
             try {
                 try {
-                    Cursor cursor2 = this.f39576g.rawQuery("select * from rim_stat_event", null);
+                    Cursor cursor2 = this.f37518g.rawQuery("select * from rim_stat_event", null);
                     try {
                         if (cursor2 == null) {
                             h[] hVarArr3 = new h[0];
@@ -171,12 +171,12 @@ public class i extends SQLiteOpenHelper {
                         int i2 = 0;
                         while (cursor2.moveToNext()) {
                             h hVar = new h();
-                            hVar.p = cursor2.getString(cursor2.getColumnIndex(h.f39560a));
+                            hVar.p = cursor2.getString(cursor2.getColumnIndex(h.f37503a));
                             hVar.q = cursor2.getLong(cursor2.getColumnIndex("et"));
                             hVar.r = cursor2.getString(cursor2.getColumnIndex("ev"));
-                            hVar.s = cursor2.getString(cursor2.getColumnIndex(h.f39563d));
-                            hVar.t = cursor2.getString(cursor2.getColumnIndex(h.f39564e));
-                            hVar.u = cursor2.getInt(cursor2.getColumnIndex(h.f39565f));
+                            hVar.s = cursor2.getString(cursor2.getColumnIndex(h.f37506d));
+                            hVar.t = cursor2.getString(cursor2.getColumnIndex(h.f37507e));
+                            hVar.u = cursor2.getInt(cursor2.getColumnIndex(h.f37508f));
                             int i3 = i2 + 1;
                             hVarArr2[i2] = hVar;
                             i2 = i3;
@@ -220,11 +220,11 @@ public class i extends SQLiteOpenHelper {
     public void finalize() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SQLiteDatabase sQLiteDatabase = this.f39576g;
+            SQLiteDatabase sQLiteDatabase = this.f37518g;
             if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
-                this.f39576g.close();
+                this.f37518g.close();
             }
-            this.f39576g = null;
+            this.f37518g = null;
             super.finalize();
         }
     }
@@ -240,8 +240,8 @@ public class i extends SQLiteOpenHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.f39577h) {
-                Cursor rawQuery = this.f39576g.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
+            synchronized (this.f37519h) {
+                Cursor rawQuery = this.f37518g.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
                 if (rawQuery == null) {
                     return 0;
                 }
@@ -273,7 +273,7 @@ public class i extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(f39574e);
+            sQLiteDatabase.execSQL(f37516e);
         }
     }
 

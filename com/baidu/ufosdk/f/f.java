@@ -19,22 +19,22 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59764c;
+    public static String f56690c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f59765d;
+    public static f f56691d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f59766a;
+    public final int f56692a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f59767b;
+    public final String f56693b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,8 +49,8 @@ public final class f {
                 return;
             }
         }
-        f59764c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
-        f59765d = null;
+        f56690c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
+        f56691d = null;
     }
 
     public f() {
@@ -66,8 +66,8 @@ public final class f {
                 return;
             }
         }
-        this.f59767b = "ufo";
-        this.f59766a = 1209600000;
+        this.f56693b = "ufo";
+        this.f56692a = 1209600000;
     }
 
     public static Bitmap a(String str) {
@@ -77,7 +77,7 @@ public final class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             String b2 = b(str);
             if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
-                new File(f59764c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
+                new File(f56690c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
                 return decodeFile;
             }
             return null;
@@ -89,10 +89,10 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f59765d == null) {
-                f59765d = new f();
+            if (f56691d == null) {
+                f56691d = new f();
             }
-            return f59765d;
+            return f56691d;
         }
         return (f) invokeV.objValue;
     }
@@ -101,7 +101,7 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return f59764c + "/cache/image/" + str;
+            return f56690c + "/cache/image/" + str;
         }
         return (String) invokeL.objValue;
     }
@@ -109,7 +109,7 @@ public final class f {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            String str = f59764c + "/cache/image/";
+            String str = f56690c + "/cache/image/";
             File[] listFiles = new File(str).listFiles();
             if (listFiles == null) {
                 return;
@@ -166,11 +166,11 @@ public final class f {
                         c.c("ufo ->Low free space onsd, do not cache");
                         return;
                     }
-                    c(f59764c + "/cache/image/");
+                    c(f56690c + "/cache/image/");
                     if (equals) {
-                        File file2 = new File(f59764c);
-                        File file3 = new File(f59764c + "/cache");
-                        File file4 = new File(f59764c + "/cache/image");
+                        File file2 = new File(f56690c);
+                        File file3 = new File(f56690c + "/cache");
+                        File file4 = new File(f56690c + "/cache/image");
                         if (!file2.exists()) {
                             file2.mkdir();
                         }

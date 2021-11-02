@@ -8,6 +8,7 @@ import com.baidu.mobads.container.info.XDeviceInfo;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +22,7 @@ import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class EANManufacturerOrgSupport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +94,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{535}, "MT");
                     add(new int[]{539}, "IE");
                     add(new int[]{RecordConstants.DEFAULT_PREVIEW_WIDTH, 549}, "BE/LU");
-                    add(new int[]{560}, "PT");
+                    add(new int[]{CoolPraiseView.START_DELAY_TIME_MS}, "PT");
                     add(new int[]{569}, "IS");
                     add(new int[]{570, 579}, "DK");
                     add(new int[]{590}, "PL");

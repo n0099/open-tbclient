@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ChatStatusManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GROUP_CHAT = 2;
@@ -21,16 +21,16 @@ public class ChatStatusManager {
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<a> mStatus;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f48536a;
+        public boolean f46059a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48537b;
+        public String f46060b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class ChatStatusManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             a aVar = this.mStatus.get(i2);
-            return aVar != null ? aVar.f48537b : "";
+            return aVar != null ? aVar.f46060b : "";
         }
         return (String) invokeI.objValue;
     }
@@ -95,7 +95,7 @@ public class ChatStatusManager {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             a aVar = this.mStatus.get(i2);
             if (aVar != null) {
-                return aVar.f48536a;
+                return aVar.f46059a;
             }
             return false;
         }
@@ -114,11 +114,11 @@ public class ChatStatusManager {
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
             a aVar = this.mStatus.get(i2);
             if (aVar != null) {
-                aVar.f48537b = str;
+                aVar.f46060b = str;
                 return;
             }
             a aVar2 = new a();
-            aVar2.f48537b = str;
+            aVar2.f46060b = str;
             this.mStatus.put(i2, aVar2);
         }
     }
@@ -128,11 +128,11 @@ public class ChatStatusManager {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             a aVar = this.mStatus.get(i2);
             if (aVar != null) {
-                aVar.f48536a = z;
+                aVar.f46059a = z;
                 return;
             }
             a aVar2 = new a();
-            aVar2.f48536a = z;
+            aVar2.f46059a = z;
             this.mStatus.put(i2, aVar2);
         }
     }

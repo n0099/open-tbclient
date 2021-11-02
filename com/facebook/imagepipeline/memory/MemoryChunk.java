@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.memory;
 
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface MemoryChunk {
     void close();
 

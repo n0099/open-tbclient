@@ -12,7 +12,7 @@ import com.baidu.wallet.api.WalletServiceBeanConst;
 import com.baidu.wallet.core.NoProguard;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaiduWalletServiceProviderMap implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_FASTPAY = "fastpay";
@@ -27,18 +27,18 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
     public Map<Long, String> maps;
 
     /* renamed from: com.baidu.wallet.BaiduWalletServiceProviderMap$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BaiduWalletServiceProviderMap f60206a;
+        public static final BaiduWalletServiceProviderMap f57121a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
                     return;
                 }
             }
-            f60206a = new BaiduWalletServiceProviderMap(null);
+            f57121a = new BaiduWalletServiceProviderMap(null);
         }
 
         public a() {
@@ -79,7 +79,7 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
     public static final BaiduWalletServiceProviderMap getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60206a : (BaiduWalletServiceProviderMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f57121a : (BaiduWalletServiceProviderMap) invokeV.objValue;
     }
 
     private void initMaps() {
@@ -109,12 +109,12 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
         }
     }
 
-    public String getProviderNameBySerID(long j2) {
+    public String getProviderNameBySerID(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
             Map<Long, String> map = this.maps;
-            return (map == null || map.size() <= 0) ? "" : this.maps.get(Long.valueOf(j2));
+            return (map == null || map.size() <= 0) ? "" : this.maps.get(Long.valueOf(j));
         }
         return (String) invokeJ.objValue;
     }

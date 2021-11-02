@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.UnlockSignature;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UnlockSignatureImpl extends SignatureImpl implements UnlockSignature {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

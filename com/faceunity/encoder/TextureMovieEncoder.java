@@ -11,9 +11,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a2.a;
-import c.a.r0.a2.g;
-import c.a.r0.a2.k;
+import b.a.r0.a2.a;
+import b.a.r0.a2.g;
+import b.a.r0.a2.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,7 +35,7 @@ import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import kotlinx.coroutines.CoroutineContextKt;
 @TargetApi(18)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TextureMovieEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] AUDIO_SOURCES;
@@ -84,13 +84,13 @@ public class TextureMovieEncoder {
     public boolean videoEncoderReadyFlag;
 
     /* renamed from: com.faceunity.encoder.TextureMovieEncoder$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class AudioThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +167,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class EncoderConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,12 +178,12 @@ public class TextureMovieEncoder {
         public final File mOutputFile;
         public final int mWidth;
 
-        public EncoderConfig(File file, int i2, int i3, int i4, EGLContext eGLContext, long j2) {
+        public EncoderConfig(File file, int i2, int i3, int i4, EGLContext eGLContext, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {file, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), eGLContext, Long.valueOf(j2)};
+                Object[] objArr = {file, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), eGLContext, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -202,7 +202,7 @@ public class TextureMovieEncoder {
             } else {
                 this.mEglContext = EGL14.eglGetCurrentContext();
             }
-            this.firstTimeStampBase = j2;
+            this.firstTimeStampBase = j;
         }
 
         public String toString() {
@@ -215,14 +215,14 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnEncoderStatusUpdateListener {
         void onStartSuccess();
 
         void onStopSuccess();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class VideoEncoderHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -281,7 +281,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class VideoThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -377,9 +377,9 @@ public class TextureMovieEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void handleFrameAvailable(float[] fArr, long j2) {
+    public void handleFrameAvailable(float[] fArr, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65556, this, fArr, j2) == null) || this.texture == 0) {
+        if (!(interceptable == null || interceptable.invokeLJ(65556, this, fArr, j) == null) || this.texture == 0) {
             return;
         }
         try {
@@ -573,16 +573,16 @@ public class TextureMovieEncoder {
                 }
                 nanoTime = (nanoTime - this.firstNanoTime) + this.firstTimeStampBase;
             }
-            long j2 = nanoTime / 1000;
-            long j3 = this.prevOutputPTSUs;
-            if (j2 < j3) {
-                j2 += j3 - j2;
+            long j = nanoTime / 1000;
+            long j2 = this.prevOutputPTSUs;
+            if (j < j2) {
+                j += j2 - j;
             }
-            if (j2 == this.prevOutputPTSUs) {
-                j2 += 100;
+            if (j == this.prevOutputPTSUs) {
+                j += 100;
             }
-            this.prevOutputPTSUs = j2;
-            return j2;
+            this.prevOutputPTSUs = j;
+            return j;
         }
         return invokeV.longValue;
     }

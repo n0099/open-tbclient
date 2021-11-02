@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import protobuf.CheckMaskUser.CheckMaskUserResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ResponseCheckUserMaskMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

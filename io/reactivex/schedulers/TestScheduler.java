@@ -15,7 +15,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TestScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class TestScheduler extends Scheduler {
     public final Queue<TimedRunnable> queue;
     public volatile long time;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TimedRunnable implements Comparable<TimedRunnable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,12 +32,12 @@ public final class TestScheduler extends Scheduler {
         public final TestWorker scheduler;
         public final long time;
 
-        public TimedRunnable(TestWorker testWorker, long j2, Runnable runnable, long j3) {
+        public TimedRunnable(TestWorker testWorker, long j, Runnable runnable, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {testWorker, Long.valueOf(j2), runnable, Long.valueOf(j3)};
+                Object[] objArr = {testWorker, Long.valueOf(j), runnable, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -47,10 +47,10 @@ public final class TestScheduler extends Scheduler {
                     return;
                 }
             }
-            this.time = j2;
+            this.time = j;
             this.run = runnable;
             this.scheduler = testWorker;
-            this.count = j3;
+            this.count = j2;
         }
 
         public String toString() {
@@ -65,12 +65,12 @@ public final class TestScheduler extends Scheduler {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, timedRunnable)) == null) {
-                long j2 = this.time;
-                long j3 = timedRunnable.time;
-                if (j2 == j3) {
+                long j = this.time;
+                long j2 = timedRunnable.time;
+                if (j == j2) {
                     return ObjectHelper.compare(this.count, timedRunnable.count);
                 }
-                return ObjectHelper.compare(j2, j3);
+                return ObjectHelper.compare(j, j2);
             }
             return invokeL.intValue;
         }
@@ -92,17 +92,17 @@ public final class TestScheduler extends Scheduler {
         this.queue = new PriorityBlockingQueue(11);
     }
 
-    public void advanceTimeBy(long j2, TimeUnit timeUnit) {
+    public void advanceTimeBy(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j2, timeUnit) == null) {
-            advanceTimeTo(this.time + timeUnit.toNanos(j2), TimeUnit.NANOSECONDS);
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, timeUnit) == null) {
+            advanceTimeTo(this.time + timeUnit.toNanos(j), TimeUnit.NANOSECONDS);
         }
     }
 
-    public void advanceTimeTo(long j2, TimeUnit timeUnit) {
+    public void advanceTimeTo(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, timeUnit) == null) {
-            triggerActions(timeUnit.toNanos(j2));
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit) == null) {
+            triggerActions(timeUnit.toNanos(j));
         }
     }
 
@@ -128,37 +128,37 @@ public final class TestScheduler extends Scheduler {
         }
     }
 
-    private void triggerActions(long j2) {
+    private void triggerActions(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
             while (true) {
                 TimedRunnable peek = this.queue.peek();
                 if (peek == null) {
                     break;
                 }
-                long j3 = peek.time;
-                if (j3 > j2) {
+                long j2 = peek.time;
+                if (j2 > j) {
                     break;
                 }
-                if (j3 == 0) {
-                    j3 = this.time;
+                if (j2 == 0) {
+                    j2 = this.time;
                 }
-                this.time = j3;
+                this.time = j2;
                 this.queue.remove(peek);
                 if (!peek.scheduler.disposed) {
                     peek.run.run();
                 }
             }
-            this.time = j2;
+            this.time = j;
         }
     }
 
-    public TestScheduler(long j2, TimeUnit timeUnit) {
+    public TestScheduler(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), timeUnit};
+            Object[] objArr = {Long.valueOf(j), timeUnit};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -169,17 +169,17 @@ public final class TestScheduler extends Scheduler {
             }
         }
         this.queue = new PriorityBlockingQueue(11);
-        this.time = timeUnit.toNanos(j2);
+        this.time = timeUnit.toNanos(j);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class TestWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean disposed;
         public final /* synthetic */ TestScheduler this$0;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public final class QueueRemove implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -256,18 +256,18 @@ public final class TestScheduler extends Scheduler {
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
                 if (this.disposed) {
                     return EmptyDisposable.INSTANCE;
                 }
-                long nanos = this.this$0.time + timeUnit.toNanos(j2);
+                long nanos = this.this$0.time + timeUnit.toNanos(j);
                 TestScheduler testScheduler = this.this$0;
-                long j3 = testScheduler.counter;
-                testScheduler.counter = 1 + j3;
-                TimedRunnable timedRunnable = new TimedRunnable(this, nanos, runnable, j3);
+                long j2 = testScheduler.counter;
+                testScheduler.counter = 1 + j2;
+                TimedRunnable timedRunnable = new TimedRunnable(this, nanos, runnable, j2);
                 this.this$0.queue.add(timedRunnable);
                 return Disposables.fromRunnable(new QueueRemove(this, timedRunnable));
             }
@@ -284,9 +284,9 @@ public final class TestScheduler extends Scheduler {
                     return EmptyDisposable.INSTANCE;
                 }
                 TestScheduler testScheduler = this.this$0;
-                long j2 = testScheduler.counter;
-                testScheduler.counter = 1 + j2;
-                TimedRunnable timedRunnable = new TimedRunnable(this, 0L, runnable, j2);
+                long j = testScheduler.counter;
+                testScheduler.counter = 1 + j;
+                TimedRunnable timedRunnable = new TimedRunnable(this, 0L, runnable, j);
                 this.this$0.queue.add(timedRunnable);
                 return Disposables.fromRunnable(new QueueRemove(this, timedRunnable));
             }

@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AccountLoginAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -114,12 +114,12 @@ public class AccountLoginAction {
         return (List) invokeL.objValue;
     }
 
-    public AccountLoginAction(long j2, SapiAccount sapiAccount) {
+    public AccountLoginAction(long j, SapiAccount sapiAccount) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), sapiAccount};
+            Object[] objArr = {Long.valueOf(j), sapiAccount};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -129,7 +129,7 @@ public class AccountLoginAction {
                 return;
             }
         }
-        this.loginTimeSecond = j2;
+        this.loginTimeSecond = j;
         this.sapiAccount = sapiAccount;
     }
 }

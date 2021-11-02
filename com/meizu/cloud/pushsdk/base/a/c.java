@@ -4,32 +4,32 @@ import com.meizu.cloud.pushsdk.base.h;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Method> f75058b = new HashMap<>();
+    public static HashMap<String, Method> f67422b = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f75059a = "ReflectMethod";
+    public String f67423a = "ReflectMethod";
 
     /* renamed from: c  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.base.a.a f75060c;
+    public com.meizu.cloud.pushsdk.base.a.a f67424c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f75061d;
+    public String f67425d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Class<?>[] f75062e;
+    public Class<?>[] f67426e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class a {
     }
 
     public c(com.meizu.cloud.pushsdk.base.a.a aVar, String str, Class<?>... clsArr) {
-        this.f75060c = aVar;
-        this.f75061d = str;
-        this.f75062e = clsArr;
+        this.f67424c = aVar;
+        this.f67425d = str;
+        this.f67426e = clsArr;
     }
 
     private Class<?> a(Class<?> cls) {
@@ -42,18 +42,18 @@ public class c {
     private Method a() throws NoSuchMethodException, ClassNotFoundException {
         Method[] methods;
         Method[] declaredMethods;
-        Class<?> a2 = this.f75060c.a();
+        Class<?> a2 = this.f67424c.a();
         for (Method method : a2.getMethods()) {
-            if (a(method, this.f75061d, this.f75062e)) {
+            if (a(method, this.f67425d, this.f67426e)) {
                 return method;
             }
         }
         for (Method method2 : a2.getDeclaredMethods()) {
-            if (a(method2, this.f75061d, this.f75062e)) {
+            if (a(method2, this.f67425d, this.f67426e)) {
                 return method2;
             }
         }
-        throw new NoSuchMethodException("No similar method " + this.f75061d + " with params " + Arrays.toString(this.f75062e) + " could be found on type " + a2);
+        throw new NoSuchMethodException("No similar method " + this.f67425d + " with params " + Arrays.toString(this.f67426e) + " could be found on type " + a2);
     }
 
     private boolean a(Method method, String str, Class<?>[] clsArr) {
@@ -73,9 +73,9 @@ public class c {
     }
 
     private String b() throws ClassNotFoundException {
-        StringBuffer stringBuffer = new StringBuffer(this.f75060c.a().getName());
-        stringBuffer.append(this.f75061d);
-        for (Class<?> cls : this.f75062e) {
+        StringBuffer stringBuffer = new StringBuffer(this.f67424c.a().getName());
+        stringBuffer.append(this.f67425d);
+        for (Class<?> cls : this.f67426e) {
             stringBuffer.append(cls.getName());
         }
         return stringBuffer.toString();
@@ -85,33 +85,33 @@ public class c {
         d<T> dVar = new d<>();
         try {
             String b2 = b();
-            Method method = f75058b.get(b2);
+            Method method = f67422b.get(b2);
             if (method == null) {
-                if (this.f75062e.length == objArr.length) {
-                    method = this.f75060c.a().getMethod(this.f75061d, this.f75062e);
+                if (this.f67426e.length == objArr.length) {
+                    method = this.f67424c.a().getMethod(this.f67425d, this.f67426e);
                 } else {
                     if (objArr.length > 0) {
-                        this.f75062e = new Class[objArr.length];
+                        this.f67426e = new Class[objArr.length];
                         for (int i2 = 0; i2 < objArr.length; i2++) {
-                            this.f75062e[i2] = objArr[i2].getClass();
+                            this.f67426e[i2] = objArr[i2].getClass();
                         }
                     }
                     method = a();
                 }
-                f75058b.put(b2, method);
+                f67422b.put(b2, method);
             }
             method.setAccessible(true);
-            dVar.f75064b = (T) method.invoke(obj, objArr);
-            dVar.f75063a = true;
+            dVar.f67428b = (T) method.invoke(obj, objArr);
+            dVar.f67427a = true;
         } catch (Exception e2) {
-            h.b().a(this.f75059a, "invoke", e2);
+            h.b().a(this.f67423a, "invoke", e2);
         }
         return dVar;
     }
 
     public <T> d<T> a(Object... objArr) {
         try {
-            return a(this.f75060c.a(), objArr);
+            return a(this.f67424c.a(), objArr);
         } catch (ClassNotFoundException unused) {
             return new d<>();
         }

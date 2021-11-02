@@ -20,7 +20,7 @@ import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.nio.ByteBuffer;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ReplaceSampleTrack extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class ReplaceSampleTrack extends AbstractTrack {
     public List<Sample> samples;
 
     /* renamed from: com.googlecode.mp4parser.authoring.tracks.ReplaceSampleTrack$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class ReplaceASingleEntryList extends AbstractList<Sample> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,12 +86,12 @@ public class ReplaceSampleTrack extends AbstractTrack {
         }
     }
 
-    public ReplaceSampleTrack(Track track, long j2, ByteBuffer byteBuffer) {
+    public ReplaceSampleTrack(Track track, long j, ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Long.valueOf(j2), byteBuffer};
+            Object[] objArr = {track, Long.valueOf(j), byteBuffer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -102,7 +102,7 @@ public class ReplaceSampleTrack extends AbstractTrack {
             }
         }
         this.origTrack = track;
-        this.sampleNumber = j2;
+        this.sampleNumber = j;
         this.sampleContent = new SampleImpl(byteBuffer);
         this.samples = new ReplaceASingleEntryList(this, null);
     }

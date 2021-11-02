@@ -3,11 +3,14 @@ package com.fun.ad.sdk;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface FunAdFactory {
     void destroyAd(String str);
 
+    @Deprecated
     FunNativeAd getNativeAd(Context context, String str);
+
+    FunNativeAd2 getNativeAd2(Context context, String str);
 
     boolean isAdReady(String str);
 

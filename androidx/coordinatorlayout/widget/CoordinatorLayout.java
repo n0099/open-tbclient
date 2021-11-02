@@ -1143,10 +1143,10 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j2) {
+    public boolean drawChild(Canvas canvas, View view, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             Behavior behavior = layoutParams.mBehavior;
             if (behavior != null) {
@@ -1165,7 +1165,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     canvas.restoreToCount(save);
                 }
             }
-            return super.drawChild(canvas, view, j2);
+            return super.drawChild(canvas, view, j);
         }
         return invokeCommon.booleanValue;
     }

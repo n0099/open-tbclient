@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.s.b.b;
-import c.s.b.d;
-import c.s.b.e;
+import b.s.b.b;
+import b.s.b.d;
+import b.s.b.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class YYSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String q = "YYSSOLoginActivity";
@@ -27,13 +27,13 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
     public String o;
     public b p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYSSOLoginActivity f44817a;
+        public final /* synthetic */ YYSSOLoginActivity f42567a;
 
         public a(YYSSOLoginActivity yYSSOLoginActivity) {
             Interceptable interceptable = $ic;
@@ -50,48 +50,48 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f44817a = yYSSOLoginActivity;
+            this.f42567a = yYSSOLoginActivity;
         }
 
-        @Override // c.s.b.b
+        @Override // b.s.b.b
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Log.d(YYSSOLoginActivity.q, "YY授权登录 已取消");
-                YYSSOLoginActivity yYSSOLoginActivity = this.f44817a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44784g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
+                YYSSOLoginActivity yYSSOLoginActivity = this.f42567a;
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f42535g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
             }
         }
 
-        @Override // c.s.b.b
+        @Override // b.s.b.b
         public void onComplete(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
                 Log.d(YYSSOLoginActivity.q, "onComplete " + jSONObject.toString());
                 if (jSONObject != null) {
                     if (jSONObject.has("access_code")) {
-                        this.f44817a.o = jSONObject.optString("access_code");
+                        this.f42567a.o = jSONObject.optString("access_code");
                     } else if (jSONObject.has("token")) {
-                        this.f44817a.o = jSONObject.optString("token");
+                        this.f42567a.o = jSONObject.optString("token");
                     }
                 }
-                if (!TextUtils.isEmpty(this.f44817a.o)) {
-                    Log.d(YYSSOLoginActivity.q, "accessCode=" + this.f44817a.o);
-                    this.f44817a.d();
+                if (!TextUtils.isEmpty(this.f42567a.o)) {
+                    Log.d(YYSSOLoginActivity.q, "accessCode=" + this.f42567a.o);
+                    this.f42567a.d();
                     return;
                 }
-                YYSSOLoginActivity yYSSOLoginActivity = this.f44817a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44784g, -1, "未知错误");
+                YYSSOLoginActivity yYSSOLoginActivity = this.f42567a;
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f42535g, -1, "未知错误");
             }
         }
 
-        @Override // c.s.b.b
+        @Override // b.s.b.b
         public void onError(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-                Log.d(YYSSOLoginActivity.q, "onError " + dVar.f35601a + " " + dVar.f35602b);
-                YYSSOLoginActivity yYSSOLoginActivity = this.f44817a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44784g, dVar.f35601a, dVar.f35602b);
+                Log.d(YYSSOLoginActivity.q, "onError " + dVar.f33709a + " " + dVar.f33710b);
+                YYSSOLoginActivity yYSSOLoginActivity = this.f42567a;
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f42535g, dVar.f33709a, dVar.f33710b);
             }
         }
     }
@@ -142,7 +142,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                 b2.a(this, this.p);
                 return;
             }
-            a(((BaseSSOLoginActivity) this).f44784g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
+            a(((BaseSSOLoginActivity) this).f42535g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
         }
     }
 

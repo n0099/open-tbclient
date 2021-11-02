@@ -3,8 +3,8 @@ package com.baidu.tieba.hottopicselect;
 import GetSugTopic.DataRes;
 import GetSugTopic.GetSugTopicResIdl;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.r.a;
-import c.a.r0.k1.c;
+import b.a.q0.s.r.a;
+import b.a.r0.k1.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -106,24 +106,24 @@ public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
         }
         if (dataRes.user_his_topic != null) {
             c cVar = new c();
-            cVar.g(0);
-            cVar.e(getSugTopicResIdl.data.user_his_topic);
+            cVar.f(0);
+            cVar.d(getSugTopicResIdl.data.user_his_topic);
             this.mUserHisTopic = cVar;
         }
         if (getSugTopicResIdl.data.bang_topic != null) {
             c cVar2 = new c();
-            cVar2.g(1);
-            cVar2.e(getSugTopicResIdl.data.bang_topic);
+            cVar2.f(1);
+            cVar2.d(getSugTopicResIdl.data.bang_topic);
             this.mBangTopic = cVar2;
         }
         if (getSugTopicResIdl.data.sug_topic != null) {
             c cVar3 = new c();
-            cVar3.e(getSugTopicResIdl.data.sug_topic);
+            cVar3.d(getSugTopicResIdl.data.sug_topic);
             this.mSugTopic = cVar3;
         }
         if (getSugTopicResIdl.data.video_topic != null) {
             c cVar4 = new c();
-            cVar4.e(getSugTopicResIdl.data.video_topic);
+            cVar4.d(getSugTopicResIdl.data.video_topic);
             this.mVideoTopic = cVar4;
         }
     }

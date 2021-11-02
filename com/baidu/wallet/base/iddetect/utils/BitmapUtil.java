@@ -23,7 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class BitmapUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MIN_SD_CARD_SPACE = 5242880;
@@ -262,7 +262,7 @@ public final class BitmapUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             try {
-                int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
+                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
                 if (attributeInt != 3) {
                     if (attributeInt != 6) {
                         return attributeInt != 8 ? 0 : 270;

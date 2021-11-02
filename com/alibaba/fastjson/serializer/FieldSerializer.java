@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FieldSerializer implements Comparable<FieldSerializer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
     public boolean writeEnumUsingToString;
     public final boolean writeNull;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RuntimeSerializerInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

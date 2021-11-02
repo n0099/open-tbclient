@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36139a = "content://com.alipay.android.app.settings.data.ServerProvider/current_server";
+    public static final String f34231a = "content://com.alipay.android.app.settings.data.ServerProvider/current_server";
     public transient /* synthetic */ FieldHolder $fh;
 
     public k() {
@@ -36,7 +36,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Cursor query = context.getContentResolver().query(Uri.parse(f36139a), null, null, null, null);
+            Cursor query = context.getContentResolver().query(Uri.parse(f34231a), null, null, null, null);
             if (query != null && query.getCount() > 0) {
                 r0 = query.moveToFirst() ? query.getString(query.getColumnIndex("url")) : null;
                 query.close();
@@ -51,13 +51,13 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (EnvUtils.isSandBox()) {
-                return com.alipay.sdk.cons.a.f35962b;
+                return com.alipay.sdk.cons.a.f34064b;
             }
             if (context == null) {
-                return com.alipay.sdk.cons.a.f35961a;
+                return com.alipay.sdk.cons.a.f34063a;
             }
-            String str = com.alipay.sdk.cons.a.f35961a;
-            return TextUtils.isEmpty(str) ? com.alipay.sdk.cons.a.f35961a : str;
+            String str = com.alipay.sdk.cons.a.f34063a;
+            return TextUtils.isEmpty(str) ? com.alipay.sdk.cons.a.f34063a : str;
         }
         return (String) invokeL.objValue;
     }

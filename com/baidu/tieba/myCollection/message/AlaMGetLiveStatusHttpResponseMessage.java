@@ -2,6 +2,7 @@ package com.baidu.tieba.myCollection.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +49,7 @@ public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessa
                 return;
             }
             setError(jSONObject.optInt("error_code"));
-            setErrorString(jSONObject.optString("error_msg"));
+            setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
             if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("close_live");
                 if (optJSONArray != null) {

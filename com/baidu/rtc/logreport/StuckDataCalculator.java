@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class StuckDataCalculator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public class StuckDataCalculator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = this.frameStartTime;
-            if (currentTimeMillis - j2 > this.stuckInterval && (sLIReportInterface = this.mStuckEvent) != null) {
-                sLIReportInterface.onStuckData(j2, currentTimeMillis);
+            long j = this.frameStartTime;
+            if (currentTimeMillis - j > this.stuckInterval && (sLIReportInterface = this.mStuckEvent) != null) {
+                sLIReportInterface.onStuckData(j, currentTimeMillis);
             }
             this.frameStartTime = System.currentTimeMillis();
         }

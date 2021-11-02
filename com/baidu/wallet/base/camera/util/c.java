@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread[] f60452a;
+    public Thread[] f57364a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<Runnable> f60453b;
+    public LinkedBlockingQueue<Runnable> f57365b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public final class c {
                 return;
             }
         }
-        this.f60452a = null;
-        this.f60453b = null;
-        this.f60453b = new LinkedBlockingQueue<>();
+        this.f57364a = null;
+        this.f57365b = null;
+        this.f57365b = new LinkedBlockingQueue<>();
     }
 
     public static int a(int i2) {
@@ -57,12 +57,12 @@ public final class c {
             }
             int a2 = a(i2);
             c cVar = new c();
-            cVar.f60452a = new Thread[a2];
+            cVar.f57364a = new Thread[a2];
             for (int i3 = a2 - 1; i3 >= 0; i3 += -1) {
-                cVar.f60452a[i3] = new Thread(new d(cVar.f60453b));
-                cVar.f60452a[i3].setPriority(5);
-                cVar.f60452a[i3].setName(str + " " + a2 + "." + (i3 + 1));
-                cVar.f60452a[i3].start();
+                cVar.f57364a[i3] = new Thread(new d(cVar.f57365b));
+                cVar.f57364a[i3].setPriority(5);
+                cVar.f57364a[i3].setName(str + " " + a2 + "." + (i3 + 1));
+                cVar.f57364a[i3].start();
             }
             return cVar;
         }
@@ -75,7 +75,7 @@ public final class c {
             return;
         }
         try {
-            this.f60453b.put(runnable);
+            this.f57365b.put(runnable);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
@@ -85,17 +85,17 @@ public final class c {
         Thread[] threadArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f60453b.clear();
-            for (Thread thread : this.f60452a) {
+            this.f57365b.clear();
+            for (Thread thread : this.f57364a) {
                 if (thread.isAlive()) {
-                    this.f60453b.offer(new b());
+                    this.f57365b.offer(new b());
                 }
             }
-            for (Thread thread2 : this.f60452a) {
+            for (Thread thread2 : this.f57364a) {
                 if (thread2.isAlive()) {
                     try {
                         synchronized (this) {
-                            wait(2000 / this.f60452a.length);
+                            wait(2000 / this.f57364a.length);
                         }
                     } catch (InterruptedException unused) {
                     }

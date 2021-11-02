@@ -13,20 +13,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PlanNode implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PlanNode> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f41978a;
+    public LatLng f39811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41979b;
+    public String f39812b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41980c;
+    public String f39813c;
 
     static {
         InterceptResult invokeClinit;
@@ -59,12 +59,12 @@ public class PlanNode implements Parcelable {
                 return;
             }
         }
-        this.f41978a = null;
-        this.f41979b = null;
-        this.f41980c = null;
-        this.f41978a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f41979b = parcel.readString();
-        this.f41980c = parcel.readString();
+        this.f39811a = null;
+        this.f39812b = null;
+        this.f39813c = null;
+        this.f39811a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f39812b = parcel.readString();
+        this.f39813c = parcel.readString();
     }
 
     public PlanNode(LatLng latLng, String str, String str2) {
@@ -82,12 +82,12 @@ public class PlanNode implements Parcelable {
                 return;
             }
         }
-        this.f41978a = null;
-        this.f41979b = null;
-        this.f41980c = null;
-        this.f41978a = latLng;
-        this.f41979b = str;
-        this.f41980c = str2;
+        this.f39811a = null;
+        this.f39812b = null;
+        this.f39813c = null;
+        this.f39811a = latLng;
+        this.f39812b = str;
+        this.f39813c = str2;
     }
 
     public static PlanNode withCityCodeAndPlaceName(int i2, String str) {
@@ -121,28 +121,28 @@ public class PlanNode implements Parcelable {
     public String getCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41979b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39812b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41978a : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39811a : (LatLng) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41980c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39813c : (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
-            parcel.writeValue(this.f41978a);
-            parcel.writeString(this.f41979b);
-            parcel.writeString(this.f41980c);
+            parcel.writeValue(this.f39811a);
+            parcel.writeString(this.f39812b);
+            parcel.writeString(this.f39813c);
         }
     }
 }

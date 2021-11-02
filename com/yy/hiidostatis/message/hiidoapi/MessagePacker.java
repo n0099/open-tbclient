@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.wifi.WifiInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.dxmpay.Config;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +36,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MessagePacker implements Packer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_MAGIC = "HiidoData";
@@ -174,7 +173,7 @@ public class MessagePacker implements Packer {
                         if (!ArdUtil.isRoot()) {
                             i2 = 0;
                         }
-                        statisContent.put(PrefetchEvent.EVENT_DATA_ROOT_PATH, i2);
+                        statisContent.put("root", i2);
                         WifiInfo wifiInfo = ArdUtil.getWifiInfo(applicationContext);
                         if (wifiInfo != null) {
                             statisContent.put("bssid", wifiInfo.getBSSID());

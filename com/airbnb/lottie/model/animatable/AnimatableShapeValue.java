@@ -6,7 +6,7 @@ import com.airbnb.lottie.animation.keyframe.ShapeKeyframeAnimation;
 import com.airbnb.lottie.model.content.ShapeData;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AnimatableShapeValue extends BaseAnimatableValue<ShapeData, Path> {
     public AnimatableShapeValue(List<Keyframe<ShapeData>> list) {
         super((List) list);

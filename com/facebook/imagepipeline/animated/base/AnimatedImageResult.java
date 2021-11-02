@@ -9,12 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
+import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AnimatedImageResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public BitmapTransformation mBitmapTransformation;
     @Nullable
     public List<CloseableReference<Bitmap>> mDecodedFrames;
     public final int mFrameForPreview;
@@ -41,6 +44,7 @@ public class AnimatedImageResult {
         this.mFrameForPreview = animatedImageResultBuilder.getFrameForPreview();
         this.mPreviewBitmap = animatedImageResultBuilder.getPreviewBitmap();
         this.mDecodedFrames = animatedImageResultBuilder.getDecodedFrames();
+        this.mBitmapTransformation = animatedImageResultBuilder.getBitmapTransformation();
     }
 
     public static AnimatedImageResult forAnimatedImage(AnimatedImage animatedImage) {
@@ -68,10 +72,17 @@ public class AnimatedImageResult {
     }
 
     @Nullable
+    public BitmapTransformation getBitmapTransformation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBitmapTransformation : (BitmapTransformation) invokeV.objValue;
+    }
+
+    @Nullable
     public synchronized CloseableReference<Bitmap> getDecodedFrame(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             synchronized (this) {
                 if (this.mDecodedFrames != null) {
                     return CloseableReference.cloneOrNull(this.mDecodedFrames.get(i2));
@@ -85,20 +96,20 @@ public class AnimatedImageResult {
     public int getFrameForPreview() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFrameForPreview : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFrameForPreview : invokeV.intValue;
     }
 
     public AnimatedImage getImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mImage : (AnimatedImage) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mImage : (AnimatedImage) invokeV.objValue;
     }
 
     public synchronized CloseableReference<Bitmap> getPreviewBitmap() {
         InterceptResult invokeV;
         CloseableReference<Bitmap> cloneOrNull;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 cloneOrNull = CloseableReference.cloneOrNull(this.mPreviewBitmap);
             }
@@ -111,7 +122,7 @@ public class AnimatedImageResult {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             synchronized (this) {
                 if (this.mDecodedFrames != null) {
                     z = this.mDecodedFrames.get(i2) != null;

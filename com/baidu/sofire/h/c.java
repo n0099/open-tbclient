@@ -15,31 +15,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class c implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f45355a;
+    public SharedPreferences f43084a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f45356b;
+    public Context f43085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45357c;
+    public int f43086c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SharedPreferences.Editor f45358d;
+    public SharedPreferences.Editor f43087d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45359e;
+    public boolean f43088e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45360f;
+    public String f43089f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45361g;
+    public String f43090g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(Context context, SharedPreferences sharedPreferences, String str, int i2) {
@@ -69,16 +69,16 @@ public final class c implements SharedPreferences {
             try {
                 Bundle bundle = new Bundle();
                 bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, str);
-                bundle.putString("pref_name", this.f45360f);
+                bundle.putString("pref_name", this.f43089f);
                 bundle.putString("key", str2);
                 bundle.putString("defult_value", str3);
-                if (this.f45359e) {
-                    if (TextUtils.isEmpty(this.f45361g)) {
-                        return w.a(this.f45356b, "CallPreferences", bundle);
+                if (this.f43088e) {
+                    if (TextUtils.isEmpty(this.f43090g)) {
+                        return w.a(this.f43085b, "CallPreferences", bundle);
                     }
-                    return w.b(this.f45356b, "CallPreferences", bundle, this.f45361g);
+                    return w.b(this.f43085b, "CallPreferences", bundle, this.f43090g);
                 }
-                return w.a(this.f45356b, "CallPreferences", bundle);
+                return w.a(this.f43085b, "CallPreferences", bundle);
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return null;
@@ -102,11 +102,11 @@ public final class c implements SharedPreferences {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SharedPreferences.Editor editor = this.f45358d;
+            SharedPreferences.Editor editor = this.f43087d;
             if (editor != null) {
                 return editor;
             }
-            SharedPreferences sharedPreferences = this.f45355a;
+            SharedPreferences sharedPreferences = this.f43084a;
             if (sharedPreferences != null) {
                 return sharedPreferences.edit();
             }
@@ -134,8 +134,8 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
-                return this.f45355a == null ? z : this.f45355a.getBoolean(str, z);
+            if (this.f43086c == 1 && (!this.f43088e || TextUtils.isEmpty(this.f43090g))) {
+                return this.f43084a == null ? z : this.f43084a.getBoolean(str, z);
             }
             Bundle a2 = a("getBoolean", str, String.valueOf(z));
             if (a2 != null) {
@@ -155,8 +155,8 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
-                return this.f45355a == null ? f2 : this.f45355a.getFloat(str, f2);
+            if (this.f43086c == 1 && (!this.f43088e || TextUtils.isEmpty(this.f43090g))) {
+                return this.f43084a == null ? f2 : this.f43084a.getFloat(str, f2);
             }
             Bundle a2 = a("getFloat", str, String.valueOf(f2));
             if (a2 != null) {
@@ -176,8 +176,8 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
-                return this.f45355a == null ? i2 : this.f45355a.getInt(str, i2);
+            if (this.f43086c == 1 && (!this.f43088e || TextUtils.isEmpty(this.f43090g))) {
+                return this.f43084a == null ? i2 : this.f43084a.getInt(str, i2);
             }
             Bundle a2 = a("getInt", str, String.valueOf(i2));
             if (a2 != null) {
@@ -189,22 +189,22 @@ public final class c implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public final long getLong(String str, long j2) {
+    public final long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
             try {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
-                return this.f45355a == null ? j2 : this.f45355a.getLong(str, j2);
+            if (this.f43086c == 1 && (!this.f43088e || TextUtils.isEmpty(this.f43090g))) {
+                return this.f43084a == null ? j : this.f43084a.getLong(str, j);
             }
-            Bundle a2 = a("getLong", str, String.valueOf(j2));
+            Bundle a2 = a("getLong", str, String.valueOf(j));
             if (a2 != null) {
-                return a2.getLong("result", j2);
+                return a2.getLong("result", j);
             }
-            return j2;
+            return j;
         }
         return invokeLJ.longValue;
     }
@@ -218,8 +218,8 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
-                return this.f45355a == null ? str2 : this.f45355a.getString(str, str2);
+            if (this.f43086c == 1 && (!this.f43088e || TextUtils.isEmpty(this.f43090g))) {
+                return this.f43084a == null ? str2 : this.f43084a.getString(str, str2);
             }
             Bundle a2 = a("getString", str, str2);
             if (a2 != null) {
@@ -245,8 +245,8 @@ public final class c implements SharedPreferences {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onSharedPreferenceChangeListener) == null) {
             try {
-                if (this.f45355a != null) {
-                    this.f45355a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+                if (this.f43084a != null) {
+                    this.f43084a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
                 }
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
@@ -259,8 +259,8 @@ public final class c implements SharedPreferences {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, onSharedPreferenceChangeListener) == null) {
             try {
-                if (this.f45355a != null) {
-                    this.f45355a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+                if (this.f43084a != null) {
+                    this.f43084a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
                 }
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
@@ -283,12 +283,12 @@ public final class c implements SharedPreferences {
                 return;
             }
         }
-        this.f45356b = context;
-        this.f45357c = i2;
-        this.f45355a = sharedPreferences;
-        this.f45358d = new b(context, sharedPreferences != null ? sharedPreferences.edit() : null, str, z, this.f45357c);
-        this.f45359e = z;
-        this.f45360f = str;
-        this.f45361g = str2;
+        this.f43085b = context;
+        this.f43086c = i2;
+        this.f43084a = sharedPreferences;
+        this.f43087d = new b(context, sharedPreferences != null ? sharedPreferences.edit() : null, str, z, this.f43086c);
+        this.f43088e = z;
+        this.f43089f = str;
+        this.f43090g = str2;
     }
 }

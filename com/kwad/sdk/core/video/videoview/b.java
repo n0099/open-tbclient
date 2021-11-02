@@ -26,41 +26,39 @@ import com.kwad.sdk.core.view.AdBasePvFrameLayout;
 import com.kwad.sdk.utils.am;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTextureListener, d {
     public static /* synthetic */ Interceptable $ic;
     public static AtomicBoolean o;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72659a;
+    public int f65111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f72660b;
+    public Context f65112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AudioManager f72661c;
+    public AudioManager f65113c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.video.a.c f72662d;
+    public com.kwad.sdk.core.video.a.c f65114d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f72663e;
+    public FrameLayout f65115e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.video.a f72664f;
+    public com.kwad.sdk.core.video.a f65116f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f72665g;
+    public c f65117g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SurfaceTexture f72666h;
+    public SurfaceTexture f65118h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Surface f72667i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f72668j;
+    public Surface f65119i;
+    public String j;
     public Map<String, String> k;
     public int l;
     public boolean m;
@@ -72,7 +70,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public c.e t;
     public c.h u;
     public c.b v;
-    public c.InterfaceC2001c w;
+    public c.InterfaceC1911c w;
     public c.d x;
     public c.a y;
     public BroadcastReceiver z;
@@ -133,7 +131,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                 return;
             }
         }
-        this.f72659a = 0;
+        this.f65111a = 0;
         this.m = false;
         this.p = false;
         this.q = false;
@@ -142,7 +140,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f72669a;
+            public final /* synthetic */ b f65120a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -159,22 +157,22 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                         return;
                     }
                 }
-                this.f72669a = this;
+                this.f65120a = this;
             }
 
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                    this.f72669a.f72659a = 2;
-                    this.f72669a.f72665g.a(this.f72669a.f72659a);
+                    this.f65120a.f65111a = 2;
+                    this.f65120a.f65117g.a(this.f65120a.f65111a);
                     com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onPrepared ——> STATE_PREPARED");
                     cVar.f();
-                    if (this.f72669a.m) {
-                        cVar.a((int) am.a(this.f72669a.f72660b, this.f72669a.f72668j));
+                    if (this.f65120a.m) {
+                        cVar.a((int) am.a(this.f65120a.f65112b, this.f65120a.j));
                     }
-                    if (this.f72669a.n != 0) {
-                        cVar.a((int) this.f72669a.n);
+                    if (this.f65120a.n != 0) {
+                        cVar.a((int) this.f65120a.n);
                     }
                 }
             }
@@ -184,7 +182,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f72670a;
+            public final /* synthetic */ b f65121a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -201,15 +199,15 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                         return;
                     }
                 }
-                this.f72670a = this;
+                this.f65121a = this;
             }
 
             @Override // com.kwad.sdk.core.video.a.c.h
             public void a(com.kwad.sdk.core.video.a.c cVar, int i4, int i5) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLII(1048576, this, cVar, i4, i5) == null) {
-                    if (!this.f72670a.q || i5 <= i4) {
-                        this.f72670a.f72664f.a(i4, i5);
+                    if (!this.f65121a.q || i5 <= i4) {
+                        this.f65121a.f65116f.a(i4, i5);
                         com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onVideoSizeChanged ——> width：" + i4 + "， height：" + i5);
                     }
                 }
@@ -220,7 +218,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f72671a;
+            public final /* synthetic */ b f65122a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -237,26 +235,26 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                         return;
                     }
                 }
-                this.f72671a = this;
+                this.f65122a = this;
             }
 
             @Override // com.kwad.sdk.core.video.a.c.b
             public void a(com.kwad.sdk.core.video.a.c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                    this.f72671a.f72659a = 9;
-                    this.f72671a.f72665g.a(this.f72671a.f72659a);
+                    this.f65122a.f65111a = 9;
+                    this.f65122a.f65117g.a(this.f65122a.f65111a);
                     com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onCompletion ——> STATE_COMPLETED");
-                    this.f72671a.f72663e.setKeepScreenOn(false);
+                    this.f65122a.f65115e.setKeepScreenOn(false);
                 }
             }
         };
-        this.w = new c.InterfaceC2001c(this) { // from class: com.kwad.sdk.core.video.videoview.b.4
+        this.w = new c.InterfaceC1911c(this) { // from class: com.kwad.sdk.core.video.videoview.b.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f72672a;
+            public final /* synthetic */ b f65123a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -273,18 +271,18 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                         return;
                     }
                 }
-                this.f72672a = this;
+                this.f65123a = this;
             }
 
-            @Override // com.kwad.sdk.core.video.a.c.InterfaceC2001c
+            @Override // com.kwad.sdk.core.video.a.c.InterfaceC1911c
             public boolean a(com.kwad.sdk.core.video.a.c cVar, int i4, int i5) {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, cVar, i4, i5)) == null) {
                     if (i4 != -38) {
-                        this.f72672a.f72659a = -1;
-                        this.f72672a.f72665g.a(i4, i5);
-                        this.f72672a.f72665g.a(this.f72672a.f72659a);
+                        this.f65123a.f65111a = -1;
+                        this.f65123a.f65117g.a(i4, i5);
+                        this.f65123a.f65117g.a(this.f65123a.f65111a);
                         com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onError ——> STATE_ERROR ———— what：" + i4 + ", extra: " + i5);
                         return true;
                     }
@@ -298,7 +296,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f72673a;
+            public final /* synthetic */ b f65124a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -315,7 +313,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                         return;
                     }
                 }
-                this.f72673a = this;
+                this.f65124a = this;
             }
 
             @Override // com.kwad.sdk.core.video.a.c.d
@@ -327,38 +325,38 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, cVar, i4, i5)) == null) {
                     if (i4 == 3) {
-                        this.f72673a.f72659a = 4;
-                        this.f72673a.f72665g.a(this.f72673a.f72659a);
+                        this.f65124a.f65111a = 4;
+                        this.f65124a.f65117g.a(this.f65124a.f65111a);
                         str = "onInfo ——> MEDIA_INFO_VIDEO_RENDERING_START：STATE_PLAYING";
                     } else if (i4 == 701) {
-                        if (this.f72673a.f72659a == 5 || this.f72673a.f72659a == 7) {
-                            this.f72673a.f72659a = 7;
+                        if (this.f65124a.f65111a == 5 || this.f65124a.f65111a == 7) {
+                            this.f65124a.f65111a = 7;
                             str2 = "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PAUSED";
                         } else {
-                            this.f72673a.f72659a = 6;
+                            this.f65124a.f65111a = 6;
                             str2 = "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PLAYING";
                         }
                         com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str2);
-                        this.f72673a.f72665g.a(this.f72673a.f72659a);
+                        this.f65124a.f65117g.a(this.f65124a.f65111a);
                         return true;
                     } else if (i4 == 702) {
-                        if (this.f72673a.f72659a == 6) {
-                            this.f72673a.f72659a = 4;
-                            this.f72673a.f72665g.a(this.f72673a.f72659a);
+                        if (this.f65124a.f65111a == 6) {
+                            this.f65124a.f65111a = 4;
+                            this.f65124a.f65117g.a(this.f65124a.f65111a);
                             com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PLAYING");
                         }
-                        if (this.f72673a.f72659a != 7) {
+                        if (this.f65124a.f65111a != 7) {
                             return true;
                         }
-                        this.f72673a.f72659a = 5;
-                        this.f72673a.f72665g.a(this.f72673a.f72659a);
+                        this.f65124a.f65111a = 5;
+                        this.f65124a.f65117g.a(this.f65124a.f65111a);
                         str = "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PAUSED";
                     } else {
                         if (i4 == 10001) {
-                            if (this.f72673a.f72664f == null) {
+                            if (this.f65124a.f65116f == null) {
                                 return true;
                             }
-                            this.f72673a.f72664f.setRotation(i5);
+                            this.f65124a.f65116f.setRotation(i5);
                             sb = new StringBuilder();
                             sb.append("视频旋转角度：");
                             sb.append(i5);
@@ -382,7 +380,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f72674a;
+            public final /* synthetic */ b f65125a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -399,14 +397,14 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                         return;
                     }
                 }
-                this.f72674a = this;
+                this.f65125a = this;
             }
 
             @Override // com.kwad.sdk.core.video.a.c.a
             public void a(com.kwad.sdk.core.video.a.c cVar, int i4) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLI(1048576, this, cVar, i4) == null) {
-                    this.f72674a.l = i4;
+                    this.f65125a.l = i4;
                 }
             }
         };
@@ -415,7 +413,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f72675a;
+            public final /* synthetic */ b f65126a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -432,7 +430,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                         return;
                     }
                 }
-                this.f72675a = this;
+                this.f65126a = this;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -445,36 +443,36 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                 c2.isConnected();
             }
         };
-        this.f72660b = context;
+        this.f65112b = context;
         q();
     }
 
     private void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.f72663e = new FrameLayout(this.f72660b);
-            addView(this.f72663e, new FrameLayout.LayoutParams(-1, -1));
+            this.f65115e = new FrameLayout(this.f65112b);
+            addView(this.f65115e, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     private void r() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && this.f72662d == null) {
-            com.kwad.sdk.core.video.a.c a2 = com.kwad.sdk.contentalliance.detail.video.a.a(this.f72660b, false);
-            this.f72662d = a2;
+        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && this.f65114d == null) {
+            com.kwad.sdk.core.video.a.c a2 = com.kwad.sdk.contentalliance.detail.video.a.a(this.f65112b, false);
+            this.f65114d = a2;
             a2.b(3);
             if (this.p) {
                 return;
             }
-            this.f72662d.a(0.0f, 0.0f);
+            this.f65114d.a(0.0f, 0.0f);
         }
     }
 
     private void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && this.f72664f == null) {
-            com.kwad.sdk.core.video.a aVar = new com.kwad.sdk.core.video.a(this.f72660b);
-            this.f72664f = aVar;
+        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && this.f65116f == null) {
+            com.kwad.sdk.core.video.a aVar = new com.kwad.sdk.core.video.a(this.f65112b);
+            this.f65116f = aVar;
             aVar.setSurfaceTextureListener(this);
         }
     }
@@ -483,7 +481,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         com.kwad.sdk.contentalliance.detail.video.c cVar;
         VideoPlayerStatus videoPlayerStatus;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65553, this, i2) == null) || (cVar = this.r) == null || (videoPlayerStatus = cVar.f71780c) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65553, this, i2) == null) || (cVar = this.r) == null || (videoPlayerStatus = cVar.f64256c) == null) {
             return;
         }
         videoPlayerStatus.mVideoPlayerType = i2;
@@ -492,33 +490,33 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     private void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            this.f72663e.removeView(this.f72664f);
-            this.f72663e.addView(this.f72664f, 0, new FrameLayout.LayoutParams(-1, -1, 17));
+            this.f65115e.removeView(this.f65116f);
+            this.f65115e.addView(this.f65116f, 0, new FrameLayout.LayoutParams(-1, -1, 17));
         }
     }
 
     private void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            this.f72663e.setKeepScreenOn(true);
-            this.f72662d.a(this.t);
-            this.f72662d.a(this.u);
-            this.f72662d.a(this.v);
-            this.f72662d.a(this.w);
-            this.f72662d.a(this.x);
-            this.f72662d.a(this.y);
+            this.f65115e.setKeepScreenOn(true);
+            this.f65114d.a(this.t);
+            this.f65114d.a(this.u);
+            this.f65114d.a(this.v);
+            this.f65114d.a(this.w);
+            this.f65114d.a(this.x);
+            this.f65114d.a(this.y);
             try {
                 if (this.r != null && this.s != null) {
-                    this.r.f71781d = this.s;
+                    this.r.f64257d = this.s;
                 }
-                this.f72662d.a(this.r);
-                if (this.f72667i == null) {
-                    this.f72667i = new Surface(this.f72666h);
+                this.f65114d.a(this.r);
+                if (this.f65119i == null) {
+                    this.f65119i = new Surface(this.f65118h);
                 }
-                this.f72662d.a(this.f72667i);
-                if (this.f72662d.e()) {
-                    this.f72659a = 1;
-                    this.f72665g.a(1);
+                this.f65114d.a(this.f65119i);
+                if (this.f65114d.e()) {
+                    this.f65111a = 1;
+                    this.f65117g.a(1);
                     com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "STATE_PREPARING");
                 }
             } catch (Exception e2) {
@@ -533,7 +531,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         VideoPlayerStatus videoPlayerStatus;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f72659a != 0) {
+            if (this.f65111a != 0) {
                 com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "KSVideoPlayer只有在状态为STATE_IDLE时才能调用start方法.");
                 return;
             }
@@ -541,7 +539,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             s();
             t();
             com.kwad.sdk.contentalliance.detail.video.c cVar = this.r;
-            if (cVar == null || (videoPlayerStatus = cVar.f71780c) == null) {
+            if (cVar == null || (videoPlayerStatus = cVar.f64256c) == null) {
                 return;
             }
             setPlayType(videoPlayerStatus.mVideoPlayerType == 0 ? 1 : 3);
@@ -551,7 +549,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public void a(int i2) {
         com.kwad.sdk.core.video.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (cVar = this.f72662d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (cVar = this.f65114d) == null) {
             return;
         }
         cVar.a(i2);
@@ -561,7 +559,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, map) == null) {
             this.r = cVar;
-            this.f72668j = cVar.f71778a;
+            this.j = cVar.f64254a;
             this.k = map;
         }
     }
@@ -571,25 +569,25 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i2 = this.f72659a;
+            int i2 = this.f65111a;
             if (i2 == 5) {
-                this.f72662d.f();
-                this.f72659a = 4;
-                this.f72665g.a(4);
+                this.f65114d.f();
+                this.f65111a = 4;
+                this.f65117g.a(4);
                 setPlayType(2);
                 str = "STATE_PLAYING";
             } else if (i2 == 7) {
-                this.f72662d.f();
-                this.f72659a = 6;
-                this.f72665g.a(6);
+                this.f65114d.f();
+                this.f65111a = 6;
+                this.f65117g.a(6);
                 str = "STATE_BUFFERING_PLAYING";
             } else if (i2 == 9 || i2 == -1) {
-                this.f72662d.m();
+                this.f65114d.m();
                 u();
                 setPlayType(3);
                 return;
             } else {
-                str = "KSVideoPlayer在状态为 " + this.f72659a + " 时不能调用restart()方法.";
+                str = "KSVideoPlayer在状态为 " + this.f65111a + " 时不能调用restart()方法.";
             }
             com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str);
         }
@@ -599,16 +597,16 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f72659a == 4) {
-                this.f72662d.g();
-                this.f72659a = 5;
-                this.f72665g.a(5);
+            if (this.f65111a == 4) {
+                this.f65114d.g();
+                this.f65111a = 5;
+                this.f65117g.a(5);
                 com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "STATE_PAUSED");
             }
-            if (this.f72659a == 6) {
-                this.f72662d.g();
-                this.f72659a = 7;
-                this.f72665g.a(7);
+            if (this.f65111a == 6) {
+                this.f65114d.g();
+                this.f65111a = 7;
+                this.f65117g.a(7);
                 com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "STATE_BUFFERING_PAUSED");
             }
         }
@@ -618,26 +616,26 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f72659a == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65111a == 0 : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f72659a == 6 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f65111a == 6 : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f72659a == 7 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f65111a == 7 : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f72659a == 4 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65111a == 4 : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
@@ -650,7 +648,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public c getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f72665g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f65117g : (c) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
@@ -658,7 +656,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            com.kwad.sdk.core.video.a.c cVar = this.f72662d;
+            com.kwad.sdk.core.video.a.c cVar = this.f65114d;
             if (cVar != null) {
                 return cVar.j();
             }
@@ -672,7 +670,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            com.kwad.sdk.core.video.a.c cVar = this.f72662d;
+            com.kwad.sdk.core.video.a.c cVar = this.f65114d;
             if (cVar != null) {
                 return cVar.k();
             }
@@ -685,7 +683,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            AudioManager audioManager = this.f72661c;
+            AudioManager audioManager = this.f65113c;
             if (audioManager != null) {
                 return audioManager.getStreamMaxVolume(3);
             }
@@ -698,7 +696,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            AudioManager audioManager = this.f72661c;
+            AudioManager audioManager = this.f65113c;
             if (audioManager != null) {
                 return audioManager.getStreamVolume(3);
             }
@@ -711,50 +709,50 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f72659a == 5 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f65111a == 5 : invokeV.booleanValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f72659a == 9 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f65111a == 9 : invokeV.booleanValue;
     }
 
     public void j() {
         com.kwad.sdk.core.video.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (cVar = this.f72662d) == null || this.v == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (cVar = this.f65114d) == null || this.v == null) {
             return;
         }
         cVar.l();
-        this.v.a(this.f72662d);
+        this.v.a(this.f65114d);
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            AudioManager audioManager = this.f72661c;
+            AudioManager audioManager = this.f65113c;
             if (audioManager != null) {
                 audioManager.abandonAudioFocus(null);
-                this.f72661c = null;
+                this.f65113c = null;
             }
-            com.kwad.sdk.core.video.a.c cVar = this.f72662d;
+            com.kwad.sdk.core.video.a.c cVar = this.f65114d;
             if (cVar != null) {
                 cVar.l();
-                this.f72662d = null;
+                this.f65114d = null;
             }
-            this.f72663e.removeView(this.f72664f);
-            Surface surface = this.f72667i;
+            this.f65115e.removeView(this.f65116f);
+            Surface surface = this.f65119i;
             if (surface != null) {
                 surface.release();
-                this.f72667i = null;
+                this.f65119i = null;
             }
-            SurfaceTexture surfaceTexture = this.f72666h;
+            SurfaceTexture surfaceTexture = this.f65118h;
             if (surfaceTexture != null) {
                 surfaceTexture.release();
-                this.f72666h = null;
+                this.f65118h = null;
             }
-            this.f72659a = 0;
+            this.f65111a = 0;
         }
     }
 
@@ -767,18 +765,18 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             if (this.m) {
                 if (g() || e() || f() || h()) {
-                    context = this.f72660b;
-                    str = this.f72668j;
+                    context = this.f65112b;
+                    str = this.j;
                     currentPosition = getCurrentPosition();
                 } else if (i()) {
-                    context = this.f72660b;
-                    str = this.f72668j;
+                    context = this.f65112b;
+                    str = this.j;
                     currentPosition = 0;
                 }
                 am.a(context, str, currentPosition);
             }
             k();
-            c cVar = this.f72665g;
+            c cVar = this.f65117g;
             if (cVar != null) {
                 cVar.d();
             }
@@ -789,12 +787,12 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048596, this, surfaceTexture, i2, i3) == null) {
-            SurfaceTexture surfaceTexture2 = this.f72666h;
+            SurfaceTexture surfaceTexture2 = this.f65118h;
             if (surfaceTexture2 != null) {
-                this.f72664f.setSurfaceTexture(surfaceTexture2);
+                this.f65116f.setSurfaceTexture(surfaceTexture2);
                 return;
             }
-            this.f72666h = surfaceTexture;
+            this.f65118h = surfaceTexture;
             u();
         }
     }
@@ -826,10 +824,10 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public void setController(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, cVar) == null) {
-            this.f72663e.removeView(this.f72665g);
-            this.f72665g = cVar;
+            this.f65115e.removeView(this.f65117g);
+            this.f65117g = cVar;
             cVar.d();
-            this.f72663e.addView(this.f72665g, new FrameLayout.LayoutParams(-1, -1));
+            this.f65115e.addView(this.f65117g, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -852,7 +850,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             this.p = z;
-            com.kwad.sdk.core.video.a.c cVar = this.f72662d;
+            com.kwad.sdk.core.video.a.c cVar = this.f65114d;
             if (cVar != null) {
                 float f2 = z ? 1.0f : 0.0f;
                 cVar.a(f2, f2);
@@ -863,7 +861,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public void setVolume(int i2) {
         AudioManager audioManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || (audioManager = this.f72661c) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || (audioManager = this.f65113c) == null) {
             return;
         }
         audioManager.setStreamVolume(3, i2, 0);

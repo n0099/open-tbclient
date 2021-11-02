@@ -1,5 +1,5 @@
 package com.baidu.searchbox.net.update.statistics;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface ICommandStatistics<T> {
     void collectInfo(String str, T t, boolean z);
 

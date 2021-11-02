@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class JsSerializeValue extends JsReleaser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -16,13 +16,13 @@ public class JsSerializeValue extends JsReleaser {
     public boolean mAutoRelease;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JsSerializeValue(long j2, long j3, long j4) {
-        super(j2, j3, j4);
+    public JsSerializeValue(long j, long j2, long j3) {
+        super(j, j2, j3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r9;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

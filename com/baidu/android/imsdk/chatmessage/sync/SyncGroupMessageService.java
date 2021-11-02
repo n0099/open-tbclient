@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SyncGroupMessageService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_MAP_SIZE = 1;
@@ -171,15 +171,15 @@ public class SyncGroupMessageService {
         }
     }
 
-    public void execute(Context context, int i2, long j2, long j3, int i3) {
+    public void execute(Context context, int i2, long j, long j2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
             String str = TAG;
-            LogUtils.d(str, "SYNCGROUPNEW group sync execute 1 \"to\":" + j2 + " " + j3 + " " + i3);
+            LogUtils.d(str, "SYNCGROUPNEW group sync execute 1 \"to\":" + j + " " + j2 + " " + i3);
             synchronized (synobject) {
-                DialogRecord dialogRecord = DialogRecordDBManager.getInstance(context).getDialogRecord(i2, j2);
+                DialogRecord dialogRecord = DialogRecordDBManager.getInstance(context).getDialogRecord(i2, j);
                 if (dialogRecord == null) {
-                    dialogRecord = new DialogRecord().setCategory(i2).setContacter(j2).setJumpToRecent(0).setMaxMsgid(0L).setUpdateTime(System.currentTimeMillis());
+                    dialogRecord = new DialogRecord().setCategory(i2).setContacter(j).setJumpToRecent(0).setMaxMsgid(0L).setUpdateTime(System.currentTimeMillis());
                     long add = DialogRecordDBManager.getInstance(context).add(dialogRecord);
                     dialogRecord.setJumpToRecent(1);
                     String str2 = TAG;
@@ -226,13 +226,13 @@ public class SyncGroupMessageService {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mComplete : invokeV.booleanValue;
     }
 
-    public int getState(Context context, long j2) {
+    public int getState(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, context, j)) == null) {
             String str = TAG;
-            LogUtils.d(str, "getState --->" + j2);
-            return (DialogRecordDBManager.getInstance(context).getUnCompleteItemCount(j2) == 0 || this.mComplete) ? 1 : 0;
+            LogUtils.d(str, "getState --->" + j);
+            return (DialogRecordDBManager.getInstance(context).getUnCompleteItemCount(j) == 0 || this.mComplete) ? 1 : 0;
         }
         return invokeLJ.intValue;
     }

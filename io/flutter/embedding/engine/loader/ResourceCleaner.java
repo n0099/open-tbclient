@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FilenameFilter;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class ResourceCleaner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DELAY_MS = 5000;
@@ -19,7 +19,7 @@ public class ResourceCleaner {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class CleanTask extends AsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

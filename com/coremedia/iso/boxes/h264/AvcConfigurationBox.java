@@ -29,7 +29,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class AvcConfigurationBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "avcC";
@@ -407,7 +407,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class AVCDecoderConfigurationRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -501,21 +501,21 @@ public final class AvcConfigurationBox extends AbstractBox {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                long j2 = 6;
+                long j = 6;
                 for (byte[] bArr : this.sequenceParameterSets) {
-                    j2 = j2 + 2 + bArr.length;
+                    j = j + 2 + bArr.length;
                 }
-                long j3 = j2 + 1;
+                long j2 = j + 1;
                 for (byte[] bArr2 : this.pictureParameterSets) {
-                    j3 = j3 + 2 + bArr2.length;
+                    j2 = j2 + 2 + bArr2.length;
                 }
                 if (this.hasExts && ((i2 = this.avcProfileIndication) == 100 || i2 == 110 || i2 == 122 || i2 == 144)) {
-                    j3 += 4;
+                    j2 += 4;
                     for (byte[] bArr3 : this.sequenceParameterSetExts) {
-                        j3 = j3 + 2 + bArr3.length;
+                        j2 = j2 + 2 + bArr3.length;
                     }
                 }
-                return j3;
+                return j2;
             }
             return invokeV.longValue;
         }

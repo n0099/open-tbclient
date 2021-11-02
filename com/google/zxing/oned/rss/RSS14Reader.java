@@ -25,7 +25,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RSS14Reader extends AbstractRSSReader {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] FINDER_PATTERNS;

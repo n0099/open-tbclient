@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.h;
+import b.a.e.a.h;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,7 +28,7 @@ import com.idlefish.flutterboost.containers.ViewSplashScreen;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TbFlutterFragment extends FlutterFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -177,11 +177,11 @@ public class TbFlutterFragment extends FlutterFragment {
             FrameLayout frameLayout = new FrameLayout(getActivity());
             frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             this.loadingView = new ContinuousAnimationView(getActivity());
-            Resources b2 = h.a().b();
-            SkinManager.setLottieAnimation(this.loadingView, b2.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
+            Resources resources = h.a().getResources();
+            SkinManager.setLottieAnimation(this.loadingView, resources.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
             this.loadingView.setSpeed(1.2f);
-            this.loadingView.setLayoutParams(new FrameLayout.LayoutParams(b2.getDimensionPixelSize(b2.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), b2.getDimensionPixelSize(b2.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
-            int identifier = b2.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
+            this.loadingView.setLayoutParams(new FrameLayout.LayoutParams(resources.getDimensionPixelSize(resources.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), resources.getDimensionPixelSize(resources.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
+            int identifier = resources.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
             int i2 = TbadkCoreApplication.getInst().getSkinType() != 0 ? -16777216 : -1;
             if (identifier == 0) {
                 frameLayout.setBackgroundColor(i2);
@@ -198,10 +198,10 @@ public class TbFlutterFragment extends FlutterFragment {
         return (SplashScreen) invokeV.objValue;
     }
 
-    public void removeSplashDelay(long j2) {
+    public void removeSplashDelay(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.removeDelay = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.removeDelay = j;
         }
     }
 

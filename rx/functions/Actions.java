@@ -1,5 +1,6 @@
 package rx.functions;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.n.b;
-import i.n.c;
+import h.n.b;
+import h.n.c;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Actions {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f79725a;
+    public static final a f72590a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class NotImplemented implements b<Throwable> {
         public static final /* synthetic */ NotImplemented[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -77,7 +78,7 @@ public final class Actions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // i.n.b
+        @Override // h.n.b
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -86,8 +87,8 @@ public final class Actions {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements i.n.a, b<T0>, c<T0, T1> {
+    /* loaded from: classes3.dex */
+    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements h.n.a, b<T0>, c<T0, T1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,24 +106,72 @@ public final class Actions {
             }
         }
 
-        @Override // i.n.c
-        public void a(T0 t0, T1 t1) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, t0, t1) == null) {
-            }
-        }
-
-        @Override // i.n.a
+        @Override // h.n.a
         public void call() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // i.n.b
+        @Override // h.n.b
         public void call(T0 t0) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t0) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t0) == null) {
+            }
+        }
+
+        @Override // h.n.c
+        public void call(T0 t0, T1 t1) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t0, t1) == null) {
+            }
+        }
+
+        public void call(T0 t0, T1 t1, T2 t2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, t0, t1, t2) == null) {
+            }
+        }
+
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048580, this, t0, t1, t2, t3) == null) {
+            }
+        }
+
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLLL(1048581, this, t0, t1, t2, t3, t4) == null) {
+            }
+        }
+
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4, T5 t5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{t0, t1, t2, t3, t4, t5}) == null) {
+            }
+        }
+
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{t0, t1, t2, t3, t4, t5, t6}) == null) {
+            }
+        }
+
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{t0, t1, t2, t3, t4, t5, t6, t7}) == null) {
+            }
+        }
+
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{t0, t1, t2, t3, t4, t5, t6, t7, t8}) == null) {
+            }
+        }
+
+        public void call(Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, objArr) == null) {
             }
         }
     }
@@ -140,13 +189,13 @@ public final class Actions {
                 return;
             }
         }
-        f79725a = new a();
+        f72590a = new a();
     }
 
     public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> a<T0, T1, T2, T3, T4, T5, T6, T7, T8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f79725a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f72590a : (a) invokeV.objValue;
     }
 
     public static b<Throwable> b() {

@@ -8,39 +8,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final l f37744a;
+    public static final l f35768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final l f37745b;
+    public static final l f35769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final l f37746c;
+    public static final l f35770c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final l f37747d;
+    public static final l f35771d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final l f37748e;
+    public static final l f35772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final l f37749f;
+    public static final l f35773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final l f37750g;
+    public static final l f35774g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final l f37751h;
+    public static final l f35775h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final l f37752i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final l f37753j;
+    public static final l f35776i;
+    public static final l j;
     public static final l k;
     public static final l l;
     public static final /* synthetic */ l[] n;
@@ -60,20 +58,20 @@ public final class l {
                 return;
             }
         }
-        f37744a = new l("MSG_TYPE_INVALID", 0, -1);
-        f37745b = new l("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
-        f37746c = new l("MSG_TYPE_MULTI_PRIVATE", 2, 1);
-        f37747d = new l("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
-        f37748e = new l("MSG_TYPE_MULTI_PUBLIC", 4, 3);
-        f37749f = new l("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
-        f37750g = new l("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
-        f37751h = new l("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
-        f37752i = new l("MSG_TYPE_CROSS_PUSH", 8, 20);
-        f37753j = new l("MSG_TYPE_APP_PRIORITY", 9, 30);
+        f35768a = new l("MSG_TYPE_INVALID", 0, -1);
+        f35769b = new l("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
+        f35770c = new l("MSG_TYPE_MULTI_PRIVATE", 2, 1);
+        f35771d = new l("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
+        f35772e = new l("MSG_TYPE_MULTI_PUBLIC", 4, 3);
+        f35773f = new l("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
+        f35774g = new l("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
+        f35775h = new l("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
+        f35776i = new l("MSG_TYPE_CROSS_PUSH", 8, 20);
+        j = new l("MSG_TYPE_APP_PRIORITY", 9, 30);
         k = new l("MSG_TYPE_INNERBIND", 10, 101);
         l lVar = new l("MSG_TYPE_APPSTAT_COMMAND", 11, 104);
         l = lVar;
-        n = new l[]{f37744a, f37745b, f37746c, f37747d, f37748e, f37749f, f37750g, f37751h, f37752i, f37753j, k, lVar};
+        n = new l[]{f35768a, f35769b, f35770c, f35771d, f35772e, f35773f, f35774g, f35775h, f35776i, j, k, lVar};
     }
 
     public l(String str, int i2, int i3) {
@@ -100,7 +98,7 @@ public final class l {
     public static l a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 20 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? f37744a : l : k : f37753j : f37752i : f37751h : f37750g : f37749f : f37748e : f37747d : f37746c : f37745b : (l) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 20 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? f35768a : l : k : j : f35776i : f35775h : f35774g : f35773f : f35772e : f35771d : f35770c : f35769b : (l) invokeI.objValue;
     }
 
     public static l[] a() {

@@ -10,24 +10,24 @@ import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.utils.q;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public C1983a f71671b;
+    public C1892a f64147b;
 
     /* renamed from: com.kwad.sdk.collector.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1983a {
+    /* loaded from: classes2.dex */
+    public static class C1892a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<String> f71672a;
+        public List<String> f64148a;
 
-        public C1983a(List<String> list) {
+        public C1892a(List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f71672a = list;
+            this.f64148a = list;
         }
 
         public JSONObject a() {
@@ -50,7 +50,7 @@ public class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "packageName", this.f71672a);
+                q.a(jSONObject, "packageName", this.f64148a);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -72,11 +72,11 @@ public class a extends d {
                 return;
             }
         }
-        C1983a c1983a = new C1983a(list);
-        this.f71671b = c1983a;
-        a("targetAppInfo", c1983a.a());
-        b(CommandMessage.SDK_VERSION, "3.3.11");
-        a("sdkVersionCode", 3031100);
+        C1892a c1892a = new C1892a(list);
+        this.f64147b = c1892a;
+        a("targetAppInfo", c1892a.a());
+        b(CommandMessage.SDK_VERSION, "3.3.11.4");
+        a("sdkVersionCode", 3031104);
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g

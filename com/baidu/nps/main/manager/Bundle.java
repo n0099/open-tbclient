@@ -6,9 +6,9 @@ import android.content.pm.ProviderInfo;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;
-import c.a.b0.h.a;
-import c.a.b0.i.c;
-import c.a.b0.i.e;
+import b.a.b0.h.a;
+import b.a.b0.i.c;
+import b.a.b0.i.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.invoke.IInvoker;
 import com.baidu.nps.main.invoke.InvokeException;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Bundle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLAZZ_SUFFIX_INVOKER = ".Invoker";
@@ -161,7 +161,7 @@ public class Bundle {
     public Resources getResources(Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resources)) == null) ? this.mRuntime.d(resources) : (Resources) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resources)) == null) ? this.mRuntime.getResources(resources) : (Resources) invokeL.objValue;
     }
 
     public Class loadClass(String str, Class cls) {

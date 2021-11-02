@@ -14,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PrecashierModifyPayTypeDefaultData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1641263196639015824L;
@@ -24,7 +24,7 @@ public class PrecashierModifyPayTypeDefaultData implements Serializable {
     public String defaultType;
     public int updated;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Card implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -6,17 +6,19 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
+import b.a.r0.b4.d;
+import b.a.r0.b4.f;
+import b.a.r0.b4.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class VideoMediaController extends OperableVideoMediaControllerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,22 +42,29 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
                 return;
             }
         }
-        m();
+        g();
     }
 
     public void changeViewLayout(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-            int g2 = l.g(getContext(), R.dimen.tbds126);
+            int g2 = l.g(getContext(), d.tbds126);
             if (z2 && z) {
-                g2 = l.g(getContext(), R.dimen.tbds210);
+                g2 = l.g(getContext(), d.tbds210);
             }
             layoutParams.height = g2;
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.mTextViewCurTime.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.mTextViewDuration.getLayoutParams();
-            layoutParams2.leftMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
-            layoutParams3.rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
+            layoutParams2.leftMargin = l.g(getContext(), (!z2 || z) ? d.tbds44 : d.tbds78);
+            layoutParams3.rightMargin = l.g(getContext(), (!z2 || z) ? d.tbds150 : d.tbds184);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.p = (ProgressBar) findViewById(f.pb_bottom_progress_bar);
         }
     }
 
@@ -63,22 +72,15 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
     public View getLayout(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? View.inflate(context, R.layout.video_media_controller, null) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? View.inflate(context, g.video_media_controller, null) : (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
     public void initCurTimeAndDuration(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.initCurTimeAndDuration(i2, i3);
             this.p.setProgress(this.mProgress.getProgress());
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.p = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
         }
     }
 
@@ -148,7 +150,7 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
                 return;
             }
         }
-        m();
+        g();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -170,6 +172,6 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
                 return;
             }
         }
-        m();
+        g();
     }
 }

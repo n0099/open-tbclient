@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class VideoInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DRAFT_JSON_NAME = "new_video_info";
@@ -442,10 +442,10 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setInStepVideoDuration(long j2) {
+    public void setInStepVideoDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048625, this, j2) == null) {
-            this.mInStepVideoDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048625, this, j) == null) {
+            this.mInStepVideoDuration = j;
         }
     }
 
@@ -512,10 +512,10 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setThumbId(long j2) {
+    public void setThumbId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048635, this, j2) == null) {
-            this.thumbId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
+            this.thumbId = j;
         }
     }
 
@@ -554,10 +554,10 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setVideoLength(long j2) {
+    public void setVideoLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048641, this, j2) == null) {
-            this.videoLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048641, this, j) == null) {
+            this.videoLength = j;
         }
     }
 

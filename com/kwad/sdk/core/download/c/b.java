@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ICompletedRemoteView;
 import com.kwad.sdk.api.core.RemoteViewBuilder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ICompletedRemoteView f72043a;
+    public ICompletedRemoteView f64512a;
 
     public b(ICompletedRemoteView iCompletedRemoteView) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class b {
                 return;
             }
         }
-        this.f72043a = iCompletedRemoteView;
+        this.f64512a = iCompletedRemoteView;
     }
 
     public static b a(Context context) {
@@ -47,7 +47,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ICompletedRemoteView iCompletedRemoteView = this.f72043a;
+            ICompletedRemoteView iCompletedRemoteView = this.f64512a;
             if (iCompletedRemoteView != null) {
                 return iCompletedRemoteView.build();
             }
@@ -59,7 +59,7 @@ public class b {
     public void a(Bitmap bitmap) {
         ICompletedRemoteView iCompletedRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (iCompletedRemoteView = this.f72043a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (iCompletedRemoteView = this.f64512a) == null) {
             return;
         }
         iCompletedRemoteView.setIcon(bitmap);
@@ -68,7 +68,7 @@ public class b {
     public void a(String str) {
         ICompletedRemoteView iCompletedRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (iCompletedRemoteView = this.f72043a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (iCompletedRemoteView = this.f64512a) == null) {
             return;
         }
         iCompletedRemoteView.setName(str);
@@ -77,7 +77,7 @@ public class b {
     public void b(String str) {
         ICompletedRemoteView iCompletedRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (iCompletedRemoteView = this.f72043a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (iCompletedRemoteView = this.f64512a) == null) {
             return;
         }
         iCompletedRemoteView.setStatus(str);
@@ -86,7 +86,7 @@ public class b {
     public void c(String str) {
         ICompletedRemoteView iCompletedRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iCompletedRemoteView = this.f72043a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iCompletedRemoteView = this.f64512a) == null) {
             return;
         }
         iCompletedRemoteView.setSize(str);
@@ -95,7 +95,7 @@ public class b {
     public void d(String str) {
         ICompletedRemoteView iCompletedRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (iCompletedRemoteView = this.f72043a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (iCompletedRemoteView = this.f64512a) == null) {
             return;
         }
         iCompletedRemoteView.setInstallText(str);

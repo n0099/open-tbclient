@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BigEndianDataOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,18 +69,18 @@ public class BigEndianDataOutputStream {
         }
     }
 
-    public final void writeLong(long j2) throws IOException {
+    public final void writeLong(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             byte[] bArr = this.buff;
-            bArr[0] = (byte) (j2 >> 56);
-            bArr[1] = (byte) (j2 >> 48);
-            bArr[2] = (byte) (j2 >> 40);
-            bArr[3] = (byte) (j2 >> 32);
-            bArr[4] = (byte) (j2 >> 24);
-            bArr[5] = (byte) (j2 >> 16);
-            bArr[6] = (byte) (j2 >> 8);
-            bArr[7] = (byte) j2;
+            bArr[0] = (byte) (j >> 56);
+            bArr[1] = (byte) (j >> 48);
+            bArr[2] = (byte) (j >> 40);
+            bArr[3] = (byte) (j >> 32);
+            bArr[4] = (byte) (j >> 24);
+            bArr[5] = (byte) (j >> 16);
+            bArr[6] = (byte) (j >> 8);
+            bArr[7] = (byte) j;
             this.mDos.write(bArr, 0, 8);
         }
     }

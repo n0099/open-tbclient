@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class a implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f71231a;
+    public boolean f63717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f71232b;
+    public final LinkedBlockingQueue<IBinder> f63718b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class a implements ServiceConnection {
                 return;
             }
         }
-        this.f71231a = false;
-        this.f71232b = new LinkedBlockingQueue<>(1);
+        this.f63717a = false;
+        this.f63718b = new LinkedBlockingQueue<>(1);
     }
 
     @Override // android.content.ServiceConnection
@@ -44,7 +44,7 @@ public final class a implements ServiceConnection {
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
                 r0 = "onServiceConnected " + System.currentTimeMillis();
-                this.f71232b.put(iBinder);
+                this.f63718b.put(iBinder);
             } catch (InterruptedException unused) {
                 str = "onServiceConnected InterruptedException " + System.currentTimeMillis();
             }

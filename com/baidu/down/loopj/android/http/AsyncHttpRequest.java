@@ -40,7 +40,7 @@ import java.util.TreeSet;
 import javax.net.ssl.SSLException;
 import javax.security.cert.CertificateException;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AsyncHttpRequest implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -67,7 +67,7 @@ public class AsyncHttpRequest implements Runnable {
     public HashSet<String> redirectUrls;
     public BinaryHttpResponseHandler responseHandler;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class HandlerCdnRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5562528406378234456L;
@@ -88,7 +88,7 @@ public class AsyncHttpRequest implements Runnable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class HandlerRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4422626752285372402L;
@@ -523,7 +523,7 @@ public class AsyncHttpRequest implements Runnable {
         String onGetRequestHeader;
         String str;
         String str2;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65545, this, z)) == null) {
             BinaryHttpResponseHandler binaryHttpResponseHandler = this.responseHandler;
@@ -543,35 +543,35 @@ public class AsyncHttpRequest implements Runnable {
                 str = split[1].trim();
                 str2 = "";
             }
-            long j3 = 0;
+            long j2 = 0;
             try {
-                j3 = Long.valueOf(str).longValue();
+                j2 = Long.valueOf(str).longValue();
                 Long.valueOf(str2).longValue();
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
             }
             if (z) {
-                j2 = abstractTask.mProgressInfo.getSegCurrentByPos(j3);
+                j = abstractTask.mProgressInfo.getSegCurrentByPos(j2);
             } else {
-                j2 = this.curPos;
-                if (j2 <= j3) {
-                    j2 = j3;
+                j = this.curPos;
+                if (j <= j2) {
+                    j = j2;
                 }
             }
-            long segEndByPos = abstractTask.mProgressInfo.getSegEndByPos(j3);
+            long segEndByPos = abstractTask.mProgressInfo.getSegEndByPos(j2);
             int i3 = (segEndByPos > Long.MAX_VALUE ? 1 : (segEndByPos == Long.MAX_VALUE ? 0 : -1));
             if (i3 == 0) {
-                j2 = abstractTask.mProgressInfo.getSegCurrentByPos(j3);
+                j = abstractTask.mProgressInfo.getSegCurrentByPos(j2);
             } else {
                 str3 = str2;
             }
-            if (j2 < segEndByPos) {
+            if (j < segEndByPos) {
                 if (i3 != 0 && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
-                    long j4 = 307200 + j2;
-                    str3 = String.valueOf(j4 - 1 < segEndByPos ? j4 - 2 : segEndByPos - 1);
+                    long j3 = 307200 + j;
+                    str3 = String.valueOf(j3 - 1 < segEndByPos ? j3 - 2 : segEndByPos - 1);
                 }
                 ICommonRequestHandler iCommonRequestHandler = this.mICommonRequestHandler;
-                iCommonRequestHandler.onSetRequestHeader("Range", "bytes=" + j2 + "-" + str3);
+                iCommonRequestHandler.onSetRequestHeader("Range", "bytes=" + j + "-" + str3);
                 return true;
             }
             return false;
@@ -711,12 +711,12 @@ public class AsyncHttpRequest implements Runnable {
         }
     }
 
-    public void setDownStartPos(long j2) {
+    public void setDownStartPos(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
             if (threadSpeedStat.dstart == -1) {
-                threadSpeedStat.dstart = j2;
+                threadSpeedStat.dstart = j;
             }
         }
     }

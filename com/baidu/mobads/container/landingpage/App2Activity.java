@@ -110,7 +110,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class App2Activity implements IActivityImpl, View.OnTouchListener, NativePlayerJsBridgeHandler.PlayerCallBack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIONBAR_VIEW_ID = 1001;
@@ -216,7 +216,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     public LpVideoView videoView;
     public RelativeLayout wvTool;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class CustomProgressBar extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,12 +271,12 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface PageFinishedListener {
         void onPageFinished(WebView webView);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class Redirect38Class {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1055,9 +1055,9 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
                 }
 
                 @Override // android.webkit.DownloadListener
-                public void onDownloadStart(String str2, String str3, String str4, String str5, long j2) {
+                public void onDownloadStart(String str2, String str3, String str4, String str5, long j) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str2, str3, str4, str5, Long.valueOf(j2)}) == null) && CommonUtils.isUrlForDownloadApk(str2, str5, str4)) {
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str2, str3, str4, str5, Long.valueOf(j)}) == null) && CommonUtils.isUrlForDownloadApk(str2, str5, str4)) {
                         this.this$0.stateEvent(AdStateCode.EVENT_CLICK_LP_DL);
                         App2Activity app2Activity = this.this$0;
                         app2Activity.downloadAPK(str2, app2Activity.mTmpExtraInfo.getAdInstanceInfo());
@@ -1617,9 +1617,9 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
                     this.mRlViewTop = 0.0f;
                 }
             }
-            long j2 = (f3 * 200.0f) / this.mVideoHeight;
-            if (j2 > 0) {
-                this.mRlContainer.animate().setDuration(j2).setInterpolator(this.mInterpolator).translationY(this.mRlViewTop);
+            long j = (f3 * 200.0f) / this.mVideoHeight;
+            if (j > 0) {
+                this.mRlContainer.animate().setDuration(j).setInterpolator(this.mInterpolator).translationY(this.mRlViewTop);
             }
         }
     }
@@ -2934,7 +2934,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
         StateMachine.event(this.mAdUniqueId, str, str2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ActionBarColorTheme {
         public static /* synthetic */ Interceptable $ic;
         public static final ActionBarColorTheme ACTION_BAR_BLACK_THEME;

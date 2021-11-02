@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HeadSegAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HeadSegAR";
@@ -166,30 +166,30 @@ public class HeadSegAR extends c {
         };
     }
 
-    private void b(long j2) {
+    private void b(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) || (algoHandleController = this.cb) == null || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) || (algoHandleController = this.cb) == null || j <= 0) {
             return;
         }
-        long handleType = algoHandleController.getHandleType(j2);
+        long handleType = algoHandleController.getHandleType(j);
         HeadSegDetector headSegDetector = this.qy;
         if (headSegDetector == null || handleType != 22) {
             return;
         }
-        headSegDetector.b(j2);
+        headSegDetector.b(j);
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j2) {
+    public void a(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            super.a(j2);
-            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != 22) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            super.a(j);
+            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != 22) {
                 return;
             }
-            b(j2);
+            b(j);
         }
     }
 

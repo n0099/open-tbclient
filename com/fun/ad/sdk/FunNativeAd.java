@@ -11,18 +11,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface FunNativeAd {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class InteractionType {
-        public static final /* synthetic */ InteractionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final InteractionType TYPE_BROWSE;
         public static final InteractionType TYPE_DIAL;
         public static final InteractionType TYPE_DOWNLOAD;
         public static final InteractionType TYPE_UNKNOW;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ InteractionType[] f62738a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,12 +40,15 @@ public interface FunNativeAd {
                     return;
                 }
             }
-            TYPE_UNKNOW = new InteractionType("TYPE_UNKNOW", 0);
-            TYPE_DOWNLOAD = new InteractionType("TYPE_DOWNLOAD", 1);
-            TYPE_DIAL = new InteractionType("TYPE_DIAL", 2);
-            InteractionType interactionType = new InteractionType("TYPE_BROWSE", 3);
-            TYPE_BROWSE = interactionType;
-            $VALUES = new InteractionType[]{TYPE_UNKNOW, TYPE_DOWNLOAD, TYPE_DIAL, interactionType};
+            InteractionType interactionType = new InteractionType("TYPE_UNKNOW", 0);
+            TYPE_UNKNOW = interactionType;
+            InteractionType interactionType2 = new InteractionType("TYPE_DOWNLOAD", 1);
+            TYPE_DOWNLOAD = interactionType2;
+            InteractionType interactionType3 = new InteractionType("TYPE_DIAL", 2);
+            TYPE_DIAL = interactionType3;
+            InteractionType interactionType4 = new InteractionType("TYPE_BROWSE", 3);
+            TYPE_BROWSE = interactionType4;
+            f62738a = new InteractionType[]{interactionType, interactionType2, interactionType3, interactionType4};
         }
 
         public InteractionType(String str, int i2) {
@@ -74,11 +79,11 @@ public interface FunNativeAd {
         public static InteractionType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (InteractionType[]) $VALUES.clone() : (InteractionType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (InteractionType[]) f62738a.clone() : (InteractionType[]) invokeV.objValue;
         }
     }
 
-    ChannelNativeAds_6 getChannelNativeAds_6();
+    ChannelNativeAds getChannelNativeAds();
 
     String getDescription();
 

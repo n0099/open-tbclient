@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import j.a.a.e.h;
-import j.a.a.e.n.c;
-/* loaded from: classes2.dex */
+import i.a.a.e.h;
+import i.a.a.e.n.c;
+/* loaded from: classes3.dex */
 public class NoScrollGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f80366e;
+    public int f73221e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoScrollGridView(Context context) {
@@ -46,9 +46,9 @@ public class NoScrollGridView extends GridView {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.PayUi_NoScrollGridView);
             int integer = obtainStyledAttributes.getInteger(h.PayUi_NoScrollGridView_pay_ui_gv_max_height_dp, 536870911);
-            this.f80366e = integer;
+            this.f73221e = integer;
             if (integer != 536870911) {
-                this.f80366e = c.a(integer);
+                this.f73221e = c.a(integer);
             }
             obtainStyledAttributes.recycle();
         }
@@ -58,7 +58,7 @@ public class NoScrollGridView extends GridView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(this.f80366e, Integer.MIN_VALUE));
+            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(this.f73221e, Integer.MIN_VALUE));
         }
     }
 
@@ -102,7 +102,7 @@ public class NoScrollGridView extends GridView {
                 return;
             }
         }
-        this.f80366e = 536870911;
+        this.f73221e = 536870911;
         a(context, attributeSet);
     }
 }

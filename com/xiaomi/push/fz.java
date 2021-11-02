@@ -13,28 +13,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class fz implements gd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f78019a;
+    public String f70976a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<fz> f422a;
+    public List<fz> f423a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String[] f423a;
+    public String[] f424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f78020b;
+    public String f70977b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String[] f424b;
+    public String[] f425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f78021c;
+    public String f70978c;
 
     public fz(String str, String str2, String[] strArr, String[] strArr2) {
         Interceptable interceptable = $ic;
@@ -51,13 +51,13 @@ public class fz implements gd {
                 return;
             }
         }
+        this.f424a = null;
+        this.f425b = null;
         this.f423a = null;
-        this.f424b = null;
-        this.f422a = null;
-        this.f78019a = str;
-        this.f78020b = str2;
-        this.f423a = strArr;
-        this.f424b = strArr2;
+        this.f70976a = str;
+        this.f70977b = str2;
+        this.f424a = strArr;
+        this.f425b = strArr2;
     }
 
     public fz(String str, String str2, String[] strArr, String[] strArr2, String str3, List<fz> list) {
@@ -75,15 +75,15 @@ public class fz implements gd {
                 return;
             }
         }
+        this.f424a = null;
+        this.f425b = null;
         this.f423a = null;
-        this.f424b = null;
-        this.f422a = null;
-        this.f78019a = str;
-        this.f78020b = str2;
-        this.f423a = strArr;
-        this.f424b = strArr2;
-        this.f78021c = str3;
-        this.f422a = list;
+        this.f70976a = str;
+        this.f70977b = str2;
+        this.f424a = strArr;
+        this.f425b = strArr2;
+        this.f70978c = str3;
+        this.f423a = list;
     }
 
     public static fz a(Bundle bundle) {
@@ -146,26 +146,26 @@ public class fz implements gd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("ext_ele_name", this.f78019a);
-            bundle.putString("ext_ns", this.f78020b);
-            bundle.putString("ext_text", this.f78021c);
+            bundle.putString("ext_ele_name", this.f70976a);
+            bundle.putString("ext_ns", this.f70977b);
+            bundle.putString("ext_text", this.f70978c);
             Bundle bundle2 = new Bundle();
-            String[] strArr = this.f423a;
+            String[] strArr = this.f424a;
             if (strArr != null && strArr.length > 0) {
                 int i2 = 0;
                 while (true) {
-                    String[] strArr2 = this.f423a;
+                    String[] strArr2 = this.f424a;
                     if (i2 >= strArr2.length) {
                         break;
                     }
-                    bundle2.putString(strArr2[i2], this.f424b[i2]);
+                    bundle2.putString(strArr2[i2], this.f425b[i2]);
                     i2++;
                 }
             }
             bundle.putBundle("attributes", bundle2);
-            List<fz> list = this.f422a;
+            List<fz> list = this.f423a;
             if (list != null && list.size() > 0) {
-                bundle.putParcelableArray("children", a(this.f422a));
+                bundle.putParcelableArray("children", a(this.f423a));
             }
             return bundle;
         }
@@ -183,7 +183,7 @@ public class fz implements gd {
     public String m337a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f78019a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70976a : (String) invokeV.objValue;
     }
 
     public String a(String str) {
@@ -195,17 +195,17 @@ public class fz implements gd {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f423a == null) {
+        if (this.f424a == null) {
             return null;
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f423a;
+            String[] strArr = this.f424a;
             if (i2 >= strArr.length) {
                 return null;
             }
             if (str.equals(strArr[i2])) {
-                return this.f424b[i2];
+                return this.f425b[i2];
             }
             i2++;
         }
@@ -214,13 +214,13 @@ public class fz implements gd {
     public void a(fz fzVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fzVar) == null) {
-            if (this.f422a == null) {
-                this.f422a = new ArrayList();
+            if (this.f423a == null) {
+                this.f423a = new ArrayList();
             }
-            if (this.f422a.contains(fzVar)) {
+            if (this.f423a.contains(fzVar)) {
                 return;
             }
-            this.f422a.add(fzVar);
+            this.f423a.add(fzVar);
         }
     }
 
@@ -231,20 +231,20 @@ public class fz implements gd {
             if (!TextUtils.isEmpty(str)) {
                 str = gn.a(str);
             }
-            this.f78021c = str;
+            this.f70978c = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f78020b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f70977b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f78021c) ? gn.b(this.f78021c) : this.f78021c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f70978c) ? gn.b(this.f70978c) : this.f70978c : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.gd
@@ -254,42 +254,42 @@ public class fz implements gd {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("<");
-            sb.append(this.f78019a);
-            if (!TextUtils.isEmpty(this.f78020b)) {
+            sb.append(this.f70976a);
+            if (!TextUtils.isEmpty(this.f70977b)) {
                 sb.append(" ");
                 sb.append("xmlns=");
                 sb.append("\"");
-                sb.append(this.f78020b);
+                sb.append(this.f70977b);
                 sb.append("\"");
             }
-            String[] strArr = this.f423a;
+            String[] strArr = this.f424a;
             if (strArr != null && strArr.length > 0) {
-                for (int i2 = 0; i2 < this.f423a.length; i2++) {
-                    if (!TextUtils.isEmpty(this.f424b[i2])) {
+                for (int i2 = 0; i2 < this.f424a.length; i2++) {
+                    if (!TextUtils.isEmpty(this.f425b[i2])) {
                         sb.append(" ");
-                        sb.append(this.f423a[i2]);
+                        sb.append(this.f424a[i2]);
                         sb.append("=\"");
-                        sb.append(gn.a(this.f424b[i2]));
+                        sb.append(gn.a(this.f425b[i2]));
                         sb.append("\"");
                     }
                 }
             }
-            if (TextUtils.isEmpty(this.f78021c)) {
-                List<fz> list = this.f422a;
+            if (TextUtils.isEmpty(this.f70978c)) {
+                List<fz> list = this.f423a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
                     return sb.toString();
                 }
                 sb.append(">");
-                for (fz fzVar : this.f422a) {
+                for (fz fzVar : this.f423a) {
                     sb.append(fzVar.d());
                 }
             } else {
                 sb.append(">");
-                sb.append(this.f78021c);
+                sb.append(this.f70978c);
             }
             sb.append("</");
-            sb.append(this.f78019a);
+            sb.append(this.f70976a);
             sb.append(">");
             return sb.toString();
         }

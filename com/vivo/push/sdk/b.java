@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.p;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Method f77011a;
+    public final /* synthetic */ Method f70359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f77012b;
+    public final /* synthetic */ Object f70360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object[] f77013c;
+    public final /* synthetic */ Object[] f70361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f77014d;
+    public final /* synthetic */ a f70362d;
 
     public b(a aVar, Method method, Object obj, Object[] objArr) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public final class b implements Runnable {
                 return;
             }
         }
-        this.f77014d = aVar;
-        this.f77011a = method;
-        this.f77012b = obj;
-        this.f77013c = objArr;
+        this.f70362d = aVar;
+        this.f70359a = method;
+        this.f70360b = obj;
+        this.f70361c = objArr;
     }
 
     @Override // java.lang.Runnable
@@ -49,7 +49,7 @@ public final class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f77011a.invoke(this.f77012b, this.f77013c);
+                this.f70359a.invoke(this.f70360b, this.f70361c);
             } catch (Exception e2) {
                 p.b("CommandWorker", "reflect e: ", e2);
             }

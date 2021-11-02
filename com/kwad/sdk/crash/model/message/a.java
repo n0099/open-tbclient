@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.crash.c;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f73030a;
+    public JSONObject f65475a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class a {
                 return;
             }
         }
-        this.f73030a = new JSONObject();
+        this.f65475a = new JSONObject();
     }
 
     private void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, str, obj) == null) {
             try {
-                this.f73030a.put(str, obj);
+                this.f65475a.put(str, obj);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
@@ -47,7 +47,7 @@ public class a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            a(c.f73000g, (Object) str);
+            a(c.f65446g, (Object) str);
         }
     }
 
@@ -72,6 +72,6 @@ public class a {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73030a.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65475a.toString() : (String) invokeV.objValue;
     }
 }

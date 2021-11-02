@@ -22,51 +22,51 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f45491a;
+    public static final int f43217a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile z f45492d;
+    public static volatile z f43218d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f45493e;
+    public static final int f43219e;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f45494h;
+    public static long f43220h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ThreadPoolExecutor f45495b;
+    public ThreadPoolExecutor f43221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f45496c;
+    public ThreadPoolExecutor f43222c;
 
     /* renamed from: f  reason: collision with root package name */
-    public BlockingQueue<Runnable> f45497f;
+    public BlockingQueue<Runnable> f43223f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BlockingQueue<Runnable> f45498g;
+    public BlockingQueue<Runnable> f43224g;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f45499i;
+    public Context f43225i;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f45500a;
+        public final AtomicInteger f43226a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f45501b;
+        public final String f43227b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f45502c;
+        public final int f43228c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -83,9 +83,9 @@ public class z {
                     return;
                 }
             }
-            this.f45500a = new AtomicInteger(1);
-            this.f45501b = str;
-            this.f45502c = i2;
+            this.f43226a = new AtomicInteger(1);
+            this.f43227b = str;
+            this.f43228c = i2;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -93,11 +93,11 @@ public class z {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f45501b + this.f45500a.getAndIncrement());
+                Thread thread = new Thread(runnable, this.f43227b + this.f43226a.getAndIncrement());
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
-                thread.setPriority(this.f45502c);
+                thread.setPriority(this.f43228c);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -118,9 +118,9 @@ public class z {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f45491a = availableProcessors;
-        f45493e = (availableProcessors * 2) + 1;
-        f45494h = 0L;
+        f43217a = availableProcessors;
+        f43219e = (availableProcessors * 2) + 1;
+        f43220h = 0L;
     }
 
     public z(Context context) {
@@ -139,14 +139,14 @@ public class z {
                 return;
             }
         }
-        this.f45497f = new LinkedBlockingQueue(100);
-        this.f45498g = new LinkedBlockingQueue(10);
-        int max = (context == null || (i2 = com.baidu.sofire.h.a.a(context).f45340a.getInt("s_t_p_c_s", -1)) <= 0) ? Math.max(4, f45491a) : i2;
-        this.f45495b = new ThreadPoolExecutor(max, Math.max(max, (f45491a * 2) + 1), 10L, TimeUnit.SECONDS, this.f45497f, new a("sofire_pool_thread_", 5), new ThreadPoolExecutor.AbortPolicy());
-        this.f45496c = new ThreadPoolExecutor(2, f45493e, 10L, TimeUnit.SECONDS, this.f45498g, new a("sofire_pool_core_thread_", 6), new ThreadPoolExecutor.DiscardOldestPolicy());
+        this.f43223f = new LinkedBlockingQueue(100);
+        this.f43224g = new LinkedBlockingQueue(10);
+        int max = (context == null || (i2 = com.baidu.sofire.h.a.a(context).f43070a.getInt("s_t_p_c_s", -1)) <= 0) ? Math.max(4, f43217a) : i2;
+        this.f43221b = new ThreadPoolExecutor(max, Math.max(max, (f43217a * 2) + 1), 10L, TimeUnit.SECONDS, this.f43223f, new a("sofire_pool_thread_", 5), new ThreadPoolExecutor.AbortPolicy());
+        this.f43222c = new ThreadPoolExecutor(2, f43219e, 10L, TimeUnit.SECONDS, this.f43224g, new a("sofire_pool_core_thread_", 6), new ThreadPoolExecutor.DiscardOldestPolicy());
         if (Build.VERSION.SDK_INT >= 9) {
-            this.f45495b.allowCoreThreadTimeOut(true);
-            this.f45496c.allowCoreThreadTimeOut(true);
+            this.f43221b.allowCoreThreadTimeOut(true);
+            this.f43222c.allowCoreThreadTimeOut(true);
         }
     }
 
@@ -155,21 +155,21 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
             try {
-                if (this.f45495b != null) {
-                    this.f45495b.execute(runnable);
+                if (this.f43221b != null) {
+                    this.f43221b.execute(runnable);
                     return 1;
                 }
                 return -2;
             } catch (RejectedExecutionException e2) {
                 try {
-                    if (this.f45499i != null && System.currentTimeMillis() - f45494h >= 86400000) {
+                    if (this.f43225i != null && System.currentTimeMillis() - f43220h >= 86400000) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("0", Integer.valueOf(f45491a));
-                        hashMap.put("1", Integer.valueOf(this.f45495b.getCorePoolSize()));
-                        hashMap.put("2", Integer.valueOf(this.f45495b.getMaximumPoolSize()));
+                        hashMap.put("0", Integer.valueOf(f43217a));
+                        hashMap.put("1", Integer.valueOf(this.f43221b.getCorePoolSize()));
+                        hashMap.put("2", Integer.valueOf(this.f43221b.getMaximumPoolSize()));
                         hashMap.put("3", Base64.encodeToString(com.baidu.sofire.b.a(e2).getBytes(), 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
-                        c.a(this.f45499i.getApplicationContext(), "1003147", (Map<String, Object>) hashMap, true);
-                        f45494h = System.currentTimeMillis();
+                        c.a(this.f43225i.getApplicationContext(), "1003147", (Map<String, Object>) hashMap, true);
+                        f43220h = System.currentTimeMillis();
                     }
                 } catch (Throwable unused) {
                     c.a();
@@ -190,8 +190,8 @@ public class z {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
             if (runnable != null) {
                 try {
-                    if (this.f45496c != null) {
-                        this.f45496c.execute(runnable);
+                    if (this.f43222c != null) {
+                        this.f43222c.execute(runnable);
                         return 1;
                     }
                     return -2;
@@ -209,21 +209,21 @@ public class z {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f45492d == null) {
+            if (f43218d == null) {
                 try {
                     synchronized (z.class) {
-                        if (f45492d == null) {
-                            f45492d = new z(context);
+                        if (f43218d == null) {
+                            f43218d = new z(context);
                         }
                     }
                 } catch (Throwable unused) {
                     c.a();
                 }
             }
-            if (f45492d != null && f45492d.f45499i == null && context != null) {
-                f45492d.f45499i = context;
+            if (f43218d != null && f43218d.f43225i == null && context != null) {
+                f43218d.f43225i = context;
             }
-            return f45492d;
+            return f43218d;
         }
         return (z) invokeL.objValue;
     }

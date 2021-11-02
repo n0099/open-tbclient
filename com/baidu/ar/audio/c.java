@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "c";
@@ -62,9 +62,9 @@ public class c {
         this.iO = false;
     }
 
-    private void a(long j2, int i2) {
+    private void a(long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
             ByteBuffer byteBuffer = this.iK.get(this.iL);
             if (i2 == -3) {
                 com.baidu.ar.h.b.b(TAG, "Audio read error");
@@ -77,7 +77,7 @@ public class c {
                     byteBuffer.position(0);
                     byteBuffer.put(this.iJ, 0, i2);
                     byteBuffer.flip();
-                    this.iM.onAudioFrameAvailable(byteBuffer, i2, j2);
+                    this.iM.onAudioFrameAvailable(byteBuffer, i2, j);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return;
@@ -172,10 +172,10 @@ public class c {
         }
     }
 
-    private void h(long j2) {
+    private void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j2) == null) {
-            if (j2 >= 20) {
+        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) {
+            if (j >= 20) {
                 r(false);
             } else if (d.b(this.iJ) == 0.0d) {
                 return;

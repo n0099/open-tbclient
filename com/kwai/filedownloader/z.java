@@ -9,7 +9,7 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.message.e;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class z implements e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class z implements e.b {
                 List<a.b> b2 = h.a().b(messageSnapshot.m());
                 if (b2.size() > 0) {
                     a F = b2.get(0).F();
-                    if (com.kwai.filedownloader.f.d.f74598a) {
+                    if (com.kwai.filedownloader.f.d.f66974a) {
                         com.kwai.filedownloader.f.d.c(this, "~~~callback %s old[%s] new[%s] %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(F.v()), Byte.valueOf(messageSnapshot.b()), Integer.valueOf(b2.size()));
                     }
                     if (!a(b2, messageSnapshot)) {

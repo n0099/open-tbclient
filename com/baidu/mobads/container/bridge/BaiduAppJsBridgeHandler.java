@@ -30,12 +30,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiver.InstallListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_DOWNLOAD = "com.baidu.channel.aladdin.downloadapk";
@@ -98,7 +99,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
     public String mProd;
     public WebView mWebView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class DownloadAppInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +237,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                     adsApkDownloader.cancel();
                     return getDownloadStatus(str);
                 }
-                return getCallbackParams("202", "no available downloader");
+                return getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "no available downloader");
             } catch (Throwable unused) {
                 return null;
             }
@@ -564,7 +565,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                     adsApkDownloader.pause();
                     return getDownloadStatus(str);
                 }
-                return getCallbackParams("202", "no available downloader");
+                return getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "no available downloader");
             } catch (Throwable unused) {
                 return null;
             }
@@ -664,7 +665,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                                 if (this.this$0.mIsAppBackground && AppUtils.isForeground(this.this$0.mContext, this.this$0.mContext.getPackageName())) {
                                     JSONObject startDownloader = this.this$0.startDownloader(this.val$apkUrl, this.val$pk);
                                     if (startDownloader == null) {
-                                        startDownloader = this.this$0.getCallbackParams("202", "download_failed");
+                                        startDownloader = this.this$0.getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "download_failed");
                                     }
                                     this.this$0.sendSDKTypeLog(SDKLogTypeConstants.TYPE_JMY_DIRECT_LAUNCH, "download_app", this.val$pk, "", startDownloader);
                                     this.val$timer.stop();
@@ -740,7 +741,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                 if (downloadInfo != null && new XAdRemoteDownloadAPKCommand(this.mContext, downloadInfo, this).resumeDownload()) {
                     return getDownloadStatus(str2);
                 }
-                return getCallbackParams("202", "no available downloader");
+                return getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "no available downloader");
             } catch (Throwable unused) {
                 return null;
             }
@@ -851,7 +852,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                     return;
                 } else if (state == IDownloader.DownloadStatus.COMPLETED) {
                     if (isLocalFileExist(outputPath)) {
-                        downloadAppInfo.updateStatus("3", "100");
+                        downloadAppInfo.updateStatus("3", HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP);
                         downloadAppInfo.setFileUri(outputPath);
                         downloadAppInfo.mDlCompleted.set(true);
                         return;
@@ -913,7 +914,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                                 jSONObject = getCallbackParams("0", "success");
                             }
                         } else {
-                            jSONObject = getCallbackParams("202", "register wrong action");
+                            jSONObject = getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "register wrong action");
                         }
                         str3 = optString2;
                         queryParameter = optString3;
@@ -975,7 +976,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                     if (!TextUtils.isEmpty(optString7)) {
                         jSONObject = openApp("", optString7);
                         if (params.optBoolean(INPUT_PARAM_DIRECT_LAUNCH, false)) {
-                            registerDirectLaunch(params.optBoolean(INPUT_PARAM_IS_USER_ACTION, false), params.optString("packageName"), params.optString(INPUT_PARAM_DOWNLOAD_URL));
+                            registerDirectLaunch(params.optBoolean(INPUT_PARAM_IS_USER_ACTION, false), params.optString("packageName"), params.optString("downloadUrl"));
                         }
                     } else if (!TextUtils.isEmpty(optString8)) {
                         jSONObject = loadWebUrl(optString8);
@@ -995,7 +996,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                     }
                     if (TextUtils.isEmpty(str3) && TextUtils.isEmpty(str5)) {
                         jSONObject2.put("result", "-1");
-                        str8 = "202";
+                        str8 = HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202;
                         str7 = "";
                     } else if (isAvailableScheme(str5)) {
                         jSONObject2.put("result", "0");
@@ -1018,7 +1019,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                 }
                 str6 = str3;
             }
-            JSONObject callbackParams2 = jSONObject == null ? getCallbackParams("202", "") : jSONObject;
+            JSONObject callbackParams2 = jSONObject == null ? getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "") : jSONObject;
             runJsCallback(queryParameter, callbackParams2);
             sendSDKTypeLog(SDKLogTypeConstants.TYPE_JMY_ACTION, str2, str3, str6, callbackParams2);
         }
@@ -1087,7 +1088,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                                     DownloadAppInfo downloadAppInfo2 = this.val$downloadAppInfo;
                                     JSONObject openApp = baiduAppJsBridgeHandler.openApp(downloadAppInfo2.mPk, downloadAppInfo2.mDeepLinkUrl);
                                     if (openApp == null) {
-                                        openApp = this.this$0.getCallbackParams("202", "");
+                                        openApp = this.this$0.getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "");
                                     }
                                     JSONObject jSONObject = openApp;
                                     this.this$0.runJsCallback(this.val$downloadAppInfo.mDeepLinkCallBack, jSONObject);
@@ -1102,7 +1103,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                             public void onTimerComplete() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                    JSONObject callbackParams = this.this$0.getCallbackParams("202", "over 5 seconds");
+                                    JSONObject callbackParams = this.this$0.getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "over 5 seconds");
                                     this.this$0.runJsCallback(this.val$downloadAppInfo.mDeepLinkCallBack, callbackParams);
                                     BaiduAppJsBridgeHandler baiduAppJsBridgeHandler = this.this$0;
                                     DownloadAppInfo downloadAppInfo2 = this.val$downloadAppInfo;

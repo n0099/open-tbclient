@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index;
 
-import c.a.e.e.d.l;
-import c.a.q0.s.r.a;
-import c.a.r0.y1.c.k.m;
+import b.a.e.e.d.l;
+import b.a.q0.s.r.a;
+import b.a.r0.y1.c.k.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -17,7 +17,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVipInfo.DataRes;
 import tbclient.GetVipInfo.GetVipInfoResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

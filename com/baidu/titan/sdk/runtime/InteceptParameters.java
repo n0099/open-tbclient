@@ -1,5 +1,7 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes8.dex */
+
+import androidx.exifinterface.media.ExifInterface;
+/* loaded from: classes10.dex */
 public class InteceptParameters {
-    public static final String[] SPECIAL_PARAMETERS = {"V", "L", "LL", "I", "LI", "LLL", "Z", "IL", "LZ", "J", "LLLL", "LLI", "II", "LII", "LIL", "F", "LJ", "ILL", "LLZ", "LLLLL", "IIL", "LIII", "JL", "LF", "ZL", "LLLI", "IIII", "B", "III", "LLII", "LLIL", "LILL"};
+    public static final String[] SPECIAL_PARAMETERS = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "L", "LL", "I", "LI", "LLL", "Z", "IL", "LZ", "J", "LLLL", "LLI", "II", "LII", "LIL", "F", "LJ", "ILL", "LLZ", "LLLLL", "IIL", "LIII", "JL", "LF", "ZL", "LLLI", "IIII", "B", "III", "LLII", "LLIL", "LILL"};
 }

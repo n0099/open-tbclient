@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.statusbar.ImmersiveStatusBarManager;
 import com.dxmpay.apollon.statusbar.StatusBarUtils;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TitleBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

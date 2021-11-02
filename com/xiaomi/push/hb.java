@@ -18,24 +18,24 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class hb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f78113a;
+    public static boolean f71068a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f78114a;
+        public Context f71069a;
 
         /* renamed from: a  reason: collision with other field name */
-        public he f472a;
+        public he f473a;
 
         public a(Context context, he heVar) {
             Interceptable interceptable = $ic;
@@ -52,15 +52,15 @@ public class hb {
                     return;
                 }
             }
-            this.f472a = heVar;
-            this.f78114a = context;
+            this.f473a = heVar;
+            this.f71069a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hb.c(this.f78114a, this.f472a);
+                hb.c(this.f71069a, this.f473a);
             }
         }
     }
@@ -200,11 +200,11 @@ public class hb {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, heVar) == null) {
-            if (f78113a) {
+            if (f71068a) {
                 com.xiaomi.channel.commonutils.logger.b.m73a("TinyData extractTinyData is running");
                 return;
             }
-            f78113a = true;
+            f71068a = true;
             File file2 = new File(context.getFilesDir(), "tiny_data.data");
             if (!file2.exists()) {
                 com.xiaomi.channel.commonutils.logger.b.m73a("TinyData no ready file to get data.");
@@ -286,7 +286,7 @@ public class hb {
             a(context, heVar, file, a2);
             ha.a(false);
             b(context);
-            f78113a = false;
+            f71068a = false;
         }
     }
 }

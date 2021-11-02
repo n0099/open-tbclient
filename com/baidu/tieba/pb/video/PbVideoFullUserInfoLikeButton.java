@@ -2,14 +2,15 @@ package com.baidu.tieba.pb.video;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import b.a.r0.k2.f;
+import b.a.r0.k2.h;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,12 +40,12 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (this.mCurrentIsLike) {
-                SkinManager.setBackgroundResource(this, R.drawable.haslike_grey_bg);
-                SkinManager.setViewTextColor(this, R.color.CAM_X0110);
+                SkinManager.setBackgroundResource(this, h.haslike_grey_bg);
+                SkinManager.setViewTextColor(this, f.CAM_X0110);
                 return;
             }
-            SkinManager.setBackgroundResource(this, R.drawable.like_blue_bg);
-            SkinManager.setViewTextColor(this, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this, h.like_blue_bg);
+            SkinManager.setViewTextColor(this, f.CAM_X0101);
         }
     }
 

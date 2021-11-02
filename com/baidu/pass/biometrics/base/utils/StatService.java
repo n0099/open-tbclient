@@ -20,17 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class StatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
     public static final String TAG = "StatService";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f44022a;
+    public static final Map<String, String> f41792a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,10 +46,10 @@ public final class StatService {
             }
         }
         HashMap hashMap = new HashMap();
-        f44022a = hashMap;
+        f41792a = hashMap;
         hashMap.put("pid", "111");
-        f44022a.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
-        f44022a.put("device", "android");
+        f41792a.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
+        f41792a.put("device", "android");
     }
 
     public StatService() {
@@ -75,14 +74,14 @@ public final class StatService {
         try {
             if (NetworkUtils.isNetworkAvailable(context)) {
                 HashMap hashMap = new HashMap();
-                hashMap.putAll(f44022a);
+                hashMap.putAll(f41792a);
                 map.put("v", String.valueOf(System.currentTimeMillis()));
                 hashMap.put("name", str);
                 hashMap.put("model", Build.MODEL);
                 hashMap.put("tpl", BeanConstants.tpl);
                 hashMap.put("clientfrom", "mobilesdk_enhanced");
                 hashMap.put("app_version", PassBioBaseUtil.getVersionName(context));
-                hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, PassBiometricDefaultFactory.VERSION_NAME);
+                hashMap.put("sdk_version", PassBiometricDefaultFactory.VERSION_NAME);
                 hashMap.put("cuid", SapiUtils.getClientId(context));
                 hashMap.put("v", String.valueOf(System.currentTimeMillis()));
                 if (map != null) {

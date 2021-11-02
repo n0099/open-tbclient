@@ -1,38 +1,36 @@
 package com.baidu.wallet.core.domain;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61102a = "life_host";
+    public static final String f57993a = "life_host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61103b = "xinyongka_host";
+    public static final String f57994b = "xinyongka_host";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f61104c = "nfc_host";
+    public static final String f57995c = "nfc_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f61105d = "app_host";
+    public static final String f57996d = "app_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f61106e = "dxm_host";
+    public static final String f57997e = "dxm_host";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f61107f = "zhifu_host";
+    public static final String f57998f = "zhifu_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f61108g = "comet_host";
+    public static final String f57999g = "comet_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f61109h = "my_host";
+    public static final String f58000h = "my_host";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f61110i = "init_host";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f61111j = "sensors_host";
+    public static final String f58001i = "init_host";
+    public static final String j = "sensors_host";
     public static final String k = "hawking_host";
     public static final String l = "net_check_host";
 

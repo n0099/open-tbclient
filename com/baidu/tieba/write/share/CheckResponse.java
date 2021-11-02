@@ -1,16 +1,18 @@
 package com.baidu.tieba.write.share;
 
-import c.a.r0.d4.p.c;
+import b.a.r0.d4.p.c;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CheckResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,18 +41,18 @@ public class CheckResponse extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) && i2 == 1003417 && jSONObject != null) {
             setError(jSONObject.optInt("error_code"));
-            setErrorString(jSONObject.optString("error_msg"));
+            setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
             if (getError() != 0) {
                 return;
             }
             c cVar = new c();
             this.mCheckResponseData = cVar;
-            cVar.f16990a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f16992c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f16993d = jSONObject.optString("tbopen_app_icon");
-            JSONObject optJSONObject = jSONObject.optJSONObject("config");
+            cVar.f15978a = jSONObject.optString("tbopen_app_key");
+            this.mCheckResponseData.f15980c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.f15981d = jSONObject.optString("tbopen_app_icon");
+            JSONObject optJSONObject = jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
             if (optJSONObject != null) {
-                this.mCheckResponseData.f16999j = optJSONObject.optString("default_pic");
+                this.mCheckResponseData.j = optJSONObject.optString("default_pic");
             }
         }
     }

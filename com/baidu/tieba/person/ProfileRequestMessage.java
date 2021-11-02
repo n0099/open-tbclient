@@ -1,10 +1,10 @@
 package com.baidu.tieba.person;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import c.a.q0.d1.z;
-import c.a.q0.s.k;
-import c.a.r0.m2.b;
+import b.a.e.e.p.l;
+import b.a.q0.d1.z;
+import b.a.q0.s.k;
+import b.a.r0.m2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ProfileRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

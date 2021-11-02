@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class dj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dj f77838a;
+    public static volatile dj f70800a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public di f242a;
+    public di f243a;
 
     public dj() {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public class dj {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f77838a == null) {
+            if (f70800a == null) {
                 synchronized (dj.class) {
-                    if (f77838a == null) {
-                        f77838a = new dj();
+                    if (f70800a == null) {
+                        f70800a = new dj();
                     }
                 }
             }
-            return f77838a;
+            return f70800a;
         }
         return (dj) invokeV.objValue;
     }
@@ -51,13 +51,13 @@ public class dj {
     public di m249a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f242a : (di) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f243a : (di) invokeV.objValue;
     }
 
     public void a(di diVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diVar) == null) {
-            this.f242a = diVar;
+            this.f243a = diVar;
         }
     }
 }

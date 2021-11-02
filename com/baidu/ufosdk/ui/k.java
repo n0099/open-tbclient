@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class k implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ j f60121a;
+    public final /* synthetic */ j f57037a;
 
     public k(j jVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class k implements View.OnClickListener {
                 return;
             }
         }
-        this.f60121a = jVar;
+        this.f57037a = jVar;
     }
 
     public /* synthetic */ k(j jVar, byte b2) {
@@ -42,10 +42,10 @@ public final class k implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             switch (view.getId()) {
                 case R.dimen.L_X06 /* 2131165189 */:
-                    j.a(this.f60121a).b();
+                    j.a(this.f57037a).b();
                     return;
                 case R.dimen.M_H_X001 /* 2131165190 */:
-                    j.a(this.f60121a).a();
+                    j.a(this.f57037a).a();
                     return;
                 default:
                     return;

@@ -17,7 +17,7 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Observable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FileDownloader extends Observable implements Runnable, IDownloader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLOCK_SIZE = 10240;

@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HttpDNSProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpDNSProtocolMgr";
@@ -78,7 +78,7 @@ public class HttpDNSProtocolMgr {
                     resInfo.setUserIp(jSONObject.getString("u"));
                     resInfo.setUserView(jSONObject.getString("v"));
                     LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
-                    JSONArray jSONArray = jSONObject.getJSONArray(b.c.f38133b);
+                    JSONArray jSONArray = jSONObject.getJSONArray(b.c.f36145b);
                     int i3 = 0;
                     while (i3 < jSONArray.length()) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
@@ -162,14 +162,14 @@ public class HttpDNSProtocolMgr {
         return invokeI.intValue;
     }
 
-    public static String udpRequestProtocolV2(String[] strArr, long j2, boolean z) {
+    public static String udpRequestProtocolV2(String[] strArr, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{strArr, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{strArr, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
             if (strArr != null && strArr.length > 0) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("seq_id", j2);
+                    jSONObject.put("seq_id", j);
                     jSONObject.put("version", "v2");
                     JSONArray jSONArray = new JSONArray();
                     for (String str : strArr) {

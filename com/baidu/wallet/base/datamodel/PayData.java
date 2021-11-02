@@ -13,12 +13,12 @@ import com.dxmpay.wallet.core.NoProguard;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PayData implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class BaseDiscount implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ENABLE = 1;
@@ -79,7 +79,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class ChannelDiscountMap implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Composite extends CalcPaymentResponse implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3143405575033566246L;
@@ -124,7 +124,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Coupon extends BaseDiscount implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7652331651512403394L;
@@ -146,7 +146,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class CreditInfo implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -170,7 +170,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class CreditPay implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String CREDITPAY_AVAILABLE = "1";
@@ -202,7 +202,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Detainment implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -224,7 +224,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class DirectPayBalance implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -663973664201929790L;
@@ -272,7 +272,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class DirectPayPay implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7929986508919633280L;
@@ -310,7 +310,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Discount extends BaseDiscount implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7652331651512403394L;
@@ -338,7 +338,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class EasyPay implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3341431684992819463L;
@@ -453,7 +453,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class InstalmentPlan implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -478,7 +478,7 @@ public class PayData implements NoProguard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class RandomDiscount implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

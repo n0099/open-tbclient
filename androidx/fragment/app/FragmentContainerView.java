@@ -104,13 +104,13 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(@NonNull Canvas canvas, @NonNull View view, long j2) {
+    public boolean drawChild(@NonNull Canvas canvas, @NonNull View view, long j) {
         InterceptResult invokeCommon;
         ArrayList<View> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
             if (!this.mDrawDisappearingViewsFirst || (arrayList = this.mDisappearingFragmentChildren) == null || arrayList.size() <= 0 || !this.mDisappearingFragmentChildren.contains(view)) {
-                return super.drawChild(canvas, view, j2);
+                return super.drawChild(canvas, view, j);
             }
             return false;
         }
@@ -252,9 +252,9 @@ public final class FragmentContainerView extends FrameLayout {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FragmentContainerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
+        this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -265,14 +265,12 @@ public final class FragmentContainerView extends FrameLayout {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mDrawDisappearingViewsFirst = true;
-        throw new UnsupportedOperationException("FragmentContainerView must be within a FragmentActivity to be instantiated from XML.");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -295,7 +293,9 @@ public final class FragmentContainerView extends FrameLayout {
             }
         }
         this.mDrawDisappearingViewsFirst = true;
-        throw new UnsupportedOperationException("FragmentContainerView must be within a FragmentActivity to be instantiated from XML.");
+        if (!isInEditMode()) {
+            throw new UnsupportedOperationException("FragmentContainerView must be within a FragmentActivity to be instantiated from XML.");
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

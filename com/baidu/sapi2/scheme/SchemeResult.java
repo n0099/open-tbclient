@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SchemeResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_SC_PACKAGE_SIGN_ERROR = -604;

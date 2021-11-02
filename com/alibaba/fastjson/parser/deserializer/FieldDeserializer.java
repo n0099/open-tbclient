@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class FieldDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,10 +109,10 @@ public abstract class FieldDeserializer {
         }
     }
 
-    public void setValue(Object obj, long j2) {
+    public void setValue(Object obj, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, obj, j2) == null) {
-            setValue(obj, Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, obj, j) == null) {
+            setValue(obj, Long.valueOf(j));
         }
     }
 

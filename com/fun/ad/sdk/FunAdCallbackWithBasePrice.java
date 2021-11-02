@@ -1,15 +1,15 @@
 package com.fun.ad.sdk;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.a.a.f;
-import b.a.a.a.u.h;
+import b.g.t0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
+import com.fun.ad.sdk.internal.api.config.Ssp;
+/* loaded from: classes11.dex */
+public class FunAdCallbackWithBasePrice implements FunAdCallback, t0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
         }
     }
 
-    @Override // b.a.a.a.f
-    public final void onAdClicked(h.a aVar) {
+    @Override // b.g.t0
+    public final void onAdClicked(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            onAdClicked(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
+        if (interceptable == null || interceptable.invokeL(1048576, this, pid) == null) {
+            onAdClicked(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice);
         }
     }
 
@@ -48,11 +48,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
         }
     }
 
-    @Override // b.a.a.a.f
-    public final void onAdClose(h.a aVar) {
+    @Override // b.g.t0
+    public final void onAdClose(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            onAdClose(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
+        if (interceptable == null || interceptable.invokeL(1048579, this, pid) == null) {
+            onAdClose(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice);
         }
     }
 
@@ -69,11 +69,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
         }
     }
 
-    @Override // b.a.a.a.f
-    public final void onAdLoad(h.a aVar) {
+    @Override // b.g.t0
+    public final void onAdLoad(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            onAdLoad(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
+        if (interceptable == null || interceptable.invokeL(1048582, this, pid) == null) {
+            onAdLoad(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice);
         }
     }
 
@@ -90,11 +90,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
         }
     }
 
-    @Override // b.a.a.a.f
-    public final void onAdLoadError(h.a aVar, int i2, String str) {
+    @Override // b.g.t0
+    public final void onAdLoadError(Ssp.Pid pid, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048585, this, aVar, i2, str) == null) {
-            onAdLoadError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k, i2, str);
+        if (interceptable == null || interceptable.invokeLIL(1048585, this, pid, i2, str) == null) {
+            onAdLoadError(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice, i2, str);
         }
     }
 
@@ -111,11 +111,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
         }
     }
 
-    @Override // b.a.a.a.f
-    public final void onAdLoaded(h.a aVar) {
+    @Override // b.g.t0
+    public final void onAdLoaded(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            onAdLoaded(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
+        if (interceptable == null || interceptable.invokeL(1048588, this, pid) == null) {
+            onAdLoaded(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice);
         }
     }
 
@@ -132,11 +132,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
         }
     }
 
-    @Override // b.a.a.a.f
-    public final void onAdShow(h.a aVar) {
+    @Override // b.g.t0
+    public final void onAdShow(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
-            onAdShow(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
+        if (interceptable == null || interceptable.invokeL(1048591, this, pid) == null) {
+            onAdShow(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice);
         }
     }
 
@@ -153,11 +153,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
         }
     }
 
-    @Override // b.a.a.a.f
-    public final void onAdShowError(h.a aVar, int i2, String str) {
+    @Override // b.g.t0
+    public final void onAdShowError(Ssp.Pid pid, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048594, this, aVar, i2, str) == null) {
-            onAdShowError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k, i2, str);
+        if (interceptable == null || interceptable.invokeLIL(1048594, this, pid, i2, str) == null) {
+            onAdShowError(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice, i2, str);
         }
     }
 
@@ -174,11 +174,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
         }
     }
 
-    @Override // b.a.a.a.f
-    public final void onRewardedVideo(h.a aVar) {
+    @Override // b.g.t0
+    public final void onRewardedVideo(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) {
-            onRewardedVideo(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
+        if (interceptable == null || interceptable.invokeL(1048597, this, pid) == null) {
+            onRewardedVideo(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice);
         }
     }
 

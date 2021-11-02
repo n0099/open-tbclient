@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import org.webrtc.EglBase10;
 @TargetApi(18)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class EglCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_RECORDABLE_ANDROID = 12610;
@@ -205,10 +205,10 @@ public final class EglCore {
         }
     }
 
-    public void setPresentationTime(EGLSurface eGLSurface, long j2) {
+    public void setPresentationTime(EGLSurface eGLSurface, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048588, this, eGLSurface, j2) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.mEGLDisplay, eGLSurface, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048588, this, eGLSurface, j) == null) {
+            EGLExt.eglPresentationTimeANDROID(this.mEGLDisplay, eGLSurface, j);
         }
     }
 

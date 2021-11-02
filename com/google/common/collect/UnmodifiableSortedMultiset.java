@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.c.h1;
-import c.i.d.c.s0;
+import b.i.d.c.h1;
+import b.i.d.c.s0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.Multisets;
 import java.util.Comparator;
 import java.util.NavigableSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UnmodifiableSortedMultiset<E> extends Multisets.UnmodifiableMultiset<E> implements h1<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -39,14 +39,14 @@ public final class UnmodifiableSortedMultiset<E> extends Multisets.UnmodifiableM
         }
     }
 
-    @Override // c.i.d.c.h1, c.i.d.c.f1
+    @Override // b.i.d.c.h1, b.i.d.c.f1
     public Comparator<? super E> comparator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? delegate().comparator() : (Comparator) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.h1
+    @Override // b.i.d.c.h1
     public h1<E> descendingMultiset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,28 +63,28 @@ public final class UnmodifiableSortedMultiset<E> extends Multisets.UnmodifiableM
         return (h1) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.h1
+    @Override // b.i.d.c.h1
     public s0.a<E> firstEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? delegate().firstEntry() : (s0.a) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.h1
+    @Override // b.i.d.c.h1
     public h1<E> headMultiset(E e2, BoundType boundType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, e2, boundType)) == null) ? Multisets.q(delegate().headMultiset(e2, boundType)) : (h1) invokeLL.objValue;
     }
 
-    @Override // c.i.d.c.h1
+    @Override // b.i.d.c.h1
     public s0.a<E> lastEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? delegate().lastEntry() : (s0.a) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.h1
+    @Override // b.i.d.c.h1
     public s0.a<E> pollFirstEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public final class UnmodifiableSortedMultiset<E> extends Multisets.UnmodifiableM
         return (s0.a) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.h1
+    @Override // b.i.d.c.h1
     public s0.a<E> pollLastEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,14 +104,14 @@ public final class UnmodifiableSortedMultiset<E> extends Multisets.UnmodifiableM
         return (s0.a) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.h1
+    @Override // b.i.d.c.h1
     public h1<E> subMultiset(E e2, BoundType boundType, E e3, BoundType boundType2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048592, this, e2, boundType, e3, boundType2)) == null) ? Multisets.q(delegate().subMultiset(e2, boundType, e3, boundType2)) : (h1) invokeLLLL.objValue;
     }
 
-    @Override // c.i.d.c.h1
+    @Override // b.i.d.c.h1
     public h1<E> tailMultiset(E e2, BoundType boundType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public final class UnmodifiableSortedMultiset<E> extends Multisets.UnmodifiableM
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.Multisets.UnmodifiableMultiset, c.i.d.c.g0, c.i.d.c.s0
+    @Override // com.google.common.collect.Multisets.UnmodifiableMultiset, b.i.d.c.g0, b.i.d.c.s0
     public NavigableSet<E> elementSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public final class UnmodifiableSortedMultiset<E> extends Multisets.UnmodifiableM
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.Multisets.UnmodifiableMultiset, c.i.d.c.g0, c.i.d.c.y, c.i.d.c.h0
+    @Override // com.google.common.collect.Multisets.UnmodifiableMultiset, b.i.d.c.g0, b.i.d.c.y, b.i.d.c.h0
     public h1<E> delegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

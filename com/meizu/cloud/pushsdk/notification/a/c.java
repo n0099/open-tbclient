@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c extends com.meizu.cloud.pushsdk.notification.a {
     public c(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
@@ -20,28 +20,28 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
         AppIconSetting appIconSetting = messageV3.getmAppIconSetting();
         if (appIconSetting != null) {
             if (appIconSetting.isDefaultLargeIcon()) {
-                PushNotificationBuilder pushNotificationBuilder = this.f75283b;
+                PushNotificationBuilder pushNotificationBuilder = this.f67641b;
                 if (pushNotificationBuilder != null && pushNotificationBuilder.getmLargIcon() != 0) {
-                    a2 = BitmapFactory.decodeResource(this.f75282a.getResources(), this.f75283b.getmLargIcon());
+                    a2 = BitmapFactory.decodeResource(this.f67640a.getResources(), this.f67641b.getmLargIcon());
                     str = "set largeIcon by resource id";
-                } else if (this.f75283b.getAppLargeIcon() != null) {
-                    a2 = this.f75283b.getAppLargeIcon();
+                } else if (this.f67641b.getAppLargeIcon() != null) {
+                    a2 = this.f67641b.getAppLargeIcon();
                     str = "set largeIcon by bitmap provided by user setting";
                 } else {
-                    a2 = a(this.f75282a, messageV3.getUploadDataPackageName());
+                    a2 = a(this.f67640a, messageV3.getUploadDataPackageName());
                     str = "set largeIcon by package default large icon";
                 }
-                c.l.a.a.a.d("AbstractPushNotification", str);
-            } else if (Thread.currentThread() == this.f75282a.getMainLooper().getThread()) {
+                b.l.a.a.a.d("AbstractPushNotification", str);
+            } else if (Thread.currentThread() == this.f67640a.getMainLooper().getThread()) {
                 return;
             } else {
                 Bitmap a3 = a(appIconSetting.getLargeIconUrl());
                 if (a3 != null) {
-                    c.l.a.a.a.d("AbstractPushNotification", "On other Thread down load largeIcon image success");
+                    b.l.a.a.a.d("AbstractPushNotification", "On other Thread down load largeIcon image success");
                     builder.setLargeIcon(a3);
                     return;
                 }
-                a2 = a(this.f75282a, messageV3.getUploadDataPackageName());
+                a2 = a(this.f67640a, messageV3.getUploadDataPackageName());
             }
             builder.setLargeIcon(a2);
         }

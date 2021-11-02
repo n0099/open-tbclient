@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ImmersiveKeyboardAdjust {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewTreeObserver.OnGlobalLayoutListener globalLayoutListener;
     public int usableHeightPrevious;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f69737e;
+        public final /* synthetic */ View f62175e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ImmersiveKeyboardAdjust f69738f;
+        public final /* synthetic */ ImmersiveKeyboardAdjust f62176f;
 
         public a(ImmersiveKeyboardAdjust immersiveKeyboardAdjust, View view) {
             Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class ImmersiveKeyboardAdjust {
                     return;
                 }
             }
-            this.f69738f = immersiveKeyboardAdjust;
-            this.f69737e = view;
+            this.f62176f = immersiveKeyboardAdjust;
+            this.f62175e = view;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -53,12 +53,12 @@ public class ImmersiveKeyboardAdjust {
             int computeUsableHeight;
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (computeUsableHeight = this.f69738f.computeUsableHeight(this.f69737e)) == this.f69738f.usableHeightPrevious || (view = this.f69737e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (computeUsableHeight = this.f62176f.computeUsableHeight(this.f62175e)) == this.f62176f.usableHeightPrevious || (view = this.f62175e) == null) {
                 return;
             }
             view.getLayoutParams().height = computeUsableHeight;
-            this.f69737e.requestLayout();
-            this.f69738f.usableHeightPrevious = computeUsableHeight;
+            this.f62175e.requestLayout();
+            this.f62176f.usableHeightPrevious = computeUsableHeight;
         }
     }
 

@@ -2,8 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.os.Handler;
-import c.a.e.c.g.c;
-import c.a.r0.l1.f.j.d;
+import b.a.e.c.g.c;
+import b.a.r0.l1.f.j.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,24 +31,24 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     public d mView;
     public int mforumId;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarHistoryActivity f53012a;
+        public final /* synthetic */ OfficialBarHistoryActivity f50275a;
 
         /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC1769a implements Runnable {
+        /* loaded from: classes9.dex */
+        public class RunnableC1727a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f53013e;
+            public final /* synthetic */ a f50276e;
 
-            public RunnableC1769a(a aVar) {
+            public RunnableC1727a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,16 +63,16 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                         return;
                     }
                 }
-                this.f53013e = aVar;
+                this.f50276e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f53013e.f53012a.mView.e()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50276e.f50275a.mView.e()) {
                     return;
                 }
-                this.f53013e.f53012a.getNextPage();
+                this.f50276e.f50275a.getNextPage();
             }
         }
 
@@ -94,7 +94,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     return;
                 }
             }
-            this.f53012a = officialBarHistoryActivity;
+            this.f50275a = officialBarHistoryActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,51 +102,51 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f53012a.hideProgressBar();
-                this.f53012a.isRefreshing = false;
+                this.f50275a.hideProgressBar();
+                this.f50275a.isRefreshing = false;
                 if (socketResponsedMessage == null) {
-                    this.f53012a.showToast(R.string.neterror);
-                    this.f53012a.mView.h(this.f53012a.mDataList);
+                    this.f50275a.showToast(R.string.neterror);
+                    this.f50275a.mView.h(this.f50275a.mDataList);
                 } else if (socketResponsedMessage.getError() != 0) {
-                    this.f53012a.showToast(socketResponsedMessage.getErrorString());
-                    this.f53012a.mView.h(this.f53012a.mDataList);
+                    this.f50275a.showToast(socketResponsedMessage.getErrorString());
+                    this.f50275a.mView.h(this.f50275a.mDataList);
                 } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
-                    this.f53012a.mView.h(this.f53012a.mDataList);
-                    this.f53012a.showToast(R.string.neterror);
+                    this.f50275a.mView.h(this.f50275a.mDataList);
+                    this.f50275a.showToast(R.string.neterror);
                 } else {
                     ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                     if (responseHistoryMessage.getMsg().isEmpty()) {
-                        this.f53012a.mView.h(this.f53012a.mDataList);
+                        this.f50275a.mView.h(this.f50275a.mDataList);
                         return;
                     }
                     RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage();
                     if (requestHistoryMessage == null) {
-                        this.f53012a.mView.h(this.f53012a.mDataList);
+                        this.f50275a.mView.h(this.f50275a.mDataList);
                         return;
                     }
                     if (requestHistoryMessage.getRequestId() != 0) {
-                        this.f53012a.mDataList.addAll(responseHistoryMessage.getMsg());
+                        this.f50275a.mDataList.addAll(responseHistoryMessage.getMsg());
                     } else {
-                        this.f53012a.mDataList = responseHistoryMessage.getMsg();
+                        this.f50275a.mDataList = responseHistoryMessage.getMsg();
                     }
-                    this.f53012a.mView.f(this.f53012a.mDataList);
+                    this.f50275a.mView.f(this.f50275a.mDataList);
                     if (responseHistoryMessage.getMsg().size() == 0) {
-                        this.f53012a.mView.h(this.f53012a.mDataList);
+                        this.f50275a.mView.h(this.f50275a.mDataList);
                     } else {
-                        new Handler().post(new RunnableC1769a(this));
+                        new Handler().post(new RunnableC1727a(this));
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarHistoryActivity f53014a;
+        public final /* synthetic */ OfficialBarHistoryActivity f50277a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(OfficialBarHistoryActivity officialBarHistoryActivity) {
@@ -166,7 +166,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     return;
                 }
             }
-            this.f53014a = officialBarHistoryActivity;
+            this.f50277a = officialBarHistoryActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,15 +174,15 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f53014a.hideProgressBar();
+                this.f50277a.hideProgressBar();
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001152 && (customResponsedMessage instanceof ResponseLocalHistoryMessage)) {
                     ResponseLocalHistoryMessage responseLocalHistoryMessage = (ResponseLocalHistoryMessage) customResponsedMessage;
                     if (responseLocalHistoryMessage.getData().isEmpty()) {
                         return;
                     }
-                    if (this.f53014a.mDataList == null || this.f53014a.mDataList.isEmpty()) {
-                        this.f53014a.mDataList = responseLocalHistoryMessage.getData();
-                        this.f53014a.mView.f(this.f53014a.mDataList);
+                    if (this.f50277a.mDataList == null || this.f50277a.mDataList.isEmpty()) {
+                        this.f50277a.mDataList = responseLocalHistoryMessage.getData();
+                        this.f50277a.mView.f(this.f50277a.mDataList);
                     }
                 }
             }
@@ -216,10 +216,10 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 i2 = 0;
             } else {
                 List<ResponseHistoryMessage.a> list2 = this.mDataList;
-                i2 = list2.get(list2.size() - 1).f53059d;
+                i2 = list2.get(list2.size() - 1).f50320d;
             }
             this.isRefreshing = true;
-            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, c.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), i2));
+            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), i2));
         }
     }
 

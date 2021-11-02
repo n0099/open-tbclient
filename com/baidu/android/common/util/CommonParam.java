@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CommonParam {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f36745a = false;
+    public static final boolean f34797a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36746b = "CommonParam";
+    public static final String f34798b = "CommonParam";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

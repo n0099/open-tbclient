@@ -1,6 +1,6 @@
 package com.baidu.tieba.gift.giftTab;
 
-import c.a.q0.s.q.j0;
+import b.a.q0.s.q.j0;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import tbclient.Error;
 import tbclient.GetGiftListByCategoryId.DataRes;
 import tbclient.GetGiftListByCategoryId.GetGiftListByCategoryIdResIdl;
 import tbclient.GetGiftListByCategoryId.PresentGiftListByCategoryId1;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CategoryGiftListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,17 +72,17 @@ public class CategoryGiftListSocketResponseMessage extends SocketResponsedMessag
             for (PresentGiftListByCategoryId1 presentGiftListByCategoryId1 : getGiftListByCategoryIdResIdl.data.gift_list) {
                 if (presentGiftListByCategoryId1 != null) {
                     j0 j0Var = new j0();
-                    j0Var.f14243a = presentGiftListByCategoryId1.gift_id.intValue();
-                    j0Var.f14244b = presentGiftListByCategoryId1.gift_name;
-                    j0Var.f14245c = presentGiftListByCategoryId1.price.intValue();
-                    j0Var.f14246d = presentGiftListByCategoryId1.thumbnail_url;
+                    j0Var.f13358a = presentGiftListByCategoryId1.gift_id.intValue();
+                    j0Var.f13359b = presentGiftListByCategoryId1.gift_name;
+                    j0Var.f13360c = presentGiftListByCategoryId1.price.intValue();
+                    j0Var.f13361d = presentGiftListByCategoryId1.thumbnail_url;
                     presentGiftListByCategoryId1.ios_price.intValue();
-                    j0Var.f14247e = presentGiftListByCategoryId1.gift_desc;
-                    j0Var.f14248f = presentGiftListByCategoryId1.activity_type.intValue();
-                    j0Var.f14249g = presentGiftListByCategoryId1.mark_url;
-                    j0Var.f14250h = presentGiftListByCategoryId1.begin_time.intValue();
-                    j0Var.f14251i = presentGiftListByCategoryId1.end_time.intValue();
-                    j0Var.f14252j = presentGiftListByCategoryId1.discount.intValue();
+                    j0Var.f13362e = presentGiftListByCategoryId1.gift_desc;
+                    j0Var.f13363f = presentGiftListByCategoryId1.activity_type.intValue();
+                    j0Var.f13364g = presentGiftListByCategoryId1.mark_url;
+                    j0Var.f13365h = presentGiftListByCategoryId1.begin_time.intValue();
+                    j0Var.f13366i = presentGiftListByCategoryId1.end_time.intValue();
+                    j0Var.j = presentGiftListByCategoryId1.discount.intValue();
                     presentGiftListByCategoryId1.ios_discount.intValue();
                     presentGiftListByCategoryId1.proportion.intValue();
                     presentGiftListByCategoryId1.pitch_on.intValue();

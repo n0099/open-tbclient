@@ -1,7 +1,7 @@
 package com.google.common.base;
 
-import c.i.d.a.g;
-import c.i.d.a.n;
+import b.i.d.a.g;
+import b.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Functions$FunctionComposition<A, B, C> implements g<A, C>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g<A, ? extends B> f70631f;
+    public final g<A, ? extends B> f63143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final g<B, C> f70632g;
+    public final g<B, C> f63144g;
 
     public Functions$FunctionComposition(g<B, C> gVar, g<A, ? extends B> gVar2) {
         Interceptable interceptable = $ic;
@@ -38,26 +38,26 @@ public class Functions$FunctionComposition<A, B, C> implements g<A, C>, Serializ
             }
         }
         n.p(gVar);
-        this.f70632g = gVar;
+        this.f63144g = gVar;
         n.p(gVar2);
-        this.f70631f = gVar2;
+        this.f63143f = gVar2;
     }
 
-    @Override // c.i.d.a.g
+    @Override // b.i.d.a.g
     public C apply(A a2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2)) == null) ? this.f70632g.apply(this.f70631f.apply(a2)) : (C) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2)) == null) ? this.f63144g.apply(this.f63143f.apply(a2)) : (C) invokeL.objValue;
     }
 
-    @Override // c.i.d.a.g
+    @Override // b.i.d.a.g
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (obj instanceof Functions$FunctionComposition) {
                 Functions$FunctionComposition functions$FunctionComposition = (Functions$FunctionComposition) obj;
-                return this.f70631f.equals(functions$FunctionComposition.f70631f) && this.f70632g.equals(functions$FunctionComposition.f70632g);
+                return this.f63143f.equals(functions$FunctionComposition.f63143f) && this.f63144g.equals(functions$FunctionComposition.f63144g);
             }
             return false;
         }
@@ -67,14 +67,14 @@ public class Functions$FunctionComposition<A, B, C> implements g<A, C>, Serializ
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70631f.hashCode() ^ this.f70632g.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63143f.hashCode() ^ this.f63144g.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f70632g + "(" + this.f70631f + SmallTailInfo.EMOTION_SUFFIX;
+            return this.f63144g + "(" + this.f63143f + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

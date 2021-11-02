@@ -8,7 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BundleInfo implements IBundleInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +124,7 @@ public class BundleInfo implements IBundleInfo {
                 return arrayList2;
             }
             cursor.getColumnIndex("_id");
-            int columnIndex = cursor.getColumnIndex(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+            int columnIndex = cursor.getColumnIndex("pkg_name");
             int columnIndex2 = cursor.getColumnIndex("version_code");
             int columnIndex3 = cursor.getColumnIndex("path");
             int columnIndex4 = cursor.getColumnIndex("update_v");
@@ -260,7 +259,7 @@ public class BundleInfo implements IBundleInfo {
             if (TextUtils.isEmpty(packageName)) {
                 return contentValues;
             }
-            contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, packageName);
+            contentValues.put("pkg_name", packageName);
             contentValues.put("version_code", Integer.valueOf(bundleInfo.getVersionCode()));
             contentValues.put("path", bundleInfo.getApkPath());
             contentValues.put("min_version", Integer.valueOf(bundleInfo.getMinVersion()));
@@ -640,10 +639,10 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSize(long j2) {
+    public void setSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
-            this.size = j2;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
+            this.size = j;
         }
     }
 
@@ -656,10 +655,10 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setUpdateV(long j2) {
+    public void setUpdateV(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.updateV = j2;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.updateV = j;
         }
     }
 
@@ -687,10 +686,10 @@ public class BundleInfo implements IBundleInfo {
         }
     }
 
-    public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j2) {
+    public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048626, this, list, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048626, this, list, j)) == null) {
             HashMap hashMap = new HashMap();
             if (list == null) {
                 return null;
@@ -698,7 +697,7 @@ public class BundleInfo implements IBundleInfo {
             for (BundleInfo bundleInfo : list) {
                 BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
                 if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j2);
+                    bundleInfoGroup = new BundleInfoGroup(j);
                     hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
                 }
                 bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
@@ -756,7 +755,7 @@ public class BundleInfo implements IBundleInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, contentValues)) == null) {
             BundleInfo bundleInfo = new BundleInfo();
-            bundleInfo.setPackageName(contentValues.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME));
+            bundleInfo.setPackageName(contentValues.getAsString("pkg_name"));
             bundleInfo.setVersionCode(contentValues.getAsInteger("version_code").intValue());
             bundleInfo.setApkPath(contentValues.getAsString("path"));
             bundleInfo.setUpdateV(contentValues.getAsLong("update_v").longValue());
@@ -795,7 +794,7 @@ public class BundleInfo implements IBundleInfo {
             if (TextUtils.isEmpty(packageName)) {
                 return contentValues;
             }
-            contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, packageName);
+            contentValues.put("pkg_name", packageName);
             contentValues.put("version_code", Integer.valueOf(iBundleInfo.getVersionCode()));
             contentValues.put("path", iBundleInfo.getApkPath());
             contentValues.put("min_version", Integer.valueOf(iBundleInfo.getMinVersion()));

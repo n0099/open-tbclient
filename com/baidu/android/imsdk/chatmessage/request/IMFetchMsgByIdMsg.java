@@ -27,7 +27,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -36,7 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMFetchMsgByIdMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgByIdMsg";
@@ -53,7 +52,7 @@ public class IMFetchMsgByIdMsg extends Message {
     public JSONObject mMessageExt;
     public long mTriggerReason;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class FetchTask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -258,12 +257,12 @@ public class IMFetchMsgByIdMsg extends Message {
         reliableListFirst = new ConcurrentHashMap();
     }
 
-    public IMFetchMsgByIdMsg(Context context, long j2, long j3, int i2, int i3, long j4, int i4, int i5) {
+    public IMFetchMsgByIdMsg(Context context, long j, long j2, int i2, int i3, long j3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j4), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j3), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
@@ -276,11 +275,11 @@ public class IMFetchMsgByIdMsg extends Message {
         this.mJumpToRecent = -1;
         this.mFetchNum = 0;
         initCommonParameter(context);
-        this.mBeginId = j2;
-        this.mEndId = j3;
+        this.mBeginId = j;
+        this.mEndId = j2;
         this.mCount = i2;
         this.mCategory = i3;
-        this.mContacter = j4;
+        this.mContacter = j3;
         this.mTriggerReason = i4;
         this.mFetchNum = i5;
         this.mContext = context;
@@ -344,7 +343,7 @@ public class IMFetchMsgByIdMsg extends Message {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("rpc_retry_time", this.mFetchNum);
                 jSONObject.put("rpc", jSONObject2.toString());
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 if (4 == this.mCategory) {
                     JSONObject json = MessageExt.getInstance().toJson();
                     this.mMessageExt = json;

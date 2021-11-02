@@ -1,9 +1,9 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.content.res.Resources;
-import c.a.e.a.h;
-import c.a.e.e.m.a;
-import c.a.e.e.p.k;
+import b.a.e.a.h;
+import b.a.e.e.m.a;
+import b.a.e.e.p.k;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
             if (k.isEmpty(str)) {
                 return i2;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
+            if ("night".equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
                 i2 = nightResouceId;
             }
             return (!SkinManager.SKIN_TYPE_STR_DARK.equals(str) || (darkResourceId = SkinManager.getDarkResourceId(TbadkCoreApplication.getInst().getResources(), i2)) <= 0) ? i2 : darkResourceId;
@@ -60,7 +60,7 @@ public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
         if (interceptable == null || interceptable.invokeLL(1048576, this, getLottieParam, result) == null) {
             String name = getLottieParam.getName();
             String themeStr = getLottieParam.getThemeStr();
-            Resources b2 = h.a().b();
+            Resources resources = h.a().getResources();
             String androidAssetsNameFromIos = ResNameTransform.getAndroidAssetsNameFromIos(name);
             TiebaUtilityDataAuto.LottieResult lottieResult = new TiebaUtilityDataAuto.LottieResult();
             if (androidAssetsNameFromIos != null) {
@@ -72,8 +72,8 @@ public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
                 result.success(lottieResult);
                 return;
             }
-            int resIdBySkin = getResIdBySkin(themeStr, b2.getIdentifier(ResNameTransform.getAndroidNameFromIos(name), "raw", BdBaseApplication.getInst().getPackageName()));
-            if (resIdBySkin == 0 || (readFileFromRaw = readFileFromRaw(b2, resIdBySkin)) == null || readFileFromRaw.length <= 0) {
+            int resIdBySkin = getResIdBySkin(themeStr, resources.getIdentifier(ResNameTransform.getAndroidNameFromIos(name), "raw", BdBaseApplication.getInst().getPackageName()));
+            if (resIdBySkin == 0 || (readFileFromRaw = readFileFromRaw(resources, resIdBySkin)) == null || readFileFromRaw.length <= 0) {
                 return;
             }
             lottieResult.setLottie(readFileFromRaw);

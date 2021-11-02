@@ -10,8 +10,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import c.a.e.e.p.k;
-import c.a.e.e.p.l;
+import b.a.e.e.p.k;
+import b.a.e.e.p.l;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -37,17 +37,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CandidateSearchActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c.a.r0.y.b.a> dataList;
+    public List<b.a.r0.y.b.a> dataList;
     public CandidateSearchAdapter mAdapter;
     public TextView mButtonCancelSearch;
     public ImageView mButtonDel;
-    public c.a.e.c.g.a mDataResListener;
+    public b.a.e.c.g.a mDataResListener;
     public String mForumId;
-    public c.a.r0.y.d.a mModel;
+    public b.a.r0.y.d.a mModel;
     public NavigationBar mNavigationBar;
     public View mNavigationCustomView;
     public View mNoDataView;
@@ -60,13 +60,13 @@ public class CandidateSearchActivity extends BaseActivity {
     public TextWatcher mTextWatcher;
     public HttpMessageListener mVoteListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49829e;
+        public final /* synthetic */ CandidateSearchActivity f47256e;
 
         public a(CandidateSearchActivity candidateSearchActivity) {
             Interceptable interceptable = $ic;
@@ -83,35 +83,35 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49829e = candidateSearchActivity;
+            this.f47256e = candidateSearchActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f49829e.mButtonCancelSearch.getId()) {
-                    if (view.getId() == this.f49829e.mButtonDel.getId()) {
-                        this.f49829e.mSearchbox.setText("");
-                        this.f49829e.mRecyclerView.setVisibility(0);
-                        this.f49829e.mNoDataView.setVisibility(8);
-                        this.f49829e.mAdapter.setData(new ArrayList());
+                if (view.getId() != this.f47256e.mButtonCancelSearch.getId()) {
+                    if (view.getId() == this.f47256e.mButtonDel.getId()) {
+                        this.f47256e.mSearchbox.setText("");
+                        this.f47256e.mRecyclerView.setVisibility(0);
+                        this.f47256e.mNoDataView.setVisibility(8);
+                        this.f47256e.mAdapter.setData(new ArrayList());
                         return;
                     }
                     return;
                 }
-                this.f49829e.finish();
+                this.f47256e.finish();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends c.a.e.c.g.a {
+    /* loaded from: classes9.dex */
+    public class b extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49830a;
+        public final /* synthetic */ CandidateSearchActivity f47257a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CandidateSearchActivity candidateSearchActivity, int i2, int i3) {
@@ -132,48 +132,48 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49830a = candidateSearchActivity;
+            this.f47257a = candidateSearchActivity;
         }
 
-        @Override // c.a.e.c.g.a
+        @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            c.a.r0.y.b.a aVar = null;
+            b.a.r0.y.b.a aVar = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
                 aVar = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
                 aVar = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
             }
             if (responsedMessage.getError() != 0 || aVar == null) {
-                this.f49830a.mRecyclerView.setVisibility(8);
-                this.f49830a.mNoDataView.setVisibility(0);
+                this.f47257a.mRecyclerView.setVisibility(8);
+                this.f47257a.mNoDataView.setVisibility(0);
                 return;
             }
-            this.f49830a.mRecyclerView.setVisibility(0);
-            this.f49830a.mNoDataView.setVisibility(8);
-            if (this.f49830a.mSearchbox.getText() != null) {
-                aVar.f28434j = this.f49830a.mSearchbox.getText().toString();
+            this.f47257a.mRecyclerView.setVisibility(0);
+            this.f47257a.mNoDataView.setVisibility(8);
+            if (this.f47257a.mSearchbox.getText() != null) {
+                aVar.j = this.f47257a.mSearchbox.getText().toString();
             }
-            if (this.f49830a.dataList != null) {
-                this.f49830a.dataList.clear();
+            if (this.f47257a.dataList != null) {
+                this.f47257a.dataList.clear();
             } else {
-                this.f49830a.dataList = new ArrayList();
+                this.f47257a.dataList = new ArrayList();
             }
-            this.f49830a.dataList.add(aVar);
-            this.f49830a.mAdapter.setData(this.f49830a.dataList);
+            this.f47257a.dataList.add(aVar);
+            this.f47257a.mAdapter.setData(this.f47257a.dataList);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49831a;
+        public final /* synthetic */ CandidateSearchActivity f47258a;
 
         public c(CandidateSearchActivity candidateSearchActivity) {
             Interceptable interceptable = $ic;
@@ -190,7 +190,7 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49831a = candidateSearchActivity;
+            this.f47258a = candidateSearchActivity;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -199,8 +199,8 @@ public class CandidateSearchActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 3) {
-                    if (this.f49831a.mSearchbox.getText() != null && !TextUtils.isEmpty(this.f49831a.mSearchbox.getText().toString()) && !TextUtils.isEmpty(this.f49831a.mForumId)) {
-                        this.f49831a.mModel.a(c.a.e.e.m.b.e(this.f49831a.mSearchbox.getText().toString(), 0), c.a.e.e.m.b.g(this.f49831a.mForumId, 0L));
+                    if (this.f47258a.mSearchbox.getText() != null && !TextUtils.isEmpty(this.f47258a.mSearchbox.getText().toString()) && !TextUtils.isEmpty(this.f47258a.mForumId)) {
+                        this.f47258a.mModel.a(b.a.e.e.m.b.e(this.f47258a.mSearchbox.getText().toString(), 0), b.a.e.e.m.b.g(this.f47258a.mForumId, 0L));
                     }
                     return true;
                 }
@@ -210,13 +210,13 @@ public class CandidateSearchActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49832a;
+        public final /* synthetic */ CandidateSearchActivity f47259a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(CandidateSearchActivity candidateSearchActivity, int i2) {
@@ -236,7 +236,7 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49832a = candidateSearchActivity;
+            this.f47259a = candidateSearchActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -249,16 +249,16 @@ public class CandidateSearchActivity extends BaseActivity {
             int error = httpResponsedMessage.getError();
             if (error == 0) {
                 l.L(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
-                if (this.f49832a.dataList != null) {
-                    for (c.a.r0.y.b.a aVar : this.f49832a.dataList) {
+                if (this.f47259a.dataList != null) {
+                    for (b.a.r0.y.b.a aVar : this.f47259a.dataList) {
                         aVar.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                c.a.r0.k3.o0.f.b(error, "", null);
+                b.a.r0.l3.p0.f.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    c.a.r0.k3.o0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    b.a.r0.l3.p0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 l.M(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -268,18 +268,18 @@ public class CandidateSearchActivity extends BaseActivity {
                 blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.block_user_feed);
                 blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.know);
                 blockPopInfoData.ahead_url = "http://tieba.baidu.com/mo/q/userappeal";
-                AntiHelper.s(this.f49832a, blockPopInfoData);
+                AntiHelper.s(this.f47259a, blockPopInfoData);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class e implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49833e;
+        public final /* synthetic */ CandidateSearchActivity f47260e;
 
         public e(CandidateSearchActivity candidateSearchActivity) {
             Interceptable interceptable = $ic;
@@ -296,14 +296,14 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49833e = candidateSearchActivity;
+            this.f47260e = candidateSearchActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f49833e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
+                this.f47260e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
             }
         }
 
@@ -322,13 +322,13 @@ public class CandidateSearchActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49834e;
+        public final /* synthetic */ CandidateSearchActivity f47261e;
 
         public f(CandidateSearchActivity candidateSearchActivity) {
             Interceptable interceptable = $ic;
@@ -345,17 +345,17 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49834e = candidateSearchActivity;
+            this.f47261e = candidateSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49834e.mSearchbox == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47261e.mSearchbox == null) {
                 return;
             }
-            this.f49834e.mSearchbox.requestFocus();
-            CandidateSearchActivity candidateSearchActivity = this.f49834e;
+            this.f47261e.mSearchbox.requestFocus();
+            CandidateSearchActivity candidateSearchActivity = this.f47261e;
             l.K(candidateSearchActivity, candidateSearchActivity.mSearchbox);
         }
     }
@@ -437,8 +437,8 @@ public class CandidateSearchActivity extends BaseActivity {
             this.mRecyclerView.setAdapter(candidateSearchAdapter);
             registerListener(this.mDataResListener);
             registerListener(this.mVoteListener);
-            this.mModel = new c.a.r0.y.d.a(getPageContext());
-            c.a.e.e.m.e.a().postDelayed(this.mShowKeyboardRunnable, 100L);
+            this.mModel = new b.a.r0.y.d.a(getPageContext());
+            b.a.e.e.m.e.a().postDelayed(this.mShowKeyboardRunnable, 100L);
         }
     }
 
@@ -447,7 +447,7 @@ public class CandidateSearchActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            c.a.e.e.m.e.a().removeCallbacks(this.mShowKeyboardRunnable);
+            b.a.e.e.m.e.a().removeCallbacks(this.mShowKeyboardRunnable);
         }
     }
 

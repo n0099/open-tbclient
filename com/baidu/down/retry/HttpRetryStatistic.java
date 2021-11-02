@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpRetryStatistic {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATA = "DATA:";
@@ -40,17 +40,17 @@ public class HttpRetryStatistic {
         }
     }
 
-    public static String buidTaskRetryStatistic(ConcurrentHashMap<Integer, String> concurrentHashMap, int i2, long j2, String str, String str2) {
+    public static String buidTaskRetryStatistic(ConcurrentHashMap<Integer, String> concurrentHashMap, int i2, long j, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{concurrentHashMap, Integer.valueOf(i2), Long.valueOf(j2), str, str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{concurrentHashMap, Integer.valueOf(i2), Long.valueOf(j), str, str2})) == null) {
             StringBuilder sb = new StringBuilder();
             for (Map.Entry<Integer, String> entry : concurrentHashMap.entrySet()) {
                 sb.append(THREAD + entry.getKey() + StringUtils.LF);
                 sb.append(DATA + entry.getValue() + StringUtils.LF);
             }
             sb.append(RETYR_MODE + i2 + StringUtils.LF);
-            sb.append(RETRY_DOWNLOAD_FLOW_TIME + j2 + StringUtils.LF);
+            sb.append(RETRY_DOWNLOAD_FLOW_TIME + j + StringUtils.LF);
             sb.append(RETRY_EXCEPTION_NAME + str + StringUtils.LF);
             sb.append(RETRY_REQUEST_ID + str2 + StringUtils.LF);
             sb.append("buid task time:" + System.currentTimeMillis() + StringUtils.LF);

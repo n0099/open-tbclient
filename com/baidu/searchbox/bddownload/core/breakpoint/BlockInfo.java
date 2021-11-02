@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BlockInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,13 +22,13 @@ public class BlockInfo {
     public final long startOffset;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BlockInfo(long j2, long j3) {
-        this(j2, j3, 0L);
+    public BlockInfo(long j, long j2) {
+        this(j, j2, 0L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r9;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -78,10 +78,10 @@ public class BlockInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.startOffset : invokeV.longValue;
     }
 
-    public void increaseCurrentOffset(@IntRange(from = 1) long j2) {
+    public void increaseCurrentOffset(@IntRange(from = 1) long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.currentOffset.addAndGet(j2);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.currentOffset.addAndGet(j);
         }
     }
 
@@ -101,12 +101,12 @@ public class BlockInfo {
         return (String) invokeV.objValue;
     }
 
-    public BlockInfo(long j2, long j3, @IntRange(from = 0) long j4) {
+    public BlockInfo(long j, long j2, @IntRange(from = 0) long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -116,10 +116,10 @@ public class BlockInfo {
                 return;
             }
         }
-        if (j2 >= 0 && ((j3 >= 0 || j3 == -1) && j4 >= 0)) {
-            this.startOffset = j2;
-            this.contentLength = j3;
-            this.currentOffset = new AtomicLong(j4);
+        if (j >= 0 && ((j2 >= 0 || j2 == -1) && j3 >= 0)) {
+            this.startOffset = j;
+            this.contentLength = j2;
+            this.currentOffset = new AtomicLong(j3);
             return;
         }
         throw new IllegalArgumentException();

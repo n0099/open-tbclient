@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.p;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class u implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f77018a;
+    public final /* synthetic */ String f70366a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f77019b;
+    public final /* synthetic */ p f70367b;
 
     public u(p pVar, String str) {
         Interceptable interceptable = $ic;
@@ -31,12 +31,12 @@ public final class u implements Runnable {
                 return;
             }
         }
-        this.f77019b = pVar;
-        this.f77018a = str;
+        this.f70367b = pVar;
+        this.f70366a = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-        r0 = r4.f77019b.c(r4.f77018a);
+        r0 = r4.f70367b.c(r4.f70366a);
      */
     @Override // java.lang.Runnable
     /*

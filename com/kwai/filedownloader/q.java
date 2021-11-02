@@ -14,29 +14,29 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f74678a;
+    public static final Object f67054a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f74679c;
+    public static final Object f67055c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public v f74680b;
+    public v f67056b;
 
     /* renamed from: d  reason: collision with root package name */
-    public u f74681d;
+    public u f67057d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final q f74682a;
+        public static final q f67058a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +52,7 @@ public class q {
                     return;
                 }
             }
-            f74682a = new q();
+            f67058a = new q();
         }
     }
 
@@ -69,8 +69,8 @@ public class q {
                 return;
             }
         }
-        f74678a = new Object();
-        f74679c = new Object();
+        f67054a = new Object();
+        f67055c = new Object();
     }
 
     public q() {
@@ -90,13 +90,13 @@ public class q {
     public static q a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f74682a : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f67058a : (q) invokeV.objValue;
     }
 
     public static void a(Context context, c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, aVar) == null) {
-            if (com.kwai.filedownloader.f.d.f74598a) {
+            if (com.kwai.filedownloader.f.d.f66974a) {
                 com.kwai.filedownloader.f.d.c(q.class, "init Downloader with params: %s %s", context, aVar);
             }
             if (context == null) {
@@ -179,14 +179,14 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f74680b == null) {
-                synchronized (f74678a) {
-                    if (this.f74680b == null) {
-                        this.f74680b = new aa();
+            if (this.f67056b == null) {
+                synchronized (f67054a) {
+                    if (this.f67056b == null) {
+                        this.f67056b = new aa();
                     }
                 }
             }
-            return this.f74680b;
+            return this.f67056b;
         }
         return (v) invokeV.objValue;
     }
@@ -195,16 +195,16 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f74681d == null) {
-                synchronized (f74679c) {
-                    if (this.f74681d == null) {
+            if (this.f67057d == null) {
+                synchronized (f67055c) {
+                    if (this.f67057d == null) {
                         y yVar = new y();
-                        this.f74681d = yVar;
+                        this.f67057d = yVar;
                         a(yVar);
                     }
                 }
             }
-            return this.f74681d;
+            return this.f67057d;
         }
         return (u) invokeV.objValue;
     }

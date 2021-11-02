@@ -3,6 +3,8 @@ package com.baidu.pass.ecommerce.adapter;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.view.View;
@@ -27,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LIMIT_TIME = 500;
@@ -36,10 +38,12 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public long lastClickTime;
     public EditAddressListener listener;
     public HashMap<PassAddrColorLocation, String> mAddrListColorMap;
+    public HashMap<PassAddrColorLocation, Boolean> mAddrListTextStyle;
     public Context mContext;
+    public Drawable mEditIcon;
     public List<String> nuomiAddressIds;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class AddrListItemViewHolder extends ViewHolder<JSONObject> implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,6 +93,15 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
                 if (!TextUtils.isEmpty(str)) {
                     this.tvTagIcon.setTextColor(Color.parseColor(str));
                 }
+            }
+            if (addrListAdapter.mAddrListTextStyle != null) {
+                Boolean bool = (Boolean) addrListAdapter.mAddrListTextStyle.get(PassAddrColorLocation.ADDRESS_ITEM_TEXT_NAME_BOLD);
+                Boolean bool2 = (Boolean) addrListAdapter.mAddrListTextStyle.get(PassAddrColorLocation.ADDRESS_ITEM_TEXT_PHONE_BOLD);
+                this.tvName.setTypeface((bool == null || !bool.booleanValue()) ? Typeface.defaultFromStyle(0) : Typeface.defaultFromStyle(1));
+                this.tvPhone.setTypeface((bool2 == null || !bool2.booleanValue()) ? Typeface.defaultFromStyle(0) : Typeface.defaultFromStyle(1));
+            }
+            if (addrListAdapter.mEditIcon != null) {
+                this.ivEdit.setImageDrawable(addrListAdapter.mEditIcon);
             }
             if (addrListAdapter.isDarkMode) {
                 Resources resources = addrListAdapter.mContext.getResources();
@@ -254,7 +267,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface EditAddressListener {
         void edit(MapObject mapObject, AddressSelectedBean addressSelectedBean);
     }
@@ -293,23 +306,31 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.layout_sapi_sdk_address_list_item : invokeV.intValue;
     }
 
-    public void setColorMap(HashMap<PassAddrColorLocation, String> hashMap) {
+    public void setEditIcon(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
+            this.mEditIcon = drawable;
+        }
+    }
+
+    public void setItemStyle(HashMap<PassAddrColorLocation, String> hashMap, HashMap<PassAddrColorLocation, Boolean> hashMap2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, hashMap, hashMap2) == null) {
             this.mAddrListColorMap = hashMap;
+            this.mAddrListTextStyle = hashMap2;
         }
     }
 
     public void setListener(EditAddressListener editAddressListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, editAddressListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, editAddressListener) == null) {
             this.listener = editAddressListener;
         }
     }
 
     public void setNuoMiAddressIds(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.nuomiAddressIds = list;
         }
     }

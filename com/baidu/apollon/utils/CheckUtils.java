@@ -16,24 +16,24 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38271a = "CheckUtils";
+    public static final String f36278a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38272b = 3;
+    public static final int f36279b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38273c = 12;
+    public static final int f36280c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f38274d = 4;
+    public static final int f36281d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f38275e;
+    public static long f36282e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -266,13 +266,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - f38275e;
-            LogUtil.logd("timeD=" + j2);
-            if (0 < j2 && j2 < 800) {
-                LogUtil.logd("点的太快了 timeD=" + j2);
+            long j = currentTimeMillis - f36282e;
+            LogUtil.logd("timeD=" + j);
+            if (0 < j && j < 800) {
+                LogUtil.logd("点的太快了 timeD=" + j);
                 return true;
             }
-            f38275e = currentTimeMillis;
+            f36282e = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

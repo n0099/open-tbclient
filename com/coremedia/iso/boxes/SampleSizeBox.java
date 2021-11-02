@@ -19,7 +19,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SampleSizeBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "stsz";
@@ -106,8 +106,8 @@ public class SampleSizeBox extends AbstractFullBox {
             IsoTypeWriter.writeUInt32(byteBuffer, this.sampleSize);
             if (this.sampleSize == 0) {
                 IsoTypeWriter.writeUInt32(byteBuffer, this.sampleSizes.length);
-                for (long j2 : this.sampleSizes) {
-                    IsoTypeWriter.writeUInt32(byteBuffer, j2);
+                for (long j : this.sampleSizes) {
+                    IsoTypeWriter.writeUInt32(byteBuffer, j);
                 }
                 return;
             }
@@ -156,8 +156,8 @@ public class SampleSizeBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this, Conversions.intObject(i2)));
-            long j2 = this.sampleSize;
-            return j2 > 0 ? j2 : this.sampleSizes[i2];
+            long j = this.sampleSize;
+            return j > 0 ? j : this.sampleSizes[i2];
         }
         return invokeI.longValue;
     }
@@ -172,11 +172,11 @@ public class SampleSizeBox extends AbstractFullBox {
         return (long[]) invokeV.objValue;
     }
 
-    public void setSampleSize(long j2) {
+    public void setSampleSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j2)));
-            this.sampleSize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
+            this.sampleSize = j;
         }
     }
 

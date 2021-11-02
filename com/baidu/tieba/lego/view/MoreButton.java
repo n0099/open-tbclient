@@ -5,31 +5,31 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import c.a.r0.k3.w;
-import c.a.r0.q1.o.j.c;
+import b.a.r0.l3.w;
+import b.a.r0.q1.o.j.c;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MoreButton extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f54061e;
+        public final /* synthetic */ TbPageContext f51272e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f54062f;
+        public final /* synthetic */ c f51273f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MoreButton f54063g;
+        public final /* synthetic */ MoreButton f51274g;
 
         public a(MoreButton moreButton, TbPageContext tbPageContext, c cVar) {
             Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class MoreButton extends TextView {
                     return;
                 }
             }
-            this.f54063g = moreButton;
-            this.f54061e = tbPageContext;
-            this.f54062f = cVar;
+            this.f51274g = moreButton;
+            this.f51272e = tbPageContext;
+            this.f51273f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                w.c(this.f54061e, this.f54062f.d());
+                w.c(this.f51272e, this.f51273f.d());
             }
         }
     }

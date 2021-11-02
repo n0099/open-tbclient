@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.beans.IBeanFactory;
 import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.beans.BeanManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class LbsPayBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_AUTHORIZE_SIGN = 3;
@@ -21,18 +21,18 @@ public final class LbsPayBeanFactory implements IBeanFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.lbspay.beans.LbsPayBeanFactory$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LbsPayBeanFactory f36834a;
+        public static LbsPayBeanFactory f34885a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +48,7 @@ public final class LbsPayBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f36834a = new LbsPayBeanFactory(null);
+            f34885a = new LbsPayBeanFactory(null);
         }
     }
 
@@ -59,7 +59,7 @@ public final class LbsPayBeanFactory implements IBeanFactory {
     public static LbsPayBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36834a : (LbsPayBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f34885a : (LbsPayBeanFactory) invokeV.objValue;
     }
 
     public LbsPayBeanFactory() {

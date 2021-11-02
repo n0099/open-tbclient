@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class es implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ er f60072a;
+    public final /* synthetic */ er f56989a;
 
     public es(er erVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class es implements TextWatcher {
                 return;
             }
         }
-        this.f60072a = erVar;
+        this.f56989a = erVar;
     }
 
     @Override // android.text.TextWatcher
@@ -41,13 +41,13 @@ public final class es implements TextWatcher {
         EditText editText3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            editText = this.f60072a.f60071j;
+            editText = this.f56989a.j;
             String obj = editText.getText().toString();
             if (obj.length() > 200) {
                 String substring = obj.substring(0, 200);
-                editText2 = this.f60072a.f60071j;
+                editText2 = this.f56989a.j;
                 editText2.setText(substring.substring(0, 200));
-                editText3 = this.f60072a.f60071j;
+                editText3 = this.f56989a.j;
                 editText3.setSelection(substring.length());
             }
         }

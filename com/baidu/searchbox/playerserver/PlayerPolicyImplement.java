@@ -22,7 +22,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PlayerPolicyImplement implements IPlayerPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADD_OBSERVER_WORK_MSG = 2;
@@ -269,8 +269,8 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                 this.mFirstUpdateTimeStamp = currentTimeMillis;
             }
             String str = "first period : " + (currentTimeMillis - this.mFirstUpdateTimeStamp < this.mUpdateInterval) + " second period : " + (currentTimeMillis - this.mLastUpdateTimeStamp > this.mUpdateInterval);
-            long j2 = this.mUpdateInterval;
-            if (currentTimeMillis - this.mFirstUpdateTimeStamp < j2 || currentTimeMillis - this.mLastUpdateTimeStamp > j2) {
+            long j = this.mUpdateInterval;
+            if (currentTimeMillis - this.mFirstUpdateTimeStamp < j || currentTimeMillis - this.mLastUpdateTimeStamp > j) {
                 this.mLastUpdateTimeStamp = currentTimeMillis;
                 this.mWorkHandler.sendEmptyMessage(1);
             }

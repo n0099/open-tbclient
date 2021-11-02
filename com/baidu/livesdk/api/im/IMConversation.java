@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.im;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IMConversation {
     void beginWithCompletion(IMCastSetListener iMCastSetListener);
 

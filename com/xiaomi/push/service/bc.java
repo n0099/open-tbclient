@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bc {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static bc f78516a;
+    public static bc f71454a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f927a;
+    public int f928a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f928a;
+    public Context f929a;
 
     public bc(Context context) {
         Interceptable interceptable = $ic;
@@ -41,18 +41,18 @@ public class bc {
                 return;
             }
         }
-        this.f927a = 0;
-        this.f928a = context.getApplicationContext();
+        this.f928a = 0;
+        this.f929a = context.getApplicationContext();
     }
 
     public static bc a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f78516a == null) {
-                f78516a = new bc(context);
+            if (f71454a == null) {
+                f71454a = new bc(context);
             }
-            return f78516a;
+            return f71454a;
         }
         return (bc) invokeL.objValue;
     }
@@ -62,19 +62,19 @@ public class bc {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f927a;
+            int i2 = this.f928a;
             if (i2 != 0) {
                 return i2;
             }
             if (Build.VERSION.SDK_INT >= 17) {
                 try {
-                    this.f927a = Settings.Global.getInt(this.f928a.getContentResolver(), "device_provisioned", 0);
+                    this.f928a = Settings.Global.getInt(this.f929a.getContentResolver(), "device_provisioned", 0);
                 } catch (Exception unused) {
                 }
-                return this.f927a;
+                return this.f928a;
             }
-            int i3 = Settings.Secure.getInt(this.f928a.getContentResolver(), "device_provisioned", 0);
-            this.f927a = i3;
+            int i3 = Settings.Secure.getInt(this.f929a.getContentResolver(), "device_provisioned", 0);
+            this.f928a = i3;
             return i3;
         }
         return invokeV.intValue;
@@ -92,6 +92,6 @@ public class bc {
     public boolean m612a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ab.f107a.contains("xmsf") || com.xiaomi.push.ab.f107a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f107a.contains("miui") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ab.f108a.contains("xmsf") || com.xiaomi.push.ab.f108a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f108a.contains("miui") : invokeV.booleanValue;
     }
 }

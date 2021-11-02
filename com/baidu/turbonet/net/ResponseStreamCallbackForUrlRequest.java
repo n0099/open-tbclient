@@ -13,36 +13,36 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Callback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f59636c;
+    public static ExecutorService f56566c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PipedOutputStreamAndroid25 f59637a;
+    public PipedOutputStreamAndroid25 f56567a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RequestBodyOutputStream f59638b;
+    public RequestBodyOutputStream f56568b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public UrlRequest f59639e;
+        public UrlRequest f56569e;
 
         /* renamed from: f  reason: collision with root package name */
-        public UrlResponseInfo f59640f;
+        public UrlResponseInfo f56570f;
 
         /* renamed from: g  reason: collision with root package name */
-        public InputStream f59641g;
+        public InputStream f56571g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ResponseStreamCallbackForUrlRequest f59642h;
+        public final /* synthetic */ ResponseStreamCallbackForUrlRequest f56572h;
 
         public a(ResponseStreamCallbackForUrlRequest responseStreamCallbackForUrlRequest, UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, InputStream inputStream) {
             Interceptable interceptable = $ic;
@@ -59,17 +59,17 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
                     return;
                 }
             }
-            this.f59642h = responseStreamCallbackForUrlRequest;
-            this.f59639e = urlRequest;
-            this.f59640f = urlResponseInfo;
-            this.f59641g = inputStream;
+            this.f56572h = responseStreamCallbackForUrlRequest;
+            this.f56569e = urlRequest;
+            this.f56570f = urlResponseInfo;
+            this.f56571g = inputStream;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f59642h.i(this.f59639e, this.f59640f, this.f59641g);
+                this.f56572h.i(this.f56569e, this.f56570f, this.f56571g);
             }
         }
     }
@@ -87,7 +87,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
                 return;
             }
         }
-        f59636c = Executors.newCachedThreadPool();
+        f56566c = Executors.newCachedThreadPool();
     }
 
     public ResponseStreamCallbackForUrlRequest() {
@@ -108,18 +108,18 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, urlRequest, urlResponseInfo) == null) {
-            RequestBodyOutputStream requestBodyOutputStream = this.f59638b;
+            RequestBodyOutputStream requestBodyOutputStream = this.f56568b;
             if (requestBodyOutputStream != null) {
                 try {
-                    requestBodyOutputStream.n();
+                    requestBodyOutputStream.e();
                 } catch (Exception unused) {
-                    c.a.s0.a.a.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
+                    b.a.s0.a.a.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
                 }
             }
             try {
-                this.f59637a.close();
+                this.f56567a.close();
             } catch (Exception unused2) {
-                c.a.s0.a.a.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                b.a.s0.a.a.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
             g(urlRequest, urlResponseInfo);
         }
@@ -129,19 +129,19 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, UrlRequestException urlRequestException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlRequest, urlResponseInfo, urlRequestException) == null) {
-            c.a.s0.a.a.c("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), urlRequestException);
-            RequestBodyOutputStream requestBodyOutputStream = this.f59638b;
+            b.a.s0.a.a.c("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), urlRequestException);
+            RequestBodyOutputStream requestBodyOutputStream = this.f56568b;
             if (requestBodyOutputStream != null) {
                 try {
-                    requestBodyOutputStream.n();
+                    requestBodyOutputStream.e();
                 } catch (Exception unused) {
-                    c.a.s0.a.a.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
+                    b.a.s0.a.a.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
                 }
             }
             try {
-                this.f59637a.close();
+                this.f56567a.close();
             } catch (Exception unused2) {
-                c.a.s0.a.a.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                b.a.s0.a.a.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
             h(urlRequest, urlResponseInfo, urlRequestException);
         }
@@ -152,9 +152,9 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, urlRequest, urlResponseInfo, byteBuffer) == null) {
             byteBuffer.flip();
-            c.a.s0.a.a.h("ChromiumNetwork", "****** onReadCompleted ******%s", byteBuffer);
-            this.f59637a.write(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
-            this.f59637a.flush();
+            b.a.s0.a.a.h("ChromiumNetwork", "****** onReadCompleted ******%s", byteBuffer);
+            this.f56567a.write(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
+            this.f56567a.flush();
             byteBuffer.clear();
             urlRequest.read(byteBuffer);
         }
@@ -164,14 +164,14 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, urlRequest, urlResponseInfo) == null) {
-            c.a.s0.a.a.h("ChromiumNetwork", "****** Response Started ******", new Object[0]);
-            c.a.s0.a.a.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
-            this.f59637a = new PipedOutputStreamAndroid25();
+            b.a.s0.a.a.h("ChromiumNetwork", "****** Response Started ******", new Object[0]);
+            b.a.s0.a.a.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
+            this.f56567a = new PipedOutputStreamAndroid25();
             try {
-                f59636c.execute(new a(this, urlRequest, urlResponseInfo, new PipedInputStreamAndroid25(this.f59637a, 4096)));
+                f56566c.execute(new a(this, urlRequest, urlResponseInfo, new PipedInputStreamAndroid25(this.f56567a, 4096)));
                 urlRequest.read(ByteBuffer.allocateDirect(32768));
             } catch (Exception e2) {
-                c.a.s0.a.a.c("ChromiumNetwork", "Exception in onResponseStarted ", e2);
+                b.a.s0.a.a.c("ChromiumNetwork", "Exception in onResponseStarted ", e2);
                 throw e2;
             }
         }
@@ -181,11 +181,11 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, urlRequest, urlResponseInfo) == null) {
-            c.a.s0.a.a.h("ChromiumNetwork", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
+            b.a.s0.a.a.h("ChromiumNetwork", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
             try {
-                this.f59637a.close();
+                this.f56567a.close();
             } catch (Exception unused) {
-                c.a.s0.a.a.c("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                b.a.s0.a.a.c("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
         }
     }

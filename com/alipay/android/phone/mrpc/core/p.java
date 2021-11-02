@@ -6,28 +6,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class p extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35777c;
+    public int f33884c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35778d;
+    public String f33885d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f35779e;
+    public long f33886e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f35780f;
+    public long f33887f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35781g;
+    public String f33888g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpUrlHeader f35782h;
+    public HttpUrlHeader f33889h;
 
     public p(HttpUrlHeader httpUrlHeader, int i2, String str, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -44,36 +44,36 @@ public final class p extends u {
                 return;
             }
         }
-        this.f35782h = httpUrlHeader;
-        this.f35777c = i2;
-        this.f35778d = str;
-        this.f35796a = bArr;
+        this.f33889h = httpUrlHeader;
+        this.f33884c = i2;
+        this.f33885d = str;
+        this.f33902a = bArr;
     }
 
     public final HttpUrlHeader a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35782h : (HttpUrlHeader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33889h : (HttpUrlHeader) invokeV.objValue;
     }
 
-    public final void a(long j2) {
+    public final void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f35779e = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.f33886e = j;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f35781g = str;
+            this.f33888g = str;
         }
     }
 
-    public final void b(long j2) {
+    public final void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f35780f = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.f33887f = j;
         }
     }
 }

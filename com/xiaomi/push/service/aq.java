@@ -14,21 +14,21 @@ import com.xiaomi.push.hk;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class aq {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile aq f78478a;
+    public static volatile aq f71417a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f902a;
+    public SharedPreferences f903a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashSet<a> f903a;
+    public HashSet<a> f904a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,22 +92,22 @@ public class aq {
                 return;
             }
         }
-        this.f903a = new HashSet<>();
-        this.f902a = context.getSharedPreferences("mipush_oc", 0);
+        this.f904a = new HashSet<>();
+        this.f903a = context.getSharedPreferences("mipush_oc", 0);
     }
 
     public static aq a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f78478a == null) {
+            if (f71417a == null) {
                 synchronized (aq.class) {
-                    if (f78478a == null) {
-                        f78478a = new aq(context);
+                    if (f71417a == null) {
+                        f71417a = new aq(context);
                     }
                 }
             }
-            return f78478a;
+            return f71417a;
         }
         return (aq) invokeL.objValue;
     }
@@ -158,11 +158,11 @@ public class aq {
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
             try {
                 String b2 = b(i2);
-                if (this.f902a.contains(b2)) {
-                    return this.f902a.getInt(b2, 0);
+                if (this.f903a.contains(b2)) {
+                    return this.f903a.getInt(b2, 0);
                 }
                 String a2 = a(i2);
-                return this.f902a.contains(a2) ? this.f902a.getInt(a2, 0) : i3;
+                return this.f903a.contains(a2) ? this.f903a.getInt(a2, 0) : i3;
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m73a(i2 + " oc int error " + e2);
                 return i3;
@@ -177,11 +177,11 @@ public class aq {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
             try {
                 String b2 = b(i2);
-                if (this.f902a.contains(b2)) {
-                    return this.f902a.getString(b2, null);
+                if (this.f903a.contains(b2)) {
+                    return this.f903a.getString(b2, null);
                 }
                 String a2 = a(i2);
-                return this.f902a.contains(a2) ? this.f902a.getString(a2, null) : str;
+                return this.f903a.contains(a2) ? this.f903a.getString(a2, null) : str;
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m73a(i2 + " oc string error " + e2);
                 return str;
@@ -194,7 +194,7 @@ public class aq {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f903a.clear();
+                this.f904a.clear();
             }
         }
     }
@@ -203,8 +203,8 @@ public class aq {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             synchronized (this) {
-                if (!this.f903a.contains(aVar)) {
-                    this.f903a.add(aVar);
+                if (!this.f904a.contains(aVar)) {
+                    this.f904a.add(aVar);
                 }
             }
         }
@@ -215,7 +215,7 @@ public class aq {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f902a.edit();
+        SharedPreferences.Editor edit = this.f903a.edit();
         for (Pair<Integer, Object> pair : list) {
             Object obj = pair.first;
             if (obj != null && pair.second != null) {
@@ -231,11 +231,11 @@ public class aq {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             try {
                 String b2 = b(i2);
-                if (this.f902a.contains(b2)) {
-                    return this.f902a.getBoolean(b2, false);
+                if (this.f903a.contains(b2)) {
+                    return this.f903a.getBoolean(b2, false);
                 }
                 String a2 = a(i2);
-                return this.f902a.contains(a2) ? this.f902a.getBoolean(a2, false) : z;
+                return this.f903a.contains(a2) ? this.f903a.getBoolean(a2, false) : z;
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m73a(i2 + " oc boolean error " + e2);
                 return z;
@@ -250,7 +250,7 @@ public class aq {
             com.xiaomi.channel.commonutils.logger.b.c("OC_Callback : receive new oc data");
             HashSet hashSet = new HashSet();
             synchronized (this) {
-                hashSet.addAll(this.f903a);
+                hashSet.addAll(this.f904a);
             }
             Iterator it = hashSet.iterator();
             while (it.hasNext()) {
@@ -268,7 +268,7 @@ public class aq {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f902a.edit();
+        SharedPreferences.Editor edit = this.f903a.edit();
         for (Pair<Integer, Object> pair : list) {
             Object obj = pair.first;
             if (obj != null) {

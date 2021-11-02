@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CalendarParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DATE_TIME;
@@ -167,17 +167,17 @@ public final class CalendarParsedResult extends ParsedResult {
             }
             Matcher matcher = RFC2445_DURATION.matcher(charSequence);
             if (matcher.matches()) {
-                long j2 = 0;
+                long j = 0;
                 int i2 = 0;
                 while (i2 < RFC2445_DURATION_FIELD_UNITS.length) {
                     int i3 = i2 + 1;
                     String group = matcher.group(i3);
                     if (group != null) {
-                        j2 += RFC2445_DURATION_FIELD_UNITS[i2] * Integer.parseInt(group);
+                        j += RFC2445_DURATION_FIELD_UNITS[i2] * Integer.parseInt(group);
                     }
                     i2 = i3;
                 }
-                return j2;
+                return j;
             }
             return -1L;
         }

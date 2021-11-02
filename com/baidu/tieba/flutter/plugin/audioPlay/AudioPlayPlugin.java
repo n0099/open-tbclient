@@ -3,7 +3,7 @@ package com.baidu.tieba.flutter.plugin.audioPlay;
 import android.app.Activity;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.t0.a.a.i;
+import b.a.r0.t0.a.a.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VoiceManagerWrapper vmWrapper;
 
     /* renamed from: com.baidu.tieba.flutter.plugin.audioPlay.AudioPlayPlugin$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class VoiceManagerWrapper implements VoiceManager.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

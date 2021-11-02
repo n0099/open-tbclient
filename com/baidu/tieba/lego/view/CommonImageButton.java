@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.r0.q1.m.b;
-import c.a.r0.q1.o.j.a;
+import b.a.r0.q1.m.b;
+import b.a.r0.q1.o.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,22 +18,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CommonImageButton extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54041e;
+    public Context f51253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54042f;
+    public View f51254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f54043g;
+    public TextView f51255g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f54044h;
+    public TbImageView f51256h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CommonImageButton(Context context) {
@@ -59,33 +59,33 @@ public class CommonImageButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f54041e).inflate(R.layout.lego_common_button, (ViewGroup) this, true);
-            this.f54042f = inflate;
-            this.f54043g = (TextView) inflate.findViewById(R.id.image_local);
-            this.f54044h = (TbImageView) this.f54042f.findViewById(R.id.image_net);
+            View inflate = LayoutInflater.from(this.f51253e).inflate(R.layout.lego_common_button, (ViewGroup) this, true);
+            this.f51254f = inflate;
+            this.f51255g = (TextView) inflate.findViewById(R.id.image_local);
+            this.f51256h = (TbImageView) this.f51254f.findViewById(R.id.image_net);
         }
     }
 
     public final void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f54044h.setVisibility(8);
+            this.f51256h.setVisibility(8);
             int f2 = aVar.f();
             if (f2 != 0) {
-                this.f54043g.setVisibility(0);
-                SkinManager.setBackgroundResource(this.f54043g, f2);
+                this.f51255g.setVisibility(0);
+                SkinManager.setBackgroundResource(this.f51255g, f2);
                 return;
             }
-            this.f54043g.setVisibility(8);
+            this.f51255g.setVisibility(8);
         }
     }
 
     public final void c(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f54043g.setVisibility(8);
-            this.f54044h.setVisibility(0);
-            this.f54044h.startLoad(1 == TbadkCoreApplication.getInst().getSkinType() ? aVar.e() : aVar.d(), 10, false);
+            this.f51255g.setVisibility(8);
+            this.f51256h.setVisibility(0);
+            this.f51256h.startLoad(1 == TbadkCoreApplication.getInst().getSkinType() ? aVar.e() : aVar.d(), 10, false);
         }
     }
 
@@ -144,7 +144,7 @@ public class CommonImageButton extends FrameLayout {
                 return;
             }
         }
-        this.f54041e = context;
+        this.f51253e = context;
         a();
     }
 }

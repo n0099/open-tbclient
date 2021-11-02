@@ -37,7 +37,7 @@ import kotlinx.coroutines.channels.ProducerScope;
 import kotlinx.coroutines.channels.ReceiveChannel;
 import kotlinx.coroutines.channels.SendChannel;
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlinx/coroutines/flow/FlowKt__BuildersKt", "kotlinx/coroutines/flow/FlowKt__ChannelsKt", "kotlinx/coroutines/flow/FlowKt__CollectKt", "kotlinx/coroutines/flow/FlowKt__CollectionKt", "kotlinx/coroutines/flow/FlowKt__ContextKt", "kotlinx/coroutines/flow/FlowKt__CountKt", "kotlinx/coroutines/flow/FlowKt__DelayKt", "kotlinx/coroutines/flow/FlowKt__DistinctKt", "kotlinx/coroutines/flow/FlowKt__EmittersKt", "kotlinx/coroutines/flow/FlowKt__ErrorsKt", "kotlinx/coroutines/flow/FlowKt__LimitKt", "kotlinx/coroutines/flow/FlowKt__MergeKt", "kotlinx/coroutines/flow/FlowKt__MigrationKt", "kotlinx/coroutines/flow/FlowKt__ReduceKt", "kotlinx/coroutines/flow/FlowKt__TransformKt", "kotlinx/coroutines/flow/FlowKt__ZipKt"}, d2 = {}, k = 4, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowKt {
     public static final String DEFAULT_CONCURRENCY_PROPERTY_NAME = "kotlinx.coroutines.flow.defaultConcurrency";
 
@@ -129,8 +129,8 @@ public final class FlowKt {
     }
 
     @FlowPreview
-    public static final <T> Flow<T> debounce(Flow<? extends T> flow, long j2) {
-        return FlowKt__DelayKt.debounce(flow, j2);
+    public static final <T> Flow<T> debounce(Flow<? extends T> flow, long j) {
+        return FlowKt__DelayKt.debounce(flow, j);
     }
 
     @FlowPreview
@@ -141,13 +141,13 @@ public final class FlowKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use 'onEach { delay(timeMillis) }'", replaceWith = @ReplaceWith(expression = "onEach { delay(timeMillis) }", imports = {}))
-    public static final <T> Flow<T> delayEach(Flow<? extends T> flow, long j2) {
-        return FlowKt__MigrationKt.delayEach(flow, j2);
+    public static final <T> Flow<T> delayEach(Flow<? extends T> flow, long j) {
+        return FlowKt__MigrationKt.delayEach(flow, j);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use 'onStart { delay(timeMillis) }'", replaceWith = @ReplaceWith(expression = "onStart { delay(timeMillis) }", imports = {}))
-    public static final <T> Flow<T> delayFlow(Flow<? extends T> flow, long j2) {
-        return FlowKt__MigrationKt.delayFlow(flow, j2);
+    public static final <T> Flow<T> delayFlow(Flow<? extends T> flow, long j) {
+        return FlowKt__MigrationKt.delayFlow(flow, j);
     }
 
     @ExperimentalCoroutinesApi
@@ -199,8 +199,8 @@ public final class FlowKt {
         return FlowKt__ReduceKt.firstOrNull(flow, continuation);
     }
 
-    public static final ReceiveChannel<Unit> fixedPeriodTicker(CoroutineScope coroutineScope, long j2, long j3) {
-        return FlowKt__DelayKt.fixedPeriodTicker(coroutineScope, j2, j3);
+    public static final ReceiveChannel<Unit> fixedPeriodTicker(CoroutineScope coroutineScope, long j, long j2) {
+        return FlowKt__DelayKt.fixedPeriodTicker(coroutineScope, j, j2);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue is named flatMapConcat", replaceWith = @ReplaceWith(expression = "flatMapConcat(mapper)", imports = {}))
@@ -372,8 +372,8 @@ public final class FlowKt {
     }
 
     @FlowPreview
-    public static final <T> Flow<T> sample(Flow<? extends T> flow, long j2) {
-        return FlowKt__DelayKt.sample(flow, j2);
+    public static final <T> Flow<T> sample(Flow<? extends T> flow, long j) {
+        return FlowKt__DelayKt.sample(flow, j);
     }
 
     @FlowPreview
@@ -550,8 +550,8 @@ public final class FlowKt {
     }
 
     @ExperimentalCoroutinesApi
-    public static final <T> Flow<T> retry(Flow<? extends T> flow, long j2, Function2<? super Throwable, ? super Continuation<? super Boolean>, ? extends Object> function2) {
-        return FlowKt__ErrorsKt.retry(flow, j2, function2);
+    public static final <T> Flow<T> retry(Flow<? extends T> flow, long j, Function2<? super Throwable, ? super Continuation<? super Boolean>, ? extends Object> function2) {
+        return FlowKt__ErrorsKt.retry(flow, j, function2);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'startWith' is 'onStart'. Use 'onStart { emitAll(other) }'", replaceWith = @ReplaceWith(expression = "onStart { emitAll(other) }", imports = {}))

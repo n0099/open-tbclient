@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import org.webrtc.NV12Buffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RTCNV12Buffer extends NV12Buffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

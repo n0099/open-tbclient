@@ -10,10 +10,10 @@ import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.m.c;
-import c.a.e.h.h.b;
-import c.a.e.h.j.g.d;
-import c.a.q0.q0.l;
+import b.a.e.e.m.c;
+import b.a.e.h.h.b;
+import b.a.e.h.j.g.d;
+import b.a.q0.q0.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -45,7 +45,7 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     public static /* synthetic */ Interceptable $ic = null;
     public static String mForumName = "armcv";
@@ -299,7 +299,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                     boolean z4 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
                     if (!this.isKeepLiveProcess) {
                         if (!this.mPluginIsInited) {
-                            PluginPackageManager.O().i0(c.a.q0.s0.c.n(), new c.a.q0.s0.d(), z4, null);
+                            PluginPackageManager.O().i0(b.a.q0.s0.c.n(), new b.a.q0.s0.d(), z4, null);
                         }
                         PluginSettings l = d.k().l();
                         if (l != null) {
@@ -430,9 +430,9 @@ public class TbadkApplication extends TbadkCoreApplication {
             return;
         }
         super.loadPatchs();
-        int k = c.a.q0.s.d0.b.j().k("plugin_patch_hook_failed_count", 0);
+        int k = b.a.q0.s.e0.b.j().k("plugin_patch_hook_failed_count", 0);
         PluginPackageManager.O().v0(k);
-        if (checkSyncPatchBlacklist() && c.a.e.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
+        if (checkSyncPatchBlacklist() && b.a.e.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
             long currentTimeMillis = System.currentTimeMillis();
             PluginPackageManager.O().k0();
             l.b().B(System.currentTimeMillis() - currentTimeMillis);
@@ -448,7 +448,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            c.a.q0.s.d0.b.j().C("account_share");
+            b.a.q0.s.e0.b.j().C("account_share");
         }
     }
 

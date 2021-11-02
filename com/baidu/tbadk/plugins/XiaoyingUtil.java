@@ -5,9 +5,9 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.f;
-import c.a.e.a.j;
-import c.a.q0.s.s.a;
+import b.a.e.a.f;
+import b.a.e.a.j;
+import b.a.q0.s.s.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -26,32 +26,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class XiaoyingUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PKG_NAME_VIDEO = "cn.jingling.motu.photowonder.plugin.mv";
     public static int showTime;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f48502e;
+        public final /* synthetic */ Context f46026e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48503f;
+        public final /* synthetic */ String f46027f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48504g;
+        public final /* synthetic */ int f46028g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f48505h;
+        public final /* synthetic */ int f46029h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f48506i;
+        public final /* synthetic */ String f46030i;
 
         public a(Context context, String str, int i2, int i3, String str2) {
             Interceptable interceptable = $ic;
@@ -68,24 +68,24 @@ public class XiaoyingUtil {
                     return;
                 }
             }
-            this.f48502e = context;
-            this.f48503f = str;
-            this.f48504g = i2;
-            this.f48505h = i3;
-            this.f48506i = str2;
+            this.f46026e = context;
+            this.f46027f = str;
+            this.f46028g = i2;
+            this.f46029h = i3;
+            this.f46030i = str2;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f48502e, this.f48503f, this.f48504g, this.f48505h, this.f48506i)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f46026e, this.f46027f, this.f46028g, this.f46029h, this.f46030i)));
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,8 +104,8 @@ public class XiaoyingUtil {
             }
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -113,16 +113,16 @@ public class XiaoyingUtil {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f48507e;
+        public final /* synthetic */ Activity f46031e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f48508f;
+        public final /* synthetic */ TbPageContext f46032f;
 
         public c(Activity activity, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -139,21 +139,21 @@ public class XiaoyingUtil {
                     return;
                 }
             }
-            this.f48507e = activity;
-            this.f48508f = tbPageContext;
+            this.f46031e = activity;
+            this.f46032f = tbPageContext;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f48508f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f48507e, XiaoyingUtil.PKG_NAME_VIDEO)));
+                this.f46032f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f46031e, XiaoyingUtil.PKG_NAME_VIDEO)));
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class d implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,8 +172,8 @@ public class XiaoyingUtil {
             }
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -226,7 +226,7 @@ public class XiaoyingUtil {
         if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, tbPageContext, str, str2) == null) || tbPageContext == null || (pageActivity = tbPageContext.getPageActivity()) == null) {
             return;
         }
-        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(pageActivity);
+        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(pageActivity);
         aVar.setMessage(str);
         aVar.setPositiveButton(str2, new c(pageActivity, tbPageContext));
         aVar.setNegativeButton(R.string.cancel, new d());
@@ -239,7 +239,7 @@ public class XiaoyingUtil {
         if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, Integer.valueOf(i2), Integer.valueOf(i3), str2}) == null) || (a2 = j.a(context)) == null) {
             return;
         }
-        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(a2.getPageActivity());
+        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(a2.getPageActivity());
         aVar.setMessage(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
         aVar.setPositiveButton(R.string.confirm, new a(context, str, i2, i3, str2));
         aVar.setNegativeButton(R.string.cancel, new b());
@@ -250,7 +250,7 @@ public class XiaoyingUtil {
         InterceptResult invokeV;
         PluginNetConfigInfos.PluginConfig R;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (!TbadkCoreApplication.getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (R = PluginPackageManager.O().R(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(R.display_name) || R.forbidden == 1 || c.a.e.h.j.g.d.k().h(PKG_NAME_VIDEO) == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (!TbadkCoreApplication.getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (R = PluginPackageManager.O().R(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(R.display_name) || R.forbidden == 1 || b.a.e.h.j.g.d.k().h(PKG_NAME_VIDEO) == null) ? false : true : invokeV.booleanValue;
     }
 
     public static void startPlayXiaoyingVideo(Context context, String str, int i2, int i3, String str2) {
@@ -275,10 +275,10 @@ public class XiaoyingUtil {
         }
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
             BdToast.c(context, context.getString(R.string.plugin_xiaoying_install_fail)).q();
-        } else if (z && !c.a.e.e.p.j.z()) {
+        } else if (z && !b.a.e.e.p.j.z()) {
             BdToast.c(context, context.getString(R.string.neterror)).q();
         } else if (z) {
-            if (c.a.e.e.p.j.H()) {
+            if (b.a.e.e.p.j.H()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(context, str, i2, i3, str2)));
             } else {
                 showStartPlayVideoDialog(context, str, i2, i3, str2);
@@ -293,7 +293,7 @@ public class XiaoyingUtil {
         if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3}) == null) || context == null) {
             return;
         }
-        c.a.q0.s.d0.b.j().t(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MotuVideoConfig(context, z || c.a.q0.s.d0.b.j().g("localvideo_open", false), str, str2, str3)));
+        b.a.q0.s.e0.b.j().t(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MotuVideoConfig(context, z || b.a.q0.s.e0.b.j().g("localvideo_open", false), str, str2, str3)));
     }
 }

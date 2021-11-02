@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e extends b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f42088a;
+    public final /* synthetic */ d f39916a;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class e extends b.a {
                 return;
             }
         }
-        this.f42088a = dVar;
+        this.f39916a = dVar;
     }
 
     @Override // com.baidu.mapframework.open.aidl.b
@@ -41,15 +41,15 @@ public class e extends b.a {
         String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iBinder) == null) {
-            unused = b.f42079c;
-            iComOpenClient = b.f42081e;
+            unused = b.f39908c;
+            iComOpenClient = b.f39910e;
             if (iComOpenClient != null) {
-                IComOpenClient unused2 = b.f42081e = null;
+                IComOpenClient unused2 = b.f39910e = null;
             }
-            IComOpenClient unused3 = b.f42081e = IComOpenClient.a.a(iBinder);
+            IComOpenClient unused3 = b.f39910e = IComOpenClient.a.a(iBinder);
             z = b.t;
             if (!z) {
-                b.a(b.f42077a);
+                b.a(b.f39906a);
             }
             boolean unused4 = b.t = true;
         }

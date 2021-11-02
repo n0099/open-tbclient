@@ -3,7 +3,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.f1.e.b;
+import b.a.p0.a.f1.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ForbiddenInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR;
@@ -30,7 +30,7 @@ public class ForbiddenInfo implements Parcelable {
     public String launchPath;
     public String launchSource;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<ForbiddenInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,11 +93,11 @@ public class ForbiddenInfo implements Parcelable {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.appId = bVar.H();
-        this.appKey = bVar.I();
-        this.appTitle = bVar.K();
-        this.launchPath = bVar.e0();
-        this.launchSource = bVar.T();
+        this.appId = bVar.G();
+        this.appKey = bVar.H();
+        this.appTitle = bVar.J();
+        this.launchPath = bVar.d0();
+        this.launchSource = bVar.S();
     }
 
     @Override // android.os.Parcelable

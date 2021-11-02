@@ -15,21 +15,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f42195a;
+    public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f40023a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f42196b;
+    public static boolean f40024b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42197c;
+    public static String f40025c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f42198d;
+    public static int f40026d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,10 +45,10 @@ public class SysUpdateUtil implements SysUpdateObserver {
                 return;
             }
         }
-        f42195a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
-        f42196b = false;
-        f42197c = "";
-        f42198d = 0;
+        f40023a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
+        f40024b = false;
+        f40025c = "";
+        f40026d = 0;
     }
 
     public SysUpdateUtil() {
@@ -69,11 +69,11 @@ public class SysUpdateUtil implements SysUpdateObserver {
     public void init() {
         com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = f42195a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = f40023a) == null) {
             return;
         }
         aVar.a();
-        f42195a.b();
+        f40023a.b();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
@@ -84,11 +84,11 @@ public class SysUpdateUtil implements SysUpdateObserver {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c9, code lost:
         if ("10.0.0.200".equals(r9.trim()) != false) goto L47;
      */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00d2  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00da  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d4  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00dc  */
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -102,46 +102,46 @@ public class SysUpdateUtil implements SysUpdateObserver {
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
-            f42196b = false;
+            f40024b = false;
         } else if (!lowerCase.equals("mobile") && (!lowerCase.equals("wifi") || NetworkUtil.isWifiConnected(activeNetworkInfo))) {
         } else {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            f42196b = false;
+            f40024b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
                 if (lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    f42197c = "10.0.0.172";
+                    f40025c = "10.0.0.172";
                 } else {
                     if (!lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
                         if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
-                            f42196b = false;
+                            f40024b = false;
                         }
-                        if (f42196b) {
-                            AppEngine.SetProxyInfo(f42197c, f42198d);
+                        if (f40024b) {
+                            AppEngine.SetProxyInfo(f40025c, f40026d);
                             return;
                         } else {
                             AppEngine.SetProxyInfo(null, 0);
                             return;
                         }
                     }
-                    f42197c = "10.0.0.200";
+                    f40025c = "10.0.0.200";
                 }
             } else {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
                     if ("10.0.0.172".equals(defaultHost.trim())) {
-                        f42197c = "10.0.0.172";
-                        f42198d = defaultPort;
-                        f42196b = true;
+                        f40025c = "10.0.0.172";
+                        f40026d = defaultPort;
+                        f40024b = true;
                     }
                 }
-                if (f42196b) {
+                if (f40024b) {
                 }
             }
-            f42198d = 80;
-            f42196b = true;
-            if (f42196b) {
+            f40026d = 80;
+            f40024b = true;
+            if (f40024b) {
             }
         }
     }
@@ -150,7 +150,7 @@ public class SysUpdateUtil implements SysUpdateObserver {
     public void updatePhoneInfo() {
         com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = f42195a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = f40023a) == null) {
             return;
         }
         aVar.b();

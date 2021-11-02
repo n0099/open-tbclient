@@ -23,7 +23,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SegmentTypeBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "styp";
@@ -194,13 +194,13 @@ public class SegmentTypeBox extends AbstractBox {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SegmentTypeBox(String str, long j2, List<String> list) {
+    public SegmentTypeBox(String str, long j, List<String> list) {
         super(TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), list};
+            Object[] objArr = {str, Long.valueOf(j), list};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -213,7 +213,7 @@ public class SegmentTypeBox extends AbstractBox {
         }
         this.compatibleBrands = Collections.emptyList();
         this.majorBrand = str;
-        this.minorVersion = j2;
+        this.minorVersion = j;
         this.compatibleBrands = list;
     }
 }

@@ -4,9 +4,9 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
-import c.i.b.a.h0.e;
-import c.i.b.a.h0.g;
-import c.i.b.a.h0.p;
+import b.i.b.a.h0.e;
+import b.i.b.a.h0.g;
+import b.i.b.a.h0.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,33 +19,33 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class ContentDataSource implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ContentResolver f70544a;
+    public final ContentResolver f63055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final p<? super ContentDataSource> f70545b;
+    public final p<? super ContentDataSource> f63056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Uri f70546c;
+    public Uri f63057c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AssetFileDescriptor f70547d;
+    public AssetFileDescriptor f63058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FileInputStream f70548e;
+    public FileInputStream f63059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f70549f;
+    public long f63060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f70550g;
+    public boolean f63061g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class ContentDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,51 +86,51 @@ public final class ContentDataSource implements e {
                 return;
             }
         }
-        this.f70544a = context.getContentResolver();
-        this.f70545b = pVar;
+        this.f63055a = context.getContentResolver();
+        this.f63056b = pVar;
     }
 
-    @Override // c.i.b.a.h0.e
+    @Override // b.i.b.a.h0.e
     public long a(g gVar) throws ContentDataSourceException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             try {
-                Uri uri = gVar.f33729a;
-                this.f70546c = uri;
-                AssetFileDescriptor openAssetFileDescriptor = this.f70544a.openAssetFileDescriptor(uri, r.f42346a);
-                this.f70547d = openAssetFileDescriptor;
+                Uri uri = gVar.f32529a;
+                this.f63057c = uri;
+                AssetFileDescriptor openAssetFileDescriptor = this.f63055a.openAssetFileDescriptor(uri, r.f40168a);
+                this.f63058d = openAssetFileDescriptor;
                 if (openAssetFileDescriptor != null) {
-                    this.f70548e = new FileInputStream(this.f70547d.getFileDescriptor());
-                    long startOffset = this.f70547d.getStartOffset();
-                    long skip = this.f70548e.skip(gVar.f33732d + startOffset) - startOffset;
-                    if (skip == gVar.f33732d) {
-                        long j2 = -1;
-                        if (gVar.f33733e != -1) {
-                            this.f70549f = gVar.f33733e;
+                    this.f63059e = new FileInputStream(this.f63058d.getFileDescriptor());
+                    long startOffset = this.f63058d.getStartOffset();
+                    long skip = this.f63059e.skip(gVar.f32532d + startOffset) - startOffset;
+                    if (skip == gVar.f32532d) {
+                        long j = -1;
+                        if (gVar.f32533e != -1) {
+                            this.f63060f = gVar.f32533e;
                         } else {
-                            long length = this.f70547d.getLength();
+                            long length = this.f63058d.getLength();
                             if (length == -1) {
-                                FileChannel channel = this.f70548e.getChannel();
+                                FileChannel channel = this.f63059e.getChannel();
                                 long size = channel.size();
                                 if (size != 0) {
-                                    j2 = size - channel.position();
+                                    j = size - channel.position();
                                 }
-                                this.f70549f = j2;
+                                this.f63060f = j;
                             } else {
-                                this.f70549f = length - skip;
+                                this.f63060f = length - skip;
                             }
                         }
-                        this.f70550g = true;
-                        p<? super ContentDataSource> pVar = this.f70545b;
+                        this.f63061g = true;
+                        p<? super ContentDataSource> pVar = this.f63056b;
                         if (pVar != null) {
                             pVar.d(this, gVar);
                         }
-                        return this.f70549f;
+                        return this.f63060f;
                     }
                     throw new EOFException();
                 }
-                throw new FileNotFoundException("Could not open file descriptor for: " + this.f70546c);
+                throw new FileNotFoundException("Could not open file descriptor for: " + this.f63057c);
             } catch (IOException e2) {
                 throw new ContentDataSourceException(e2);
             }
@@ -140,30 +140,30 @@ public final class ContentDataSource implements e {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IPUT, IGET]}, finally: {[IPUT, IGET, INVOKE, IF, IPUT, IGET, IF] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    @Override // c.i.b.a.h0.e
+    @Override // b.i.b.a.h0.e
     public void close() throws ContentDataSourceException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f70546c = null;
+            this.f63057c = null;
             try {
                 try {
-                    if (this.f70548e != null) {
-                        this.f70548e.close();
+                    if (this.f63059e != null) {
+                        this.f63059e.close();
                     }
-                    this.f70548e = null;
+                    this.f63059e = null;
                     try {
                         try {
-                            if (this.f70547d != null) {
-                                this.f70547d.close();
+                            if (this.f63058d != null) {
+                                this.f63058d.close();
                             }
                         } catch (IOException e2) {
                             throw new ContentDataSourceException(e2);
                         }
                     } finally {
-                        this.f70547d = null;
-                        if (this.f70550g) {
-                            this.f70550g = false;
-                            p<? super ContentDataSource> pVar = this.f70545b;
+                        this.f63058d = null;
+                        if (this.f63061g) {
+                            this.f63061g = false;
+                            p<? super ContentDataSource> pVar = this.f63056b;
                             if (pVar != null) {
                                 pVar.b(this);
                             }
@@ -173,16 +173,16 @@ public final class ContentDataSource implements e {
                     throw new ContentDataSourceException(e3);
                 }
             } catch (Throwable th) {
-                this.f70548e = null;
+                this.f63059e = null;
                 try {
                     try {
-                        if (this.f70547d != null) {
-                            this.f70547d.close();
+                        if (this.f63058d != null) {
+                            this.f63058d.close();
                         }
-                        this.f70547d = null;
-                        if (this.f70550g) {
-                            this.f70550g = false;
-                            p<? super ContentDataSource> pVar2 = this.f70545b;
+                        this.f63058d = null;
+                        if (this.f63061g) {
+                            this.f63061g = false;
+                            p<? super ContentDataSource> pVar2 = this.f63056b;
                             if (pVar2 != null) {
                                 pVar2.b(this);
                             }
@@ -192,10 +192,10 @@ public final class ContentDataSource implements e {
                         throw new ContentDataSourceException(e4);
                     }
                 } finally {
-                    this.f70547d = null;
-                    if (this.f70550g) {
-                        this.f70550g = false;
-                        p<? super ContentDataSource> pVar3 = this.f70545b;
+                    this.f63058d = null;
+                    if (this.f63061g) {
+                        this.f63061g = false;
+                        p<? super ContentDataSource> pVar3 = this.f63056b;
                         if (pVar3 != null) {
                             pVar3.b(this);
                         }
@@ -205,14 +205,14 @@ public final class ContentDataSource implements e {
         }
     }
 
-    @Override // c.i.b.a.h0.e
+    @Override // b.i.b.a.h0.e
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70546c : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63057c : (Uri) invokeV.objValue;
     }
 
-    @Override // c.i.b.a.h0.e
+    @Override // b.i.b.a.h0.e
     public int read(byte[] bArr, int i2, int i3) throws ContentDataSourceException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -220,29 +220,29 @@ public final class ContentDataSource implements e {
             if (i3 == 0) {
                 return 0;
             }
-            long j2 = this.f70549f;
-            if (j2 == 0) {
+            long j = this.f63060f;
+            if (j == 0) {
                 return -1;
             }
-            if (j2 != -1) {
+            if (j != -1) {
                 try {
-                    i3 = (int) Math.min(j2, i3);
+                    i3 = (int) Math.min(j, i3);
                 } catch (IOException e2) {
                     throw new ContentDataSourceException(e2);
                 }
             }
-            int read = this.f70548e.read(bArr, i2, i3);
+            int read = this.f63059e.read(bArr, i2, i3);
             if (read == -1) {
-                if (this.f70549f == -1) {
+                if (this.f63060f == -1) {
                     return -1;
                 }
                 throw new ContentDataSourceException(new EOFException());
             }
-            long j3 = this.f70549f;
-            if (j3 != -1) {
-                this.f70549f = j3 - read;
+            long j2 = this.f63060f;
+            if (j2 != -1) {
+                this.f63060f = j2 - read;
             }
-            p<? super ContentDataSource> pVar = this.f70545b;
+            p<? super ContentDataSource> pVar = this.f63056b;
             if (pVar != null) {
                 pVar.a(this, read);
             }

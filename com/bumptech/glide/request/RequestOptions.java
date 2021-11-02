@@ -44,7 +44,7 @@ import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RequestOptions implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISK_CACHE_STRATEGY = 4;
@@ -271,10 +271,10 @@ public class RequestOptions implements Cloneable {
 
     @NonNull
     @CheckResult
-    public static RequestOptions frameOf(@IntRange(from = 0) long j2) {
+    public static RequestOptions frameOf(@IntRange(from = 0) long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j2)) == null) ? new RequestOptions().frame(j2) : (RequestOptions) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j)) == null) ? new RequestOptions().frame(j) : (RequestOptions) invokeJ.objValue;
     }
 
     private boolean isSet(int i2) {
@@ -724,10 +724,10 @@ public class RequestOptions implements Cloneable {
 
     @NonNull
     @CheckResult
-    public RequestOptions frame(@IntRange(from = 0) long j2) {
+    public RequestOptions frame(@IntRange(from = 0) long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j2)) == null) ? set(VideoDecoder.TARGET_FRAME, Long.valueOf(j2)) : (RequestOptions) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) ? set(VideoDecoder.TARGET_FRAME, Long.valueOf(j)) : (RequestOptions) invokeJ.objValue;
     }
 
     @NonNull

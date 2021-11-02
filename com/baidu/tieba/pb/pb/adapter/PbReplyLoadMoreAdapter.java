@@ -5,32 +5,35 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.r0.k2.k.e.n;
-import c.a.r0.k2.o.b;
+import b.a.r0.k2.f;
+import b.a.r0.k2.h;
+import b.a.r0.k2.i;
+import b.a.r0.k2.j;
+import b.a.r0.k2.u.f.n;
+import b.a.r0.k2.y.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener s;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ReplyLoadMoreViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f54968a;
+        public TextView f52131a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ReplyLoadMoreViewHolder(View view) {
@@ -50,13 +53,13 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
                     return;
                 }
             }
-            this.f54968a = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.f52131a = (TextView) view.findViewById(i.tv_pb_reply_more);
         }
 
         public void onChangeSkin() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setViewTextColor(this.f54968a, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.f52131a, f.CAM_X0109);
             }
         }
 
@@ -65,15 +68,15 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, postData) == null) || postData == null) {
                 return;
             }
-            if (postData.D) {
-                Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_n);
+            if (postData.F) {
+                Drawable drawable = SkinManager.getDrawable(h.icon_emotion_smallarrow_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                this.f54968a.setCompoundDrawables(null, null, drawable, null);
+                this.f52131a.setCompoundDrawables(null, null, drawable, null);
                 return;
             }
-            Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_down);
+            Drawable drawable2 = SkinManager.getDrawable(h.icon_emotion_smallarrow_down);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            this.f54968a.setCompoundDrawables(null, null, drawable2, null);
+            this.f52131a.setCompoundDrawables(null, null, drawable2, null);
         }
     }
 
@@ -99,14 +102,14 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.l.e.a
-    /* renamed from: j0 */
-    public ReplyLoadMoreViewHolder U(ViewGroup viewGroup) {
+    @Override // b.a.e.l.e.a
+    /* renamed from: i0 */
+    public ReplyLoadMoreViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
-            inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.s);
+            View inflate = LayoutInflater.from(this.f2419e).inflate(j.pb_reply_load_more_item, viewGroup, false);
+            inflate.findViewById(i.tv_pb_reply_more).setOnClickListener(this.s);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.onChangeSkin();
             return replyLoadMoreViewHolder;
@@ -115,9 +118,9 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.k2.k.e.n, c.a.e.l.e.a
-    /* renamed from: k0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
+    @Override // b.a.r0.k2.u.f.n, b.a.e.l.e.a
+    /* renamed from: j0 */
+    public View Z(int i2, View view, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, postData, replyLoadMoreViewHolder})) == null) {
@@ -127,7 +130,7 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
         return (View) invokeCommon.objValue;
     }
 
-    public void l0(View.OnClickListener onClickListener) {
+    public void k0(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
             this.s = onClickListener;

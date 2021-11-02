@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaDeleteMsgHttpRequest";
@@ -30,12 +30,12 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     public long mMaxId;
     public List<Long> mMsgIds;
 
-    public IMMediaDeleteMsgHttpRequest(Context context, long j2, long j3, List<Long> list, String str) {
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, long j2, List<Long> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), list, str};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), list, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -48,8 +48,8 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContactor = j2;
-        this.mMaxId = j3;
+        this.mContactor = j;
+        this.mMaxId = j2;
         this.mMsgIds = list;
         this.mListenerKey = str;
     }
@@ -162,12 +162,12 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaDeleteMsgHttpRequest(Context context, long j2, int i2, long j3, String str, long j4, List<Long> list, String str2) {
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, int i2, long j2, String str, long j3, List<Long> list, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), list, str2};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Long.valueOf(j3), list, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -180,12 +180,12 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContactor = j2;
-        this.mMaxId = j4;
+        this.mContactor = j;
+        this.mMaxId = j3;
         this.mMsgIds = list;
         this.mListenerKey = str2;
         this.mContactorType = i2;
-        this.mContactorPauid = j3;
+        this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }
 }

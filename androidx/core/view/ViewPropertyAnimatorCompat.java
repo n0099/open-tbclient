@@ -397,13 +397,13 @@ public final class ViewPropertyAnimatorCompat {
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat setDuration(long j2) {
+    public ViewPropertyAnimatorCompat setDuration(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
             View view = this.mView.get();
             if (view != null) {
-                view.animate().setDuration(j2);
+                view.animate().setDuration(j);
             }
             return this;
         }
@@ -441,13 +441,13 @@ public final class ViewPropertyAnimatorCompat {
         return (ViewPropertyAnimatorCompat) invokeL.objValue;
     }
 
-    public ViewPropertyAnimatorCompat setStartDelay(long j2) {
+    public ViewPropertyAnimatorCompat setStartDelay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
             View view = this.mView.get();
             if (view != null) {
-                view.animate().setStartDelay(j2);
+                view.animate().setStartDelay(j);
             }
             return this;
         }

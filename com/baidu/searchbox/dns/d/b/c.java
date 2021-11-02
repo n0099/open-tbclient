@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayDeque;
 import java.util.Deque;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,8 +29,8 @@ public class c extends b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.dns.d.b.b
-    /* renamed from: J */
-    public Deque<a> E() {
+    /* renamed from: L */
+    public Deque<a> G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ArrayDeque() : (Deque) invokeV.objValue;
@@ -38,8 +38,8 @@ public class c extends b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.dns.d.b.b
-    /* renamed from: K */
-    public Deque<a> F() {
+    /* renamed from: M */
+    public Deque<a> H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new ArrayDeque() : (Deque) invokeV.objValue;

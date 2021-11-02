@@ -1,7 +1,7 @@
 package com.baidu.tbadk.editortools.pb;
 
 import android.graphics.Bitmap;
-import c.a.e.a.f;
+import b.a.e.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,27 +14,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ImageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f48352e;
+    public a f45886e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48353f;
+    public String f45887f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends BdAsyncTask<Object, Integer, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f48354a;
+        public String f45888a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ImageModel f48355b;
+        public final /* synthetic */ ImageModel f45889b;
 
         public a(ImageModel imageModel, String str) {
             Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public class ImageModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48355b = imageModel;
-            this.f48354a = null;
-            this.f48354a = str;
+            this.f45889b = imageModel;
+            this.f45888a = null;
+            this.f45888a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,9 +63,9 @@ public class ImageModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                String str = this.f48354a;
+                String str = this.f45888a;
                 if (str != null && !str.equals(TbConfig.IMAGE_RESIZED_FILE)) {
-                    FileHelper.copyFileByRelativelyPath("photos/" + this.f48354a, TbConfig.IMAGE_RESIZED_FILE);
+                    FileHelper.copyFileByRelativelyPath("photos/" + this.f45888a, TbConfig.IMAGE_RESIZED_FILE);
                 }
                 return BitmapHelper.getRoundedCornerBitmap(BitmapHelper.getSquareBitmap(FileHelper.getImage(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
             }
@@ -76,9 +76,9 @@ public class ImageModel extends BdBaseModel {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f48355b.f48352e = null;
-                if (this.f48355b.mLoadDataCallBack != null) {
-                    this.f48355b.mLoadDataCallBack.c(null);
+                this.f45889b.f45886e = null;
+                if (this.f45889b.mLoadDataCallBack != null) {
+                    this.f45889b.mLoadDataCallBack.c(null);
                 }
                 super.cancel(true);
             }
@@ -98,9 +98,9 @@ public class ImageModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
                 super.onPostExecute((a) bitmap);
-                this.f48355b.f48352e = null;
-                if (this.f48355b.mLoadDataCallBack != null) {
-                    this.f48355b.mLoadDataCallBack.c(bitmap);
+                this.f45889b.f45886e = null;
+                if (this.f45889b.mLoadDataCallBack != null) {
+                    this.f45889b.mLoadDataCallBack.c(bitmap);
                 }
             }
         }
@@ -124,15 +124,15 @@ public class ImageModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48352e = null;
-        this.f48353f = null;
+        this.f45886e = null;
+        this.f45887f = null;
     }
 
     public boolean B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f48353f = str;
+            this.f45887f = str;
             return loadData();
         }
         return invokeL.booleanValue;
@@ -143,7 +143,7 @@ public class ImageModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f48352e;
+            a aVar = this.f45886e;
             if (aVar != null) {
                 aVar.cancel();
                 return true;
@@ -158,12 +158,12 @@ public class ImageModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a aVar = this.f48352e;
+            a aVar = this.f45886e;
             if (aVar != null) {
                 aVar.cancel();
             }
-            a aVar2 = new a(this, this.f48353f);
-            this.f48352e = aVar2;
+            a aVar2 = new a(this, this.f45887f);
+            this.f45886e = aVar2;
             aVar2.execute(new Object[0]);
             return true;
         }

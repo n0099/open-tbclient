@@ -9,7 +9,7 @@ import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.common.memory.PooledByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class EncodedCountingMemoryCacheFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class EncodedCountingMemoryCacheFactory {
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, pooledByteBuffer)) == null) ? pooledByteBuffer.size() : invokeL.intValue;
                 }
-            }, new NativeMemoryCacheTrimStrategy(), supplier);
+            }, new NativeMemoryCacheTrimStrategy(), supplier, null);
             memoryTrimmableRegistry.registerMemoryTrimmable(countingMemoryCache);
             return countingMemoryCache;
         }

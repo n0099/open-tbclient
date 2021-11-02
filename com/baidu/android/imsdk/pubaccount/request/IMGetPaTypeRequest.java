@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,19 +18,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
     public long mPaId;
 
-    public IMGetPaTypeRequest(Context context, String str, long j2) {
+    public IMGetPaTypeRequest(Context context, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2)};
+            Object[] objArr = {context, str, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -40,7 +41,7 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mPaId = j2;
+        this.mPaId = j;
         this.mKey = str;
     }
 
@@ -107,7 +108,7 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
                     optString = Constants.ERROR_MSG_SUCCESS;
                 } else {
                     i5 = jSONObject.getInt("error_code");
-                    optString = jSONObject.optString("error_msg", "");
+                    optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
                 i4 = i6;
                 str = optString;

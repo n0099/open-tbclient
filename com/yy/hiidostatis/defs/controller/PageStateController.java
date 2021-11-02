@@ -12,7 +12,7 @@ import com.yy.hiidostatis.defs.interf.IStatisAPI;
 import com.yy.hiidostatis.inner.util.Util;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PageStateController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,19 +23,19 @@ public class PageStateController {
     public volatile StringBuffer record;
     public volatile IStatisAPI statisAPI;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class PageBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String page;
         public long stime;
 
-        public PageBean(String str, long j2) {
+        public PageBean(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j2)};
+                Object[] objArr = {str, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -46,7 +46,7 @@ public class PageStateController {
                 }
             }
             this.page = str;
-            this.stime = j2;
+            this.stime = j;
         }
 
         public String getPage() {
@@ -68,10 +68,10 @@ public class PageStateController {
             }
         }
 
-        public void setStime(long j2) {
+        public void setStime(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-                this.stime = j2;
+            if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+                this.stime = j;
             }
         }
     }

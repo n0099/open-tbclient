@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.TreeSet;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @NotProguard
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class V8Timer implements V8Engine.V8StatusListener {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,7 +29,7 @@ public class V8Timer implements V8Engine.V8StatusListener {
     public Handler mUiHandler;
     public V8Engine mV8Engine;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class TimeTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,12 +41,12 @@ public class V8Timer implements V8Engine.V8StatusListener {
         public long mTimerPtr;
         public final /* synthetic */ V8Timer this$0;
 
-        public TimeTask(V8Timer v8Timer, long j2, long j3, long j4, boolean z) {
+        public TimeTask(V8Timer v8Timer, long j, long j2, long j3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v8Timer, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)};
+                Object[] objArr = {v8Timer, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -58,9 +58,9 @@ public class V8Timer implements V8Engine.V8StatusListener {
             }
             this.this$0 = v8Timer;
             this.mRemoved = false;
-            this.mTimerID = j2;
-            this.mTimerPtr = j3;
-            this.mTimeOut = j4;
+            this.mTimerID = j;
+            this.mTimerPtr = j2;
+            this.mTimeOut = j3;
             this.mRepeat = z;
             this.mStart = System.currentTimeMillis();
             this.mRemoved = false;
@@ -190,16 +190,16 @@ public class V8Timer implements V8Engine.V8StatusListener {
         this.mActiveTimer = new LinkedHashMap<>(30);
     }
 
-    public synchronized void addTimeTask(long j2, long j3, long j4, boolean z) {
+    public synchronized void addTimeTask(long j, long j2, long j3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
             synchronized (this) {
-                TimeTask timeTask = new TimeTask(this, j2, j3, j4, z);
-                this.mActiveTimer.put(Long.valueOf(j2), timeTask);
+                TimeTask timeTask = new TimeTask(this, j, j2, j3, z);
+                this.mActiveTimer.put(Long.valueOf(j), timeTask);
                 if (this.mV8Engine.isPaused()) {
                     return;
                 }
-                this.mUiHandler.postDelayed(timeTask, j4);
+                this.mUiHandler.postDelayed(timeTask, j3);
             }
         }
     }
@@ -229,9 +229,9 @@ public class V8Timer implements V8Engine.V8StatusListener {
         }
     }
 
-    public native void nativeRemoveTimer(long j2);
+    public native void nativeRemoveTimer(long j);
 
-    public native void nativeTimeOutCallback(long j2);
+    public native void nativeTimeOutCallback(long j);
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.V8StatusListener
     public synchronized void onPause() {
@@ -271,18 +271,18 @@ public class V8Timer implements V8Engine.V8StatusListener {
         }
     }
 
-    public synchronized void removeTimeTask(long j2, long j3) {
+    public synchronized void removeTimeTask(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             synchronized (this) {
-                TimeTask timeTask = this.mActiveTimer.get(Long.valueOf(j2));
+                TimeTask timeTask = this.mActiveTimer.get(Long.valueOf(j));
                 if (timeTask == null) {
                     return;
                 }
                 timeTask.mRemoved = true;
                 this.mUiHandler.removeCallbacks(timeTask);
-                this.mActiveTimer.remove(Long.valueOf(j2));
-                nativeRemoveTimer(j3);
+                this.mActiveTimer.remove(Long.valueOf(j));
+                nativeRemoveTimer(j2);
             }
         }
     }

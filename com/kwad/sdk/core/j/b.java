@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicBoolean f72312b;
+    public final AtomicBoolean f64774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsFragment f72313c;
+    public KsFragment f64775c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f72314d;
+    public String f64776d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(@NonNull KsFragment ksFragment, @NonNull View view, int i2) {
@@ -45,8 +45,8 @@ public class b extends a {
                 return;
             }
         }
-        this.f72312b = new AtomicBoolean(false);
-        this.f72313c = ksFragment;
+        this.f64774b = new AtomicBoolean(false);
+        this.f64775c = ksFragment;
     }
 
     private boolean a(@NonNull KsFragment ksFragment) {
@@ -59,22 +59,22 @@ public class b extends a {
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 666) {
-            KsFragment ksFragment = this.f72313c;
+            KsFragment ksFragment = this.f64775c;
             if (ksFragment == null) {
                 com.kwad.sdk.core.d.a.d("FragmentPageVisibleHelper", "mFragment is null");
                 return;
             }
             if (a(ksFragment)) {
-                this.f72314d = "message fragment";
+                this.f64776d = "message fragment";
             } else {
-                this.f72314d = "message view";
+                this.f64776d = "message view";
                 if (c()) {
                     d();
-                    this.f72307a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
+                    this.f64769a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
                 }
             }
             e();
-            this.f72307a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
+            this.f64769a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
         }
     }
 
@@ -89,7 +89,7 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.f();
-            this.f72313c = null;
+            this.f64775c = null;
         }
     }
 
@@ -103,7 +103,7 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             com.kwad.sdk.core.d.a.c("FragmentPageVisibleHelper", "onFragmentPause");
-            this.f72314d = "onFragmentPause";
+            this.f64776d = "onFragmentPause";
             e();
         }
     }

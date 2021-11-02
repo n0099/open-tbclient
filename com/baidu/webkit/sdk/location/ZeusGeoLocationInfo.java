@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ZeusGeoLocationInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COOR_TYPE_GCJ = "gcj02";
@@ -198,10 +198,10 @@ public class ZeusGeoLocationInfo {
         }
     }
 
-    public void setTime(long j2) {
+    public void setTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.mTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.mTime = j;
         }
     }
 

@@ -23,24 +23,24 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f78472a;
+    public static long f71411a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f78473a;
+        public int f71412a;
 
         /* renamed from: a  reason: collision with other field name */
-        public byte[] f895a;
+        public byte[] f896a;
 
         public a(byte[] bArr, int i2) {
             Interceptable interceptable = $ic;
@@ -57,28 +57,28 @@ public class an {
                     return;
                 }
             }
-            this.f895a = bArr;
-            this.f78473a = i2;
+            this.f896a = bArr;
+            this.f71412a = i2;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f78474a;
+        public long f71413a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Bitmap f896a;
+        public Bitmap f897a;
 
-        public b(Bitmap bitmap, long j2) {
+        public b(Bitmap bitmap, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bitmap, Long.valueOf(j2)};
+                Object[] objArr = {bitmap, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -88,8 +88,8 @@ public class an {
                     return;
                 }
             }
-            this.f896a = bitmap;
-            this.f78474a = j2;
+            this.f897a = bitmap;
+            this.f71413a = j;
         }
     }
 
@@ -312,7 +312,7 @@ public class an {
         b bVar = new b(null, 0L);
         Bitmap b2 = b(context, str);
         if (b2 != null) {
-            bVar.f896a = b2;
+            bVar.f897a = b2;
             return bVar;
         }
         try {
@@ -325,8 +325,8 @@ public class an {
                 com.xiaomi.push.y.a((Closeable) null);
                 return bVar;
             }
-            bVar.f78474a = a2.f78473a;
-            byte[] bArr = a2.f895a;
+            bVar.f71413a = a2.f71412a;
+            byte[] bArr = a2.f896a;
             if (bArr != null) {
                 if (z) {
                     ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(bArr);
@@ -334,7 +334,7 @@ public class an {
                         int a3 = a(context, byteArrayInputStream2);
                         BitmapFactory.Options options = new BitmapFactory.Options();
                         options.inSampleSize = a3;
-                        bVar.f896a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                        bVar.f897a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                         byteArrayInputStream = byteArrayInputStream2;
                     } catch (Exception e3) {
                         e = e3;
@@ -349,10 +349,10 @@ public class an {
                         throw th;
                     }
                 } else {
-                    bVar.f896a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                    bVar.f897a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                 }
             }
-            a(context, a2.f895a, str);
+            a(context, a2.f896a, str);
             com.xiaomi.push.y.a(byteArrayInputStream);
             return bVar;
         } catch (Throwable th2) {
@@ -365,10 +365,10 @@ public class an {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
             if (file.exists()) {
-                if (f78472a == 0) {
-                    f78472a = com.xiaomi.push.x.a(file);
+                if (f71411a == 0) {
+                    f71411a = com.xiaomi.push.x.a(file);
                 }
-                if (f78472a > 15728640) {
+                if (f71411a > 15728640) {
                     try {
                         File[] listFiles = file.listFiles();
                         for (int i2 = 0; i2 < listFiles.length; i2++) {
@@ -379,7 +379,7 @@ public class an {
                     } catch (Exception e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
-                    f78472a = 0L;
+                    f71411a = 0L;
                 }
             }
         }
@@ -430,7 +430,7 @@ public class an {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                     com.xiaomi.push.y.a(bufferedOutputStream2);
                     com.xiaomi.push.y.a(fileOutputStream);
-                    if (f78472a != 0) {
+                    if (f71411a != 0) {
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -447,8 +447,8 @@ public class an {
                 fileOutputStream = null;
             }
             com.xiaomi.push.y.a(fileOutputStream);
-            if (f78472a != 0) {
-                f78472a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
+            if (f71411a != 0) {
+                f71411a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
             }
         }
     }

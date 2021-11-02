@@ -15,12 +15,12 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class BackpressureLatestSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 163080509307634843L;
@@ -130,10 +130,10 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
                 AtomicReference<T> atomicReference = this.current;
                 int i2 = 1;
                 do {
-                    long j2 = 0;
+                    long j = 0;
                     while (true) {
                         boolean z = false;
-                        if (j2 == atomicLong.get()) {
+                        if (j == atomicLong.get()) {
                             break;
                         }
                         boolean z2 = this.done;
@@ -146,7 +146,7 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
                             break;
                         }
                         subscriber.onNext(obj);
-                        j2++;
+                        j++;
                     }
                 } while (i2 != 0);
             }
@@ -191,10 +191,10 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }

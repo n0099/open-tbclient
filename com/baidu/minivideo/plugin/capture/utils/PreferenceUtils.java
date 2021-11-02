@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PreferenceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -143,11 +143,11 @@ public class PreferenceUtils {
         }
     }
 
-    public static void putLong(String str, long j2) {
+    public static void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j) == null) {
             try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putLong(str, j2));
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putLong(str, j));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -218,15 +218,15 @@ public class PreferenceUtils {
         return invokeLI.intValue;
     }
 
-    public static long getLong(String str, long j2) {
+    public static long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j)) == null) {
             try {
-                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getLong(str, j2);
+                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getLong(str, j);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                return j2;
+                return j;
             }
         }
         return invokeLJ.longValue;

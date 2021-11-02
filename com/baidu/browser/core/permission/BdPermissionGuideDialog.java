@@ -11,43 +11,43 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.k.a.i;
-import c.a.k.a.j;
-import c.a.k.a.m;
-import c.a.k.a.n;
+import b.a.k.a.i;
+import b.a.k.a.j;
+import b.a.k.a.m;
+import b.a.k.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BdPermissionGuideDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38575e;
+    public Context f36564e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38576f;
+    public String f36565f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<a> f38577g;
+    public ArrayList<a> f36566g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f38578h;
+    public View.OnClickListener f36567h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Drawable f38579a;
+        public Drawable f36568a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38580b;
+        public String f36569b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -64,22 +64,22 @@ public class BdPermissionGuideDialog extends Dialog {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b extends RelativeLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f38581e;
+        public Context f36570e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f38582f;
+        public ImageView f36571f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f38583g;
+        public TextView f36572g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ BdPermissionGuideDialog f38584h;
+        public final /* synthetic */ BdPermissionGuideDialog f36573h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(BdPermissionGuideDialog bdPermissionGuideDialog, Context context) {
@@ -99,43 +99,43 @@ public class BdPermissionGuideDialog extends Dialog {
                     return;
                 }
             }
-            this.f38584h = bdPermissionGuideDialog;
-            this.f38581e = context;
+            this.f36573h = bdPermissionGuideDialog;
+            this.f36570e = context;
             a();
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ImageView imageView = new ImageView(this.f38581e);
-                this.f38582f = imageView;
+                ImageView imageView = new ImageView(this.f36570e);
+                this.f36571f = imageView;
                 imageView.setId(8192);
                 int dimension = (int) getResources().getDimension(j.core_permission_guide_icon_size);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimension, dimension);
                 layoutParams.addRule(10);
-                addView(this.f38582f, layoutParams);
-                TextView textView = new TextView(this.f38581e);
-                this.f38583g = textView;
+                addView(this.f36571f, layoutParams);
+                TextView textView = new TextView(this.f36570e);
+                this.f36572g = textView;
                 textView.setTextColor(getResources().getColor(i.core_permission_guide_icon_text_color));
-                this.f38583g.setSingleLine();
-                this.f38583g.setGravity(17);
-                this.f38583g.setTextSize(0, getResources().getDimension(j.core_permission_guide_icon_text_size));
+                this.f36572g.setSingleLine();
+                this.f36572g.setGravity(17);
+                this.f36572g.setTextSize(0, getResources().getDimension(j.core_permission_guide_icon_text_size));
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams2.addRule(3, this.f38582f.getId());
+                layoutParams2.addRule(3, this.f36571f.getId());
                 layoutParams2.addRule(14);
                 layoutParams2.topMargin = (int) getResources().getDimension(j.core_permission_guide_icon_text_margin_top);
-                addView(this.f38583g, layoutParams2);
+                addView(this.f36572g, layoutParams2);
             }
         }
 
         public void b(Drawable drawable, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, str) == null) {
-                ImageView imageView = this.f38582f;
+                ImageView imageView = this.f36571f;
                 if (imageView != null) {
                     imageView.setImageDrawable(drawable);
                 }
-                TextView textView = this.f38583g;
+                TextView textView = this.f36572g;
                 if (textView != null) {
                     textView.setText(str);
                 }
@@ -143,28 +143,26 @@ public class BdPermissionGuideDialog extends Dialog {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class c extends RelativeLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f38585e;
+        public Context f36574e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f38586f;
+        public TextView f36575f;
 
         /* renamed from: g  reason: collision with root package name */
-        public b f38587g;
+        public b f36576g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f38588h;
+        public TextView f36577h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ArrayList<a> f38589i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public int f38590j;
+        public ArrayList<a> f36578i;
+        public int j;
         public final /* synthetic */ BdPermissionGuideDialog k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,88 +184,88 @@ public class BdPermissionGuideDialog extends Dialog {
                 }
             }
             this.k = bdPermissionGuideDialog;
-            this.f38590j = 4096;
-            this.f38585e = context;
-            this.f38589i = new ArrayList<>();
+            this.j = 4096;
+            this.f36574e = context;
+            this.f36578i = new ArrayList<>();
         }
 
         public final void b() {
             ArrayList<a> arrayList;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (arrayList = this.f38589i) == null || this.f38585e == null || arrayList.size() == 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (arrayList = this.f36578i) == null || this.f36574e == null || arrayList.size() == 0) {
                 return;
             }
-            TextView textView = new TextView(this.f38585e);
-            this.f38586f = textView;
-            textView.setText(this.k.f38576f);
-            this.f38586f.setSingleLine();
-            TextView textView2 = this.f38586f;
-            int i2 = this.f38590j;
-            this.f38590j = i2 + 1;
+            TextView textView = new TextView(this.f36574e);
+            this.f36575f = textView;
+            textView.setText(this.k.f36565f);
+            this.f36575f.setSingleLine();
+            TextView textView2 = this.f36575f;
+            int i2 = this.j;
+            this.j = i2 + 1;
             textView2.setId(i2);
-            this.f38586f.setTextSize(0, getResources().getDimension(j.core_permission_guide_info_size));
-            this.f38586f.setTextColor(getResources().getColor(i.core_permission_dialog_info_color));
+            this.f36575f.setTextSize(0, getResources().getDimension(j.core_permission_guide_info_size));
+            this.f36575f.setTextColor(getResources().getColor(i.core_permission_dialog_info_color));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(14);
             layoutParams.addRule(10);
-            addView(this.f38586f, layoutParams);
-            int size = this.f38589i.size();
+            addView(this.f36575f, layoutParams);
+            int size = this.f36578i.size();
             int dimension = (int) getResources().getDimension(j.core_permission_guide_icon_margin);
             int dimension2 = (int) getResources().getDimension(j.core_permission_guide_icon_size);
             int dimension3 = (int) getResources().getDimension(j.core_permission_guide_icon_margin_top);
-            b bVar = new b(this.k, this.f38585e);
-            this.f38587g = bVar;
-            int i3 = this.f38590j;
-            this.f38590j = i3 + 1;
+            b bVar = new b(this.k, this.f36574e);
+            this.f36576g = bVar;
+            int i3 = this.j;
+            this.j = i3 + 1;
             bVar.setId(i3);
-            this.f38587g.b(this.f38589i.get(0).f38579a, this.f38589i.get(0).f38580b);
+            this.f36576g.b(this.f36578i.get(0).f36568a, this.f36578i.get(0).f36569b);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimension2, -2);
             layoutParams2.topMargin = dimension3;
-            layoutParams2.leftMargin = ((((int) this.f38585e.getResources().getDimension(j.core_permission_dialog_width)) - ((size - 1) * dimension)) - (dimension2 * size)) / 2;
-            layoutParams2.addRule(3, this.f38586f.getId());
-            addView(this.f38587g, layoutParams2);
+            layoutParams2.leftMargin = ((((int) this.f36574e.getResources().getDimension(j.core_permission_dialog_width)) - ((size - 1) * dimension)) - (dimension2 * size)) / 2;
+            layoutParams2.addRule(3, this.f36575f.getId());
+            addView(this.f36576g, layoutParams2);
             for (int i4 = 1; i4 < size; i4++) {
-                b bVar2 = new b(this.k, this.f38585e);
-                int i5 = this.f38590j;
-                this.f38590j = i5 + 1;
+                b bVar2 = new b(this.k, this.f36574e);
+                int i5 = this.j;
+                this.j = i5 + 1;
                 bVar2.setId(i5);
-                bVar2.b(this.f38589i.get(i4).f38579a, this.f38589i.get(i4).f38580b);
+                bVar2.b(this.f36578i.get(i4).f36568a, this.f36578i.get(i4).f36569b);
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(dimension2, -2);
                 layoutParams3.topMargin = dimension3;
                 layoutParams3.leftMargin = dimension;
-                layoutParams3.addRule(1, this.f38590j - 2);
-                layoutParams3.addRule(3, this.f38586f.getId());
+                layoutParams3.addRule(1, this.j - 2);
+                layoutParams3.addRule(3, this.f36575f.getId());
                 addView(bVar2, layoutParams3);
             }
-            View view = new View(this.f38585e);
-            int i6 = this.f38590j;
-            this.f38590j = i6 + 1;
+            View view = new View(this.f36574e);
+            int i6 = this.j;
+            this.j = i6 + 1;
             view.setId(i6);
             view.setBackgroundColor(getResources().getColor(i.core_permission_next_step_top_divider_color));
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams((int) getResources().getDimension(j.core_permission_guide_dialog_button_width), (int) getResources().getDimension(j.core_permission_guide_dialog_divider_height));
-            layoutParams4.addRule(3, this.f38587g.getId());
+            layoutParams4.addRule(3, this.f36576g.getId());
             layoutParams4.topMargin = getResources().getDimensionPixelSize(j.core_permission_go_setting_button_margin_top);
             addView(view, layoutParams4);
-            TextView textView3 = new TextView(this.f38585e);
-            this.f38588h = textView3;
-            int i7 = this.f38590j;
-            this.f38590j = i7 + 1;
+            TextView textView3 = new TextView(this.f36574e);
+            this.f36577h = textView3;
+            int i7 = this.j;
+            this.j = i7 + 1;
             textView3.setId(i7);
-            this.f38588h.setOnClickListener(this.k.f38578h);
-            this.f38588h.setText(getResources().getString(m.core_permission_guide_next_step));
-            this.f38588h.setTextSize(0, getResources().getDimension(j.core_permission_guide_title_size));
-            this.f38588h.setTextColor(getResources().getColor(i.core_permission_next_step_text_color));
-            this.f38588h.setGravity(17);
+            this.f36577h.setOnClickListener(this.k.f36567h);
+            this.f36577h.setText(getResources().getString(m.core_permission_guide_next_step));
+            this.f36577h.setTextSize(0, getResources().getDimension(j.core_permission_guide_title_size));
+            this.f36577h.setTextColor(getResources().getColor(i.core_permission_next_step_text_color));
+            this.f36577h.setGravity(17);
             RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams((int) getResources().getDimension(j.core_permission_guide_dialog_button_width), (int) getResources().getDimension(j.core_permission_guide_dialog_button_height));
             layoutParams5.addRule(3, view.getId());
             layoutParams5.addRule(14);
-            addView(this.f38588h, layoutParams5);
+            addView(this.f36577h, layoutParams5);
         }
 
         public void c(ArrayList<a> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                this.f38589i = arrayList;
+                this.f36578i = arrayList;
             }
         }
     }
@@ -291,7 +289,7 @@ public class BdPermissionGuideDialog extends Dialog {
                 return;
             }
         }
-        this.f38575e = context;
+        this.f36564e = context;
     }
 
     @Override // android.app.Dialog
@@ -299,14 +297,14 @@ public class BdPermissionGuideDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            if (c.a.k.a.q.a.c()) {
+            if (b.a.k.a.q.a.c()) {
                 requestWindowFeature(1);
-                c.a.k.a.q.a.b(getWindow().getDecorView());
+                b.a.k.a.q.a.b(getWindow().getDecorView());
             }
-            c cVar = new c(this, this.f38575e);
-            cVar.c(this.f38577g);
+            c cVar = new c(this, this.f36564e);
+            cVar.c(this.f36566g);
             cVar.b();
-            setContentView(cVar, new ViewGroup.LayoutParams((int) this.f38575e.getResources().getDimension(j.core_permission_dialog_width), (int) this.f38575e.getResources().getDimension(j.core_permission_guide_dialog_height)));
+            setContentView(cVar, new ViewGroup.LayoutParams((int) this.f36564e.getResources().getDimension(j.core_permission_dialog_width), (int) this.f36564e.getResources().getDimension(j.core_permission_guide_dialog_height)));
             Window window = getWindow();
             if (window != null) {
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -320,12 +318,12 @@ public class BdPermissionGuideDialog extends Dialog {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f38575e = null;
-            this.f38578h = null;
-            ArrayList<a> arrayList = this.f38577g;
+            this.f36564e = null;
+            this.f36567h = null;
+            ArrayList<a> arrayList = this.f36566g;
             if (arrayList != null) {
                 arrayList.clear();
-                this.f38577g = null;
+                this.f36566g = null;
             }
         }
     }
@@ -333,21 +331,21 @@ public class BdPermissionGuideDialog extends Dialog {
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f38576f = str;
+            this.f36565f = str;
         }
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f38578h = onClickListener;
+            this.f36567h = onClickListener;
         }
     }
 
     public void setPermissionList(ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f38577g = arrayList;
+            this.f36566g = arrayList;
         }
     }
 

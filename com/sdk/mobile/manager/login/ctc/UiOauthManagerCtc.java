@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.module.manager.SDKManager;
 import com.sdk.mobile.b.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UiOauthManagerCtc extends SDKManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile UiOauthManagerCtc manager;

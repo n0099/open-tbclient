@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CustomerServiceMenu extends BdMenu implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHARGE_RECORD = 100003;

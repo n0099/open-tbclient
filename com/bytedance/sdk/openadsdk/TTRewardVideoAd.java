@@ -1,13 +1,12 @@
 package com.bytedance.sdk.openadsdk;
 
 import android.app.Activity;
-import androidx.annotation.MainThread;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface TTRewardVideoAd {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface RewardAdInteractionListener {
         void onAdClose();
 
@@ -24,6 +23,8 @@ public interface TTRewardVideoAd {
         void onVideoError();
     }
 
+    long getExpirationTimestamp();
+
     int getInteractionType();
 
     Map<String, Object> getMediaExtraInfo();
@@ -34,9 +35,10 @@ public interface TTRewardVideoAd {
 
     void setRewardAdInteractionListener(RewardAdInteractionListener rewardAdInteractionListener);
 
+    void setRewardPlayAgainInteractionListener(RewardAdInteractionListener rewardAdInteractionListener);
+
     void setShowDownLoadBar(boolean z);
 
-    @MainThread
     void showRewardVideoAd(Activity activity);
 
     void showRewardVideoAd(Activity activity, TTAdConstant.RitScenes ritScenes, String str);

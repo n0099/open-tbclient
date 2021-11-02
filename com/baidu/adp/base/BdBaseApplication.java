@@ -8,10 +8,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.b;
-import c.a.e.a.h;
-import c.a.e.e.p.d;
-import c.a.e.g.c;
+import b.a.e.a.b;
+import b.a.e.a.h;
+import b.a.e.e.p.d;
+import b.a.e.g.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BdBaseApplication extends Application {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
@@ -47,13 +47,13 @@ public class BdBaseApplication extends Application {
     public long mSmallFlowInterval;
     public long mStartSmallFlowTime;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdBaseApplication f36276a;
+        public final /* synthetic */ BdBaseApplication f34362a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdBaseApplication bdBaseApplication, Looper looper) {
@@ -73,14 +73,14 @@ public class BdBaseApplication extends Application {
                     return;
                 }
             }
-            this.f36276a = bdBaseApplication;
+            this.f34362a = bdBaseApplication;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f36276a.handleInitMessage(message);
+                this.f34362a.handleInitMessage(message);
             }
         }
     }
@@ -146,7 +146,7 @@ public class BdBaseApplication extends Application {
     private void initPlugin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            c.a.e.h.i.a.d().e();
+            b.a.e.h.i.a.d().e();
         }
     }
 
@@ -266,8 +266,8 @@ public class BdBaseApplication extends Application {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Resources b2 = h.a().b();
-            return (b2 == null || !this.mIsPluginResourceOpen) ? super.getResources() : b2;
+            Resources resources = h.a().getResources();
+            return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
         }
         return (Resources) invokeV.objValue;
     }
@@ -324,7 +324,7 @@ public class BdBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, application) == null) {
             this.mAppInitHandler = new a(this, Looper.getMainLooper());
-            h.a().d(super.getResources());
+            h.a().c(super.getResources());
             initBdBaseApp(application);
             super.onCreate();
         }
@@ -358,24 +358,24 @@ public class BdBaseApplication extends Application {
         }
     }
 
-    public void setSmallFlowInterval(long j2) {
+    public void setSmallFlowInterval(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.mSmallFlowInterval = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.mSmallFlowInterval = j;
         }
     }
 
-    public void setStartSmallFlowTime(long j2) {
+    public void setStartSmallFlowTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.mStartSmallFlowTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            this.mStartSmallFlowTime = j;
         }
     }
 
-    private boolean checkInterrupt(long j2) {
+    private boolean checkInterrupt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 7, 19, 20, 0);
             long timeInMillis = calendar.getTimeInMillis();
@@ -388,7 +388,7 @@ public class BdBaseApplication extends Application {
             calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 20, 0, 0);
             long timeInMillis5 = calendar.getTimeInMillis();
             calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 20, 30, 0);
-            return (timeInMillis <= j2 && j2 <= timeInMillis2) || (timeInMillis3 <= j2 && j2 <= timeInMillis4) || (timeInMillis5 <= j2 && j2 <= calendar.getTimeInMillis());
+            return (timeInMillis <= j && j <= timeInMillis2) || (timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= calendar.getTimeInMillis());
         }
         return invokeJ.booleanValue;
     }

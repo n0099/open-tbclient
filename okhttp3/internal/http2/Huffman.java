@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Huffman {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CODES;
@@ -149,23 +149,23 @@ public class Huffman {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteString, bufferedSink) == null) {
             int i2 = 0;
-            long j2 = 0;
+            long j = 0;
             byte b2 = 0;
             while (i2 < byteString.size()) {
                 int i3 = byteString.getByte(i2) & 255;
                 int i4 = CODES[i3];
                 byte b3 = CODE_LENGTHS[i3];
-                j2 = (j2 << b3) | i4;
+                j = (j << b3) | i4;
                 int i5 = b2 + b3;
                 while (i5 >= 8) {
                     i5 = (i5 == 1 ? 1 : 0) - 8;
-                    bufferedSink.writeByte((int) (j2 >> i5));
+                    bufferedSink.writeByte((int) (j >> i5));
                 }
                 i2++;
                 b2 = i5;
             }
             if (b2 > 0) {
-                bufferedSink.writeByte((int) ((255 >>> b2) | (j2 << (8 - b2))));
+                bufferedSink.writeByte((int) ((255 >>> b2) | (j << (8 - b2))));
             }
         }
     }
@@ -174,16 +174,16 @@ public class Huffman {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteString)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (int i2 = 0; i2 < byteString.size(); i2++) {
-                j2 += CODE_LENGTHS[byteString.getByte(i2) & 255];
+                j += CODE_LENGTHS[byteString.getByte(i2) & 255];
             }
-            return (int) ((j2 + 7) >> 3);
+            return (int) ((j + 7) >> 3);
         }
         return invokeL.intValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Node {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

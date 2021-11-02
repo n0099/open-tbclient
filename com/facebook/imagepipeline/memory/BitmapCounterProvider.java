@@ -9,13 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.infer.annotation.ThreadSafe;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BitmapCounterProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long KB = 1024;
     public static final int MAX_BITMAP_TOTAL_SIZE;
     public static final long MB = 1048576;
-    public static final Class<?> TAG;
     public static volatile BitmapCounter sBitmapCounter;
     public static int sMaxBitmapCount;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +32,6 @@ public class BitmapCounterProvider {
                 return;
             }
         }
-        TAG = BitmapCounterProvider.class;
         MAX_BITMAP_TOTAL_SIZE = getMaxSizeHardCap();
         sMaxBitmapCount = 384;
     }

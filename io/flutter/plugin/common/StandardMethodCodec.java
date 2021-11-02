@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class StandardMethodCodec implements MethodCodec {
     public static /* synthetic */ Interceptable $ic;
     public static final StandardMethodCodec INSTANCE;

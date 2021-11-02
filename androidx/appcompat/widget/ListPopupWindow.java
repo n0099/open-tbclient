@@ -426,10 +426,10 @@ public class ListPopupWindow implements ShowableListMenu {
                     }
 
                     @Override // android.widget.AdapterView.OnItemSelectedListener
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j2) {
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j) {
                         DropDownListView dropDownListView;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) || i5 == -1 || (dropDownListView = this.this$0.mDropDownList) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) || i5 == -1 || (dropDownListView = this.this$0.mDropDownList) == null) {
                             return;
                         }
                         dropDownListView.setListSelectionHidden(false);

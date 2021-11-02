@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bp implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77761a;
+    public Context f70724a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.clientreport.processor.c f162a;
+    public com.xiaomi.clientreport.processor.c f163a;
 
     public bp() {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class bp implements Runnable {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f77761a = context;
+            this.f70724a = context;
         }
     }
 
     public void a(com.xiaomi.clientreport.processor.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f162a = cVar;
+            this.f163a = cVar;
         }
     }
 
@@ -55,18 +55,18 @@ public class bp implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                if (this.f162a != null) {
-                    this.f162a.a();
+                if (this.f163a != null) {
+                    this.f163a.a();
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
-                if (this.f162a instanceof IEventProcessor) {
-                    a2 = bt.a(this.f77761a);
+                if (this.f163a instanceof IEventProcessor) {
+                    a2 = bt.a(this.f70724a);
                     str = "event_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
-                } else if (!(this.f162a instanceof IPerfProcessor)) {
+                } else if (!(this.f163a instanceof IPerfProcessor)) {
                     return;
                 } else {
-                    a2 = bt.a(this.f77761a);
+                    a2 = bt.a(this.f70724a);
                     str = "perf_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
                 }

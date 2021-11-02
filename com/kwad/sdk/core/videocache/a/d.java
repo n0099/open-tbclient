@@ -15,19 +15,19 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.videocache.a.d$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a implements Comparator<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,11 +50,11 @@ public class d {
             this();
         }
 
-        private int a(long j2, long j3) {
+        private int a(long j, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-                int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
                 if (i2 < 0) {
                     return -1;
                 }
@@ -126,10 +126,10 @@ public class d {
                 return;
             }
             RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rwd");
-            long j2 = length - 1;
-            randomAccessFile.seek(j2);
+            long j = length - 1;
+            randomAccessFile.seek(j);
             byte readByte = randomAccessFile.readByte();
-            randomAccessFile.seek(j2);
+            randomAccessFile.seek(j);
             randomAccessFile.write(readByte);
             randomAccessFile.close();
         }

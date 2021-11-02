@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PickEmotionView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionView f54703e;
+    public EmotionView f51876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f54704f;
+    public ImageView f51877f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PickEmotionView(Context context) {
@@ -50,28 +50,28 @@ public class PickEmotionView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f54703e = new EmotionView(getContext());
-            addView(this.f54703e, new FrameLayout.LayoutParams(-1, -1));
-            this.f54704f = new ImageView(getContext());
+            this.f51876e = new EmotionView(getContext());
+            addView(this.f51876e, new FrameLayout.LayoutParams(-1, -1));
+            this.f51877f = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
             layoutParams.topMargin = l.g(getContext(), R.dimen.ds8);
             layoutParams.rightMargin = l.g(getContext(), R.dimen.ds8);
-            addView(this.f54704f, layoutParams);
+            addView(this.f51877f, layoutParams);
         }
     }
 
     public EmotionView getEmotionView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54703e : (EmotionView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51876e : (EmotionView) invokeV.objValue;
     }
 
     public int getLoadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            EmotionView emotionView = this.f54703e;
+            EmotionView emotionView = this.f51876e;
             if (emotionView != null) {
                 return emotionView.getLoadProcType();
             }
@@ -84,9 +84,9 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                SkinManager.setBackgroundResource(this.f54704f, R.drawable.ic_post_image_selected_s);
+                SkinManager.setBackgroundResource(this.f51877f, R.drawable.ic_post_image_selected_s);
             } else {
-                SkinManager.setBackgroundResource(this.f54704f, R.drawable.ic_post_image_selected_n);
+                SkinManager.setBackgroundResource(this.f51877f, R.drawable.ic_post_image_selected_n);
             }
         }
     }
@@ -94,9 +94,9 @@ public class PickEmotionView extends FrameLayout {
     public void setData(EmotionImageData emotionImageData, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i2) == null) {
-            this.f54703e.setLoadProcType(i2);
-            this.f54703e.enablePreview();
-            this.f54703e.loadData(emotionImageData);
+            this.f51876e.setLoadProcType(i2);
+            this.f51876e.enablePreview();
+            this.f51876e.loadData(emotionImageData);
         }
     }
 

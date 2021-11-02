@@ -4,11 +4,11 @@ import java.util.Arrays;
 import kotlin.KotlinNullPointerException;
 import kotlin.SinceKotlin;
 import kotlin.UninitializedPropertyAccessException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Intrinsics {
 
     @SinceKotlin(version = "1.4")
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Kotlin {
     }
 
@@ -81,8 +81,8 @@ public class Intrinsics {
         return i2 == i3 ? 0 : 1;
     }
 
-    public static int compare(long j2, long j3) {
-        int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+    public static int compare(long j, long j2) {
+        int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
         if (i2 < 0) {
             return -1;
         }

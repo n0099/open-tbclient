@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public final class d {
             try {
                 if (!com.alipay.security.mobile.module.a.a.a(str)) {
                     JSONObject jSONObject = new JSONObject(str);
-                    return new c(jSONObject.optString("apdid"), jSONObject.optString("deviceInfoHash"), jSONObject.optString("timestamp"), jSONObject.optString("tid"), jSONObject.optString(com.alipay.sdk.cons.b.f35977g));
+                    return new c(jSONObject.optString("apdid"), jSONObject.optString("deviceInfoHash"), jSONObject.optString("timestamp"), jSONObject.optString("tid"), jSONObject.optString(com.alipay.sdk.cons.b.f34078g));
                 }
             } catch (Exception e2) {
                 com.alipay.apmobilesecuritysdk.c.a.a(e2);
@@ -53,11 +53,11 @@ public final class d {
             synchronized (d.class) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("apdid", cVar.f35818a);
-                    jSONObject.put("deviceInfoHash", cVar.f35819b);
-                    jSONObject.put("timestamp", cVar.f35820c);
-                    jSONObject.put("tid", cVar.f35821d);
-                    jSONObject.put(com.alipay.sdk.cons.b.f35977g, cVar.f35822e);
+                    jSONObject.put("apdid", cVar.f33924a);
+                    jSONObject.put("deviceInfoHash", cVar.f33925b);
+                    jSONObject.put("timestamp", cVar.f33926c);
+                    jSONObject.put("tid", cVar.f33927d);
+                    jSONObject.put(com.alipay.sdk.cons.b.f34078g, cVar.f33928e);
                     String jSONObject2 = jSONObject.toString();
                     com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v4", "key_deviceid_v4", jSONObject2);
                     com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v4", "key_wxcasxx_v4", jSONObject2);

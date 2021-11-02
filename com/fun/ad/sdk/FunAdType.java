@@ -4,11 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class FunAdType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_FEED = "baiduFeed";
+    public static final String BAIDU_FULLSCREEN_VIDEO = "baiduFullScreenVideo";
     public static final String BAIDU_NATIVE_CPU = "baiduNativeCpu";
+    public static final String BAIDU_REWARD_VIDEO = "baiduRewardVideo";
     public static final String BAIDU_SPLASH = "baiduSplash";
     public static final String CSJ_BANNER_EXPRESS = "csjBannerExpress";
     public static final String CSJ_BANNER_NATIVE = "csjBannerNative";
@@ -35,6 +37,11 @@ public final class FunAdType {
     public static final String JY_NATIVE = "jyNative";
     public static final String JY_REWARD_VIDEO = "jyRewardVideo";
     public static final String JY_SPLASH = "jySplash";
+    public static final String KDS_DRAW_VIDEO = "kdsDrawVideo";
+    public static final String KDS_FULLSCREEN_VIDEO = "kdsFullscreenVideo";
+    public static final String KDS_NATIVE_VIDEO = "kdsNativeVideo";
+    public static final String KDS_REWARD_VIDEO = "kdsRewardVideo";
+    public static final String KDS_REWARD_VIDEO2 = "kdsRewardVideo2";
     public static final String KS_DRAW_VIDEO = "ksDrawVideo";
     public static final String KS_FULLSCREEN_VIDEO = "ksFullscreenVideo";
     public static final String KS_INTERSTITIAL_EXPRESS = "ksInterstitialExpress";

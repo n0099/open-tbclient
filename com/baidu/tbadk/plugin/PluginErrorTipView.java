@@ -6,13 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.e.a.f;
+import b.a.e.a.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -25,36 +26,34 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PluginErrorTipView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f48486e;
+    public TextView f46012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f48487f;
+    public Context f46013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<PluginStatus> f48488g;
+    public LinkedList<PluginStatus> f46014g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashSet<Integer> f48489h;
+    public HashSet<Integer> f46015h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MessageListener<?> f48490i;
+    public MessageListener<?> f46016i;
+    public MessageListener<?> j;
 
-    /* renamed from: j  reason: collision with root package name */
-    public MessageListener<?> f48491j;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipView f48492a;
+        public final /* synthetic */ PluginErrorTipView f46017a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PluginErrorTipView pluginErrorTipView, int i2) {
@@ -74,7 +73,7 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
                     return;
                 }
             }
-            this.f48492a = pluginErrorTipView;
+            this.f46017a = pluginErrorTipView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,19 +81,19 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PluginStatus)) {
-                this.f48492a.f48488g.add((PluginStatus) customResponsedMessage.getData());
-                this.f48492a.e();
+                this.f46017a.f46014g.add((PluginStatus) customResponsedMessage.getData());
+                this.f46017a.update();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipView f48493a;
+        public final /* synthetic */ PluginErrorTipView f46018a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PluginErrorTipView pluginErrorTipView, int i2) {
@@ -114,7 +113,7 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
                     return;
                 }
             }
-            this.f48493a = pluginErrorTipView;
+            this.f46018a = pluginErrorTipView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,27 +122,27 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PluginStatus)) {
                 PluginStatus pluginStatus = (PluginStatus) customResponsedMessage.getData();
-                synchronized (this.f48493a.f48488g) {
-                    Iterator it = this.f48493a.f48488g.iterator();
+                synchronized (this.f46018a.f46014g) {
+                    Iterator it = this.f46018a.f46014g.iterator();
                     while (it.hasNext()) {
                         PluginStatus pluginStatus2 = (PluginStatus) it.next();
                         if (StringHelper.equals(pluginStatus.getPkgName(), pluginStatus2.getPkgName())) {
-                            this.f48493a.f48488g.remove(pluginStatus2);
+                            this.f46018a.f46014g.remove(pluginStatus2);
                         }
                     }
                 }
-                this.f48493a.e();
+                this.f46018a.update();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipView f48494e;
+        public final /* synthetic */ PluginErrorTipView f46019e;
 
         public c(PluginErrorTipView pluginErrorTipView) {
             Interceptable interceptable = $ic;
@@ -160,17 +159,17 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
                     return;
                 }
             }
-            this.f48494e = pluginErrorTipView;
+            this.f46019e = pluginErrorTipView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f48494e.f48488g.size() > 0) {
-                    this.f48494e.f48489h.add(Integer.valueOf(((PluginStatus) this.f48494e.f48488g.getLast()).getErrorCode()));
+                if (this.f46019e.f46014g.size() > 0) {
+                    this.f46019e.f46015h.add(Integer.valueOf(((PluginStatus) this.f46019e.f46014g.getLast()).getErrorCode()));
                 }
-                this.f48494e.setVisibility(8);
+                this.f46019e.setVisibility(8);
             }
         }
     }
@@ -196,40 +195,41 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public final void d(Context context, AttributeSet attributeSet) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void update() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f48487f = context;
-            LayoutInflater.from(context).inflate(R.layout.plugin_error_tip_view, this);
-            this.f48486e = (TextView) findViewById(R.id.plugin_error_guide);
-            findViewById(R.id.plugin_error_close).setOnClickListener(new c(this));
-            setOnClickListener(this);
-            List<PluginStatus> a2 = c.a.e.h.j.h.a.b().a();
-            if (a2 != null && a2.size() > 0) {
-                this.f48488g.addAll(a2);
-                e();
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            if (this.f46014g.size() > 0) {
+                PluginStatus last = this.f46014g.getLast();
+                if (this.f46015h.contains(Integer.valueOf(last.getErrorCode()))) {
+                    return;
+                }
+                if (last.getErrorCode() >= 100) {
+                    b.a.e.h.h.a.b().i("plugin_load_tip", last.getPkgName());
+                } else {
+                    b.a.e.h.h.a.b().i("plugin_install_tip", last.getPkgName());
+                }
+                TextView textView = this.f46012e;
+                textView.setText(last.getErrorMsg() + getResources().getString(R.string.pluginstatus_click_detail));
+                setVisibility(0);
                 return;
             }
             setVisibility(8);
         }
     }
 
-    public final void e() {
+    public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f48488g.size() > 0) {
-                PluginStatus last = this.f48488g.getLast();
-                if (this.f48489h.contains(Integer.valueOf(last.getErrorCode()))) {
-                    return;
-                }
-                if (last.getErrorCode() >= 100) {
-                    c.a.e.h.h.a.b().i("plugin_load_tip", last.getPkgName());
-                } else {
-                    c.a.e.h.h.a.b().i("plugin_install_tip", last.getPkgName());
-                }
-                TextView textView = this.f48486e;
-                textView.setText(last.getErrorMsg() + getResources().getString(R.string.pluginstatus_click_detail));
-                setVisibility(0);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
+            this.f46013f = context;
+            LayoutInflater.from(context).inflate(R.layout.plugin_error_tip_view, this);
+            this.f46012e = (TextView) findViewById(R.id.plugin_error_guide);
+            findViewById(R.id.plugin_error_close).setOnClickListener(new c(this));
+            setOnClickListener(this);
+            List<PluginStatus> a2 = b.a.e.h.j.h.a.b().a();
+            if (a2 != null && a2.size() > 0) {
+                this.f46014g.addAll(a2);
+                update();
                 return;
             }
             setVisibility(8);
@@ -239,17 +239,17 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(2000991, this.f48490i);
-            MessageManager.getInstance().registerListener(2000992, this.f48491j);
-            MessageManager.getInstance().registerListener(2000990, this.f48490i);
+            MessageManager.getInstance().registerListener(2000991, this.f46016i);
+            MessageManager.getInstance().registerListener(2000992, this.j);
+            MessageManager.getInstance().registerListener(2000990, this.f46016i);
         }
     }
 
     public void onChangeSkinType(f<?> fVar, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, fVar, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, fVar, i2) == null) {
             if (fVar instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) fVar;
                 tbPageContext.getLayoutMode().k(i2 == 1);
@@ -263,27 +263,27 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     public void onClick(View view) {
         LinkedList<PluginStatus> linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (linkedList = this.f48488g) == null || linkedList.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (linkedList = this.f46014g) == null || linkedList.isEmpty()) {
             return;
         }
-        PluginStatus last = this.f48488g.getLast();
-        PluginErrorTipActivity.startByPlugiStatus(this.f48487f, last);
-        this.f48488g.clear();
-        e();
+        PluginStatus last = this.f46014g.getLast();
+        PluginErrorTipActivity.startByPlugiStatus(this.f46013f, last);
+        this.f46014g.clear();
+        update();
         if (last.getErrorCode() >= 100) {
-            c.a.e.h.h.a.b().i("plugin_load_tipclick", last.getPkgName());
+            b.a.e.h.h.a.b().i("plugin_load_tipclick", last.getPkgName());
         } else {
-            c.a.e.h.h.a.b().i("plugin_install_tipclick", last.getPkgName());
+            b.a.e.h.h.a.b().i("plugin_install_tipclick", last.getPkgName());
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.f48490i);
-            MessageManager.getInstance().unRegisterListener(this.f48491j);
+            MessageManager.getInstance().unRegisterListener(this.f46016i);
+            MessageManager.getInstance().unRegisterListener(this.j);
         }
     }
 
@@ -327,10 +327,10 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
                 return;
             }
         }
-        this.f48488g = new LinkedList<>();
-        this.f48489h = new HashSet<>(10);
-        this.f48490i = new a(this, 0);
-        this.f48491j = new b(this, 0);
+        this.f46014g = new LinkedList<>();
+        this.f46015h = new HashSet<>(10);
+        this.f46016i = new a(this, 0);
+        this.j = new b(this, 0);
         d(context, attributeSet);
     }
 }

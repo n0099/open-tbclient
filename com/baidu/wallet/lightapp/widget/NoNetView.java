@@ -19,31 +19,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NoNetView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ERROR_SSL_GENERAL = 5000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Animation f62397a;
+    public Animation f59273a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animation f62398b;
+    public Animation f59274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62399c;
+    public String f59275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f62400d;
+    public a f59276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f62401e;
+    public TextView f59277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62402f;
+    public int f59278f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void doNetworkTomography(String str, Map<String, String> map);
 
@@ -84,8 +84,8 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
                 return;
             }
         }
-        this.f62399c = "";
-        this.f62402f = Integer.MIN_VALUE;
+        this.f59275c = "";
+        this.f59278f = Integer.MIN_VALUE;
         a();
         b();
     }
@@ -93,14 +93,14 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f62397a = ResUtils.getAnimation(getContext(), "wallet_base_slide_from_right");
-            this.f62398b = ResUtils.getAnimation(getContext(), "wallet_base_slide_to_right");
-            this.f62397a.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.lightapp.widget.NoNetView.1
+            this.f59273a = ResUtils.getAnimation(getContext(), "wallet_base_slide_from_right");
+            this.f59274b = ResUtils.getAnimation(getContext(), "wallet_base_slide_to_right");
+            this.f59273a.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.lightapp.widget.NoNetView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NoNetView f62403a;
+                public final /* synthetic */ NoNetView f59279a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -117,14 +117,14 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f62403a = this;
+                    this.f59279a = this;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        this.f62403a.setVisibility(0);
+                        this.f59279a.setVisibility(0);
                     }
                 }
 
@@ -142,12 +142,12 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
                     }
                 }
             });
-            this.f62398b.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.lightapp.widget.NoNetView.2
+            this.f59274b.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.lightapp.widget.NoNetView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NoNetView f62404a;
+                public final /* synthetic */ NoNetView f59280a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -164,14 +164,14 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f62404a = this;
+                    this.f59280a = this;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        this.f62404a.setVisibility(8);
+                        this.f59280a.setVisibility(8);
                     }
                 }
 
@@ -198,14 +198,14 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_langbridge_no_net_error_layout"), this);
             findViewById(ResUtils.id(getContext(), "reload_btn")).setOnClickListener(this);
             findViewById(ResUtils.id(getContext(), "network_tomography_btn")).setOnClickListener(this);
-            this.f62401e = (TextView) findViewById(ResUtils.id(getContext(), "failure_cause_errcode"));
+            this.f59277e = (TextView) findViewById(ResUtils.id(getContext(), "failure_cause_errcode"));
         }
     }
 
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f62399c = "";
+            this.f59275c = "";
             setVisibility(8);
         }
     }
@@ -231,32 +231,32 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
             return;
         }
         int id = view.getId();
-        if (id == ResUtils.id(getContext(), "reload_btn") && (aVar = this.f62400d) != null) {
-            aVar.onReloadClick(this.f62399c);
+        if (id == ResUtils.id(getContext(), "reload_btn") && (aVar = this.f59276d) != null) {
+            aVar.onReloadClick(this.f59275c);
         }
-        if (id != ResUtils.id(getContext(), "network_tomography_btn") || this.f62400d == null) {
+        if (id != ResUtils.id(getContext(), "network_tomography_btn") || this.f59276d == null) {
             return;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("errorCode", String.valueOf(this.f62402f));
-        this.f62400d.doNetworkTomography(this.f62399c, hashMap);
+        hashMap.put("errorCode", String.valueOf(this.f59278f));
+        this.f59276d.doNetworkTomography(this.f59275c, hashMap);
     }
 
     public void setFailureCause(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (this.f62401e != null) {
-                this.f62401e.setText(String.format(ResUtils.getString(getContext(), "wallet_base_no_network_error_code"), Integer.valueOf(i2)));
+            if (this.f59277e != null) {
+                this.f59277e.setText(String.format(ResUtils.getString(getContext(), "wallet_base_no_network_error_code"), Integer.valueOf(i2)));
             }
-            this.f62402f = i2;
+            this.f59278f = i2;
         }
     }
 
     public void show(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) {
-            this.f62399c = str;
-            this.f62400d = aVar;
+            this.f59275c = str;
+            this.f59276d = aVar;
             setVisibility(0);
         }
     }

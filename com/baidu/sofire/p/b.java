@@ -11,45 +11,43 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f45421a;
+        public static final a f43150a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f45422b;
+        public static final a f43151b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f45423c;
+        public static final a f43152c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f45424d;
+        public static final a f43153d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f45425e;
+        public static final a f43154e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f45426f;
+        public static final a f43155f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f45427g;
+        public static final a f43156g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f45428h;
+        public static final a f43157h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final a f45429i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public static final a f45430j;
+        public static final a f43158i;
+        public static final a j;
         public static final a k;
         public static final a l;
         public static final /* synthetic */ a[] o;
@@ -70,20 +68,20 @@ public final class b {
                     return;
                 }
             }
-            f45421a = new a("UNSUPPORT", 0, -1, "unsupport");
-            f45422b = new a("HUA_WEI", 1, 0, "HUAWEI");
-            f45423c = new a("XIAOMI", 2, 1, "Xiaomi");
-            f45424d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-            f45425e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-            f45426f = new a("MOTO", 5, 4, "motorola");
-            f45427g = new a("LENOVO", 6, 5, "lenovo");
-            f45428h = new a("ASUS", 7, 6, "asus");
-            f45429i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
-            f45430j = new a("MEIZU", 9, 8, "meizu");
+            f43150a = new a("UNSUPPORT", 0, -1, "unsupport");
+            f43151b = new a("HUA_WEI", 1, 0, "HUAWEI");
+            f43152c = new a("XIAOMI", 2, 1, "Xiaomi");
+            f43153d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+            f43154e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+            f43155f = new a("MOTO", 5, 4, "motorola");
+            f43156g = new a("LENOVO", 6, 5, "lenovo");
+            f43157h = new a("ASUS", 7, 6, "asus");
+            f43158i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
+            j = new a("MEIZU", 9, 8, "meizu");
             k = new a("ALPS", 10, 9, "alps");
             a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
             l = aVar;
-            o = new a[]{f45421a, f45422b, f45423c, f45424d, f45425e, f45426f, f45427g, f45428h, f45429i, f45430j, k, aVar};
+            o = new a[]{f43150a, f43151b, f43152c, f43153d, f43154e, f43155f, f43156g, f43157h, f43158i, j, k, aVar};
         }
 
         public a(String str, int i2, int i3, String str2) {
@@ -114,14 +112,14 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
-                    return f45421a;
+                    return f43150a;
                 }
                 for (a aVar : values()) {
                     if (aVar.n.equalsIgnoreCase(str)) {
                         return aVar;
                     }
                 }
-                return f45421a;
+                return f43150a;
             }
             return (a) invokeL.objValue;
         }

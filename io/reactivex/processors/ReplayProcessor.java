@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ReplayProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final ReplaySubscription[] EMPTY;
@@ -37,7 +37,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
     public boolean done;
     public final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Node<T> extends AtomicReference<Node<T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
@@ -63,7 +63,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ReplayBuffer<T> {
         void complete();
 
@@ -86,7 +86,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         void trimHead();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ReplaySubscription<T> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 466549804534799122L;
@@ -129,16 +129,16 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 this.state.buffer.replay(this);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SizeAndTimeBoundReplayBuffer<T> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,12 +152,12 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         public TimedNode<T> tail;
         public final TimeUnit unit;
 
-        public SizeAndTimeBoundReplayBuffer(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public SizeAndTimeBoundReplayBuffer(int i2, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -168,7 +168,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                 }
             }
             this.maxSize = ObjectHelper.verifyPositive(i2, "maxSize");
-            this.maxAge = ObjectHelper.verifyPositive(j2, "maxAge");
+            this.maxAge = ObjectHelper.verifyPositive(j, "maxAge");
             this.unit = (TimeUnit) ObjectHelper.requireNonNull(timeUnit, "unit is null");
             this.scheduler = (Scheduler) ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             TimedNode<T> timedNode = new TimedNode<>(null, 0L);
@@ -304,12 +304,12 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                 if (timedNode == null) {
                     timedNode = getHead();
                 }
-                long j2 = replaySubscription.emitted;
+                long j = replaySubscription.emitted;
                 int i3 = 1;
                 do {
-                    long j3 = replaySubscription.requested.get();
+                    long j2 = replaySubscription.requested.get();
                     while (true) {
-                        i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+                        i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         } else if (replaySubscription.cancelled) {
@@ -334,7 +334,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                                 break;
                             } else {
                                 subscriber.onNext((T) timedNode2.value);
-                                j2++;
+                                j++;
                                 timedNode = timedNode2;
                             }
                         }
@@ -357,7 +357,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                         }
                     }
                     replaySubscription.index = timedNode;
-                    replaySubscription.emitted = j2;
+                    replaySubscription.emitted = j;
                     i3 = replaySubscription.addAndGet(-i3);
                 } while (i3 != 0);
             }
@@ -453,7 +453,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SizeBoundReplayBuffer<T> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -589,12 +589,12 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                 if (node == null) {
                     node = this.head;
                 }
-                long j2 = replaySubscription.emitted;
+                long j = replaySubscription.emitted;
                 int i3 = 1;
                 do {
-                    long j3 = replaySubscription.requested.get();
+                    long j2 = replaySubscription.requested.get();
                     while (true) {
-                        i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+                        i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         } else if (replaySubscription.cancelled) {
@@ -619,7 +619,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                                 break;
                             } else {
                                 subscriber.onNext((T) node2.value);
-                                j2++;
+                                j++;
                                 node = node2;
                             }
                         }
@@ -642,7 +642,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                         }
                     }
                     replaySubscription.index = node;
-                    replaySubscription.emitted = j2;
+                    replaySubscription.emitted = j;
                     i3 = replaySubscription.addAndGet(-i3);
                 } while (i3 != 0);
             }
@@ -685,7 +685,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TimedNode<T> extends AtomicReference<TimedNode<T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
@@ -693,12 +693,12 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         public final long time;
         public final T value;
 
-        public TimedNode(T t, long j2) {
+        public TimedNode(T t, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t, Long.valueOf(j2)};
+                Object[] objArr = {t, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -709,11 +709,11 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                 }
             }
             this.value = t;
-            this.time = j2;
+            this.time = j;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UnboundedReplayBuffer<T> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -835,12 +835,12 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                 } else {
                     replaySubscription.index = 0;
                 }
-                long j2 = replaySubscription.emitted;
+                long j = replaySubscription.emitted;
                 int i4 = 1;
                 do {
-                    long j3 = replaySubscription.requested.get();
+                    long j2 = replaySubscription.requested.get();
                     while (true) {
-                        i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+                        i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         } else if (replaySubscription.cancelled) {
@@ -865,7 +865,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                             } else {
                                 subscriber.onNext(list.get(i3));
                                 i3++;
-                                j2++;
+                                j++;
                             }
                         }
                     }
@@ -890,7 +890,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                         }
                     }
                     replaySubscription.index = Integer.valueOf(i3);
-                    replaySubscription.emitted = j2;
+                    replaySubscription.emitted = j;
                     i4 = replaySubscription.addAndGet(-i4);
                 } while (i4 != 0);
             }
@@ -969,17 +969,17 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
     }
 
     @CheckReturnValue
-    public static <T> ReplayProcessor<T> createWithTime(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> ReplayProcessor<T> createWithTime(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j2, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
     }
 
     @CheckReturnValue
-    public static <T> ReplayProcessor<T> createWithTimeAndSize(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+    public static <T> ReplayProcessor<T> createWithTimeAndSize(long j, TimeUnit timeUnit, Scheduler scheduler, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(i2, j2, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(i2, j, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
     }
 
     public boolean add(ReplaySubscription<T> replaySubscription) {

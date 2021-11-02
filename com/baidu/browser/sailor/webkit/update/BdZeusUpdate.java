@@ -5,14 +5,13 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.k.b.c.b;
+import b.a.k.b.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,27 +32,27 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BdZeusUpdate {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdZeusUpdate f38638e;
+    public static BdZeusUpdate f36625e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38639a;
+    public String f36626a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38640b;
+    public String f36627b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38641c;
+    public String f36628c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f38642d;
+    public boolean f36629d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class BdZesuUpdateTask extends BdNetTask implements INetListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,13 +152,13 @@ public class BdZeusUpdate {
                             if (jSONObject.has("data")) {
                                 JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                                 if (jSONObject2.has("version")) {
-                                    this.this$0.f38640b = jSONObject2.getString("version");
+                                    this.this$0.f36627b = jSONObject2.getString("version");
                                 }
                                 if (jSONObject2.has("link")) {
-                                    this.this$0.f38639a = jSONObject2.getString("link");
+                                    this.this$0.f36626a = jSONObject2.getString("link");
                                 }
                                 if (jSONObject2.has(PackageTable.MD5)) {
-                                    this.this$0.f38641c = jSONObject2.getString(PackageTable.MD5);
+                                    this.this$0.f36628c = jSONObject2.getString(PackageTable.MD5);
                                 }
                             }
                         }
@@ -210,16 +209,16 @@ public class BdZeusUpdate {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f38643e;
+        public final /* synthetic */ Context f36630e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdZeusUpdate f38644f;
+        public final /* synthetic */ BdZeusUpdate f36631f;
 
         public a(BdZeusUpdate bdZeusUpdate, Context context) {
             Interceptable interceptable = $ic;
@@ -236,25 +235,25 @@ public class BdZeusUpdate {
                     return;
                 }
             }
-            this.f38644f = bdZeusUpdate;
-            this.f38643e = context;
+            this.f36631f = bdZeusUpdate;
+            this.f36630e = context;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38643e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36630e == null) {
                 return;
             }
             Log.i(EngineManager.LOG_TAG, "start check zeus update async");
-            BdZeusUpdate bdZeusUpdate = this.f38644f;
-            Context context = this.f38643e;
-            if (WebKitFactory.isUserPrivacyEnabled() && !bdZeusUpdate.f38642d && b.d(context)) {
+            BdZeusUpdate bdZeusUpdate = this.f36631f;
+            Context context = this.f36630e;
+            if (WebKitFactory.isUserPrivacyEnabled() && !bdZeusUpdate.f36629d && b.d(context)) {
                 BdZesuUpdateTask bdZesuUpdateTask = new BdZesuUpdateTask(bdZeusUpdate, context, "https://mbrowser.baidu.com/api/update/kernel?version=");
                 BdNet bdNet = new BdNet(context);
                 bdNet.setEventListener(bdZesuUpdateTask);
                 bdNet.start(bdZesuUpdateTask, false);
-                bdZeusUpdate.f38642d = true;
+                bdZeusUpdate.f36629d = true;
             }
         }
     }
@@ -292,14 +291,14 @@ public class BdZeusUpdate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f38638e == null) {
+            if (f36625e == null) {
                 synchronized (BdZeusUpdate.class) {
-                    if (f38638e == null) {
-                        f38638e = new BdZeusUpdate();
+                    if (f36625e == null) {
+                        f36625e = new BdZeusUpdate();
                     }
                 }
             }
-            return f38638e;
+            return f36625e;
         }
         return (BdZeusUpdate) invokeV.objValue;
     }
@@ -392,8 +391,8 @@ public class BdZeusUpdate {
                     jArr[i2] = 0;
                 }
                 try {
-                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
-                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
+                    String[] split = str.split("\\.", 4);
+                    String[] split2 = str2.split("\\.", 4);
                     jArr[0] = Long.parseLong(split[0]);
                     jArr[1] = Long.parseLong(split[1]);
                     jArr[2] = Long.parseLong(split[2]);
@@ -524,8 +523,8 @@ public class BdZeusUpdate {
         String zeusVersionName = WebKitFactory.getZeusVersionName();
         boolean z = false;
         if (WebKitFactory.getCurEngine() == 1) {
-            if (e(zeusVersionName, this.f38640b)) {
-                BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f38639a, this.f38641c);
+            if (e(zeusVersionName, this.f36627b)) {
+                BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f36626a, this.f36628c);
                 return;
             }
             return;
@@ -536,7 +535,7 @@ public class BdZeusUpdate {
         }
         if (z) {
             try {
-                float a2 = c.a.k.a.q.b.a() / 1024.0f;
+                float a2 = b.a.k.a.q.b.a() / 1024.0f;
                 String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb");
                 if (a2 < (TextUtils.isEmpty(GetCloudSettingsValue) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
                     return;
@@ -548,6 +547,6 @@ public class BdZeusUpdate {
         BdSailorPlatform.getStatic().c("download-webkit-start", String.valueOf(System.currentTimeMillis()));
         BdSailorPlatform.getStatic().a();
         Log.i(EngineManager.LOG_TAG, "start download zeus");
-        BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f38639a, this.f38641c);
+        BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f36626a, this.f36628c);
     }
 }

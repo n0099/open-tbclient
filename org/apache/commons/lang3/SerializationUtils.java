@@ -21,12 +21,12 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SerializationUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ClassLoaderAwareObjectInputStream extends ObjectInputStream {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, Class<?>> primitiveTypes;

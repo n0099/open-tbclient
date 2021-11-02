@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bs extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f78539a;
+    public final /* synthetic */ XMPushService f71477a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f947a;
+    public final /* synthetic */ String f948a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ byte[] f948a;
+    public final /* synthetic */ byte[] f949a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bs(XMPushService xMPushService, int i2, String str, byte[] bArr) {
@@ -40,9 +40,9 @@ public class bs extends XMPushService.i {
                 return;
             }
         }
-        this.f78539a = xMPushService;
-        this.f947a = str;
-        this.f948a = bArr;
+        this.f71477a = xMPushService;
+        this.f948a = str;
+        this.f949a = bArr;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -57,10 +57,10 @@ public class bs extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                y.a(this.f78539a, this.f947a, this.f948a);
+                y.a(this.f71477a, this.f948a, this.f949a);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
-                this.f78539a.a(10, e2);
+                this.f71477a.a(10, e2);
             }
         }
     }

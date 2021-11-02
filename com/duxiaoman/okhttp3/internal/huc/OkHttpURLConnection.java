@@ -1,20 +1,20 @@
 package com.duxiaoman.okhttp3.internal.huc;
 
 import androidx.core.view.InputDeviceCompat;
-import c.d.b.b0;
-import c.d.b.e;
-import c.d.b.e0.b;
-import c.d.b.e0.d;
-import c.d.b.e0.i.k;
-import c.d.b.e0.m.g;
-import c.d.b.f;
-import c.d.b.n;
-import c.d.b.q;
-import c.d.b.r;
-import c.d.b.s;
-import c.d.b.t;
-import c.d.b.w;
-import c.d.b.z;
+import b.d.b.b0;
+import b.d.b.e;
+import b.d.b.e0.b;
+import b.d.b.e0.d;
+import b.d.b.e0.i.k;
+import b.d.b.e0.n.g;
+import b.d.b.f;
+import b.d.b.n;
+import b.d.b.q;
+import b.d.b.r;
+import b.d.b.s;
+import b.d.b.t;
+import b.d.b.w;
+import b.d.b.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -51,7 +51,7 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class OkHttpURLConnection extends HttpURLConnection implements f {
     public static /* synthetic */ Interceptable $ic;
     public static final String p;
@@ -60,47 +60,45 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public w f69586a;
+    public w f62029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f69587b;
+    public final a f62030b;
 
     /* renamed from: c  reason: collision with root package name */
-    public r.a f69588c;
+    public r.a f62031c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f69589d;
+    public boolean f62032d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f69590e;
+    public e f62033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f69591f;
+    public d f62034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public r f69592g;
+    public r f62035g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f69593h;
+    public long f62036h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Object f69594i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public b0 f69595j;
+    public final Object f62037i;
+    public b0 j;
     public Throwable k;
     public b0 l;
     public boolean m;
     public Proxy n;
     public q o;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class UnexpectedException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public static final t INTERCEPTOR;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class a implements t {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +117,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                 }
             }
 
-            @Override // c.d.b.t
+            @Override // b.d.b.t
             public b0 a(t.a aVar) throws IOException {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -171,16 +169,16 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public final class a implements t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f69596a;
+        public boolean f62038a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ OkHttpURLConnection f69597b;
+        public final /* synthetic */ OkHttpURLConnection f62039b;
 
         public a(OkHttpURLConnection okHttpURLConnection) {
             Interceptable interceptable = $ic;
@@ -197,41 +195,41 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                     return;
                 }
             }
-            this.f69597b = okHttpURLConnection;
+            this.f62039b = okHttpURLConnection;
         }
 
-        @Override // c.d.b.t
+        @Override // b.d.b.t
         public b0 a(t.a aVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 z request = aVar.request();
-                this.f69597b.f69588c = request.d().f();
-                d dVar = this.f69597b.f69591f;
+                this.f62039b.f62031c = request.d().f();
+                d dVar = this.f62039b.f62034f;
                 if (dVar != null) {
-                    dVar.a(request.h().D());
+                    dVar.a(request.h().C());
                 }
-                synchronized (this.f69597b.f69594i) {
-                    this.f69597b.m = false;
-                    this.f69597b.n = aVar.connection().route().b();
-                    this.f69597b.o = aVar.connection().handshake();
-                    this.f69597b.f69594i.notifyAll();
-                    while (!this.f69596a) {
+                synchronized (this.f62039b.f62037i) {
+                    this.f62039b.m = false;
+                    this.f62039b.n = aVar.connection().route().b();
+                    this.f62039b.o = aVar.connection().handshake();
+                    this.f62039b.f62037i.notifyAll();
+                    while (!this.f62038a) {
                         try {
-                            this.f69597b.f69594i.wait();
+                            this.f62039b.f62037i.wait();
                         } catch (InterruptedException unused) {
                             Thread.currentThread().interrupt();
                             throw new InterruptedIOException();
                         }
                     }
                 }
-                if (request.a() instanceof c.d.b.e0.l.d) {
-                    request = ((c.d.b.e0.l.d) request.a()).i(request);
+                if (request.a() instanceof b.d.b.e0.l.d) {
+                    request = ((b.d.b.e0.l.d) request.a()).i(request);
                 }
                 b0 a2 = aVar.a(request);
-                synchronized (this.f69597b.f69594i) {
-                    this.f69597b.l = a2;
-                    ((HttpURLConnection) this.f69597b).url = a2.D().h().D();
+                synchronized (this.f62039b.f62037i) {
+                    this.f62039b.l = a2;
+                    ((HttpURLConnection) this.f62039b).url = a2.r().h().C();
                 }
                 return a2;
             }
@@ -241,9 +239,9 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                synchronized (this.f69597b.f69594i) {
-                    this.f69596a = true;
-                    this.f69597b.f69594i.notifyAll();
+                synchronized (this.f62039b.f62037i) {
+                    this.f62038a = true;
+                    this.f62039b.f62037i.notifyAll();
                 }
             }
         }
@@ -285,12 +283,12 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                 return;
             }
         }
-        this.f69587b = new a(this);
-        this.f69588c = new r.a();
-        this.f69593h = -1L;
-        this.f69594i = new Object();
+        this.f62030b = new a(this);
+        this.f62031c = new r.a();
+        this.f62036h = -1L;
+        this.f62037i = new Object();
         this.m = true;
-        this.f69586a = wVar;
+        this.f62029a = wVar;
     }
 
     public static IOException j(Throwable th) throws IOException {
@@ -315,15 +313,15 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, b0Var)) == null) {
-            if (b0Var.y() == null) {
-                if (b0Var.o() == null) {
+            if (b0Var.m() == null) {
+                if (b0Var.e() == null) {
                     return "NONE";
                 }
                 return "CACHE " + b0Var.code();
-            } else if (b0Var.o() == null) {
+            } else if (b0Var.e() == null) {
                 return "NETWORK " + b0Var.code();
             } else {
-                return "CONDITIONAL_CACHE " + b0Var.y().code();
+                return "CONDITIONAL_CACHE " + b0Var.m().code();
             }
         }
         return (String) invokeL.objValue;
@@ -359,18 +357,18 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
         return (String) invokeL.objValue;
     }
 
-    @Override // c.d.b.f
+    @Override // b.d.b.f
     public void a(e eVar, IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, eVar, iOException) == null) {
-            synchronized (this.f69594i) {
+            synchronized (this.f62037i) {
                 boolean z = iOException instanceof UnexpectedException;
                 Throwable th = iOException;
                 if (z) {
                     th = iOException.getCause();
                 }
                 this.k = th;
-                this.f69594i.notifyAll();
+                this.f62037i.notifyAll();
             }
         }
     }
@@ -390,19 +388,19 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                 m.u(5, "Ignoring header " + str + " because its value was null.", null);
                 return;
             }
-            this.f69588c.a(str, str2);
+            this.f62031c.a(str, str2);
         }
     }
 
-    @Override // c.d.b.f
+    @Override // b.d.b.f
     public void b(e eVar, b0 b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, eVar, b0Var) == null) {
-            synchronized (this.f69594i) {
-                this.f69595j = b0Var;
-                this.o = b0Var.r();
-                ((HttpURLConnection) this).url = b0Var.D().h().D();
-                this.f69594i.notifyAll();
+            synchronized (this.f62037i) {
+                this.j = b0Var;
+                this.o = b0Var.f();
+                ((HttpURLConnection) this).url = b0Var.r().h().C();
+                this.f62037i.notifyAll();
             }
         }
     }
@@ -410,16 +408,16 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     @Override // java.net.URLConnection
     public void connect() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f69589d) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f62032d) {
             return;
         }
         e f2 = f();
-        this.f69589d = true;
-        f2.b(this);
-        synchronized (this.f69594i) {
-            while (this.m && this.f69595j == null && this.k == null) {
+        this.f62032d = true;
+        f2.d(this);
+        synchronized (this.f62037i) {
+            while (this.m && this.j == null && this.k == null) {
                 try {
-                    this.f69594i.wait();
+                    this.f62037i.wait();
                 } catch (InterruptedException unused) {
                     Thread.currentThread().interrupt();
                     throw new InterruptedIOException();
@@ -435,19 +433,19 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     @Override // java.net.HttpURLConnection
     public void disconnect() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f69590e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f62033e == null) {
             return;
         }
-        this.f69587b.b();
-        this.f69590e.cancel();
+        this.f62030b.b();
+        this.f62033e.cancel();
     }
 
     public final e f() throws IOException {
         InterceptResult invokeV;
-        c.d.b.e0.l.d dVar;
+        b.d.b.e0.l.d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            e eVar = this.f69590e;
+            e eVar = this.f62033e;
             if (eVar != null) {
                 return eVar;
             }
@@ -456,34 +454,34 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
             if (((HttpURLConnection) this).doOutput) {
                 if (((HttpURLConnection) this).method.equals("GET")) {
                     ((HttpURLConnection) this).method = "POST";
-                } else if (!c.d.b.e0.i.f.b(((HttpURLConnection) this).method)) {
+                } else if (!b.d.b.e0.i.f.b(((HttpURLConnection) this).method)) {
                     throw new ProtocolException(((HttpURLConnection) this).method + " does not support writing");
                 }
             }
-            if (this.f69588c.e("User-Agent") == null) {
-                this.f69588c.a("User-Agent", g());
+            if (this.f62031c.e("User-Agent") == null) {
+                this.f62031c.a("User-Agent", g());
             }
-            if (c.d.b.e0.i.f.b(((HttpURLConnection) this).method)) {
-                if (this.f69588c.e("Content-Type") == null) {
-                    this.f69588c.a("Content-Type", "application/x-www-form-urlencoded");
+            if (b.d.b.e0.i.f.b(((HttpURLConnection) this).method)) {
+                if (this.f62031c.e("Content-Type") == null) {
+                    this.f62031c.a("Content-Type", "application/x-www-form-urlencoded");
                 }
-                long j2 = -1;
-                if (this.f69593h == -1 && ((HttpURLConnection) this).chunkLength <= 0) {
+                long j = -1;
+                if (this.f62036h == -1 && ((HttpURLConnection) this).chunkLength <= 0) {
                     z = false;
                 }
-                String e2 = this.f69588c.e("Content-Length");
-                long j3 = this.f69593h;
-                if (j3 != -1) {
-                    j2 = j3;
+                String e2 = this.f62031c.e("Content-Length");
+                long j2 = this.f62036h;
+                if (j2 != -1) {
+                    j = j2;
                 } else if (e2 != null) {
-                    j2 = Long.parseLong(e2);
+                    j = Long.parseLong(e2);
                 }
                 if (z) {
-                    dVar = new c.d.b.e0.l.e(j2);
+                    dVar = new b.d.b.e0.l.e(j);
                 } else {
-                    dVar = new c.d.b.e0.l.a(j2);
+                    dVar = new b.d.b.e0.l.a(j);
                 }
-                dVar.j().timeout(this.f69586a.H(), TimeUnit.MILLISECONDS);
+                dVar.j().timeout(this.f62029a.F(), TimeUnit.MILLISECONDS);
             } else {
                 dVar = null;
             }
@@ -491,27 +489,27 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                 s k = s.k(getURL().toString());
                 z.a aVar = new z.a();
                 aVar.g(k);
-                aVar.d(this.f69588c.d());
+                aVar.d(this.f62031c.d());
                 aVar.e(((HttpURLConnection) this).method, dVar);
                 z b2 = aVar.b();
-                d dVar2 = this.f69591f;
+                d dVar2 = this.f62034f;
                 if (dVar2 != null) {
-                    dVar2.a(b2.h().D());
+                    dVar2.a(b2.h().C());
                 }
-                w.b v = this.f69586a.v();
-                v.k().clear();
-                v.k().add(UnexpectedException.INTERCEPTOR);
-                v.l().clear();
-                v.l().add(this.f69587b);
-                v.f(new n(this.f69586a.k().c()));
+                w.b t = this.f62029a.t();
+                t.k().clear();
+                t.k().add(UnexpectedException.INTERCEPTOR);
+                t.l().clear();
+                t.l().add(this.f62030b);
+                t.f(new n(this.f62029a.i().c()));
                 if (!getUseCaches()) {
-                    v.b(null);
+                    t.b(null);
                 }
-                e w = v.a().w(b2);
-                this.f69590e = w;
-                return w;
+                e u = t.a().u(b2);
+                this.f62033e = u;
+                return u;
             } catch (IllegalArgumentException e3) {
-                if (c.d.b.e0.a.f31783a.i(e3)) {
+                if (b.d.b.e0.a.f30186a.i(e3)) {
                     UnknownHostException unknownHostException = new UnknownHostException();
                     unknownHostException.initCause(e3);
                     throw unknownHostException;
@@ -529,7 +527,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             String property = System.getProperty("http.agent");
-            return property != null ? l(property) : c.d.b.e0.f.a();
+            return property != null ? l(property) : b.d.b.e0.f.a();
         }
         return (String) invokeV.objValue;
     }
@@ -538,7 +536,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     public int getConnectTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f69586a.g() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f62029a.e() : invokeV.intValue;
     }
 
     @Override // java.net.HttpURLConnection
@@ -548,8 +546,8 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             try {
                 b0 i2 = i(true);
-                if (c.d.b.e0.i.e.c(i2) && i2.code() >= 400) {
-                    return i2.g().g();
+                if (b.d.b.e0.i.e.c(i2) && i2.code() >= 400) {
+                    return i2.a().a();
                 }
             } catch (IOException unused) {
             }
@@ -614,7 +612,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
             if (((HttpURLConnection) this).doInput) {
                 b0 i2 = i(false);
                 if (i2.code() < 400) {
-                    return i2.g().g();
+                    return i2.a().a();
                 }
                 throw new FileNotFoundException(((HttpURLConnection) this).url.toString());
             }
@@ -627,7 +625,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     public boolean getInstanceFollowRedirects() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f69586a.n() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f62029a.l() : invokeV.booleanValue;
     }
 
     @Override // java.net.URLConnection
@@ -635,11 +633,11 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            c.d.b.e0.l.d dVar = (c.d.b.e0.l.d) f().request().a();
+            b.d.b.e0.l.d dVar = (b.d.b.e0.l.d) f().request().a();
             if (dVar != null) {
-                if (dVar instanceof c.d.b.e0.l.e) {
+                if (dVar instanceof b.d.b.e0.l.e) {
                     connect();
-                    this.f69587b.b();
+                    this.f62030b.b();
                 }
                 if (!dVar.g()) {
                     return dVar.h();
@@ -665,7 +663,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                 d2 = s.d(url.getProtocol());
             }
             if (usingProxy()) {
-                InetSocketAddress inetSocketAddress = (InetSocketAddress) this.f69586a.A().address();
+                InetSocketAddress inetSocketAddress = (InetSocketAddress) this.f62029a.y().address();
                 host = inetSocketAddress.getHostName();
                 d2 = inetSocketAddress.getPort();
             }
@@ -678,7 +676,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     public int getReadTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f69586a.D() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f62029a.B() : invokeV.intValue;
     }
 
     @Override // java.net.URLConnection
@@ -687,7 +685,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             if (!((HttpURLConnection) this).connected) {
-                return b.a(this.f69588c.d(), null);
+                return b.a(this.f62031c.d(), null);
             }
             throw new IllegalStateException("Cannot access request header fields after connection is set");
         }
@@ -702,7 +700,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
             if (str == null) {
                 return null;
             }
-            return this.f69588c.e(str);
+            return this.f62031c.e(str);
         }
         return (String) invokeL.objValue;
     }
@@ -718,21 +716,21 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     public String getResponseMessage() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? i(true).x() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? i(true).l() : (String) invokeV.objValue;
     }
 
     public final r h() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            if (this.f69592g == null) {
+            if (this.f62035g == null) {
                 b0 i2 = i(true);
-                r.a f2 = i2.v().f();
-                f2.a(p, i2.B().toString());
+                r.a f2 = i2.j().f();
+                f2.a(p, i2.p().toString());
                 f2.a(q, k(i2));
-                this.f69592g = f2.d();
+                this.f62035g = f2.d();
             }
-            return this.f69592g;
+            return this.f62035g;
         }
         return (r) invokeV.objValue;
     }
@@ -741,9 +739,9 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
-            synchronized (this.f69594i) {
-                if (this.f69595j != null) {
-                    return this.f69595j;
+            synchronized (this.f62037i) {
+                if (this.j != null) {
+                    return this.j;
                 }
                 if (this.k != null) {
                     if (!z || this.l == null) {
@@ -753,17 +751,17 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                     return this.l;
                 }
                 e f2 = f();
-                this.f69587b.b();
-                c.d.b.e0.l.d dVar = (c.d.b.e0.l.d) f2.request().a();
+                this.f62030b.b();
+                b.d.b.e0.l.d dVar = (b.d.b.e0.l.d) f2.request().a();
                 if (dVar != null) {
                     dVar.h().close();
                 }
-                if (this.f69589d) {
-                    synchronized (this.f69594i) {
-                        while (this.f69595j == null && this.k == null) {
+                if (this.f62032d) {
+                    synchronized (this.f62037i) {
+                        while (this.j == null && this.k == null) {
                             try {
                                 try {
-                                    this.f69594i.wait();
+                                    this.f62037i.wait();
                                 } catch (InterruptedException unused) {
                                     Thread.currentThread().interrupt();
                                     throw new InterruptedIOException();
@@ -773,17 +771,17 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                         }
                     }
                 } else {
-                    this.f69589d = true;
+                    this.f62032d = true;
                     try {
                         b(f2, f2.execute());
                     } catch (IOException e2) {
                         a(f2, e2);
                     }
                 }
-                synchronized (this.f69594i) {
+                synchronized (this.f62037i) {
                     if (this.k == null) {
-                        if (this.f69595j != null) {
-                            return this.f69595j;
+                        if (this.j != null) {
+                            return this.j;
                         }
                         throw new AssertionError();
                     }
@@ -799,9 +797,9 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     public void setConnectTimeout(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            w.b v = this.f69586a.v();
-            v.c(i2, TimeUnit.MILLISECONDS);
-            this.f69586a = v.a();
+            w.b t = this.f62029a.t();
+            t.c(i2, TimeUnit.MILLISECONDS);
+            this.f62029a = t.a();
         }
     }
 
@@ -814,14 +812,14 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     }
 
     @Override // java.net.URLConnection
-    public void setIfModifiedSince(long j2) {
+    public void setIfModifiedSince(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
-            super.setIfModifiedSince(j2);
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+            super.setIfModifiedSince(j);
             if (((HttpURLConnection) this).ifModifiedSince != 0) {
-                this.f69588c.g("If-Modified-Since", c.d.b.e0.i.d.a(new Date(((HttpURLConnection) this).ifModifiedSince)));
+                this.f62031c.g("If-Modified-Since", b.d.b.e0.i.d.a(new Date(((HttpURLConnection) this).ifModifiedSince)));
             } else {
-                this.f69588c.f("If-Modified-Since");
+                this.f62031c.f("If-Modified-Since");
             }
         }
     }
@@ -830,9 +828,9 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     public void setInstanceFollowRedirects(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            w.b v = this.f69586a.v();
-            v.i(z);
-            this.f69586a = v.a();
+            w.b t = this.f62029a.t();
+            t.i(z);
+            this.f62029a = t.a();
         }
     }
 
@@ -840,9 +838,9 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
     public void setReadTimeout(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            w.b v = this.f69586a.v();
-            v.n(i2, TimeUnit.MILLISECONDS);
-            this.f69586a = v.a();
+            w.b t = this.f62029a.t();
+            t.n(i2, TimeUnit.MILLISECONDS);
+            this.f62029a = t.a();
         }
     }
 
@@ -873,7 +871,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                 m.u(5, "Ignoring header " + str + " because its value was null.", null);
                 return;
             }
-            this.f69588c.g(str, str2);
+            this.f62031c.g(str, str2);
         }
     }
 
@@ -885,23 +883,23 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
             if (this.n != null) {
                 return true;
             }
-            Proxy A = this.f69586a.A();
-            return (A == null || A.type() == Proxy.Type.DIRECT) ? false : true;
+            Proxy y = this.f62029a.y();
+            return (y == null || y.type() == Proxy.Type.DIRECT) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // java.net.HttpURLConnection
-    public void setFixedLengthStreamingMode(long j2) {
+    public void setFixedLengthStreamingMode(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
             if (!((HttpURLConnection) this).connected) {
                 if (((HttpURLConnection) this).chunkLength > 0) {
                     throw new IllegalStateException("Already in chunked mode");
                 }
-                if (j2 >= 0) {
-                    this.f69593h = j2;
-                    ((HttpURLConnection) this).fixedContentLength = (int) Math.min(j2, 2147483647L);
+                if (j >= 0) {
+                    this.f62036h = j;
+                    ((HttpURLConnection) this).fixedContentLength = (int) Math.min(j, 2147483647L);
                     return;
                 }
                 throw new IllegalArgumentException("contentLength < 0");
@@ -946,6 +944,6 @@ public final class OkHttpURLConnection extends HttpURLConnection implements f {
                 return;
             }
         }
-        this.f69591f = dVar;
+        this.f62034f = dVar;
     }
 }

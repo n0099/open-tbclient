@@ -10,7 +10,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ManagedClientConnection extends HttpClientConnection, HttpInetConnection, ConnectionReleaseTrigger {
     HttpRoute getRoute();
 
@@ -28,7 +28,7 @@ public interface ManagedClientConnection extends HttpClientConnection, HttpInetC
 
     void open(HttpRoute httpRoute, HttpContext httpContext, HttpParams httpParams) throws IOException;
 
-    void setIdleDuration(long j2, TimeUnit timeUnit);
+    void setIdleDuration(long j, TimeUnit timeUnit);
 
     void setState(Object obj);
 

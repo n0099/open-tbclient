@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.UrlParser.DataReq;
 import tbclient.UrlParser.UrlParserReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RequestUrlParserNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,10 +79,10 @@ public class RequestUrlParserNetMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUrl : (String) invokeV.objValue;
     }
 
-    public void setParams(long j2, int i2, String str, int i3) {
+    public void setParams(long j, int i2, String str, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-            this.mForumId = j2;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+            this.mForumId = j;
             this.mLinkNum = i2;
             this.mUrl = str;
             this.mSpanGroupId = i3;

@@ -1,8 +1,8 @@
 package com.dxmpay.apollon.restnet.converter;
 
 import android.text.TextUtils;
-import c.f.a.g.c.a;
-import c.f.a.g.d.e;
+import b.f.a.g.c.a;
+import b.f.a.g.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,12 +20,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import org.json.JSONException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f69725b;
+    public static final Charset f62163b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
                 return;
             }
         }
-        f69725b = Charset.forName("UTF-8");
+        f62163b = Charset.forName("UTF-8");
     }
 
     public GsonHttpMessageConverter() {
@@ -93,7 +93,7 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
             if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
                 return Charset.forName(aVar.j());
             }
-            return f69725b;
+            return f62163b;
         }
         return (Charset) invokeL.objValue;
     }

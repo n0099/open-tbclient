@@ -25,7 +25,6 @@ import androidx.annotation.RestrictTo;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.SharedElementCallback;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleRegistry;
@@ -280,7 +279,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
 
     public static void checkForValidRequestCode(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65539, null, i2) == null) && (i2 & SupportMenu.CATEGORY_MASK) != 0) {
+        if ((interceptable == null || interceptable.invokeI(65539, null, i2) == null) && (i2 & (-65536)) != 0) {
             throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
         }
     }
@@ -303,7 +302,12 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                     if (fragment.getHost() != null) {
                         z |= markState(fragment.getChildFragmentManager(), state);
                     }
-                    if (fragment.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                    FragmentViewLifecycleOwner fragmentViewLifecycleOwner = fragment.mViewLifecycleOwner;
+                    if (fragmentViewLifecycleOwner != null && fragmentViewLifecycleOwner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                        fragment.mViewLifecycleOwner.setCurrentState(state);
+                        z = true;
+                    }
+                    if (fragment.mLifecycleRegistry.getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                         fragment.mLifecycleRegistry.setCurrentState(state);
                         z = true;
                     }

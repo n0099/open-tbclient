@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Reflect;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class AbiUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Abi f74229a;
+    public static Abi f66614a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Abi {
         public static final /* synthetic */ Abi[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,7 +99,7 @@ public final class AbiUtil {
         Abi abi;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Abi abi2 = f74229a;
+            Abi abi2 = f66614a;
             if (abi2 != null) {
                 return abi2;
             }
@@ -108,27 +108,27 @@ public final class AbiUtil {
                 if (i2 < 23) {
                     if (i2 >= 21) {
                         try {
-                            f74229a = ((Boolean) Reflect.a("dalvik.system.VMRuntime").d("getRuntime").d("is64Bit").a()).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
+                            f66614a = ((Boolean) Reflect.a("dalvik.system.VMRuntime").d("getRuntime").d("is64Bit").a()).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
                         } catch (Throwable th) {
                             th.printStackTrace();
                             try {
-                                f74229a = KsAdSDKImpl.get().getContext().getApplicationInfo().nativeLibraryDir.contains("arm64") ? Abi.ARM64_V8A : Abi.UNKNOWN;
+                                f66614a = KsAdSDKImpl.get().getContext().getApplicationInfo().nativeLibraryDir.contains("arm64") ? Abi.ARM64_V8A : Abi.UNKNOWN;
                             } catch (Throwable th2) {
                                 th2.printStackTrace();
                                 abi = Abi.UNKNOWN;
                             }
                         }
                     }
-                    return f74229a;
+                    return f66614a;
                 } else if (Process.is64Bit()) {
                     abi = Abi.ARM64_V8A;
                 }
-                f74229a = abi;
-                return f74229a;
+                f66614a = abi;
+                return f66614a;
             }
             abi = Abi.ARMEABI_V7A;
-            f74229a = abi;
-            return f74229a;
+            f66614a = abi;
+            return f66614a;
         }
         return (Abi) invokeV.objValue;
     }

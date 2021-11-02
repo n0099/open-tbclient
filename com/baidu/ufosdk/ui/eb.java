@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class eb implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f60035a;
+    public final /* synthetic */ FeedbackReportActivity f56953a;
 
     public eb(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class eb implements View.OnClickListener {
                 return;
             }
         }
-        this.f60035a = feedbackReportActivity;
+        this.f56953a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -42,22 +42,22 @@ public final class eb implements View.OnClickListener {
         SharedPreferences.Editor editor3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f60035a.B;
+            z = this.f56953a.B;
             if (z) {
                 return;
             }
-            editText = this.f60035a.u;
+            editText = this.f56953a.u;
             String obj = editText.getText().toString();
             if (obj == null || obj.trim().length() <= 0) {
-                editor = this.f60035a.f59858b;
+                editor = this.f56953a.f56778b;
                 editor.putString("cryptContactData", "");
             } else {
-                editor3 = this.f60035a.f59858b;
+                editor3 = this.f56953a.f56778b;
                 editor3.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
             }
-            editor2 = this.f60035a.f59858b;
+            editor2 = this.f56953a.f56778b;
             editor2.commit();
-            FeedbackReportActivity.o(this.f60035a);
+            FeedbackReportActivity.o(this.f56953a);
         }
     }
 }

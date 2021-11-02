@@ -27,6 +27,7 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -55,12 +56,12 @@ import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f36215a;
+    public static b f34304a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,7 +77,7 @@ public final class b {
                 return;
             }
         }
-        f36215a = new b();
+        f34304a = new b();
     }
 
     public b() {
@@ -136,7 +137,7 @@ public final class b {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f36215a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f34304a : (b) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0024  */
@@ -171,17 +172,17 @@ public final class b {
     }
 
     public static String c() {
-        long j2;
+        long j;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                j2 = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                j = statFs.getAvailableBlocks() * statFs.getBlockSize();
             } catch (Throwable unused) {
-                j2 = 0;
+                j = 0;
             }
-            return String.valueOf(j2);
+            return String.valueOf(j);
         }
         return (String) invokeV.objValue;
     }
@@ -201,17 +202,17 @@ public final class b {
     }
 
     public static String d() {
-        long j2;
+        long j;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 StatFs statFs = new StatFs(com.alipay.security.mobile.module.a.a.a().getPath());
-                j2 = statFs.getBlockSize() * statFs.getAvailableBlocks();
-                return String.valueOf(j2);
+                j = statFs.getBlockSize() * statFs.getAvailableBlocks();
+                return String.valueOf(j);
             }
-            j2 = 0;
-            return String.valueOf(j2);
+            j = 0;
+            return String.valueOf(j);
         }
         return (String) invokeV.objValue;
     }
@@ -530,17 +531,17 @@ public final class b {
     }
 
     public static String i() {
-        long j2;
+        long j;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                j2 = statFs.getBlockCount() * statFs.getBlockSize();
+                j = statFs.getBlockCount() * statFs.getBlockSize();
             } catch (Throwable unused) {
-                j2 = 0;
+                j = 0;
             }
-            return String.valueOf(j2);
+            return String.valueOf(j);
         }
         return (String) invokeV.objValue;
     }
@@ -563,17 +564,17 @@ public final class b {
     }
 
     public static String j() {
-        long j2;
+        long j;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                j2 = statFs.getBlockSize() * statFs.getBlockCount();
-                return String.valueOf(j2);
+                j = statFs.getBlockSize() * statFs.getBlockCount();
+                return String.valueOf(j);
             }
-            j2 = 0;
-            return String.valueOf(j2);
+            j = 0;
+            return String.valueOf(j);
         }
         return (String) invokeV.objValue;
     }
@@ -910,18 +911,18 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, context)) == null) {
             try {
-                long j2 = 0;
+                long j = 0;
                 if (((KeyguardManager) context.getSystemService("keyguard")).isKeyguardSecure()) {
                     String[] strArr = {"/data/system/password.key", "/data/system/gesture.key", "/data/system/gatekeeper.password.key", "/data/system/gatekeeper.gesture.key", "/data/system/gatekeeper.pattern.key"};
                     for (int i2 = 0; i2 < 5; i2++) {
-                        long j3 = -1;
+                        long j2 = -1;
                         try {
-                            j3 = new File(strArr[i2]).lastModified();
+                            j2 = new File(strArr[i2]).lastModified();
                         } catch (Throwable unused) {
                         }
-                        j2 = Math.max(j3, j2);
+                        j = Math.max(j2, j);
                     }
-                    return "1:" + j2;
+                    return "1:" + j;
                 }
                 return "0:0";
             } catch (Throwable unused2) {
@@ -974,7 +975,7 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
             try {
                 Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-                int intExtra = registerReceiver.getIntExtra("level", -1);
+                int intExtra = registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, -1);
                 int intExtra2 = registerReceiver.getIntExtra("status", -1);
                 if (intExtra2 != 2 && intExtra2 != 5) {
                     z = false;

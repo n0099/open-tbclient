@@ -1,10 +1,12 @@
 package com.baidu.pass.ecommerce.common.view;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,12 +15,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TitleBarView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDarkMode;
     public TextView leftBtn;
+    public ImageView leftImageBtn;
     public TextView rightBtn;
     public TextView titleTv;
 
@@ -48,6 +51,7 @@ public class TitleBarView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_sapi_address_title_bar, (ViewGroup) this, true);
             this.leftBtn = (TextView) inflate.findViewById(R.id.sapi_sdk_titlebar_left_btn);
+            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.sapi_sdk_titlebar_left_back_btn);
             this.titleTv = (TextView) inflate.findViewById(R.id.sapi_sdk_titlebar_title_tv);
             this.rightBtn = (TextView) inflate.findViewById(R.id.sapi_sdk_titlebar_right_btn);
         }
@@ -74,9 +78,20 @@ public class TitleBarView extends RelativeLayout {
         }
     }
 
+    public void setLeftBtn(Drawable drawable, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, drawable, onClickListener) == null) {
+            this.leftImageBtn.setVisibility(0);
+            this.leftImageBtn.setImageDrawable(drawable);
+            if (onClickListener != null) {
+                this.leftImageBtn.setOnClickListener(onClickListener);
+            }
+        }
+    }
+
     public void setRight(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, onClickListener) == null) {
             this.rightBtn.setText(str);
             if (onClickListener != null) {
                 this.rightBtn.setOnClickListener(onClickListener);
@@ -87,7 +102,7 @@ public class TitleBarView extends RelativeLayout {
     public void setRightBtnEnable(boolean z) {
         int color;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.rightBtn.setEnabled(z);
             if (this.isDarkMode) {
                 TextView textView = this.rightBtn;
@@ -103,7 +118,7 @@ public class TitleBarView extends RelativeLayout {
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.titleTv.setText(str);
         }
     }

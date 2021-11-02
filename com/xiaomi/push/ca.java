@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ca extends cc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,13 +53,13 @@ public class ca extends cc {
         return (ca) invokeLLI.objValue;
     }
 
-    private void a(long j2) {
+    private void a(long j) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65538, this, j2) == null) || (strArr = ((cg.d) this).f190a) == null || strArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(65538, this, j) == null) || (strArr = ((cg.d) this).f191a) == null || strArr.length <= 0) {
             return;
         }
-        strArr[0] = String.valueOf(j2);
+        strArr[0] = String.valueOf(j);
     }
 
     @Override // com.xiaomi.push.cg.a
@@ -68,15 +68,15 @@ public class ca extends cc {
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, obj) == null) && (obj instanceof Long)) {
             long longValue = ((Long) obj).longValue();
             long a2 = cm.a(m219a());
-            long j2 = by.f171a;
-            if (a2 <= j2) {
+            long j = by.f172a;
+            if (a2 <= j) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
                 return;
             }
-            long j3 = (long) ((((a2 - j2) * 1.2d) / j2) * longValue);
-            a(j3);
+            long j2 = (long) ((((a2 - j) * 1.2d) / j) * longValue);
+            a(j2);
             bu a3 = bu.a(context);
-            a3.a("begin delete " + j3 + "noUpload messages , because db size is " + a2 + "B");
+            a3.a("begin delete " + j2 + "noUpload messages , because db size is " + a2 + "B");
             super.a(context, obj);
         }
     }

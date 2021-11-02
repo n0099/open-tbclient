@@ -12,13 +12,12 @@ import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LottieCompositionMoshiParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
     public static JsonReader.Options ASSETS_NAMES = JsonReader.Options.of("id", "layers", "w", "h", "p", "u");
@@ -69,7 +68,7 @@ public class LottieCompositionMoshiParser {
                     f4 = (float) jsonReader.nextDouble();
                     break;
                 case 5:
-                    String[] split = jsonReader.nextString().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    String[] split = jsonReader.nextString().split("\\.");
                     if (!Utils.isAtLeastVersion(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
                         lottieComposition.addWarning("Lottie only supports bodymovin >= 4.4.0");
                     }

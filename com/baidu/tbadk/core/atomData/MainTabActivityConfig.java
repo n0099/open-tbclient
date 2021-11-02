@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MainTabActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
@@ -22,6 +22,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public static boolean IMMESSAGE_CENTER_DELEGATE_AVAIBLE = true;
     public static boolean IS_BACK_CLOSE_ALL_ACTIVITY = false;
     public static boolean IS_INDICATOR_BOTTOM = true;
+    public static boolean IS_MAIN_TAB_SPLASH_SHOW = false;
     public static final String IS_NEW_USER = "is_new_user";
     public static final String MAIN_TAB = "main_tab";
     public static boolean MEMBER_CENTER_TAB_AVAILABLE = true;
@@ -30,6 +31,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public static boolean PERSON_TAB_AVAIBLE = true;
     public static final String PUSH_DES_PAGE = "des_page";
     public static final String PUSH_FOLLOW_UP_ACTION = "follow_up_action";
+    public static final String SHOW_AD_FRAGMENT = "show_ad_fragment";
     public static final String TARGET_SCHEME = "target_scheme";
     public static final String VIDEOTHREAD_ON_SQUARE_ID = "videothread_on_square_id";
     public static boolean VIDEO_CHANNEL_TAB_AVAILABLE = true;

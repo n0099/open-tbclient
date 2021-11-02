@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RemitSyncExecutor implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RemitSyncExecutor";
@@ -33,7 +33,7 @@ public class RemitSyncExecutor implements Handler.Callback {
     @NonNull
     public final Handler handler;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface RemitAgent {
         void removeInfo(int i2);
 
@@ -152,10 +152,10 @@ public class RemitSyncExecutor implements Handler.Callback {
         }
     }
 
-    public void postSyncInfoDelay(int i2, long j2) {
+    public void postSyncInfoDelay(int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.handler.sendEmptyMessageDelayed(i2, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            this.handler.sendEmptyMessageDelayed(i2, j);
         }
     }
 

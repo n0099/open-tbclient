@@ -2,17 +2,17 @@ package kotlin.jvm.internal;
 
 import kotlin.SinceKotlin;
 @SinceKotlin(version = "1.2")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MagicApiIntrinsics {
     public static <T> T anyMagicApiCall(int i2) {
         return null;
     }
 
-    public static <T> T anyMagicApiCall(int i2, long j2, long j3, Object obj) {
+    public static <T> T anyMagicApiCall(int i2, long j, long j2, Object obj) {
         return null;
     }
 
-    public static <T> T anyMagicApiCall(int i2, long j2, Object obj) {
+    public static <T> T anyMagicApiCall(int i2, long j, Object obj) {
         return null;
     }
 
@@ -32,11 +32,11 @@ public class MagicApiIntrinsics {
         return 0;
     }
 
-    public static int intMagicApiCall(int i2, long j2, long j3, Object obj) {
+    public static int intMagicApiCall(int i2, long j, long j2, Object obj) {
         return 0;
     }
 
-    public static int intMagicApiCall(int i2, long j2, Object obj) {
+    public static int intMagicApiCall(int i2, long j, Object obj) {
         return 0;
     }
 

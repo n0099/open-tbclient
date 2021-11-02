@@ -31,22 +31,22 @@ import java.security.InvalidParameterException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61766a;
+    public int f58649a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61767b;
+    public int f58650b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61768c;
+    public int f58651c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61769d;
+    public String f58652d;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -61,10 +61,10 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                 return;
             }
         }
-        this.f61766a = -1;
-        this.f61767b = -1;
-        this.f61768c = -1;
-        this.f61769d = null;
+        this.f58649a = -1;
+        this.f58650b = -1;
+        this.f58651c = -1;
+        this.f58652d = null;
     }
 
     @Override // com.baidu.wallet.lightapp.ability.a
@@ -81,14 +81,14 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
             try {
                 try {
                     String optString = new JSONObject(str).optString("key", null);
-                    this.f61769d = optString;
+                    this.f58652d = optString;
                     if (optString != null && optString.trim().length() == 0) {
                         throw new InvalidParameterException("加密密钥格式非法");
                     }
-                    this.f61766a = a(str, "type");
-                    this.f61767b = a(str, "maxNum");
-                    this.f61768c = a(str, "base64");
-                    if (this.f61766a != 1 && this.f61766a != 2) {
+                    this.f58649a = a(str, "type");
+                    this.f58650b = a(str, "maxNum");
+                    this.f58651c = a(str, "base64");
+                    if (this.f58649a != 1 && this.f58649a != 2) {
                         throw new InvalidParameterException(EnterDxmPayServiceAction.ERR_MSG);
                     }
                     if (PermissionManager.checkCallingPermission(activity, "android.permission.READ_CONTACTS")) {
@@ -99,16 +99,16 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Activity f61770a;
+                            public final /* synthetic */ Activity f58653a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ ILightappInvokerCallback f61771b;
+                            public final /* synthetic */ ILightappInvokerCallback f58654b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ String f61772c;
+                            public final /* synthetic */ String f58655c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ l f61773d;
+                            public final /* synthetic */ l f58656d;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -125,10 +125,10 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                                         return;
                                     }
                                 }
-                                this.f61773d = this;
-                                this.f61770a = activity;
-                                this.f61771b = iLightappInvokerCallback;
-                                this.f61772c = str2;
+                                this.f58656d = this;
+                                this.f58653a = activity;
+                                this.f58654b = iLightappInvokerCallback;
+                                this.f58655c = str2;
                             }
 
                             @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -136,12 +136,12 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                                     if (bool.booleanValue()) {
-                                        PermissionsUtil.requestPermission(this.f61770a, new PermissionListener(this) { // from class: com.baidu.wallet.lightapp.ability.a.l.1.1
+                                        PermissionsUtil.requestPermission(this.f58653a, new PermissionListener(this) { // from class: com.baidu.wallet.lightapp.ability.a.l.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
 
                                             /* renamed from: a  reason: collision with root package name */
-                                            public final /* synthetic */ AnonymousClass1 f61774a;
+                                            public final /* synthetic */ AnonymousClass1 f58657a;
 
                                             {
                                                 Interceptable interceptable3 = $ic;
@@ -158,15 +158,15 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                                                         return;
                                                     }
                                                 }
-                                                this.f61774a = this;
+                                                this.f58657a = this;
                                             }
 
                                             @Override // com.baidu.wallet.core.permission.PermissionListener
                                             public void permissionDenied(@NonNull List<String> list) {
                                                 Interceptable interceptable3 = $ic;
                                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, list) == null) {
-                                                    AnonymousClass1 anonymousClass1 = this.f61774a;
-                                                    anonymousClass1.f61773d.a(anonymousClass1.f61770a, anonymousClass1.f61772c, anonymousClass1.f61771b);
+                                                    AnonymousClass1 anonymousClass1 = this.f58657a;
+                                                    anonymousClass1.f58656d.a(anonymousClass1.f58653a, anonymousClass1.f58655c, anonymousClass1.f58654b);
                                                 }
                                             }
 
@@ -174,13 +174,13 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                                             public void permissionGranted(@NonNull List<String> list) {
                                                 Interceptable interceptable3 = $ic;
                                                 if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                                                    AnonymousClass1 anonymousClass1 = this.f61774a;
-                                                    anonymousClass1.f61773d.a(anonymousClass1.f61770a, anonymousClass1.f61771b);
+                                                    AnonymousClass1 anonymousClass1 = this.f58657a;
+                                                    anonymousClass1.f58656d.a(anonymousClass1.f58653a, anonymousClass1.f58654b);
                                                 }
                                             }
                                         }, "android.permission.READ_CONTACTS");
                                     } else {
-                                        this.f61773d.a(this.f61770a, this.f61772c, this.f61771b);
+                                        this.f58656d.a(this.f58653a, this.f58655c, this.f58654b);
                                     }
                                 }
                             }
@@ -224,13 +224,13 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f61775a;
+                public final /* synthetic */ Activity f58658a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ILightappInvokerCallback f61776b;
+                public final /* synthetic */ ILightappInvokerCallback f58659b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ l f61777c;
+                public final /* synthetic */ l f58660c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -247,9 +247,9 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                             return;
                         }
                     }
-                    this.f61777c = this;
-                    this.f61775a = activity;
-                    this.f61776b = iLightappInvokerCallback;
+                    this.f58660c = this;
+                    this.f58658a = activity;
+                    this.f58659b = iLightappInvokerCallback;
                 }
 
                 @Override // com.baidu.wallet.lightapp.business.presenter.b
@@ -265,7 +265,7 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                                 nativeAbilityContactSelectModel.cnt.errCode = LightappConstants.ERRCODE_NO_PERMISSION;
                             }
                             nativeAbilityContactSelectModel.cnt.des = str2;
-                            this.f61776b.onResult(1, nativeAbilityContactSelectModel.toJson());
+                            this.f58659b.onResult(1, nativeAbilityContactSelectModel.toJson());
                         } else if (strArr != null) {
                             String str4 = strArr.length > 0 ? strArr[0] : "";
                             String str5 = strArr.length > 1 ? strArr[1] : "";
@@ -273,8 +273,8 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                             NativeAbilityContactSelectModel.SelectedContact selectedContact = nativeAbilityContactSelectModel.cnt.selected;
                             selectedContact.name = str4;
                             selectedContact.phone = str5;
-                            if (this.f61777c.f61766a != 2) {
-                                if (this.f61777c.f61768c == 1) {
+                            if (this.f58660c.f58649a != 2) {
+                                if (this.f58660c.f58651c == 1) {
                                     NativeAbilityContactSelectModelBase64 nativeAbilityContactSelectModelBase64 = new NativeAbilityContactSelectModelBase64();
                                     nativeAbilityContactSelectModelBase64.result = nativeAbilityContactSelectModel.result;
                                     if (nativeAbilityContactSelectModel.cnt != null) {
@@ -285,7 +285,7 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                                         }
                                         nativeAbilityContactSelectModelBase64.cnt = Base64Utils.encodeToString(JsonUtils.toJson(nativeAbilityContactSelectModel.cnt).getBytes());
                                     }
-                                    this.f61776b.onResult(0, nativeAbilityContactSelectModelBase64.toJson());
+                                    this.f58659b.onResult(0, nativeAbilityContactSelectModelBase64.toJson());
                                     return;
                                 }
                                 if (nativeAbilityContactSelectModel.cnt != null) {
@@ -295,21 +295,21 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                                         nativeAbilityContactSelectModel.cnt.allCount = str3;
                                     }
                                 }
-                                this.f61776b.onResult(0, nativeAbilityContactSelectModel.toJson());
+                                this.f58659b.onResult(0, nativeAbilityContactSelectModel.toJson());
                                 return;
                             }
-                            PhoneContactsMananger.a(this.f61775a).a(new PhoneContactsMananger.d(this, nativeAbilityContactSelectModel, str3) { // from class: com.baidu.wallet.lightapp.ability.a.l.2.1
+                            PhoneContactsMananger.a(this.f58658a).a(new PhoneContactsMananger.d(this, nativeAbilityContactSelectModel, str3) { // from class: com.baidu.wallet.lightapp.ability.a.l.2.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ NativeAbilityContactSelectModel f61778a;
+                                public final /* synthetic */ NativeAbilityContactSelectModel f58661a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ String f61779b;
+                                public final /* synthetic */ String f58662b;
 
                                 /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass2 f61780c;
+                                public final /* synthetic */ AnonymousClass2 f58663c;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -326,56 +326,56 @@ public class l extends com.baidu.wallet.lightapp.ability.b {
                                             return;
                                         }
                                     }
-                                    this.f61780c = this;
-                                    this.f61778a = nativeAbilityContactSelectModel;
-                                    this.f61779b = str3;
+                                    this.f58663c = this;
+                                    this.f58661a = nativeAbilityContactSelectModel;
+                                    this.f58662b = str3;
                                 }
 
                                 @Override // com.baidu.wallet.lightapp.base.contacts.PhoneContactsMananger.d
                                 public void a(List<ContactSelectModel.AllContact> list, int i3) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeLI(1048576, this, list, i3) == null) {
-                                        if (this.f61780c.f61777c.f61769d != null) {
-                                            this.f61778a.cnt.abc = Base64Utils.encodeToString(Crypto.aesEncrypt(JsonUtils.toJson(list).getBytes(), this.f61780c.f61777c.f61769d));
-                                            if (TextUtils.isEmpty(this.f61779b)) {
-                                                this.f61778a.cnt.allCount = "0";
+                                        if (this.f58663c.f58660c.f58652d != null) {
+                                            this.f58661a.cnt.abc = Base64Utils.encodeToString(Crypto.aesEncrypt(JsonUtils.toJson(list).getBytes(), this.f58663c.f58660c.f58652d));
+                                            if (TextUtils.isEmpty(this.f58662b)) {
+                                                this.f58661a.cnt.allCount = "0";
                                             } else {
-                                                this.f61778a.cnt.allCount = this.f61779b;
+                                                this.f58661a.cnt.allCount = this.f58662b;
                                             }
                                         } else {
-                                            Bundle a2 = com.baidu.wallet.lightapp.ability.b.a.a().a(this.f61780c.f61775a, JsonUtils.toJson(list));
-                                            NativeAbilityContactSelectModel.Data data = this.f61778a.cnt;
+                                            Bundle a2 = com.baidu.wallet.lightapp.ability.b.a.a().a(this.f58663c.f58658a, JsonUtils.toJson(list));
+                                            NativeAbilityContactSelectModel.Data data = this.f58661a.cnt;
                                             data.all = null;
                                             data.aesall = a2.getString("aesContent");
-                                            this.f61778a.cnt.aeskey = a2.getString("aesKey");
-                                            if (TextUtils.isEmpty(this.f61779b)) {
-                                                this.f61778a.cnt.allCount = "0";
+                                            this.f58661a.cnt.aeskey = a2.getString("aesKey");
+                                            if (TextUtils.isEmpty(this.f58662b)) {
+                                                this.f58661a.cnt.allCount = "0";
                                             } else if (list != null) {
-                                                NativeAbilityContactSelectModel.Data data2 = this.f61778a.cnt;
+                                                NativeAbilityContactSelectModel.Data data2 = this.f58661a.cnt;
                                                 data2.allCount = list.size() + "";
                                             } else {
-                                                this.f61778a.cnt.allCount = this.f61779b;
+                                                this.f58661a.cnt.allCount = this.f58662b;
                                             }
                                         }
-                                        if (this.f61780c.f61777c.f61768c == 1) {
+                                        if (this.f58663c.f58660c.f58651c == 1) {
                                             NativeAbilityContactSelectModelBase64 nativeAbilityContactSelectModelBase642 = new NativeAbilityContactSelectModelBase64();
-                                            NativeAbilityContactSelectModel nativeAbilityContactSelectModel2 = this.f61778a;
+                                            NativeAbilityContactSelectModel nativeAbilityContactSelectModel2 = this.f58661a;
                                             nativeAbilityContactSelectModelBase642.result = nativeAbilityContactSelectModel2.result;
                                             NativeAbilityContactSelectModel.Data data3 = nativeAbilityContactSelectModel2.cnt;
                                             if (data3 != null) {
                                                 nativeAbilityContactSelectModelBase642.cnt = Base64Utils.encodeToString(JsonUtils.toJson(data3).getBytes());
                                             }
-                                            this.f61780c.f61776b.onResult(0, nativeAbilityContactSelectModelBase642.toJson());
+                                            this.f58663c.f58659b.onResult(0, nativeAbilityContactSelectModelBase642.toJson());
                                             return;
                                         }
-                                        this.f61780c.f61776b.onResult(0, this.f61778a.toJson());
+                                        this.f58663c.f58659b.onResult(0, this.f58661a.toJson());
                                     }
                                 }
                             });
-                            if (this.f61777c.f61767b > 0) {
-                                PhoneContactsMananger.a(this.f61775a).a(this.f61777c.f61767b, false);
+                            if (this.f58660c.f58650b > 0) {
+                                PhoneContactsMananger.a(this.f58658a).a(this.f58660c.f58650b, false);
                             } else {
-                                PhoneContactsMananger.a(this.f61775a).a(1000, false);
+                                PhoneContactsMananger.a(this.f58658a).a(1000, false);
                             }
                         }
                     }

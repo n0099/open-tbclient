@@ -17,7 +17,7 @@ import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.DateUtils;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CONTENT_TYPE = "application/json; charset=utf-8";
@@ -137,7 +137,7 @@ public abstract class AbstractBceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, internalRequest, cls, bceProgressCallback)) == null) {
             if (!internalRequest.getHeaders().containsKey("Content-Type")) {
-                internalRequest.addHeader("Content-Type", "application/json; charset=utf-8");
+                internalRequest.addHeader("Content-Type", DEFAULT_CONTENT_TYPE);
             }
             if (!internalRequest.getHeaders().containsKey("Date")) {
                 internalRequest.addHeader("Date", DateUtils.rfc822DateFormat());

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PbEditorData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_PB = 0;
@@ -25,7 +25,7 @@ public class PbEditorData implements Serializable {
     public WriteImagesInfo mWriteImagesInfo;
     public boolean openVoiceRecordButton;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class ThreadData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,10 +108,10 @@ public class PbEditorData implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mThreadId : (String) invokeV.objValue;
         }
 
-        public void setAuthorId(long j2) {
+        public void setAuthorId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                this.authorId = j2;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.authorId = j;
             }
         }
 

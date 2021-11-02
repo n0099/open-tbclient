@@ -27,10 +27,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcSendMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMRtcSendMsg";
@@ -114,7 +113,7 @@ public class BIMRtcSendMsg extends Message {
                 jSONObject.put("appid", this.mRtcAppID);
                 jSONObject.put("msg_key", "");
                 jSONObject.put("app_version", RtcUtility.getAppVersionName(this.mContext));
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, this.mSdkVersion);
+                jSONObject.put("sdk_version", this.mSdkVersion);
                 jSONObject.put("signal_sdk_version", RtcConstants.RTC_VERSION);
                 jSONObject.put("uk", this.mImUk);
                 jSONObject.put("third_userid", IMJni.transBDUID(Utility.readUid(this.mContext)));

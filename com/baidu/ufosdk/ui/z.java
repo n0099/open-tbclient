@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class z implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f60140a;
+    public final /* synthetic */ FeedbackEditActivity f57056a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60141b;
+    public long f57057b;
 
     public z(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class z implements View.OnClickListener {
                 return;
             }
         }
-        this.f60140a = feedbackEditActivity;
-        this.f60141b = 0L;
+        this.f57056a = feedbackEditActivity;
+        this.f57057b = 0L;
     }
 
     @Override // android.view.View.OnClickListener
@@ -45,25 +45,25 @@ public final class z implements View.OnClickListener {
         SharedPreferences.Editor editor2;
         SharedPreferences.Editor editor3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || System.currentTimeMillis() - this.f60141b < 3000) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || System.currentTimeMillis() - this.f57057b < 3000) {
             return;
         }
-        z = this.f60140a.v;
+        z = this.f57056a.v;
         if (z) {
             return;
         }
-        this.f60141b = System.currentTimeMillis();
-        editText = this.f60140a.n;
+        this.f57057b = System.currentTimeMillis();
+        editText = this.f57056a.n;
         String obj = editText.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            editor = this.f60140a.f59806b;
+            editor = this.f57056a.f56731b;
             editor.putString("cryptContactData", "");
         } else {
-            editor3 = this.f60140a.f59806b;
+            editor3 = this.f57056a.f56731b;
             editor3.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
-        editor2 = this.f60140a.f59806b;
+        editor2 = this.f57056a.f56731b;
         editor2.commit();
-        FeedbackEditActivity.h(this.f60140a);
+        FeedbackEditActivity.h(this.f57056a);
     }
 }

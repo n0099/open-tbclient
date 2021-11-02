@@ -28,7 +28,6 @@ import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
-import com.baidu.tieba.service.AsInstallService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,39 +54,37 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39646a = "PhoneUtils";
+    public static final String f37587a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39647b = "_rim_pay.preferences";
+    public static final String f37588b = "_rim_pay.preferences";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39648c = "cuid_1";
+    public static final String f37589c = "cuid_1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39649d = "cuid_2";
+    public static final String f37590d = "cuid_2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39650e = "wime";
+    public static final String f37591e = "wime";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39651f = "identity_code";
+    public static final String f37592f = "identity_code";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39652g = "phone_number";
+    public static final String f37593g = "phone_number";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39653h = "card_no";
+    public static final String f37594h = "card_no";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39654i = "valid_date";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f39655j = "cvv2";
+    public static final String f37595i = "valid_date";
+    public static final String j = "cvv2";
     public static final String k = "imei";
     public static final String l = "nettype";
     public static final String m = "wloc";
@@ -95,7 +92,7 @@ public final class PhoneUtils {
     public static ArrayList<String> o;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -107,10 +104,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f39656a = "processor";
+        public static final String f37596a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f39657b = "features";
+        public static final String f37597b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -195,7 +192,7 @@ public final class PhoneUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, f39647b, "imei", "");
+            String str = (String) SharedPreferencesUtils.getParam(context, f37588b, "imei", "");
             if (!TextUtils.isEmpty(str)) {
                 if (ApollonConstants.DEBUG) {
                     String str2 = "从文件里面获取imei号=" + str;
@@ -225,7 +222,7 @@ public final class PhoneUtils {
             for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                 stringBuffer.append((char) (random.nextInt(10) | 48));
             }
-            SharedPreferencesUtils.setParam(context, f39647b, "imei", stringBuffer.toString());
+            SharedPreferencesUtils.setParam(context, f37588b, "imei", stringBuffer.toString());
             return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
@@ -820,7 +817,7 @@ public final class PhoneUtils {
                 intent.setAction("android.settings.MANAGE_APPLICATIONS_SETTINGS");
             } else {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, str, null));
+                intent.setData(Uri.fromParts("package", str, null));
             }
             if (isIntentAvailable(context, intent)) {
                 context.startActivity(intent);

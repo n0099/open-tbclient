@@ -18,24 +18,24 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class fr {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f78003a = 5000;
+    public static int f70960a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Vector<String> f414a = null;
+    public static Vector<String> f415a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f78004b = 330000;
+    public static int f70961b = 330000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f78005c = 600000;
+    public static int f70962c = 600000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f78006d = 330000;
+    public static int f70963d = 330000;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,7 +51,7 @@ public final class fr {
                 return;
             }
         }
-        f414a = new Vector<>();
+        f415a = new Vector<>();
         try {
             for (ClassLoader classLoader : m335a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
@@ -68,11 +68,11 @@ public final class fr {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f78003a = a(newPullParser, f78003a);
+                                    f70960a = a(newPullParser, f70960a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f78004b = a(newPullParser, f78004b);
+                                    f70961b = a(newPullParser, f70961b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f414a.add(newPullParser.nextText());
+                                    f415a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -108,7 +108,7 @@ public final class fr {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78004b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f70961b : invokeV.intValue;
     }
 
     public static int a(XmlPullParser xmlPullParser, int i2) {
@@ -166,6 +166,6 @@ public final class fr {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f78005c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f70962c : invokeV.intValue;
     }
 }

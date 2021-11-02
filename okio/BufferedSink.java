@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.channels.WritableByteChannel;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface BufferedSink extends Sink, WritableByteChannel {
     Buffer buffer();
 
@@ -19,7 +19,7 @@ public interface BufferedSink extends Sink, WritableByteChannel {
 
     BufferedSink write(ByteString byteString) throws IOException;
 
-    BufferedSink write(Source source, long j2) throws IOException;
+    BufferedSink write(Source source, long j) throws IOException;
 
     BufferedSink write(byte[] bArr) throws IOException;
 
@@ -29,17 +29,17 @@ public interface BufferedSink extends Sink, WritableByteChannel {
 
     BufferedSink writeByte(int i2) throws IOException;
 
-    BufferedSink writeDecimalLong(long j2) throws IOException;
+    BufferedSink writeDecimalLong(long j) throws IOException;
 
-    BufferedSink writeHexadecimalUnsignedLong(long j2) throws IOException;
+    BufferedSink writeHexadecimalUnsignedLong(long j) throws IOException;
 
     BufferedSink writeInt(int i2) throws IOException;
 
     BufferedSink writeIntLe(int i2) throws IOException;
 
-    BufferedSink writeLong(long j2) throws IOException;
+    BufferedSink writeLong(long j) throws IOException;
 
-    BufferedSink writeLongLe(long j2) throws IOException;
+    BufferedSink writeLongLe(long j) throws IOException;
 
     BufferedSink writeShort(int i2) throws IOException;
 

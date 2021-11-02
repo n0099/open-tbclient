@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MMSharedPreferences implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.SharedPreferences";
@@ -29,7 +29,7 @@ public class MMSharedPreferences implements SharedPreferences {
     public REditor editor;
     public final HashMap<String, Object> values;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class REditor implements SharedPreferences.Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,11 +181,11 @@ public class MMSharedPreferences implements SharedPreferences {
         }
 
         @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putLong(String str, long j2) {
+        public SharedPreferences.Editor putLong(String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
-                this.values.put(str, Long.valueOf(j2));
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
+                this.values.put(str, Long.valueOf(j));
                 this.remove.remove(str);
                 return this;
             }
@@ -347,12 +347,12 @@ public class MMSharedPreferences implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public long getLong(String str, long j2) {
+    public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
             Object value = getValue(str);
-            return (value == null || !(value instanceof Long)) ? j2 : ((Long) value).longValue();
+            return (value == null || !(value instanceof Long)) ? j : ((Long) value).longValue();
         }
         return invokeLJ.longValue;
     }

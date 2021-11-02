@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class IMLikeRequest implements LikeRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -108,13 +108,13 @@ public class IMLikeRequest implements LikeRequest {
                             }
 
                             @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-                            public void onResult(int i4, long j2, long j3) {
+                            public void onResult(int i4, long j, long j2) {
                                 SimpleResponseListener simpleResponseListener2;
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (simpleResponseListener2 = this.val$listener) == null) {
+                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Long.valueOf(j), Long.valueOf(j2)}) == null) || (simpleResponseListener2 = this.val$listener) == null) {
                                     return;
                                 }
-                                simpleResponseListener2.onResult(i4, j2, j3);
+                                simpleResponseListener2.onResult(i4, j, j2);
                             }
                         });
                     } else if (simpleResponseListener != null) {

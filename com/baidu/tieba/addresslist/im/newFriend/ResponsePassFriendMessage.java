@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.PassFriend.PassFriendResIdl;
 import tbclient.PassFriend.friendInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponsePassFriendMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,10 +69,10 @@ public class ResponsePassFriendMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.quanpin : (String) invokeV.objValue;
     }
 
-    public void setFriendId(long j2) {
+    public void setFriendId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.friendId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.friendId = j;
         }
     }
 

@@ -7,7 +7,6 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import android.text.TextUtils;
-import c.p.a.d.b.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,28 +17,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.downloadlib.a.b.d;
+import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a extends Binder implements c {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f76006a = "";
+        public static String f68428a = "";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.ss.android.downloadlib.a.b.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public static class C2054a implements c {
+        /* loaded from: classes2.dex */
+        public static class C1968a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f76007a;
+            public IBinder f68429a;
 
-            public C2054a(IBinder iBinder) {
+            public C1968a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,11 +54,11 @@ public interface c extends IInterface {
                         return;
                     }
                 }
-                if (TextUtils.isEmpty(a.f76006a)) {
-                    JSONObject v = l.v();
-                    String unused = a.f76006a = c.p.a.e.a.h.d.b(v.optString(r.f42346a), v.optString("s"));
+                if (TextUtils.isEmpty(a.f68428a)) {
+                    JSONObject i4 = j.i();
+                    String unused = a.f68428a = com.ss.android.socialbase.appdownloader.f.c.a(i4.optString(r.f40168a), i4.optString("s"));
                 }
-                this.f76007a = iBinder;
+                this.f68429a = iBinder;
             }
 
             @Override // com.ss.android.downloadlib.a.b.c
@@ -68,7 +68,7 @@ public interface c extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(a.f76006a);
+                        obtain.writeInterfaceToken(a.f68428a);
                         if (bVar != null) {
                             obtain.writeInt(1);
                             bVar.writeToParcel(obtain, 0);
@@ -76,7 +76,7 @@ public interface c extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeStrongBinder(dVar != null ? dVar.asBinder() : null);
-                        this.f76007a.transact(1, obtain, obtain2, 0);
+                        this.f68429a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -89,7 +89,7 @@ public interface c extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76007a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68429a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -115,13 +115,13 @@ public interface c extends IInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
                 if (i2 == 1598968902) {
-                    parcel2.writeString(f76006a);
+                    parcel2.writeString(f68428a);
                     return true;
                 }
                 if (i2 != 1) {
                     return super.onTransact(i2, parcel, parcel2, i3);
                 }
-                parcel.enforceInterface(f76006a);
+                parcel.enforceInterface(f68428a);
                 a(parcel.readInt() != 0 ? b.CREATOR.createFromParcel(parcel) : null, d.a.a(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
@@ -136,11 +136,11 @@ public interface c extends IInterface {
                 if (iBinder == null) {
                     return null;
                 }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface(f76006a);
+                IInterface queryLocalInterface = iBinder.queryLocalInterface(f68428a);
                 if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                     return (c) queryLocalInterface;
                 }
-                return new C2054a(iBinder);
+                return new C1968a(iBinder);
             }
             return (c) invokeL.objValue;
         }

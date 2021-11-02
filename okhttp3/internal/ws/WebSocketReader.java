@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class WebSocketReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class WebSocketReader {
     public int opcode;
     public final BufferedSource source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface FrameCallback {
         void onReadClose(int i2, String str);
 
@@ -77,9 +77,9 @@ public final class WebSocketReader {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            long j2 = this.frameLength;
-            if (j2 > 0) {
-                this.source.readFully(this.controlFrameBuffer, j2);
+            long j = this.frameLength;
+            if (j > 0) {
+                this.source.readFully(this.controlFrameBuffer, j);
                 if (!this.isClient) {
                     this.controlFrameBuffer.readAndWriteUnsafe(this.maskCursor);
                     this.maskCursor.seek(0L);
@@ -146,11 +146,11 @@ public final class WebSocketReader {
                         if (z5 == this.isClient) {
                             throw new ProtocolException(this.isClient ? "Server-sent frames must not be masked." : "Client-sent frames must be masked.");
                         }
-                        long j2 = readByte2 & 127;
-                        this.frameLength = j2;
-                        if (j2 == 126) {
+                        long j = readByte2 & 127;
+                        this.frameLength = j;
+                        if (j == 126) {
                             this.frameLength = this.source.readShort() & WebSocketProtocol.PAYLOAD_SHORT_MAX;
-                        } else if (j2 == 127) {
+                        } else if (j == 127) {
                             long readLong = this.source.readLong();
                             this.frameLength = readLong;
                             if (readLong < 0) {
@@ -180,9 +180,9 @@ public final class WebSocketReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             while (!this.closed) {
-                long j2 = this.frameLength;
-                if (j2 > 0) {
-                    this.source.readFully(this.messageFrameBuffer, j2);
+                long j = this.frameLength;
+                if (j > 0) {
+                    this.source.readFully(this.messageFrameBuffer, j);
                     if (!this.isClient) {
                         this.messageFrameBuffer.readAndWriteUnsafe(this.maskCursor);
                         this.maskCursor.seek(this.messageFrameBuffer.size() - this.frameLength);

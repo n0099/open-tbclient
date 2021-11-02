@@ -17,7 +17,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SingleClientConnManager implements ClientConnectionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MISUSE_MESSAGE = "Invalid use of SingleClientConnManager: connection still allocated.\nMake sure to release the connection before allocating another one.";
@@ -31,7 +31,7 @@ public class SingleClientConnManager implements ClientConnectionManager {
     public SchemeRegistry schemeRegistry;
     public PoolEntry uniquePoolEntry;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ConnAdapter extends AbstractPooledConnAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class SingleClientConnManager implements ClientConnectionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class PoolEntry extends AbstractPoolEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,9 +139,9 @@ public class SingleClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public void closeIdleConnections(long j2, TimeUnit timeUnit) {
+    public void closeIdleConnections(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -182,9 +182,9 @@ public class SingleClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public void releaseConnection(ManagedClientConnection managedClientConnection, long j2, TimeUnit timeUnit) {
+    public void releaseConnection(ManagedClientConnection managedClientConnection, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{managedClientConnection, Long.valueOf(j2), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{managedClientConnection, Long.valueOf(j), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
     }

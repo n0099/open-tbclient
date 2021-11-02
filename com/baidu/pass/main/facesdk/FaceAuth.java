@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FaceAuth {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceSDK";

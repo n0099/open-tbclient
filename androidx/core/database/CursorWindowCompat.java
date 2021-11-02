@@ -29,13 +29,13 @@ public final class CursorWindowCompat {
     }
 
     @NonNull
-    public static CursorWindow create(@Nullable String str, long j2) {
+    public static CursorWindow create(@Nullable String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 28) {
-                return new CursorWindow(str, j2);
+                return new CursorWindow(str, j);
             }
             if (i2 >= 15) {
                 return new CursorWindow(str);

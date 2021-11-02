@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ae implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f76903a;
+    public final /* synthetic */ int f70252a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f76904b;
+    public final /* synthetic */ List f70253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f76905c;
+    public final /* synthetic */ List f70254c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f76906d;
+    public final /* synthetic */ String f70255d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ ac f76907e;
+    public final /* synthetic */ ac f70256e;
 
     public ae(ac acVar, int i2, List list, List list2, String str) {
         Interceptable interceptable = $ic;
@@ -42,11 +42,11 @@ public final class ae implements Runnable {
                 return;
             }
         }
-        this.f76907e = acVar;
-        this.f76903a = i2;
-        this.f76904b = list;
-        this.f76905c = list2;
-        this.f76906d = str;
+        this.f70256e = acVar;
+        this.f70252a = i2;
+        this.f70253b = list;
+        this.f70254c = list2;
+        this.f70255d = str;
     }
 
     @Override // java.lang.Runnable
@@ -54,10 +54,10 @@ public final class ae implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ac acVar = this.f76907e;
-            PushMessageCallback pushMessageCallback = ((ab) acVar).f76897b;
-            context = acVar.f77081a;
-            pushMessageCallback.onSetAlias(context, this.f76903a, this.f76904b, this.f76905c, this.f76906d);
+            ac acVar = this.f70256e;
+            PushMessageCallback pushMessageCallback = ((ab) acVar).f70246b;
+            context = acVar.f70428a;
+            pushMessageCallback.onSetAlias(context, this.f70252a, this.f70253b, this.f70254c, this.f70255d);
         }
     }
 }

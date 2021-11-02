@@ -10,6 +10,7 @@ import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.searchbox.taskmanager.SmartLaunchTaskManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SmartLaunchStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -150,10 +151,10 @@ public class SmartLaunchStats {
         return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? isFirstAvailableTimeNormal : invokeV.booleanValue;
     }
 
-    public static boolean isTimeAvailable(long j2) {
+    public static boolean isTimeAvailable(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j2)) == null) ? j2 >= 100 && j2 < 30000 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j)) == null) ? j >= 100 && j < 30000 : invokeJ.booleanValue;
     }
 
     public static void onConfirmPrivacy() {
@@ -257,9 +258,9 @@ public class SmartLaunchStats {
         if (interceptable == null || interceptable.invokeV(65557, null) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (sFirstAvailableTime == -1 && sProcessAvailableTime == -1) {
-                long j2 = currentTimeMillis - sAppStartTimeStamp;
-                if (isTimeAvailable(j2)) {
-                    sFirstAvailableTime = j2;
+                long j = currentTimeMillis - sAppStartTimeStamp;
+                if (isTimeAvailable(j)) {
+                    sFirstAvailableTime = j;
                 }
                 long processLaunchDuration = sFirstAvailableTime + SpeedStatsManager.getInstance().getProcessLaunchDuration();
                 if (isTimeAvailable(processLaunchDuration)) {
@@ -275,24 +276,24 @@ public class SmartLaunchStats {
         }
     }
 
-    public static void setAppStartEndTimeStamp(long j2) {
+    public static void setAppStartEndTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65558, null, j2) == null) {
-            sAppStartEndTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65558, null, j) == null) {
+            sAppStartEndTimeStamp = j;
         }
     }
 
-    public static void setAppStartTimeStamp(long j2) {
+    public static void setAppStartTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65559, null, j2) == null) {
-            sAppStartTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65559, null, j) == null) {
+            sAppStartTimeStamp = j;
         }
     }
 
-    public static void setAppUserPerceptionStartTime(long j2) {
+    public static void setAppUserPerceptionStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65560, null, j2) == null) {
-            sUserPerceptionAppStartTime = j2;
+        if (interceptable == null || interceptable.invokeJ(65560, null, j) == null) {
+            sUserPerceptionAppStartTime = j;
         }
     }
 
@@ -304,45 +305,45 @@ public class SmartLaunchStats {
         }
     }
 
-    public static void setFirstTouchTime(long j2) {
+    public static void setFirstTouchTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65562, null, j2) == null) {
-            long j3 = sAppStartTimeStamp;
-            if (j3 == -1) {
+        if (interceptable == null || interceptable.invokeJ(65562, null, j) == null) {
+            long j2 = sAppStartTimeStamp;
+            if (j2 == -1) {
                 return;
             }
-            sFirstTouchTime = j2 - j3;
+            sFirstTouchTime = j - j2;
         }
     }
 
-    public static void setIdleTaskEndTime(long j2) {
+    public static void setIdleTaskEndTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65563, null, j2) == null) {
-            sIdleTaskEndTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65563, null, j) == null) {
+            sIdleTaskEndTimeStamp = j;
         }
     }
 
-    public static void setIdleTaskStartTime(long j2) {
+    public static void setIdleTaskStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65564, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65564, null, j) == null) {
             if (sFirstAvailableTime == -1 && sAfterLaunchAvailableTime == -1 && sProcessAvailableTime == -1) {
-                long j3 = j2 - sAppStartTimeStamp;
+                long j2 = j - sAppStartTimeStamp;
+                if (isTimeAvailable(j2)) {
+                    sFirstAvailableTime = j2;
+                }
+                long j3 = j - sAppStartEndTimeStamp;
                 if (isTimeAvailable(j3)) {
-                    sFirstAvailableTime = j3;
+                    sAfterLaunchAvailableTime = j3;
                 }
-                long j4 = j2 - sAppStartEndTimeStamp;
-                if (isTimeAvailable(j4)) {
-                    sAfterLaunchAvailableTime = j4;
-                }
-                long j5 = sUserPerceptionAppStartTime;
-                if (j5 > 0) {
-                    long j6 = j4 + j5;
-                    if (isTimeAvailable(j6)) {
-                        sProcessAvailableTime = j6;
+                long j4 = sUserPerceptionAppStartTime;
+                if (j4 > 0) {
+                    long j5 = j3 + j4;
+                    if (isTimeAvailable(j5)) {
+                        sProcessAvailableTime = j5;
                     }
                 }
             }
-            sIdleTaskStartTimeStamp = j2;
+            sIdleTaskStartTimeStamp = j;
             boolean z = DEBUG;
         }
     }
@@ -377,7 +378,11 @@ public class SmartLaunchStats {
                         if (SpeedStatsManager.getInstance().getAppLaunchDuration() < 0) {
                             if (SmartLaunchStats.DEBUG) {
                                 String unused = SmartLaunchStats.TAG;
-                                return true;
+                            }
+                            return true;
+                        } else if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                            if (SmartLaunchStats.DEBUG) {
+                                String unused2 = SmartLaunchStats.TAG;
                             }
                             return true;
                         } else if (SmartLaunchStats.sIdleTaskStartTimeStamp == -1) {
@@ -385,7 +390,7 @@ public class SmartLaunchStats {
                             LaunchedTaskSpeedStats.getInstance().endStatistics();
                             new SmartLaunchTaskManager().schedule(TbadkCoreApplication.getInst());
                             if (SmartLaunchStats.DEBUG) {
-                                String unused2 = SmartLaunchStats.TAG;
+                                String unused3 = SmartLaunchStats.TAG;
                                 String str = "set idle time! tti:" + SmartLaunchStats.sFirstAvailableTime;
                                 return false;
                             }

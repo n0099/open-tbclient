@@ -14,10 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMJoinCastMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMJoinCastMsg";
@@ -28,12 +27,12 @@ public class IMJoinCastMsg extends Message {
     public long mRowId;
     public long mToUser;
 
-    public IMJoinCastMsg(Context context, long j2, String str) {
+    public IMJoinCastMsg(Context context, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -46,7 +45,7 @@ public class IMJoinCastMsg extends Message {
         this.mContext = context;
         initCommonParameter(context);
         this.mMsgKey = str;
-        this.mToUser = j2;
+        this.mToUser = j;
         setNeedReplay(true);
         setType(201);
     }
@@ -75,7 +74,7 @@ public class IMJoinCastMsg extends Message {
                 jSONObject.put("uk", this.mUk);
                 jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
                 jSONObject.put("msg_key", this.mMsgKey);
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("is_reliable", this.mIsReliable);
                 this.mBody = jSONObject.toString();
             } catch (JSONException e2) {
@@ -136,7 +135,7 @@ public class IMJoinCastMsg extends Message {
             if (r3 <= 0) goto L61
             int r3 = r3 * 1000
             com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT = r3     // Catch: java.lang.Exception -> Ld4
-            boolean r9 = c.a.t.a.f29970e     // Catch: java.lang.Exception -> Ld4
+            boolean r9 = b.a.t.a.f28673e     // Catch: java.lang.Exception -> Ld4
             if (r9 == 0) goto L68
             com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r3     // Catch: java.lang.Exception -> Ld4
             goto L68
@@ -249,13 +248,13 @@ public class IMJoinCastMsg extends Message {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public IMJoinCastMsg(Context context, long j2, String str, boolean z) {
-        this(context, j2, str);
+    public IMJoinCastMsg(Context context, long j, String str, boolean z) {
+        this(context, j, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j), str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

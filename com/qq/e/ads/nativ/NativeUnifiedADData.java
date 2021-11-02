@@ -11,7 +11,7 @@ import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     public static final int AD_CLICKED = 2;
     public static final int AD_ERROR = 3;
@@ -56,6 +56,8 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     int getAppStatus();
 
+    String getButtonText();
+
     String getCTAText();
 
     String getDesc();
@@ -65,6 +67,8 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     int getECPM();
 
     String getECPMLevel();
+
+    Map<String, Object> getExtraInfo();
 
     String getIconUrl();
 
@@ -120,6 +124,8 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     void sendLossNotification(int i2, int i3, String str);
 
     void sendWinNotification(int i2);
+
+    void setBidECPM(int i2);
 
     void setNativeAdEventListener(NativeADEventListener nativeADEventListener);
 

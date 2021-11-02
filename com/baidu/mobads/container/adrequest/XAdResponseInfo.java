@@ -6,6 +6,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.XAdInstanceInfoExt;
 import com.baidu.mobads.container.error.XAdErrorCodeTransformer;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdResponseInfo implements IXAdResponseInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XAdResponseInfo";
@@ -81,7 +82,7 @@ public class XAdResponseInfo implements IXAdResponseInfo {
             this.baiduidOfCookie = this.mOriginResponseObject.optString("ck", "");
             this.requestId = this.mOriginResponseObject.optString(IAdRequestParam.REQ_ID);
             this.errorCode = this.mOriginResponseObject.optString("error_code", "");
-            this.errorMessage = this.mOriginResponseObject.optString("error_msg", "");
+            this.errorMessage = this.mOriginResponseObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
             this.defaultFillInThemeForStaticAds = this.mOriginResponseObject.getString(AdLandingpageOpen.EXTRA_LP_THEME);
         } catch (Throwable unused) {
         }

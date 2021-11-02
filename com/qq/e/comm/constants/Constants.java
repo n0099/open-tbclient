@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LANDSCAPE = "l";
@@ -12,7 +12,7 @@ public class Constants {
     public static final String PORTRAIT = "p";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class KEYS {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String AD_INFO = "adinfo";
@@ -65,10 +65,10 @@ public class Constants {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class PLUGIN {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int ASSET_PLUGIN_VERSION = 1260;
+        public static final int ASSET_PLUGIN_VERSION = 1280;
         public transient /* synthetic */ FieldHolder $fh;
 
         public PLUGIN() {

@@ -27,7 +27,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 @Experimental
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableSwitchMapCompletable<T> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
     public final Function<? super T, ? extends CompletableSource> mapper;
     public final Flowable<T> source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class SwitchMapCompletableObserver<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchMapInnerObserver INNER_DISPOSED;
@@ -48,7 +48,7 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
         public final Function<? super T, ? extends CompletableSource> mapper;
         public Subscription upstream;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public static final class SwitchMapInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -8003404460084760287L;

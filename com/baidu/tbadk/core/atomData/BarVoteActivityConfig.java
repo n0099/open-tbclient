@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BarVoteActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FID = "fid";
@@ -35,12 +35,12 @@ public class BarVoteActivityConfig extends IntentConfig {
         }
     }
 
-    public BarVoteActivityConfig createNormalConfig(long j2, int i2) {
+    public BarVoteActivityConfig createNormalConfig(long j, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
             Intent intent = getIntent();
-            intent.putExtra("fid", j2);
+            intent.putExtra("fid", j);
             intent.putExtra("source", i2);
             return this;
         }

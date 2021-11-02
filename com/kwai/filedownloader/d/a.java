@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.f.f;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f74479a;
+    public int f66859a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f74480b;
+    public int f66860b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f74481c;
+    public long f66861c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f74482d;
+    public long f66862d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f74483e;
+    public long f66863e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,11 +48,11 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (a aVar : list) {
-                j2 += aVar.d() - aVar.c();
+                j += aVar.d() - aVar.c();
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -60,66 +60,66 @@ public class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74479a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66859a : invokeV.intValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f74479a = i2;
+            this.f66859a = i2;
         }
     }
 
-    public void a(long j2) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f74481c = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.f66861c = j;
         }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74480b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66860b : invokeV.intValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f74480b = i2;
+            this.f66860b = i2;
         }
     }
 
-    public void b(long j2) {
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f74482d = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.f66862d = j;
         }
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f74481c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66861c : invokeV.longValue;
     }
 
-    public void c(long j2) {
+    public void c(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f74483e = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.f66863e = j;
         }
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f74482d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f66862d : invokeV.longValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f74483e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f66863e : invokeV.longValue;
     }
 
     public ContentValues f() {
@@ -127,11 +127,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("id", Integer.valueOf(this.f74479a));
-            contentValues.put("connectionIndex", Integer.valueOf(this.f74480b));
-            contentValues.put("startOffset", Long.valueOf(this.f74481c));
-            contentValues.put("currentOffset", Long.valueOf(this.f74482d));
-            contentValues.put("endOffset", Long.valueOf(this.f74483e));
+            contentValues.put("id", Integer.valueOf(this.f66859a));
+            contentValues.put("connectionIndex", Integer.valueOf(this.f66860b));
+            contentValues.put("startOffset", Long.valueOf(this.f66861c));
+            contentValues.put("currentOffset", Long.valueOf(this.f66862d));
+            contentValues.put("endOffset", Long.valueOf(this.f66863e));
             return contentValues;
         }
         return (ContentValues) invokeV.objValue;
@@ -140,6 +140,6 @@ public class a {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? f.a("id[%d] index[%d] range[%d, %d) current offset(%d)", Integer.valueOf(this.f74479a), Integer.valueOf(this.f74480b), Long.valueOf(this.f74481c), Long.valueOf(this.f74483e), Long.valueOf(this.f74482d)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? f.a("id[%d] index[%d] range[%d, %d) current offset(%d)", Integer.valueOf(this.f66859a), Integer.valueOf(this.f66860b), Long.valueOf(this.f66861c), Long.valueOf(this.f66863e), Long.valueOf(this.f66862d)) : (String) invokeV.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ExpandedProductParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KILOGRAM = "KG";

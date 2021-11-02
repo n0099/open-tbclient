@@ -38,7 +38,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic;
     public static ThreadLocal<Map<String, SimpleDateFormat>> dateFormatThreadLocal;
@@ -127,16 +127,16 @@ public class Util {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? millisToSec(cpuMillis()) : invokeV.longValue;
     }
 
-    public static int daysBetween(long j2, long j3) {
+    public static int daysBetween(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j4 = j3 - j2;
-            long j5 = j4 / 86400000;
-            if (j4 % 86400000 != 0) {
-                j5++;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j2 - j;
+            long j4 = j3 / 86400000;
+            if (j3 % 86400000 != 0) {
+                j4++;
             }
-            return Integer.parseInt(String.valueOf(j5));
+            return Integer.parseInt(String.valueOf(j4));
         }
         return invokeCommon.intValue;
     }
@@ -147,10 +147,10 @@ public class Util {
         return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? str == null || str.length() == 0 : invokeL.booleanValue;
     }
 
-    public static String formatDate(String str, long j2) {
+    public static String formatDate(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j2)) == null) ? getSimpleDateFormat(str).format(Long.valueOf(j2)) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j)) == null) ? getSimpleDateFormat(str).format(Long.valueOf(j)) : (String) invokeLJ.objValue;
     }
 
     public static String formatStr(String str, Object... objArr) {
@@ -185,7 +185,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f36765b, "getInnerIP ex=%s", th);
+                L.debug(com.baidu.android.common.util.Util.f34816b, "getInnerIP ex=%s", th);
                 return "";
             }
         }
@@ -219,7 +219,7 @@ public class Util {
                     return str;
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f36765b, "getOutNetIp ex=%s", th);
+                L.debug(com.baidu.android.common.util.Util.f34816b, "getOutNetIp ex=%s", th);
             }
             return "";
         }
@@ -282,28 +282,28 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static int longToInt(long j2) {
+    public static int longToInt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j2)) == null) {
-            if (j2 >= 2147483647L) {
-                L.debug(com.baidu.android.common.util.Util.f36765b, "Failed to convert long %d to int.", Long.valueOf(j2));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j)) == null) {
+            if (j >= 2147483647L) {
+                L.debug(com.baidu.android.common.util.Util.f34816b, "Failed to convert long %d to int.", Long.valueOf(j));
             }
-            return (int) j2;
+            return (int) j;
         }
         return invokeJ.intValue;
     }
 
-    public static long millisToSec(long j2) {
+    public static long millisToSec(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j2)) == null) ? j2 / 1000 : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j)) == null) ? j / 1000 : invokeJ.longValue;
     }
 
-    public static long millisToSec1(long j2) {
+    public static long millisToSec1(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j2)) == null) ? (j2 % 1000 == 0 || j2 <= 0) ? j2 / 1000 : (j2 / 1000) + 1 : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j)) == null) ? (j % 1000 == 0 || j <= 0) ? j / 1000 : (j / 1000) + 1 : invokeJ.longValue;
     }
 
     public static Date parseDate(String str, String str2) throws ParseException {
@@ -325,7 +325,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f36765b, th.getMessage(), new Object[0]);
+                L.debug(com.baidu.android.common.util.Util.f34816b, th.getMessage(), new Object[0]);
                 return "";
             }
         }
@@ -343,7 +343,7 @@ public class Util {
                     hashMap.put(split[0], split[1]);
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f36765b, th.getMessage(), new Object[0]);
+                L.debug(com.baidu.android.common.util.Util.f34816b, th.getMessage(), new Object[0]);
             }
             return hashMap;
         }

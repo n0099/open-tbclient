@@ -33,40 +33,38 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import java.io.File;
 import java.util.Timer;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class FeedbackFacePageActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences.Editor f59815a;
+    public SharedPreferences.Editor f56739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f59816b;
+    public SharedPreferences f56740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59817c;
+    public String f56741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59818d;
+    public String f56742d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59819e;
+    public String f56743e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f59820f;
+    public RelativeLayout f56744f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f59821g;
+    public LinearLayout f56745g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f59822h;
+    public ImageView f56746h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f59823i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Button f59824j;
+    public Button f56747i;
+    public Button j;
     public TextView k;
     public TextView l;
     public RelativeLayout m;
@@ -95,9 +93,9 @@ public class FeedbackFacePageActivity extends Activity {
                 return;
             }
         }
-        this.f59817c = "";
-        this.f59818d = "";
-        this.f59819e = "";
+        this.f56741c = "";
+        this.f56742d = "";
+        this.f56743e = "";
         this.u = false;
         this.v = new ah(this);
     }
@@ -133,9 +131,9 @@ public class FeedbackFacePageActivity extends Activity {
             }
             Intent intent = new Intent();
             intent.addFlags(268435456);
-            intent.putExtra("url", this.f59817c);
-            intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59723j);
-            intent.putExtra("extra", this.f59818d);
+            intent.putExtra("url", this.f56741c);
+            intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
+            intent.putExtra("extra", this.f56742d);
             intent.setClass(this, FeedbackListActivity.class);
             startActivity(intent);
         }
@@ -200,29 +198,29 @@ public class FeedbackFacePageActivity extends Activity {
         com.baidu.ufosdk.f.r.a(getWindow(), com.baidu.ufosdk.b.L);
         try {
             RelativeLayout relativeLayout = new RelativeLayout(this);
-            this.f59820f = relativeLayout;
+            this.f56744f = relativeLayout;
             relativeLayout.setBackgroundColor(com.baidu.ufosdk.b.z);
-            this.f59820f.setFitsSystemWindows(true);
-            setContentView(this.f59820f);
+            this.f56744f.setFitsSystemWindows(true);
+            setContentView(this.f56744f);
             SharedPreferences sharedPreferences = getSharedPreferences("UfoSharePreference", 0);
-            this.f59816b = sharedPreferences;
+            this.f56740b = sharedPreferences;
             if (sharedPreferences != null) {
-                this.f59815a = sharedPreferences.edit();
+                this.f56739a = sharedPreferences.edit();
             }
-            if (this.f59815a != null) {
-                this.f59815a.putBoolean("ADD_PIC_FLAG", true);
-                this.f59815a.commit();
+            if (this.f56739a != null) {
+                this.f56739a.putBoolean("ADD_PIC_FLAG", true);
+                this.f56739a.commit();
             }
             Intent intent = getIntent();
             if (intent != null) {
                 try {
                     String stringExtra = intent.getStringExtra("username");
                     if (!TextUtils.isEmpty(stringExtra)) {
-                        com.baidu.ufosdk.b.f59715b = stringExtra;
+                        com.baidu.ufosdk.b.f56642b = stringExtra;
                     }
                     String stringExtra2 = intent.getStringExtra("baiducuid");
                     if (!TextUtils.isEmpty(stringExtra2)) {
-                        com.baidu.ufosdk.b.f59716c = stringExtra2;
+                        com.baidu.ufosdk.b.f56643c = stringExtra2;
                     }
                     String stringExtra3 = intent.getStringExtra("prefix");
                     if (!TextUtils.isEmpty(stringExtra3)) {
@@ -234,16 +232,16 @@ public class FeedbackFacePageActivity extends Activity {
             }
             int intExtra = getIntent().getIntExtra("feedback_channel", 0);
             com.baidu.ufosdk.f.c.a("####### channelInt = " + intExtra);
-            com.baidu.ufosdk.b.f59723j = intExtra;
+            com.baidu.ufosdk.b.j = intExtra;
             com.baidu.ufosdk.b.k = getIntent().getIntExtra("faq_channel", 0);
-            this.f59819e = getIntent().getStringExtra("faq_id");
+            this.f56743e = getIntent().getStringExtra("faq_id");
             String stringExtra4 = getIntent().getStringExtra("msgid");
             this.t = stringExtra4;
             if (TextUtils.isEmpty(stringExtra4)) {
                 this.t = "newMessage";
             }
-            if (TextUtils.isEmpty(this.f59819e)) {
-                this.f59819e = "";
+            if (TextUtils.isEmpty(this.f56743e)) {
+                this.f56743e = "";
             }
         } catch (Exception e3) {
             e3.printStackTrace();
@@ -262,7 +260,7 @@ public class FeedbackFacePageActivity extends Activity {
             if (this.o == null) {
                 this.o = new WebView(this);
             }
-            this.f59820f.setId(R.drawable.res_0x7f080004_avd_show_password__1);
+            this.f56744f.setId(R.drawable.res_0x7f080004_avd_show_password__1);
             ?? relativeLayout2 = new RelativeLayout(this);
             relativeLayout2.setId(R.id.BLOCK);
             linearLayout = new LinearLayout(this);
@@ -272,13 +270,13 @@ public class FeedbackFacePageActivity extends Activity {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
             layoutParams.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), 0, 0, 0);
             ImageView imageView = new ImageView(this);
-            this.f59822h = imageView;
+            this.f56746h = imageView;
             imageView.setId(R.drawable.res_0x7f080001_avd_hide_password__1);
-            this.f59822h.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f59822h.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_back_icon_browser.png")));
-            linearLayout.addView(this.f59822h, layoutParams);
+            this.f56746h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f56746h.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_back_icon_browser.png")));
+            linearLayout.addView(this.f56746h, layoutParams);
             TextView textView = new TextView(this);
-            textView.setText(com.baidu.ufosdk.b.f59722i);
+            textView.setText(com.baidu.ufosdk.b.f56649i);
             textView.setTextSize(com.baidu.ufosdk.b.M);
             textView.setTextColor(com.baidu.ufosdk.b.H);
             textView.setGravity(16);
@@ -300,20 +298,20 @@ public class FeedbackFacePageActivity extends Activity {
             layoutParams4.addRule(13);
             relativeLayout2.addView(this.k, layoutParams4);
             Button button = new Button(this);
-            this.f59823i = button;
-            button.setText(com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_START_GROUP));
-            this.f59823i.setId(R.id.BOTTOM_END);
-            this.f59823i.setTextColor(com.baidu.ufosdk.b.s);
-            this.f59823i.setTextSize(com.baidu.ufosdk.b.U);
-            this.f59823i.setGravity(17);
-            this.f59823i.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.s, com.baidu.ufosdk.b.t, com.baidu.ufosdk.b.s, com.baidu.ufosdk.b.s));
-            this.f59823i.setBackgroundColor(16777215);
-            this.f59823i.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0);
+            this.f56747i = button;
+            button.setText(com.baidu.ufosdk.f.s.a("17"));
+            this.f56747i.setId(R.id.BOTTOM_END);
+            this.f56747i.setTextColor(com.baidu.ufosdk.b.s);
+            this.f56747i.setTextSize(com.baidu.ufosdk.b.U);
+            this.f56747i.setGravity(17);
+            this.f56747i.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.s, com.baidu.ufosdk.b.t, com.baidu.ufosdk.b.s, com.baidu.ufosdk.b.s));
+            this.f56747i.setBackgroundColor(16777215);
+            this.f56747i.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0);
             RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams5.addRule(11);
             layoutParams5.addRule(15);
             layoutParams5.setMargins(0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 6.0f), 0);
-            relativeLayout2.addView(this.f59823i, layoutParams5);
+            relativeLayout2.addView(this.f56747i, layoutParams5);
             this.l = new TextView(this);
             RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 9.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 9.0f));
             this.l.setTextColor(-1);
@@ -326,13 +324,13 @@ public class FeedbackFacePageActivity extends Activity {
             relativeLayout2.setBackgroundColor(com.baidu.ufosdk.b.A);
             RelativeLayout.LayoutParams layoutParams7 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
             layoutParams7.addRule(10);
-            this.f59820f.addView(relativeLayout2, layoutParams7);
+            this.f56744f.addView(relativeLayout2, layoutParams7);
             view = new View(this);
             view.setId(R.id.NONE);
             view.setBackgroundColor(-2894893);
             RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
             layoutParams8.addRule(3, relativeLayout2.getId());
-            this.f59820f.addView(view, layoutParams8);
+            this.f56744f.addView(view, layoutParams8);
             LinearLayout linearLayout4 = new LinearLayout(this);
             this.w = linearLayout4;
             linearLayout4.setId(R.id.NORMAL);
@@ -396,17 +394,17 @@ public class FeedbackFacePageActivity extends Activity {
                 this.w.addView(linearLayout3, layoutParams10);
                 RelativeLayout.LayoutParams layoutParams11 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
                 layoutParams11.addRule(12);
-                this.f59820f.addView(this.w, layoutParams11);
+                this.f56744f.addView(this.w, layoutParams11);
                 View view2 = new View(this);
-                view2.setId(R.id.RIGHT);
+                view2.setId(R.id.NO_DEBUG);
                 view2.setBackgroundColor(-2894893);
                 RelativeLayout.LayoutParams layoutParams12 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
                 layoutParams12.addRule(2, this.w.getId());
-                this.f59820f.addView(view2, layoutParams12);
+                this.f56744f.addView(view2, layoutParams12);
                 linearLayout3.setOnClickListener(new ai(this));
                 linearLayout2.setOnClickListener(new ak(this));
                 linearLayout.setOnClickListener(new am(this));
-                this.f59823i.setOnClickListener(new an(this));
+                this.f56747i.setOnClickListener(new an(this));
                 int id = view.getId();
                 int id2 = view2.getId();
                 this.m = new RelativeLayout(this);
@@ -414,15 +412,15 @@ public class FeedbackFacePageActivity extends Activity {
                 }
                 this.m.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
                 LinearLayout linearLayout5 = new LinearLayout(this);
-                this.f59821g = linearLayout5;
+                this.f56745g = linearLayout5;
                 linearLayout5.setOrientation(1);
-                this.f59821g.setGravity(17);
-                this.f59821g.setVisibility(8);
+                this.f56745g.setGravity(17);
+                this.f56745g.setVisibility(8);
                 new LinearLayout.LayoutParams(-2, -2);
                 ImageView imageView4 = new ImageView(this);
                 LinearLayout.LayoutParams layoutParams13 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 115.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 85.0f));
                 imageView4.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_no_netwrok.png")));
-                this.f59821g.addView(imageView4, layoutParams13);
+                this.f56745g.addView(imageView4, layoutParams13);
                 TextView textView5 = new TextView(this);
                 this.q = textView5;
                 textView5.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f));
@@ -430,20 +428,20 @@ public class FeedbackFacePageActivity extends Activity {
                 this.q.setTextColor(com.baidu.ufosdk.b.x);
                 LinearLayout.LayoutParams layoutParams14 = new LinearLayout.LayoutParams(-2, -2);
                 com.baidu.ufosdk.f.i.a(getApplicationContext(), this.q);
-                this.f59821g.addView(this.q, layoutParams14);
+                this.f56745g.addView(this.q, layoutParams14);
                 Button button2 = new Button(this);
-                this.f59824j = button2;
+                this.j = button2;
                 button2.setText(com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE));
-                this.f59824j.setTextSize(com.baidu.ufosdk.b.P);
-                this.f59824j.setTextColor(com.baidu.ufosdk.b.w);
-                this.f59824j.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_reload_btn_defult.9.png", "ufo_reload_btn_press.9.png"));
+                this.j.setTextSize(com.baidu.ufosdk.b.P);
+                this.j.setTextColor(com.baidu.ufosdk.b.w);
+                this.j.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_reload_btn_defult.9.png", "ufo_reload_btn_press.9.png"));
                 LinearLayout.LayoutParams layoutParams15 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 122.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f));
                 layoutParams15.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0);
-                this.f59821g.addView(this.f59824j, layoutParams15);
+                this.f56745g.addView(this.j, layoutParams15);
                 RelativeLayout.LayoutParams layoutParams16 = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams16.addRule(13);
-                this.m.addView(this.f59821g, layoutParams16);
-                this.f59824j.setOnClickListener(new ao(this));
+                this.m.addView(this.f56745g, layoutParams16);
+                this.j.setOnClickListener(new ao(this));
                 LinearLayout linearLayout6 = new LinearLayout(this);
                 linearLayout6.setOrientation(0);
                 linearLayout6.setGravity(16);
@@ -459,7 +457,7 @@ public class FeedbackFacePageActivity extends Activity {
                 RelativeLayout.LayoutParams layoutParams19 = new RelativeLayout.LayoutParams(-1, -1);
                 layoutParams19.addRule(3, id);
                 layoutParams19.addRule(2, id2);
-                this.f59820f.addView(this.m, layoutParams19);
+                this.f56744f.addView(this.m, layoutParams19);
                 this.o.getSettings().setJavaScriptEnabled(true);
                 this.o.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
                 this.o.getClass().getMethod("removeJavascriptInterface", String.class);
@@ -469,9 +467,9 @@ public class FeedbackFacePageActivity extends Activity {
                 b2 = com.baidu.ufosdk.b.d.b(getApplicationContext());
                 r3 = RomUtils.UNKNOWN;
                 if (!b2.contains(RomUtils.UNKNOWN)) {
-                    this.f59815a.putBoolean("CHECK_WEBVIEW", false);
-                    this.f59815a.commit();
-                    this.f59821g.setVisibility(8);
+                    this.f56739a.putBoolean("CHECK_WEBVIEW", false);
+                    this.f56739a.commit();
+                    this.f56745g.setVisibility(8);
                     this.o.setVisibility(0);
                     this.o.getSettings().setCacheMode(-1);
                     this.o.getSettings().setAppCacheMaxSize(8388608L);
@@ -498,7 +496,7 @@ public class FeedbackFacePageActivity extends Activity {
                     return;
                 }
                 this.o.getSettings().setCacheMode(1);
-                if (this.f59816b.getBoolean("CHECK_WEBVIEW", true)) {
+                if (this.f56740b.getBoolean("CHECK_WEBVIEW", true)) {
                 }
                 this.n.setVisibility(8);
                 this.o.getSettings().setAppCacheMaxSize(8388608L);
@@ -550,17 +548,17 @@ public class FeedbackFacePageActivity extends Activity {
                 this.w.addView(linearLayout3, layoutParams102);
                 RelativeLayout.LayoutParams layoutParams112 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
                 layoutParams112.addRule(12);
-                this.f59820f.addView(this.w, layoutParams112);
+                this.f56744f.addView(this.w, layoutParams112);
                 View view22 = new View(this);
-                view22.setId(R.id.RIGHT);
+                view22.setId(R.id.NO_DEBUG);
                 view22.setBackgroundColor(-2894893);
                 RelativeLayout.LayoutParams layoutParams122 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
                 layoutParams122.addRule(2, this.w.getId());
-                this.f59820f.addView(view22, layoutParams122);
+                this.f56744f.addView(view22, layoutParams122);
                 linearLayout3.setOnClickListener(new ai(this));
                 linearLayout2.setOnClickListener(new ak(this));
                 linearLayout.setOnClickListener(new am(this));
-                this.f59823i.setOnClickListener(new an(this));
+                this.f56747i.setOnClickListener(new an(this));
                 int id3 = view.getId();
                 int id22 = view22.getId();
                 this.m = new RelativeLayout(this);
@@ -569,15 +567,15 @@ public class FeedbackFacePageActivity extends Activity {
                 }
                 this.m.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
                 LinearLayout linearLayout52 = new LinearLayout(this);
-                this.f59821g = linearLayout52;
+                this.f56745g = linearLayout52;
                 linearLayout52.setOrientation(1);
-                this.f59821g.setGravity(17);
-                this.f59821g.setVisibility(8);
+                this.f56745g.setGravity(17);
+                this.f56745g.setVisibility(8);
                 new LinearLayout.LayoutParams(-2, -2);
                 ImageView imageView42 = new ImageView(this);
                 LinearLayout.LayoutParams layoutParams132 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 115.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 85.0f));
                 imageView42.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_no_netwrok.png")));
-                this.f59821g.addView(imageView42, layoutParams132);
+                this.f56745g.addView(imageView42, layoutParams132);
                 TextView textView52 = new TextView(this);
                 this.q = textView52;
                 textView52.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f));
@@ -585,20 +583,20 @@ public class FeedbackFacePageActivity extends Activity {
                 this.q.setTextColor(com.baidu.ufosdk.b.x);
                 LinearLayout.LayoutParams layoutParams142 = new LinearLayout.LayoutParams(-2, -2);
                 com.baidu.ufosdk.f.i.a(getApplicationContext(), this.q);
-                this.f59821g.addView(this.q, layoutParams142);
+                this.f56745g.addView(this.q, layoutParams142);
                 Button button22 = new Button(this);
-                this.f59824j = button22;
+                this.j = button22;
                 button22.setText(com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE));
-                this.f59824j.setTextSize(com.baidu.ufosdk.b.P);
-                this.f59824j.setTextColor(com.baidu.ufosdk.b.w);
-                this.f59824j.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_reload_btn_defult.9.png", "ufo_reload_btn_press.9.png"));
+                this.j.setTextSize(com.baidu.ufosdk.b.P);
+                this.j.setTextColor(com.baidu.ufosdk.b.w);
+                this.j.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_reload_btn_defult.9.png", "ufo_reload_btn_press.9.png"));
                 LinearLayout.LayoutParams layoutParams152 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 122.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f));
                 layoutParams152.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0);
-                this.f59821g.addView(this.f59824j, layoutParams152);
+                this.f56745g.addView(this.j, layoutParams152);
                 RelativeLayout.LayoutParams layoutParams162 = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams162.addRule(13);
-                this.m.addView(this.f59821g, layoutParams162);
-                this.f59824j.setOnClickListener(new ao(this));
+                this.m.addView(this.f56745g, layoutParams162);
+                this.j.setOnClickListener(new ao(this));
                 LinearLayout linearLayout62 = new LinearLayout(this);
                 linearLayout62.setOrientation(0);
                 linearLayout62.setGravity(16);
@@ -615,7 +613,7 @@ public class FeedbackFacePageActivity extends Activity {
                 RelativeLayout.LayoutParams layoutParams192 = new RelativeLayout.LayoutParams(-1, -1);
                 layoutParams192.addRule(3, id3);
                 layoutParams192.addRule(2, id22);
-                this.f59820f.addView(this.m, layoutParams192);
+                this.f56744f.addView(this.m, layoutParams192);
                 this.o.getSettings().setJavaScriptEnabled(true);
                 this.o.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
                 this.o.getClass().getMethod("removeJavascriptInterface", String.class);
@@ -625,9 +623,9 @@ public class FeedbackFacePageActivity extends Activity {
                 b2 = com.baidu.ufosdk.b.d.b(getApplicationContext());
                 r3 = RomUtils.UNKNOWN;
                 if (!b2.contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(getApplicationContext()).contains("NONE")) {
-                    this.f59815a.putBoolean("CHECK_WEBVIEW", false);
-                    this.f59815a.commit();
-                    this.f59821g.setVisibility(8);
+                    this.f56739a.putBoolean("CHECK_WEBVIEW", false);
+                    this.f56739a.commit();
+                    this.f56745g.setVisibility(8);
                     this.o.setVisibility(0);
                     this.o.getSettings().setCacheMode(-1);
                     this.o.getSettings().setAppCacheMaxSize(8388608L);
@@ -656,9 +654,9 @@ public class FeedbackFacePageActivity extends Activity {
                     return;
                 }
                 this.o.getSettings().setCacheMode(1);
-                if (this.f59816b.getBoolean("CHECK_WEBVIEW", true)) {
+                if (this.f56740b.getBoolean("CHECK_WEBVIEW", true)) {
                     com.baidu.ufosdk.f.i.a(getApplicationContext(), this.q);
-                    this.f59821g.setVisibility(0);
+                    this.f56745g.setVisibility(0);
                     this.o.setVisibility(8);
                 }
                 this.n.setVisibility(8);
@@ -720,17 +718,17 @@ public class FeedbackFacePageActivity extends Activity {
         this.w.addView(linearLayout3, layoutParams1022);
         RelativeLayout.LayoutParams layoutParams1122 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
         layoutParams1122.addRule(12);
-        this.f59820f.addView(this.w, layoutParams1122);
+        this.f56744f.addView(this.w, layoutParams1122);
         View view222 = new View(this);
-        view222.setId(R.id.RIGHT);
+        view222.setId(R.id.NO_DEBUG);
         view222.setBackgroundColor(-2894893);
         RelativeLayout.LayoutParams layoutParams1222 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
         layoutParams1222.addRule(2, this.w.getId());
-        this.f59820f.addView(view222, layoutParams1222);
+        this.f56744f.addView(view222, layoutParams1222);
         linearLayout3.setOnClickListener(new ai(this));
         linearLayout2.setOnClickListener(new ak(this));
         linearLayout.setOnClickListener(new am(this));
-        this.f59823i.setOnClickListener(new an(this));
+        this.f56747i.setOnClickListener(new an(this));
         int id32 = view.getId();
         int id222 = view222.getId();
         this.m = new RelativeLayout(this);
@@ -738,15 +736,15 @@ public class FeedbackFacePageActivity extends Activity {
         }
         this.m.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         LinearLayout linearLayout522 = new LinearLayout(this);
-        this.f59821g = linearLayout522;
+        this.f56745g = linearLayout522;
         linearLayout522.setOrientation(1);
-        this.f59821g.setGravity(17);
-        this.f59821g.setVisibility(8);
+        this.f56745g.setGravity(17);
+        this.f56745g.setVisibility(8);
         new LinearLayout.LayoutParams(-2, -2);
         ImageView imageView422 = new ImageView(this);
         LinearLayout.LayoutParams layoutParams1322 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 115.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 85.0f));
         imageView422.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_no_netwrok.png")));
-        this.f59821g.addView(imageView422, layoutParams1322);
+        this.f56745g.addView(imageView422, layoutParams1322);
         TextView textView522 = new TextView(this);
         this.q = textView522;
         textView522.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f));
@@ -754,20 +752,20 @@ public class FeedbackFacePageActivity extends Activity {
         this.q.setTextColor(com.baidu.ufosdk.b.x);
         LinearLayout.LayoutParams layoutParams1422 = new LinearLayout.LayoutParams(-2, -2);
         com.baidu.ufosdk.f.i.a(getApplicationContext(), this.q);
-        this.f59821g.addView(this.q, layoutParams1422);
+        this.f56745g.addView(this.q, layoutParams1422);
         Button button222 = new Button(this);
-        this.f59824j = button222;
+        this.j = button222;
         button222.setText(com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE));
-        this.f59824j.setTextSize(com.baidu.ufosdk.b.P);
-        this.f59824j.setTextColor(com.baidu.ufosdk.b.w);
-        this.f59824j.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_reload_btn_defult.9.png", "ufo_reload_btn_press.9.png"));
+        this.j.setTextSize(com.baidu.ufosdk.b.P);
+        this.j.setTextColor(com.baidu.ufosdk.b.w);
+        this.j.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_reload_btn_defult.9.png", "ufo_reload_btn_press.9.png"));
         LinearLayout.LayoutParams layoutParams1522 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 122.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f));
         layoutParams1522.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0);
-        this.f59821g.addView(this.f59824j, layoutParams1522);
+        this.f56745g.addView(this.j, layoutParams1522);
         RelativeLayout.LayoutParams layoutParams1622 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams1622.addRule(13);
-        this.m.addView(this.f59821g, layoutParams1622);
-        this.f59824j.setOnClickListener(new ao(this));
+        this.m.addView(this.f56745g, layoutParams1622);
+        this.j.setOnClickListener(new ao(this));
         LinearLayout linearLayout622 = new LinearLayout(this);
         linearLayout622.setOrientation(0);
         linearLayout622.setGravity(16);
@@ -783,7 +781,7 @@ public class FeedbackFacePageActivity extends Activity {
         RelativeLayout.LayoutParams layoutParams1922 = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams1922.addRule(3, id32);
         layoutParams1922.addRule(2, id222);
-        this.f59820f.addView(this.m, layoutParams1922);
+        this.f56744f.addView(this.m, layoutParams1922);
         this.o.getSettings().setJavaScriptEnabled(true);
         this.o.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
         this.o.getClass().getMethod("removeJavascriptInterface", String.class);
@@ -795,7 +793,7 @@ public class FeedbackFacePageActivity extends Activity {
         if (!b2.contains(RomUtils.UNKNOWN)) {
         }
         this.o.getSettings().setCacheMode(1);
-        if (this.f59816b.getBoolean("CHECK_WEBVIEW", true)) {
+        if (this.f56740b.getBoolean("CHECK_WEBVIEW", true)) {
         }
         this.n.setVisibility(8);
         this.o.getSettings().setAppCacheMaxSize(8388608L);
@@ -824,7 +822,7 @@ public class FeedbackFacePageActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            com.baidu.ufosdk.f.a.f59752a = null;
+            com.baidu.ufosdk.f.a.f56678a = null;
         }
     }
 
@@ -890,13 +888,13 @@ public class FeedbackFacePageActivity extends Activity {
                 com.baidu.ufosdk.b.ac.onResumeCallback();
             }
             this.k.setText(com.baidu.ufosdk.f.s.a("7"));
-            this.f59823i.setText(com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_START_GROUP));
+            this.f56747i.setText(com.baidu.ufosdk.f.s.a("17"));
             this.r.setText(com.baidu.ufosdk.f.s.a(RoomMasterTable.DEFAULT_ID));
             this.s.setText(com.baidu.ufosdk.f.s.a("43"));
             com.baidu.ufosdk.f.i.a(getApplicationContext(), this.q);
-            this.f59824j.setText(com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE));
+            this.j.setText(com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE));
             com.baidu.ufosdk.f.i.a((RelativeLayout) this.n, com.baidu.ufosdk.f.s.a("13"));
-            this.f59823i.setTextSize(com.baidu.ufosdk.b.U);
+            this.f56747i.setTextSize(com.baidu.ufosdk.b.U);
             if (this.t != null) {
                 if (this.t.length() == 0) {
                 }

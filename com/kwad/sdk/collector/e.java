@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class e<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f71688a;
+    public boolean f64164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f71689b;
+    public boolean f64165b;
 
     public e(boolean z) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public abstract class e<T> {
                 return;
             }
         }
-        this.f71689b = false;
-        this.f71688a = z;
+        this.f64165b = false;
+        this.f64164a = z;
     }
 
     @Nullable
@@ -43,7 +43,7 @@ public abstract class e<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f71688a && !this.f71689b) {
+            if (this.f64164a && !this.f64165b) {
                 try {
                     return b(context);
                 } catch (Throwable th) {
@@ -59,7 +59,7 @@ public abstract class e<T> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f71688a = z;
+            this.f64164a = z;
         }
     }
 

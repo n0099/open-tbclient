@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 import org.aspectj.lang.Signature;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class SignatureImpl implements Signature {
     public static /* synthetic */ Interceptable $ic = null;
     public static Class[] EMPTY_CLASS_ARRAY = null;
@@ -31,14 +31,14 @@ public abstract class SignatureImpl implements Signature {
     public Cache stringCache;
     public String stringRep;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Cache {
         String get(int i2);
 
         void set(int i2, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CacheImpl implements Cache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

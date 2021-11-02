@@ -29,13 +29,13 @@ import java.net.URL;
 import java.util.Map;
 import java.util.regex.Pattern;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HttpUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern ipv4Pattern;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class HttpResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

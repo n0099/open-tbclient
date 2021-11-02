@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.k;
+import h.k;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Unsubscribed implements k {
     public static final /* synthetic */ Unsubscribed[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -66,7 +66,7 @@ public final class Unsubscribed implements k {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Unsubscribed[]) $VALUES.clone() : (Unsubscribed[]) invokeV.objValue;
     }
 
-    @Override // i.k
+    @Override // h.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public final class Unsubscribed implements k {
         return invokeV.booleanValue;
     }
 
-    @Override // i.k
+    @Override // h.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaGetContactorPauidRequest";
@@ -29,12 +30,12 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     public int mContactorType;
     public String mKey;
 
-    public IMMediaGetContactorPauidRequest(Context context, long j2, String str) {
+    public IMMediaGetContactorPauidRequest(Context context, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -47,7 +48,7 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j2;
+        this.mContacter = j;
         this.mKey = str;
     }
 
@@ -125,7 +126,7 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i2, byte[] bArr) {
-        long j2;
+        long j;
         String str;
         int i3;
         int i4;
@@ -136,22 +137,22 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 int optInt = jSONObject.optInt("error_code", 0);
-                String optString = jSONObject.optString("error_msg");
+                String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 long optLong = jSONObject.optLong("pa_uid", -1L);
                 i4 = jSONObject.optInt("is_buser", -1);
                 str = optString;
-                j2 = optLong;
+                j = optLong;
                 i3 = optInt;
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e2);
-                j2 = -1;
+                j = -1;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i3 = 1010;
                 i4 = -1;
             }
             IMediaGetContactorPauidListener iMediaGetContactorPauidListener = (IMediaGetContactorPauidListener) ListenerManager.getInstance().removeListener(this.mKey);
             if (iMediaGetContactorPauidListener != null) {
-                iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(i3, j2, i4, str);
+                iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(i3, j, i4, str);
             }
         }
     }
@@ -163,12 +164,12 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? AccountManager.isCuidLogin(this.mContext) : invokeV.booleanValue;
     }
 
-    public IMMediaGetContactorPauidRequest(Context context, long j2, int i2, long j3, String str, String str2) {
+    public IMMediaGetContactorPauidRequest(Context context, long j, int i2, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, str2};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -181,10 +182,10 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j2;
+        this.mContacter = j;
         this.mKey = str2;
         this.mContactorType = i2;
-        this.mContactorPauid = j3;
+        this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }
 }

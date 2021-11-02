@@ -75,16 +75,16 @@ public final class TimeUtils {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static void formatDuration(long j2, StringBuilder sb) {
+    public static void formatDuration(long j, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(AdIconUtil.BAIDU_LOGO_ID, null, j2, sb) == null) {
+        if (interceptable == null || interceptable.invokeJL(AdIconUtil.BAIDU_LOGO_ID, null, j, sb) == null) {
             synchronized (sFormatSync) {
-                sb.append(sFormatStr, 0, formatDurationLocked(j2, 0));
+                sb.append(sFormatStr, 0, formatDurationLocked(j, 0));
             }
         }
     }
 
-    public static int formatDurationLocked(long j2, int i2) {
+    public static int formatDurationLocked(long j, int i2) {
         InterceptResult invokeCommon;
         char c2;
         int i3;
@@ -93,13 +93,13 @@ public final class TimeUtils {
         int i6;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            long j3 = j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+            long j2 = j;
             if (sFormatStr.length < i2) {
                 sFormatStr = new char[i2];
             }
             char[] cArr = sFormatStr;
-            int i8 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+            int i8 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i8 == 0) {
                 int i9 = i2 - 1;
                 while (i9 > 0) {
@@ -112,10 +112,10 @@ public final class TimeUtils {
                 c2 = '+';
             } else {
                 c2 = SignatureImpl.SEP;
-                j3 = -j3;
+                j2 = -j2;
             }
-            int i10 = (int) (j3 % 1000);
-            int floor = (int) Math.floor(j3 / 1000);
+            int i10 = (int) (j2 % 1000);
+            int floor = (int) Math.floor(j2 / 1000);
             if (floor > 86400) {
                 i3 = floor / 86400;
                 floor -= 86400 * i3;
@@ -194,31 +194,31 @@ public final class TimeUtils {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static void formatDuration(long j2, PrintWriter printWriter, int i2) {
+    public static void formatDuration(long j, PrintWriter printWriter, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j2), printWriter, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j), printWriter, Integer.valueOf(i2)}) == null) {
             synchronized (sFormatSync) {
-                printWriter.print(new String(sFormatStr, 0, formatDurationLocked(j2, i2)));
+                printWriter.print(new String(sFormatStr, 0, formatDurationLocked(j, i2)));
             }
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static void formatDuration(long j2, PrintWriter printWriter) {
+    public static void formatDuration(long j, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j2, printWriter) == null) {
-            formatDuration(j2, printWriter, 0);
+        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, printWriter) == null) {
+            formatDuration(j, printWriter, 0);
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static void formatDuration(long j2, long j3, PrintWriter printWriter) {
+    public static void formatDuration(long j, long j2, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), printWriter}) == null) {
-            if (j2 == 0) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), printWriter}) == null) {
+            if (j == 0) {
                 printWriter.print("--");
             } else {
-                formatDuration(j2 - j3, printWriter, 0);
+                formatDuration(j - j2, printWriter, 0);
             }
         }
     }

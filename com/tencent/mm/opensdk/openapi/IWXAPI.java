@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.ILog;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IWXAPI {
     void detach();
 
@@ -18,7 +18,7 @@ public interface IWXAPI {
 
     boolean registerApp(String str);
 
-    boolean registerApp(String str, long j2);
+    boolean registerApp(String str, long j);
 
     boolean sendReq(BaseReq baseReq);
 

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UiThreadUtil {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Handler sMainHandler;
@@ -55,10 +55,10 @@ public class UiThreadUtil {
         }
     }
 
-    public static void runOnUiThread(Runnable runnable, long j2) {
+    public static void runOnUiThread(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j2) == null) {
-            UiThreadUtils.runOnUiThread(runnable, j2);
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
+            UiThreadUtils.runOnUiThread(runnable, j);
         }
     }
 }

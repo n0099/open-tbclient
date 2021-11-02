@@ -337,11 +337,11 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     }
 
     @NonNull
-    public static String createKey(@NonNull String str, long j2) {
+    public static String createKey(@NonNull String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, str, j2)) == null) {
-            return str + j2;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, str, j)) == null) {
+            return str + j;
         }
         return (String) invokeLJ.objValue;
     }
@@ -359,15 +359,15 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
     }
 
-    private boolean isFragmentViewBound(long j2) {
+    private boolean isFragmentViewBound(long j) {
         InterceptResult invokeJ;
         View view;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j2)) == null) {
-            if (this.mItemIdToViewHolder.containsKey(j2)) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j)) == null) {
+            if (this.mItemIdToViewHolder.containsKey(j)) {
                 return true;
             }
-            Fragment fragment = this.mFragments.get(j2);
+            Fragment fragment = this.mFragments.get(j);
             return (fragment == null || (view = fragment.getView()) == null || view.getParent() == null) ? false : true;
         }
         return invokeJ.booleanValue;
@@ -404,29 +404,29 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? Long.parseLong(str.substring(str2.length())) : invokeLL.longValue;
     }
 
-    private void removeFragment(long j2) {
+    private void removeFragment(long j) {
         Fragment fragment;
         ViewParent parent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65545, this, j2) == null) || (fragment = this.mFragments.get(j2)) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || (fragment = this.mFragments.get(j)) == null) {
             return;
         }
         if (fragment.getView() != null && (parent = fragment.getView().getParent()) != null) {
             ((FrameLayout) parent).removeAllViews();
         }
-        if (!containsItem(j2)) {
-            this.mSavedStates.remove(j2);
+        if (!containsItem(j)) {
+            this.mSavedStates.remove(j);
         }
         if (!fragment.isAdded()) {
-            this.mFragments.remove(j2);
+            this.mFragments.remove(j);
         } else if (shouldDelayFragmentTransactions()) {
             this.mHasStaleFragments = true;
         } else {
-            if (fragment.isAdded() && containsItem(j2)) {
-                this.mSavedStates.put(j2, this.mFragmentManager.saveFragmentInstanceState(fragment));
+            if (fragment.isAdded() && containsItem(j)) {
+                this.mSavedStates.put(j, this.mFragmentManager.saveFragmentInstanceState(fragment));
             }
             this.mFragmentManager.beginTransaction().remove(fragment).commitNow();
-            this.mFragments.remove(j2);
+            this.mFragments.remove(j);
         }
     }
 
@@ -569,10 +569,10 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
     }
 
-    public boolean containsItem(long j2) {
+    public boolean containsItem(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? j2 >= 0 && j2 < ((long) getItemCount()) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? j >= 0 && j < ((long) getItemCount()) : invokeJ.booleanValue;
     }
 
     @NonNull

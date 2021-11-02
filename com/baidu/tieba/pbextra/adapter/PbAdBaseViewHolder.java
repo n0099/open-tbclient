@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.q0.e.c;
-import c.a.r0.k2.k.e.g1.d;
+import b.a.e.e.p.l;
+import b.a.q0.e.c;
+import b.a.r0.k2.u.f.g1.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -31,13 +31,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserIconBox f55786a;
+    public UserIconBox f52942a;
     public TextView floor;
     public TextView floorOwner;
     public PbGiftListView giftListView;
@@ -164,7 +164,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
         this.richText.setDisplayImage(z, false);
         this.richText.setVoiceViewRes(R.layout.voice_play_btn_new);
         this.mUserIconLayout = (UserIconBox) view.findViewById(R.id.user_icon_box);
-        this.f55786a = (UserIconBox) view.findViewById(R.id.user_tshow_icon_box);
+        this.f52942a = (UserIconBox) view.findViewById(R.id.user_tshow_icon_box);
         this.mAddPostLayout = (LinearLayout) view.findViewById(R.id.add_post_footer_layout);
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.addition_more_container);
         this.mAdditionMoreContainer = linearLayout;

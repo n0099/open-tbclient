@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class H5OpenAuthActivity extends H5PayActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f35874i;
+    public boolean f33979i;
 
     public H5OpenAuthActivity() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
                 return;
             }
         }
-        this.f35874i = false;
+        this.f33979i = false;
     }
 
     @Override // com.alipay.sdk.app.H5PayActivity
@@ -44,11 +44,11 @@ public class H5OpenAuthActivity extends H5PayActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f35874i) {
+            if (this.f33979i) {
                 try {
-                    com.alipay.sdk.sys.a a2 = a.C1568a.a(getIntent());
+                    com.alipay.sdk.sys.a a2 = a.C1522a.a(getIntent());
                     if (a2 != null) {
-                        com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f36072d);
+                        com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f34167d);
                     }
                 } catch (Throwable unused) {
                 }
@@ -62,7 +62,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
             try {
-                com.alipay.sdk.sys.a a2 = a.C1568a.a(intent);
+                com.alipay.sdk.sys.a a2 = a.C1522a.a(intent);
                 try {
                     super.startActivity(intent);
                     Uri data = intent != null ? intent.getData() : null;
@@ -75,7 +75,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
                     if (a2 != null) {
                         com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.u0, th, uri);
                     }
-                    this.f35874i = true;
+                    this.f33979i = true;
                     throw th;
                 }
             } catch (Throwable unused) {

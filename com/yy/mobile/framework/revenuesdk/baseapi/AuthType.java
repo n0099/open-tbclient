@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AuthType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BD_BDUSS = 6;

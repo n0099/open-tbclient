@@ -18,13 +18,13 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import c.a.e.l.e.q;
-import c.a.q0.g0.g;
-import c.a.q0.g0.h;
-import c.a.q0.s.a;
-import c.a.q0.s.c;
-import c.a.q0.s.f0.d;
+import b.a.e.e.p.l;
+import b.a.e.l.e.q;
+import b.a.q0.g0.g;
+import b.a.q0.g0.h;
+import b.a.q0.s.a;
+import b.a.q0.s.c;
+import b.a.q0.s.g0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -56,7 +56,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IVideoNeedPreload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte KEYBOARD_STATE_HIDE = -2;
@@ -89,7 +89,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public h refreshView;
     public final CustomMessageListener skinTypeChangeListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class DelayRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public abstract class LoadDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class NetRefreshListener implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -473,7 +473,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
         try {
             if (progressDialog.isShowing()) {
-                c.a.e.e.m.g.a(this.mWaitingDialog, getActivity());
+                b.a.e.e.m.g.a(this.mWaitingDialog, getActivity());
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -505,7 +505,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             return;
         }
         for (Dialog dialog : list) {
-            c.a.e.e.m.g.a(dialog, getActivity());
+            b.a.e.e.m.g.a(dialog, getActivity());
         }
         this.dialogList.clear();
     }
@@ -517,7 +517,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             return;
         }
         for (PopupWindow popupWindow : list) {
-            c.a.e.e.m.g.d(popupWindow, getActivity());
+            b.a.e.e.m.g.d(popupWindow, getActivity());
         }
         this.popupWindowList.clear();
     }
@@ -529,7 +529,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (list != null) {
                 list.remove(dialog);
             }
-            c.a.e.e.m.g.a(dialog, getActivity());
+            b.a.e.e.m.g.a(dialog, getActivity());
         }
     }
 
@@ -543,7 +543,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public void dismissPopupWindow(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, popupWindow) == null) {
-            c.a.e.e.m.g.d(popupWindow, getActivity());
+            b.a.e.e.m.g.d(popupWindow, getActivity());
             List<PopupWindow> list = this.popupWindowList;
             if (list != null) {
                 list.remove(popupWindow);
@@ -634,7 +634,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         AlertDialog alertDialog;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (alertDialog = this.mListMenu) != null && alertDialog.isShowing()) {
-            c.a.e.e.m.g.a(this.mListMenu, getActivity());
+            b.a.e.e.m.g.a(this.mListMenu, getActivity());
         }
     }
 
@@ -859,7 +859,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, c.a.e.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, b.a.e.a.i
     public void onPreLoad(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, qVar) == null) {
@@ -990,7 +990,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, dialog)) == null) {
-            if (c.a.e.e.m.g.i(dialog, getActivity())) {
+            if (b.a.e.e.m.g.i(dialog, getActivity())) {
                 if (this.dialogList == null) {
                     this.dialogList = new LinkedList();
                 }
@@ -1008,7 +1008,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (!(interceptable == null || interceptable.invokeV(1048639, this) == null) || (alertDialog = this.mListMenu) == null || alertDialog.isShowing()) {
             return;
         }
-        c.a.e.e.m.g.i(this.mListMenu, getActivity());
+        b.a.e.e.m.g.i(this.mListMenu, getActivity());
     }
 
     public void showLoadingDialog(String str) {
@@ -1040,7 +1040,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048647, this, popupWindow, view)) == null) {
-            if (c.a.e.e.m.g.k(popupWindow, view)) {
+            if (b.a.e.e.m.g.k(popupWindow, view)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -1056,7 +1056,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048649, this, new Object[]{popupWindow, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (c.a.e.e.m.g.m(popupWindow, view, i2, i3, i4)) {
+            if (b.a.e.e.m.g.m(popupWindow, view, i2, i3, i4)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -1235,7 +1235,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, c.a.e.a.g
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, b.a.e.a.g
     public TbPageContext<T> getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1250,7 +1250,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048641, this, str, onCancelListener) == null) && !isFinishing() && c.a.e.e.m.g.e(getActivity())) {
+        if ((interceptable == null || interceptable.invokeLL(1048641, this, str, onCancelListener) == null) && !isFinishing() && b.a.e.e.m.g.e(getActivity())) {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             }
@@ -1318,7 +1318,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048648, this, popupWindow, view, i2, i3)) == null) {
-            if (c.a.e.e.m.g.l(popupWindow, view, i2, i3)) {
+            if (b.a.e.e.m.g.l(popupWindow, view, i2, i3)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }

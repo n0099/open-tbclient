@@ -15,7 +15,7 @@ import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SceneImpl extends com.kwad.sdk.core.response.a.a implements KsScene, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 93865491903408451L;
@@ -51,12 +51,12 @@ public class SceneImpl extends com.kwad.sdk.core.response.a.a implements KsScene
         this.needShowMiniWindow = false;
     }
 
-    public SceneImpl(long j2) {
+    public SceneImpl(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -69,8 +69,8 @@ public class SceneImpl extends com.kwad.sdk.core.response.a.a implements KsScene
         this.adNum = 1;
         this.screenOrientation = 0;
         this.needShowMiniWindow = false;
-        this.posId = j2;
-        this.entryScene = j2;
+        this.posId = j;
+        this.entryScene = j;
     }
 
     public SceneImpl(KsScene ksScene) {
@@ -250,11 +250,11 @@ public class SceneImpl extends com.kwad.sdk.core.response.a.a implements KsScene
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setPosId(long j2) {
+    public void setPosId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.posId = j2;
-            this.entryScene = j2;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.posId = j;
+            this.entryScene = j;
         }
     }
 

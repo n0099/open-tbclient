@@ -19,7 +19,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LruDiskCache implements DiskCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 32768;
@@ -52,13 +52,13 @@ public class LruDiskCache implements DiskCache {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LruDiskCache(File file, FileNameGenerator fileNameGenerator, long j2) {
-        this(file, null, fileNameGenerator, j2, 0);
+    public LruDiskCache(File file, FileNameGenerator fileNameGenerator, long j) {
+        this(file, null, fileNameGenerator, j, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, fileNameGenerator, Long.valueOf(j2)};
+            Object[] objArr = {file, fileNameGenerator, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -72,12 +72,12 @@ public class LruDiskCache implements DiskCache {
         }
     }
 
-    public LruDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j2, int i2) {
+    public LruDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, file2, fileNameGenerator, Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {file, file2, fileNameGenerator, Long.valueOf(j), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -93,7 +93,7 @@ public class LruDiskCache implements DiskCache {
         if (file == null) {
             throw new IllegalArgumentException("cacheDir argument must be not null");
         }
-        int i5 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        int i5 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i5 < 0) {
             throw new IllegalArgumentException("cacheMaxSize argument must be positive number");
         }
@@ -103,11 +103,11 @@ public class LruDiskCache implements DiskCache {
         if (fileNameGenerator == null) {
             throw new IllegalArgumentException("fileNameGenerator argument must be not null");
         }
-        long j3 = i5 == 0 ? Long.MAX_VALUE : j2;
+        long j2 = i5 == 0 ? Long.MAX_VALUE : j;
         int i6 = i2 == 0 ? Integer.MAX_VALUE : i2;
         this.reserveCacheDir = file2;
         this.fileNameGenerator = fileNameGenerator;
-        initCache(file, file2, j3, i6);
+        initCache(file, file2, j2, i6);
     }
 
     private String getKey(String str) {
@@ -116,15 +116,15 @@ public class LruDiskCache implements DiskCache {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? this.fileNameGenerator.generate(str) : (String) invokeL.objValue;
     }
 
-    private void initCache(File file, File file2, long j2, int i2) {
+    private void initCache(File file, File file2, long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{file, file2, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{file, file2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
             try {
-                this.cache = DiskLruCache.open(file, 1, 1, j2, i2);
+                this.cache = DiskLruCache.open(file, 1, 1, j, i2);
             } catch (IOException e2) {
                 L.e(e2);
                 if (file2 != null) {
-                    initCache(file2, null, j2, i2);
+                    initCache(file2, null, j, i2);
                 }
                 if (this.cache == null) {
                     throw e2;

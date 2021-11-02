@@ -7,10 +7,10 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.m.e;
-import c.a.e.e.n.a;
-import c.a.e.h.j.g.d;
-import c.a.q0.a.g;
+import b.a.e.e.m.e;
+import b.a.e.e.n.a;
+import b.a.e.h.j.g.d;
+import b.a.q0.a.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -51,7 +51,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class OpenFlutter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
@@ -306,6 +306,10 @@ public class OpenFlutter {
                 if (intentConfig.getIntent().getBooleanExtra(PersonInfoActivityConfig.IS_SHOW_PROGRESS, false)) {
                     hashMap.put(PersonInfoActivityConfig.IS_SHOW_PROGRESS, "1");
                 }
+                String stringExtra2 = intentConfig.getIntent().getStringExtra("portrait");
+                if (!TextUtils.isEmpty(stringExtra2)) {
+                    hashMap.put("portrait", stringExtra2);
+                }
             } else if (ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE.equals(str)) {
                 hashMap.putAll(DataExt.g(intentConfig.getIntent().getExtras()));
             }
@@ -348,11 +352,18 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // c.a.q0.a.g.b
+                    @Override // b.a.q0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) && hashMap2 != null && (hashMap2.get(g.u) instanceof String)) {
-                            String str2 = (String) hashMap2.get(g.u);
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {
+                            return;
+                        }
+                        Boolean bool = (Boolean) hashMap2.get(g.Z);
+                        if (bool != null && bool.booleanValue()) {
+                            this.val$params.put("portrait", TbadkCoreApplication.getCurrentPortrait());
+                        }
+                        if (hashMap2.get(g.x) instanceof String) {
+                            String str2 = (String) hashMap2.get(g.x);
                             if (StringUtils.isNull(str2)) {
                                 return;
                             }

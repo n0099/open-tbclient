@@ -1,5 +1,6 @@
 package com.baidu.android.util;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UniKV implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -66,6 +67,7 @@ public class UniKV implements SharedPreferences {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private void verifyLength(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, str2) == null) && str2 != null && str2.length() > 256 && DEBUG) {
@@ -149,12 +151,12 @@ public class UniKV implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public long getLong(String str, long j2) {
+    public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
             SharedPreferences sharedPreferences = this.mInstance;
-            return sharedPreferences == null ? j2 : sharedPreferences.getLong(str, j2);
+            return sharedPreferences == null ? j : sharedPreferences.getLong(str, j);
         }
         return invokeLJ.longValue;
     }
@@ -208,13 +210,13 @@ public class UniKV implements SharedPreferences {
         sharedPreferences.edit().putInt(str, i2).apply();
     }
 
-    public void putLong(String str, long j2) {
+    public void putLong(String str, long j) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048588, this, str, j2) == null) || (sharedPreferences = this.mInstance) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048588, this, str, j) == null) || (sharedPreferences = this.mInstance) == null) {
             return;
         }
-        sharedPreferences.edit().putLong(str, j2).apply();
+        sharedPreferences.edit().putLong(str, j).apply();
     }
 
     public void putString(String str, String str2) {

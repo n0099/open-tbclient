@@ -1,7 +1,7 @@
 package com.baidu.nps.interfa;
 
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IAlertManager {
     void onAlert(String str, String str2, View.OnClickListener onClickListener, String str3);
 

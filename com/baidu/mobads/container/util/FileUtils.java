@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IO_BUF_SIZE = 32768;

@@ -10,39 +10,37 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39560a = "en";
+    public static final String f37503a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39561b = "et";
+    public static final String f37504b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39562c = "ev";
+    public static final String f37505c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39563d = "eg";
+    public static final String f37506d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39564e = "lk";
+    public static final String f37507e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39565f = "nu";
+    public static final String f37508f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39566g = "extra1";
+    public static final String f37509g = "extra1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39567h = "extra2";
+    public static final String f37510h = "extra2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39568i = "extra3";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f39569j = "extra4";
+    public static final String f37511i = "extra3";
+    public static final String j = "extra4";
     public static final String k = "extra5";
     public static final String l = "extra6";
     public static final String m = "extra7";
@@ -98,13 +96,13 @@ public class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f39560a, this.p);
+                jSONObject.put(f37503a, this.p);
                 jSONObject.put("et", this.q);
-                jSONObject.put(f39565f, this.u);
+                jSONObject.put(f37508f, this.u);
                 if (!TextUtils.isEmpty(this.s)) {
-                    jSONObject.putOpt(f39563d, this.s);
+                    jSONObject.putOpt(f37506d, this.s);
                 }
-                jSONObject.putOpt(f39564e, this.t);
+                jSONObject.putOpt(f37507e, this.t);
                 if (this.r != null) {
                     jSONObject.put("ev", this.r);
                 }

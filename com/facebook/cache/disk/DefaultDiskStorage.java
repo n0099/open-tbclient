@@ -4,7 +4,6 @@ import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class DefaultDiskStorage implements DiskStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_FILE_EXTENSION = ".cnt";
@@ -53,14 +52,14 @@ public class DefaultDiskStorage implements DiskStorage {
     public final File mVersionDirectory;
 
     /* renamed from: com.facebook.cache.disk.DefaultDiskStorage$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class EntryImpl implements DiskStorage.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +136,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class FileInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,13 +219,13 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public @interface FileType {
         public static final String CONTENT = ".cnt";
         public static final String TEMP = ".tmp";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class IncompleteFileException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,13 +233,13 @@ public class DefaultDiskStorage implements DiskStorage {
         public final long expected;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public IncompleteFileException(long j2, long j3) {
-            super("File was not written completely. Expected: " + j2 + ", found: " + j3);
+        public IncompleteFileException(long j, long j2) {
+            super("File was not written completely. Expected: " + j + ", found: " + j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -251,13 +250,13 @@ public class DefaultDiskStorage implements DiskStorage {
                     return;
                 }
             }
-            this.expected = j2;
-            this.actual = j3;
+            this.expected = j;
+            this.actual = j2;
         }
     }
 
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class InserterImpl implements DiskStorage.Inserter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,7 +354,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class PurgingVisitor implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -505,7 +504,7 @@ public class DefaultDiskStorage implements DiskStorage {
             EntryImpl entryImpl = (EntryImpl) entry;
             byte[] read = entryImpl.getResource().read();
             String typeOfBytes = typeOfBytes(read);
-            return new DiskStorage.DiskDumpInfoEntry(entryImpl.getResource().getFile().getPath(), typeOfBytes, (float) entryImpl.getSize(), (!typeOfBytes.equals(SessionMonitorEngine.PUBLIC_DATA_UNDIFNED) || read.length < 4) ? "" : String.format(null, "0x%02X 0x%02X 0x%02X 0x%02X", Byte.valueOf(read[0]), Byte.valueOf(read[1]), Byte.valueOf(read[2]), Byte.valueOf(read[3])));
+            return new DiskStorage.DiskDumpInfoEntry(entryImpl.getId(), entryImpl.getResource().getFile().getPath(), typeOfBytes, (float) entryImpl.getSize(), (!typeOfBytes.equals(SessionMonitorEngine.PUBLIC_DATA_UNDIFNED) || read.length < 4) ? "" : String.format(null, "0x%02X 0x%02X 0x%02X 0x%02X", Byte.valueOf(read[0]), Byte.valueOf(read[1]), Byte.valueOf(read[2]), Byte.valueOf(read[3])));
         }
         return (DiskStorage.DiskDumpInfoEntry) invokeL.objValue;
     }
@@ -658,7 +657,7 @@ public class DefaultDiskStorage implements DiskStorage {
     private String typeOfBytes(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, bArr)) == null) ? bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? OvalActionButton.WEBP : (bArr[0] == 71 && bArr[1] == 73) ? "gif" : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, bArr)) == null) ? bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? "webp" : (bArr[0] == 71 && bArr[1] == 73) ? "gif" : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : (String) invokeL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
@@ -784,7 +783,7 @@ public class DefaultDiskStorage implements DiskStorage {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, obj)) == null) ? query(str, true) : invokeLL.booleanValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class EntriesCollector implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,24 +11,24 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f74333a;
+    public static final Map<Class<?>, Class<?>> f66716a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f74334a;
+        public final Class<? extends T> f66717a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f74335b;
+        public final T f66718b;
     }
 
     static {
@@ -45,37 +45,37 @@ public class p {
             }
         }
         HashMap hashMap = new HashMap();
-        f74333a = hashMap;
+        f66716a = hashMap;
         hashMap.put(Boolean.class, Boolean.TYPE);
-        f74333a.put(Byte.class, Byte.TYPE);
-        f74333a.put(Character.class, Character.TYPE);
-        f74333a.put(Short.class, Short.TYPE);
-        f74333a.put(Integer.class, Integer.TYPE);
-        f74333a.put(Float.class, Float.TYPE);
-        f74333a.put(Long.class, Long.TYPE);
-        f74333a.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = f74333a;
+        f66716a.put(Byte.class, Byte.TYPE);
+        f66716a.put(Character.class, Character.TYPE);
+        f66716a.put(Short.class, Short.TYPE);
+        f66716a.put(Integer.class, Integer.TYPE);
+        f66716a.put(Float.class, Float.TYPE);
+        f66716a.put(Long.class, Long.TYPE);
+        f66716a.put(Double.class, Double.TYPE);
+        Map<Class<?>, Class<?>> map = f66716a;
         Class<?> cls = Boolean.TYPE;
         map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = f74333a;
+        Map<Class<?>, Class<?>> map2 = f66716a;
         Class<?> cls2 = Byte.TYPE;
         map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = f74333a;
+        Map<Class<?>, Class<?>> map3 = f66716a;
         Class<?> cls3 = Character.TYPE;
         map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = f74333a;
+        Map<Class<?>, Class<?>> map4 = f66716a;
         Class<?> cls4 = Short.TYPE;
         map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = f74333a;
+        Map<Class<?>, Class<?>> map5 = f66716a;
         Class<?> cls5 = Integer.TYPE;
         map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = f74333a;
+        Map<Class<?>, Class<?>> map6 = f66716a;
         Class<?> cls6 = Float.TYPE;
         map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = f74333a;
+        Map<Class<?>, Class<?>> map7 = f66716a;
         Class<?> cls7 = Long.TYPE;
         map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = f74333a;
+        Map<Class<?>, Class<?>> map8 = f66716a;
         Class<?> cls8 = Double.TYPE;
         map8.put(cls8, cls8);
     }
@@ -177,7 +177,7 @@ public class p {
                 return false;
             } else {
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f74333a.containsKey(clsArr[i2]) || !f74333a.get(clsArr[i2]).equals(f74333a.get(clsArr2[i2])))) {
+                    if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f66716a.containsKey(clsArr[i2]) || !f66716a.get(clsArr[i2]).equals(f66716a.get(clsArr2[i2])))) {
                         return false;
                     }
                 }
@@ -200,7 +200,7 @@ public class p {
                 if (obj == null || !(obj instanceof a)) {
                     clsArr[i2] = obj == null ? null : obj.getClass();
                 } else {
-                    clsArr[i2] = ((a) obj).f74334a;
+                    clsArr[i2] = ((a) obj).f66717a;
                 }
             }
             return clsArr;
@@ -252,7 +252,7 @@ public class p {
                 if (obj == null || !(obj instanceof a)) {
                     objArr2[i2] = obj;
                 } else {
-                    objArr2[i2] = ((a) obj).f74335b;
+                    objArr2[i2] = ((a) obj).f66718b;
                 }
             }
             return objArr2;

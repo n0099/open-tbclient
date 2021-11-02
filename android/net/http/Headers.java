@@ -263,9 +263,9 @@ public final class Headers {
         }
     }
 
-    public void setContentLength(long j2) {
+    public void setContentLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
             throw new RuntimeException("Stub!");
         }
     }

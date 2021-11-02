@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class dd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f59996a;
+    public TextView f56914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f59997b;
+    public ImageView f56915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f59998c;
+    public TextView f56916c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f59999d;
+    public RelativeLayout f56917d;
 
     public dd() {
         Interceptable interceptable = $ic;

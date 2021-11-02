@@ -23,19 +23,19 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class BIMLogPb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class LogRequest extends GeneratedMessageLite implements LogRequestOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTH_INFO_FIELD_NUMBER = 3;
@@ -58,7 +58,7 @@ public final class BIMLogPb {
         public Object sign_;
         public long version_;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static final class AuthInfo extends GeneratedMessageLite implements AuthInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic = null;
             public static Parser<AuthInfo> PARSER = null;
@@ -71,7 +71,7 @@ public final class BIMLogPb {
             public int memoizedSerializedSize;
             public Object token_;
 
-            /* loaded from: classes4.dex */
+            /* loaded from: classes6.dex */
             public static final class Builder extends GeneratedMessageLite.Builder<AuthInfo, Builder> implements AuthInfoOrBuilder {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -659,7 +659,7 @@ public final class BIMLogPb {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public interface AuthInfoOrBuilder extends MessageLiteOrBuilder {
             String getToken();
 
@@ -668,7 +668,7 @@ public final class BIMLogPb {
             boolean hasToken();
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogRequest, Builder> implements LogRequestOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -965,12 +965,12 @@ public final class BIMLogPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setRequestTimestampMs(long j2) {
+            public Builder setRequestTimestampMs(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
                     this.bitField0_ |= 8;
-                    this.requestTimestampMs_ = j2;
+                    this.requestTimestampMs_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -1032,12 +1032,12 @@ public final class BIMLogPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setVersion(long j2) {
+            public Builder setVersion(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j)) == null) {
                     this.bitField0_ |= 1;
-                    this.version_ = j2;
+                    this.version_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -1726,7 +1726,7 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface LogRequestOrBuilder extends MessageLiteOrBuilder {
         LogRequest.AuthInfo getAuthInfo();
 
@@ -1757,7 +1757,7 @@ public final class BIMLogPb {
         boolean hasVersion();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class LogResponse extends GeneratedMessageLite implements LogResponseOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_FIELD_NUMBER = 1;
@@ -1774,7 +1774,7 @@ public final class BIMLogPb {
         public int memoizedSerializedSize;
         public long pingIntervalMs_;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogResponse, Builder> implements LogResponseOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1961,12 +1961,12 @@ public final class BIMLogPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setPingIntervalMs(long j2) {
+            public Builder setPingIntervalMs(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j)) == null) {
                     this.bitField0_ |= 4;
-                    this.pingIntervalMs_ = j2;
+                    this.pingIntervalMs_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -2506,7 +2506,7 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface LogResponseOrBuilder extends MessageLiteOrBuilder {
         int getErrorCode();
 

@@ -2,8 +2,9 @@ package com.qq.e.ads.nativ.express2;
 
 import android.view.View;
 import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
+import java.util.Map;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface NativeExpressADData2 extends ApkDownloadComplianceInterface {
     void destroy();
 
@@ -12,6 +13,8 @@ public interface NativeExpressADData2 extends ApkDownloadComplianceInterface {
     int getECPM();
 
     String getECPMLevel();
+
+    Map<String, Object> getExtraInfo();
 
     int getVideoDuration();
 
@@ -24,6 +27,8 @@ public interface NativeExpressADData2 extends ApkDownloadComplianceInterface {
     void sendWinNotification(int i2);
 
     void setAdEventListener(AdEventListener adEventListener);
+
+    void setBidECPM(int i2);
 
     void setMediaListener(MediaEventListener mediaEventListener);
 }

@@ -6,15 +6,15 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class at {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f78481a = 0;
+    public static long f71420a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f904a = "";
+    public static String f905a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,14 +36,14 @@ public class at {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f904a)) {
-                f904a = com.xiaomi.push.bm.a(4);
+            if (TextUtils.isEmpty(f905a)) {
+                f905a = com.xiaomi.push.bm.a(4);
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(f904a);
-            long j2 = f78481a;
-            f78481a = 1 + j2;
-            sb.append(j2);
+            sb.append(f905a);
+            long j = f71420a;
+            f71420a = 1 + j;
+            sb.append(j);
             return sb.toString();
         }
         return (String) invokeV.objValue;

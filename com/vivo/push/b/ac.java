@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ac extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76854a;
+    public String f70203a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(String str) {
@@ -32,14 +32,14 @@ public final class ac extends com.vivo.push.y {
                 return;
             }
         }
-        this.f76854a = str;
+        this.f70203a = str;
     }
 
     @Override // com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.a("package_name", this.f76854a);
+            aVar.a("package_name", this.f70203a);
         }
     }
 
@@ -47,7 +47,7 @@ public final class ac extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f76854a = aVar.a("package_name");
+            this.f70203a = aVar.a("package_name");
         }
     }
 

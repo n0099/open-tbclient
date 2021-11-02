@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f77758a;
+    public static final String f70721a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static byte[] f160a;
+    public static byte[] f161a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static char[] f161a;
+    public static char[] f162a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,34 +34,34 @@ public class bj {
                 return;
             }
         }
-        f77758a = System.getProperty("line.separator");
-        f161a = new char[64];
+        f70721a = System.getProperty("line.separator");
+        f162a = new char[64];
         char c2 = 'A';
         int i2 = 0;
         while (c2 <= 'Z') {
-            f161a[i2] = c2;
+            f162a[i2] = c2;
             c2 = (char) (c2 + 1);
             i2++;
         }
         char c3 = 'a';
         while (c3 <= 'z') {
-            f161a[i2] = c3;
+            f162a[i2] = c3;
             c3 = (char) (c3 + 1);
             i2++;
         }
         char c4 = '0';
         while (c4 <= '9') {
-            f161a[i2] = c4;
+            f162a[i2] = c4;
             c4 = (char) (c4 + 1);
             i2++;
         }
-        char[] cArr = f161a;
+        char[] cArr = f162a;
         cArr[i2] = '+';
         cArr[i2 + 1] = '/';
-        f160a = new byte[128];
+        f161a = new byte[128];
         int i3 = 0;
         while (true) {
-            byte[] bArr = f160a;
+            byte[] bArr = f161a;
             if (i3 >= bArr.length) {
                 break;
             }
@@ -69,7 +69,7 @@ public class bj {
             i3++;
         }
         for (int i4 = 0; i4 < 64; i4++) {
-            f160a[f161a[i4]] = (byte) i4;
+            f161a[f162a[i4]] = (byte) i4;
         }
     }
 
@@ -130,7 +130,7 @@ public class bj {
                     if (c4 > 127 || c5 > 127 || c2 > 127 || c3 > 127) {
                         throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
                     }
-                    byte[] bArr2 = f160a;
+                    byte[] bArr2 = f161a;
                     byte b2 = bArr2[c4];
                     byte b3 = bArr2[c5];
                     byte b4 = bArr2[c2];
@@ -200,15 +200,15 @@ public class bj {
                 int i14 = ((i5 & 15) << 2) | (i6 >>> 6);
                 int i15 = i6 & 63;
                 int i16 = i9 + 1;
-                char[] cArr2 = f161a;
+                char[] cArr2 = f162a;
                 cArr[i9] = cArr2[i12];
                 int i17 = i16 + 1;
                 cArr[i16] = cArr2[i13];
-                char c2 = com.alipay.sdk.encrypt.a.f36026h;
-                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f36026h;
+                char c2 = com.alipay.sdk.encrypt.a.f34124h;
+                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f34124h;
                 int i18 = i17 + 1;
                 if (i18 < i7) {
-                    c2 = f161a[i15];
+                    c2 = f162a[i15];
                 }
                 cArr[i18] = c2;
                 i9 = i18 + 1;

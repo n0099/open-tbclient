@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.reflect.TypeUtils;
 import org.apache.commons.lang3.tuple.Pair;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class Diff<T> extends Pair<T, T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;

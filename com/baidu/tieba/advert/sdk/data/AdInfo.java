@@ -1,8 +1,8 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
-import c.a.r0.u.a.f.b;
-import c.a.r0.u.a.j.a;
+import b.a.r0.u.a.f.b;
+import b.a.r0.u.a.j.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AdInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -186,10 +186,10 @@ public class AdInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             b b2 = b.b(a.d());
-            if (TextUtils.isEmpty(b2.f25083d)) {
+            if (TextUtils.isEmpty(b2.f23927d)) {
                 return true;
             }
-            return TextUtils.isEmpty(b2.f25082c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f25082c.equals(this.adVideoUrl);
+            return TextUtils.isEmpty(b2.f23926c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f23926c.equals(this.adVideoUrl);
         }
         return invokeV.booleanValue;
     }

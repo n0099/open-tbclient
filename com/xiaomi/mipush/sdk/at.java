@@ -8,30 +8,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class at {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final at f77643a;
+    public static final at f70606a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ at[] f81a;
+    public static final /* synthetic */ at[] f82a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final at f77644b;
+    public static final at f70607b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final at f77645c;
+    public static final at f70608c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final at f77646d;
+    public static final at f70609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final at f77647e;
+    public static final at f70610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final at f77648f;
+    public static final at f70611f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,14 +47,14 @@ public final class at {
                 return;
             }
         }
-        f77643a = new at("DISABLE_PUSH", 0);
-        f77644b = new at("ENABLE_PUSH", 1);
-        f77645c = new at("UPLOAD_HUAWEI_TOKEN", 2);
-        f77646d = new at("UPLOAD_FCM_TOKEN", 3);
-        f77647e = new at("UPLOAD_COS_TOKEN", 4);
+        f70606a = new at("DISABLE_PUSH", 0);
+        f70607b = new at("ENABLE_PUSH", 1);
+        f70608c = new at("UPLOAD_HUAWEI_TOKEN", 2);
+        f70609d = new at("UPLOAD_FCM_TOKEN", 3);
+        f70610e = new at("UPLOAD_COS_TOKEN", 4);
         at atVar = new at("UPLOAD_FTOS_TOKEN", 5);
-        f77648f = atVar;
-        f81a = new at[]{f77643a, f77644b, f77645c, f77646d, f77647e, atVar};
+        f70611f = atVar;
+        f82a = new at[]{f70606a, f70607b, f70608c, f70609d, f70610e, atVar};
     }
 
     public at(String str, int i2) {
@@ -85,6 +85,6 @@ public final class at {
     public static at[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (at[]) f81a.clone() : (at[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (at[]) f82a.clone() : (at[]) invokeV.objValue;
     }
 }

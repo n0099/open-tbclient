@@ -15,7 +15,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Icon;
 import tbclient.TshowInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IconData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String meizhi_icon_name = "meizhi_level";

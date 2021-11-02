@@ -35,7 +35,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DownloadChain implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService EXECUTOR;
@@ -246,10 +246,10 @@ public class DownloadChain implements Runnable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.task : (DownloadTask) invokeV.objValue;
     }
 
-    public void increaseCallbackBytes(long j2) {
+    public void increaseCallbackBytes(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.noCallbackIncreaseBytes += j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.noCallbackIncreaseBytes += j;
         }
     }
 
@@ -367,10 +367,10 @@ public class DownloadChain implements Runnable {
         }
     }
 
-    public void setResponseContentLength(long j2) {
+    public void setResponseContentLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.responseContentLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.responseContentLength = j;
         }
     }
 

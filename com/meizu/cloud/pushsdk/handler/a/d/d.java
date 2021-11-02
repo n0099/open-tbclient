@@ -3,8 +3,9 @@ package com.meizu.cloud.pushsdk.handler.a.d;
 import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
     public d(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -30,7 +31,7 @@ public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        c.l.a.a.a.d("AbstractMessageHandler", "start SubScribeAliasStatusHandler match");
+        b.l.a.a.a.d("AbstractMessageHandler", "start SubScribeAliasStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SUBALIAS_STATUS.equals(i(intent));
     }
 
@@ -39,7 +40,7 @@ public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
     /* renamed from: j */
     public SubAliasStatus c(Intent intent) {
         SubAliasStatus subAliasStatus = (SubAliasStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_SUBALIAS_STATUS);
-        if ("200".equals(subAliasStatus.getCode())) {
+        if (BasicPushStatus.SUCCESS_CODE.equals(subAliasStatus.getCode())) {
             c(subAliasStatus.getAlias());
         }
         return subAliasStatus;

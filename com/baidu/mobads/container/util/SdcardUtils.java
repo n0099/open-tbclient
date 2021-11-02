@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SdcardUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CACHE_PATH = "/bddownload/";
@@ -218,7 +218,7 @@ public class SdcardUtils {
             String str = "";
             SPUtils sPUtils = new SPUtils(context);
             try {
-                String string = sPUtils.getString(KEY_SYS_MEM, "");
+                String string = sPUtils.getString("sysMem", "");
                 if (!TextUtils.isEmpty(string)) {
                     return string;
                 }
@@ -227,7 +227,7 @@ public class SdcardUtils {
             }
             try {
                 str = getAvailableInternalMemorySize() + "," + getAllInternalMemorySize();
-                sPUtils.putString(KEY_SYS_MEM, str);
+                sPUtils.putString("sysMem", str);
                 return str;
             } catch (Exception unused) {
                 return str;

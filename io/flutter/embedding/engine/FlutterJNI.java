@@ -32,7 +32,7 @@ import java.nio.ByteBuffer;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterJNI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterJNI";
@@ -55,16 +55,16 @@ public class FlutterJNI {
     @Nullable
     public PlatformMessageHandler platformMessageHandler;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface AccessibilityDelegate {
         void updateCustomAccessibilityActions(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr);
 
         void updateSemantics(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface AsyncWaitForVsyncDelegate {
-        void asyncWaitForVsync(long j2);
+        void asyncWaitForVsync(long j);
     }
 
     static {
@@ -100,12 +100,12 @@ public class FlutterJNI {
         this.mainLooper = Looper.getMainLooper();
     }
 
-    public static void asyncWaitForVsync(long j2) {
+    public static void asyncWaitForVsync(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
             AsyncWaitForVsyncDelegate asyncWaitForVsyncDelegate2 = asyncWaitForVsyncDelegate;
             if (asyncWaitForVsyncDelegate2 != null) {
-                asyncWaitForVsyncDelegate2.asyncWaitForVsync(j2);
+                asyncWaitForVsyncDelegate2.asyncWaitForVsync(j);
                 return;
             }
             throw new IllegalStateException("An AsyncWaitForVsyncDelegate must be registered with FlutterJNI before asyncWaitForVsync() is invoked.");
@@ -161,50 +161,50 @@ public class FlutterJNI {
 
     private native long nativeAttach(@NonNull FlutterJNI flutterJNI, boolean z);
 
-    private native void nativeDestroy(long j2);
+    private native void nativeDestroy(long j);
 
-    private native void nativeDispatchEmptyPlatformMessage(long j2, @NonNull String str, int i2);
+    private native void nativeDispatchEmptyPlatformMessage(long j, @NonNull String str, int i2);
 
-    private native void nativeDispatchPlatformMessage(long j2, @NonNull String str, @Nullable ByteBuffer byteBuffer, int i2, int i3);
+    private native void nativeDispatchPlatformMessage(long j, @NonNull String str, @Nullable ByteBuffer byteBuffer, int i2, int i3);
 
-    private native void nativeDispatchPointerDataPacket(long j2, @NonNull ByteBuffer byteBuffer, int i2);
+    private native void nativeDispatchPointerDataPacket(long j, @NonNull ByteBuffer byteBuffer, int i2);
 
-    private native void nativeDispatchSemanticsAction(long j2, int i2, int i3, @Nullable ByteBuffer byteBuffer, int i4);
+    private native void nativeDispatchSemanticsAction(long j, int i2, int i3, @Nullable ByteBuffer byteBuffer, int i4);
 
-    private native Bitmap nativeGetBitmap(long j2);
+    private native Bitmap nativeGetBitmap(long j);
 
     public static native void nativeInit(@NonNull Context context, @NonNull String[] strArr, @Nullable String str, @NonNull String str2, @NonNull String str3);
 
-    private native void nativeInvokePlatformMessageEmptyResponseCallback(long j2, int i2);
+    private native void nativeInvokePlatformMessageEmptyResponseCallback(long j, int i2);
 
-    private native void nativeInvokePlatformMessageResponseCallback(long j2, int i2, @Nullable ByteBuffer byteBuffer, int i3);
+    private native void nativeInvokePlatformMessageResponseCallback(long j, int i2, @Nullable ByteBuffer byteBuffer, int i3);
 
     @NonNull
-    public static native FlutterCallbackInformation nativeLookupCallbackInformation(long j2);
+    public static native FlutterCallbackInformation nativeLookupCallbackInformation(long j);
 
-    private native void nativeMarkTextureFrameAvailable(long j2, long j3);
+    private native void nativeMarkTextureFrameAvailable(long j, long j2);
 
-    public static native void nativeOnVsync(long j2, long j3, long j4);
+    public static native void nativeOnVsync(long j, long j2, long j3);
 
-    public static native void nativeRecordStartTimestamp(long j2);
+    public static native void nativeRecordStartTimestamp(long j);
 
-    private native void nativeRegisterTexture(long j2, long j3, @NonNull SurfaceTexture surfaceTexture);
+    private native void nativeRegisterTexture(long j, long j2, @NonNull SurfaceTexture surfaceTexture);
 
-    private native void nativeRunBundleAndSnapshotFromLibrary(long j2, @NonNull String str, @Nullable String str2, @Nullable String str3, @NonNull AssetManager assetManager);
+    private native void nativeRunBundleAndSnapshotFromLibrary(long j, @NonNull String str, @Nullable String str2, @Nullable String str3, @NonNull AssetManager assetManager);
 
-    private native void nativeSetAccessibilityFeatures(long j2, int i2);
+    private native void nativeSetAccessibilityFeatures(long j, int i2);
 
-    private native void nativeSetSemanticsEnabled(long j2, boolean z);
+    private native void nativeSetSemanticsEnabled(long j, boolean z);
 
-    private native void nativeSetViewportMetrics(long j2, float f2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15);
+    private native void nativeSetViewportMetrics(long j, float f2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15);
 
-    private native void nativeSurfaceChanged(long j2, int i2, int i3);
+    private native void nativeSurfaceChanged(long j, int i2, int i3);
 
-    private native void nativeSurfaceCreated(long j2, @NonNull Surface surface);
+    private native void nativeSurfaceCreated(long j, @NonNull Surface surface);
 
-    private native void nativeSurfaceDestroyed(long j2);
+    private native void nativeSurfaceDestroyed(long j);
 
-    private native void nativeUnregisterTexture(long j2, long j3);
+    private native void nativeUnregisterTexture(long j, long j2);
 
     private void onPreEngineRestart() {
         Interceptable interceptable = $ic;
@@ -380,12 +380,12 @@ public class FlutterJNI {
     }
 
     @UiThread
-    public void markTextureFrameAvailable(long j2) {
+    public void markTextureFrameAvailable(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             ensureRunningOnMainThread();
             ensureAttachedToNative();
-            nativeMarkTextureFrameAvailable(this.nativePlatformViewId.longValue(), j2);
+            nativeMarkTextureFrameAvailable(this.nativePlatformViewId.longValue(), j);
         }
     }
 
@@ -448,12 +448,12 @@ public class FlutterJNI {
     }
 
     @UiThread
-    public void registerTexture(long j2, @NonNull SurfaceTexture surfaceTexture) {
+    public void registerTexture(long j, @NonNull SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048597, this, j2, surfaceTexture) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048597, this, j, surfaceTexture) == null) {
             ensureRunningOnMainThread();
             ensureAttachedToNative();
-            nativeRegisterTexture(this.nativePlatformViewId.longValue(), j2, surfaceTexture);
+            nativeRegisterTexture(this.nativePlatformViewId.longValue(), j, surfaceTexture);
         }
     }
 
@@ -534,12 +534,12 @@ public class FlutterJNI {
     }
 
     @UiThread
-    public void unregisterTexture(long j2) {
+    public void unregisterTexture(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
             ensureRunningOnMainThread();
             ensureAttachedToNative();
-            nativeUnregisterTexture(this.nativePlatformViewId.longValue(), j2);
+            nativeUnregisterTexture(this.nativePlatformViewId.longValue(), j);
         }
     }
 

@@ -15,13 +15,13 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class EventListener {
     public static /* synthetic */ Interceptable $ic;
     public static final EventListener NONE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Factory {
         EventListener create(Call call);
     }
@@ -168,9 +168,9 @@ public abstract class EventListener {
         }
     }
 
-    public void requestBodyEnd(Call call, long j2) {
+    public void requestBodyEnd(Call call, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, call, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048586, this, call, j) == null) {
         }
     }
 
@@ -192,9 +192,9 @@ public abstract class EventListener {
         }
     }
 
-    public void responseBodyEnd(Call call, long j2) {
+    public void responseBodyEnd(Call call, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048590, this, call, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048590, this, call, j) == null) {
         }
     }
 

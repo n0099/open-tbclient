@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class PlayerProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,13 +65,13 @@ public abstract class PlayerProvider {
 
     public abstract void reset();
 
-    public abstract void seekTo(long j2);
+    public abstract void seekTo(long j);
 
-    public abstract void seekTo(long j2, int i2);
+    public abstract void seekTo(long j, int i2);
 
-    public void sendCommand(int i2, int i3, long j2, String str) {
+    public void sendCommand(int i2, int i3, long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str}) == null) {
         }
     }
 
@@ -121,9 +121,9 @@ public abstract class PlayerProvider {
 
     public abstract void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener);
 
-    public void setOption(String str, long j2) {
+    public void setOption(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048613, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048613, this, str, j) == null) {
         }
     }
 

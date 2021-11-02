@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EmotionIntefaceStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,12 +48,12 @@ public class EmotionIntefaceStatic {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                c.a.r0.n0.b.e.i().q();
+                b.a.r0.n0.b.e.i().q();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,16 +87,16 @@ public class EmotionIntefaceStatic {
                 int indexOf = editorTools.getCollectTools().indexOf(5);
                 if (indexOf != -1) {
                     if (editorTools.isIM()) {
-                        editorTools.addTool(new c.a.r0.n0.b.a(editorTools.getContext(), indexOf + 1, false));
+                        editorTools.addTool(new b.a.r0.n0.b.a(editorTools.getContext(), indexOf + 1, false));
                     } else {
-                        editorTools.addTool(new c.a.r0.n0.b.a(editorTools.getContext(), indexOf + 1));
+                        editorTools.addTool(new b.a.r0.n0.b.a(editorTools.getContext(), indexOf + 1));
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,16 +130,16 @@ public class EmotionIntefaceStatic {
                 if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof List)) {
                     return;
                 }
-                for (c.a.q0.x.p.a aVar : (List) customResponsedMessage.getData()) {
-                    c.a.r0.n0.b.e.i().p(aVar);
+                for (b.a.q0.x.p.a aVar : (List) customResponsedMessage.getData()) {
+                    b.a.r0.n0.b.e.i().p(aVar);
                 }
-                c.a.r0.n0.b.e.i().q();
+                b.a.r0.n0.b.e.i().q();
                 MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,14 +163,14 @@ public class EmotionIntefaceStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.r0.n0.b.e.i().q();
+                b.a.r0.n0.b.e.i().q();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,13 +198,13 @@ public class EmotionIntefaceStatic {
                     return null;
                 }
                 RequestStaticEmotionMessage requestStaticEmotionMessage = (RequestStaticEmotionMessage) customMessage;
-                return new CustomResponsedMessage<>(customMessage.getCmd(), c.a.r0.n0.b.e.i().n(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
+                return new CustomResponsedMessage<>(customMessage.getCmd(), b.a.r0.n0.b.e.i().n(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class f implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -231,13 +231,13 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(c.a.r0.n0.b.e.i().j(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(b.a.r0.n0.b.e.i().j(customMessage.getData())));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class g implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -264,13 +264,13 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(c.a.r0.n0.b.e.i().k(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(b.a.r0.n0.b.e.i().k(customMessage.getData())));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class h extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,7 +302,7 @@ public class EmotionIntefaceStatic {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof List)) {
                 return;
             }
-            ((List) customResponsedMessage.getData()).add(c.a.r0.n0.b.d.f());
+            ((List) customResponsedMessage.getData()).add(b.a.r0.n0.b.d.f());
         }
     }
 
@@ -319,7 +319,7 @@ public class EmotionIntefaceStatic {
                 return;
             }
         }
-        c.a.e.e.l.d.h().o(20, new c.a.r0.n0.a.a());
+        b.a.e.e.l.d.h().o(20, new b.a.r0.n0.a.a());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");

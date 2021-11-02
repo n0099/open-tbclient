@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 import android.text.TextUtils;
-import c.a.e.e.p.g;
-import c.a.e.e.p.m;
-import c.a.q0.s.d0.b;
+import b.a.e.e.p.g;
+import b.a.e.e.p.m;
+import b.a.q0.s.e0.b;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -33,7 +33,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FatalErrorService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_TYPE_KEY = "errortype";
@@ -43,19 +43,19 @@ public class FatalErrorService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public a mTask;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f56656a;
+        public Intent f53756a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f56657b;
+        public NetWork f53757b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FatalErrorService f56658c;
+        public final /* synthetic */ FatalErrorService f53758c;
 
         public a(FatalErrorService fatalErrorService, Intent intent) {
             Interceptable interceptable = $ic;
@@ -72,9 +72,9 @@ public class FatalErrorService extends BdBaseService {
                     return;
                 }
             }
-            this.f56658c = fatalErrorService;
-            this.f56657b = null;
-            this.f56656a = intent;
+            this.f53758c = fatalErrorService;
+            this.f53757b = null;
+            this.f53756a = intent;
         }
 
         public final void b(FileWriter fileWriter, String str, String str2) {
@@ -96,7 +96,7 @@ public class FatalErrorService extends BdBaseService {
         public final void c(File file) {
             FileWriter fileWriter;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && file != null && file.exists() && file.isFile() && this.f56656a != null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && file != null && file.exists() && file.isFile() && this.f53756a != null) {
                 FileWriter fileWriter2 = null;
                 try {
                     try {
@@ -116,10 +116,10 @@ public class FatalErrorService extends BdBaseService {
                     b(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
                     b(fileWriter, "from", TbConfig.getFrom());
                     b(fileWriter, "current_from", TbConfig.getCurrentFrom());
-                    b(fileWriter, "uid", this.f56656a.getStringExtra("uid"));
+                    b(fileWriter, "uid", this.f53756a.getStringExtra("uid"));
                     b(fileWriter, "client_id", TbadkCoreApplication.getClientId());
                     b(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
-                    b(fileWriter, "uname", this.f56656a.getStringExtra("uname"));
+                    b(fileWriter, "uname", this.f53756a.getStringExtra("uname"));
                     fileWriter.append("\n##TIEBA_NATIVE_END##\n");
                     m.h(fileWriter);
                 } catch (Exception e3) {
@@ -140,13 +140,13 @@ public class FatalErrorService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                NetWork netWork = this.f56657b;
+                NetWork netWork = this.f53757b;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f56658c.mTask = null;
+                this.f53758c.mTask = null;
                 super.cancel(true);
-                this.f56658c.stopSelf();
+                this.f53758c.stopSelf();
             }
         }
 
@@ -272,15 +272,15 @@ public class FatalErrorService extends BdBaseService {
                                             }
                                         }
                                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
-                                        this.f56657b = netWork;
+                                        this.f53757b = netWork;
                                         netWork.addPostData("logfile", byteArray);
                                         if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                            this.f56657b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                            this.f53757b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
                                         }
-                                        this.f56657b.postMultiNetData();
+                                        this.f53757b.postMultiNetData();
                                         byteArrayOutputStream.close();
                                         fileInputStream.close();
-                                        if (this.f56657b.getNetContext().getResponse().isRequestSuccess()) {
+                                        if (this.f53757b.getNetContext().getResponse().isRequestSuccess()) {
                                             if (z2) {
                                                 d(file);
                                             }
@@ -476,8 +476,8 @@ public class FatalErrorService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
                 super.onPostExecute((a) str);
-                this.f56658c.mTask = null;
-                this.f56658c.stopSelf();
+                this.f53758c.mTask = null;
+                this.f53758c.stopSelf();
             }
         }
     }

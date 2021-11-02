@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DuplayerHandlerThread extends HandlerThread {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_IDLE = 0;
@@ -18,10 +18,10 @@ public class DuplayerHandlerThread extends HandlerThread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39306a;
+    public long f37256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f39307b;
+    public volatile int f37257b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DuplayerHandlerThread(String str) {
@@ -41,8 +41,8 @@ public class DuplayerHandlerThread extends HandlerThread {
                 return;
             }
         }
-        this.f39307b = 0;
-        this.f39306a = -1L;
+        this.f37257b = 0;
+        this.f37256a = -1L;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -64,33 +64,33 @@ public class DuplayerHandlerThread extends HandlerThread {
                 return;
             }
         }
-        this.f39307b = 0;
-        this.f39306a = -1L;
+        this.f37257b = 0;
+        this.f37256a = -1L;
     }
 
     public long getIdleBeginTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39306a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37256a : invokeV.longValue;
     }
 
     public int getRunState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39307b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37257b : invokeV.intValue;
     }
 
-    public void setIdleBeginTime(long j2) {
+    public void setIdleBeginTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f39306a = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.f37256a = j;
         }
     }
 
     public void setRunState(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f39307b = i2;
+            this.f37257b = i2;
         }
     }
 }

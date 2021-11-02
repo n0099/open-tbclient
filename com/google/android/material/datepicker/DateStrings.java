@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class DateStrings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,34 +39,34 @@ public class DateStrings {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, l, l2)) == null) ? getDateRangeString(l, l2, null) : (Pair) invokeLL.objValue;
     }
 
-    public static String getDateString(long j2) {
+    public static String getDateString(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? getDateString(j2, null) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? getDateString(j, null) : (String) invokeJ.objValue;
     }
 
-    public static String getMonthDay(long j2) {
+    public static String getMonthDay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j2)) == null) ? getMonthDay(j2, Locale.getDefault()) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j)) == null) ? getMonthDay(j, Locale.getDefault()) : (String) invokeJ.objValue;
     }
 
-    public static String getMonthDayOfWeekDay(long j2) {
+    public static String getMonthDayOfWeekDay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j2)) == null) ? getMonthDayOfWeekDay(j2, Locale.getDefault()) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) ? getMonthDayOfWeekDay(j, Locale.getDefault()) : (String) invokeJ.objValue;
     }
 
-    public static String getYearMonthDay(long j2) {
+    public static String getYearMonthDay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) ? getYearMonthDay(j2, Locale.getDefault()) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) ? getYearMonthDay(j, Locale.getDefault()) : (String) invokeJ.objValue;
     }
 
-    public static String getYearMonthDayOfWeekDay(long j2) {
+    public static String getYearMonthDayOfWeekDay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j2)) == null) ? getYearMonthDayOfWeekDay(j2, Locale.getDefault()) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j)) == null) ? getYearMonthDayOfWeekDay(j, Locale.getDefault()) : (String) invokeJ.objValue;
     }
 
     public static Pair<String, String> getDateRangeString(@Nullable Long l, @Nullable Long l2, @Nullable SimpleDateFormat simpleDateFormat) {
@@ -101,68 +101,68 @@ public class DateStrings {
         return (Pair) invokeLLL.objValue;
     }
 
-    public static String getDateString(long j2, @Nullable SimpleDateFormat simpleDateFormat) {
+    public static String getDateString(long j, @Nullable SimpleDateFormat simpleDateFormat) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j2, simpleDateFormat)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, simpleDateFormat)) == null) {
             Calendar todayCalendar = UtcDates.getTodayCalendar();
             Calendar utcCalendar = UtcDates.getUtcCalendar();
-            utcCalendar.setTimeInMillis(j2);
+            utcCalendar.setTimeInMillis(j);
             if (simpleDateFormat != null) {
-                return simpleDateFormat.format(new Date(j2));
+                return simpleDateFormat.format(new Date(j));
             }
             if (todayCalendar.get(1) == utcCalendar.get(1)) {
-                return getMonthDay(j2);
+                return getMonthDay(j);
             }
-            return getYearMonthDay(j2);
+            return getYearMonthDay(j);
         }
         return (String) invokeJL.objValue;
     }
 
-    public static String getMonthDay(long j2, Locale locale) {
+    public static String getMonthDay(long j, Locale locale) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(AdIconUtil.BAIDU_LOGO_ID, null, j2, locale)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(AdIconUtil.BAIDU_LOGO_ID, null, j, locale)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return UtcDates.getAbbrMonthDayFormat(locale).format(new Date(j2));
+                return UtcDates.getAbbrMonthDayFormat(locale).format(new Date(j));
             }
-            return UtcDates.getMediumNoYear(locale).format(new Date(j2));
+            return UtcDates.getMediumNoYear(locale).format(new Date(j));
         }
         return (String) invokeJL.objValue;
     }
 
-    public static String getMonthDayOfWeekDay(long j2, Locale locale) {
+    public static String getMonthDayOfWeekDay(long j, Locale locale) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65544, null, j2, locale)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65544, null, j, locale)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return UtcDates.getAbbrMonthWeekdayDayFormat(locale).format(new Date(j2));
+                return UtcDates.getAbbrMonthWeekdayDayFormat(locale).format(new Date(j));
             }
-            return UtcDates.getFullFormat(locale).format(new Date(j2));
+            return UtcDates.getFullFormat(locale).format(new Date(j));
         }
         return (String) invokeJL.objValue;
     }
 
-    public static String getYearMonthDay(long j2, Locale locale) {
+    public static String getYearMonthDay(long j, Locale locale) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65546, null, j2, locale)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65546, null, j, locale)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return UtcDates.getYearAbbrMonthDayFormat(locale).format(new Date(j2));
+                return UtcDates.getYearAbbrMonthDayFormat(locale).format(new Date(j));
             }
-            return UtcDates.getMediumFormat(locale).format(new Date(j2));
+            return UtcDates.getMediumFormat(locale).format(new Date(j));
         }
         return (String) invokeJL.objValue;
     }
 
-    public static String getYearMonthDayOfWeekDay(long j2, Locale locale) {
+    public static String getYearMonthDayOfWeekDay(long j, Locale locale) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65548, null, j2, locale)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65548, null, j, locale)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return UtcDates.getYearAbbrMonthWeekdayDayFormat(locale).format(new Date(j2));
+                return UtcDates.getYearAbbrMonthWeekdayDayFormat(locale).format(new Date(j));
             }
-            return UtcDates.getFullFormat(locale).format(new Date(j2));
+            return UtcDates.getFullFormat(locale).format(new Date(j));
         }
         return (String) invokeJL.objValue;
     }

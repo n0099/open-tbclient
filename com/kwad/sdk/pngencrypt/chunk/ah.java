@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ah {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f73486a;
+    public final e f65909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f73487b;
+    public final boolean f65910b;
 
     public ah(e eVar) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class ah {
                 return;
             }
         }
-        this.f73486a = eVar;
-        this.f73487b = !(eVar instanceof f);
+        this.f65909a = eVar;
+        this.f65910b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {
@@ -44,9 +44,9 @@ public class ah {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.f73486a.a("tEXt", str));
-            arrayList.addAll(this.f73486a.a("zTXt", str));
-            arrayList.addAll(this.f73486a.a("iTXt", str));
+            arrayList.addAll(this.f65909a.a("tEXt", str));
+            arrayList.addAll(this.f65909a.a("zTXt", str));
+            arrayList.addAll(this.f65909a.a("iTXt", str));
             return arrayList;
         }
         return (List) invokeL.objValue;

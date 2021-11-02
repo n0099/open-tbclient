@@ -28,19 +28,19 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44304b = "g";
+    public static final String f42066b = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f44305c;
+    public int f42067c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44306d;
+    public int f42068d;
 
     static {
         InterceptResult invokeClinit;
@@ -72,8 +72,8 @@ public class g extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f44305c = i2;
-        this.f44306d = i3;
+        this.f42067c = i2;
+        this.f42068d = i3;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -124,9 +124,9 @@ public class g extends com.baidu.platform.base.d {
                     poiResult.setTotalPoiNum(optInt);
                     int length = optJSONArray.length();
                     poiResult.setCurrentPageCapacity(length);
-                    poiResult.setCurrentPageNum(this.f44305c);
+                    poiResult.setCurrentPageNum(this.f42067c);
                     if (length != 0) {
-                        int i2 = this.f44306d;
+                        int i2 = this.f42068d;
                         poiResult.setTotalPageNum((optInt / i2) + (optInt % i2 > 0 ? 1 : 0));
                     }
                     ArrayList arrayList = new ArrayList();
@@ -192,7 +192,7 @@ public class g extends com.baidu.platform.base.d {
                 poiDetailInfo.setShopHours(jSONObject.optString("shop_hours"));
                 poiDetailInfo.naviLocation = a(jSONObject.optJSONObject("navi_location"));
                 SearchType a2 = a();
-                if (SearchType.f44256b == a2 || SearchType.f44255a == a2) {
+                if (SearchType.f42019b == a2 || SearchType.f42018a == a2) {
                     poiDetailInfo.setPoiChildrenInfoList(b(jSONObject));
                 }
                 return poiDetailInfo;
@@ -287,7 +287,7 @@ public class g extends com.baidu.platform.base.d {
     public void a(SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
-            int i2 = h.f44307a[a().ordinal()];
+            int i2 = h.f42069a[a().ordinal()];
             if (i2 == 1 || i2 == 2 || i2 == 3) {
                 ((OnGetPoiSearchResultListener) obj).onGetPoiResult((PoiResult) searchResult);
             }

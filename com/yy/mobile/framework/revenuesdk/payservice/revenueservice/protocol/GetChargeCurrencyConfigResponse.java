@@ -3,15 +3,20 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 import com.alipay.sdk.sys.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.mode.CommandMessage;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
@@ -22,7 +27,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,6 +35,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public List<ProductInfo> confList;
     public String currencyName;
     public int currencyType;
+    public int defaultCid;
     public String expend;
     public List<PayWayInfo> payWayInfoList;
     public PaysSettingInfo paysSettingInfo;
@@ -106,10 +112,87 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List<PayWayInfo> optPayWayInfoList(JSONArray jSONArray) {
+    public List<GiftBagItemInfo> optGiftBagItemInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null) {
+                return arrayList;
+            }
+            int length = jSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                if (optJSONObject != null) {
+                    GiftBagItemInfo giftBagItemInfo = new GiftBagItemInfo();
+                    giftBagItemInfo.type = optJSONObject.optString("type");
+                    giftBagItemInfo.name = optJSONObject.optString("name");
+                    giftBagItemInfo.pid = optJSONObject.optString("pid");
+                    giftBagItemInfo.count = optJSONObject.optInt("count");
+                    giftBagItemInfo.imgUrl = optJSONObject.optString("imgUrl");
+                    arrayList.add(giftBagItemInfo);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List<GiftBagTagInfo> optGiftBagTagInfoList(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null) {
+                return arrayList;
+            }
+            int length = jSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                if (optJSONObject != null) {
+                    GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
+                    giftBagTagInfo.tag = optJSONObject.optString("tag", "");
+                    giftBagTagInfo.tagPos = optJSONObject.optInt("tagPos");
+                    arrayList.add(giftBagTagInfo);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List<GiftBagsInfo> optGiftBagsInfoList(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null) {
+                return arrayList;
+            }
+            int length = jSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                if (optJSONObject != null) {
+                    GiftBagsInfo giftBagsInfo = new GiftBagsInfo();
+                    giftBagsInfo.offersTips = optJSONObject.optString("offersTips", "");
+                    giftBagsInfo.giveupTitle = optJSONObject.optString("giveupTitle", "");
+                    giftBagsInfo.giveupSubtitle = optJSONObject.optString("giveupSubtitle", "");
+                    giftBagsInfo.giveupButtonMsg = optJSONObject.optString("giveupButtonMsg", "");
+                    giftBagsInfo.successTitle = optJSONObject.optString("successTitle", "");
+                    giftBagsInfo.successButtonMsg = optJSONObject.optString("successButtonMsg", "");
+                    giftBagsInfo.giftbag.addAll(optGiftBagItemInfoList(optJSONObject.optJSONArray("giftbag")));
+                    arrayList.add(giftBagsInfo);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List<PayWayInfo> optPayWayInfoList(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
             ArrayList arrayList = new ArrayList();
             if (jSONArray == null) {
                 return arrayList;
@@ -136,7 +219,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public List<ProductInfo> optProductList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONArray)) == null) {
             ArrayList arrayList = new ArrayList();
             if (jSONArray == null) {
                 return arrayList;
@@ -149,8 +232,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                     productInfo.cid = optJSONObject.optInt(IAdRequestParam.CELL_ID);
                     productInfo.offersTips = optJSONObject.optString("offersTips");
                     productInfo.name = optJSONObject.optString("name");
-                    productInfo.level = optJSONObject.optInt("level");
-                    productInfo.srcAmount = Double.valueOf(optJSONObject.optDouble("srcAmount"));
+                    productInfo.level = optJSONObject.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+                    productInfo.srcAmount = optJSONObject.optDouble("srcAmount");
                     productInfo.srcCurrencySymbol = optJSONObject.optString("srcCurrencySymbol");
                     productInfo.destAmount = optJSONObject.optLong("destAmount");
                     productInfo.offersType = optJSONObject.optInt("offersType");
@@ -181,6 +264,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                     productInfo.subChannel = optJSONObject.optString("subChannel");
                     productInfo.payType = optJSONObject.optString("payType");
                     productInfo.usedChannelType = optJSONObject.optInt("usedChannelType");
+                    productInfo.giftbags.addAll(optGiftBagsInfoList(optJSONObject.optJSONArray("giftbags")));
+                    productInfo.giftBagTagInfos.addAll(optGiftBagTagInfoList(optJSONObject.optJSONArray(CommandMessage.TYPE_TAGS)));
                     arrayList.add(productInfo);
                 }
             }
@@ -192,7 +277,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse
     public void parserResponse(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (str != null && !"".equals(str.trim())) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
@@ -210,6 +295,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                         this.paysSettingInfo.customerServiceMsg = jSONObject2.optString("customerServiceMsg");
                         this.paysSettingInfo.payChargeAmountLimit = jSONObject2.optInt("payChargeAmountLimit");
                         this.paysSettingInfo.successMsg = jSONObject2.optString("successMsg");
+                        this.paysSettingInfo.payRemindMsg = jSONObject2.optString("payRemindMsg");
+                        this.defaultCid = jSONObject.optInt("defaultCid");
                         this.confList.addAll(optProductList(jSONObject.optJSONArray("confList")));
                         this.payWayInfoList.addAll(optPayWayInfoList(jSONObject.optJSONArray("payWayList")));
                         return;
@@ -230,8 +317,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "GetChargeCurrencyConfigResponse{cmd=" + this.cmd + ", uid=" + this.uid + ", seq='" + this.seq + ExtendedMessageFormat.QUOTE + ", expand='" + this.expend + ExtendedMessageFormat.QUOTE + ", currencyType=" + this.currencyType + ", confList=" + this.confList + ExtendedMessageFormat.END_FE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "GetChargeCurrencyConfigResponse{cmd=" + this.cmd + ", seq='" + this.seq + ExtendedMessageFormat.QUOTE + ", expand='" + this.expend + ExtendedMessageFormat.QUOTE + ", currencyType=" + this.currencyType + ", confList=" + this.confList + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

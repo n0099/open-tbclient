@@ -15,12 +15,12 @@ import java.util.Map;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,12 +28,12 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder(long j2) {
+        public Builder(long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2)};
+                Object[] objArr = {Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -45,7 +45,7 @@ public interface KsScene extends Serializable {
             }
             KsScene ksScene = (KsScene) Loader.get().newInstance(KsScene.class);
             this.scene = ksScene;
-            ksScene.setPosId(j2);
+            ksScene.setPosId(j);
         }
 
         @KsAdSdkApi
@@ -106,11 +106,11 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder posId(long j2) {
+        public Builder posId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-                this.scene.setPosId(j2);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+                this.scene.setPosId(j);
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -207,7 +207,7 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    void setPosId(long j2);
+    void setPosId(long j);
 
     @KsAdSdkApi
     @Keep

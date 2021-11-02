@@ -4,8 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.x.h;
-import c.a.q0.x.i;
+import b.a.q0.x.h;
+import b.a.q0.x.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MoreDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,13 +29,13 @@ public class MoreDeskView extends CommonTabHost {
     public CustomMessageListener s;
     public CustomMessageListener t;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreDeskView f48312a;
+        public final /* synthetic */ MoreDeskView f45850a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MoreDeskView moreDeskView, int i2) {
@@ -55,7 +55,7 @@ public class MoreDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f48312a = moreDeskView;
+            this.f45850a = moreDeskView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,17 +65,17 @@ public class MoreDeskView extends CommonTabHost {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            this.f48312a.o();
+            this.f45850a.o();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreDeskView f48313a;
+        public final /* synthetic */ MoreDeskView f45851a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MoreDeskView moreDeskView, int i2) {
@@ -95,7 +95,7 @@ public class MoreDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f48313a = moreDeskView;
+            this.f45851a = moreDeskView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public class MoreDeskView extends CommonTabHost {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.f48313a.o();
+                this.f45851a.o();
             }
         }
     }
@@ -140,7 +140,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.q0.x.n
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, b.a.q0.x.n
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -148,7 +148,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.q0.x.n
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, b.a.q0.x.n
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -168,9 +168,9 @@ public class MoreDeskView extends CommonTabHost {
                 i2 += this.r.valueAt(i3);
             }
             if (i2 > 0) {
-                sendAction(new c.a.q0.x.a(2, 2, " "));
+                sendAction(new b.a.q0.x.a(2, 2, " "));
             } else {
-                sendAction(new c.a.q0.x.a(2, 2, null));
+                sendAction(new b.a.q0.x.a(2, 2, null));
             }
         }
     }
@@ -188,23 +188,23 @@ public class MoreDeskView extends CommonTabHost {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void n(c.a.q0.x.a aVar) {
+    public final void n(b.a.q0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            Integer valueOf = Integer.valueOf(this.r.get(aVar.f15110b));
+            Integer valueOf = Integer.valueOf(this.r.get(aVar.f14196b));
             int intValue = valueOf != null ? valueOf.intValue() : 0;
-            Object obj = aVar.f15111c;
+            Object obj = aVar.f14197c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
                     if (!TextUtils.isEmpty(str)) {
-                        intValue = TextUtils.isEmpty(str.trim()) ? 1 : c.a.e.e.m.b.e(str, 1);
+                        intValue = TextUtils.isEmpty(str.trim()) ? 1 : b.a.e.e.m.b.e(str, 1);
                     }
                 }
-                this.r.put(aVar.f15110b, intValue >= 0 ? intValue : 0);
+                this.r.put(aVar.f14196b, intValue >= 0 ? intValue : 0);
             }
             intValue = 0;
-            this.r.put(aVar.f15110b, intValue >= 0 ? intValue : 0);
+            this.r.put(aVar.f14196b, intValue >= 0 ? intValue : 0);
         }
     }
 
@@ -219,14 +219,14 @@ public class MoreDeskView extends CommonTabHost {
             }
             if (currentAccountObj.getIsSelectTail()) {
                 z = true;
-                sendAction(new c.a.q0.x.a(2, 2, " "));
-                sendAction(new c.a.q0.x.a(2, 16, " "));
+                sendAction(new b.a.q0.x.a(2, 2, " "));
+                sendAction(new b.a.q0.x.a(2, 16, " "));
             } else {
                 if (!StringUtils.isNull(defaultBubble)) {
-                    sendAction(new c.a.q0.x.a(2, 12, " "));
-                    sendAction(new c.a.q0.x.a(2, 2, " "));
+                    sendAction(new b.a.q0.x.a(2, 12, " "));
+                    sendAction(new b.a.q0.x.a(2, 2, " "));
                 } else {
-                    sendAction(new c.a.q0.x.a(2, 2, null));
+                    sendAction(new b.a.q0.x.a(2, 2, null));
                 }
                 z = false;
             }
@@ -234,12 +234,12 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.q0.x.b
-    public void onAction(c.a.q0.x.a aVar) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, b.a.q0.x.b
+    public void onAction(b.a.q0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             super.onAction(aVar);
-            if (aVar == null || aVar.f15109a != 2 || aVar.f15110b == 5) {
+            if (aVar == null || aVar.f14195a != 2 || aVar.f14196b == 5) {
                 return;
             }
             n(aVar);

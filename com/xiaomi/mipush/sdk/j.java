@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f77667a;
+    public final /* synthetic */ Context f70630a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ e f97a;
+    public final /* synthetic */ e f98a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f98a;
+    public final /* synthetic */ String f99a;
 
     public j(String str, Context context, e eVar) {
         Interceptable interceptable = $ic;
@@ -35,19 +35,19 @@ public final class j implements Runnable {
                 return;
             }
         }
-        this.f98a = str;
-        this.f77667a = context;
-        this.f97a = eVar;
+        this.f99a = str;
+        this.f70630a = context;
+        this.f98a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f98a)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f99a)) {
             return;
         }
-        String[] split = this.f98a.split(Constants.WAVE_SEPARATOR);
+        String[] split = this.f99a.split(Constants.WAVE_SEPARATOR);
         int length = split.length;
         int i2 = 0;
         while (true) {
@@ -67,7 +67,7 @@ public final class j implements Runnable {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : receive correct token");
-        i.d(this.f77667a, this.f97a, str);
-        i.m133a(this.f77667a);
+        i.d(this.f70630a, this.f98a, str);
+        i.m133a(this.f70630a);
     }
 }

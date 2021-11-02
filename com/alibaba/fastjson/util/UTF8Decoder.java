@@ -16,7 +16,7 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CoderResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UTF8Decoder extends CharsetDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset charset;

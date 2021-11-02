@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.k2.h.e;
+import b.a.r0.k2.r.f;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
     public boolean markCache;
-    public e pbData;
+    public f pbData;
     public String postId;
     public int updateType;
 
@@ -48,12 +48,12 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            e eVar = new e();
-            this.pbData = eVar;
-            eVar.w0(1);
+            f fVar = new f();
+            this.pbData = fVar;
+            fVar.y0(1);
             try {
-                this.pbData.v0(pbPageResIdl.data, this.context);
-                if (!this.pbData.p0()) {
+                this.pbData.x0(pbPageResIdl.data, this.context);
+                if (!this.pbData.q0()) {
                     this.pbData = null;
                 } else if (!isMarkCache() || this.pbData.u() == null || this.pbData.u().equals(this.postId)) {
                 } else {
@@ -64,10 +64,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public e getPbData() {
+    public f getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pbData : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pbData : (f) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -96,10 +96,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setPbData(e eVar) {
+    public void setPbData(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            this.pbData = eVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
+            this.pbData = fVar;
         }
     }
 

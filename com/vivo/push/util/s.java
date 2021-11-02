@@ -25,12 +25,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f77057a;
+    public static Boolean f70404a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static com.vivo.push.model.b a(Context context) {
@@ -124,7 +124,7 @@ public final class s {
         }
         try {
             try {
-                query = context.getContentResolver().query(com.vivo.push.z.f77089a, null, null, null, null);
+                query = context.getContentResolver().query(com.vivo.push.z.f70436a, null, null, null, null);
             } catch (Exception e3) {
                 e = e3;
                 str = null;
@@ -318,7 +318,7 @@ public final class s {
         ProviderInfo resolveContentProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            Boolean bool = f77057a;
+            Boolean bool = f70404a;
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -327,7 +327,7 @@ public final class s {
                 str = resolveContentProvider.packageName;
             }
             Boolean valueOf = Boolean.valueOf("BCC35D4D3606F154F0402AB7634E8490C0B244C2675C3C6238986987024F0C02".equals(f(context, str)));
-            f77057a = valueOf;
+            f70404a = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;
@@ -435,13 +435,13 @@ public final class s {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(Context context, long j2) {
+    public static boolean a(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j)) == null) {
             com.vivo.push.cache.e a2 = com.vivo.push.cache.b.a().a(context);
             if (a2 != null) {
-                return a2.isInBlackList(j2);
+                return a2.isInBlackList(j);
             }
             return false;
         }

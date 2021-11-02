@@ -21,6 +21,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,14 +32,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupListRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class FansGetGroupListTask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +77,7 @@ public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i2 = jSONObject.getInt("error_code");
-                    str = jSONObject.optString("error_msg", "");
+                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     if (i2 == 0 && jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("groups");
                         DBOperation newDb = DBOperationFactory.getNewDb(this.this$0.mContext);
@@ -84,8 +85,8 @@ public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
                             DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
                             for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                                long j2 = jSONObject2.getLong("group_id");
-                                String valueOf = String.valueOf(j2);
+                                long j = jSONObject2.getLong("group_id");
+                                String valueOf = String.valueOf(j);
                                 GroupInfo groupInfo = new GroupInfo(valueOf);
                                 groupInfo.setBuid(jSONObject2.optLong("bd_uid"));
                                 groupInfo.setUk(jSONObject2.optLong("uk"));
@@ -105,7 +106,7 @@ public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
                                     GroupInfoDAOImpl.createGroup(this.this$0.mContext, valueOf);
                                 }
                                 if (GroupInfoDAOImpl.updateGroupInfo(this.this$0.mContext, groupInfo) > 0) {
-                                    this.this$0.updateGroupSession(j2, groupInfo.getGroupName(), groupInfo.getHeadUrl());
+                                    this.this$0.updateGroupSession(j, groupInfo.getGroupName(), groupInfo.getHeadUrl());
                                 }
                             }
                             GroupInfoSyncManagerImpl.syncFansGroupListDone(this.this$0.mContext);
@@ -147,10 +148,10 @@ public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateGroupSession(long j2, String str, String str2) {
+    public void updateGroupSession(long j, String str, String str2) {
         ChatSession chatRecordByContacter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j2), str, str2}) == null) || (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j2))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j), str, str2}) == null) || (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j))) == null) {
             return;
         }
         if (TextUtils.equals(str, chatRecordByContacter.getName()) && TextUtils.equals(str2, chatRecordByContacter.getIconUrl())) {

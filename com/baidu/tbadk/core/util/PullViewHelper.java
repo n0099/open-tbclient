@@ -9,10 +9,10 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import c.a.e.e.m.h;
-import c.a.e.e.p.m;
-import c.a.e.e.p.q;
-import c.a.q0.s.d0.b;
+import b.a.e.e.m.h;
+import b.a.e.e.p.m;
+import b.a.e.e.p.q;
+import b.a.q0.s.e0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +32,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PullViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CLOSE_PULLVIEW_DELAYED_TIME = 0;
@@ -55,12 +55,12 @@ public class PullViewHelper {
     public int pullview_backgroundColor_day;
     public int pullview_backgroundColor_night;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface CallBack {
         void result(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class PullViewDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -744,7 +744,7 @@ public class PullViewHelper {
             b.j().t("pullview_should_show_3d_loading", false);
             setShouldShowLoadingView(false);
             String p = b.j().p("pull_image_url", "");
-            int e2 = c.a.e.e.m.b.e(str3, 0);
+            int e2 = b.a.e.e.m.b.e(str3, 0);
             if (str.equals(p)) {
                 if (isImagesExist(e2)) {
                     buildDrawablesAsync();
@@ -802,7 +802,7 @@ public class PullViewHelper {
                     return;
                 }
             }
-            startDownloadAsync(str, str2, c.a.e.e.m.b.e(str3, 0));
+            startDownloadAsync(str, str2, b.a.e.e.m.b.e(str3, 0));
         }
     }
 

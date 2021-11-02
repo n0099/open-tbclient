@@ -9,10 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SpeedStatsMainTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_STAGE = "activity";
+    public static final String AD_SHOW = "adshow";
     public static final String APP_CREATE_STAGE = "appCreate";
     public static final String APP_ZYGOTE = "appZygote";
     public static final String ASYNC_TASK = "asyncTask";

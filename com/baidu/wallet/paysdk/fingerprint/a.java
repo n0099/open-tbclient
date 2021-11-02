@@ -28,25 +28,25 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 @TargetApi(23)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f62856b = "wallet_fp_ks_alias";
+    public static String f59725b = "wallet_fp_ks_alias";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f62857c = null;
+    public static a f59726c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f62858d = "a";
+    public static final String f59727d = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public KeyStore f62859a;
+    public KeyStore f59728a;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f62860e;
+    public Context f59729e;
 
     static {
         InterceptResult invokeClinit;
@@ -79,8 +79,8 @@ public class a {
             }
         }
         try {
-            this.f62860e = context.getApplicationContext();
-            this.f62859a = KeyStore.getInstance("AndroidKeyStore");
+            this.f59729e = context.getApplicationContext();
+            this.f59728a = KeyStore.getInstance("AndroidKeyStore");
         } catch (KeyStoreException e2) {
             StatisticManager.onEvent("fprd_keystroed_exception_happends");
             e2.printStackTrace();
@@ -92,14 +92,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f62857c == null) {
+            if (f59726c == null) {
                 synchronized (a.class) {
-                    if (f62857c == null) {
-                        f62857c = new a(context);
+                    if (f59726c == null) {
+                        f59726c = new a(context);
                     }
                 }
             }
-            return f62857c;
+            return f59726c;
         }
         return (a) invokeL.objValue;
     }
@@ -118,7 +118,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
                 KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
-                this.f62859a.load(null);
+                this.f59728a.load(null);
                 keyGenerator.init(new KeyGenParameterSpec.Builder(str, 3).setBlockModes("CBC").setUserAuthenticationRequired(true).setEncryptionPaddings("PKCS7Padding").setRandomizedEncryptionRequired(false).build());
                 keyGenerator.generateKey();
             } catch (IOException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | NoSuchProviderException | CertificateException e2) {
@@ -132,8 +132,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bArr)) == null) {
             try {
-                this.f62859a.load(null);
-                SecretKey secretKey = (SecretKey) this.f62859a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f62860e), null);
+                this.f59728a.load(null);
+                SecretKey secretKey = (SecretKey) this.f59728a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f59729e), null);
                 if (secretKey == null) {
                     return null;
                 }

@@ -14,7 +14,7 @@ import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.Comparator;
 import org.apache.commons.lang3.ArrayUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CompareToBuilder implements Builder<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -189,14 +189,14 @@ public class CompareToBuilder implements Builder<Integer> {
         return invokeCommon.intValue;
     }
 
-    public CompareToBuilder append(long j2, long j3) {
+    public CompareToBuilder append(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (this.comparison != 0) {
                 return this;
             }
-            int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+            int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
             this.comparison = i2 < 0 ? -1 : i2 > 0 ? 1 : 0;
             return this;
         }

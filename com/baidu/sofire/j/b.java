@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.coremedia.iso.boxes.FileTypeBox;
 import com.coremedia.iso.boxes.MovieBox;
 import com.coremedia.iso.boxes.mdat.MediaDataBox;
 import java.nio.ByteBuffer;
@@ -14,21 +15,21 @@ import java.nio.ByteOrder;
 import java.security.DigestException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f45363a;
+    public static final byte[] f43092a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f45364b;
+    public static final byte[] f43093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f45365c;
+    public static final byte[] f43094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f45366d;
+    public static final byte[] f43095d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,10 +45,10 @@ public final class b {
                 return;
             }
         }
-        f45363a = "ftyp".getBytes();
-        f45364b = MediaDataBox.TYPE.getBytes();
-        f45365c = MovieBox.TYPE.getBytes();
-        f45366d = "free".getBytes();
+        f43092a = FileTypeBox.TYPE.getBytes();
+        f43093b = MediaDataBox.TYPE.getBytes();
+        f43094c = MovieBox.TYPE.getBytes();
+        f43095d = "free".getBytes();
     }
 
     public static int a(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {
@@ -128,17 +129,17 @@ public final class b {
                 int a3 = a(bArr, i8);
                 if (a3 == 1) {
                     int i15 = i8 + 8;
-                    long j2 = -1;
+                    long j = -1;
                     if (bArr != null && bArr.length - i15 >= 8) {
                         byte[] a4 = a(bArr, i15, 8);
                         if (a4.length == 8) {
                             ByteBuffer wrap = ByteBuffer.wrap(a4, i5, 8);
                             wrap.order(ByteOrder.BIG_ENDIAN);
-                            j2 = wrap.getLong();
+                            j = wrap.getLong();
                         }
                     }
                     i2 = length;
-                    a3 = (int) j2;
+                    a3 = (int) j;
                     i3 = 8;
                 } else {
                     i2 = length;

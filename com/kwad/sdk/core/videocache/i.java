@@ -15,22 +15,22 @@ import java.net.SocketAddress;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class i extends ProxySelector {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<Proxy> f72733a;
+    public static final List<Proxy> f65184a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ProxySelector f72734b;
+    public final ProxySelector f65185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f72735c;
+    public final String f65186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f72736d;
+    public final int f65187d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class i extends ProxySelector {
                 return;
             }
         }
-        f72733a = Arrays.asList(Proxy.NO_PROXY);
+        f65184a = Arrays.asList(Proxy.NO_PROXY);
     }
 
     public i(ProxySelector proxySelector, String str, int i2) {
@@ -63,9 +63,9 @@ public class i extends ProxySelector {
                 return;
             }
         }
-        this.f72734b = (ProxySelector) j.a(proxySelector);
-        this.f72735c = (String) j.a(str);
-        this.f72736d = i2;
+        this.f65185b = (ProxySelector) j.a(proxySelector);
+        this.f65186c = (String) j.a(str);
+        this.f65187d = i2;
     }
 
     public static void a(String str, int i2) {
@@ -79,7 +79,7 @@ public class i extends ProxySelector {
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
-            this.f72734b.connectFailed(uri, socketAddress, iOException);
+            this.f65185b.connectFailed(uri, socketAddress, iOException);
         }
     }
 
@@ -88,7 +88,7 @@ public class i extends ProxySelector {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            return this.f72735c.equals(uri.getHost()) && this.f72736d == uri.getPort() ? f72733a : this.f72734b.select(uri);
+            return this.f65186c.equals(uri.getHost()) && this.f65187d == uri.getPort() ? f65184a : this.f65185b.select(uri);
         }
         return (List) invokeL.objValue;
     }

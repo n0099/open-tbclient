@@ -21,15 +21,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39526a = "utf-8";
+    public static final String f37470a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39527b = "c82c403505338808201aad86f8194734";
+    public static final String f37471b = "c82c403505338808201aad86f8194734";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -159,20 +159,20 @@ public class a {
 
     public static String b(Context context) {
         InterceptResult invokeL;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-                j2 = Long.valueOf(bufferedReader.readLine().split("\\s+")[1]).longValue() * 1024;
+                j = Long.valueOf(bufferedReader.readLine().split("\\s+")[1]).longValue() * 1024;
                 try {
                     bufferedReader.close();
                 } catch (IOException unused) {
                 }
             } catch (IOException unused2) {
-                j2 = 0;
+                j = 0;
             }
-            return Formatter.formatFileSize(context, j2);
+            return Formatter.formatFileSize(context, j);
         }
         return (String) invokeL.objValue;
     }

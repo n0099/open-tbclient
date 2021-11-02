@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class r implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup.LayoutParams f41761a;
+    public final /* synthetic */ ViewGroup.LayoutParams f39599a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f41762b;
+    public final /* synthetic */ SwipeDismissTouchListener f39600b;
 
     public r(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
                 return;
             }
         }
-        this.f41762b = swipeDismissTouchListener;
-        this.f41761a = layoutParams;
+        this.f39600b = swipeDismissTouchListener;
+        this.f39599a = layoutParams;
     }
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -42,9 +42,9 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-            this.f41761a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-            view = this.f41762b.f41651e;
-            view.setLayoutParams(this.f41761a);
+            this.f39599a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+            view = this.f39600b.f39495e;
+            view.setLayoutParams(this.f39599a);
         }
     }
 }

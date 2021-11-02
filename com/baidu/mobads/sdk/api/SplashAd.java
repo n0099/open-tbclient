@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.j0.a.g.d;
+import b.a.j0.a.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.sdk.internal.AdElementInfo;
 import com.baidu.mobads.sdk.internal.ScreenUtils;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SplashAd implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_BOTTOM_LOGO_HEIGHT = "bottomLogoHeight";
@@ -54,12 +54,12 @@ public class SplashAd implements d {
     public int mTimeout;
     public int mTipStyle;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnFinishListener {
         void onFinishActivity();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface SplashFocusAdListener {
         void onAdClick();
 

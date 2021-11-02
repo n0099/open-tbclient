@@ -25,7 +25,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "H5PayNetworkError";
@@ -109,34 +109,32 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35951a;
+    public String f34054a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35952b;
+    public String f34055b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35953c;
+    public String f34056c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35954d;
+    public String f34057d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35955e;
+    public String f34058e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35956f;
+    public String f34059f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35957g;
+    public String f34060g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35958h;
+    public String f34061h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35959i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f35960j;
+    public String f34062i;
+    public String j;
 
     public b(Context context, boolean z2) {
         Interceptable interceptable = $ic;
@@ -153,16 +151,16 @@ public class b {
                 return;
             }
         }
-        this.f35958h = "";
-        this.f35959i = "";
+        this.f34061h = "";
+        this.f34062i = "";
         context = context != null ? context.getApplicationContext() : context;
-        this.f35951a = b();
-        this.f35953c = a(context);
-        this.f35954d = a(z2 ? 0L : a.c.a(context));
-        this.f35955e = a();
-        this.f35956f = b(context);
-        this.f35957g = "-";
-        this.f35960j = "-";
+        this.f34054a = b();
+        this.f34056c = a(context);
+        this.f34057d = a(z2 ? 0L : a.c.a(context));
+        this.f34058e = a();
+        this.f34059f = b(context);
+        this.f34060g = "-";
+        this.j = "-";
     }
 
     private synchronized void c(String str, String str2, String str3) {
@@ -171,7 +169,7 @@ public class b {
             synchronized (this) {
                 c.d(com.alipay.sdk.cons.a.x, String.format("event %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f35958h)) {
+                if (!TextUtils.isEmpty(this.f34061h)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -182,7 +180,7 @@ public class b {
                 objArr[2] = c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,-,-,-,-,-,-,-,-,-,-,%s", objArr));
-                this.f35958h += sb.toString();
+                this.f34061h += sb.toString();
             }
         }
     }
@@ -190,7 +188,7 @@ public class b {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f35959i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f34062i) : invokeV.booleanValue;
     }
 
     public static String e() {
@@ -233,7 +231,7 @@ public class b {
             synchronized (this) {
                 c.c(com.alipay.sdk.cons.a.x, String.format("err %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f35959i)) {
+                if (!TextUtils.isEmpty(this.f34062i)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -244,7 +242,7 @@ public class b {
                 objArr[2] = TextUtils.isEmpty(str3) ? "-" : c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,%s", objArr));
-                this.f35959i += sb.toString();
+                this.f34062i += sb.toString();
             }
         }
     }
@@ -371,8 +369,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String b2 = b(str);
-            this.f35952b = b2;
-            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.f35951a, b2, this.f35953c, this.f35954d, this.f35955e, this.f35956f, this.f35957g, d(this.f35958h), d(this.f35959i), this.f35960j);
+            this.f34055b = b2;
+            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.f34054a, b2, this.f34056c, this.f34057d, this.f34058e, this.f34059f, this.f34060g, d(this.f34061h), d(this.f34062i), this.j);
         }
         return (String) invokeL.objValue;
     }
@@ -444,13 +442,13 @@ public class b {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,-", c(com.alipay.sdk.util.a.c(context)), "android", c(Build.VERSION.RELEASE), c(Build.MODEL), "-", c(com.alipay.sdk.util.a.b(context).c()), c(com.alipay.sdk.util.a.d(context).b()), "gw", c(com.alipay.sdk.util.a.b(context).b())) : (String) invokeL.objValue;
     }
 
-    public static String a(long j2) {
+    public static String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
             String c2 = c("15.8.02");
             String c3 = c("h.a.3.8.02");
-            return String.format("android,3,%s,%s,com.alipay.mcpay,5.0,-,%s,-", c2, c3, com.xiaomi.mipush.sdk.Constants.WAVE_SEPARATOR + j2);
+            return String.format("android,3,%s,%s,com.alipay.mcpay,5.0,-,%s,-", c2, c3, com.xiaomi.mipush.sdk.Constants.WAVE_SEPARATOR + j);
         }
         return (String) invokeJ.objValue;
     }

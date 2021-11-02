@@ -36,7 +36,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ATTR_NAME = "name";
@@ -57,7 +57,7 @@ public class FileProvider extends ContentProvider {
 
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface PathStrategy {
         @KsAdSdkDynamicApi
         @Keep
@@ -68,7 +68,7 @@ public class FileProvider extends ContentProvider {
         Uri getUriForFile(File file);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class SimplePathStrategy implements PathStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,7 +275,7 @@ public class FileProvider extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (r.f42346a.equals(str)) {
+            if (r.f40168a.equals(str)) {
                 return 268435456;
             }
             if ("w".equals(str) || "wt".equals(str)) {

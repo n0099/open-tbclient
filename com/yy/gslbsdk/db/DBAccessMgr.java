@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DBAccessMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBAccessMgr";

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SDKLogSecurityManager {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] TYPE_LIST_DANGER;
@@ -22,7 +22,7 @@ public class SDKLogSecurityManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class LogTypeLevel {
         public static final /* synthetic */ LogTypeLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

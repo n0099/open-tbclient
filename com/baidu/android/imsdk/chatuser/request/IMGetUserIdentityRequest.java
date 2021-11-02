@@ -12,20 +12,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetUserIdentityRequest";
@@ -113,9 +111,9 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+                jSONObject.put("device_type", 2);
                 jSONObject.put("appid", AccountManager.getAppid(this.mContext));
                 jSONObject.put("timestamp", currentTimeMillis);
                 jSONObject.put("sign", md5);
@@ -147,7 +145,7 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         iGetUserIdentityListener.onGetUserIdentityResult(i2, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0152  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0157  */
     /* JADX WARN: Removed duplicated region for block: B:81:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
@@ -163,6 +161,18 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         int i4;
         ArrayList arrayList;
         int i5;
+        JSONObject jSONObject2;
+        long optLong;
+        long optLong2;
+        String optString;
+        String optString2;
+        String optString3;
+        String optString4;
+        int optInt2;
+        JSONArray jSONArray;
+        ChatUser chatUser;
+        int i6;
+        ArrayList arrayList2;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeIL(1048583, this, i2, bArr) != null) {
             return;
@@ -171,8 +181,8 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         String str2 = new String(bArr);
         String str3 = TAG;
         LogUtils.d(TAG, "onSuccess content = " + str2);
-        int i6 = 0;
-        ArrayList arrayList2 = null;
+        int i7 = 0;
+        ArrayList arrayList3 = null;
         try {
             jSONObject = new JSONObject(str2);
             optInt = jSONObject.optInt("error_code");
@@ -186,128 +196,128 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
             } catch (JSONException e3) {
                 e = e3;
                 str = TAG;
-                i6 = optInt;
+                i7 = optInt;
             }
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList3 = new ArrayList();
-                while (i6 < optJSONArray.length()) {
+                ArrayList arrayList4 = new ArrayList();
+                while (i7 < optJSONArray.length()) {
                     try {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i6);
-                        long optLong = jSONObject2.optLong("bd_uid");
-                        long optLong2 = jSONObject2.optLong("uk", 0L);
-                        String optString = jSONObject2.optString("avatar");
-                        String optString2 = jSONObject2.optString("display_name");
+                        jSONObject2 = optJSONArray.getJSONObject(i7);
+                        optLong = jSONObject2.optLong("bd_uid");
+                        optLong2 = jSONObject2.optLong("uk", 0L);
+                        optString = jSONObject2.optString("avatar");
+                        optString2 = jSONObject2.optString("display_name");
                         jSONObject2.optString("vip");
-                        String optString3 = jSONObject2.optString("v_portrait");
-                        String optString4 = jSONObject2.optString("identity");
-                        int optInt2 = jSONObject2.optInt("relation_follow");
+                        optString3 = jSONObject2.optString("v_portrait");
+                        optString4 = jSONObject2.optString("identity");
+                        optInt2 = jSONObject2.optInt("relation_follow");
                         i4 = optInt;
+                    } catch (JSONException e4) {
+                        e = e4;
+                        i4 = optInt;
+                    }
+                    try {
+                        int optInt3 = jSONObject2.optInt("relation_phone");
+                        jSONArray = optJSONArray;
+                        int optInt4 = jSONObject2.optInt(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY);
+                        String optString5 = jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY);
+                        str = str3;
                         try {
-                            int optInt3 = jSONObject2.optInt("relation_phone");
-                            JSONArray jSONArray = optJSONArray;
-                            int optInt4 = jSONObject2.optInt(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY);
-                            String optString5 = jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY);
-                            str = str3;
+                            i6 = i7;
+                            arrayList2 = arrayList4;
                             try {
-                                int i7 = i6;
-                                ArrayList arrayList4 = arrayList3;
-                                try {
-                                    ChatUser chatUser = new ChatUser(optLong2, optLong, optString2, optString);
-                                    chatUser.setVipId(jSONObject2.optString("vip"));
-                                    chatUser.setIdentity(optString4);
-                                    chatUser.setSubscribe(optInt2);
-                                    chatUser.setPhoneRelation(optInt3);
-                                    chatUser.setHasSpecialIdentity(optInt4);
-                                    chatUser.setSpecialIdentity(optString5);
-                                    chatUser.setVPortrait(optString3);
-                                    chatUser.setUserExt(jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_USER_EXT, ""));
-                                    iMGetUserIdentityRequest = this;
-                                    try {
-                                        ChatUser chatUser2 = ChatUserDBManager.getInstance(iMGetUserIdentityRequest.mContext).getChatUser(optLong2);
-                                        if (chatUser2 != null) {
-                                            try {
-                                                chatUser.setMarkTop(chatUser2.getMarkTop());
-                                                chatUser.setMarkTopTime(chatUser2.getMarkTopTime());
-                                                chatUser.setShield(chatUser2.getShield());
-                                                chatUser.setShieldTime(chatUser2.getShieldTime());
-                                            } catch (JSONException e4) {
-                                                e = e4;
-                                                i6 = i4;
-                                                arrayList2 = arrayList4;
-                                                LogUtils.e(str, "Exception ", e);
-                                                i3 = i6;
-                                                iGetUserIdentityListener = iMGetUserIdentityRequest.mListener;
-                                                if (iGetUserIdentityListener != null) {
-                                                }
-                                            }
-                                        }
-                                        arrayList = arrayList4;
-                                        try {
-                                            arrayList.add(chatUser);
-                                            i6 = i7 + 1;
-                                            optJSONArray = jSONArray;
-                                            arrayList3 = arrayList;
-                                            str3 = str;
-                                            optInt = i4;
-                                        } catch (JSONException e5) {
-                                            e = e5;
-                                            i6 = i4;
-                                            arrayList2 = arrayList;
-                                            LogUtils.e(str, "Exception ", e);
-                                            i3 = i6;
-                                            iGetUserIdentityListener = iMGetUserIdentityRequest.mListener;
-                                            if (iGetUserIdentityListener != null) {
-                                            }
-                                        }
-                                    } catch (JSONException e6) {
-                                        e = e6;
-                                        arrayList = arrayList4;
-                                        i6 = i4;
-                                        arrayList2 = arrayList;
-                                        LogUtils.e(str, "Exception ", e);
-                                        i3 = i6;
-                                        iGetUserIdentityListener = iMGetUserIdentityRequest.mListener;
-                                        if (iGetUserIdentityListener != null) {
-                                        }
-                                    }
-                                } catch (JSONException e7) {
-                                    e = e7;
-                                    iMGetUserIdentityRequest = this;
-                                }
+                                chatUser = new ChatUser(optLong2, optLong, optString2, optString);
+                                chatUser.setVipId(jSONObject2.optString("vip"));
+                                chatUser.setIdentity(optString4);
+                                chatUser.setSubscribe(optInt2);
+                                chatUser.setPhoneRelation(optInt3);
+                                chatUser.setHasSpecialIdentity(optInt4);
+                                chatUser.setSpecialIdentity(optString5);
+                                chatUser.setVPortrait(optString3);
+                                chatUser.setUserExt(jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_USER_EXT, ""));
+                                iMGetUserIdentityRequest = this;
+                            } catch (JSONException e5) {
+                                e = e5;
+                                iMGetUserIdentityRequest = this;
+                            }
+                        } catch (JSONException e6) {
+                            e = e6;
+                            arrayList = arrayList4;
+                            i7 = i4;
+                            arrayList3 = arrayList;
+                            LogUtils.e(str, "Exception ", e);
+                            i3 = i7;
+                            iGetUserIdentityListener = iMGetUserIdentityRequest.mListener;
+                            if (iGetUserIdentityListener != null) {
+                            }
+                        }
+                    } catch (JSONException e7) {
+                        e = e7;
+                        str = str3;
+                        arrayList = arrayList4;
+                        i7 = i4;
+                        arrayList3 = arrayList;
+                        LogUtils.e(str, "Exception ", e);
+                        i3 = i7;
+                        iGetUserIdentityListener = iMGetUserIdentityRequest.mListener;
+                        if (iGetUserIdentityListener != null) {
+                        }
+                    }
+                    try {
+                        ChatUser chatUser2 = ChatUserDBManager.getInstance(iMGetUserIdentityRequest.mContext).getChatUser(optLong2);
+                        if (chatUser2 != null) {
+                            try {
+                                chatUser.setMarkTop(chatUser2.getMarkTop());
+                                chatUser.setMarkTopTime(chatUser2.getMarkTopTime());
+                                chatUser.setShield(chatUser2.getShield());
+                                chatUser.setShieldTime(chatUser2.getShieldTime());
                             } catch (JSONException e8) {
                                 e = e8;
-                                arrayList = arrayList3;
-                                i6 = i4;
-                                arrayList2 = arrayList;
+                                i7 = i4;
+                                arrayList3 = arrayList2;
                                 LogUtils.e(str, "Exception ", e);
-                                i3 = i6;
+                                i3 = i7;
                                 iGetUserIdentityListener = iMGetUserIdentityRequest.mListener;
                                 if (iGetUserIdentityListener != null) {
                                 }
                             }
+                        }
+                        arrayList = arrayList2;
+                        try {
+                            arrayList.add(chatUser);
+                            i7 = i6 + 1;
+                            optJSONArray = jSONArray;
+                            arrayList4 = arrayList;
+                            str3 = str;
+                            optInt = i4;
                         } catch (JSONException e9) {
                             e = e9;
-                            str = str3;
-                            arrayList = arrayList3;
-                            i6 = i4;
-                            arrayList2 = arrayList;
+                            i7 = i4;
+                            arrayList3 = arrayList;
                             LogUtils.e(str, "Exception ", e);
-                            i3 = i6;
+                            i3 = i7;
                             iGetUserIdentityListener = iMGetUserIdentityRequest.mListener;
                             if (iGetUserIdentityListener != null) {
                             }
                         }
                     } catch (JSONException e10) {
                         e = e10;
-                        i4 = optInt;
+                        arrayList = arrayList2;
+                        i7 = i4;
+                        arrayList3 = arrayList;
+                        LogUtils.e(str, "Exception ", e);
+                        i3 = i7;
+                        iGetUserIdentityListener = iMGetUserIdentityRequest.mListener;
+                        if (iGetUserIdentityListener != null) {
+                        }
                     }
                 }
                 i5 = optInt;
-                arrayList2 = arrayList3;
+                arrayList3 = arrayList4;
                 i3 = i5;
                 iGetUserIdentityListener = iMGetUserIdentityRequest.mListener;
                 if (iGetUserIdentityListener != null) {
-                    iGetUserIdentityListener.onGetUserIdentityResult(i3, arrayList2);
+                    iGetUserIdentityListener.onGetUserIdentityResult(i3, arrayList3);
                     return;
                 }
                 return;

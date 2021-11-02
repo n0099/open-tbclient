@@ -5,26 +5,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f39409a;
+    public final /* synthetic */ long f37356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d.c f39410b;
+    public final /* synthetic */ d.c f37357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ d f39411c;
+    public final /* synthetic */ d f37358c;
 
-    public c(d dVar, long j2, d.c cVar) {
+    public c(d dVar, long j, d.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dVar, Long.valueOf(j2), cVar};
+            Object[] objArr = {dVar, Long.valueOf(j), cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -34,9 +34,9 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f39411c = dVar;
-        this.f39409a = j2;
-        this.f39410b = cVar;
+        this.f37358c = dVar;
+        this.f37356a = j;
+        this.f37357b = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -44,11 +44,11 @@ public class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Thread.sleep(this.f39409a);
+                Thread.sleep(this.f37356a);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            this.f39411c.b(this.f39410b);
+            this.f37358c.b(this.f37357b);
         }
     }
 }

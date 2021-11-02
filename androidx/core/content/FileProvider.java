@@ -251,7 +251,7 @@ public class FileProvider extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (r.f42346a.equals(str)) {
+            if (r.f40168a.equals(str)) {
                 return 268435456;
             }
             if ("w".equals(str) || "wt".equals(str)) {

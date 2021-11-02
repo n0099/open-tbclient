@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
 import javax.annotation.Nullable;
 @TargetApi(11)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AnimatedDrawable2ValueAnimatorHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

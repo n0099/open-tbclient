@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MotionSpec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MotionSpec";
@@ -187,12 +187,12 @@ public class MotionSpec {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int size = this.timings.size();
-            long j2 = 0;
+            long j = 0;
             for (int i2 = 0; i2 < size; i2++) {
                 MotionTiming valueAt = this.timings.valueAt(i2);
-                j2 = Math.max(j2, valueAt.getDelay() + valueAt.getDuration());
+                j = Math.max(j, valueAt.getDelay() + valueAt.getDuration());
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

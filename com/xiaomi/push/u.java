@@ -15,25 +15,25 @@ import java.nio.channels.FileLock;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f78598a;
+    public static final Set<String> f71536a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f990a;
+    public Context f991a;
 
     /* renamed from: a  reason: collision with other field name */
-    public RandomAccessFile f991a;
+    public RandomAccessFile f992a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f992a;
+    public String f993a;
 
     /* renamed from: a  reason: collision with other field name */
-    public FileLock f993a;
+    public FileLock f994a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public final class u {
                 return;
             }
         }
-        f78598a = Collections.synchronizedSet(new HashSet());
+        f71536a = Collections.synchronizedSet(new HashSet());
     }
 
     public u(Context context) {
@@ -66,7 +66,7 @@ public final class u {
                 return;
             }
         }
-        this.f990a = context;
+        this.f991a = context;
     }
 
     public static u a(Context context, File file) {
@@ -80,22 +80,22 @@ public final class u {
                 file2.getParentFile().mkdirs();
                 file2.createNewFile();
             }
-            if (f78598a.add(str)) {
+            if (f71536a.add(str)) {
                 u uVar = new u(context);
-                uVar.f992a = str;
+                uVar.f993a = str;
                 try {
                     RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
-                    uVar.f991a = randomAccessFile;
-                    uVar.f993a = randomAccessFile.getChannel().lock();
-                    com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f993a);
+                    uVar.f992a = randomAccessFile;
+                    uVar.f994a = randomAccessFile.getChannel().lock();
+                    com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f994a);
                     return uVar;
                 } finally {
-                    if (uVar.f993a == null) {
-                        RandomAccessFile randomAccessFile2 = uVar.f991a;
+                    if (uVar.f994a == null) {
+                        RandomAccessFile randomAccessFile2 = uVar.f992a;
                         if (randomAccessFile2 != null) {
                             y.a(randomAccessFile2);
                         }
-                        f78598a.remove(uVar.f992a);
+                        f71536a.remove(uVar.f993a);
                     }
                 }
             }
@@ -107,20 +107,20 @@ public final class u {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f993a);
-            FileLock fileLock = this.f993a;
+            com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f994a);
+            FileLock fileLock = this.f994a;
             if (fileLock != null && fileLock.isValid()) {
                 try {
-                    this.f993a.release();
+                    this.f994a.release();
                 } catch (IOException unused) {
                 }
-                this.f993a = null;
+                this.f994a = null;
             }
-            RandomAccessFile randomAccessFile = this.f991a;
+            RandomAccessFile randomAccessFile = this.f992a;
             if (randomAccessFile != null) {
                 y.a(randomAccessFile);
             }
-            f78598a.remove(this.f992a);
+            f71536a.remove(this.f993a);
         }
     }
 }

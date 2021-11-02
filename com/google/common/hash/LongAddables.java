@@ -1,7 +1,7 @@
 package com.google.common.hash;
 
-import c.i.d.a.r;
-import c.i.d.d.i;
+import b.i.d.a.r;
+import b.i.d.d.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LongAddables {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final r<i> f71157a;
+    public static final r<i> f63644a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class PureJavaLongAddable extends AtomicLong implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,15 +38,15 @@ public final class LongAddables {
             }
         }
 
-        @Override // c.i.d.d.i
-        public void add(long j2) {
+        @Override // b.i.d.d.i
+        public void add(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                getAndAdd(j2);
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                getAndAdd(j);
             }
         }
 
-        @Override // c.i.d.d.i
+        @Override // b.i.d.d.i
         public void increment() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -54,7 +54,7 @@ public final class LongAddables {
             }
         }
 
-        @Override // c.i.d.d.i
+        @Override // b.i.d.d.i
         public long sum() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public final class LongAddables {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a implements r<i> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public final class LongAddables {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.r
+        @Override // b.i.d.a.r
         /* renamed from: a */
         public i get() {
             InterceptResult invokeV;
@@ -95,7 +95,7 @@ public final class LongAddables {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class b implements r<i> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public final class LongAddables {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.r
+        @Override // b.i.d.a.r
         /* renamed from: a */
         public i get() {
             InterceptResult invokeV;
@@ -144,12 +144,12 @@ public final class LongAddables {
         } catch (Throwable unused) {
             bVar = new b();
         }
-        f71157a = bVar;
+        f63644a = bVar;
     }
 
     public static i a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f71157a.get() : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f63644a.get() : (i) invokeV.objValue;
     }
 }

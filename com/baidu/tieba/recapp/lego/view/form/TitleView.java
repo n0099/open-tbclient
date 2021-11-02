@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TitleView extends FormItemBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f56502e;
+    public TextView f53612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f56503f;
+    public ImageView f53613f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f56504g;
+    public ImageView f53614g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f56505h;
+    public ImageView f53615h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f56506i;
+    public ImageView f53616i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TitleView(Context context) {
@@ -52,27 +52,27 @@ public class TitleView extends FormItemBaseView {
                 return;
             }
         }
-        this.f56502e = null;
-        this.f56503f = null;
-        this.f56504g = null;
-        this.f56505h = null;
-        this.f56506i = null;
+        this.f53612e = null;
+        this.f53613f = null;
+        this.f53614g = null;
+        this.f53615h = null;
+        this.f53616i = null;
         b();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f56502e = new TextView(this.mContext);
-            this.f56503f = new ImageView(this.mContext);
-            this.f56504g = new ImageView(this.mContext);
-            this.f56505h = new ImageView(this.mContext);
-            this.f56506i = new ImageView(this.mContext);
+            this.f53612e = new TextView(this.mContext);
+            this.f53613f = new ImageView(this.mContext);
+            this.f53614g = new ImageView(this.mContext);
+            this.f53615h = new ImageView(this.mContext);
+            this.f53616i = new ImageView(this.mContext);
             e();
-            c(this.f56505h, true, 2);
-            c(this.f56506i, false, 3);
-            d(this.f56503f, true);
-            d(this.f56504g, false);
+            c(this.f53615h, true, 2);
+            c(this.f53616i, false, 3);
+            d(this.f53613f, true);
+            d(this.f53614g, false);
         }
     }
 
@@ -84,10 +84,10 @@ public class TitleView extends FormItemBaseView {
             layoutParams.addRule(15);
             if (z) {
                 imageView.setImageResource(R.drawable.form_title_icon_left);
-                layoutParams.addRule(0, this.f56502e.getId());
+                layoutParams.addRule(0, this.f53612e.getId());
             } else {
                 imageView.setImageResource(R.drawable.form_title_icon_right);
-                layoutParams.addRule(1, this.f56502e.getId());
+                layoutParams.addRule(1, this.f53612e.getId());
             }
             int i3 = this.mSize20;
             layoutParams.leftMargin = i3;
@@ -102,9 +102,9 @@ public class TitleView extends FormItemBaseView {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.mResources.getDimension(R.dimen.ds1));
             layoutParams.addRule(15);
             if (z) {
-                layoutParams.addRule(0, this.f56505h.getId());
+                layoutParams.addRule(0, this.f53615h.getId());
             } else {
-                layoutParams.addRule(1, this.f56506i.getId());
+                layoutParams.addRule(1, this.f53616i.getId());
             }
             addView(imageView, layoutParams);
             imageView.setBackgroundColor(this.mFrameColor);
@@ -114,12 +114,12 @@ public class TitleView extends FormItemBaseView {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f56502e.setTextSize(0, this.mFontSize36);
-            this.f56502e.setTextColor(-1);
-            this.f56502e.setId(1);
+            this.f53612e.setTextSize(0, this.mFontSize36);
+            this.f53612e.setTextColor(-1);
+            this.f53612e.setId(1);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
-            addView(this.f56502e, layoutParams);
+            addView(this.f53612e, layoutParams);
         }
     }
 
@@ -146,13 +146,13 @@ public class TitleView extends FormItemBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
             if (super.updateView(bVar)) {
-                this.f56502e.setTextSize(0, this.mFontSize36);
-                this.f56502e.setText(bVar.f56385b);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f56505h.getLayoutParams();
+                this.f53612e.setTextSize(0, this.mFontSize36);
+                this.f53612e.setText(bVar.f53501b);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f53615h.getLayoutParams();
                 int i2 = this.mSize20;
                 marginLayoutParams.leftMargin = i2;
                 marginLayoutParams.rightMargin = i2;
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f56506i.getLayoutParams();
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f53616i.getLayoutParams();
                 int i3 = this.mSize20;
                 marginLayoutParams2.leftMargin = i3;
                 marginLayoutParams2.rightMargin = i3;
@@ -182,11 +182,11 @@ public class TitleView extends FormItemBaseView {
                 return;
             }
         }
-        this.f56502e = null;
-        this.f56503f = null;
-        this.f56504g = null;
-        this.f56505h = null;
-        this.f56506i = null;
+        this.f53612e = null;
+        this.f53613f = null;
+        this.f53614g = null;
+        this.f53615h = null;
+        this.f53616i = null;
         b();
     }
 
@@ -209,11 +209,11 @@ public class TitleView extends FormItemBaseView {
                 return;
             }
         }
-        this.f56502e = null;
-        this.f56503f = null;
-        this.f56504g = null;
-        this.f56505h = null;
-        this.f56506i = null;
+        this.f53612e = null;
+        this.f53613f = null;
+        this.f53614g = null;
+        this.f53615h = null;
+        this.f53616i = null;
         b();
     }
 }

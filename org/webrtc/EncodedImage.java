@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EncodedImage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class EncodedImage {
     public final int rotation;
 
     /* renamed from: org.webrtc.EncodedImage$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,21 +66,21 @@ public class EncodedImage {
         }
 
         @Deprecated
-        public Builder setCaptureTimeMs(long j2) {
+        public Builder setCaptureTimeMs(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                this.captureTimeNs = TimeUnit.MILLISECONDS.toNanos(j2);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.captureTimeNs = TimeUnit.MILLISECONDS.toNanos(j);
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setCaptureTimeNs(long j2) {
+        public Builder setCaptureTimeNs(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.captureTimeNs = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.captureTimeNs = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -162,7 +162,7 @@ public class EncodedImage {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FrameType {
         public static final /* synthetic */ FrameType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -248,8 +248,8 @@ public class EncodedImage {
         }
     }
 
-    public /* synthetic */ EncodedImage(ByteBuffer byteBuffer, int i2, int i3, long j2, FrameType frameType, int i4, boolean z, Integer num, AnonymousClass1 anonymousClass1) {
-        this(byteBuffer, i2, i3, j2, frameType, i4, z, num);
+    public /* synthetic */ EncodedImage(ByteBuffer byteBuffer, int i2, int i3, long j, FrameType frameType, int i4, boolean z, Integer num, AnonymousClass1 anonymousClass1) {
+        this(byteBuffer, i2, i3, j, frameType, i4, z, num);
     }
 
     public static Builder builder() {
@@ -259,12 +259,12 @@ public class EncodedImage {
     }
 
     @CalledByNative
-    public EncodedImage(ByteBuffer byteBuffer, int i2, int i3, long j2, FrameType frameType, int i4, boolean z, Integer num) {
+    public EncodedImage(ByteBuffer byteBuffer, int i2, int i3, long j, FrameType frameType, int i4, boolean z, Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), frameType, Integer.valueOf(i4), Boolean.valueOf(z), num};
+            Object[] objArr = {byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), frameType, Integer.valueOf(i4), Boolean.valueOf(z), num};
             interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -277,8 +277,8 @@ public class EncodedImage {
         this.buffer = byteBuffer;
         this.encodedWidth = i2;
         this.encodedHeight = i3;
-        this.captureTimeMs = TimeUnit.NANOSECONDS.toMillis(j2);
-        this.captureTimeNs = j2;
+        this.captureTimeMs = TimeUnit.NANOSECONDS.toMillis(j);
+        this.captureTimeNs = j;
         this.frameType = frameType;
         this.rotation = i4;
         this.completeFrame = z;

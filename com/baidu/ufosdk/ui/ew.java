@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class ew implements View.OnFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ RelativeLayout f60084a;
+    public final /* synthetic */ RelativeLayout f57000a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ev f60085b;
+    public final /* synthetic */ ev f57001b;
 
     public ew(ev evVar, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public final class ew implements View.OnFocusChangeListener {
                 return;
             }
         }
-        this.f60085b = evVar;
-        this.f60084a = relativeLayout;
+        this.f57001b = evVar;
+        this.f57000a = relativeLayout;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public final void onFocusChange(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-            this.f60084a.setBackgroundResource(z ? R.drawable.dialog_edit_bg_selected : R.drawable.dialog_checkbox_bg_normal);
+            this.f57000a.setBackgroundResource(z ? R.drawable.dialog_edit_bg_selected : R.drawable.dialog_checkbox_bg_normal);
         }
     }
 }

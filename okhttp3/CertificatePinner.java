@@ -22,7 +22,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okio.ByteString;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CertificatePinner {
     public static /* synthetic */ Interceptable $ic;
     public static final CertificatePinner DEFAULT;
@@ -31,7 +31,7 @@ public final class CertificatePinner {
     public final CertificateChainCleaner certificateChainCleaner;
     public final Set<Pin> pins;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public final class CertificatePinner {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Pin {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String WILDCARD = "*.";

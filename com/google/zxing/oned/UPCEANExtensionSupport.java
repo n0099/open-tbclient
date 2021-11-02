@@ -11,7 +11,7 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UPCEANExtensionSupport {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] EXTENSION_START_PATTERN;

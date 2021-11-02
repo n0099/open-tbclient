@@ -1,8 +1,8 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.g;
-import c.i.d.a.n;
+import b.i.d.a.g;
+import b.i.d.a.n;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,18 +23,18 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FuturesGetChecked {
     public static /* synthetic */ Interceptable $ic;
     public static final Ordering<Constructor<?>> WITH_STRING_PARAM_FIRST;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface GetCheckedTypeValidator {
         void validateClass(Class<? extends Exception> cls);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class GetCheckedTypeValidatorHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final GetCheckedTypeValidator BEST_VALIDATOR;
@@ -42,7 +42,7 @@ public final class FuturesGetChecked {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class ClassValueValidator implements GetCheckedTypeValidator {
             public static final /* synthetic */ ClassValueValidator[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -142,7 +142,7 @@ public final class FuturesGetChecked {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class WeakSetValidator implements GetCheckedTypeValidator {
             public static final /* synthetic */ WeakSetValidator[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -297,7 +297,7 @@ public final class FuturesGetChecked {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.i.d.a.g
+            @Override // b.i.d.a.g
             public Boolean apply(Constructor<?> constructor) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -452,13 +452,13 @@ public final class FuturesGetChecked {
         return (V) invokeLLL.objValue;
     }
 
-    public static <V, X extends Exception> V getChecked(Future<V> future, Class<X> cls, long j2, TimeUnit timeUnit) throws Exception {
+    public static <V, X extends Exception> V getChecked(Future<V> future, Class<X> cls, long j, TimeUnit timeUnit) throws Exception {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{future, cls, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{future, cls, Long.valueOf(j), timeUnit})) == null) {
             bestGetCheckedTypeValidator().validateClass(cls);
             try {
-                return future.get(j2, timeUnit);
+                return future.get(j, timeUnit);
             } catch (InterruptedException e2) {
                 Thread.currentThread().interrupt();
                 throw newWithCause(cls, e2);

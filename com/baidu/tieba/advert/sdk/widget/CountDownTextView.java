@@ -11,48 +11,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CountDownTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49362e;
+    public int f46830e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f49363f;
+    public String f46831f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f49364g;
+    public b f46832g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f49365h;
+    public d f46833h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f49366i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final Runnable f49367j;
+    public Handler f46834i;
+    public final Runnable j;
     public boolean k;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f49368e;
+        public final WeakReference<CountDownTextView> f46835e;
 
         public /* synthetic */ c(CountDownTextView countDownTextView, a aVar) {
             this(countDownTextView);
@@ -62,7 +60,7 @@ public class CountDownTextView extends TextView {
         public void run() {
             CountDownTextView countDownTextView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTextView = this.f49368e.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTextView = this.f46835e.get()) == null) {
                 return;
             }
             countDownTextView.b(1);
@@ -83,11 +81,11 @@ public class CountDownTextView extends TextView {
                     return;
                 }
             }
-            this.f49368e = new WeakReference<>(countDownTextView);
+            this.f46835e = new WeakReference<>(countDownTextView);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface d {
         void onTimeout(View view);
     }
@@ -110,58 +108,58 @@ public class CountDownTextView extends TextView {
                 return;
             }
         }
-        this.f49362e = 0;
-        this.f49363f = "";
-        this.f49364g = null;
-        this.f49365h = null;
-        this.f49366i = new Handler();
+        this.f46830e = 0;
+        this.f46831f = "";
+        this.f46832g = null;
+        this.f46833h = null;
+        this.f46834i = new Handler();
         this.k = false;
-        this.f49367j = new c(this, null);
+        this.j = new c(this, null);
     }
 
     public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            int i3 = this.f49362e - i2;
-            this.f49362e = i3;
-            b bVar = this.f49364g;
+            int i3 = this.f46830e - i2;
+            this.f46830e = i3;
+            b bVar = this.f46832g;
             if (bVar != null && i2 != 0) {
                 bVar.a(i3);
             }
-            int i4 = this.f49362e;
+            int i4 = this.f46830e;
             if (i4 == 0) {
-                d dVar = this.f49365h;
+                d dVar = this.f46833h;
                 if (dVar != null) {
                     dVar.onTimeout(this);
                 }
-                this.f49366i.removeCallbacksAndMessages(null);
+                this.f46834i.removeCallbacksAndMessages(null);
                 return;
             }
             if (i4 > 0) {
                 if (this.k) {
-                    setText(String.format("%s 0%s", this.f49363f, Integer.valueOf(i4)));
+                    setText(String.format("%s 0%s", this.f46831f, Integer.valueOf(i4)));
                 } else {
-                    setText(String.format("%s %s", this.f49363f, Integer.valueOf(i4)));
+                    setText(String.format("%s %s", this.f46831f, Integer.valueOf(i4)));
                 }
             }
-            this.f49366i.removeCallbacks(this.f49367j);
-            this.f49366i.postDelayed(this.f49367j, 1000L);
+            this.f46834i.removeCallbacks(this.j);
+            this.f46834i.postDelayed(this.j, 1000L);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49366i.removeCallbacksAndMessages(null);
+            this.f46834i.removeCallbacksAndMessages(null);
         }
     }
 
     public void init(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            this.f49363f = str;
+            this.f46831f = str;
             if (i2 > 0) {
-                this.f49362e = i2;
+                this.f46830e = i2;
             }
         }
     }
@@ -207,14 +205,14 @@ public class CountDownTextView extends TextView {
     public void setTimeoutListener(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            this.f49365h = dVar;
+            this.f46833h = dVar;
         }
     }
 
     public void setTimerChangedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f49364g = bVar;
+            this.f46832g = bVar;
         }
     }
 }

@@ -16,33 +16,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PushService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f44427a;
+    public boolean f42181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f44428b;
+    public Handler f42182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44429c;
+    public boolean f42183c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Runnable f44430d;
+    public final Runnable f42184d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Runnable f44431e;
+    public final Runnable f42185e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushService f44432e;
+        public final /* synthetic */ PushService f42186e;
 
         public a(PushService pushService) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PushService extends Service {
                     return;
                 }
             }
-            this.f44432e = pushService;
+            this.f42186e = pushService;
         }
 
         @Override // java.lang.Runnable
@@ -67,18 +67,15 @@ public class PushService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 g.b();
-                this.f44432e.stopSelf();
+                this.f42186e.stopSelf();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushService f44433e;
 
         public b(PushService pushService) {
             Interceptable interceptable = $ic;
@@ -92,10 +89,8 @@ public class PushService extends Service {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.f44433e = pushService;
         }
 
         @Override // java.lang.Runnable
@@ -120,24 +115,24 @@ public class PushService extends Service {
                 return;
             }
         }
-        this.f44427a = false;
-        this.f44428b = new Handler();
-        this.f44429c = false;
-        this.f44430d = new a(this);
-        this.f44431e = new b(this);
+        this.f42181a = false;
+        this.f42182b = new Handler();
+        this.f42183c = false;
+        this.f42184d = new a(this);
+        this.f42185e = new b(this);
     }
 
     private void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f44427a = z;
+            this.f42181a = z;
             com.baidu.android.pushservice.g.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
             if (z2) {
-                this.f44430d.run();
+                this.f42184d.run();
                 return;
             }
-            this.f44428b.removeCallbacks(this.f44430d);
-            this.f44428b.postDelayed(this.f44430d, 1000L);
+            this.f42182b.removeCallbacks(this.f42184d);
+            this.f42182b.postDelayed(this.f42184d, 1000L);
         }
     }
 
@@ -159,7 +154,7 @@ public class PushService extends Service {
             com.baidu.android.pushservice.g.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
             m.a("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
             boolean a2 = g.a(this).a();
-            this.f44429c = a2;
+            this.f42183c = a2;
             if (a2) {
                 return;
             }
@@ -175,11 +170,11 @@ public class PushService extends Service {
             com.baidu.android.pushservice.g.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
             m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
             g.b();
-            if (this.f44427a) {
-                this.f44428b.removeCallbacks(this.f44431e);
-                this.f44428b.postDelayed(this.f44431e, 1000L);
+            if (this.f42181a) {
+                this.f42182b.removeCallbacks(this.f42185e);
+                this.f42182b.postDelayed(this.f42185e, 1000L);
             }
-            if (this.f44429c) {
+            if (this.f42183c) {
                 try {
                     sendBroadcast(f.a(this));
                 } catch (Exception unused) {
@@ -204,11 +199,11 @@ public class PushService extends Service {
                     new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
                 }
             }
-            this.f44428b.removeCallbacks(this.f44430d);
-            this.f44428b.removeCallbacks(this.f44431e);
+            this.f42182b.removeCallbacks(this.f42184d);
+            this.f42182b.removeCallbacks(this.f42185e);
             try {
                 boolean a2 = g.a(this).a(intent);
-                this.f44429c = a2;
+                this.f42183c = a2;
                 if (a2) {
                     return 1;
                 }

@@ -14,34 +14,34 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.zip.Adler32;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class fc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ff f77977a;
+    public ff f70934a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fh f369a;
+    public fh f370a;
 
     /* renamed from: a  reason: collision with other field name */
-    public InputStream f370a;
+    public InputStream f371a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ByteBuffer f371a;
+    public ByteBuffer f372a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Adler32 f372a;
+    public Adler32 f373a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile boolean f373a;
+    public volatile boolean f374a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f374a;
+    public byte[] f375a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f77978b;
+    public ByteBuffer f70935b;
 
     public fc(InputStream inputStream, fh fhVar) {
         Interceptable interceptable = $ic;
@@ -58,12 +58,12 @@ public class fc {
                 return;
             }
         }
-        this.f371a = ByteBuffer.allocate(2048);
-        this.f77978b = ByteBuffer.allocate(4);
-        this.f372a = new Adler32();
-        this.f370a = new BufferedInputStream(inputStream);
-        this.f369a = fhVar;
-        this.f77977a = new ff();
+        this.f372a = ByteBuffer.allocate(2048);
+        this.f70935b = ByteBuffer.allocate(4);
+        this.f373a = new Adler32();
+        this.f371a = new BufferedInputStream(inputStream);
+        this.f370a = fhVar;
+        this.f70934a = new ff();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x00c2  */
@@ -79,51 +79,51 @@ public class fc {
         if (interceptable != null && (invokeV = interceptable.invokeV(65537, this)) != null) {
             return (ByteBuffer) invokeV.objValue;
         }
-        this.f371a.clear();
-        a(this.f371a, 8);
-        short s = this.f371a.getShort(0);
-        short s2 = this.f371a.getShort(2);
+        this.f372a.clear();
+        a(this.f372a, 8);
+        short s = this.f372a.getShort(0);
+        short s2 = this.f372a.getShort(2);
         if (s != -15618 || s2 != 5) {
             throw new IOException("Malformed Input");
         }
-        int i3 = this.f371a.getInt(4);
-        int position = this.f371a.position();
+        int i3 = this.f372a.getInt(4);
+        int position = this.f372a.position();
         if (i3 > 32768) {
             throw new IOException("Blob size too large");
         }
-        if (i3 + 4 <= this.f371a.remaining()) {
-            if (this.f371a.capacity() > 4096 && i3 < 2048) {
+        if (i3 + 4 <= this.f372a.remaining()) {
+            if (this.f372a.capacity() > 4096 && i3 < 2048) {
                 allocate = ByteBuffer.allocate(2048);
-                allocate.put(this.f371a.array(), 0, this.f371a.arrayOffset() + this.f371a.position());
+                allocate.put(this.f372a.array(), 0, this.f372a.arrayOffset() + this.f372a.position());
             }
-            a(this.f371a, i3);
-            this.f77978b.clear();
-            a(this.f77978b, 4);
-            this.f77978b.position(0);
-            i2 = this.f77978b.getInt();
-            this.f372a.reset();
-            this.f372a.update(this.f371a.array(), 0, this.f371a.position());
-            if (i2 != ((int) this.f372a.getValue())) {
-                byte[] bArr = this.f374a;
+            a(this.f372a, i3);
+            this.f70935b.clear();
+            a(this.f70935b, 4);
+            this.f70935b.position(0);
+            i2 = this.f70935b.getInt();
+            this.f373a.reset();
+            this.f373a.update(this.f372a.array(), 0, this.f372a.position());
+            if (i2 != ((int) this.f373a.getValue())) {
+                byte[] bArr = this.f375a;
                 if (bArr != null) {
-                    com.xiaomi.push.service.be.a(bArr, this.f371a.array(), true, position, i3);
+                    com.xiaomi.push.service.be.a(bArr, this.f372a.array(), true, position, i3);
                 }
-                return this.f371a;
+                return this.f372a;
             }
-            com.xiaomi.channel.commonutils.logger.b.m73a("CRC = " + ((int) this.f372a.getValue()) + " and " + i2);
+            com.xiaomi.channel.commonutils.logger.b.m73a("CRC = " + ((int) this.f373a.getValue()) + " and " + i2);
             throw new IOException("Corrupted Blob bad CRC");
         }
         allocate = ByteBuffer.allocate(i3 + 2048);
-        allocate.put(this.f371a.array(), 0, this.f371a.arrayOffset() + this.f371a.position());
-        this.f371a = allocate;
-        a(this.f371a, i3);
-        this.f77978b.clear();
-        a(this.f77978b, 4);
-        this.f77978b.position(0);
-        i2 = this.f77978b.getInt();
-        this.f372a.reset();
-        this.f372a.update(this.f371a.array(), 0, this.f371a.position());
-        if (i2 != ((int) this.f372a.getValue())) {
+        allocate.put(this.f372a.array(), 0, this.f372a.arrayOffset() + this.f372a.position());
+        this.f372a = allocate;
+        a(this.f372a, i3);
+        this.f70935b.clear();
+        a(this.f70935b, 4);
+        this.f70935b.position(0);
+        i2 = this.f70935b.getInt();
+        this.f373a.reset();
+        this.f373a.update(this.f372a.array(), 0, this.f372a.position());
+        if (i2 != ((int) this.f373a.getValue())) {
         }
     }
 
@@ -132,7 +132,7 @@ public class fc {
         if (interceptable == null || interceptable.invokeLI(65538, this, byteBuffer, i2) == null) {
             int position = byteBuffer.position();
             do {
-                int read = this.f370a.read(byteBuffer.array(), position, i2);
+                int read = this.f371a.read(byteBuffer.array(), position, i2);
                 if (read == -1) {
                     throw new EOFException();
                 }
@@ -149,12 +149,12 @@ public class fc {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             boolean z = false;
-            this.f373a = false;
+            this.f374a = false;
             fa m313a = m313a();
             if ("CONN".equals(m313a.m305a())) {
                 du.f a2 = du.f.a(m313a.m309a());
                 if (a2.a()) {
-                    this.f369a.a(a2.a());
+                    this.f370a.a(a2.a());
                     z = true;
                 }
                 if (a2.c()) {
@@ -162,7 +162,7 @@ public class fc {
                     fa faVar = new fa();
                     faVar.a("SYNC", "CONF");
                     faVar.a(a3.m284a(), (String) null);
-                    this.f369a.a(faVar);
+                    this.f370a.a(faVar);
                 }
                 com.xiaomi.channel.commonutils.logger.b.m73a("[Slim] CONN: host = " + a2.b());
             }
@@ -170,10 +170,10 @@ public class fc {
                 com.xiaomi.channel.commonutils.logger.b.m73a("[Slim] Invalid CONN");
                 throw new IOException("Invalid Connection");
             }
-            this.f374a = this.f369a.a();
-            while (!this.f373a) {
+            this.f375a = this.f370a.a();
+            while (!this.f374a) {
                 fa m313a2 = m313a();
-                this.f369a.c();
+                this.f370a.c();
                 short m307a = m313a2.m307a();
                 if (m307a != 1) {
                     if (m307a != 2) {
@@ -182,7 +182,7 @@ public class fc {
                             com.xiaomi.channel.commonutils.logger.b.m73a(str);
                         } else {
                             try {
-                                this.f369a.b(this.f77977a.a(m313a2.m309a(), this.f369a));
+                                this.f370a.b(this.f70934a.a(m313a2.m309a(), this.f370a));
                             } catch (Exception e2) {
                                 e = e2;
                                 sb = new StringBuilder();
@@ -198,7 +198,7 @@ public class fc {
                         }
                     } else if ("SECMSG".equals(m313a2.m305a()) && ((m313a2.a() == 2 || m313a2.a() == 3) && TextUtils.isEmpty(m313a2.m311b()))) {
                         try {
-                            this.f369a.b(this.f77977a.a(m313a2.m310a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m313a2.a()).toString(), m313a2.g()).f78491h), this.f369a));
+                            this.f370a.b(this.f70934a.a(m313a2.m310a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m313a2.a()).toString(), m313a2.g()).f71430h), this.f370a));
                         } catch (Exception e3) {
                             e = e3;
                             sb = new StringBuilder();
@@ -213,7 +213,7 @@ public class fc {
                         }
                     }
                 }
-                this.f369a.a(m313a2);
+                this.f370a.a(m313a2);
             }
         }
     }
@@ -241,11 +241,11 @@ public class fc {
             } catch (IOException e3) {
                 e = e3;
                 if (i2 == 0) {
-                    i2 = this.f371a.position();
+                    i2 = this.f372a.position();
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append("[Slim] read Blob [");
-                byte[] array = this.f371a.array();
+                byte[] array = this.f372a.array();
                 if (i2 > 128) {
                     i2 = 128;
                 }
@@ -266,7 +266,7 @@ public class fc {
             try {
                 c();
             } catch (IOException e2) {
-                if (!this.f373a) {
+                if (!this.f374a) {
                     throw e2;
                 }
             }
@@ -276,7 +276,7 @@ public class fc {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f373a = true;
+            this.f374a = true;
         }
     }
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.NetworkMonitorAutoDetect;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetworkMonitor";
@@ -28,7 +28,7 @@ public class NetworkMonitor {
     public final ArrayList<NetworkObserver> networkObservers;
     public int numObservers;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class InstanceHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final NetworkMonitor instance;
@@ -65,7 +65,7 @@ public class NetworkMonitor {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface NetworkObserver {
         void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType);
     }
@@ -147,10 +147,10 @@ public class NetworkMonitor {
             }
 
             @Override // org.webrtc.NetworkMonitorAutoDetect.Observer
-            public void onNetworkDisconnect(long j2) {
+            public void onNetworkDisconnect(long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-                    this.this$0.notifyObserversOfNetworkDisconnect(j2);
+                if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+                    this.this$0.notifyObserversOfNetworkDisconnect(j);
                 }
             }
         }, context) : (NetworkMonitorAutoDetect) invokeL.objValue;
@@ -208,13 +208,13 @@ public class NetworkMonitor {
         return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? getInstance().getCurrentConnectionType() != NetworkMonitorAutoDetect.ConnectionType.CONNECTION_NONE : invokeV.booleanValue;
     }
 
-    private native void nativeNotifyConnectionTypeChanged(long j2);
+    private native void nativeNotifyConnectionTypeChanged(long j);
 
-    private native void nativeNotifyOfActiveNetworkList(long j2, NetworkMonitorAutoDetect.NetworkInformation[] networkInformationArr);
+    private native void nativeNotifyOfActiveNetworkList(long j, NetworkMonitorAutoDetect.NetworkInformation[] networkInformationArr);
 
-    private native void nativeNotifyOfNetworkConnect(long j2, NetworkMonitorAutoDetect.NetworkInformation networkInformation);
+    private native void nativeNotifyOfNetworkConnect(long j, NetworkMonitorAutoDetect.NetworkInformation networkInformation);
 
-    private native void nativeNotifyOfNetworkDisconnect(long j2, long j3);
+    private native void nativeNotifyOfNetworkDisconnect(long j, long j2);
 
     @CalledByNative
     private boolean networkBindingSupported() {
@@ -257,11 +257,11 @@ public class NetworkMonitor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyObserversOfNetworkDisconnect(long j2) {
+    public void notifyObserversOfNetworkDisconnect(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65559, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65559, this, j) == null) {
             for (Long l : getNativeNetworkObserversSync()) {
-                nativeNotifyOfNetworkDisconnect(l.longValue(), j2);
+                nativeNotifyOfNetworkDisconnect(l.longValue(), j);
             }
         }
     }
@@ -283,17 +283,17 @@ public class NetworkMonitor {
         }
     }
 
-    private void updateObserverActiveNetworkList(long j2) {
+    private void updateObserverActiveNetworkList(long j) {
         List<NetworkMonitorAutoDetect.NetworkInformation> activeNetworkList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65564, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65564, this, j) == null) {
             synchronized (this.autoDetectLock) {
                 activeNetworkList = this.autoDetect == null ? null : this.autoDetect.getActiveNetworkList();
             }
             if (activeNetworkList == null || activeNetworkList.size() == 0) {
                 return;
             }
-            nativeNotifyOfActiveNetworkList(j2, (NetworkMonitorAutoDetect.NetworkInformation[]) activeNetworkList.toArray(new NetworkMonitorAutoDetect.NetworkInformation[activeNetworkList.size()]));
+            nativeNotifyOfActiveNetworkList(j, (NetworkMonitorAutoDetect.NetworkInformation[]) activeNetworkList.toArray(new NetworkMonitorAutoDetect.NetworkInformation[activeNetworkList.size()]));
         }
     }
 
@@ -390,13 +390,13 @@ public class NetworkMonitor {
     }
 
     @CalledByNative
-    private void stopMonitoring(long j2) {
+    private void stopMonitoring(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65562, this, j2) == null) {
-            Logging.d(TAG, "Stop monitoring with native observer " + j2);
+        if (interceptable == null || interceptable.invokeJ(65562, this, j) == null) {
+            Logging.d(TAG, "Stop monitoring with native observer " + j);
             stopMonitoring();
             synchronized (this.nativeNetworkObservers) {
-                this.nativeNetworkObservers.remove(Long.valueOf(j2));
+                this.nativeNetworkObservers.remove(Long.valueOf(j));
             }
         }
     }
@@ -410,18 +410,18 @@ public class NetworkMonitor {
     }
 
     @CalledByNative
-    private void startMonitoring(@Nullable Context context, long j2) {
+    private void startMonitoring(@Nullable Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65561, this, context, j2) == null) {
-            Logging.d(TAG, "Start monitoring with native observer " + j2);
+        if (interceptable == null || interceptable.invokeLJ(65561, this, context, j) == null) {
+            Logging.d(TAG, "Start monitoring with native observer " + j);
             if (context == null) {
                 context = ContextUtils.getApplicationContext();
             }
             startMonitoring(context);
             synchronized (this.nativeNetworkObservers) {
-                this.nativeNetworkObservers.add(Long.valueOf(j2));
+                this.nativeNetworkObservers.add(Long.valueOf(j));
             }
-            updateObserverActiveNetworkList(j2);
+            updateObserverActiveNetworkList(j);
             notifyObserversOfConnectionTypeChange(this.currentConnectionType);
         }
     }

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicAdRequestInfo implements IAdRequestParam {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class BasicAdRequestInfo implements IAdRequestParam {
                 hashMap.put("im", DeviceUtils.getInstance().getSubscriberId(this.mCxt));
                 hashMap.put("imei", DeviceUtils.getInstance().getIMEI(this.mCxt));
                 hashMap.put(IAdRequestParam.SNFROM, DeviceUtils.getInstance().getSnFrom(this.mCxt));
-                hashMap.put(IAdRequestParam.SN, DeviceUtils.getInstance().getSn(this.mCxt));
+                hashMap.put("sn", DeviceUtils.getInstance().getSn(this.mCxt));
                 hashMap.put(IAdRequestParam.ANDROID_ID, DeviceUtils.getInstance().getAndroidId(this.mCxt));
                 hashMap.put("cuid", DeviceUtils.getInstance().getCUID(this.mCxt));
                 hashMap.put(IAdRequestParam.NCUID, PluginLoader.getNCuidFrom27jar(this.mCxt));

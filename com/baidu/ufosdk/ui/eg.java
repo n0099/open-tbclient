@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class eg implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f60041a;
+    public final /* synthetic */ FeedbackReportActivity f56959a;
 
     public eg(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public final class eg implements Runnable {
                 return;
             }
         }
-        this.f60041a = feedbackReportActivity;
+        this.f56959a = feedbackReportActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.e.a.a(this.f60041a.getApplicationContext());
+            com.baidu.ufosdk.e.a.a(this.f56959a.getApplicationContext());
         }
     }
 }

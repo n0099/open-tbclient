@@ -2,9 +2,9 @@ package com.baidu.tieba.pluginCenter;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.e.g.c;
-import c.a.q0.k0.f.a;
-import c.a.q0.k0.f.b;
+import b.a.e.g.c;
+import b.a.q0.k0.f.a;
+import b.a.q0.k0.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, c.a.q0.k0.d.b, a<Object, c.a.q0.k0.d.b>> mPluginCenterAdapter;
+    public b<Object, b.a.q0.k0.d.b, a<Object, b.a.q0.k0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
 

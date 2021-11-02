@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.YyExt;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class YyExtData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<YyExtData> CREATOR;
@@ -25,8 +25,9 @@ public class YyExtData implements Serializable, Parcelable {
     public String mSsid;
     public String mTemplateId;
     public String mYyUid;
+    public String streamInfo;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<YyExtData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,6 +116,7 @@ public class YyExtData implements Serializable, Parcelable {
         this.mYyUid = yyExt.yy_uid;
         this.isYyGame = yyExt.is_yy_game.intValue() == 1;
         this.mRankShow = yyExt.rank_show;
+        this.streamInfo = yyExt.stream_info;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -128,6 +130,7 @@ public class YyExtData implements Serializable, Parcelable {
         this.mYyUid = jSONObject.optString("yy_uid");
         this.isYyGame = jSONObject.optInt("is_yy_game") == 1;
         this.mRankShow = jSONObject.optString("rank_show");
+        this.streamInfo = jSONObject.optString("stream_info");
     }
 
     @Override // android.os.Parcelable
@@ -140,6 +143,7 @@ public class YyExtData implements Serializable, Parcelable {
             parcel.writeString(this.mYyUid);
             parcel.writeByte(this.isYyGame ? (byte) 1 : (byte) 0);
             parcel.writeString(this.mRankShow);
+            parcel.writeString(this.streamInfo);
         }
     }
 
@@ -164,5 +168,6 @@ public class YyExtData implements Serializable, Parcelable {
         this.mYyUid = parcel.readString();
         this.isYyGame = parcel.readByte() == 1;
         this.mRankShow = parcel.readString();
+        this.streamInfo = parcel.readString();
     }
 }

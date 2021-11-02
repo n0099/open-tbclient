@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class s extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70406a;
+    public String f62920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f70407b;
+    public int f62921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f70408c;
+    public q f62922c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(q qVar, int i2, String str) {
@@ -38,18 +38,18 @@ public class s extends ContentObserver {
                 return;
             }
         }
-        this.f70408c = qVar;
-        this.f70407b = i2;
-        this.f70406a = str;
+        this.f62922c = qVar;
+        this.f62921b = i2;
+        this.f62920a = str;
     }
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (qVar = this.f70408c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (qVar = this.f62922c) == null) {
             return;
         }
-        qVar.a(this.f70407b, this.f70406a);
+        qVar.a(this.f62921b, this.f62920a);
     }
 }

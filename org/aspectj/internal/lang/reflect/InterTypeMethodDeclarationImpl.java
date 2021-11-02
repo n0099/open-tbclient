@@ -15,7 +15,7 @@ import java.lang.reflect.TypeVariable;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.InterTypeMethodDeclaration;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl implements InterTypeMethodDeclaration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

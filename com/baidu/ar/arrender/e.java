@@ -39,7 +39,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class e extends f implements View.OnTouchListener, OnRenderFinishedListener, OnRenderStartedListener, IRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     public float[] hq;
 
     /* renamed from: com.baidu.ar.arrender.e$2  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] hs;
@@ -127,13 +127,13 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         this.hd = new com.baidu.ar.arplay.core.engine.a(Looper.getMainLooper());
         com.baidu.ar.f.c cVar = new com.baidu.ar.f.c(context);
         this.hf = cVar;
-        cVar.b(this.f38443f);
+        cVar.b(this.f36443f);
         com.baidu.ar.lua.a aVar = new com.baidu.ar.lua.a();
         this.hh = aVar;
-        aVar.b(this.f38443f);
+        aVar.b(this.f36443f);
         com.baidu.ar.steploading.d dVar = new com.baidu.ar.steploading.d(context);
         this.hg = dVar;
-        dVar.b(this.f38443f);
+        dVar.b(this.f36443f);
         this.hi = new ConcurrentHashMap<>();
         boolean A = com.baidu.ar.h.p.A(this.mContext);
         this.hl = A;
@@ -463,25 +463,25 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         }
     }
 
-    public void onRenderFinished(long j2) {
+    public void onRenderFinished(long j) {
         List<FrameRenderListener> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) || (list = this.hj) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048589, this, j) == null) || (list = this.hj) == null) {
             return;
         }
         for (FrameRenderListener frameRenderListener : list) {
-            frameRenderListener.onRenderFinished(j2);
+            frameRenderListener.onRenderFinished(j);
         }
     }
 
-    public void onRenderStarted(long j2) {
+    public void onRenderStarted(long j) {
         ARPEngine aRPEngine;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             List<FrameRenderListener> list = this.hj;
             if (list != null) {
                 for (FrameRenderListener frameRenderListener : list) {
-                    frameRenderListener.onRenderStarted(j2);
+                    frameRenderListener.onRenderStarted(j);
                 }
             }
             DuMixInput duMixInput = this.V;

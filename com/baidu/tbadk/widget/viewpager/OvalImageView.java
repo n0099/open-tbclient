@@ -13,7 +13,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.k3.c;
+import b.a.r0.l3.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,29 +25,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class OvalImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49021e;
+    public boolean f46503e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f49022f;
+    public Path f46504f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f49023g;
+    public Paint f46505g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f49024h;
+    public Paint f46506h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float[] f49025i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float[] f49026j;
+    public float[] f46507i;
+    public float[] j;
     public boolean k;
     public LinearGradient l;
     public int m;
@@ -98,9 +96,9 @@ public class OvalImageView extends ImageView {
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f49023g.setXfermode(this.p);
-            canvas.drawPaint(this.f49023g);
-            this.f49023g.setXfermode(this.q);
+            this.f46505g.setXfermode(this.p);
+            canvas.drawPaint(this.f46505g);
+            this.f46505g.setXfermode(this.q);
         }
     }
 
@@ -109,16 +107,16 @@ public class OvalImageView extends ImageView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c();
             Paint paint = new Paint();
-            this.f49023g = paint;
+            this.f46505g = paint;
             paint.setAntiAlias(true);
-            this.f49023g.setColor(this.o);
-            this.f49023g.setStyle(Paint.Style.FILL);
-            this.f49023g.setAntiAlias(true);
+            this.f46505g.setColor(this.o);
+            this.f46505g.setStyle(Paint.Style.FILL);
+            this.f46505g.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f49024h = paint2;
+            this.f46506h = paint2;
             paint2.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.f49024h.setStrokeCap(Paint.Cap.ROUND);
-            this.f49024h.setAntiAlias(true);
+            this.f46506h.setStrokeCap(Paint.Cap.ROUND);
+            this.f46506h.setAntiAlias(true);
             setLayerType(1, null);
         }
     }
@@ -143,7 +141,7 @@ public class OvalImageView extends ImageView {
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             Drawable drawable = this.r;
             if (drawable == null) {
-                this.f49024h.setAlpha(255);
+                this.f46506h.setAlpha(255);
                 return;
             }
             if (Build.VERSION.SDK_INT < 19 || drawable.getAlpha() > 0) {
@@ -163,8 +161,8 @@ public class OvalImageView extends ImageView {
         }
         c();
         this.o = SkinManager.getColor(this.s, R.color.CAM_X0306);
-        this.f49024h.setColor(SkinManager.getColor(R.color.CAM_X0101));
-        this.f49021e = true;
+        this.f46506h.setColor(SkinManager.getColor(R.color.CAM_X0101));
+        this.f46503e = true;
         invalidate();
     }
 
@@ -194,7 +192,7 @@ public class OvalImageView extends ImageView {
             canvas.save();
             a(canvas);
             canvas.rotate(45.0f, canvas.getWidth() / 2, canvas.getHeight() / 2);
-            Path path = this.f49022f;
+            Path path = this.f46504f;
             if (path != null) {
                 path.reset();
                 float width = canvas.getWidth() * 0.15f;
@@ -205,20 +203,20 @@ public class OvalImageView extends ImageView {
                 float f3 = (height + height2) / 2.0f;
                 float f4 = (((width2 - width) / 2.0f) * 51.0f) / 65.0f;
                 float f5 = (((height2 - height) / 2.0f) * 51.0f) / 65.0f;
-                this.f49022f.moveTo(f2, height);
+                this.f46504f.moveTo(f2, height);
                 float f6 = f2 + f4;
                 float f7 = f3 - f5;
-                this.f49022f.cubicTo(f6, height, width2, f7, width2, f3);
+                this.f46504f.cubicTo(f6, height, width2, f7, width2, f3);
                 float f8 = f3 + f5;
-                this.f49022f.cubicTo(width2, f8, f6, height2, f2, height2);
+                this.f46504f.cubicTo(width2, f8, f6, height2, f2, height2);
                 float f9 = f2 - f4;
-                this.f49022f.cubicTo(f9, height2, width, f8, width, f3);
-                this.f49022f.cubicTo(width, f7, f9, height, f2, height);
-                this.f49022f.close();
-                if (this.f49021e) {
+                this.f46504f.cubicTo(f9, height2, width, f8, width, f3);
+                this.f46504f.cubicTo(width, f7, f9, height, f2, height);
+                this.f46504f.close();
+                if (this.f46503e) {
                     c2 = 0;
                     this.l = new LinearGradient(width, 0.0f, width2, 0.0f, new int[]{this.m, this.n}, (float[]) null, Shader.TileMode.CLAMP);
-                    this.f49021e = false;
+                    this.f46503e = false;
                 } else {
                     c2 = 0;
                 }
@@ -226,16 +224,16 @@ public class OvalImageView extends ImageView {
                     float width3 = canvas.getWidth() * 0.054f;
                     double radians = Math.toRadians(getRotation() - 45.0f);
                     double width4 = canvas.getWidth() * 0.0226f;
-                    this.f49023g.setShadowLayer(width3, (float) (Math.cos(radians) * width4), ((float) (width4 * Math.sin(radians))) * (-1.0f), c.a(this.l == null ? this.o : this.n, 0.83f));
+                    this.f46505g.setShadowLayer(width3, (float) (Math.cos(radians) * width4), ((float) (width4 * Math.sin(radians))) * (-1.0f), c.a(this.l == null ? this.o : this.n, 0.83f));
                 }
                 LinearGradient linearGradient = this.l;
                 if (linearGradient != null) {
-                    this.f49023g.setShader(linearGradient);
+                    this.f46505g.setShader(linearGradient);
                 } else {
-                    this.f49023g.setColor(this.o);
+                    this.f46505g.setColor(this.o);
                 }
-                canvas.drawPath(this.f49022f, this.f49023g);
-                float[] fArr = this.f49025i;
+                canvas.drawPath(this.f46504f, this.f46505g);
+                float[] fArr = this.f46507i;
                 float f10 = f2 * 3.0f;
                 float f11 = (width + f10) / 4.0f;
                 fArr[c2] = f11;
@@ -246,15 +244,15 @@ public class OvalImageView extends ImageView {
                 fArr[2] = f14;
                 float f15 = (height2 + f12) / 4.0f;
                 fArr[3] = f15;
-                float[] fArr2 = this.f49026j;
+                float[] fArr2 = this.j;
                 fArr2[c2] = f14;
                 fArr2[1] = f13;
                 fArr2[2] = f11;
                 fArr2[3] = f15;
                 d(canvas);
-                this.f49024h.setStrokeWidth(canvas.getWidth() * 0.032f);
-                canvas.drawLines(this.f49025i, this.f49024h);
-                canvas.drawLines(this.f49026j, this.f49024h);
+                this.f46506h.setStrokeWidth(canvas.getWidth() * 0.032f);
+                canvas.drawLines(this.f46507i, this.f46506h);
+                canvas.drawLines(this.j, this.f46506h);
             }
             if (saveCount2 < 1 || saveCount2 > canvas.getSaveCount()) {
                 return;
@@ -268,8 +266,8 @@ public class OvalImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (z && this.f49022f == null) {
-                this.f49022f = new Path();
+            if (z && this.f46504f == null) {
+                this.f46504f = new Path();
             }
         }
     }
@@ -300,9 +298,9 @@ public class OvalImageView extends ImageView {
         int i2 = (int) (255.0f * f3 * 2.0f);
         if (f3 > 0.0f) {
             this.r.setAlpha(i2);
-            this.f49024h.setAlpha(0);
+            this.f46506h.setAlpha(0);
         } else {
-            this.f49024h.setAlpha(-i2);
+            this.f46506h.setAlpha(-i2);
             this.r.setAlpha(0);
         }
         invalidate();
@@ -317,10 +315,10 @@ public class OvalImageView extends ImageView {
                 if (drawable != null) {
                     drawable.setAlpha(255);
                 }
-                this.f49024h.setAlpha(0);
+                this.f46506h.setAlpha(0);
             } else {
                 this.r = null;
-                this.f49024h.setAlpha(255);
+                this.f46506h.setAlpha(255);
             }
             postInvalidate();
         }
@@ -347,7 +345,7 @@ public class OvalImageView extends ImageView {
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
             this.m = c.c(str);
             this.n = c.c(str2);
-            this.f49021e = true;
+            this.f46503e = true;
             invalidate();
         }
     }
@@ -399,9 +397,9 @@ public class OvalImageView extends ImageView {
                 return;
             }
         }
-        this.f49021e = true;
-        this.f49025i = new float[4];
-        this.f49026j = new float[4];
+        this.f46503e = true;
+        this.f46507i = new float[4];
+        this.j = new float[4];
         this.k = true;
         this.o = t;
         this.p = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
@@ -415,7 +413,7 @@ public class OvalImageView extends ImageView {
         if (interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) {
             this.m = i2;
             this.n = i3;
-            this.f49021e = true;
+            this.f46503e = true;
             invalidate();
         }
     }

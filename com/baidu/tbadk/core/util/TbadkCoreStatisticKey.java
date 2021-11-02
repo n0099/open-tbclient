@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TbadkCoreStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_CLICK = "c12677";
@@ -61,6 +61,8 @@ public class TbadkCoreStatisticKey {
     public static final String IM_REC_FORUM_ITEM_SHOW_KEY = "c14306";
     public static final String IM_TAB_SHOW_KEY = "c14305";
     public static final String INVOKE_AS = "c10007";
+    public static final String KEY_AD_FLOAT_LAYER_CLICK = "c14428";
+    public static final String KEY_AD_FLOAT_LAYER_SHOW = "c14427";
     public static final String KEY_AGREE_SUCCESS_CLICK = "c14179";
     public static final String KEY_AIAPPS_CALL_NATIVE = "c13561";
     public static final String KEY_AIAPPS_START = "c13606";
@@ -87,6 +89,8 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_DYNAMIC_CARD_SHOW = "c13578";
     public static final String KEY_ENTER_VIDEO_PAGE = "c12664";
     public static final String KEY_FE_FITE_PROGRAM_CLICK = "c13274";
+    public static final String KEY_FLOAT_LAYER_CLICK = "c14129";
+    public static final String KEY_FLOAT_LAYER_SHOW = "c14128";
     public static final String KEY_FRS_AD_LIST_ITEM_CLICK = "c13194";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
     public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK = "c14372";
@@ -210,7 +214,7 @@ public class TbadkCoreStatisticKey {
     public static final String YULE_GAME_EAST_EGG_VIEW = "c10852";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class AntiLocateValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static int LOCATE_CHAT = 6;

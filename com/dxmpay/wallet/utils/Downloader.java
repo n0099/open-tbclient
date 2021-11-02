@@ -25,41 +25,41 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class Downloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadManager f70269a;
+    public DownloadManager f62686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Pattern f70270b;
+    public final Pattern f62687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Pattern f70271c;
+    public final Pattern f62688c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f70272d;
+    public Handler f62689d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ContentResolver f70273e;
+    public ContentResolver f62690e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f70274f;
+    public final String f62691f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface DownloaderListener {
-        void onProgress(String str, int i2, long j2, long j3);
+        void onProgress(String str, int i2, long j, long j2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Downloader f70275a;
+        public final /* synthetic */ Downloader f62692a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Downloader downloader, Looper looper) {
@@ -79,7 +79,7 @@ public class Downloader {
                     return;
                 }
             }
-            this.f70275a = downloader;
+            this.f62692a = downloader;
         }
 
         @Override // android.os.Handler
@@ -87,40 +87,40 @@ public class Downloader {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && 1 == message.what) {
                 c cVar = (c) message.obj;
-                if (this.f70275a.f70269a == null) {
-                    this.f70275a.c(cVar.f70281b, cVar.f70280a);
+                if (this.f62692a.f62686a == null) {
+                    this.f62692a.c(cVar.f62698b, cVar.f62697a);
                 } else {
-                    this.f70275a.f(cVar.f70280a, cVar.f70281b, cVar.f70282c);
+                    this.f62692a.f(cVar.f62697a, cVar.f62698b, cVar.f62699c);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public final class b extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f70276a;
+        public long f62693a;
 
         /* renamed from: b  reason: collision with root package name */
-        public DownloaderListener f70277b;
+        public DownloaderListener f62694b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f70278c;
+        public String f62695c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Downloader f70279d;
+        public final /* synthetic */ Downloader f62696d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Downloader downloader, Handler handler, String str, long j2, DownloaderListener downloaderListener) {
+        public b(Downloader downloader, Handler handler, String str, long j, DownloaderListener downloaderListener) {
             super(handler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {downloader, handler, str, Long.valueOf(j2), downloaderListener};
+                Object[] objArr = {downloader, handler, str, Long.valueOf(j), downloaderListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -131,10 +131,10 @@ public class Downloader {
                     return;
                 }
             }
-            this.f70279d = downloader;
-            this.f70278c = str;
-            this.f70276a = j2;
-            this.f70277b = downloaderListener;
+            this.f62696d = downloader;
+            this.f62695c = str;
+            this.f62693a = j;
+            this.f62694b = downloaderListener;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:21:0x006b, code lost:
@@ -147,17 +147,17 @@ public class Downloader {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public final void a(long j2) {
+        public final void a(long j) {
             Cursor cursor;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
                 Cursor cursor2 = null;
                 try {
                     try {
-                        cursor = this.f70279d.f70269a.query(new DownloadManager.Query().setFilterById(j2));
+                        cursor = this.f62696d.f62686a.query(new DownloadManager.Query().setFilterById(j));
                     } catch (Throwable th) {
                         th = th;
-                        cursor2 = j2;
+                        cursor2 = j;
                         if (cursor2 != null) {
                             cursor2.close();
                         }
@@ -174,8 +174,8 @@ public class Downloader {
                 if (cursor != null) {
                     try {
                     } catch (Exception unused2) {
-                        this.f70277b = null;
-                        this.f70279d.f70273e.unregisterContentObserver(this);
+                        this.f62694b = null;
+                        this.f62696d.f62690e.unregisterContentObserver(this);
                         if (cursor == null) {
                             return;
                         }
@@ -185,15 +185,15 @@ public class Downloader {
                         int columnIndexOrThrow = cursor.getColumnIndexOrThrow(PackageTable.TOTAL_SIZE);
                         int columnIndexOrThrow2 = cursor.getColumnIndexOrThrow("bytes_so_far");
                         int columnIndex = cursor.getColumnIndex("status");
-                        long j3 = cursor.getLong(columnIndexOrThrow);
-                        long j4 = cursor.getLong(columnIndexOrThrow2);
+                        long j2 = cursor.getLong(columnIndexOrThrow);
+                        long j3 = cursor.getLong(columnIndexOrThrow2);
                         int i2 = cursor.getInt(columnIndex);
-                        if (this.f70277b != null) {
-                            this.f70277b.onProgress(this.f70278c, i2, j3, j4);
+                        if (this.f62694b != null) {
+                            this.f62694b.onProgress(this.f62695c, i2, j2, j3);
                         }
                         if ((i2 & 24) != 0) {
-                            this.f70277b = null;
-                            this.f70279d.f70273e.unregisterContentObserver(this);
+                            this.f62694b = null;
+                            this.f62696d.f62690e.unregisterContentObserver(this);
                         }
                         if (cursor == null) {
                             return;
@@ -209,24 +209,24 @@ public class Downloader {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 super.onChange(z);
-                a(this.f70276a);
+                a(this.f62693a);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f70280a;
+        public String f62697a;
 
         /* renamed from: b  reason: collision with root package name */
-        public DownloaderListener f70281b;
+        public DownloaderListener f62698b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f70282c;
+        public String f62699c;
 
         public c(Downloader downloader) {
             Interceptable interceptable = $ic;
@@ -249,12 +249,12 @@ public class Downloader {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static Downloader f70283a;
+        public static Downloader f62700a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -270,7 +270,7 @@ public class Downloader {
                     return;
                 }
             }
-            f70283a = new Downloader(null);
+            f62700a = new Downloader(null);
         }
     }
 
@@ -281,14 +281,14 @@ public class Downloader {
     public static Downloader getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? d.f70283a : (Downloader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? d.f62700a : (Downloader) invokeV.objValue;
     }
 
     public final String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Matcher matcher = this.f70270b.matcher(str);
+            Matcher matcher = this.f62687b.matcher(str);
             if (matcher.matches()) {
                 return matcher.group(1);
             }
@@ -308,12 +308,12 @@ public class Downloader {
     public void download(String str, String str2, DownloaderListener downloaderListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, downloaderListener) == null) {
-            if (str != null ? this.f70271c.matcher(str).matches() : false) {
+            if (str != null ? this.f62688c.matcher(str).matches() : false) {
                 c cVar = new c(this, null);
-                cVar.f70280a = str;
-                cVar.f70281b = downloaderListener;
-                cVar.f70282c = str2;
-                this.f70272d.obtainMessage(1, cVar).sendToTarget();
+                cVar.f62697a = str;
+                cVar.f62698b = downloaderListener;
+                cVar.f62699c = str2;
+                this.f62689d.obtainMessage(1, cVar).sendToTarget();
                 return;
             }
             c(downloaderListener, str);
@@ -340,9 +340,9 @@ public class Downloader {
                 request.setNotificationVisibility(2);
                 request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, h2);
                 request.setAllowedNetworkTypes(2);
-                long enqueue = this.f70269a.enqueue(request);
-                b bVar = new b(this, this.f70272d, str, enqueue, downloaderListener);
-                this.f70273e.registerContentObserver(Uri.parse("content://downloads/my_downloads/" + enqueue), true, bVar);
+                long enqueue = this.f62686a.enqueue(request);
+                b bVar = new b(this, this.f62689d, str, enqueue, downloaderListener);
+                this.f62690e.registerContentObserver(Uri.parse("content://downloads/my_downloads/" + enqueue), true, bVar);
             } catch (Exception e2) {
                 c(downloaderListener, str);
                 e2.printStackTrace();
@@ -354,11 +354,11 @@ public class Downloader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            String str2 = str.startsWith(this.f70274f) ? null : this.f70274f;
+            String str2 = str.startsWith(this.f62691f) ? null : this.f62691f;
             File parentFile = new File(str2, str).getParentFile();
             parentFile.mkdirs();
             if (parentFile.isDirectory()) {
-                return str2 == null ? str.substring(this.f70274f.length()) : str;
+                return str2 == null ? str.substring(this.f62691f.length()) : str;
             }
             return null;
         }
@@ -367,12 +367,12 @@ public class Downloader {
 
     public void init(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && this.f70269a == null && context != null) {
-            this.f70269a = (DownloadManager) context.getSystemService("download");
-            this.f70273e = context.getContentResolver();
+        if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && this.f62686a == null && context != null) {
+            this.f62686a = (DownloadManager) context.getSystemService("download");
+            this.f62690e = context.getContentResolver();
             HandlerThread handlerThread = new HandlerThread("downloader");
             handlerThread.start();
-            this.f70272d = new a(this, handlerThread.getLooper());
+            this.f62689d = new a(this, handlerThread.getLooper());
         }
     }
 
@@ -389,8 +389,8 @@ public class Downloader {
                 return;
             }
         }
-        this.f70270b = Pattern.compile(".*\\/(.*)");
-        this.f70271c = Pattern.compile("^(https?)://.*");
-        this.f70274f = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_DOWNLOADS + File.separator;
+        this.f62687b = Pattern.compile(".*\\/(.*)");
+        this.f62688c = Pattern.compile("^(https?)://.*");
+        this.f62691f = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_DOWNLOADS + File.separator;
     }
 }

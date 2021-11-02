@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(objectTypeIndication = 64, tags = {5})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypeMap;

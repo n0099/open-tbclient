@@ -2,14 +2,14 @@ package com.baidu.tieba.hottopic.holder;
 
 import android.view.View;
 import android.widget.TextView;
+import b.a.r0.j1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RelateTopicForumItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,14 +43,14 @@ public class RelateTopicForumItemHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.skinType = 3;
-        this.forumName = (TextView) view.findViewById(R.id.forum_name);
-        this.forumAvatar = (BarImageView) view.findViewById(R.id.forum_avatar);
-        this.memberNumLable = (TextView) view.findViewById(R.id.member_num_label);
-        this.postNumLable = (TextView) view.findViewById(R.id.post_num_label);
-        this.memberNum = (TextView) view.findViewById(R.id.member_num);
-        this.postNum = (TextView) view.findViewById(R.id.post_num);
-        this.content = (TextView) view.findViewById(R.id.forum_content);
-        this.forumAddLove = (TextView) view.findViewById(R.id.forum_add_love);
-        this.line = view.findViewById(R.id.forum_item_divider);
+        this.forumName = (TextView) view.findViewById(e.forum_name);
+        this.forumAvatar = (BarImageView) view.findViewById(e.forum_avatar);
+        this.memberNumLable = (TextView) view.findViewById(e.member_num_label);
+        this.postNumLable = (TextView) view.findViewById(e.post_num_label);
+        this.memberNum = (TextView) view.findViewById(e.member_num);
+        this.postNum = (TextView) view.findViewById(e.post_num);
+        this.content = (TextView) view.findViewById(e.forum_content);
+        this.forumAddLove = (TextView) view.findViewById(e.forum_add_love);
+        this.line = view.findViewById(e.forum_item_divider);
     }
 }

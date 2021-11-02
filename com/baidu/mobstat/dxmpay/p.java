@@ -1,6 +1,7 @@
 package com.baidu.mobstat.dxmpay;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,12 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f43812a;
+    public static final byte[] f41589a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +31,7 @@ public final class p {
                 return;
             }
         }
-        f43812a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        f41589a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, ExifInterface.WEBP_VP8L_SIGNATURE};
     }
 
     public static byte[] a(byte[] bArr) {
@@ -132,7 +133,7 @@ public final class p {
             int i3 = 0;
             for (int i4 = 0; i4 < length2; i4 += 3) {
                 int i5 = i2 + 1;
-                byte[] bArr3 = f43812a;
+                byte[] bArr3 = f41589a;
                 bArr2[i2] = bArr3[(bArr[i4] & 255) >> 2];
                 int i6 = i5 + 1;
                 int i7 = i4 + 1;
@@ -149,7 +150,7 @@ public final class p {
             int length3 = bArr.length % 3;
             if (length3 == 1) {
                 int i10 = i2 + 1;
-                byte[] bArr4 = f43812a;
+                byte[] bArr4 = f41589a;
                 bArr2[i2] = bArr4[(bArr[length2] & 255) >> 2];
                 int i11 = i10 + 1;
                 bArr2[i10] = bArr4[(bArr[length2] & 3) << 4];
@@ -159,7 +160,7 @@ public final class p {
                 bArr2[i12] = 61;
             } else if (length3 == 2) {
                 int i13 = i2 + 1;
-                byte[] bArr5 = f43812a;
+                byte[] bArr5 = f41589a;
                 bArr2[i2] = bArr5[(bArr[length2] & 255) >> 2];
                 int i14 = i13 + 1;
                 int i15 = length2 + 1;

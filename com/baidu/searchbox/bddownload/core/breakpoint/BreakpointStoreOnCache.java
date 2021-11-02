@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BreakpointStoreOnCache implements DownloadStore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FIRST_ID = 1;
@@ -250,12 +250,12 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i2, long j2) throws IOException {
+    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i2, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             BreakpointInfo breakpointInfo2 = this.storedInfos.get(breakpointInfo.id);
             if (breakpointInfo == breakpointInfo2) {
-                breakpointInfo2.getBlock(i2).increaseCurrentOffset(j2);
+                breakpointInfo2.getBlock(i2).increaseCurrentOffset(j);
                 return;
             }
             throw new IOException("Info not on store!");

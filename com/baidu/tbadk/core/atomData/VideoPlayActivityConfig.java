@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VideoPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_PAGE_UNIQUEID = "activity_page_uniqueid";
@@ -23,6 +23,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String FROM = "from";
     public static final String FROM_DEFAULT = "from_default";
     public static final String FROM_FRS = "frs";
+    public static final String FROM_H5_SEARCH = "h5_search";
     public static final String FROM_MAINTAB_CONCERN = "concern_tab";
     public static final String FROM_MAINTAB_DAILY = "daily_tab";
     public static final String FROM_MAINTAB_RECOMMEND = "index";
@@ -34,6 +35,14 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String IS_FROM_BJH_PB = "is_from_bjh_pb";
     public static final String IS_SHARE_THREAD = "is_share_thread";
     public static final String IS_SHOW_PB_COMMENT_FLOAT = "is_show_pb_comment_float";
+    public static final String KEY_FPS_VIDEO_FROM_FRS = "FrsToVideo";
+    public static final String KEY_FPS_VIDEO_FROM_HOME = "HomeToVideo";
+    public static final String KEY_FPS_VIDEO_FROM_TAB = "HomeToTab";
+    public static final String KEY_FPS_VIDEO_FRS_PAGE = "FrsToVideo_video_tran";
+    public static final String KEY_FPS_VIDEO_HOME_PAGE = "HomeToVideo_video_tran";
+    public static final String KEY_FPS_VIDEO_HOME_TAB = "HomeToTab_video_tran";
+    public static final String KEY_FPS_VIDEO_PAGE = "video";
+    public static final String KEY_FPS_VIDEO_TYPE = "tran";
     public static final String KEY_NID = "key_nid";
     public static final String OBJ_ID = "obj_id";
     public static final String PAGE_FIRST_IN = "page_first_in";

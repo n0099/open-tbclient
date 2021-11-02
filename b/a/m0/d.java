@@ -1,0 +1,51 @@
+package b.a.m0;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes.dex */
+public final class d {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_action_bar_home_description = 2131689529;
+    public static final int abc_action_bar_up_description = 2131689530;
+    public static final int abc_action_menu_overflow_description = 2131689531;
+    public static final int abc_action_mode_done = 2131689532;
+    public static final int abc_activity_chooser_view_see_all = 2131689533;
+    public static final int abc_activitychooserview_choose_application = 2131689534;
+    public static final int abc_capital_off = 2131689535;
+    public static final int abc_capital_on = 2131689536;
+    public static final int abc_menu_alt_shortcut_label = 2131689537;
+    public static final int abc_menu_ctrl_shortcut_label = 2131689538;
+    public static final int abc_menu_delete_shortcut_label = 2131689539;
+    public static final int abc_menu_enter_shortcut_label = 2131689540;
+    public static final int abc_menu_function_shortcut_label = 2131689541;
+    public static final int abc_menu_meta_shortcut_label = 2131689542;
+    public static final int abc_menu_shift_shortcut_label = 2131689543;
+    public static final int abc_menu_space_shortcut_label = 2131689544;
+    public static final int abc_menu_sym_shortcut_label = 2131689545;
+    public static final int abc_prepend_shortcut_label = 2131689546;
+    public static final int abc_search_hint = 2131689547;
+    public static final int abc_searchview_description_clear = 2131689548;
+    public static final int abc_searchview_description_query = 2131689549;
+    public static final int abc_searchview_description_search = 2131689550;
+    public static final int abc_searchview_description_submit = 2131689551;
+    public static final int abc_searchview_description_voice = 2131689552;
+    public static final int abc_shareactionprovider_share_with = 2131689553;
+    public static final int abc_shareactionprovider_share_with_application = 2131689554;
+    public static final int abc_toolbar_collapse_description = 2131689555;
+    public static final int prologue_activity_not_found = 2131693492;
+    public static final int prologue_app_name = 2131693493;
+    public static final int prologue_splash_label_text = 2131693494;
+    public static final int prologue_splash_skip_text = 2131693495;
+    public static final int prologue_united_scheme_err_message_action_acl_check_fail = 2131693496;
+    public static final int prologue_united_scheme_err_message_action_allow_close = 2131693497;
+    public static final int prologue_united_scheme_err_message_action_notfound = 2131693498;
+    public static final int prologue_united_scheme_err_message_action_sec_check_fail = 2131693499;
+    public static final int prologue_united_scheme_err_message_module_notfound = 2131693500;
+    public static final int prologue_united_scheme_err_message_not_support = 2131693501;
+    public static final int prologue_united_scheme_err_message_ok = 2131693502;
+    public static final int prologue_united_scheme_err_message_params_parse_fail = 2131693503;
+    public static final int prologue_united_scheme_err_message_parse_fail = 2131693504;
+    public static final int search_menu_title = 2131694102;
+    public static final int status_bar_notification_info_overflow = 2131694394;
+    public transient /* synthetic */ FieldHolder $fh;
+}

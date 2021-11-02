@@ -2,17 +2,17 @@ package com.meizu.cloud.pushsdk.b.g;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class h implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f75025a;
+    public final b f67389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f75026b;
+    public final l f67390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f75027c;
+    public boolean f67391c;
 
     public h(l lVar) {
         this(lVar, new b());
@@ -22,8 +22,8 @@ public final class h implements c {
         if (lVar == null) {
             throw new IllegalArgumentException("sink == null");
         }
-        this.f75025a = bVar;
-        this.f75026b = lVar;
+        this.f67389a = bVar;
+        this.f67390b = lVar;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
@@ -31,127 +31,127 @@ public final class h implements c {
         if (mVar == null) {
             throw new IllegalArgumentException("source == null");
         }
-        long j2 = 0;
+        long j = 0;
         while (true) {
-            long b2 = mVar.b(this.f75025a, 2048L);
+            long b2 = mVar.b(this.f67389a, 2048L);
             if (b2 == -1) {
-                return j2;
+                return j;
             }
-            j2 += b2;
+            j += b2;
             a();
         }
     }
 
     public c a() throws IOException {
-        if (this.f75027c) {
+        if (this.f67391c) {
             throw new IllegalStateException("closed");
         }
-        long e2 = this.f75025a.e();
+        long e2 = this.f67389a.e();
         if (e2 > 0) {
-            this.f75026b.a(this.f75025a, e2);
+            this.f67390b.a(this.f67389a, e2);
         }
         return this;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l
-    public void a(b bVar, long j2) throws IOException {
-        if (this.f75027c) {
+    public void a(b bVar, long j) throws IOException {
+        if (this.f67391c) {
             throw new IllegalStateException("closed");
         }
-        this.f75025a.a(bVar, j2);
+        this.f67389a.a(bVar, j);
         a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
     public b b() {
-        return this.f75025a;
+        return this.f67389a;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
     public c b(e eVar) throws IOException {
-        if (this.f75027c) {
+        if (this.f67391c) {
             throw new IllegalStateException("closed");
         }
-        this.f75025a.b(eVar);
+        this.f67389a.b(eVar);
         return a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
     public c b(String str) throws IOException {
-        if (this.f75027c) {
+        if (this.f67391c) {
             throw new IllegalStateException("closed");
         }
-        this.f75025a.b(str);
+        this.f67389a.b(str);
         return a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
     public c c(byte[] bArr) throws IOException {
-        if (this.f75027c) {
+        if (this.f67391c) {
             throw new IllegalStateException("closed");
         }
-        this.f75025a.c(bArr);
+        this.f67389a.c(bArr);
         return a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
     public c c(byte[] bArr, int i2, int i3) throws IOException {
-        if (this.f75027c) {
+        if (this.f67391c) {
             throw new IllegalStateException("closed");
         }
-        this.f75025a.c(bArr, i2, i3);
+        this.f67389a.c(bArr, i2, i3);
         return a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
     public void close() throws IOException {
-        if (this.f75027c) {
+        if (this.f67391c) {
             return;
         }
         Throwable th = null;
         try {
-            if (this.f75025a.f75012b > 0) {
-                this.f75026b.a(this.f75025a, this.f75025a.f75012b);
+            if (this.f67389a.f67376b > 0) {
+                this.f67390b.a(this.f67389a, this.f67389a.f67376b);
             }
         } catch (Throwable th2) {
             th = th2;
         }
         try {
-            this.f75026b.close();
+            this.f67390b.close();
         } catch (Throwable th3) {
             if (th == null) {
                 th = th3;
             }
         }
-        this.f75027c = true;
+        this.f67391c = true;
         if (th != null) {
             o.a(th);
         }
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
-    public c e(long j2) throws IOException {
-        if (this.f75027c) {
+    public c e(long j) throws IOException {
+        if (this.f67391c) {
             throw new IllegalStateException("closed");
         }
-        this.f75025a.e(j2);
+        this.f67389a.e(j);
         return a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Flushable
     public void flush() throws IOException {
-        if (this.f75027c) {
+        if (this.f67391c) {
             throw new IllegalStateException("closed");
         }
-        b bVar = this.f75025a;
-        long j2 = bVar.f75012b;
-        if (j2 > 0) {
-            this.f75026b.a(bVar, j2);
+        b bVar = this.f67389a;
+        long j = bVar.f67376b;
+        if (j > 0) {
+            this.f67390b.a(bVar, j);
         }
-        this.f75026b.flush();
+        this.f67390b.flush();
     }
 
     public String toString() {
-        return "buffer(" + this.f75026b + SmallTailInfo.EMOTION_SUFFIX;
+        return "buffer(" + this.f67390b + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

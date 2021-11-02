@@ -16,8 +16,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialConstants;
+import com.yy.hiidostatis.api.HiidoSDK;
+import com.yy.hiidostatis.api.MetricsWorker;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.api.StatisOption;
+import com.yy.hiidostatis.defs.handler.MetricsHandler;
 import com.yy.hiidostatis.defs.interf.IStatisAPI;
 import com.yy.hiidostatis.defs.listener.ActAdditionListenerController;
 import com.yy.hiidostatis.defs.listener.ActListener;
@@ -53,15 +56,17 @@ import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class StatisAPINew implements IStatisApi {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
     public static final int MAX_EVENT_FIELD_BYTES = 256;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageConfig config;
     public Long launchTime;
     public ActAdditionListenerController mActListernerController;
     public Context mContext;
+    public MetricsHandler metricsHandler;
     public Packer packer;
 
     public StatisAPINew(MessageConfig messageConfig) {
@@ -81,11 +86,13 @@ public class StatisAPINew implements IStatisApi {
         }
         this.mActListernerController = new ActAdditionListenerController();
         this.launchTime = null;
+        this.metricsHandler = null;
         this.config = messageConfig;
         KVIO.initialize(messageConfig.getApplicationContext());
         DefaultProviderLoader.init();
         TraceLog.initLog(messageConfig.getApplicationContext());
         init();
+        this.metricsHandler = new MetricsHandler(messageConfig.getApplicationContext(), messageConfig.getAppkey(), messageConfig.getVer(), HiidoSDK.instance().getOptions().getDefaultMetricsExpire());
     }
 
     private String getErrorInfo(Throwable th) {
@@ -163,17 +170,30 @@ public class StatisAPINew implements IStatisApi {
         }
     }
 
+    @Override // com.yy.hiidostatis.defs.IStatisApi
+    public MetricsWorker addMetricsWorker(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            if (this.mContext == null && this.metricsHandler == null) {
+                return null;
+            }
+            return this.metricsHandler.addMetricsWorker(str, j);
+        }
+        return (MetricsWorker) invokeLJ.objValue;
+    }
+
     @Override // com.yy.hiidostatis.defs.interf.IStatisAPI
     public IStatisAPI create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (IStatisAPI) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (IStatisAPI) invokeV.objValue;
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void exit() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.config.setSessionId(null);
             this.launchTime = null;
         }
@@ -182,7 +202,7 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void generateSession() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
                 this.config.setSessionId(Coder.encryptMD5(StringUtil.geneGuid()).substring(0, 20));
             } catch (Throwable th) {
@@ -195,28 +215,28 @@ public class StatisAPINew implements IStatisApi {
     public HiidoSdkAdditionDelegate getAdditionParamsDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mActListernerController.getHiidoSdkAdditionDelegate() : (HiidoSdkAdditionDelegate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mActListernerController.getHiidoSdkAdditionDelegate() : (HiidoSdkAdditionDelegate) invokeV.objValue;
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mContext : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
     public Long getLaunchTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.launchTime : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.launchTime : (Long) invokeV.objValue;
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
     public StatisOption getOption() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             StatisOption statisOption = new StatisOption();
             MessageConfig messageConfig = this.config;
             if (messageConfig != null) {
@@ -234,13 +254,13 @@ public class StatisAPINew implements IStatisApi {
     public String getSession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.config.getSessionId() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.config.getSessionId() : (String) invokeV.objValue;
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
     public void init(Context context, StatisOption statisOption) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, context, statisOption) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, context, statisOption) == null) {
             MessageConfig generate = MessageConfigFactory.generate(context, statisOption.getAppkey());
             generate.setFrom(statisOption.getFrom());
             generate.setAppId(statisOption.getAppId());
@@ -255,7 +275,7 @@ public class StatisAPINew implements IStatisApi {
 
     public void onInitSuccess() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.packer.onInited(true);
         }
     }
@@ -263,21 +283,21 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void removeActAdditionListener(ActListener actListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, actListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, actListener) == null) {
             this.mActListernerController.remove(actListener);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportAction(long j2, String str, String str2, String str3) {
+    public void reportAction(long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j2), str, str2, str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
             if (Util.empty(str) && Util.empty(str2) && Util.empty(str3)) {
                 L.debug("StatisAPINew", "Input appa is null && page is null && event is null ", new Object[0]);
                 return;
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("appa", str);
             statisContent.put("page", str2);
             statisContent.put("even", str3);
@@ -286,17 +306,17 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportAppList(long j2, String str, String str2) {
+    public void reportAppList(long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
-            reportAppList(j2, str, str2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            reportAppList(j, str, str2, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportAppsflyer(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.config.setAppsflyer(str);
             StatisContent statisContent = new StatisContent();
             statisContent.put(BaseStatisContent.MDSR, str);
@@ -305,23 +325,37 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCountEvent(long j2, String str, double d2) {
+    public void reportCount(int i2, String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), str, Double.valueOf(d2)}) == null) {
-            reportCountEvent(j2, str, d2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j)}) == null) {
+            if (this.mContext == null && this.metricsHandler == null) {
+                return;
+            }
+            if (!this.metricsHandler.containMetric("DEFAULT_METRICS")) {
+                this.metricsHandler.addMetricsWorker("DEFAULT_METRICS", HiidoSDK.instance().getOptions().defaultMetricsInterval);
+            }
+            this.metricsHandler.reportCount("DEFAULT_METRICS", i2, str, str2, j);
+        }
+    }
+
+    @Override // com.yy.hiidostatis.defs.IStatisApi
+    public void reportCountEvent(long j, String str, double d2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2)}) == null) {
+            reportCountEvent(j, str, d2, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportCrash(long j2, String str) {
+    public void reportCrash(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048595, this, j2, str) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048600, this, j, str) == null) {
             if (this.mContext == null) {
                 L.warn("StatisAPINew", "Input context is null", new Object[0]);
                 return;
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("crashmsg", str);
             statisContent.put("rtyp", 2);
             statisContent.put("rot", ArdUtil.isRoot() ? 1 : 0);
@@ -344,15 +378,15 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportCrashInner(long j2, Throwable th) {
+    public void reportCrashInner(long j, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048597, this, j2, th) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048602, this, j, th) == null) {
             if (this.mContext == null) {
                 L.warn("StatisAPINew", "Input context is null", new Object[0]);
                 return;
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("crashmsg", getErrorInfo(th));
             statisContent.put("rtyp", 1);
             statisContent.put("rot", ArdUtil.isRoot() ? 1 : 0);
@@ -375,12 +409,12 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCustomContent(long j2, String str, String str2) {
+    public void reportCustomContent(long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
             if (this.mContext != null && str2 != null && str2.length() != 0) {
                 StatisContent statisContent = new StatisContent();
-                statisContent.put("uid", j2);
+                statisContent.put("uid", j);
                 statisContent.put("type", str);
                 statisContent.put("content", str2);
                 reportStatisticContentInner(Act.MBSDK_REPORT, statisContent, true, true, false);
@@ -391,46 +425,46 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public boolean reportDevice(long j2, StatisContent statisContent) {
+    public boolean reportDevice(long j, StatisContent statisContent) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048601, this, j2, statisContent)) == null) {
-            reportDevice(j2, statisContent, null);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048606, this, j, statisContent)) == null) {
+            reportDevice(j, statisContent, null);
             return true;
         }
         return invokeJL.booleanValue;
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportDo(long j2) {
+    public void reportDo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             reportStatisticContentInner(Act.MBSDK_DO, statisContent, true, true, true, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportDo5(long j2) {
+    public void reportDo5(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportDoShort(long j2, Map<String, String> map) {
+    public void reportDoShort(long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048604, this, j2, map) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048609, this, j, map) == null) {
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportError(long j2, String str, String str2, String str3) {
+    public void reportError(long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j2), str, str2, str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("eid", str);
             statisContent.put("emsg", str2);
             statisContent.put("parm", str3);
@@ -439,15 +473,15 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportEvent(long j2, String str) {
+    public void reportEvent(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048606, this, j2, str) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048611, this, j, str) == null) {
             if (Util.empty(str)) {
                 L.debug("StatisAPINew", "Input event is null ", new Object[0]);
                 return;
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("event", str);
             L.debug(this, "add mbsdkevent %s", str);
             reportStatisticContentInner(Act.MBSDK_EVENT, statisContent, true, true, false);
@@ -455,15 +489,15 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportFailure(long j2, String str, String str2, String str3, String str4, String str5) {
+    public void reportFailure(long j, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j2), str, str2, str3, str4, str5}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, str5}) == null) {
             if (this.mContext == null) {
                 L.warn("StatisAPINew", "Input context is null!", new Object[0]);
                 return;
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("actionid", str);
             statisContent.put("type", str2);
             statisContent.put("failcode", str3);
@@ -474,9 +508,9 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportFeedback(long j2, String str, String str2, String str3, String str4, IStatisAPI.ReportResult reportResult) {
+    public void reportFeedback(long j, String str, String str2, String str3, String str4, IStatisAPI.ReportResult reportResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j2), str, str2, str3, str4, reportResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, reportResult}) == null) {
             if (this.mContext == null || Util.empty(str2)) {
                 L.warn("StatisAPINew", "Input context is null||cont is null", new Object[0]);
                 if (reportResult != null) {
@@ -484,7 +518,7 @@ public class StatisAPINew implements IStatisApi {
                 }
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("fbid", str);
             statisContent.put("cont", str2);
             statisContent.put("link", str3);
@@ -499,7 +533,7 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportIM(String str, String str2, String str3, Date date, Date date2, String str4, int i2, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{str, str2, str3, date, date2, str4, Integer.valueOf(i2), str5}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{str, str2, str3, date, date2, str4, Integer.valueOf(i2), str5}) == null) {
             StatisContent statisContent = new StatisContent();
             statisContent.put("sender", str);
             statisContent.put(SocialConstants.PARAM_RECEIVER, str2);
@@ -516,7 +550,7 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
     public void reportInstall(int i2, Packer.OnSavedListener onSavedListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048611, this, i2, onSavedListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048616, this, i2, onSavedListener) == null) {
             StatisContent statisContent = new StatisContent();
             statisContent.put("new", i2);
             reportStatisticContentInner(Act.MBSDK_INSTALL, statisContent, true, true, true, onSavedListener);
@@ -524,15 +558,15 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportLanuch(long j2, String str, StatisContent statisContent) {
+    public void reportLanuch(long j, String str, StatisContent statisContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j2), str, statisContent}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), str, statisContent}) == null) {
             if (Util.empty(str)) {
                 L.debug("StatisAPINew", "Input appa is null ", new Object[0]);
                 return;
             }
             StatisContent statisContent2 = new StatisContent();
-            statisContent2.put("uid", j2);
+            statisContent2.put("uid", j);
             statisContent2.put("appa", str);
             statisContent2.putContent(statisContent, true);
             try {
@@ -551,9 +585,9 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportLocation(long j2, double d2, double d3, double d4, IStatisAPI.ReportResult reportResult) {
+    public void reportLocation(long j, double d2, double d3, double d4, IStatisAPI.ReportResult reportResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j2), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), reportResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), reportResult}) == null) {
             if (this.mContext == null) {
                 L.warn("StatisAPINew", "Input context is null", new Object[0]);
                 if (reportResult != null) {
@@ -561,7 +595,7 @@ public class StatisAPINew implements IStatisApi {
                 }
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("lon", d2);
             statisContent.put(SuggestAddrField.KEY_LAT, d3);
             statisContent.put("alt", d4);
@@ -591,53 +625,53 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportLogin(long j2) {
+    public void reportLogin(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             reportStatisticContentInner(Act.MBSDK_LOGIN, statisContent, true, true, false, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportPage(long j2, String str) {
+    public void reportPage(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048616, this, j2, str) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048621, this, j, str) == null) {
             if (Util.empty(str)) {
                 L.debug("StatisAPINew", "Input page is null ", new Object[0]);
                 return;
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("page", str);
             reportStatisticContentInner(Act.MBSDK_PAGE, statisContent, true, true, true);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportPageState(long j2, String str, long j3) {
+    public void reportPageState(long j, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j2), str, Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Long.valueOf(j), str, Long.valueOf(j2)}) == null) {
             if (Util.empty(str)) {
                 L.debug("StatisAPINew", "Input page is null ", new Object[0]);
                 return;
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("page", str);
-            statisContent.put("duration", j3);
+            statisContent.put("duration", j2);
             reportStatisticContentInner(Act.MBSDK_PAGE_STATE, statisContent, true, true, true);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportPushToken(long j2, String str) {
+    public void reportPushToken(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048618, this, j2, str) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048623, this, j, str) == null) {
             if (this.mContext != null && !Util.empty(str)) {
                 StatisContent statisContent = new StatisContent();
-                statisContent.put("uid", j2);
+                statisContent.put("uid", j);
                 statisContent.put("pushtoken", str);
                 reportStatisticContentInner(Act.MBSDK_PUSH, statisContent, true, true, false);
                 return;
@@ -647,16 +681,16 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportRecentAppList(long j2, String str, String str2) {
+    public void reportRecentAppList(long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportReg(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048620, this, str, str2, str3, map) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048625, this, str, str2, str3, map) == null) {
             StatisContent statisContent = new StatisContent();
             statisContent.put("uid", str);
             statisContent.put("acc", str);
@@ -668,20 +702,34 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportRun(long j2) {
+    public void reportReturnCode(int i2, String str, long j, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048621, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j), str2, map}) == null) {
+            if (this.mContext == null && this.metricsHandler == null) {
+                return;
+            }
+            if (!this.metricsHandler.containMetric("DEFAULT_METRICS")) {
+                this.metricsHandler.addMetricsWorker("DEFAULT_METRICS", HiidoSDK.instance().getOptions().defaultMetricsInterval);
+            }
+            this.metricsHandler.reportReturnCode("DEFAULT_METRICS", i2, str, j, str2, map);
+        }
+    }
+
+    @Override // com.yy.hiidostatis.defs.IStatisApi
+    public void reportRun(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
             this.launchTime = Long.valueOf(System.currentTimeMillis());
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             reportStatisticContentInner(Act.MBSDK_RUN, statisContent, true, true, true, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportSdkList(long j2, String str) {
+    public void reportSdkList(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048622, this, j2, str) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048629, this, j, str) == null) {
             if (this.mContext != null && str != null && str.length() != 0) {
                 try {
                     str = Base64Util.encode(str.getBytes("UTF-8"));
@@ -689,7 +737,7 @@ public class StatisAPINew implements IStatisApi {
                     L.debug("StatisAPINew", "encrypt exception %s", th);
                 }
                 StatisContent statisContent = new StatisContent();
-                statisContent.put("uid", j2);
+                statisContent.put("uid", j);
                 statisContent.put("sdklist", str);
                 reportStatisticContentInner(Act.MBSDK_SDKLIST, statisContent, true, true, false);
                 return;
@@ -701,7 +749,7 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportShare(String str, int i2, String str2, ShareType shareType, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{str, Integer.valueOf(i2), str2, shareType, str3, str4, str5}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{str, Integer.valueOf(i2), str2, shareType, str3, str4, str5}) == null) {
             StatisContent statisContent = new StatisContent();
             statisContent.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, str);
             statisContent.put("mediatype", i2);
@@ -715,9 +763,23 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
+    public void reportSrcData(int i2, String str, String str2, long j, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j), map}) == null) {
+            if (this.mContext == null && this.metricsHandler == null) {
+                return;
+            }
+            if (!this.metricsHandler.containMetric("DEFAULT_METRICS")) {
+                this.metricsHandler.addMetricsWorker("DEFAULT_METRICS", HiidoSDK.instance().getOptions().defaultMetricsInterval);
+            }
+            this.metricsHandler.reportSrcData("DEFAULT_METRICS", i2, str, str2, j, map);
+        }
+    }
+
+    @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportStatisticContent(String str, StatisContent statisContent, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{str, statisContent, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{str, statisContent, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             reportStatisticContentAll(str, statisContent, z, z, z2, null);
         }
     }
@@ -725,7 +787,7 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportStatisticContentTemporary(String str, StatisContent statisContent, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{str, statisContent, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{str, statisContent, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (this.mContext != null && !Util.empty(str) && !Util.empty(statisContent)) {
                 statisContent.setNotSave(true);
                 reportStatisticContent(str, statisContent, z, z2);
@@ -738,41 +800,41 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportStatisticContentWithNoComm(Context context, String str, StatisContent statisContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048627, this, context, str, statisContent) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048636, this, context, str, statisContent) == null) {
             reportStatisticContentAll(str, statisContent, false, false, false, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportSuccess(long j2, String str, String str2, long j3, String str3) {
+    public void reportSuccess(long j, String str, String str2, long j2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Long.valueOf(j2), str, str2, Long.valueOf(j3), str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2), str3}) == null) {
             if (this.mContext == null) {
                 L.warn("StatisAPINew", "Input context is null!", new Object[0]);
                 return;
             }
             StatisContent statisContent = new StatisContent();
-            statisContent.put("uid", j2);
+            statisContent.put("uid", j);
             statisContent.put("actionid", str);
             statisContent.put("type", str2);
-            statisContent.put("duration", j3);
+            statisContent.put("duration", j2);
             statisContent.put("parm", str3);
             reportStatisticContentInner(Act.MBSDK_SUCCESS, statisContent, true, true, false);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportTimesEvent(long j2, String str) {
+    public void reportTimesEvent(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048630, this, j2, str) == null) {
-            reportTimesEvent(j2, str, null);
+        if (interceptable == null || interceptable.invokeJL(1048639, this, j, str) == null) {
+            reportTimesEvent(j, str, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportUrlScheme(String str, String str2, int i2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4}) == null) {
             StatisContent statisContent = new StatisContent();
             statisContent.put("scheme", str);
             statisContent.put("host", str2);
@@ -786,14 +848,14 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void setAbroad(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048643, this, z) == null) {
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void setAdditionParamsDelegate(HiidoSdkAdditionDelegate hiidoSdkAdditionDelegate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, hiidoSdkAdditionDelegate) == null) {
+        if (interceptable == null || interceptable.invokeL(1048644, this, hiidoSdkAdditionDelegate) == null) {
             this.mActListernerController.setHiidoSdkAdditionDelegate(hiidoSdkAdditionDelegate);
         }
     }
@@ -801,14 +863,14 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void setBusinessType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048645, this, i2) == null) {
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
     public void setSession(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048646, this, str) == null) {
             if (str != null && !str.isEmpty()) {
                 this.config.setSessionId(str);
             } else {
@@ -820,7 +882,7 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void setTestServer(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048647, this, str) == null) {
         }
     }
 
@@ -839,13 +901,13 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportAppList(long j2, String str, String str2, String str3) {
+    public void reportAppList(long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j2), str, str2, str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
             if ((str2 != null && str2.length() != 0) || (str3 != null && str3.length() != 0)) {
                 StatisContent statisContent = new StatisContent();
                 try {
-                    statisContent.put("uid", j2);
+                    statisContent.put("uid", j);
                     statisContent.put("type", str);
                     statisContent.put("applist", str2);
                     statisContent.put("applist2", str3);
@@ -861,19 +923,19 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCountEvent(long j2, String str, double d2, String str2) {
+    public void reportCountEvent(long j, String str, double d2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j2), str, Double.valueOf(d2), str2}) == null) {
-            reportCountEvent(j2, str, d2, str2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2}) == null) {
+            reportCountEvent(j, str, d2, str2, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public boolean reportDevice(long j2) {
+    public boolean reportDevice(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) {
-            reportDevice(j2, null, null);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048605, this, j)) == null) {
+            reportDevice(j, null, null);
             return true;
         }
         return invokeJ.booleanValue;
@@ -882,7 +944,7 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportStatisticContent(String str, StatisContent statisContent, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{str, statisContent, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, statisContent, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             reportStatisticContentAll(str, statisContent, z, z, z2, null);
         }
     }
@@ -890,23 +952,23 @@ public class StatisAPINew implements IStatisApi {
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void reportStatisticContentWithNoComm(Context context, String str, StatisContent statisContent, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{context, str, statisContent, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{context, str, statisContent, Boolean.valueOf(z)}) == null) {
             reportStatisticContentAll(str, statisContent, false, false, false, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportTimesEvent(long j2, String str, String str2) {
+    public void reportTimesEvent(long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
-            reportTimesEvent(j2, str, str2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048640, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            reportTimesEvent(j, str, str2, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCountEvent(long j2, String str, double d2, String str2, Property property) {
+    public void reportCountEvent(long j, String str, double d2, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j2), str, Double.valueOf(d2), str2, property}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2, property}) == null) {
             Property copy = property == null ? null : property.copy();
             if (Util.empty(str)) {
                 L.debug(this, "eid is not allow null.", new Object[0]);
@@ -923,14 +985,14 @@ public class StatisAPINew implements IStatisApi {
             eventElementInfo.addParam(str2);
             eventElementInfo.setProperty(copy);
             eventInfo.addElem(eventElementInfo);
-            reportEvent(j2, eventInfo.getResult());
+            reportEvent(j, eventInfo.getResult());
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportDevice(long j2, StatisContent statisContent, IStatisAPI.ReportResult reportResult) {
+    public void reportDevice(long j, StatisContent statisContent, IStatisAPI.ReportResult reportResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j2), statisContent, reportResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Long.valueOf(j), statisContent, reportResult}) == null) {
             if (this.mContext == null) {
                 L.warn("StatisAPINew", "Input context is null", new Object[0]);
                 if (reportResult != null) {
@@ -938,7 +1000,7 @@ public class StatisAPINew implements IStatisApi {
                 }
             }
             StatisContent statisContent2 = new StatisContent();
-            statisContent2.put("uid", j2);
+            statisContent2.put("uid", j);
             statisContent2.put("cpunum", ArdUtil.getCpuNum());
             statisContent2.put("cpu", ArdUtil.getMaxCpuFreq());
             statisContent2.put("memory", ArdUtil.getTotalMemory(this.mContext));
@@ -954,9 +1016,9 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportTimesEvent(long j2, String str, String str2, Property property) {
+    public void reportTimesEvent(long j, String str, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Long.valueOf(j2), str, str2, property}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048641, this, new Object[]{Long.valueOf(j), str, str2, property}) == null) {
             if (Util.empty(str)) {
                 L.debug(this, "eid is not allow null.", new Object[0]);
                 return;
@@ -972,14 +1034,14 @@ public class StatisAPINew implements IStatisApi {
             eventElementInfo.addParam(str2);
             eventElementInfo.setProperty(property);
             eventInfo.addElem(eventElementInfo);
-            reportEvent(j2, eventInfo.getResult());
+            reportEvent(j, eventInfo.getResult());
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
     public void reportInstall(int i2, IStatisAPI.ReportResult reportResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048610, this, i2, reportResult) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048615, this, i2, reportResult) == null) {
             StatisContent statisContent = new StatisContent();
             statisContent.put("new", i2);
             boolean reportStatisticContentInner = reportStatisticContentInner(Act.MBSDK_INSTALL, statisContent, true, true, true, null);
@@ -989,15 +1051,62 @@ public class StatisAPINew implements IStatisApi {
         }
     }
 
+    @Override // com.yy.hiidostatis.defs.IStatisApi
+    public void reportCount(int i2, String str, String str2, long j, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j), Integer.valueOf(i3)}) == null) {
+            if (this.mContext == null && this.metricsHandler == null) {
+                return;
+            }
+            if (!this.metricsHandler.containMetric("DEFAULT_METRICS")) {
+                this.metricsHandler.addMetricsWorker("DEFAULT_METRICS", HiidoSDK.instance().getOptions().defaultMetricsInterval);
+            }
+            this.metricsHandler.reportCount("DEFAULT_METRICS", i2, str, str2, j, i3);
+        }
+    }
+
+    @Override // com.yy.hiidostatis.defs.IStatisApi
+    public void reportReturnCode(String str, int i2, String str2, long j, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j), str3, map}) == null) {
+            if (this.mContext == null && this.metricsHandler == null) {
+                return;
+            }
+            this.metricsHandler.reportReturnCode(str, i2, str2, j, str3, map);
+        }
+    }
+
+    @Override // com.yy.hiidostatis.defs.IStatisApi
+    public void reportSrcData(String str, int i2, String str2, String str3, long j, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j), map}) == null) {
+            if (this.mContext == null && this.metricsHandler == null) {
+                return;
+            }
+            this.metricsHandler.reportSrcData(str, i2, str2, str3, j, map);
+        }
+    }
+
     @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
     public boolean reportInstall(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i2)) == null) {
             reportInstall(i2, (Packer.OnSavedListener) null);
             return true;
         }
         return invokeI.booleanValue;
+    }
+
+    @Override // com.yy.hiidostatis.defs.IStatisApi
+    public void reportCount(String str, int i2, String str2, String str3, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j)}) == null) {
+            if (this.mContext == null && this.metricsHandler == null) {
+                return;
+            }
+            this.metricsHandler.reportCount(str, i2, str2, str3, j);
+        }
     }
 
     private void init() {
@@ -1008,11 +1117,22 @@ public class StatisAPINew implements IStatisApi {
         }
     }
 
-    @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
-    public void reportCrash(long j2, Throwable th) {
+    @Override // com.yy.hiidostatis.defs.IStatisApi
+    public void reportCount(String str, int i2, String str2, String str3, long j, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048596, this, j2, th) == null) {
-            reportCrash(j2, getErrorInfo(th));
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j), Integer.valueOf(i3)}) == null) {
+            if (this.mContext == null && this.metricsHandler == null) {
+                return;
+            }
+            this.metricsHandler.reportCount(str, i2, str2, str3, j, i3);
+        }
+    }
+
+    @Override // com.yy.hiidostatis.defs.IStatisApi, com.yy.hiidostatis.defs.interf.IStatisAPI
+    public void reportCrash(long j, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048601, this, j, th) == null) {
+            reportCrash(j, getErrorInfo(th));
         }
     }
 }

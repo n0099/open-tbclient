@@ -2,7 +2,7 @@ package com.kwad.sdk.core.imageloader.cache.memory;
 
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.util.Collection;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface MemoryCache {
     void clear();
 

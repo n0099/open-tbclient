@@ -1,10 +1,10 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.a.d;
-import c.a.e.e.l.b;
-import c.a.e.e.l.e;
-import c.a.e.l.d.a;
+import b.a.e.e.a.d;
+import b.a.e.e.l.b;
+import b.a.e.e.l.e;
+import b.a.e.l.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class EmotionShareLoaderProc implements e<EmotionShare> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MemeLoaderProc2 impl;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class EmotionShare {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +49,8 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class ForceDeleteFileOperate extends DiskFileOperate implements c.a.e.e.a.a {
+    /* loaded from: classes8.dex */
+    public static class ForceDeleteFileOperate extends DiskFileOperate implements b.a.e.e.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,7 +75,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
             }
         }
 
-        @Override // c.a.e.e.a.a
+        @Override // b.a.e.e.a.a
         public boolean compare(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
             forceDeleteFileOperate.setSubFolder(true);
             forceDeleteFileOperate.setSavedCache(true);
             forceDeleteFileOperate.setSdCard(true);
-            d.g().d(forceDeleteFileOperate);
+            d.f().call(forceDeleteFileOperate);
         }
     }
 
@@ -142,14 +142,14 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         return (EmotionShare) invokeLL.objValue;
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.impl.getAsyncTaskParallel() : (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public EmotionShare getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         return (EmotionShare) invokeCommon.objValue;
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         }
     }
 
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) {
@@ -194,7 +194,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public EmotionShare getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -205,7 +205,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
                 return null;
             }
             DiskFileOperate buildExtractToShareHubDiskOp = buildExtractToShareHubDiskOp(fromLocal, str2);
-            if (!d.g().d(buildExtractToShareHubDiskOp) || buildExtractToShareHubDiskOp.getFileInfo() == null) {
+            if (!d.f().call(buildExtractToShareHubDiskOp) || buildExtractToShareHubDiskOp.getFileInfo() == null) {
                 return null;
             }
             return new EmotionShare(fromLocal, buildExtractToShareHubDiskOp.getFileInfo().getAbsolutePath());
@@ -215,7 +215,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.e.e.l.e
+    @Override // b.a.e.e.l.e
     public EmotionShare getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -226,7 +226,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
                 return null;
             }
             DiskFileOperate buildExtractToShareHubDiskOp = buildExtractToShareHubDiskOp(fromRemote, str2);
-            if (!d.g().d(buildExtractToShareHubDiskOp) || buildExtractToShareHubDiskOp.getFileInfo() == null) {
+            if (!d.f().call(buildExtractToShareHubDiskOp) || buildExtractToShareHubDiskOp.getFileInfo() == null) {
                 return null;
             }
             return new EmotionShare(fromRemote, buildExtractToShareHubDiskOp.getFileInfo().getAbsolutePath());

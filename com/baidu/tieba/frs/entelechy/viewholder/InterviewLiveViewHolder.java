@@ -1,24 +1,24 @@
 package com.baidu.tieba.frs.entelechy.viewholder;
 
 import android.view.View;
-import c.a.r0.x0.n1.g.d;
+import b.a.r0.x0.x1.g.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class InterviewLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f51147a;
+    public d f48491a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterviewLiveViewHolder(d dVar) {
-        super(dVar.j());
+        super(dVar.i());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,12 +34,12 @@ public class InterviewLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51147a = dVar;
+        this.f48491a = dVar;
     }
 
     public d getContainerView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51147a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48491a : (d) invokeV.objValue;
     }
 }

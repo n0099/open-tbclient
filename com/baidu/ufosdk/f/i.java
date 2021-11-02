@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,12 +28,12 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f59770a;
+    public static SimpleDateFormat f56696a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a() {
@@ -105,14 +106,14 @@ public final class i {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) ? context.getResources().getDrawable(i2) : (Drawable) invokeLI.objValue;
     }
 
-    public static String a(long j2) {
+    public static String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j2)) == null) {
-            if (f59770a == null) {
-                f59770a = new SimpleDateFormat("MM-dd HH:mm");
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
+            if (f56696a == null) {
+                f56696a = new SimpleDateFormat("MM-dd HH:mm");
             }
-            return f59770a.format(new Date(j2));
+            return f56696a.format(new Date(j));
         }
         return (String) invokeJ.objValue;
     }
@@ -222,14 +223,14 @@ public final class i {
         return (View) invokeLL.objValue;
     }
 
-    public static String b(long j2) {
+    public static String b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j2)) == null) {
-            if (f59770a == null) {
-                f59770a = new SimpleDateFormat("yy-MM-dd");
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
+            if (f56696a == null) {
+                f56696a = new SimpleDateFormat("yy-MM-dd");
             }
-            return f59770a.format(new Date(j2));
+            return f56696a.format(new Date(j));
         }
         return (String) invokeJ.objValue;
     }
@@ -246,14 +247,14 @@ public final class i {
         return invokeL.booleanValue;
     }
 
-    public static String c(long j2) {
+    public static String c(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-            f59770a = simpleDateFormat;
-            String format = simpleDateFormat.format(new Date(j2));
-            f59770a = null;
+            f56696a = simpleDateFormat;
+            String format = simpleDateFormat.format(new Date(j));
+            f56696a = null;
             return format.split(" ")[1];
         }
         return (String) invokeJ.objValue;
@@ -271,27 +272,28 @@ public final class i {
         return invokeL.booleanValue;
     }
 
-    public static String d(long j2) {
+    public static String d(long j) {
         InterceptResult invokeJ;
         StringBuilder sb;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j2)) == null) {
-            if (j2 / 1000000000 > 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j)) == null) {
+            if (j / 1000000000 > 0) {
+                long j2 = j / CoolPraiseView.BILLION;
                 sb = new StringBuilder();
-                sb.append(((float) (j2 / 100000000)) / 10.0f);
+                sb.append(((float) j2) / 10.0f);
                 str = "G";
-            } else if (j2 / 1000000 > 0) {
+            } else if (j / 1000000 > 0) {
                 sb = new StringBuilder();
-                sb.append(((float) (j2 / 100000)) / 10.0f);
+                sb.append(((float) (j / 100000)) / 10.0f);
                 str = "M";
-            } else if (j2 / 1000 > 0) {
+            } else if (j / 1000 > 0) {
                 sb = new StringBuilder();
-                sb.append(((float) (j2 / 100)) / 10.0f);
+                sb.append(((float) (j / 100)) / 10.0f);
                 str = "K";
             } else {
                 sb = new StringBuilder();
-                sb.append(j2);
+                sb.append(j);
                 str = "B";
             }
             sb.append(str);

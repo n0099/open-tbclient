@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.callback;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IVideoPlayerCallback {
     void goBackOrForeground(boolean z);
 

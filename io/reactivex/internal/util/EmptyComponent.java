@@ -20,7 +20,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class EmptyComponent implements FlowableSubscriber<Object>, Observer<Object>, MaybeObserver<Object>, SingleObserver<Object>, CompletableObserver, Subscription, Disposable {
     public static final /* synthetic */ EmptyComponent[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -150,9 +150,9 @@ public final class EmptyComponent implements FlowableSubscriber<Object>, Observe
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
         }
     }
 

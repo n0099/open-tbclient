@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42849a;
+    public String f40657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42850b;
+    public String f40658b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42851c;
+    public int f40659c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42852d;
+    public int f40660d;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class e {
                 return;
             }
         }
-        this.f42851c = 2;
-        this.f42852d = 0;
+        this.f40659c = 2;
+        this.f40660d = 0;
     }
 
     public static e a(String str, String str2) {
@@ -54,14 +54,14 @@ public class e {
                 return null;
             }
             e eVar = new e();
-            eVar.f42849a = str;
+            eVar.f40657a = str;
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-            eVar.f42852d = length;
+            eVar.f40660d = length;
             if (length < 14) {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "0";
                 }
-                eVar.f42850b = str2;
+                eVar.f40658b = str2;
             }
             return eVar;
         }
@@ -109,14 +109,14 @@ public class e {
                 int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                 if (!TextUtils.isEmpty(string)) {
                     e eVar = new e();
-                    eVar.f42849a = string;
-                    eVar.f42851c = i2;
-                    eVar.f42852d = length;
+                    eVar.f40657a = string;
+                    eVar.f40659c = i2;
+                    eVar.f40660d = length;
                     if (length < 14) {
                         if (!TextUtils.isEmpty(str3)) {
                             str2 = str3;
                         }
-                        eVar.f42850b = str2;
+                        eVar.f40658b = str2;
                     }
                     eVar.c();
                     return eVar;
@@ -156,13 +156,13 @@ public class e {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f42850b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f40658b) : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f42852d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f40660d) : invokeV.booleanValue;
     }
 
     public boolean c() {
@@ -177,7 +177,7 @@ public class e {
             } else {
                 str = "0";
             }
-            this.f42850b = str;
+            this.f40658b = str;
             return true;
         }
         return invokeV.booleanValue;

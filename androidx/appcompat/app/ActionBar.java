@@ -62,7 +62,7 @@ public abstract class ActionBar {
     @Deprecated
     /* loaded from: classes.dex */
     public interface OnNavigationListener {
-        boolean onNavigationItemSelected(int i2, long j2);
+        boolean onNavigationItemSelected(int i2, long j);
     }
 
     @Deprecated

@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class t implements com.baidu.mapsdkplatform.comapi.map.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ TextureMapView f41764a;
+    public final /* synthetic */ TextureMapView f39602a;
 
     public t(TextureMapView textureMapView) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
                 return;
             }
         }
-        this.f41764a = textureMapView;
+        this.f39602a = textureMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -60,31 +60,31 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
         ac acVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            acVar = this.f41764a.f41684b;
+            acVar = this.f39602a.f39524b;
             if (acVar != null) {
-                acVar2 = this.f41764a.f41684b;
+                acVar2 = this.f39602a.f39524b;
                 if (acVar2.b() == null) {
                     return;
                 }
-                acVar3 = this.f41764a.f41684b;
-                float f3 = acVar3.b().E().f42240a;
-                acVar4 = this.f41764a.f41684b;
-                if (f3 < acVar4.b().f42290b) {
-                    acVar8 = this.f41764a.f41684b;
-                    f3 = acVar8.b().f42290b;
+                acVar3 = this.f39602a.f39524b;
+                float f3 = acVar3.b().E().f40067a;
+                acVar4 = this.f39602a.f39524b;
+                if (f3 < acVar4.b().f40115b) {
+                    acVar8 = this.f39602a.f39524b;
+                    f3 = acVar8.b().f40115b;
                 } else {
-                    acVar5 = this.f41764a.f41684b;
-                    if (f3 > acVar5.b().f42289a) {
-                        acVar6 = this.f41764a.f41684b;
-                        f3 = acVar6.b().f42289a;
+                    acVar5 = this.f39602a.f39524b;
+                    if (f3 > acVar5.b().f40114a) {
+                        acVar6 = this.f39602a.f39524b;
+                        f3 = acVar6.b().f40114a;
                     }
                 }
-                f2 = this.f41764a.r;
+                f2 = this.f39602a.r;
                 if (Math.abs(f2 - f3) > 0.0f) {
                     sparseArray = TextureMapView.q;
                     int intValue = ((Integer) sparseArray.get(Math.round(f3))).intValue();
-                    acVar7 = this.f41764a.f41684b;
-                    imageView = this.f41764a.o;
+                    acVar7 = this.f39602a.f39524b;
+                    imageView = this.f39602a.o;
                     int i2 = ((int) (intValue / acVar7.b().E().m)) / 2;
                     imageView.setPadding(i2, 0, i2, 0);
                     Object[] objArr = new Object[1];
@@ -95,14 +95,14 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
                         objArr[0] = Integer.valueOf(intValue);
                         format = String.format(" %d米 ", objArr);
                     }
-                    textView = this.f41764a.m;
+                    textView = this.f39602a.m;
                     textView.setText(format);
-                    textView2 = this.f41764a.n;
+                    textView2 = this.f39602a.n;
                     textView2.setText(format);
-                    this.f41764a.r = f3;
+                    this.f39602a.r = f3;
                 }
-                this.f41764a.b();
-                this.f41764a.requestLayout();
+                this.f39602a.b();
+                this.f39602a.requestLayout();
             }
         }
     }

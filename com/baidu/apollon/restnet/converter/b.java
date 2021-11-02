@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends AbstractHttpMessageConverter<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f38102a;
+    public static final Charset f36116a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class b extends AbstractHttpMessageConverter<Object> {
                 return;
             }
         }
-        f38102a = Charset.forName("UTF-8");
+        f36116a = Charset.forName("UTF-8");
     }
 
     public b() {
@@ -59,7 +59,7 @@ public class b extends AbstractHttpMessageConverter<Object> {
             if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
                 return Charset.forName(aVar.j());
             }
-            return f38102a;
+            return f36116a;
         }
         return (Charset) invokeL.objValue;
     }

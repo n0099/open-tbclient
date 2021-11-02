@@ -20,28 +20,28 @@ import com.baidu.wallet.home.storage.a;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CHFinanceUserItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f61547a;
+    public RelativeLayout f58433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f61548b;
+    public NetImageView f58434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f61549c;
+    public MaskTextView f58435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f61550d;
+    public MaskTextView f58436d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f61551e;
+    public MaskTextView f58437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f61552f;
+    public ImageView f58438f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHFinanceUserItem(Context context) {
@@ -77,14 +77,14 @@ public class CHFinanceUserItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_finance_user_item"), this);
-            this.f61548b = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fu_item_bg"));
-            this.f61547a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "ch_fu_item_panel"));
-            this.f61549c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_income"));
-            this.f61550d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_total_value"));
-            this.f61551e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_asset_value"));
-            this.f61552f = (ImageView) findViewById(ResUtils.id(getContext(), "ch_fu_item_eye"));
+            this.f58434b = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fu_item_bg"));
+            this.f58433a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "ch_fu_item_panel"));
+            this.f58435c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_income"));
+            this.f58436d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_total_value"));
+            this.f58437e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_asset_value"));
+            this.f58438f = (ImageView) findViewById(ResUtils.id(getContext(), "ch_fu_item_eye"));
             setOnClickListener(null);
-            this.f61547a.setOnClickListener(this);
+            this.f58433a.setOnClickListener(this);
         }
     }
 
@@ -93,11 +93,11 @@ public class CHFinanceUserItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onEyeMaskChanged();
-            this.f61549c.resetMaskText();
-            this.f61550d.resetMaskText();
-            this.f61551e.resetMaskText();
-            if (this.f61552f != null) {
-                this.f61552f.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
+            this.f58435c.resetMaskText();
+            this.f58436d.resetMaskText();
+            this.f58437e.resetMaskText();
+            if (this.f58438f != null) {
+                this.f58438f.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
             }
         }
     }
@@ -107,17 +107,17 @@ public class CHFinanceUserItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f61548b, getData().logo);
-        this.f61549c.setMaskText(getData().value1);
-        this.f61550d.setMaskText(getData().value2);
-        this.f61551e.setMaskText(getData().value3);
-        this.f61552f.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
-        this.f61552f.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.credithome.CHFinanceUserItem.1
+        setNetImageViewUrl(this.f58434b, getData().logo);
+        this.f58435c.setMaskText(getData().value1);
+        this.f58436d.setMaskText(getData().value2);
+        this.f58437e.setMaskText(getData().value3);
+        this.f58438f.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
+        this.f58438f.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.credithome.CHFinanceUserItem.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CHFinanceUserItem f61553a;
+            public final /* synthetic */ CHFinanceUserItem f58439a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -134,7 +134,7 @@ public class CHFinanceUserItem extends BaseItemView {
                         return;
                     }
                 }
-                this.f61553a = this;
+                this.f58439a = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -143,7 +143,7 @@ public class CHFinanceUserItem extends BaseItemView {
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                     return;
                 }
-                this.f61553a.getWalletInterface().onEyeMaskBtnClick();
+                this.f58439a.getWalletInterface().onEyeMaskBtnClick();
             }
         });
         handlePoint();

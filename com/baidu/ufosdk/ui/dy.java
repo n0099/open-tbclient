@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class dy implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f60028a;
+    public final /* synthetic */ FeedbackReportActivity f56946a;
 
     public dy(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class dy implements View.OnClickListener {
                 return;
             }
         }
-        this.f60028a = feedbackReportActivity;
+        this.f56946a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -45,31 +45,31 @@ public final class dy implements View.OnClickListener {
         List list4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f60028a.B;
+            z = this.f56946a.B;
             if (z) {
                 return;
             }
-            list = this.f60028a.x;
+            list = this.f56946a.x;
             list.remove(((Integer) view.getTag()).intValue());
-            list2 = this.f60028a.x;
+            list2 = this.f56946a.x;
             if (list2.size() == 1) {
-                byte[] b2 = com.baidu.ufosdk.f.m.b(this.f60028a.getApplicationContext());
+                byte[] b2 = com.baidu.ufosdk.f.m.b(this.f56946a.getApplicationContext());
                 if (b2 == null) {
                     return;
                 }
-                list4 = this.f60028a.x;
+                list4 = this.f56946a.x;
                 list4.set(0, b2);
             }
-            bArr = this.f60028a.f59866j;
+            bArr = this.f56946a.j;
             if (bArr != null) {
-                list3 = this.f60028a.x;
-                bArr2 = this.f60028a.f59866j;
+                list3 = this.f56946a.x;
+                bArr2 = this.f56946a.j;
                 if (!list3.contains(bArr2)) {
-                    textView = this.f60028a.r;
+                    textView = this.f56946a.r;
                     textView.setText("上传截图");
                 }
             }
-            this.f60028a.c();
+            this.f56946a.c();
         }
     }
 }

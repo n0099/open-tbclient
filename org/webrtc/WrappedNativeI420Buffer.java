@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import org.webrtc.VideoFrame;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,12 +24,12 @@ public class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
     public final int width;
 
     @CalledByNative
-    public WrappedNativeI420Buffer(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, long j2) {
+    public WrappedNativeI420Buffer(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i7 = newInitContext.flag;
             if ((i7 & 1) != 0) {
@@ -47,7 +47,7 @@ public class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
         this.strideU = i5;
         this.dataV = byteBuffer3;
         this.strideV = i6;
-        this.nativeBuffer = j2;
+        this.nativeBuffer = j;
         retain();
     }
 

@@ -13,13 +13,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.disposables.Disposables;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class HandlerScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler handler;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class HandlerWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,10 +61,10 @@ public final class HandlerScheduler extends Scheduler {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable, long j2, TimeUnit timeUnit) {
+        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
                 if (runnable != null) {
                     if (timeUnit != null) {
                         if (this.disposed) {
@@ -73,7 +73,7 @@ public final class HandlerScheduler extends Scheduler {
                         ScheduledRunnable scheduledRunnable = new ScheduledRunnable(this.handler, RxJavaPlugins.onSchedule(runnable));
                         Message obtain = Message.obtain(this.handler, scheduledRunnable);
                         obtain.obj = this;
-                        this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j2));
+                        this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
                         if (this.disposed) {
                             this.handler.removeCallbacks(scheduledRunnable);
                             return Disposables.disposed();
@@ -88,7 +88,7 @@ public final class HandlerScheduler extends Scheduler {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ScheduledRunnable implements Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,14 +170,14 @@ public final class HandlerScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
-    public Disposable scheduleDirect(Runnable runnable, long j2, TimeUnit timeUnit) {
+    public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
             if (runnable != null) {
                 if (timeUnit != null) {
                     ScheduledRunnable scheduledRunnable = new ScheduledRunnable(this.handler, RxJavaPlugins.onSchedule(runnable));
-                    this.handler.postDelayed(scheduledRunnable, timeUnit.toMillis(j2));
+                    this.handler.postDelayed(scheduledRunnable, timeUnit.toMillis(j));
                     return scheduledRunnable;
                 }
                 throw new NullPointerException("unit == null");

@@ -6,35 +6,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ServerSideVerificationOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TRANS_ID = "transId";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f75611a;
+    public String f67930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75612b;
+    public String f67931b;
 
     /* renamed from: com.qq.e.ads.rewardvideo.ServerSideVerificationOptions$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f75613a;
+        public String f67932a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f75614b;
+        public String f67933b;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class ServerSideVerificationOptions {
         public ServerSideVerificationOptions build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ServerSideVerificationOptions(this, (byte) 0) : (ServerSideVerificationOptions) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ServerSideVerificationOptions(this, null) : (ServerSideVerificationOptions) invokeV.objValue;
         }
 
         public Builder setCustomData(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f75613a = str;
+                this.f67932a = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -70,7 +70,7 @@ public class ServerSideVerificationOptions {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f75614b = str;
+                this.f67933b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -92,23 +92,23 @@ public class ServerSideVerificationOptions {
                 return;
             }
         }
-        this.f75611a = builder.f75613a;
-        this.f75612b = builder.f75614b;
+        this.f67930a = builder.f67932a;
+        this.f67931b = builder.f67933b;
     }
 
-    public /* synthetic */ ServerSideVerificationOptions(Builder builder, byte b2) {
+    public /* synthetic */ ServerSideVerificationOptions(Builder builder, AnonymousClass1 anonymousClass1) {
         this(builder);
     }
 
     public String getCustomData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75611a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67930a : (String) invokeV.objValue;
     }
 
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75612b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67931b : (String) invokeV.objValue;
     }
 }

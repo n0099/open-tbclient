@@ -11,7 +11,7 @@ import java.util.Formattable;
 import java.util.Formatter;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FormattableUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SIMPLEST_FORMAT = "%s";

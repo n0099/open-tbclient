@@ -16,13 +16,13 @@ import com.baidu.wallet.paysdk.payresult.datamodel.PayResultContent;
 import com.dxmpay.apollon.utils.GlobalUtils;
 import com.dxmpay.wallet.core.BaseActivity;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PayResultAdapter extends BasePayResultAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownTimer f62920d;
+    public CountDownTimer f59788d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PayResultAdapter(BaseActivity baseActivity) {
@@ -42,29 +42,29 @@ public class PayResultAdapter extends BasePayResultAdapter {
                 return;
             }
         }
-        this.f62917a = new WeakReference<>(baseActivity);
+        this.f59785a = new WeakReference<>(baseActivity);
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void handleOKBtnOnclick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PayResultContent payResultContent = this.f62919c;
+            PayResultContent payResultContent = this.f59787c;
             if (payResultContent != null) {
                 if (payResultContent.isPaySuccess) {
-                    PayRequest payRequest = this.f62918b;
+                    PayRequest payRequest = this.f59786b;
                     if (payRequest != null && BeanConstants.PAY_FROM_B_SAO_C.equals(payRequest.mPayFrom)) {
-                        GlobalUtils.hideKeyboard(this.f62917a.get().getActivity());
-                        a(BeanConstants.EV_SCANCODE_EXIT, this.f62919c.notify);
+                        GlobalUtils.hideKeyboard(this.f59785a.get().getActivity());
+                        a(BeanConstants.EV_SCANCODE_EXIT, this.f59787c.notify);
                         return;
                     }
-                    PayCallBackManager.callBackClientSuccess(this.f62917a.get().getActivity(), this.f62919c.notify);
+                    PayCallBackManager.callBackClientSuccess(this.f59785a.get().getActivity(), this.f59787c.notify);
                     return;
                 }
-                PayCallBackManager.callBackClientPaying(this.f62917a.get().getActivity());
+                PayCallBackManager.callBackClientPaying(this.f59785a.get().getActivity());
                 return;
             }
-            PayCallBackManager.callBackClientPaying(this.f62917a.get().getActivity());
+            PayCallBackManager.callBackClientPaying(this.f59785a.get().getActivity());
         }
     }
 
@@ -75,23 +75,23 @@ public class PayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            if (this.f62919c == null || (payRequest = this.f62918b) == null) {
+            if (this.f59787c == null || (payRequest = this.f59786b) == null) {
                 return false;
             }
             if (!BeanConstants.PAY_FROM_B_SAO_C.equals(payRequest.mPayFrom) || BaiduPay.getInstance().getScanCallback() == null) {
                 return true;
             }
-            CountDownTimer countDownTimer = this.f62920d;
+            CountDownTimer countDownTimer = this.f59788d;
             if (countDownTimer != null) {
                 countDownTimer.cancel();
-                this.f62920d = null;
+                this.f59788d = null;
             }
             CountDownTimer countDownTimer2 = new CountDownTimer(this, 3000L, 1000L) { // from class: com.baidu.wallet.paysdk.payresult.adapters.PayResultAdapter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayResultAdapter f62921a;
+                public final /* synthetic */ PayResultAdapter f59789a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -112,27 +112,27 @@ public class PayResultAdapter extends BasePayResultAdapter {
                             return;
                         }
                     }
-                    this.f62921a = this;
+                    this.f59789a = this;
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        GlobalUtils.hideKeyboard(this.f62921a.f62917a.get().getActivity());
-                        PayResultAdapter payResultAdapter = this.f62921a;
-                        payResultAdapter.a(BeanConstants.EV_SCANCODE_EXIT, payResultAdapter.f62919c.notify);
+                        GlobalUtils.hideKeyboard(this.f59789a.f59785a.get().getActivity());
+                        PayResultAdapter payResultAdapter = this.f59789a;
+                        payResultAdapter.a(BeanConstants.EV_SCANCODE_EXIT, payResultAdapter.f59787c.notify);
                     }
                 }
 
                 @Override // android.os.CountDownTimer
-                public void onTick(long j2) {
+                public void onTick(long j) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                     }
                 }
             };
-            this.f62920d = countDownTimer2;
+            this.f59788d = countDownTimer2;
             countDownTimer2.start();
             return true;
         }

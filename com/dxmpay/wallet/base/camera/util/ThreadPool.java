@@ -1,7 +1,7 @@
 package com.dxmpay.wallet.base.camera.util;
 
-import c.f.b.a.a.b.b;
-import c.f.b.a.a.b.c;
+import b.f.b.a.a.b.b;
+import b.f.b.a.a.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class ThreadPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread[] f69893a;
+    public Thread[] f62326a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<Runnable> f69894b;
+    public LinkedBlockingQueue<Runnable> f62327b;
 
     public ThreadPool() {
         Interceptable interceptable = $ic;
@@ -33,9 +33,9 @@ public final class ThreadPool {
                 return;
             }
         }
-        this.f69893a = null;
-        this.f69894b = null;
-        this.f69894b = new LinkedBlockingQueue<>();
+        this.f62326a = null;
+        this.f62327b = null;
+        this.f62327b = new LinkedBlockingQueue<>();
     }
 
     public static int a(int i2) {
@@ -59,12 +59,12 @@ public final class ThreadPool {
             }
             int a2 = a(i2);
             ThreadPool threadPool = new ThreadPool();
-            threadPool.f69893a = new Thread[a2];
+            threadPool.f62326a = new Thread[a2];
             for (int i3 = a2 - 1; i3 >= 0; i3 += -1) {
-                threadPool.f69893a[i3] = new Thread(new c(threadPool.f69894b));
-                threadPool.f69893a[i3].setPriority(5);
-                threadPool.f69893a[i3].setName(str + " " + a2 + "." + (i3 + 1));
-                threadPool.f69893a[i3].start();
+                threadPool.f62326a[i3] = new Thread(new c(threadPool.f62327b));
+                threadPool.f62326a[i3].setPriority(5);
+                threadPool.f62326a[i3].setName(str + " " + a2 + "." + (i3 + 1));
+                threadPool.f62326a[i3].start();
             }
             return threadPool;
         }
@@ -75,17 +75,17 @@ public final class ThreadPool {
         Thread[] threadArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f69894b.clear();
-            for (Thread thread : this.f69893a) {
+            this.f62327b.clear();
+            for (Thread thread : this.f62326a) {
                 if (thread.isAlive()) {
-                    this.f69894b.offer(new b());
+                    this.f62327b.offer(new b());
                 }
             }
-            for (Thread thread2 : this.f69893a) {
+            for (Thread thread2 : this.f62326a) {
                 if (thread2.isAlive()) {
                     try {
                         synchronized (this) {
-                            wait(2000 / this.f69893a.length);
+                            wait(2000 / this.f62326a.length);
                         }
                     } catch (InterruptedException unused) {
                     }
@@ -101,7 +101,7 @@ public final class ThreadPool {
             return;
         }
         try {
-            this.f69894b.put(runnable);
+            this.f62327b.put(runnable);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }

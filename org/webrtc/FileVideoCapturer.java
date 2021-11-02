@@ -21,7 +21,7 @@ import java.nio.charset.Charset;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileVideoCapturer implements VideoCapturer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileVideoCapturer";
@@ -31,14 +31,14 @@ public class FileVideoCapturer implements VideoCapturer {
     public final Timer timer;
     public final VideoReader videoReader;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface VideoReader {
         void close();
 
         VideoFrame getNextFrame();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class VideoReaderY4M implements VideoReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FRAME_DELIMETER_LENGTH = 6;
@@ -82,7 +82,7 @@ public class FileVideoCapturer implements VideoCapturer {
                     return;
                 }
             }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42346a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f40168a);
             this.mediaFile = randomAccessFile;
             this.mediaFileChannel = randomAccessFile.getChannel();
             StringBuilder sb = new StringBuilder();

@@ -1,8 +1,8 @@
 package com.baidu.tieba.faceshop;
 
 import android.content.Context;
-import c.a.e.a.f;
-import c.a.e.e.p.l;
+import b.a.e.a.f;
+import b.a.e.e.p.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -16,39 +16,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f50532e;
+    public a f47912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FacePackageDownloadData f50533f;
+    public FacePackageDownloadData f47913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50534g;
+    public int f47914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50535h;
+    public int f47915h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f50536i;
+    public float f47916i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f50537a;
+        public NetWork f47917a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50538b;
+        public String f47918b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FacePackageDownloadModel f50539c;
+        public final /* synthetic */ FacePackageDownloadModel f47919c;
 
         public a(FacePackageDownloadModel facePackageDownloadModel, String str) {
             Interceptable interceptable = $ic;
@@ -65,8 +65,8 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
                     return;
                 }
             }
-            this.f50539c = facePackageDownloadModel;
-            this.f50538b = str;
+            this.f47919c = facePackageDownloadModel;
+            this.f47918b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,19 +77,19 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 try {
-                    if (this.f50538b != null && this.f50538b.length() > 0) {
+                    if (this.f47918b != null && this.f47918b.length() > 0) {
                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DOWNLOAD_URL);
-                        this.f50537a = netWork;
-                        netWork.addPostData("pid", this.f50538b);
-                        this.f50537a.addPostData("scr_w", String.valueOf(this.f50539c.f50534g));
-                        this.f50537a.addPostData("scr_h", String.valueOf(this.f50539c.f50535h));
-                        this.f50537a.addPostData("scr_dip", String.valueOf(this.f50539c.f50536i));
-                        this.f50539c.f50533f = (FacePackageDownloadData) OrmObject.objectWithJsonStr(this.f50537a.postNetData(), FacePackageDownloadData.class);
+                        this.f47917a = netWork;
+                        netWork.addPostData("pid", this.f47918b);
+                        this.f47917a.addPostData("scr_w", String.valueOf(this.f47919c.f47914g));
+                        this.f47917a.addPostData("scr_h", String.valueOf(this.f47919c.f47915h));
+                        this.f47917a.addPostData("scr_dip", String.valueOf(this.f47919c.f47916i));
+                        this.f47919c.f47913f = (FacePackageDownloadData) OrmObject.objectWithJsonStr(this.f47917a.postNetData(), FacePackageDownloadData.class);
                     }
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                 }
-                return this.f50539c.f50533f;
+                return this.f47919c.f47913f;
             }
             return (FacePackageDownloadData) invokeL.objValue;
         }
@@ -100,8 +100,8 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         public void onPostExecute(FacePackageDownloadData facePackageDownloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, facePackageDownloadData) == null) {
-                this.f50539c.f50532e = null;
-                this.f50539c.mLoadDataCallBack.c(facePackageDownloadData);
+                this.f47919c.f47912e = null;
+                this.f47919c.mLoadDataCallBack.c(facePackageDownloadData);
                 super.onPostExecute(facePackageDownloadData);
             }
         }
@@ -111,12 +111,12 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f50537a;
+                NetWork netWork = this.f47917a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
-                    this.f50537a = null;
+                    this.f47917a = null;
                 }
-                this.f50539c.f50532e = null;
+                this.f47919c.f47912e = null;
             }
         }
     }
@@ -139,23 +139,23 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
                 return;
             }
         }
-        this.f50533f = null;
-        this.f50534g = 0;
-        this.f50535h = 0;
-        this.f50532e = null;
+        this.f47913f = null;
+        this.f47914g = 0;
+        this.f47915h = 0;
+        this.f47912e = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.f50534g = l.k(inst);
-        this.f50535h = l.i(inst);
-        this.f50536i = inst.getResources().getDisplayMetrics().density;
+        this.f47914g = l.k(inst);
+        this.f47915h = l.i(inst);
+        this.f47916i = inst.getResources().getDisplayMetrics().density;
     }
 
     public void D(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f50532e == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f47912e == null) {
             a aVar = new a(this, str);
-            this.f50532e = aVar;
+            this.f47912e = aVar;
             aVar.setPriority(3);
-            this.f50532e.execute(new Object[0]);
+            this.f47912e.execute(new Object[0]);
         }
     }
 
@@ -164,7 +164,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f50532e;
+            a aVar = this.f47912e;
             if (aVar != null) {
                 aVar.cancel();
                 return false;

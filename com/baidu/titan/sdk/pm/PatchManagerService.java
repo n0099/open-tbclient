@@ -28,7 +28,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PatchManagerService {
     public static final boolean DEBUG = false;
     public static final String PATCH_INSTALL_TMP_PREFIX = "tmp_patch_install_";

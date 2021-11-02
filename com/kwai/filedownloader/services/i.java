@@ -2,7 +2,7 @@ package com.kwai.filedownloader.services;
 
 import android.content.Intent;
 import android.os.IBinder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface i {
     IBinder a(Intent intent);
 

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class az {
     public static /* synthetic */ Interceptable $ic;
     public static final az k;
@@ -28,34 +28,32 @@ public class az {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43323a;
+    public Context f41117a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f43324b;
+    public Activity f41118b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f43325c;
+    public volatile boolean f41119c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f43326d;
+    public volatile boolean f41120d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f43327e;
+    public volatile String f41121e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f43328f;
+    public long f41122f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f43329g;
+    public long f41123g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43330h;
+    public String f41124h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PointF f43331i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public bf f43332j;
+    public PointF f41125i;
+    public bf j;
 
     static {
         InterceptResult invokeClinit;
@@ -87,21 +85,21 @@ public class az {
                 return;
             }
         }
-        this.f43332j = bf.a();
+        this.j = bf.a();
     }
 
     private void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && bw.s(this.f43323a) && !this.f43325c) {
-            if (!this.f43326d) {
-                this.f43327e = bo.a(this.f43323a, "mtj_autoTracker.js");
-                this.f43326d = true;
+        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && bw.s(this.f41117a) && !this.f41119c) {
+            if (!this.f41120d) {
+                this.f41121e = bo.a(this.f41117a, "mtj_autoTracker.js");
+                this.f41120d = true;
             }
-            if (this.f43328f == 0) {
-                this.f43328f = bq.a().n(this.f43323a);
-                this.f43329g = bq.a().o(this.f43323a);
+            if (this.f41122f == 0) {
+                this.f41122f = bq.a().n(this.f41117a);
+                this.f41123g = bq.a().o(this.f41117a);
             }
-            if (!(this.f43326d && TextUtils.isEmpty(this.f43327e)) && System.currentTimeMillis() - this.f43328f <= this.f43329g) {
+            if (!(this.f41120d && TextUtils.isEmpty(this.f41121e)) && System.currentTimeMillis() - this.f41122f <= this.f41123g) {
                 return;
             }
             f();
@@ -116,7 +114,7 @@ public class az {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ az f43334a;
+                public final /* synthetic */ az f41127a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -133,20 +131,20 @@ public class az {
                             return;
                         }
                     }
-                    this.f43334a = this;
+                    this.f41127a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f43334a.f43325c) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f41127a.f41119c) {
                         return;
                     }
-                    boolean a2 = bg.a(this.f43334a.f43323a, this.f43334a.f43330h, 1, false);
-                    this.f43334a.f43325c = true;
+                    boolean a2 = bg.a(this.f41127a.f41117a, this.f41127a.f41124h, 1, false);
+                    this.f41127a.f41119c = true;
                     if (a2) {
-                        az azVar = this.f43334a;
-                        azVar.f43327e = bo.a(azVar.f43323a, "mtj_autoTracker.js");
+                        az azVar = this.f41127a;
+                        azVar.f41121e = bo.a(azVar.f41117a, "mtj_autoTracker.js");
                     }
                 }
             });
@@ -173,7 +171,7 @@ public class az {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f43330h = str;
+            this.f41124h = str;
         }
     }
 
@@ -189,7 +187,7 @@ public class az {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ az f43333a;
+            public final /* synthetic */ az f41126a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -206,7 +204,7 @@ public class az {
                         return;
                     }
                 }
-                this.f43333a = this;
+                this.f41126a = this;
             }
 
             @Override // com.baidu.mobstat.al.a
@@ -214,10 +212,10 @@ public class az {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) && motionEvent.getActionMasked() == 1) {
                     az.a(true);
-                    if (this.f43333a.f43331i == null) {
-                        this.f43333a.f43331i = new PointF();
+                    if (this.f41126a.f41125i == null) {
+                        this.f41126a.f41125i = new PointF();
                     }
-                    this.f43333a.f43331i.set(motionEvent.getRawX(), motionEvent.getRawY());
+                    this.f41126a.f41125i.set(motionEvent.getRawX(), motionEvent.getRawY());
                 }
             }
 
@@ -234,14 +232,14 @@ public class az {
     public PointF b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43331i : (PointF) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41125i : (PointF) invokeV.objValue;
     }
 
     public void b(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, activity) == null) && d()) {
-            d(this.f43324b);
-            this.f43324b = null;
+            d(this.f41118b);
+            this.f41118b = null;
             a(activity, false);
         }
     }
@@ -255,7 +253,7 @@ public class az {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) ? !TextUtils.isEmpty(this.f43330h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) ? !TextUtils.isEmpty(this.f41124h) : invokeV.booleanValue;
     }
 
     public void a(String str) {
@@ -280,15 +278,15 @@ public class az {
         if (!(interceptable == null || interceptable.invokeLLL(65545, this, webView, str, blVar) == null) || blVar == null) {
             return;
         }
-        blVar.a(this.f43324b, webView, str, (JSONObject) null, false);
+        blVar.a(this.f41118b, webView, str, (JSONObject) null, false);
     }
 
     public void a(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && d()) {
             a(true);
-            this.f43323a = activity.getApplicationContext();
-            this.f43324b = activity;
+            this.f41117a = activity.getApplicationContext();
+            this.f41118b = activity;
             e();
             c(activity);
             a(activity, true);
@@ -301,9 +299,9 @@ public class az {
             return;
         }
         if (z) {
-            this.f43332j.a(activity, false, null, false);
+            this.j.a(activity, false, null, false);
         } else {
-            this.f43332j.a(activity, false);
+            this.j.a(activity, false);
         }
     }
 
@@ -322,10 +320,10 @@ public class az {
     public void a(WebView webView, String str, bl blVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, blVar) == null) {
-            if (TextUtils.isEmpty(this.f43327e)) {
-                this.f43327e = bo.a(this.f43323a, "mtj_autoTracker.js");
+            if (TextUtils.isEmpty(this.f41121e)) {
+                this.f41121e = bo.a(this.f41117a, "mtj_autoTracker.js");
             }
-            b(webView, this.f43327e, blVar);
+            b(webView, this.f41121e, blVar);
         }
     }
 }

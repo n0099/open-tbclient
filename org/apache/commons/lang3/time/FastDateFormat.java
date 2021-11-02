@@ -19,7 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FastDateFormat extends Format implements DateParser, DatePrinter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FULL = 0;
@@ -248,10 +248,10 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public String format(long j2) {
+    public String format(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) ? this.printer.format(j2) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) ? this.printer.format(j) : (String) invokeJ.objValue;
     }
 
     @Override // org.apache.commons.lang3.time.DateParser
@@ -338,10 +338,10 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
 
     @Override // org.apache.commons.lang3.time.DatePrinter
     @Deprecated
-    public StringBuffer format(long j2, StringBuffer stringBuffer) {
+    public StringBuffer format(long j, StringBuffer stringBuffer) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2, stringBuffer)) == null) ? this.printer.format(j2, stringBuffer) : (StringBuffer) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, stringBuffer)) == null) ? this.printer.format(j, stringBuffer) : (StringBuffer) invokeJL.objValue;
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
@@ -361,10 +361,10 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public <B extends Appendable> B format(long j2, B b2) {
+    public <B extends Appendable> B format(long j, B b2) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, b2)) == null) ? (B) this.printer.format(j2, (long) b2) : (B) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, b2)) == null) ? (B) this.printer.format(j, (long) b2) : (B) invokeJL.objValue;
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter

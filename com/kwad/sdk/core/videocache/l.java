@@ -14,7 +14,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +59,12 @@ public class l {
         }
     }
 
-    public static void a(byte[] bArr, long j2, int i2) {
+    public static void a(byte[] bArr, long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bArr, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bArr, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
             j.a(bArr, "Buffer must be not null!");
             boolean z = true;
-            j.a(j2 >= 0, "Data offset must be positive!");
+            j.a(j >= 0, "Data offset must be positive!");
             j.a((i2 < 0 || i2 > bArr.length) ? false : false, "Length must be in range [0..buffer.length]");
         }
     }

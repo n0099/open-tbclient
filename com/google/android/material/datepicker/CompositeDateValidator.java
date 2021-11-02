@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.CalendarConstraints;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class CompositeDateValidator implements CalendarConstraints.DateValidator {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CompositeDateValidator> CREATOR;
@@ -114,12 +114,12 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
     }
 
     @Override // com.google.android.material.datepicker.CalendarConstraints.DateValidator
-    public boolean isValid(long j2) {
+    public boolean isValid(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
             for (CalendarConstraints.DateValidator dateValidator : this.validators) {
-                if (dateValidator != null && !dateValidator.isValid(j2)) {
+                if (dateValidator != null && !dateValidator.isValid(j)) {
                     return false;
                 }
             }

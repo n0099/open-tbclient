@@ -1,7 +1,7 @@
 package org.reactivestreams;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface Subscription {
     void cancel();
 
-    void request(long j2);
+    void request(long j);
 }

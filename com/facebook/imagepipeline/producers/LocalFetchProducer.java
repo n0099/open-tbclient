@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class LocalFetchProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,39 +78,40 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
     public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, consumer, producerContext) == null) {
-            ProducerListener listener = producerContext.getListener();
-            String id = producerContext.getId();
-            StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, listener, getProducerName(), id, producerContext.getImageRequest(), listener, id) { // from class: com.facebook.imagepipeline.producers.LocalFetchProducer.1
+            ProducerListener2 producerListener = producerContext.getProducerListener();
+            ImageRequest imageRequest = producerContext.getImageRequest();
+            producerContext.putOriginExtra("local", BundleOpProvider.METHOD_BUNDLE_FETCH);
+            StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, producerListener, producerContext, getProducerName(), imageRequest, producerListener, producerContext) { // from class: com.facebook.imagepipeline.producers.LocalFetchProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LocalFetchProducer this$0;
                 public final /* synthetic */ ImageRequest val$imageRequest;
-                public final /* synthetic */ ProducerListener val$listener;
-                public final /* synthetic */ String val$requestId;
+                public final /* synthetic */ ProducerListener2 val$listener;
+                public final /* synthetic */ ProducerContext val$producerContext;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
-                    super(consumer, listener, r14, id);
+                    super(consumer, producerListener, producerContext, r15);
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r3;
-                        Object[] objArr = {this, consumer, listener, r14, id, r16, listener, id};
+                        Object[] objArr = {this, consumer, producerListener, producerContext, r15, imageRequest, producerListener, producerContext};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
                             int i3 = i2 & 2;
                             Object[] objArr2 = newInitContext.callArgs;
-                            super((Consumer) objArr2[0], (ProducerListener) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
+                            super((Consumer) objArr2[0], (ProducerListener2) objArr2[1], (ProducerContext) objArr2[2], (String) objArr2[3]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$imageRequest = r16;
-                    this.val$listener = listener;
-                    this.val$requestId = id;
+                    this.val$imageRequest = imageRequest;
+                    this.val$listener = producerListener;
+                    this.val$producerContext = producerContext;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -130,11 +132,13 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                         EncodedImage encodedImage = this.this$0.getEncodedImage(this.val$imageRequest);
                         if (encodedImage == null) {
-                            this.val$listener.onUltimateProducerReached(this.val$requestId, this.this$0.getProducerName(), false);
+                            this.val$listener.onUltimateProducerReached(this.val$producerContext, this.this$0.getProducerName(), false);
+                            this.val$producerContext.putOriginExtra("local");
                             return null;
                         }
                         encodedImage.parseMetaData();
-                        this.val$listener.onUltimateProducerReached(this.val$requestId, this.this$0.getProducerName(), true);
+                        this.val$listener.onUltimateProducerReached(this.val$producerContext, this.this$0.getProducerName(), true);
+                        this.val$producerContext.putOriginExtra("local");
                         return encodedImage;
                     }
                     return (EncodedImage) invokeV.objValue;

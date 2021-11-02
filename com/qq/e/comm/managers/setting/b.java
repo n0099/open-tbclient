@@ -1,16 +1,24 @@
 package com.qq.e.comm.managers.setting;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
-/* loaded from: classes10.dex */
-public final class b extends d {
+import com.qq.e.comm.util.GDTLogger;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public JSONObject f68026a;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b() {
+        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -18,32 +26,40 @@ public final class b extends d {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                this((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a(Constants.KEYS.SDKServerGetADReportSamplingRate, (Object) 1);
-        a(Constants.KEYS.SDKServerExpReportSamplingRate, (Object) 1);
-        a(Constants.KEYS.SDKServerClickReportSamplingRate, (Object) 100);
-        a(Constants.KEYS.RequireWindowFocus, (Object) 1);
-        a(Constants.KEYS.SHOW_LOGO, (Object) 1);
-        a(Constants.KEYS.INNER_BROWSER_SCHEME, "weixin,tel,openapp.jdmobile");
-        a(Constants.KEYS.FLOW_CONTROL, (Object) 1);
-        a(Constants.KEYS.GDT_SDK_IDENTITY, (Object) 1);
-        a(Constants.KEYS.GDT_SDK_CHANNEL, (Object) 1);
-        a(Constants.KEYS.GDT_SDK_EX1, "");
-        a(Constants.KEYS.GDT_SDK_EX2, "");
-        a(Constants.KEYS.Banner_RF, (Object) 30000);
-        a(Constants.KEYS.SPLASH_LOADTIMEOUT, (Object) 3000);
-        a(Constants.KEYS.SPLASH_EXPOSURE_TIME, (Object) 5000);
-        a(Constants.KEYS.SPLASH_NETWORK_PERMISION, (Object) 26);
-        a(Constants.KEYS.SPLASH_MAX_REQUEST_NUM, (Object) 100);
-        a(Constants.KEYS.FORCE_EXPOSURE, (Object) 1);
     }
 
-    @Override // com.qq.e.comm.managers.setting.d
-    public final /* bridge */ /* synthetic */ String toString() {
-        return super.toString();
+    public b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        String simpleName = getClass().getSimpleName();
+        GDTLogger.d("Initialize " + simpleName + ",Json=" + str);
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                this.f68026a = new JSONObject(str);
+            } catch (JSONException unused) {
+                GDTLogger.d("JsonException While build" + simpleName + " Instance from JSON");
+            }
+        }
+        if (this.f68026a == null) {
+            this.f68026a = new JSONObject();
+        }
     }
 }

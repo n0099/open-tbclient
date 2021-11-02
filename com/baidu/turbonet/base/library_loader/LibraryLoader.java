@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LibraryLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile LibraryLoader f59458b;
+    public static volatile LibraryLoader f56393b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f59459a;
+    public final int f56394a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,10 +39,10 @@ public class LibraryLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f59458b == null) {
+            if (f56393b == null) {
                 return 0;
             }
-            return f59458b.f59459a;
+            return f56393b.f56394a;
         }
         return invokeV.intValue;
     }
@@ -57,11 +57,11 @@ public class LibraryLoader {
 
     public static native int nativePercentageOfResidentNativeLibraryCode();
 
-    private native void nativeRecordChromiumAndroidLinkerBrowserHistogram(boolean z, boolean z2, int i2, long j2);
+    private native void nativeRecordChromiumAndroidLinkerBrowserHistogram(boolean z, boolean z2, int i2, long j);
 
     private native void nativeRecordLibraryPreloaderBrowserHistogram(int i2);
 
-    private native void nativeRegisterChromiumAndroidLinkerRendererHistogram(boolean z, boolean z2, long j2);
+    private native void nativeRegisterChromiumAndroidLinkerRendererHistogram(boolean z, boolean z2, long j);
 
     private native void nativeRegisterLibraryPreloaderRendererHistogram(int i2);
 }

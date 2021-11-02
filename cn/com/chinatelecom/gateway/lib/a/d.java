@@ -15,15 +15,15 @@ import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35640a = "d";
+    public static final String f33748a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35641b = "RSA/ECB/PKCS1Padding";
+    public static String f33749b = "RSA/ECB/PKCS1Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -78,7 +78,7 @@ public class d {
             try {
                 return (RSAPublicKey) a("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5se07mkN71qsSJHjZ2Z0+Z+4LlLvf2sz7Md38VAa3EmAOvI7vZp3hbAxicL724ylcmisTPtZQhT/9C+25AELqy9PN9JmzKpwoVTUoJvxG4BoyT49+gGVl6s6zo1byNoHUzTfkmRfmC9MC53HvG8GwKP5xtcdptFjAIcgIR7oAWQIDAQAB");
             } catch (Throwable th) {
-                CtAuth.warn(f35640a, "getPublicKey error", th);
+                CtAuth.warn(f33748a, "getPublicKey error", th);
                 return null;
             }
         }
@@ -90,11 +90,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, rSAPublicKey, bArr)) == null) {
             try {
-                Cipher cipher = Cipher.getInstance(f35641b);
+                Cipher cipher = Cipher.getInstance(f33749b);
                 cipher.init(1, rSAPublicKey);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {
-                CtAuth.warn(f35640a, "Rsa encrypt4Ux error", th);
+                CtAuth.warn(f33748a, "Rsa encrypt4Ux error", th);
                 return null;
             }
         }

@@ -22,38 +22,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AlaRecentHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.r0.w.f.f.b.b> f49538e;
+    public List<b.a.r0.w.f.f.b.b> f46988e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f49539f;
+    public b f46989f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49540g;
+    public int f46990g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49541h;
+    public int f46991h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f49542i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f49543j;
+    public boolean f46992i;
+    public boolean j;
     public BdUniqueId k;
     public HttpMessageListener l;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaRecentHistoryModel f49544a;
+        public final /* synthetic */ AlaRecentHistoryModel f46993a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaRecentHistoryModel alaRecentHistoryModel, int i2) {
@@ -73,47 +71,47 @@ public class AlaRecentHistoryModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f49544a = alaRecentHistoryModel;
+            this.f46993a = alaRecentHistoryModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021082 && (httpResponsedMessage instanceof AlaRecentHistoryResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.f49544a.k) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021082 && (httpResponsedMessage instanceof AlaRecentHistoryResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.f46993a.k) {
                 AlaRecentHistoryResponseMessage alaRecentHistoryResponseMessage = (AlaRecentHistoryResponseMessage) httpResponsedMessage;
                 if (!alaRecentHistoryResponseMessage.isSuccess()) {
-                    if (this.f49544a.f49539f != null) {
-                        this.f49544a.f49539f.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f49544a.f49543j);
+                    if (this.f46993a.f46989f != null) {
+                        this.f46993a.f46989f.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f46993a.j);
                     }
                 } else {
-                    c.a.r0.w.f.f.b.a recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    b.a.r0.w.f.f.b.a recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
-                    this.f49544a.f49542i = recentHistoryData.f25958a;
-                    List<c.a.r0.w.f.f.b.b> list = recentHistoryData.f25959b;
-                    if (!this.f49544a.f49543j) {
-                        this.f49544a.f49538e.clear();
+                    this.f46993a.f46992i = recentHistoryData.f24795a;
+                    List<b.a.r0.w.f.f.b.b> list = recentHistoryData.f24796b;
+                    if (!this.f46993a.j) {
+                        this.f46993a.f46988e.clear();
                         if (!ListUtils.isEmpty(list)) {
-                            this.f49544a.f49538e.addAll(list);
+                            this.f46993a.f46988e.addAll(list);
                         }
                     } else if (!ListUtils.isEmpty(list)) {
-                        AlaRecentHistoryModel.B(this.f49544a);
-                        this.f49544a.f49538e.addAll(list);
+                        AlaRecentHistoryModel.B(this.f46993a);
+                        this.f46993a.f46988e.addAll(list);
                     }
-                    if (this.f49544a.f49539f != null) {
-                        this.f49544a.f49539f.a(this.f49544a.f49542i, this.f49544a.f49538e);
+                    if (this.f46993a.f46989f != null) {
+                        this.f46993a.f46989f.a(this.f46993a.f46992i, this.f46993a.f46988e);
                     }
                 }
-                this.f49544a.f49543j = false;
+                this.f46993a.j = false;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
-        void a(boolean z, List<c.a.r0.w.f.f.b.b> list);
+        void a(boolean z, List<b.a.r0.w.f.f.b.b> list);
 
         void b(int i2, String str, boolean z);
     }
@@ -133,17 +131,17 @@ public class AlaRecentHistoryModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49540g = i2;
-        this.f49539f = bVar;
+        this.f46990g = i2;
+        this.f46989f = bVar;
         this.k = BdUniqueId.gen();
-        this.f49538e = new ArrayList();
+        this.f46988e = new ArrayList();
         registerListener();
         registerTask();
     }
 
     public static /* synthetic */ int B(AlaRecentHistoryModel alaRecentHistoryModel) {
-        int i2 = alaRecentHistoryModel.f49541h;
-        alaRecentHistoryModel.f49541h = i2 + 1;
+        int i2 = alaRecentHistoryModel.f46991h;
+        alaRecentHistoryModel.f46991h = i2 + 1;
         return i2;
     }
 
@@ -157,10 +155,10 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public List<c.a.r0.w.f.f.b.b> getData() {
+    public List<b.a.r0.w.f.f.b.b> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49538e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46988e : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -175,12 +173,12 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f49542i && !this.f49543j) {
-            this.f49543j = true;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f46992i && !this.j) {
+            this.j = true;
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-            httpMessage.addParam("type", this.f49540g);
-            httpMessage.addParam("pn", this.f49541h + 1);
+            httpMessage.addParam("type", this.f46990g);
+            httpMessage.addParam("pn", this.f46991h + 1);
             httpMessage.setTag(this.k);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -197,12 +195,12 @@ public class AlaRecentHistoryModel extends BdBaseModel {
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f49543j = false;
-            this.f49541h = 0;
+            this.j = false;
+            this.f46991h = 0;
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-            httpMessage.addParam("type", this.f49540g);
-            httpMessage.addParam("pn", this.f49541h);
+            httpMessage.addParam("type", this.f46990g);
+            httpMessage.addParam("pn", this.f46991h);
             httpMessage.setTag(this.k);
             MessageManager.getInstance().sendMessage(httpMessage);
         }

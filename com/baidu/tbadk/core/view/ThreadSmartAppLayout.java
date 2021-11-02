@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.e.e.p.k;
-import c.a.l.p;
-import c.a.q0.s.q.a;
+import b.a.e.e.p.k;
+import b.a.l.p;
+import b.a.q0.s.q.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -23,25 +23,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SmartApp;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, p<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f47875e;
+    public HeadImageView f45444e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47876f;
+    public TextView f45445f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47877g;
+    public TextView f45446g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SmartApp f47878h;
+    public SmartApp f45447h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f47879i;
+    public View.OnClickListener f45448i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ThreadSmartAppLayout(Context context) {
@@ -83,8 +83,8 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
-            SkinManager.setViewTextColor(this.f47876f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f47877g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f45445f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f45446g, R.color.CAM_X0107);
         }
     }
 
@@ -92,16 +92,16 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public void onClick(View view) {
         SmartApp smartApp;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (smartApp = this.f47878h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (smartApp = this.f45447h) == null) {
             return;
         }
-        if (!c.a.r0.v.a.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
-            if (k.isEmpty(this.f47878h.h5_url)) {
+        if (!b.a.r0.v.a.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+            if (k.isEmpty(this.f45447h.h5_url)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(a(getContext()), new String[]{this.f47878h.h5_url});
+            UrlManager.getInstance().dealOneLink(a(getContext()), new String[]{this.f45447h.h5_url});
         }
-        View.OnClickListener onClickListener = this.f47879i;
+        View.OnClickListener onClickListener = this.f45448i;
         if (onClickListener != null) {
             onClickListener.onClick(view);
         }
@@ -110,7 +110,7 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f47879i = onClickListener;
+            this.f45448i = onClickListener;
         }
     }
 
@@ -136,25 +136,25 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.l.p
+    @Override // b.a.l.p
     public void onBindDataToView(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().e1() != null) {
                 SmartApp e1 = aVar.getThreadData().e1();
-                this.f47878h = e1;
+                this.f45447h = e1;
                 if (!k.isEmpty(e1.avatar)) {
-                    this.f47875e.startLoad(this.f47878h.avatar, 10, false, false);
+                    this.f45444e.startLoad(this.f45447h.avatar, 10, false, false);
                 }
-                if (!k.isEmpty(this.f47878h.name)) {
-                    this.f47876f.setText(this.f47878h.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
+                if (!k.isEmpty(this.f45447h.name)) {
+                    this.f45445f.setText(this.f45447h.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
                 } else {
-                    this.f47876f.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
+                    this.f45445f.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
                 }
-                if (!k.isEmpty(this.f47878h._abstract)) {
-                    this.f47877g.setText(this.f47878h._abstract);
+                if (!k.isEmpty(this.f45447h._abstract)) {
+                    this.f45446g.setText(this.f45447h._abstract);
                 } else {
-                    this.f47877g.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
+                    this.f45446g.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
                 }
                 setVisibility(0);
                 return;
@@ -184,11 +184,11 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         }
         LayoutInflater.from(context).inflate(R.layout.thread_smart_app_layout, (ViewGroup) this, true);
         HeadImageView headImageView = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
-        this.f47875e = headImageView;
+        this.f45444e = headImageView;
         headImageView.setIsRound(true);
-        this.f47875e.setPlaceHolder(1);
-        this.f47876f = (TextView) findViewById(R.id.tv_thread_smart_app_title);
-        this.f47877g = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
+        this.f45444e.setPlaceHolder(1);
+        this.f45445f = (TextView) findViewById(R.id.tv_thread_smart_app_title);
+        this.f45446g = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
         setOnClickListener(this);
         onChangeSkinType();
     }

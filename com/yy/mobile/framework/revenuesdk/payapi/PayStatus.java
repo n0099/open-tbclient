@@ -13,13 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PayStatus {
     public static final /* synthetic */ PayStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final PayStatus APPLE_PAY_FAIL;
     public static final PayStatus CANCEL;
     public static final PayStatus CAN_NOT_USE;
+    public static final PayStatus DEVICE_NOT_SUPPORT;
     public static final PayStatus OK;
     public static final PayStatus ORDER_RISK_ERROR;
     public static final PayStatus SEVER_ERROR;
@@ -51,9 +52,10 @@ public final class PayStatus {
         SEVER_ERROR = new PayStatus("SEVER_ERROR", 5, -500, "服务端错误");
         ORDER_RISK_ERROR = new PayStatus("ORDER_RISK_ERROR", 6, -18, "风控拦截");
         UNKNOWN = new PayStatus(RomUtils.UNKNOWN, 7, 0, "未知状态");
-        PayStatus payStatus = new PayStatus("CANCEL", 8, -6001, "用户取消支付");
-        CANCEL = payStatus;
-        $VALUES = new PayStatus[]{OK, VALIDATE_FAIL, CAN_NOT_USE, APPLE_PAY_FAIL, WRONG_ARGS, SEVER_ERROR, ORDER_RISK_ERROR, UNKNOWN, payStatus};
+        CANCEL = new PayStatus("CANCEL", 8, -6001, "用户取消支付");
+        PayStatus payStatus = new PayStatus("DEVICE_NOT_SUPPORT", 9, 3, "当前设备不支持该支付方式");
+        DEVICE_NOT_SUPPORT = payStatus;
+        $VALUES = new PayStatus[]{OK, VALIDATE_FAIL, CAN_NOT_USE, APPLE_PAY_FAIL, WRONG_ARGS, SEVER_ERROR, ORDER_RISK_ERROR, UNKNOWN, CANCEL, payStatus};
     }
 
     public PayStatus(String str, int i2, int i3, String str2) {

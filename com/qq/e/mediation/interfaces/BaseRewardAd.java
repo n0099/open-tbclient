@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseRewardAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;
@@ -26,7 +26,7 @@ public abstract class BaseRewardAd {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadAdParams f75779a;
+    public LoadAdParams f68083a;
 
     public BaseRewardAd(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public abstract class BaseRewardAd {
                 return;
             }
         }
-        this.f75779a = null;
+        this.f68083a = null;
     }
 
     public int getAdapterPriority() {
@@ -64,7 +64,7 @@ public abstract class BaseRewardAd {
     public LoadAdParams getLoadAdParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f75779a : (LoadAdParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68083a : (LoadAdParams) invokeV.objValue;
     }
 
     public int getRewardAdType() {
@@ -87,7 +87,7 @@ public abstract class BaseRewardAd {
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, loadAdParams) == null) {
-            this.f75779a = loadAdParams;
+            this.f68083a = loadAdParams;
         }
     }
 

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.math.NumberUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MutableLong extends Number implements Comparable<MutableLong>, Mutable<Number> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 62986528375L;
@@ -29,20 +29,20 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         }
     }
 
-    public void add(long j2) {
+    public void add(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.value += j2;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.value += j;
         }
     }
 
-    public long addAndGet(long j2) {
+    public long addAndGet(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            long j3 = this.value + j2;
-            this.value = j3;
-            return j3;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            long j2 = this.value + j;
+            this.value = j2;
+            return j2;
         }
         return invokeJ.longValue;
     }
@@ -58,9 +58,9 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j2 = this.value - 1;
-            this.value = j2;
-            return j2;
+            long j = this.value - 1;
+            this.value = j;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -85,13 +85,13 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (float) this.value : invokeV.floatValue;
     }
 
-    public long getAndAdd(long j2) {
+    public long getAndAdd(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-            long j3 = this.value;
-            this.value = j2 + j3;
-            return j3;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            long j2 = this.value;
+            this.value = j + j2;
+            return j2;
         }
         return invokeJ.longValue;
     }
@@ -100,9 +100,9 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            long j2 = this.value;
-            this.value = j2 - 1;
-            return j2;
+            long j = this.value;
+            this.value = j - 1;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -111,9 +111,9 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j2 = this.value;
-            this.value = 1 + j2;
-            return j2;
+            long j = this.value;
+            this.value = 1 + j;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -122,8 +122,8 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            long j2 = this.value;
-            return (int) (j2 ^ (j2 >>> 32));
+            long j = this.value;
+            return (int) (j ^ (j >>> 32));
         }
         return invokeV.intValue;
     }
@@ -139,9 +139,9 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            long j2 = this.value + 1;
-            this.value = j2;
-            return j2;
+            long j = this.value + 1;
+            this.value = j;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -160,10 +160,10 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.value : invokeV.longValue;
     }
 
-    public void subtract(long j2) {
+    public void subtract(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            this.value -= j2;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            this.value -= j;
         }
     }
 
@@ -179,12 +179,12 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? String.valueOf(this.value) : (String) invokeV.objValue;
     }
 
-    public MutableLong(long j2) {
+    public MutableLong(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -194,7 +194,7 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
                 return;
             }
         }
-        this.value = j2;
+        this.value = j;
     }
 
     public void add(Number number) {
@@ -233,10 +233,10 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? Long.valueOf(this.value) : (Long) invokeV.objValue;
     }
 
-    public void setValue(long j2) {
+    public void setValue(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.value = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.value = j;
         }
     }
 
@@ -251,9 +251,9 @@ public class MutableLong extends Number implements Comparable<MutableLong>, Muta
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, number)) == null) {
-            long j2 = this.value;
-            this.value = number.longValue() + j2;
-            return j2;
+            long j = this.value;
+            this.value = number.longValue() + j;
+            return j;
         }
         return invokeL.longValue;
     }

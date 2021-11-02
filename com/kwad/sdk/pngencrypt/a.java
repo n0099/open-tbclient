@@ -11,34 +11,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a implements Closeable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f73442a;
+    public static final /* synthetic */ boolean f65869a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public InputStream f73443b;
+    public InputStream f65870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f73444c;
+    public byte[] f65871c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f73445d;
+    public int f65872d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f73446e;
+    public int f65873e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f73447f;
+    public boolean f65874f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f73448g;
+    public boolean f65875g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f73449h;
+    public long f65876h;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public class a implements Closeable {
                 return;
             }
         }
-        f73442a = !a.class.desiredAssertionStatus();
+        f65869a = !a.class.desiredAssertionStatus();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -92,11 +92,11 @@ public class a implements Closeable {
                 return;
             }
         }
-        this.f73447f = false;
-        this.f73448g = true;
-        this.f73449h = 0L;
-        this.f73443b = inputStream;
-        this.f73444c = new byte[i2 < 1 ? 16384 : i2];
+        this.f65874f = false;
+        this.f65875g = true;
+        this.f65876h = 0L;
+        this.f65870b = inputStream;
+        this.f65871c = new byte[i2 < 1 ? 16384 : i2];
     }
 
     public int a(f fVar) {
@@ -110,21 +110,21 @@ public class a implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, i2)) == null) {
             a();
-            if (i2 <= 0 || i2 >= this.f73445d) {
-                i2 = this.f73445d;
+            if (i2 <= 0 || i2 >= this.f65872d) {
+                i2 = this.f65872d;
             }
             if (i2 <= 0) {
-                if (!this.f73447f) {
+                if (!this.f65874f) {
                     com.kwad.sdk.core.d.a.a(new PngjException("This should not happen"));
                 }
                 return fVar.b() ? -1 : 0;
             }
-            int a2 = fVar.a(this.f73444c, this.f73446e, i2);
+            int a2 = fVar.a(this.f65871c, this.f65873e, i2);
             if (a2 > 0) {
-                this.f73446e += a2;
-                int i3 = this.f73445d - a2;
-                this.f73445d = i3;
-                if (!f73442a && i3 < 0) {
+                this.f65873e += a2;
+                int i3 = this.f65872d - a2;
+                this.f65872d = i3;
+                if (!f65869a && i3 < 0) {
                     throw new AssertionError();
                 }
             }
@@ -141,19 +141,19 @@ public class a implements Closeable {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f73445d > 0 || this.f73447f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f65872d > 0 || this.f65874f) {
             return;
         }
         try {
-            this.f73446e = 0;
-            int read = this.f73443b.read(this.f73444c);
-            this.f73445d = read;
+            this.f65873e = 0;
+            int read = this.f65870b.read(this.f65871c);
+            this.f65872d = read;
             if (read == 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("This should not happen: stream.read(buf) returned 0"));
             } else if (read < 0) {
                 close();
             } else {
-                this.f73449h += read;
+                this.f65876h += read;
             }
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.a(new PngjException(e2));
@@ -163,7 +163,7 @@ public class a implements Closeable {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f73448g = z;
+            this.f65875g = z;
         }
     }
 
@@ -179,7 +179,7 @@ public class a implements Closeable {
                 }
                 i3 -= a2;
             }
-            if (f73442a || i3 == 0) {
+            if (f65869a || i3 == 0) {
                 return i2;
             }
             throw new AssertionError();
@@ -191,18 +191,18 @@ public class a implements Closeable {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f73447f = true;
-            this.f73444c = null;
-            this.f73445d = 0;
-            this.f73446e = 0;
-            InputStream inputStream = this.f73443b;
-            if (inputStream != null && this.f73448g) {
+            this.f65874f = true;
+            this.f65871c = null;
+            this.f65872d = 0;
+            this.f65873e = 0;
+            InputStream inputStream = this.f65870b;
+            if (inputStream != null && this.f65875g) {
                 try {
                     inputStream.close();
                 } catch (Exception unused) {
                 }
             }
-            this.f73443b = null;
+            this.f65870b = null;
         }
     }
 }

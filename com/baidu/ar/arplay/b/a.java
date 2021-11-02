@@ -20,10 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.iddetect.IdCardActivity;
 import com.yy.gslbsdk.db.DelayTB;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements ARPMessage.MessageHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -235,22 +234,22 @@ public class a implements ARPMessage.MessageHandler {
             return;
         }
         String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("event_name"), "");
-        a.C1628a c1628a = new a.C1628a();
+        a.C1585a c1585a = new a.C1585a();
         if ("load_webview".equals(a2)) {
-            c1628a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c1628a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
-            c1628a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
-            c1628a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c1628a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().c(c1628a);
+            c1585a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c1585a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
+            c1585a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
+            c1585a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c1585a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().c(c1585a);
         } else if ("update_webview_js".equals(a2)) {
-            c1628a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c1628a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
-            b.bm().e(c1628a);
+            c1585a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c1585a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
+            b.bm().e(c1585a);
         } else if ("load_native_webview".equals(a2)) {
-            c1628a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c1628a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().d(c1628a);
+            c1585a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c1585a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().d(c1585a);
         }
     }
 
@@ -278,7 +277,7 @@ public class a implements ARPMessage.MessageHandler {
             return;
         }
         c cVar = new c();
-        Object obj = hashMap.get(IdCardActivity.KEY_NUMBER);
+        Object obj = hashMap.get("number");
         if (obj != null) {
             cVar.G((String) obj);
         }

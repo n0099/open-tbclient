@@ -35,7 +35,7 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STYLE_BLOCK = 2;
@@ -90,7 +90,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     public ViewPager mViewPager;
     public float margin;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class InnerPagerAdapter extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

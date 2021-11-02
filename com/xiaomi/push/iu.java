@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ix;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class iu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final jb f78378a;
+    public final jb f71317a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final jk f804a;
+    public final jk f805a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public iu() {
@@ -50,18 +50,18 @@ public class iu {
             }
         }
         jk jkVar = new jk();
-        this.f804a = jkVar;
-        this.f78378a = jdVar.a(jkVar);
+        this.f805a = jkVar;
+        this.f71317a = jdVar.a(jkVar);
     }
 
     public void a(iq iqVar, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, iqVar, bArr) == null) {
             try {
-                this.f804a.a(bArr);
-                iqVar.a(this.f78378a);
+                this.f805a.a(bArr);
+                iqVar.a(this.f71317a);
             } finally {
-                this.f78378a.k();
+                this.f71317a.k();
             }
         }
     }

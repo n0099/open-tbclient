@@ -1,7 +1,7 @@
 package com.baidu.afd.videopaster.data;
 
 import android.text.TextUtils;
-import c.a.f.m.e.a;
+import b.a.f.m.e.a;
 import com.baidu.afd.ParseError;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoPasterResponseData extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TPL_IMAGE_TYPE = "ad_video_attach_image";
@@ -216,13 +216,13 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                             aVar5.t = 24;
                                         }
                                         a aVar6 = this.pasterData;
-                                        aVar6.f3312g = optString3;
+                                        aVar6.f2757g = optString3;
                                         aVar6.e(this.type);
                                         a aVar7 = this.pasterData;
-                                        aVar7.f3311f = optString2;
-                                        aVar7.f3315j = optInt;
-                                        aVar7.f3314i = optString5;
-                                        aVar7.f3313h = optString4;
+                                        aVar7.f2756f = optString2;
+                                        aVar7.j = optInt;
+                                        aVar7.f2759i = optString5;
+                                        aVar7.f2758h = optString4;
                                         aVar7.o = optString7;
                                         aVar7.n = optString6;
                                         aVar7.p = optString8;

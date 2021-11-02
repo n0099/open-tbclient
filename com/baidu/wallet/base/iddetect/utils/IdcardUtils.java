@@ -1,10 +1,14 @@
 package com.baidu.wallet.base.iddetect.utils;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import androidx.room.RoomMasterTable;
 import com.baidu.location.Address;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
+import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +18,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.tencent.connect.common.Constants;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,7 +25,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class IdcardUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHINA_ID_MAX_LENGTH = 18;
@@ -49,7 +52,7 @@ public final class IdcardUtils {
                 return;
             }
         }
-        CITYCODE = new String[]{"11", "12", "13", "14", "15", "21", Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "36", "37", "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
+        CITYCODE = new String[]{"11", "12", "13", "14", "15", "21", Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "31", "32", "33", "34", "35", VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, PayConfig.PAYMENT_POS_KEY_MANGA, "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
         POWER = new int[]{7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
         VERIFYCODE = new String[]{"1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"};
         cityCodes = new HashMap();
@@ -63,13 +66,13 @@ public final class IdcardUtils {
         cityCodes.put("21", "辽宁");
         cityCodes.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
         cityCodes.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "黑龙江");
-        cityCodes.put(EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, Address.Builder.SHANG_HAI);
-        cityCodes.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, "江苏");
-        cityCodes.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, "浙江");
-        cityCodes.put(EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, "安徽");
-        cityCodes.put(EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "福建");
-        cityCodes.put("36", "江西");
-        cityCodes.put("37", "山东");
+        cityCodes.put("31", Address.Builder.SHANG_HAI);
+        cityCodes.put("32", "江苏");
+        cityCodes.put("33", "浙江");
+        cityCodes.put("34", "安徽");
+        cityCodes.put("35", "福建");
+        cityCodes.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "江西");
+        cityCodes.put(PayConfig.PAYMENT_POS_KEY_MANGA, "山东");
         cityCodes.put("41", "河南");
         cityCodes.put(RoomMasterTable.DEFAULT_ID, "湖北");
         cityCodes.put("43", "湖南");
@@ -90,14 +93,14 @@ public final class IdcardUtils {
         cityCodes.put("81", "香港");
         cityCodes.put("82", "澳门");
         cityCodes.put("91", "国外");
-        twFirstCode.put("A", 10);
+        twFirstCode.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, 10);
         twFirstCode.put("B", 11);
         twFirstCode.put("C", 12);
         twFirstCode.put("D", 13);
-        twFirstCode.put("E", 14);
+        twFirstCode.put(ExifInterface.LONGITUDE_EAST, 14);
         twFirstCode.put("F", 15);
         twFirstCode.put("G", 16);
-        twFirstCode.put("H", 17);
+        twFirstCode.put(IEruptionStrategyGroup.STRATEGY_MODIFIER_H, 17);
         twFirstCode.put("J", 18);
         twFirstCode.put("K", 19);
         twFirstCode.put("L", 20);
@@ -106,24 +109,24 @@ public final class IdcardUtils {
         twFirstCode.put("P", 23);
         twFirstCode.put("Q", 24);
         twFirstCode.put("R", 25);
-        twFirstCode.put("S", 26);
-        twFirstCode.put("T", 27);
+        twFirstCode.put(ExifInterface.LATITUDE_SOUTH, 26);
+        twFirstCode.put(ExifInterface.GPS_DIRECTION_TRUE, 27);
         twFirstCode.put("U", 28);
-        twFirstCode.put("V", 29);
+        twFirstCode.put(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 29);
         twFirstCode.put("X", 30);
         twFirstCode.put("Y", 31);
-        twFirstCode.put("W", 32);
+        twFirstCode.put(ExifInterface.LONGITUDE_WEST, 32);
         twFirstCode.put("Z", 33);
         twFirstCode.put("I", 34);
         twFirstCode.put("O", 35);
-        hkFirstCode.put("A", 1);
+        hkFirstCode.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, 1);
         hkFirstCode.put("B", 2);
         hkFirstCode.put("C", 3);
         hkFirstCode.put("R", 18);
         hkFirstCode.put("U", 21);
         hkFirstCode.put("Z", 26);
         hkFirstCode.put("X", 24);
-        hkFirstCode.put("W", 23);
+        hkFirstCode.put(ExifInterface.LONGITUDE_WEST, 23);
         hkFirstCode.put("O", 15);
         hkFirstCode.put("N", 14);
     }

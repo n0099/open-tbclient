@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class bu implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59927a;
+    public final /* synthetic */ FeedbackInputActivity f56846a;
 
     public bu(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class bu implements Runnable {
                 return;
             }
         }
-        this.f59927a = feedbackInputActivity;
+        this.f56846a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -38,11 +38,11 @@ public final class bu implements Runnable {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context applicationContext = this.f59927a.getApplicationContext();
+            Context applicationContext = this.f56846a.getApplicationContext();
             String str = UfoSDK.clientid;
             String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
             if (c2 != null) {
-                handler = this.f59927a.aK;
+                handler = this.f56846a.aK;
                 handler.obtainMessage(0, c2).sendToTarget();
             }
         }

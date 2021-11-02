@@ -19,7 +19,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.commons.lang3.builder.Builder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StrBuilder implements CharSequence, Appendable, Serializable, Builder<String> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CAPACITY = 32;
@@ -30,7 +30,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
     public String nullText;
     public int size;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class StrBuilderTokenizer extends StrTokenizer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class StrBuilderWriter extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1055,7 +1055,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         return invokeII.intValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class StrBuilderReader extends Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1138,18 +1138,18 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         }
 
         @Override // java.io.Reader
-        public long skip(long j2) {
+        public long skip(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                if (this.pos + j2 > this.this$0.size()) {
-                    j2 = this.this$0.size() - this.pos;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                if (this.pos + j > this.this$0.size()) {
+                    j = this.this$0.size() - this.pos;
                 }
-                if (j2 < 0) {
+                if (j < 0) {
                     return 0L;
                 }
-                this.pos = (int) (this.pos + j2);
-                return j2;
+                this.pos = (int) (this.pos + j);
+                return j;
             }
             return invokeJ.longValue;
         }
@@ -1908,10 +1908,10 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         return (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i2)) == null) ? append(i2).appendNewLine() : (StrBuilder) invokeI.objValue;
     }
 
-    public StrBuilder appendln(long j2) {
+    public StrBuilder appendln(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j2)) == null) ? append(j2).appendNewLine() : (StrBuilder) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j)) == null) ? append(j).appendNewLine() : (StrBuilder) invokeJ.objValue;
     }
 
     public StrBuilder appendln(float f2) {
@@ -2123,10 +2123,10 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         return (interceptable == null || (invokeII = interceptable.invokeII(1048677, this, i2, i3)) == null) ? insert(i2, String.valueOf(i3)) : (StrBuilder) invokeII.objValue;
     }
 
-    public StrBuilder insert(int i2, long j2) {
+    public StrBuilder insert(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048678, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? insert(i2, String.valueOf(j2)) : (StrBuilder) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048678, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? insert(i2, String.valueOf(j)) : (StrBuilder) invokeCommon.objValue;
     }
 
     public StrBuilder insert(int i2, float f2) {
@@ -2381,10 +2381,10 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? append(String.valueOf(i2)) : (StrBuilder) invokeI.objValue;
     }
 
-    public StrBuilder append(long j2) {
+    public StrBuilder append(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) ? append(String.valueOf(j2)) : (StrBuilder) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? append(String.valueOf(j)) : (StrBuilder) invokeJ.objValue;
     }
 
     public StrBuilder append(float f2) {

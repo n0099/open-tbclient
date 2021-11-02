@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class dg implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f77835a;
+    public final /* synthetic */ df f70797a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f239a;
+    public final /* synthetic */ String f240a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Throwable f240a;
+    public final /* synthetic */ Throwable f241a;
 
     public dg(df dfVar, String str, Throwable th) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class dg implements Runnable {
                 return;
             }
         }
-        this.f77835a = dfVar;
-        this.f239a = str;
-        this.f240a = th;
+        this.f70797a = dfVar;
+        this.f240a = str;
+        this.f241a = th;
     }
 
     @Override // java.lang.Runnable
@@ -58,37 +58,37 @@ public class dg implements Runnable {
         String unused2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            list = df.f236a;
-            simpleDateFormat = df.f235a;
-            str = this.f77835a.f77833b;
-            list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f239a), this.f240a));
-            list2 = df.f236a;
+            list = df.f237a;
+            simpleDateFormat = df.f236a;
+            str = this.f70797a.f70795b;
+            list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f240a), this.f241a));
+            list2 = df.f237a;
             if (list2.size() > 20000) {
-                list3 = df.f236a;
+                list3 = df.f237a;
                 int size = (list3.size() - 20000) + 50;
                 for (int i2 = 0; i2 < size; i2++) {
                     try {
-                        list5 = df.f236a;
+                        list5 = df.f237a;
                         if (list5.size() > 0) {
-                            list6 = df.f236a;
+                            list6 = df.f237a;
                             list6.remove(0);
                         }
                     } catch (IndexOutOfBoundsException unused3) {
                     }
                 }
-                list4 = df.f236a;
-                simpleDateFormat2 = df.f235a;
-                str2 = this.f77835a.f77833b;
+                list4 = df.f237a;
+                simpleDateFormat2 = df.f236a;
+                str2 = this.f70797a.f70795b;
                 list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str2, "flush " + size + " lines logs."), null));
             }
             try {
                 if (aa.d()) {
-                    this.f77835a.m247a();
+                    this.f70797a.m247a();
                 } else {
-                    unused = this.f77835a.f77833b;
+                    unused = this.f70797a.f70795b;
                 }
             } catch (Exception unused4) {
-                unused2 = this.f77835a.f77833b;
+                unused2 = this.f70797a.f70795b;
             }
         }
     }

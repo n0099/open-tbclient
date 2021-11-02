@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface HttpStatus {
     public static final int SC_ACCEPTED = 202;
     public static final int SC_BAD_GATEWAY = 502;

@@ -13,7 +13,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class WebLoginDTO extends SapiWebDTO {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT = "extra_join_login_without_third_account";
@@ -40,7 +40,7 @@ public class WebLoginDTO extends SapiWebDTO {
     public String statExtra;
     public String uid;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Config {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GroupNewsPojo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int hide = 3;
@@ -198,10 +198,10 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    public void setTime(long j2) {
+    public void setTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.time = j2;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.time = j;
         }
     }
 
@@ -231,11 +231,11 @@ public class GroupNewsPojo implements Serializable {
             str2 = "apply_join_success";
         } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
             str2 = "kick_out";
-        } else if (str.equals("101")) {
+        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY)) {
             str2 = "group_name_change";
-        } else if (str.equals("102")) {
+        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY)) {
             str2 = "group_notice_change";
-        } else if (str.equals("103")) {
+        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY)) {
             str2 = "group_intro_change";
         } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE)) {
             str2 = "group_level_up";

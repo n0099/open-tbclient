@@ -3,7 +3,7 @@ package com.qq.e.comm.pi;
 import android.app.Activity;
 import com.qq.e.ads.nativ.express2.VideoOption2;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface UIADI2 extends LADI {
     void closeHalfScreenAD();
 

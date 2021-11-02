@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ForwardingSink implements Sink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,10 +75,10 @@ public abstract class ForwardingSink implements Sink {
     }
 
     @Override // okio.Sink
-    public void write(Buffer buffer, long j2) throws IOException {
+    public void write(Buffer buffer, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j2) == null) {
-            this.delegate.write(buffer, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j) == null) {
+            this.delegate.write(buffer, j);
         }
     }
 }

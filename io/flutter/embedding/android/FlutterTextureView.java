@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterTextureView extends TextureView implements RenderSurface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterTextureView";

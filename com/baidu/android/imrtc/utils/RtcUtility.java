@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RtcUtility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APPID = "appid";
@@ -182,14 +182,14 @@ public class RtcUtility {
         return invokeLLI.intValue;
     }
 
-    public static long readLongData(Context context, String str, long j2) {
+    public static long readLongData(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             if (context == null) {
                 return -1L;
             }
-            return context.getSharedPreferences(PREF_COMMON_DATA, 0).getLong(str, j2);
+            return context.getSharedPreferences(PREF_COMMON_DATA, 0).getLong(str, j);
         }
         return invokeCommon.longValue;
     }
@@ -200,10 +200,10 @@ public class RtcUtility {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65554, null, context, str, str2)) == null) ? context == null ? "" : context.getSharedPreferences(PREF_COMMON_DATA, 0).getString(str, str2) : (String) invokeLLL.objValue;
     }
 
-    public static void setAppId(Context context, long j2) {
+    public static void setAppId(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65555, null, context, j2) == null) {
-            writeLongData(context, "appid", j2);
+        if (interceptable == null || interceptable.invokeLJ(65555, null, context, j) == null) {
+            writeLongData(context, "appid", j);
         }
     }
 
@@ -221,10 +221,10 @@ public class RtcUtility {
         }
     }
 
-    public static void setIMUK(Context context, long j2) {
+    public static void setIMUK(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65558, null, context, j2) == null) {
-            writeLongData(context, "uk", j2);
+        if (interceptable == null || interceptable.invokeLJ(65558, null, context, j) == null) {
+            writeLongData(context, "uk", j);
         }
     }
 
@@ -270,10 +270,10 @@ public class RtcUtility {
         }
     }
 
-    public static void setRtcUserId(Context context, long j2) {
+    public static void setRtcUserId(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65565, null, context, j2) == null) {
-            writeLongData(context, KEY_RTC_USER_ID, j2);
+        if (interceptable == null || interceptable.invokeLJ(65565, null, context, j) == null) {
+            writeLongData(context, KEY_RTC_USER_ID, j);
         }
     }
 
@@ -291,10 +291,10 @@ public class RtcUtility {
         }
     }
 
-    public static void writeLongData(Context context, String str, long j2) {
+    public static void writeLongData(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65568, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
-            writeSPData(context, str, Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeCommon(65568, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+            writeSPData(context, str, Long.valueOf(j));
         }
     }
 

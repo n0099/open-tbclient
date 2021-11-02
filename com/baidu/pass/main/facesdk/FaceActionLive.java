@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FaceActionLive {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceActionLive";
@@ -61,16 +61,16 @@ public class FaceActionLive {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native int nativeActionLive(long j2, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, int[] iArr);
+    private native int nativeActionLive(long j, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, int[] iArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeActionLiveModelInit(long j2, byte[] bArr, byte[] bArr2);
+    public native int nativeActionLiveModelInit(long j, byte[] bArr, byte[] bArr2);
 
-    private native void nativeActionLoadConfig(long j2, BDFaceSDKActionConfig bDFaceSDKActionConfig);
+    private native void nativeActionLoadConfig(long j, BDFaceSDKActionConfig bDFaceSDKActionConfig);
 
-    private native int nativeClearHistory(long j2);
+    private native int nativeClearHistory(long j);
 
-    private native int nativeUninitActionLiveModel(long j2);
+    private native int nativeUninitActionLiveModel(long j);
 
     public int actionLive(BDFaceSDKCommon.BDFaceActionLiveType bDFaceActionLiveType, BDFaceImageInstance bDFaceImageInstance, float[] fArr, AtomicInteger atomicInteger) {
         InterceptResult invokeLLLL;

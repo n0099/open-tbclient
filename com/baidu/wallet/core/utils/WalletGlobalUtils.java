@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.LoadingDialog;
 import com.baidu.wallet.core.BaseActivity;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class WalletGlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Dialog f61171a = null;
+    public static Dialog f58061a = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public final class WalletGlobalUtils {
     public static void DismissLoadingDialog() {
         Dialog dialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = f61171a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = f58061a) == null) {
             return;
         }
         Context context = dialog.getContext();
@@ -69,11 +69,11 @@ public final class WalletGlobalUtils {
             return;
         }
         try {
-            f61171a.dismiss();
+            f58061a.dismiss();
         } catch (Throwable th) {
             LogUtil.e("globalUtils", "dialog Exception", th);
         }
-        f61171a = null;
+        f58061a = null;
     }
 
     public static void safeDismissDialog(BaseActivity baseActivity, int i2) {
@@ -106,10 +106,10 @@ public final class WalletGlobalUtils {
     public static void showLoadingDialog(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
-            if (f61171a == null) {
-                f61171a = new LoadingDialog(context);
+            if (f58061a == null) {
+                f58061a = new LoadingDialog(context);
             }
-            f61171a.show();
+            f58061a.show();
         }
     }
 }

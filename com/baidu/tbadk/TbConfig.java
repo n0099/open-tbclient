@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import c.a.q0.c0.c;
+import b.a.e.e.p.l;
+import b.a.q0.c0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TbConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSTRACT_AUTO = 0;
@@ -575,6 +575,7 @@ public class TbConfig {
     public static final String URL_GET_DEEPLINK_SCHEME = "c/s/getDeeplinkScheme";
     public static final String URL_GET_FORBIDDEN_FORUM = "c/u/user/getDislikeList";
     public static final String URL_GET_FORUM_MANAGER_RIGHTS = "c/f/forum/getForumMangerRights";
+    public static final String URL_GET_GAME_CODE = "c/c/item/giveOutGameCode";
     public static final String URL_GET_GRAFFITI_LIST = "c/f/pb/graffiti";
     public static final String URL_GET_HOME_PAGE_DATA = "c/f/index/homePage";
     public static final String URL_GET_HOT_RANKLIST_DATA = "c/f/recommend/topicList";
@@ -719,7 +720,7 @@ public class TbConfig {
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
         public static HashSet<Integer> sInterruptCMDs;
@@ -793,7 +794,7 @@ public class TbConfig {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";

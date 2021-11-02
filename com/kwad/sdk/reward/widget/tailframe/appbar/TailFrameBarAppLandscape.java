@@ -27,31 +27,31 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TailFrameBarAppLandscape extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f74057a;
+    public ImageView f66448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f74058b;
+    public TextView f66449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppScoreView f74059c;
+    public AppScoreView f66450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f74060d;
+    public TextView f66451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f74061e;
+    public TextView f66452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f74062f;
+    public TextProgressBar f66453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f74063g;
+    public ValueAnimator f66454g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TailFrameBarAppLandscape(Context context) {
@@ -121,34 +121,34 @@ public class TailFrameBarAppLandscape extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.ksad_video_tf_bar_app_landscape, this);
-            this.f74057a = (ImageView) findViewById(R.id.ksad_app_icon);
-            this.f74058b = (TextView) findViewById(R.id.ksad_app_name);
-            this.f74059c = (AppScoreView) findViewById(R.id.ksad_app_score);
-            this.f74060d = (TextView) findViewById(R.id.ksad_app_download_count);
-            this.f74061e = (TextView) findViewById(R.id.ksad_app_introduce);
+            this.f66448a = (ImageView) findViewById(R.id.ksad_app_icon);
+            this.f66449b = (TextView) findViewById(R.id.ksad_app_name);
+            this.f66450c = (AppScoreView) findViewById(R.id.ksad_app_score);
+            this.f66451d = (TextView) findViewById(R.id.ksad_app_download_count);
+            this.f66452e = (TextView) findViewById(R.id.ksad_app_introduce);
             TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_download_bar);
-            this.f74062f = textProgressBar;
+            this.f66453f = textProgressBar;
             textProgressBar.setTextDimen(av.a(getContext(), 16.0f));
-            this.f74062f.setTextColor(-1);
+            this.f66453f.setTextColor(-1);
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            ValueAnimator valueAnimator = this.f74063g;
+            ValueAnimator valueAnimator = this.f66454g;
             if (valueAnimator == null || !valueAnimator.isRunning()) {
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-                this.f74063g = ofFloat;
+                this.f66454g = ofFloat;
                 ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-                this.f74063g.setRepeatCount(-1);
-                this.f74063g.setRepeatMode(1);
-                this.f74063g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.1
+                this.f66454g.setRepeatCount(-1);
+                this.f66454g.setRepeatMode(1);
+                this.f66454g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TailFrameBarAppLandscape f74064a;
+                    public final /* synthetic */ TailFrameBarAppLandscape f66455a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -165,7 +165,7 @@ public class TailFrameBarAppLandscape extends LinearLayout {
                                 return;
                             }
                         }
-                        this.f74064a = this;
+                        this.f66455a = this;
                     }
 
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -173,12 +173,12 @@ public class TailFrameBarAppLandscape extends LinearLayout {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
                             float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                            this.f74064a.f74062f.setScaleY(floatValue);
-                            this.f74064a.f74062f.setScaleX(floatValue);
+                            this.f66455a.f66453f.setScaleY(floatValue);
+                            this.f66455a.f66453f.setScaleX(floatValue);
                         }
                     }
                 });
-                this.f74063g.start();
+                this.f66454g.start();
             }
         }
     }
@@ -186,9 +186,9 @@ public class TailFrameBarAppLandscape extends LinearLayout {
     public void a() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f74063g) != null && valueAnimator.isRunning()) {
-            this.f74063g.cancel();
-            this.f74063g.end();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f66454g) != null && valueAnimator.isRunning()) {
+            this.f66454g.cancel();
+            this.f66454g.end();
         }
     }
 
@@ -207,31 +207,31 @@ public class TailFrameBarAppLandscape extends LinearLayout {
     public TextProgressBar getTextProgressBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f74062f : (TextProgressBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f66453f : (TextProgressBar) invokeV.objValue;
     }
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, adTemplate) == null) {
             AdInfo i2 = c.i(adTemplate);
-            KSImageLoader.loadAppIcon(this.f74057a, a.n(i2), adTemplate, 16);
-            this.f74058b.setText(a.o(i2));
+            KSImageLoader.loadAppIcon(this.f66448a, a.n(i2), adTemplate, 16);
+            this.f66449b.setText(a.o(i2));
             float s = a.s(i2);
             if (s >= 3.0f) {
-                this.f74059c.setScore(s);
-                this.f74059c.setVisibility(0);
+                this.f66450c.setScore(s);
+                this.f66450c.setVisibility(0);
             } else {
-                this.f74059c.setVisibility(8);
+                this.f66450c.setVisibility(8);
             }
             String r = a.r(i2);
             if (TextUtils.isEmpty(r)) {
-                this.f74060d.setVisibility(8);
+                this.f66451d.setVisibility(8);
             } else {
-                this.f74060d.setText(r);
-                this.f74060d.setVisibility(0);
+                this.f66451d.setText(r);
+                this.f66451d.setVisibility(0);
             }
-            this.f74061e.setText(a.m(i2));
-            this.f74062f.a(a.u(i2), 0);
+            this.f66452e.setText(a.m(i2));
+            this.f66453f.a(a.u(i2), 0);
             a(c.i(adTemplate));
         }
     }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ImageUploadResult extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int CHUNK_ERROR = 2230203;
@@ -30,7 +30,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
     public picInfo picInfo;
     public String resourceId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class PicDetailedInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class picInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

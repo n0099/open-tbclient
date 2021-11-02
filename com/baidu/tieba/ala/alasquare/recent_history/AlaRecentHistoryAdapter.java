@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PAGE_COUNT = 2;
@@ -21,14 +21,14 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     public static final int PAGE_TYPE_WHOLE = 200;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f49526b;
+    public static final String[] f46977b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f49527c;
+    public static final int[] f46978c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Fragment[] f49528a;
+    public Fragment[] f46979a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,8 +43,8 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        f49526b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
-        f49527c = new int[]{100, 200};
+        f46977b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
+        f46978c = new int[]{100, 200};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,9 +66,9 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
             }
         }
         Fragment[] fragmentArr = new Fragment[2];
-        this.f49528a = fragmentArr;
+        this.f46979a = fragmentArr;
         fragmentArr[0] = AlaRecentHistoryFragment.newInstance(0);
-        this.f49528a[1] = AlaRecentHistoryFragment.newInstance(1);
+        this.f46979a[1] = AlaRecentHistoryFragment.newInstance(1);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -85,20 +85,20 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     public Fragment getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f49528a[i2] : (Fragment) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f46979a[i2] : (Fragment) invokeI.objValue;
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public int getPageType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? f49527c[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? f46978c[i2] : invokeI.intValue;
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public String getTabTitle(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? f49526b[i2] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? f46977b[i2] : (String) invokeI.objValue;
     }
 }

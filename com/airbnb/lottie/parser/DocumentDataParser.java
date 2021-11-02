@@ -5,7 +5,7 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.wallet.paysdk.b.j;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DocumentDataParser implements ValueParser<DocumentData> {
     public static final DocumentDataParser INSTANCE = new DocumentDataParser();
     public static final JsonReader.Options NAMES = JsonReader.Options.of("t", "f", "s", j.q, "tr", IAdRequestParam.QUERY_HEIGHT, "ls", "fc", "sc", "sw", "of");

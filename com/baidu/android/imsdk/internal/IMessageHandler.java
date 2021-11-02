@@ -45,7 +45,7 @@ import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class IMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_BODY_LENGTH = 1048576;
@@ -109,7 +109,7 @@ public abstract class IMessageHandler {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void handleDeliverMessage(JSONObject jSONObject) throws JSONException {
-        long j2;
+        long j;
         SyncStrategy generate;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(65538, this, jSONObject) != null) {
@@ -119,15 +119,15 @@ public abstract class IMessageHandler {
         int i2 = jSONObject.getInt("category");
         if (i2 == 0 && jSONObject.has("msgid")) {
             try {
-                j2 = jSONObject.getLong("msgid");
+                j = jSONObject.getLong("msgid");
             } catch (JSONException e2) {
                 LogUtils.i(TAG, "JSONException:" + e2.getMessage());
             }
             if (i2 != 0 || i2 == 2) {
                 generate = Generator.generate(this.mContext, 5);
                 if (generate == null) {
-                    if (j2 != -1) {
-                        generate.start(2, j2);
+                    if (j != -1) {
+                        generate.start(2, j);
                         return;
                     } else {
                         generate.start(2);
@@ -136,17 +136,17 @@ public abstract class IMessageHandler {
                 }
                 return;
             } else if (i2 == 1) {
-                long j3 = jSONObject.getLong("contacter");
-                long j4 = jSONObject.getLong("msgid");
-                LogUtils.i(TAG, "msgid : " + j4);
-                SyncGroupMessageService.getInstance().execute(this.mContext, i2, j3, j4, 2);
+                long j2 = jSONObject.getLong("contacter");
+                long j3 = jSONObject.getLong("msgid");
+                LogUtils.i(TAG, "msgid : " + j3);
+                SyncGroupMessageService.getInstance().execute(this.mContext, i2, j2, j3, 2);
                 return;
             } else {
                 LogUtils.e(TAG, "handleDeliverMessage category error!!");
                 return;
             }
         }
-        j2 = -1;
+        j = -1;
         if (i2 != 0) {
         }
         generate = Generator.generate(this.mContext, 5);

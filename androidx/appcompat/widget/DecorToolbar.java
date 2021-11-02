@@ -127,7 +127,7 @@ public interface DecorToolbar {
 
     void setWindowTitle(CharSequence charSequence);
 
-    ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j2);
+    ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j);
 
     boolean showOverflowMenu();
 }

@@ -23,7 +23,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Http2Reader implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
@@ -33,7 +33,7 @@ public final class Http2Reader implements Closeable {
     public final Hpack.Reader hpackReader;
     public final BufferedSource source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ContinuationSource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,10 +93,10 @@ public final class Http2Reader implements Closeable {
         }
 
         @Override // okio.Source
-        public long read(Buffer buffer, long j2) throws IOException {
+        public long read(Buffer buffer, long j) throws IOException {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) != null) {
+            if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) != null) {
                 return invokeLJ.longValue;
             }
             while (true) {
@@ -109,7 +109,7 @@ public final class Http2Reader implements Closeable {
                     }
                     readContinuationHeader();
                 } else {
-                    long read = this.source.read(buffer, Math.min(j2, i2));
+                    long read = this.source.read(buffer, Math.min(j, i2));
                     if (read == -1) {
                         return -1L;
                     }
@@ -127,11 +127,11 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Handler {
         void ackSettings();
 
-        void alternateService(int i2, String str, ByteString byteString, String str2, int i3, long j2);
+        void alternateService(int i2, String str, ByteString byteString, String str2, int i3, long j);
 
         void data(boolean z, int i2, BufferedSource bufferedSource, int i3) throws IOException;
 
@@ -149,7 +149,7 @@ public final class Http2Reader implements Closeable {
 
         void settings(boolean z, Settings settings);
 
-        void windowUpdate(int i2, long j2);
+        void windowUpdate(int i2, long j);
     }
 
     static {

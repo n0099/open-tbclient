@@ -2,7 +2,7 @@ package com.baidu.searchbox.anr.ioc;
 
 import android.content.Context;
 import com.baidu.searchbox.anr.impl.ANRInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IANRRegister {
     boolean checkEnable();
 

@@ -19,7 +19,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Download {
     public static /* synthetic */ Interceptable $ic;
     public static final DecimalFormat DFOEMAT;
@@ -56,7 +56,7 @@ public class Download {
     public String mUrl;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class DownloadState {
         public static final /* synthetic */ DownloadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -209,23 +209,23 @@ public class Download {
         this.mNotificationNeeded = false;
     }
 
-    private void addControlFlag(long j2) {
+    private void addControlFlag(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
-            this.mControlFlag = Long.valueOf(j2 | this.mControlFlag.longValue());
+        if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
+            this.mControlFlag = Long.valueOf(j | this.mControlFlag.longValue());
         }
     }
 
-    private boolean hasControlFlag(long j2) {
+    private boolean hasControlFlag(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j2)) == null) ? (j2 & this.mControlFlag.longValue()) > 0 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) ? (j & this.mControlFlag.longValue()) > 0 : invokeJ.booleanValue;
     }
 
-    private void removeControlFlag(long j2) {
+    private void removeControlFlag(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
-            this.mControlFlag = Long.valueOf((~j2) & this.mControlFlag.longValue());
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            this.mControlFlag = Long.valueOf((~j) & this.mControlFlag.longValue());
         }
     }
 

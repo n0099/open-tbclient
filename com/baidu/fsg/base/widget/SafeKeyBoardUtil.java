@@ -17,40 +17,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SafeKeyBoardUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39772a;
+    public String f37705a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f39773b;
+    public Context f37706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SafeKeyBoardEditText f39774c;
+    public SafeKeyBoardEditText f37707c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f39775d;
+    public ViewGroup f37708d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SafeScrollView f39776e;
+    public SafeScrollView f37709e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f39777f;
+    public View f37710f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39778g;
+    public int f37711g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39779h;
+    public int f37712h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39780i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f39781j;
+    public int f37713i;
+    public int j;
     public SafeKeyBoardPopupWindow mPopupWindow;
 
     public SafeKeyBoardUtil() {
@@ -70,26 +68,26 @@ public final class SafeKeyBoardUtil {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f39776e.getLayoutParams();
-            layoutParams.height = this.f39779h;
-            this.f39776e.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.f37709e.getLayoutParams();
+            layoutParams.height = this.f37712h;
+            this.f37709e.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.mPopupWindow == null || this.f39776e == null || this.f39777f == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.mPopupWindow == null || this.f37709e == null || this.f37710f == null) {
             return;
         }
-        this.f39778g = ((Activity) this.f39773b).getWindow().getDecorView().getBottom();
-        this.f39781j = this.mPopupWindow.getPopupWindowHeight();
+        this.f37711g = ((Activity) this.f37706b).getWindow().getDecorView().getBottom();
+        this.j = this.mPopupWindow.getPopupWindowHeight();
         int[] iArr = new int[2];
-        this.f39776e.getLocationOnScreen(iArr);
-        ViewGroup.LayoutParams layoutParams = this.f39776e.getLayoutParams();
-        layoutParams.height = (this.f39778g - this.f39781j) - iArr[1];
-        this.f39776e.setLayoutParams(layoutParams);
-        this.f39776e.post(new l(this));
+        this.f37709e.getLocationOnScreen(iArr);
+        ViewGroup.LayoutParams layoutParams = this.f37709e.getLayoutParams();
+        layoutParams.height = (this.f37711g - this.j) - iArr[1];
+        this.f37709e.setLayoutParams(layoutParams);
+        this.f37709e.post(new l(this));
     }
 
     public void hideSoftInputMethod(EditText editText) {
@@ -97,7 +95,7 @@ public final class SafeKeyBoardUtil {
         String message2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editText) == null) {
-            ((InputMethodManager) this.f39773b.getSystemService("input_method")).hideSoftInputFromWindow(this.f39774c.getWindowToken(), 0);
+            ((InputMethodManager) this.f37706b.getSystemService("input_method")).hideSoftInputFromWindow(this.f37707c.getWindowToken(), 0);
             if (Build.VERSION.SDK_INT < 11) {
                 editText.setInputType(0);
                 return;
@@ -149,17 +147,17 @@ public final class SafeKeyBoardUtil {
     public void init(Context context, ViewGroup viewGroup, SafeScrollView safeScrollView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup, safeScrollView) == null) {
-            this.f39773b = context;
-            this.f39775d = viewGroup;
-            this.f39776e = safeScrollView;
+            this.f37706b = context;
+            this.f37708d = viewGroup;
+            this.f37709e = safeScrollView;
             if (this.mPopupWindow == null) {
                 this.mPopupWindow = new SafeKeyBoardPopupWindow(context);
             }
             SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.mPopupWindow;
             if (safeKeyBoardPopupWindow == null || !safeKeyBoardPopupWindow.isShowing()) {
-                SafeScrollView safeScrollView2 = this.f39776e;
+                SafeScrollView safeScrollView2 = this.f37709e;
                 if (safeScrollView2 != null) {
-                    this.f39779h = safeScrollView2.getLayoutParams().height;
+                    this.f37712h = safeScrollView2.getLayoutParams().height;
                 } else {
                     LogUtil.errord("gaolou", "SafeKeyBoardUtil.init ++ mScrollView == null");
                 }
@@ -170,22 +168,22 @@ public final class SafeKeyBoardUtil {
     public void showSoftKeyBoard(SafeKeyBoardEditText safeKeyBoardEditText, View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, safeKeyBoardEditText, view) == null) {
-            this.f39774c = safeKeyBoardEditText;
-            this.f39777f = view;
+            this.f37707c = safeKeyBoardEditText;
+            this.f37710f = view;
             SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.mPopupWindow;
-            if (safeKeyBoardPopupWindow == null || safeKeyBoardEditText == null || view == null || this.f39776e == null || this.f39775d == null) {
+            if (safeKeyBoardPopupWindow == null || safeKeyBoardEditText == null || view == null || this.f37709e == null || this.f37708d == null) {
                 LogUtil.errord("gaolou", "SafeKeyBoardUtil.showSoftKeyBoard ++ View == null");
                 return;
             }
             safeKeyBoardPopupWindow.setSafeEditTet(safeKeyBoardEditText);
-            this.mPopupWindow.setScrollView(this.f39776e);
-            hideSoftInputMethod(this.f39774c);
-            if (this.f39776e.hasWindowFocus() && this.f39774c.isEnabled()) {
+            this.mPopupWindow.setScrollView(this.f37709e);
+            hideSoftInputMethod(this.f37707c);
+            if (this.f37709e.hasWindowFocus() && this.f37707c.isEnabled()) {
                 SafeKeyBoardPopupWindow safeKeyBoardPopupWindow2 = this.mPopupWindow;
-                if (safeKeyBoardPopupWindow2 != null && !safeKeyBoardPopupWindow2.isShowing() && this.f39776e.hasWindowFocus()) {
+                if (safeKeyBoardPopupWindow2 != null && !safeKeyBoardPopupWindow2.isShowing() && this.f37709e.hasWindowFocus()) {
                     this.mPopupWindow.initKeyNum(safeKeyBoardEditText.getUseRandKey());
                     try {
-                        this.mPopupWindow.showAtLocation(this.f39775d, 80, 0, 0);
+                        this.mPopupWindow.showAtLocation(this.f37708d, 80, 0, 0);
                         if (Build.VERSION.SDK_INT <= 23) {
                             this.mPopupWindow.update();
                         }

@@ -13,66 +13,66 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f77650a;
+    public static volatile b f70613a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f83a;
+    public Context f84a;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f84a;
+    public a f85a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f85a;
+    public String f86a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, a> f86a;
+    public Map<String, a> f87a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77651a;
+        public int f70614a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Context f87a;
+        public Context f88a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f88a;
+        public String f89a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f89a;
+        public boolean f90a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f77652b;
+        public String f70615b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f90b;
+        public boolean f91b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f77653c;
+        public String f70616c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f77654d;
+        public String f70617d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f77655e;
+        public String f70618e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f77656f;
+        public String f70619f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f77657g;
+        public String f70620g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f77658h;
+        public String f70621h;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -89,10 +89,10 @@ public class b {
                     return;
                 }
             }
-            this.f89a = true;
-            this.f90b = false;
-            this.f77651a = 1;
-            this.f87a = context;
+            this.f90a = true;
+            this.f91b = false;
+            this.f70614a = 1;
+            this.f88a = context;
         }
 
         public static a a(Context context, String str) {
@@ -102,16 +102,16 @@ public class b {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     a aVar = new a(context);
-                    aVar.f88a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                    aVar.f77652b = jSONObject.getString("appToken");
-                    aVar.f77653c = jSONObject.getString("regId");
-                    aVar.f77654d = jSONObject.getString("regSec");
-                    aVar.f77656f = jSONObject.getString("devId");
-                    aVar.f77655e = jSONObject.getString("vName");
-                    aVar.f89a = jSONObject.getBoolean("valid");
-                    aVar.f90b = jSONObject.getBoolean("paused");
-                    aVar.f77651a = jSONObject.getInt("envType");
-                    aVar.f77657g = jSONObject.getString("regResource");
+                    aVar.f89a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                    aVar.f70615b = jSONObject.getString("appToken");
+                    aVar.f70616c = jSONObject.getString("regId");
+                    aVar.f70617d = jSONObject.getString("regSec");
+                    aVar.f70619f = jSONObject.getString("devId");
+                    aVar.f70618e = jSONObject.getString("vName");
+                    aVar.f90a = jSONObject.getBoolean("valid");
+                    aVar.f91b = jSONObject.getBoolean("paused");
+                    aVar.f70614a = jSONObject.getInt("envType");
+                    aVar.f70620g = jSONObject.getString("regResource");
                     return aVar;
                 } catch (Throwable th) {
                     com.xiaomi.channel.commonutils.logger.b.a(th);
@@ -125,7 +125,7 @@ public class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                Context context = this.f87a;
+                Context context = this.f88a;
                 return com.xiaomi.push.g.m341a(context, context.getPackageName());
             }
             return (String) invokeV.objValue;
@@ -137,16 +137,16 @@ public class b {
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.f88a);
-                    jSONObject.put("appToken", aVar.f77652b);
-                    jSONObject.put("regId", aVar.f77653c);
-                    jSONObject.put("regSec", aVar.f77654d);
-                    jSONObject.put("devId", aVar.f77656f);
-                    jSONObject.put("vName", aVar.f77655e);
-                    jSONObject.put("valid", aVar.f89a);
-                    jSONObject.put("paused", aVar.f90b);
-                    jSONObject.put("envType", aVar.f77651a);
-                    jSONObject.put("regResource", aVar.f77657g);
+                    jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.f89a);
+                    jSONObject.put("appToken", aVar.f70615b);
+                    jSONObject.put("regId", aVar.f70616c);
+                    jSONObject.put("regSec", aVar.f70617d);
+                    jSONObject.put("devId", aVar.f70619f);
+                    jSONObject.put("vName", aVar.f70618e);
+                    jSONObject.put("valid", aVar.f90a);
+                    jSONObject.put("paused", aVar.f91b);
+                    jSONObject.put("envType", aVar.f70614a);
+                    jSONObject.put("regResource", aVar.f70620g);
                     return jSONObject.toString();
                 } catch (Throwable th) {
                     com.xiaomi.channel.commonutils.logger.b.a(th);
@@ -160,46 +160,46 @@ public class b {
         public void m127a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a(this.f87a).edit().clear().commit();
-                this.f88a = null;
-                this.f77652b = null;
-                this.f77653c = null;
-                this.f77654d = null;
-                this.f77656f = null;
-                this.f77655e = null;
-                this.f89a = false;
-                this.f90b = false;
-                this.f77658h = null;
-                this.f77651a = 1;
+                b.a(this.f88a).edit().clear().commit();
+                this.f89a = null;
+                this.f70615b = null;
+                this.f70616c = null;
+                this.f70617d = null;
+                this.f70619f = null;
+                this.f70618e = null;
+                this.f90a = false;
+                this.f91b = false;
+                this.f70621h = null;
+                this.f70614a = 1;
             }
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f77651a = i2;
+                this.f70614a = i2;
             }
         }
 
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                this.f77653c = str;
-                this.f77654d = str2;
-                this.f77656f = com.xiaomi.push.i.l(this.f87a);
-                this.f77655e = a();
-                this.f89a = true;
+                this.f70616c = str;
+                this.f70617d = str2;
+                this.f70619f = com.xiaomi.push.i.l(this.f88a);
+                this.f70618e = a();
+                this.f90a = true;
             }
         }
 
         public void a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-                this.f88a = str;
-                this.f77652b = str2;
-                this.f77657g = str3;
-                SharedPreferences.Editor edit = b.a(this.f87a).edit();
-                edit.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f88a);
+                this.f89a = str;
+                this.f70615b = str2;
+                this.f70620g = str3;
+                SharedPreferences.Editor edit = b.a(this.f88a).edit();
+                edit.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f89a);
                 edit.putString("appToken", str2);
                 edit.putString("regResource", str3);
                 edit.commit();
@@ -209,7 +209,7 @@ public class b {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                this.f90b = z;
+                this.f91b = z;
             }
         }
 
@@ -217,7 +217,7 @@ public class b {
         public boolean m128a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m129a(this.f88a, this.f77652b) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m129a(this.f89a, this.f70615b) : invokeV.booleanValue;
         }
 
         /* renamed from: a  reason: collision with other method in class */
@@ -225,11 +225,11 @@ public class b {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-                boolean equals = TextUtils.equals(this.f88a, str);
-                boolean equals2 = TextUtils.equals(this.f77652b, str2);
-                boolean z = !TextUtils.isEmpty(this.f77653c);
-                boolean z2 = !TextUtils.isEmpty(this.f77654d);
-                boolean z3 = TextUtils.equals(this.f77656f, com.xiaomi.push.i.l(this.f87a)) || TextUtils.equals(this.f77656f, com.xiaomi.push.i.k(this.f87a));
+                boolean equals = TextUtils.equals(this.f89a, str);
+                boolean equals2 = TextUtils.equals(this.f70615b, str2);
+                boolean z = !TextUtils.isEmpty(this.f70616c);
+                boolean z2 = !TextUtils.isEmpty(this.f70617d);
+                boolean z3 = TextUtils.equals(this.f70619f, com.xiaomi.push.i.l(this.f88a)) || TextUtils.equals(this.f70619f, com.xiaomi.push.i.k(this.f88a));
                 boolean z4 = equals && equals2 && z && z2 && z3;
                 if (!z4) {
                     com.xiaomi.channel.commonutils.logger.b.e(String.format("register invalid, aid=%s;atn=%s;rid=%s;rse=%s;did=%s", Boolean.valueOf(equals), Boolean.valueOf(equals2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)));
@@ -242,24 +242,24 @@ public class b {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f89a = false;
-                b.a(this.f87a).edit().putBoolean("valid", this.f89a).commit();
+                this.f90a = false;
+                b.a(this.f88a).edit().putBoolean("valid", this.f90a).commit();
             }
         }
 
         public void b(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3) == null) {
-                this.f77653c = str;
-                this.f77654d = str2;
-                this.f77656f = com.xiaomi.push.i.l(this.f87a);
-                this.f77655e = a();
-                this.f89a = true;
-                this.f77658h = str3;
-                SharedPreferences.Editor edit = b.a(this.f87a).edit();
+                this.f70616c = str;
+                this.f70617d = str2;
+                this.f70619f = com.xiaomi.push.i.l(this.f88a);
+                this.f70618e = a();
+                this.f90a = true;
+                this.f70621h = str3;
+                SharedPreferences.Editor edit = b.a(this.f88a).edit();
                 edit.putString("regId", str);
                 edit.putString("regSec", str2);
-                edit.putString("devId", this.f77656f);
+                edit.putString("devId", this.f70619f);
                 edit.putString("vName", a());
                 edit.putBoolean("valid", true);
                 edit.putString("appRegion", str3);
@@ -270,9 +270,9 @@ public class b {
         public void c(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048585, this, str, str2, str3) == null) {
-                this.f88a = str;
-                this.f77652b = str2;
-                this.f77657g = str3;
+                this.f89a = str;
+                this.f70615b = str2;
+                this.f70620g = str3;
             }
         }
     }
@@ -292,7 +292,7 @@ public class b {
                 return;
             }
         }
-        this.f83a = context;
+        this.f84a = context;
         c();
     }
 
@@ -307,14 +307,14 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f77650a == null) {
+            if (f70613a == null) {
                 synchronized (b.class) {
-                    if (f77650a == null) {
-                        f77650a = new b(context);
+                    if (f70613a == null) {
+                        f70613a = new b(context);
                     }
                 }
             }
-            return f77650a;
+            return f70613a;
         }
         return (b) invokeL.objValue;
     }
@@ -322,45 +322,45 @@ public class b {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f84a = new a(this.f83a);
-            this.f86a = new HashMap();
-            SharedPreferences a2 = a(this.f83a);
-            this.f84a.f88a = a2.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, null);
-            this.f84a.f77652b = a2.getString("appToken", null);
-            this.f84a.f77653c = a2.getString("regId", null);
-            this.f84a.f77654d = a2.getString("regSec", null);
-            this.f84a.f77656f = a2.getString("devId", null);
-            if (!TextUtils.isEmpty(this.f84a.f77656f) && com.xiaomi.push.i.m441a(this.f84a.f77656f)) {
-                this.f84a.f77656f = com.xiaomi.push.i.l(this.f83a);
-                a2.edit().putString("devId", this.f84a.f77656f).commit();
+            this.f85a = new a(this.f84a);
+            this.f87a = new HashMap();
+            SharedPreferences a2 = a(this.f84a);
+            this.f85a.f89a = a2.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, null);
+            this.f85a.f70615b = a2.getString("appToken", null);
+            this.f85a.f70616c = a2.getString("regId", null);
+            this.f85a.f70617d = a2.getString("regSec", null);
+            this.f85a.f70619f = a2.getString("devId", null);
+            if (!TextUtils.isEmpty(this.f85a.f70619f) && com.xiaomi.push.i.m441a(this.f85a.f70619f)) {
+                this.f85a.f70619f = com.xiaomi.push.i.l(this.f84a);
+                a2.edit().putString("devId", this.f85a.f70619f).commit();
             }
-            this.f84a.f77655e = a2.getString("vName", null);
-            this.f84a.f89a = a2.getBoolean("valid", true);
-            this.f84a.f90b = a2.getBoolean("paused", false);
-            this.f84a.f77651a = a2.getInt("envType", 1);
-            this.f84a.f77657g = a2.getString("regResource", null);
-            this.f84a.f77658h = a2.getString("appRegion", null);
+            this.f85a.f70618e = a2.getString("vName", null);
+            this.f85a.f90a = a2.getBoolean("valid", true);
+            this.f85a.f91b = a2.getBoolean("paused", false);
+            this.f85a.f70614a = a2.getInt("envType", 1);
+            this.f85a.f70620g = a2.getString("regResource", null);
+            this.f85a.f70621h = a2.getString("appRegion", null);
         }
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f84a.f77651a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f85a.f70614a : invokeV.intValue;
     }
 
     public a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f86a.containsKey(str)) {
-                return this.f86a.get(str);
+            if (this.f87a.containsKey(str)) {
+                return this.f87a.get(str);
             }
             String str2 = "hybrid_app_info_" + str;
-            SharedPreferences a2 = a(this.f83a);
+            SharedPreferences a2 = a(this.f84a);
             if (a2.contains(str2)) {
-                a a3 = a.a(this.f83a, a2.getString(str2, ""));
-                this.f86a.put(str2, a3);
+                a a3 = a.a(this.f84a, a2.getString(str2, ""));
+                this.f87a.put(str2, a3);
                 return a3;
             }
             return null;
@@ -372,22 +372,22 @@ public class b {
     public String m115a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f84a.f88a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f85a.f89a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m116a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f84a.m127a();
+            this.f85a.m127a();
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f84a.a(i2);
-            a(this.f83a).edit().putInt("envType", i2).commit();
+            this.f85a.a(i2);
+            a(this.f84a).edit().putInt("envType", i2).commit();
         }
     }
 
@@ -395,34 +395,34 @@ public class b {
     public void m117a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            SharedPreferences.Editor edit = a(this.f83a).edit();
+            SharedPreferences.Editor edit = a(this.f84a).edit();
             edit.putString("vName", str);
             edit.commit();
-            this.f84a.f77655e = str;
+            this.f85a.f70618e = str;
         }
     }
 
     public void a(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, aVar) == null) {
-            this.f86a.put(str, aVar);
+            this.f87a.put(str, aVar);
             String a2 = a.a(aVar);
-            a(this.f83a).edit().putString("hybrid_app_info_" + str, a2).commit();
+            a(this.f84a).edit().putString("hybrid_app_info_" + str, a2).commit();
         }
     }
 
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
-            this.f84a.a(str, str2, str3);
+            this.f85a.a(str, str2, str3);
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f84a.a(z);
-            a(this.f83a).edit().putBoolean("paused", z).commit();
+            this.f85a.a(z);
+            a(this.f84a).edit().putBoolean("paused", z).commit();
         }
     }
 
@@ -431,8 +431,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Context context = this.f83a;
-            return !TextUtils.equals(com.xiaomi.push.g.m341a(context, context.getPackageName()), this.f84a.f77655e);
+            Context context = this.f84a;
+            return !TextUtils.equals(com.xiaomi.push.g.m341a(context, context.getPackageName()), this.f85a.f70618e);
         }
         return invokeV.booleanValue;
     }
@@ -440,7 +440,7 @@ public class b {
     public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? this.f84a.m129a(str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? this.f85a.m129a(str, str2) : invokeLL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -449,7 +449,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, str2, str3)) == null) {
             a a2 = a(str3);
-            return a2 != null && TextUtils.equals(str, a2.f88a) && TextUtils.equals(str2, a2.f77652b);
+            return a2 != null && TextUtils.equals(str, a2.f89a) && TextUtils.equals(str2, a2.f70615b);
         }
         return invokeLLL.booleanValue;
     }
@@ -457,29 +457,29 @@ public class b {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f84a.f77652b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f85a.f70615b : (String) invokeV.objValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
     public void m120b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f84a.b();
+            this.f85a.b();
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f86a.remove(str);
-            a(this.f83a).edit().remove("hybrid_app_info_" + str).commit();
+            this.f87a.remove(str);
+            a(this.f84a).edit().remove("hybrid_app_info_" + str).commit();
         }
     }
 
     public void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048591, this, str, str2, str3) == null) {
-            this.f84a.b(str, str2, str3);
+            this.f85a.b(str, str2, str3);
         }
     }
 
@@ -488,7 +488,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.f84a.m128a()) {
+            if (this.f85a.m128a()) {
                 return true;
             }
             com.xiaomi.channel.commonutils.logger.b.m73a("Don't send message before initialization succeeded!");
@@ -501,52 +501,52 @@ public class b {
     public String m122c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f84a.f77653c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f85a.f70616c : (String) invokeV.objValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
     public boolean m123c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f84a.m128a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f85a.m128a() : invokeV.booleanValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f84a.f77654d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f85a.f70617d : (String) invokeV.objValue;
     }
 
     /* renamed from: d  reason: collision with other method in class */
     public boolean m124d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (TextUtils.isEmpty(this.f84a.f88a) || TextUtils.isEmpty(this.f84a.f77652b) || TextUtils.isEmpty(this.f84a.f77653c) || TextUtils.isEmpty(this.f84a.f77654d)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (TextUtils.isEmpty(this.f85a.f89a) || TextUtils.isEmpty(this.f85a.f70615b) || TextUtils.isEmpty(this.f85a.f70616c) || TextUtils.isEmpty(this.f85a.f70617d)) ? false : true : invokeV.booleanValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f84a.f77657g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f85a.f70620g : (String) invokeV.objValue;
     }
 
     /* renamed from: e  reason: collision with other method in class */
     public boolean m125e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f84a.f90b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f85a.f91b : invokeV.booleanValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f84a.f77658h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f85a.f70621h : (String) invokeV.objValue;
     }
 
     /* renamed from: f  reason: collision with other method in class */
     public boolean m126f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? !this.f84a.f89a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? !this.f85a.f90a : invokeV.booleanValue;
     }
 }

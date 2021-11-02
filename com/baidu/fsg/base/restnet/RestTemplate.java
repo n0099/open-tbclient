@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RestTemplate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RestTemplate";
@@ -37,13 +37,13 @@ public class RestTemplate {
     public List<RestHttpRequestInterceptor> requestInterceptors;
 
     /* renamed from: com.baidu.fsg.base.restnet.RestTemplate$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class AcceptHeaderRequestInterceptor implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

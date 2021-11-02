@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.p0.o.a.a.k;
-import c.a.p0.o.a.a.m;
+import b.a.p0.o.a.a.l;
+import b.a.p0.o.a.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<FragmentState> CREATOR;
@@ -31,7 +31,7 @@ public final class FragmentState implements Parcelable {
     public Bundle mSavedFragmentState;
     public final String mTag;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<FragmentState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public final class FragmentState implements Parcelable {
             }
         }
         this.mClassName = fragment.getClass().getName();
-        this.mIndex = fragment.f47247j;
+        this.mIndex = fragment.j;
         this.mFromLayout = fragment.s;
         this.mFragmentId = fragment.A;
         this.mContainerId = fragment.B;
@@ -121,26 +121,26 @@ public final class FragmentState implements Parcelable {
         return invokeV.intValue;
     }
 
-    public Fragment instantiate(k kVar, Fragment fragment) {
+    public Fragment instantiate(l lVar, Fragment fragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar, fragment)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, fragment)) == null) {
             Fragment fragment2 = this.mInstance;
             if (fragment2 != null) {
                 return fragment2;
             }
-            Context h2 = kVar.h();
+            Context context = lVar.getContext();
             Bundle bundle = this.mArguments;
             if (bundle != null) {
-                bundle.setClassLoader(h2.getClassLoader());
+                bundle.setClassLoader(context.getClassLoader());
             }
-            this.mInstance = Fragment.l0(h2, this.mClassName, this.mArguments);
+            this.mInstance = Fragment.i0(context, this.mClassName, this.mArguments);
             Bundle bundle2 = this.mSavedFragmentState;
             if (bundle2 != null) {
-                bundle2.setClassLoader(h2.getClassLoader());
-                this.mInstance.f47245h = this.mSavedFragmentState;
+                bundle2.setClassLoader(context.getClassLoader());
+                this.mInstance.f44864h = this.mSavedFragmentState;
             }
-            this.mInstance.i1(this.mIndex, fragment);
+            this.mInstance.e1(this.mIndex, fragment);
             Fragment fragment3 = this.mInstance;
             fragment3.s = this.mFromLayout;
             fragment3.u = true;
@@ -149,8 +149,8 @@ public final class FragmentState implements Parcelable {
             fragment3.C = this.mTag;
             fragment3.F = this.mRetainInstance;
             fragment3.E = this.mDetached;
-            fragment3.w = kVar.f12112d;
-            if (m.x) {
+            fragment3.w = lVar.f11291e;
+            if (n.x) {
                 String str = "Instantiated fragment " + this.mInstance;
             }
             return this.mInstance;

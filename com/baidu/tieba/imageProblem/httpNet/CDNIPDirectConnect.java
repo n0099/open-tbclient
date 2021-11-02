@@ -13,12 +13,12 @@ import android.os.Looper;
 import android.os.Message;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.c;
-import c.a.e.e.p.j;
-import c.a.e.e.p.l;
-import c.a.q0.d1.r;
-import c.a.q0.o.a;
-import c.a.q0.s.d0.b;
+import b.a.e.e.p.c;
+import b.a.e.e.p.j;
+import b.a.e.e.p.l;
+import b.a.q0.d1.r;
+import b.a.q0.o.a;
+import b.a.q0.s.e0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -39,37 +39,37 @@ import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import org.apache.http.client.methods.HttpGet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CDNIPDirectConnect extends ICDNIPDirectConnect {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile CDNIPDirectConnect f53690h;
+    public static volatile CDNIPDirectConnect f50923h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f53691a;
+    public long f50924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f53692b;
+    public boolean f50925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CdnCacheItem f53693c;
+    public CdnCacheItem f50926c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IPListReceiver f53694d;
+    public IPListReceiver f50927d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbCdnMobileGetIpModel f53695e;
+    public TbCdnMobileGetIpModel f50928e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f53696f;
+    public a f50929f;
     @SuppressLint({"HandlerLeak"})
 
     /* renamed from: g  reason: collision with root package name */
-    public final Handler f53697g;
+    public final Handler f50930g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class CDNNetworkChangeReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MOBILE = 2;
@@ -129,7 +129,7 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class IPListReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,9 +160,9 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
                 ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_KEY);
                 boolean z = false;
                 if (intent.getBooleanExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_ISMOBILE, false)) {
-                    this.this$0.f53693c.setMobileIpList(stringArrayListExtra);
+                    this.this$0.f50926c.setMobileIpList(stringArrayListExtra);
                     CDNIPDirectConnect cDNIPDirectConnect = this.this$0;
-                    cDNIPDirectConnect.k(cDNIPDirectConnect.f53693c);
+                    cDNIPDirectConnect.k(cDNIPDirectConnect.f50926c);
                     return;
                 }
                 boolean booleanExtra = intent.getBooleanExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_NEED_USEIP, false);
@@ -171,12 +171,12 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
                 if ((1 == intExtra || 2 == intExtra) && size > 0) {
                     z = true;
                 } else if ((1 == intExtra || 2 == intExtra) && size == 0) {
-                    this.this$0.f53692b = true;
+                    this.this$0.f50925b = true;
                 }
-                this.this$0.f53693c.setIpList(stringArrayListExtra, booleanExtra, z);
+                this.this$0.f50926c.setIpList(stringArrayListExtra, booleanExtra, z);
                 if (size > 0) {
                     CDNIPDirectConnect cDNIPDirectConnect2 = this.this$0;
-                    cDNIPDirectConnect2.k(cDNIPDirectConnect2.f53693c);
+                    cDNIPDirectConnect2.k(cDNIPDirectConnect2.f50926c);
                 }
             }
         }
@@ -195,12 +195,12 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
                 return;
             }
         }
-        this.f53691a = 0L;
-        this.f53692b = false;
-        this.f53693c = null;
-        this.f53694d = null;
-        this.f53696f = null;
-        this.f53697g = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect.1
+        this.f50924a = 0L;
+        this.f50925b = false;
+        this.f50926c = null;
+        this.f50927d = null;
+        this.f50929f = null;
+        this.f50930g = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -241,14 +241,14 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f53690h == null) {
+            if (f50923h == null) {
                 synchronized (CDNIPDirectConnect.class) {
-                    if (f53690h == null) {
-                        f53690h = new CDNIPDirectConnect();
+                    if (f50923h == null) {
+                        f50923h = new CDNIPDirectConnect();
                     }
                 }
             }
-            return f53690h;
+            return f50923h;
         }
         return (CDNIPDirectConnect) invokeV.objValue;
     }
@@ -305,18 +305,18 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
             CdnCacheItem g2 = g();
             long currentTimeMillis = System.currentTimeMillis();
             if (g2 != null) {
-                long j2 = g2.firstUseIpTime;
-                if (j2 > 0 && currentTimeMillis - j2 < 604800000) {
-                    this.f53693c = g2;
+                long j = g2.firstUseIpTime;
+                if (j > 0 && currentTimeMillis - j < 604800000) {
+                    this.f50926c = g2;
                 }
             }
-            if (this.f53693c == null) {
+            if (this.f50926c == null) {
                 CdnCacheItem cdnCacheItem = new CdnCacheItem();
-                this.f53693c = cdnCacheItem;
+                this.f50926c = cdnCacheItem;
                 cdnCacheItem.firstUseIpTime = currentTimeMillis;
                 cdnCacheItem.identifier = getNetIdentifier();
             }
-            CdnCacheItem cdnCacheItem2 = this.f53693c;
+            CdnCacheItem cdnCacheItem2 = this.f50926c;
             if (0 == cdnCacheItem2.firstUseIpTime) {
                 cdnCacheItem2.firstUseIpTime = currentTimeMillis;
             }
@@ -344,14 +344,14 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
     public String getAllIPListCanUsed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53693c.getAllIpFromItem() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50926c.getAllIpFromItem() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect
     public a getCDNImageTimeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53696f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f50929f : (a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect
@@ -360,10 +360,10 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             if (j.H()) {
-                return this.f53693c.getIpString(i2);
+                return this.f50926c.getIpString(i2);
             }
-            if (this.f53696f.f13643g) {
-                return this.f53693c.getMobileCdnIp(i2);
+            if (this.f50929f.f12778g) {
+                return this.f50926c.getMobileCdnIp(i2);
             }
             return null;
         }
@@ -408,9 +408,9 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f53696f.f13643g) {
-            this.f53693c.mobileLastTachometerTime = System.currentTimeMillis();
-            this.f53695e.startGetMobileIpList();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f50929f.f12778g) {
+            this.f50926c.mobileLastTachometerTime = System.currentTimeMillis();
+            this.f50928e.startGetMobileIpList();
         }
     }
 
@@ -419,8 +419,8 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            CdnCacheItem cdnCacheItem = this.f53693c;
-            return (cdnCacheItem != null ? cdnCacheItem.hasImageProblem() : false) || this.f53692b;
+            CdnCacheItem cdnCacheItem = this.f50926c;
+            return (cdnCacheItem != null ? cdnCacheItem.hasImageProblem() : false) || this.f50925b;
         }
         return invokeV.booleanValue;
     }
@@ -476,13 +476,13 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             try {
-                this.f53696f = new a();
-                this.f53695e = new TbCdnMobileGetIpModel();
+                this.f50929f = new a();
+                this.f50928e = new TbCdnMobileGetIpModel();
                 f();
-                this.f53694d = new IPListReceiver();
+                this.f50927d = new IPListReceiver();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION);
-                TbadkCoreApplication.getInst().getApp().registerReceiver(this.f53694d, intentFilter);
+                TbadkCoreApplication.getInst().getApp().registerReceiver(this.f50927d, intentFilter);
                 if (TbadkCoreApplication.getInst().isMainProcess(true) && l.C()) {
                     try {
                         TbadkCoreApplication.getInst().getApp().registerReceiver(new CDNNetworkChangeReceiver(this), new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
@@ -490,7 +490,7 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
                         BdLog.e(e2.getMessage());
                     }
                 }
-                this.f53697g.sendEmptyMessageDelayed(1003, 10000L);
+                this.f50930g.sendEmptyMessageDelayed(1003, 10000L);
                 this.isAlreadyInit = true;
             } catch (Exception e3) {
                 BdLog.e(e3);
@@ -502,7 +502,7 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
     public boolean isShouldCDNFallBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f53692b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f50925b : invokeV.booleanValue;
     }
 
     public final HttpGet j(String str, int i2) {
@@ -510,8 +510,8 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         String mobileCdnIp;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, str, i2)) == null) {
-            if (this.f53696f.f13643g && (mobileCdnIp = this.f53693c.getMobileCdnIp(i2)) != null) {
-                if (System.currentTimeMillis() - this.f53693c.mobileLastTachometerTime > 3600000) {
+            if (this.f50929f.f12778g && (mobileCdnIp = this.f50926c.getMobileCdnIp(i2)) != null) {
+                if (System.currentTimeMillis() - this.f50926c.mobileLastTachometerTime > 3600000) {
                     h();
                 }
                 return i(str, mobileCdnIp);
@@ -528,9 +528,9 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
             return;
         }
         try {
-            String j2 = c.j(e2);
-            if (j2 != null) {
-                b.j().x("cdn_iplist_cache_key_three", j2);
+            String j = c.j(e2);
+            if (j != null) {
+                b.j().x("cdn_iplist_cache_key_three", j);
             }
         } catch (Exception e3) {
             BdLog.e(e3);
@@ -542,8 +542,8 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         String ipString;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, str, i2)) == null) {
-            if (this.f53693c.getIsUsedIp() && (ipString = this.f53693c.getIpString(i2)) != null) {
-                if (System.currentTimeMillis() - this.f53693c.lastTachometerTime > 3600000) {
+            if (this.f50926c.getIsUsedIp() && (ipString = this.f50926c.getIpString(i2)) != null) {
+                if (System.currentTimeMillis() - this.f50926c.lastTachometerTime > 3600000) {
                     regetCdnIpList();
                 }
                 return i(str, ipString);
@@ -558,12 +558,12 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             String netIdentifier = getNetIdentifier();
-            String str = this.f53693c.identifier;
+            String str = this.f50926c.identifier;
             boolean z = (str == null || netIdentifier == null || str.equals(netIdentifier)) ? false : true;
             if (j.H()) {
-                CdnCacheItem cdnCacheItem = this.f53693c;
-                if (cdnCacheItem.lastTachometerTime == 0 || z || (cdnCacheItem.getIsUsedIp() && currentTimeMillis - this.f53693c.lastTachometerTime > 3600000)) {
-                    CdnCacheItem cdnCacheItem2 = this.f53693c;
+                CdnCacheItem cdnCacheItem = this.f50926c;
+                if (cdnCacheItem.lastTachometerTime == 0 || z || (cdnCacheItem.getIsUsedIp() && currentTimeMillis - this.f50926c.lastTachometerTime > 3600000)) {
+                    CdnCacheItem cdnCacheItem2 = this.f50926c;
                     cdnCacheItem2.lastTachometerTime = currentTimeMillis;
                     cdnCacheItem2.identifier = netIdentifier;
                     TbCDNTachometerService.startTachometerService(TbadkCoreApplication.getInst().getApp(), true, false);
@@ -571,9 +571,9 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
                 }
                 return;
             }
-            CdnCacheItem cdnCacheItem3 = this.f53693c;
-            if (cdnCacheItem3.mobileLastTachometerTime == 0 || z || (cdnCacheItem3.mobileIsUsedIp() && currentTimeMillis - this.f53693c.mobileLastTachometerTime > 3600000)) {
-                this.f53693c.identifier = netIdentifier;
+            CdnCacheItem cdnCacheItem3 = this.f50926c;
+            if (cdnCacheItem3.mobileLastTachometerTime == 0 || z || (cdnCacheItem3.mobileIsUsedIp() && currentTimeMillis - this.f50926c.mobileLastTachometerTime > 3600000)) {
+                this.f50926c.identifier = netIdentifier;
                 h();
             }
         }
@@ -583,8 +583,8 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.f53691a = currentTimeMillis;
-            this.f53693c.lastTachometerTime = currentTimeMillis;
+            this.f50924a = currentTimeMillis;
+            this.f50926c.lastTachometerTime = currentTimeMillis;
             TbCDNTachometerService.startTachometerService(TbadkCoreApplication.getInst().getApp(), false, false);
         }
     }
@@ -605,22 +605,22 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         }
         if (z3) {
             if (str2 != null && str2.length() > 0) {
-                if (this.f53693c.setIPRank(d2, 100.0f, str2) >= 100.0f) {
+                if (this.f50926c.setIPRank(d2, 100.0f, str2) >= 100.0f) {
                     regetCdnIpList();
-                    k(this.f53693c);
+                    k(this.f50926c);
                 }
-            } else if (this.f53693c.setCdnDomainRank(d2, 100.0f) >= 100.0f) {
+            } else if (this.f50926c.setCdnDomainRank(d2, 100.0f) >= 100.0f) {
                 regetCdnIpList();
-                k(this.f53693c);
+                k(this.f50926c);
             }
         } else if (str2 != null && str2.length() > 0) {
-            if (this.f53693c.setMoblieIPRank(d2, 100.0f, str2) >= 100.0f) {
+            if (this.f50926c.setMoblieIPRank(d2, 100.0f, str2) >= 100.0f) {
                 h();
-                k(this.f53693c);
+                k(this.f50926c);
             }
-        } else if (this.f53693c.setMoblieIPRank(d2, 100.0f, null) >= 100.0f) {
+        } else if (this.f50926c.setMoblieIPRank(d2, 100.0f, null) >= 100.0f) {
             h();
-            k(this.f53693c);
+            k(this.f50926c);
         }
     }
 
@@ -628,7 +628,7 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
     public void setCDNImageTimeData(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) {
-            this.f53696f = aVar;
+            this.f50929f = aVar;
         }
     }
 
@@ -636,7 +636,7 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
     public void setIpDisableTime(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f53693c.setIpDisableTime(i2);
+            this.f50926c.setIpDisableTime(i2);
         }
     }
 

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.base.widget.dialog.model.BaseModel;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseBinding<T extends BaseModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -17,28 +17,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BdExpandImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f36484e;
+    public float f34553e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float f36485f;
+    public final float f34554f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Rect f36486g;
+    public final Rect f34555g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Rect f36487h;
+    public final Rect f34556h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36488i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f36489j;
+    public int f34557i;
+    public boolean j;
     public final Paint k;
     public float l;
     public float mCoverHeight;
@@ -63,16 +61,16 @@ public class BdExpandImageView extends ImageView {
                 return;
             }
         }
-        this.f36484e = 0.0f;
-        this.f36486g = new Rect();
-        this.f36487h = new Rect();
+        this.f34553e = 0.0f;
+        this.f34555g = new Rect();
+        this.f34556h = new Rect();
         setScaleType(ImageView.ScaleType.MATRIX);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
-        this.f36484e = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_expandDistance, 0) / 2.0f;
+        this.f34553e = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_expandDistance, 0) / 2.0f;
         this.mCoverHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_beforeExpandHeight, 0);
         obtainStyledAttributes.recycle();
         this.mCoverWidth = getResources().getDisplayMetrics().widthPixels;
-        this.f36485f = this.mCoverHeight + (this.f36484e * 2.0f);
+        this.f34554f = this.mCoverHeight + (this.f34553e * 2.0f);
         this.k = new Paint();
         getResources().getDisplayMetrics();
     }
@@ -87,7 +85,7 @@ public class BdExpandImageView extends ImageView {
         float intrinsicHeight = drawable.getIntrinsicHeight();
         float f2 = intrinsicHeight / 10.0f;
         this.l = f2;
-        this.f36488i = (int) (intrinsicHeight - (((f2 * ((this.f36485f - measuredHeight) / 2.0f)) / this.f36484e) * 2.0f));
+        this.f34557i = (int) (intrinsicHeight - (((f2 * ((this.f34554f - measuredHeight) / 2.0f)) / this.f34553e) * 2.0f));
     }
 
     public boolean getEditable() {
@@ -109,16 +107,16 @@ public class BdExpandImageView extends ImageView {
         }
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        int i2 = this.f36488i;
+        int i2 = this.f34557i;
         int i3 = (height - i2) / 2;
-        this.f36486g.set(0, i3, width, i2 + i3);
+        this.f34555g.set(0, i3, width, i2 + i3);
         int width2 = getWidth();
         float f2 = width;
-        float max = Math.max(width2 / f2, getHeight() / this.f36488i);
+        float max = Math.max(width2 / f2, getHeight() / this.f34557i);
         int i4 = (int) (f2 * max);
         int i5 = (i4 - width2) / 2;
-        this.f36487h.set(-i5, 0, i4 - (i5 * 2), (int) (this.f36488i * max));
-        canvas.drawBitmap(bitmap, this.f36486g, this.f36487h, this.k);
+        this.f34556h.set(-i5, 0, i4 - (i5 * 2), (int) (this.f34557i * max));
+        canvas.drawBitmap(bitmap, this.f34555g, this.f34556h, this.k);
     }
 
     @Override // android.view.View
@@ -135,7 +133,7 @@ public class BdExpandImageView extends ImageView {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048580, this, i2, i3, i4, i5)) == null) {
-            this.f36489j = true;
+            this.j = true;
             return super.setFrame(i2, i3, i4, i5);
         }
         return invokeIIII.booleanValue;
@@ -146,7 +144,7 @@ public class BdExpandImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
             super.setImageBitmap(bitmap);
-            if (this.f36489j) {
+            if (this.j) {
                 a();
             }
         }
@@ -157,7 +155,7 @@ public class BdExpandImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
             super.setImageDrawable(drawable);
-            if (this.f36489j) {
+            if (this.j) {
                 a();
             }
         }

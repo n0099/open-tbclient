@@ -16,7 +16,7 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_REQUEST_INTERVAL = 3600;
@@ -34,7 +34,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     public TemplateConfig templateConfig;
     public TemplateConfigMap templateConfigMap;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class CouponActiveConfig extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6375241669684789095L;
@@ -68,7 +68,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class TemplateConfig extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6943205584670122269L;
@@ -98,7 +98,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class TemplateConfigMap extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6512236636350788192L;

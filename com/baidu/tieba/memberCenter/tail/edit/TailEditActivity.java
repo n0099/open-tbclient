@@ -6,8 +6,8 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import c.a.q0.s.s.a;
-import c.a.q0.t.c.v;
+import b.a.q0.s.s.a;
+import b.a.q0.t.c.w;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,28 +20,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.y1.h.f.a<Integer> addTailCallBack;
+    public b.a.r0.y1.h.f.a<Integer> addTailCallBack;
     public View.OnClickListener mCancelButtonClickListener;
-    public c.a.q0.x.b mEditorListener;
-    public c.a.r0.y1.h.b.a mModel;
+    public b.a.q0.x.b mEditorListener;
+    public b.a.r0.y1.h.b.a mModel;
     public View.OnClickListener mSubmitButtonClickListener;
     public View mTailEditContainer;
     public TextWatcher mTextNumberWatcher;
     public View.OnTouchListener mTextOnTouchListener;
-    public c.a.r0.y1.h.b.b mView;
-    public c.a.r0.y1.h.f.a<Integer> updateTailCallBack;
+    public b.a.r0.y1.h.b.b mView;
+    public b.a.r0.y1.h.f.a<Integer> updateTailCallBack;
 
-    /* loaded from: classes7.dex */
-    public class a implements c.a.r0.y1.h.f.a<Integer> {
+    /* loaded from: classes9.dex */
+    public class a implements b.a.r0.y1.h.f.a<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TailEditActivity f54400a;
+        public final /* synthetic */ TailEditActivity f51591a;
 
         public a(TailEditActivity tailEditActivity) {
             Interceptable interceptable = $ic;
@@ -58,27 +58,27 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
             }
-            this.f54400a = tailEditActivity;
+            this.f51591a = tailEditActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.y1.h.f.a
+        @Override // b.a.r0.y1.h.f.a
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, num}) == null) {
-                this.f54400a.submitCallback(true, z, str, num);
+                this.f51591a.submitCallback(true, z, str, num);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements c.a.r0.y1.h.f.a<Integer> {
+    /* loaded from: classes9.dex */
+    public class b implements b.a.r0.y1.h.f.a<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TailEditActivity f54401a;
+        public final /* synthetic */ TailEditActivity f51592a;
 
         public b(TailEditActivity tailEditActivity) {
             Interceptable interceptable = $ic;
@@ -95,27 +95,27 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
             }
-            this.f54401a = tailEditActivity;
+            this.f51592a = tailEditActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.y1.h.f.a
+        @Override // b.a.r0.y1.h.f.a
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, num}) == null) {
-                this.f54401a.submitCallback(false, z, str, num);
+                this.f51592a.submitCallback(false, z, str, num);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailEditActivity f54402e;
+        public final /* synthetic */ TailEditActivity f51593e;
 
         public c(TailEditActivity tailEditActivity) {
             Interceptable interceptable = $ic;
@@ -132,31 +132,31 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
             }
-            this.f54402e = tailEditActivity;
+            this.f51593e = tailEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f54402e.mView.h().length() != 0) {
-                    this.f54402e.mView.r();
-                    this.f54402e.mModel.r(this.f54402e.mView.h().getText().toString());
+                if (this.f51593e.mView.h().length() != 0) {
+                    this.f51593e.mView.r();
+                    this.f51593e.mModel.r(this.f51593e.mView.h().getText().toString());
                     return;
                 }
-                TailEditActivity tailEditActivity = this.f54402e;
+                TailEditActivity tailEditActivity = this.f51593e;
                 tailEditActivity.showToast(tailEditActivity.getResources().getString(R.string.tail_submit_empty_toast));
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailEditActivity f54403e;
+        public final /* synthetic */ TailEditActivity f51594e;
 
         public d(TailEditActivity tailEditActivity) {
             Interceptable interceptable = $ic;
@@ -173,31 +173,31 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
             }
-            this.f54403e = tailEditActivity;
+            this.f51594e = tailEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54403e.mModel.i().setContent(this.f54403e.mView.g());
-                if (this.f54403e.mModel.k()) {
-                    this.f54403e.confirmCancelEdit();
+                this.f51594e.mModel.i().setContent(this.f51594e.mView.g());
+                if (this.f51594e.mModel.k()) {
+                    this.f51594e.confirmCancelEdit();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
-                this.f54403e.finish();
+                this.f51594e.finish();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class e implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailEditActivity f54404e;
+        public final /* synthetic */ TailEditActivity f51595e;
 
         public e(TailEditActivity tailEditActivity) {
             Interceptable interceptable = $ic;
@@ -214,7 +214,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
             }
-            this.f54404e = tailEditActivity;
+            this.f51595e = tailEditActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -223,7 +223,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.f54404e.mView.j();
+                    this.f51595e.mView.j();
                     return false;
                 }
                 return false;
@@ -232,13 +232,13 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class f implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailEditActivity f54405e;
+        public final /* synthetic */ TailEditActivity f51596e;
 
         public f(TailEditActivity tailEditActivity) {
             Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
             }
-            this.f54405e = tailEditActivity;
+            this.f51596e = tailEditActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -276,18 +276,18 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                this.f54405e.userInputChanged(charSequence.toString());
+                this.f51596e.userInputChanged(charSequence.toString());
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class g implements c.a.q0.x.b {
+    /* loaded from: classes9.dex */
+    public class g implements b.a.q0.x.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailEditActivity f54406e;
+        public final /* synthetic */ TailEditActivity f51597e;
 
         public g(TailEditActivity tailEditActivity) {
             Interceptable interceptable = $ic;
@@ -304,38 +304,38 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
             }
-            this.f54406e = tailEditActivity;
+            this.f51597e = tailEditActivity;
         }
 
-        @Override // c.a.q0.x.b
-        public void onAction(c.a.q0.x.a aVar) {
+        @Override // b.a.q0.x.b
+        public void onAction(b.a.q0.x.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            int i2 = aVar.f15109a;
+            int i2 = aVar.f14195a;
             if (i2 == 24) {
-                this.f54406e.addEmotion(aVar.f15111c);
+                this.f51597e.addEmotion(aVar.f14197c);
             } else if (i2 == 26) {
-                this.f54406e.changeColor(aVar.f15111c);
+                this.f51597e.changeColor(aVar.f14197c);
             } else if (i2 == 3) {
-                this.f54406e.mView.e();
+                this.f51597e.mView.e();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class h implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f54407e;
+        public final /* synthetic */ b.a.q0.s.s.a f51598e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TailEditActivity f54408f;
+        public final /* synthetic */ TailEditActivity f51599f;
 
-        public h(TailEditActivity tailEditActivity, c.a.q0.s.s.a aVar) {
+        public h(TailEditActivity tailEditActivity, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -350,31 +350,31 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
             }
-            this.f54408f = tailEditActivity;
-            this.f54407e = aVar;
+            this.f51599f = tailEditActivity;
+            this.f51598e = aVar;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f54407e.dismiss();
+                this.f51598e.dismiss();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class i implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f54409e;
+        public final /* synthetic */ b.a.q0.s.s.a f51600e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TailEditActivity f54410f;
+        public final /* synthetic */ TailEditActivity f51601f;
 
-        public i(TailEditActivity tailEditActivity, c.a.q0.s.s.a aVar) {
+        public i(TailEditActivity tailEditActivity, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -389,17 +389,17 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
             }
-            this.f54410f = tailEditActivity;
-            this.f54409e = aVar;
+            this.f51601f = tailEditActivity;
+            this.f51600e = aVar;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f54409e.dismiss();
+                this.f51600e.dismiss();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
-                this.f54410f.finish();
+                this.f51601f.finish();
             }
         }
     }
@@ -431,12 +431,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, obj) == null) {
             this.mModel.i().setContent(this.mView.g());
-            c.a.r0.y1.h.b.a aVar = this.mModel;
+            b.a.r0.y1.h.b.a aVar = this.mModel;
             if (aVar.l(aVar.e(aVar.i().getContent()))) {
                 showToast(R.string.over_limit_tip);
-            } else if (obj == null || !(obj instanceof v)) {
+            } else if (obj == null || !(obj instanceof w)) {
             } else {
-                new c.a.r0.y1.h.f.b().b(this, this.mView.h(), (v) obj);
+                new b.a.r0.y1.h.f.b().b(this, this.mView.h(), (w) obj);
             }
         }
     }
@@ -457,7 +457,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public void confirmCancelEdit() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(getActivity());
+            b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(getActivity());
             aVar.setMessage(getResources().getString(R.string.tail_cancel_modified_toast));
             aVar.setNegativeButton(R.string.cancel, new h(this, aVar));
             aVar.setPositiveButton(R.string.confirm, new i(this, aVar));
@@ -526,9 +526,9 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 tailData.setId(num.intValue());
                 tailData.setContent(this.mModel.i().getContent());
                 tailData.setFontColor(this.mModel.g());
-                c.a.r0.y1.h.a.e eVar = new c.a.r0.y1.h.a.e(1, tailData);
+                b.a.r0.y1.h.a.e eVar = new b.a.r0.y1.h.a.e(1, tailData);
                 if (!z) {
-                    eVar.f28935a = 2;
+                    eVar.f27651a = 2;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
                 finish();
@@ -569,7 +569,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             this.mView.l(i2);
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.mTailEditContainer);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.mTailEditContainer);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0201);
         }
@@ -583,8 +583,8 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             setContentView(R.layout.tail_edit_activity);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
-            this.mView = new c.a.r0.y1.h.b.b(this, this.mSubmitButtonClickListener, this.mCancelButtonClickListener);
-            this.mModel = new c.a.r0.y1.h.b.a(getPageContext());
+            this.mView = new b.a.r0.y1.h.b.b(this, this.mSubmitButtonClickListener, this.mCancelButtonClickListener);
+            this.mModel = new b.a.r0.y1.h.b.a(getPageContext());
             this.mTailEditContainer = findViewById(R.id.tail_edit_container);
             initListener();
             loadTailData();

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class a {
             hashMap.put("device_id", this.gC);
             hashMap.put(ARConfigKey.EXTRA_INFO, ARConfig.getARExtraInfo());
             hashMap.put("os_type", "android");
-            hashMap.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
+            hashMap.put("device_type", Build.BRAND);
             hashMap.put("channel", this.gD);
             ARPScriptEnvironment.getInstance().setSharedEnvironmentKV(TableDefine.DB_TABLE_USERINFO, hashMap);
         }

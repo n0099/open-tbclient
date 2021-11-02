@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.mcast;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ParseM3u8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ParseM3u8";
@@ -33,7 +34,7 @@ public class ParseM3u8 {
     public boolean mIsend;
     public ArrayList<TS> mTslist;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class TS {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +111,7 @@ public class ParseM3u8 {
                 return;
             }
             TS ts = new TS(this);
-            String trim = str.substring(str.indexOf(":") + 1).replace("T", " ").trim();
+            String trim = str.substring(str.indexOf(":") + 1).replace(ExifInterface.GPS_DIRECTION_TRUE, " ").trim();
             ts.stime = trim;
             if (trim.length() >= 20) {
                 try {
@@ -168,11 +169,11 @@ public class ParseM3u8 {
         return invokeLL.longValue;
     }
 
-    public List<TS> getLatestTS(long j2) {
+    public List<TS> getLatestTS(long j) {
         InterceptResult invokeJ;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             Iterator<TS> it = this.mTslist.iterator();
             int i2 = -1;
             while (true) {
@@ -181,7 +182,7 @@ public class ParseM3u8 {
                     break;
                 }
                 i2++;
-                if (it.next().time == j2) {
+                if (it.next().time == j) {
                     z = true;
                     break;
                 }
@@ -208,10 +209,10 @@ public class ParseM3u8 {
         return invokeV.longValue;
     }
 
-    public List<TS> getNewAppendTS(long j2) {
+    public List<TS> getNewAppendTS(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             Iterator<TS> it = this.mTslist.iterator();
             boolean z = false;
             int i2 = 0;
@@ -220,7 +221,7 @@ public class ParseM3u8 {
                     break;
                 }
                 i2++;
-                if (it.next().time == j2) {
+                if (it.next().time == j) {
                     z = true;
                     break;
                 }

@@ -13,33 +13,33 @@ import com.bun.miitmdid.a.a.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public C1875a f64286a;
+    public C1834a f61127a;
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C1875a {
+    /* loaded from: classes11.dex */
+    public class C1834a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bun.miitmdid.a.a.a f64287a;
+        public com.bun.miitmdid.a.a.a f61128a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bun.miitmdid.a.a.b f64288b;
+        public com.bun.miitmdid.a.a.b f61129b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f64289c;
+        public c f61130c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f64290d;
+        public final /* synthetic */ a f61131d;
 
-        public C1875a(a aVar) {
+        public C1834a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,7 @@ public class a implements b {
                     return;
                 }
             }
-            this.f64290d = aVar;
+            this.f61131d = aVar;
         }
     }
 
@@ -71,7 +71,7 @@ public class a implements b {
                 return;
             }
         }
-        this.f64286a = new C1875a(this);
+        this.f61127a = new C1834a(this);
     }
 
     public static a a(Context context) {
@@ -117,9 +117,9 @@ public class a implements b {
                 return false;
             }
             if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-                aVar.f64286a.f64287a = new com.bun.miitmdid.a.a.a();
+                aVar.f61127a.f61128a = new com.bun.miitmdid.a.a.a();
             }
-            return aVar.f64286a.f64287a != null;
+            return aVar.f61127a.f61128a != null;
         }
         return invokeLL.booleanValue;
     }
@@ -132,9 +132,9 @@ public class a implements b {
                 return false;
             }
             if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-                aVar.f64286a.f64289c = new c();
+                aVar.f61127a.f61130c = new c();
             }
-            return aVar.f64286a.f64289c != null;
+            return aVar.f61127a.f61130c != null;
         }
         return invokeLL.booleanValue;
     }
@@ -149,10 +149,10 @@ public class a implements b {
             JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
             com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
             if (optJSONObject != null) {
-                bVar.f64291a = optJSONObject.optString("appid");
-                aVar.f64286a.f64288b = bVar;
+                bVar.f61132a = optJSONObject.optString("appid");
+                aVar.f61127a.f61129b = bVar;
             }
-            return aVar.f64286a.f64288b != null;
+            return aVar.f61127a.f61129b != null;
         }
         return invokeLL.booleanValue;
     }
@@ -164,8 +164,8 @@ public class a implements b {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            C1875a c1875a = this.f64286a;
-            return (c1875a == null || (bVar = c1875a.f64288b) == null || (str = bVar.f64291a) == null) ? "" : str;
+            C1834a c1834a = this.f61127a;
+            return (c1834a == null || (bVar = c1834a.f61129b) == null || (str = bVar.f61132a) == null) ? "" : str;
         }
         return (String) invokeV.objValue;
     }

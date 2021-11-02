@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMMarkMsgReadedMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMarkMsgReadedMsg";
@@ -49,12 +49,12 @@ public class IMMarkMsgReadedMsg extends Message {
         }
     }
 
-    public IMMarkMsgReadedMsg(Context context, long j2, long j3, long j4, long j5, boolean z) {
+    public IMMarkMsgReadedMsg(Context context, long j, long j2, long j3, long j4, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -69,11 +69,11 @@ public class IMMarkMsgReadedMsg extends Message {
         initCommonParameter(context);
         setNeedReplay(true);
         setType(67);
-        this.mCategory = j2;
-        this.mTo = j3;
-        this.mMsgId = j4;
+        this.mCategory = j;
+        this.mTo = j2;
+        this.mMsgId = j3;
         this.mContext = context;
-        this.mClientMaxMsgid = j5;
+        this.mClientMaxMsgid = j4;
         this.mPriority = 14;
         this.mIsZHida = z;
     }
@@ -188,10 +188,10 @@ public class IMMarkMsgReadedMsg extends Message {
         }
     }
 
-    public void setPaid(long j2) {
+    public void setPaid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.mPaid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mPaid = j;
         }
     }
 }

@@ -4,10 +4,11 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Typeface;
 import android.text.TextUtils;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.b;
-import c.a.x0.t.g;
+import b.a.x0.b;
+import b.a.x0.t.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SubTitleConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CENTER = 0;
@@ -65,7 +66,7 @@ public class SubTitleConfig {
     public int maxEngLineNum;
     public Paint.Align textGravity;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class ShadowConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +93,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class StrokeConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +118,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class TypefaceConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CREATE_FROM_ASSET = 1;
@@ -196,7 +197,7 @@ public class SubTitleConfig {
                     try {
                         int i2 = typefaceConfig.mInputType;
                         if (i2 == 1) {
-                            typeface = Typeface.createFromAsset(b.d().b().getAssets(), typefaceConfig.mSource);
+                            typeface = Typeface.createFromAsset(b.c().getContext().getAssets(), typefaceConfig.mSource);
                         } else if (i2 == 2) {
                             typeface = Typeface.createFromFile(typefaceConfig.mSource);
                         }
@@ -283,7 +284,7 @@ public class SubTitleConfig {
                 if (subTitleConfig.mTextColorEntity != null) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("color", subTitleConfig.mTextColorEntity.mColor);
-                    jSONObject2.put("alpha", subTitleConfig.mTextColorEntity.mAlpha);
+                    jSONObject2.put(Key.ALPHA, subTitleConfig.mTextColorEntity.mAlpha);
                     jSONObject.put("textColor", jSONObject2);
                 }
                 if (subTitleConfig.chineseShadowConfig != null) {

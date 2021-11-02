@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CaptureDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CANCEL = "com.baidu.ugc.download.ACTION_CANCEL";
@@ -32,7 +32,7 @@ public class CaptureDownloadService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadManager mDownloadManager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ProgressCallback extends DownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,15 +130,15 @@ public class CaptureDownloadService extends Service {
         }
 
         @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadCallback
-        public void onProgress(long j2, long j3, int i2) {
+        public void onProgress(long j, long j2, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
                 if (this.mLastTime == 0) {
                     this.mLastTime = System.currentTimeMillis();
                 }
                 this.mAppInfo.setStatus(3);
                 this.mAppInfo.setProgress(i2);
-                this.mAppInfo.setDownloadPerSize(CommonUtils.getDownloadPerSize(j2, j3));
+                this.mAppInfo.setDownloadPerSize(CommonUtils.getDownloadPerSize(j, j2));
                 if (checkSendBroadLimit(i2)) {
                     sendBroadCast(this.mAppInfo);
                 }

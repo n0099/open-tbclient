@@ -5,22 +5,22 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface DatePrinter {
-    <B extends Appendable> B format(long j2, B b2);
+    <B extends Appendable> B format(long j, B b2);
 
     <B extends Appendable> B format(Calendar calendar, B b2);
 
     <B extends Appendable> B format(Date date, B b2);
 
-    String format(long j2);
+    String format(long j);
 
     String format(Calendar calendar);
 
     String format(Date date);
 
     @Deprecated
-    StringBuffer format(long j2, StringBuffer stringBuffer);
+    StringBuffer format(long j, StringBuffer stringBuffer);
 
     StringBuffer format(Object obj, StringBuffer stringBuffer, FieldPosition fieldPosition);
 

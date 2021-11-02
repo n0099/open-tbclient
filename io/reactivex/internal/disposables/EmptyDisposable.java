@@ -17,7 +17,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueDisposable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class EmptyDisposable implements QueueDisposable<Object> {
     public static final /* synthetic */ EmptyDisposable[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

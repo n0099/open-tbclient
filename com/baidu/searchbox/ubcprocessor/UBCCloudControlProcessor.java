@@ -2,10 +2,12 @@ package com.baidu.searchbox.ubcprocessor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s;
-import c.a.t0.w;
+import b.a.t0.s;
+import b.a.t0.w;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.KVStorageFactory;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
@@ -18,9 +20,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
@@ -68,10 +71,25 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
         return invokeL.booleanValue;
     }
 
+    private JSONObject generateFailStatisticData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("items", new JSONArray());
+                jSONObject.put("count", "0,0,0");
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
     public static SharedPrefsWrapper sharedPrefsWrapper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new SharedPrefsWrapper(SP_UBC_FILE_NAME) : (SharedPrefsWrapper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? new SharedPrefsWrapper(KVStorageFactory.getSharedPreferences(SP_UBC_FILE_NAME)) : (SharedPrefsWrapper) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
@@ -96,7 +114,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             if (TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) && serviceData != null) {
                 boolean z = !"0".equals(option != null ? option.optString("version_asc") : "0");
                 w wVar = new w("", serviceData);
-                if (wVar.j()) {
+                if (wVar.l()) {
                     ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(wVar, z, new s(this, iCloudControlUBCCallBack, wVar.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +142,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             this.val$step = r8;
                         }
 
-                        @Override // c.a.t0.s
+                        @Override // b.a.t0.s
                         public void setUBCConfigStatisticData(JSONObject jSONObject) {
                             ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                             Interceptable interceptable2 = $ic;
@@ -138,6 +156,8 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             UBCCloudControlProcessor.sharedPrefsWrapper().putString(UBCCloudControlProcessor.UBC_CLOUDCONFIG_VERSION, this.val$step);
                         }
                     });
+                } else if (iCloudControlUBCCallBack != null) {
+                    iCloudControlUBCCallBack.setServiceInfo(generateFailStatisticData());
                 }
                 List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
                 if (list == null || list.isEmpty()) {

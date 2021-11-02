@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class Message<T> extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,17 +108,17 @@ public abstract class Message<T> extends OrmObject {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mTag : (BdUniqueId) invokeV.objValue;
     }
 
-    public void setClientLogID(long j2) {
+    public void setClientLogID(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.clientLogID = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.clientLogID = j;
         }
     }
 
-    public void setEncodedBinarySize(long j2) {
+    public void setEncodedBinarySize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.encodedBinarySize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.encodedBinarySize = j;
         }
     }
 
@@ -143,10 +143,10 @@ public abstract class Message<T> extends OrmObject {
         }
     }
 
-    public void setStartTime(long j2) {
+    public void setStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.mStartTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.mStartTime = j;
         }
     }
 

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class JSONStringer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class JSONStringer {
     public final List<Scope> stack;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Scope {
         public static final /* synthetic */ Scope[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -381,13 +381,13 @@ public class JSONStringer {
         return (JSONStringer) invokeCommon.objValue;
     }
 
-    public JSONStringer value(long j2) throws JSONException {
+    public JSONStringer value(long j) throws JSONException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
             if (!this.stack.isEmpty()) {
                 beforeValue();
-                this.out.append(j2);
+                this.out.append(j);
                 return this;
             }
             throw new JSONException("Nesting problem");

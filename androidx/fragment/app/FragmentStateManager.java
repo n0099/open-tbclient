@@ -167,6 +167,8 @@ public class FragmentStateManager {
             if (fragment.mFromLayout) {
                 if (fragment.mInLayout) {
                     i2 = Math.max(i2, 1);
+                } else if (i2 < 2) {
+                    i2 = Math.min(i2, fragment.mState);
                 } else {
                     i2 = Math.min(i2, 1);
                 }
@@ -353,14 +355,16 @@ public class FragmentStateManager {
                 if (view != null) {
                     view.setSaveFromParentEnabled(false);
                     Fragment fragment3 = this.mFragment;
-                    if (fragment3.mHidden) {
-                        fragment3.mView.setVisibility(8);
-                    }
+                    fragment3.mView.setTag(R.id.fragment_container_view_tag, fragment3);
                     Fragment fragment4 = this.mFragment;
-                    fragment4.onViewCreated(fragment4.mView, fragment4.mSavedFragmentState);
-                    FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher = this.mDispatcher;
+                    if (fragment4.mHidden) {
+                        fragment4.mView.setVisibility(8);
+                    }
                     Fragment fragment5 = this.mFragment;
-                    fragmentLifecycleCallbacksDispatcher.dispatchOnFragmentViewCreated(fragment5, fragment5.mView, fragment5.mSavedFragmentState, false);
+                    fragment5.onViewCreated(fragment5.mView, fragment5.mSavedFragmentState);
+                    FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher = this.mDispatcher;
+                    Fragment fragment6 = this.mFragment;
+                    fragmentLifecycleCallbacksDispatcher.dispatchOnFragmentViewCreated(fragment6, fragment6.mView, fragment6.mSavedFragmentState, false);
                 }
             }
         }

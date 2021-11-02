@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.r0.c.b;
+import b.a.r0.r0.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MyEmotionGroupData implements Serializable, b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -33,7 +33,7 @@ public class MyEmotionGroupData implements Serializable, b {
         }
     }
 
-    @Override // c.a.r0.r0.c.b
+    @Override // b.a.r0.r0.c.b
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class MyEmotionGroupData implements Serializable, b {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.r0.c.b
+    @Override // b.a.r0.r0.c.b
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,10 +89,10 @@ public class MyEmotionGroupData implements Serializable, b {
         }
     }
 
-    public void setUpdateTime(long j2) {
+    public void setUpdateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.updateTime = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.updateTime = j;
         }
     }
 }

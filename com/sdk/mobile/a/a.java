@@ -12,7 +12,7 @@ import com.sdk.base.framework.a.f;
 import com.sdk.base.framework.a.j;
 import com.sdk.base.framework.b.b;
 import com.sdk.base.framework.bean.DataInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,18 +45,18 @@ public final class a {
             if (c.a(str2).booleanValue()) {
                 dataInfo = new DataInfo();
                 dataInfo.putData(YYInnerSSOLoginActivity.o, str);
-                str3 = aVar2.f75913b;
+                str3 = aVar2.f68215b;
                 a2 = aVar2.a();
-                jVar = j.f75863b;
+                jVar = j.f68166b;
                 i2 = 0;
                 str4 = "/api/netm/v1.0/qhbt";
             } else {
                 dataInfo = new DataInfo();
                 dataInfo.putData(YYInnerSSOLoginActivity.o, str);
                 dataInfo.putData("mobile", str2);
-                str3 = aVar2.f75913b;
+                str3 = aVar2.f68215b;
                 a2 = aVar2.a();
-                jVar = j.f75863b;
+                jVar = j.f68166b;
                 i2 = 0;
                 str4 = "/api/netm/v1.0/qhbv";
             }

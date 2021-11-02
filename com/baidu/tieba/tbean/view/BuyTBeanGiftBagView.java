@@ -19,29 +19,29 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.GetIconList.Custom;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BuyTBeanGiftBagView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<c.a.r0.m3.e.a> f57275e;
+    public LinkedList<b.a.r0.n3.e.a> f54343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f57276f;
+    public b f54344f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.m3.e.a f57277e;
+        public final /* synthetic */ b.a.r0.n3.e.a f54345e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanGiftBagView f57278f;
+        public final /* synthetic */ BuyTBeanGiftBagView f54346f;
 
-        public a(BuyTBeanGiftBagView buyTBeanGiftBagView, c.a.r0.m3.e.a aVar) {
+        public a(BuyTBeanGiftBagView buyTBeanGiftBagView, b.a.r0.n3.e.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,23 +56,23 @@ public class BuyTBeanGiftBagView extends LinearLayout {
                     return;
                 }
             }
-            this.f57278f = buyTBeanGiftBagView;
-            this.f57277e = aVar;
+            this.f54346f = buyTBeanGiftBagView;
+            this.f54345e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f57278f.f57276f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54346f.f54344f == null) {
                 return;
             }
-            this.f57278f.f57276f.a(this.f57277e);
+            this.f54346f.f54344f.a(this.f54345e);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
-        void a(c.a.r0.m3.e.a aVar);
+        void a(b.a.r0.n3.e.a aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -93,11 +93,11 @@ public class BuyTBeanGiftBagView extends LinearLayout {
                 return;
             }
         }
-        this.f57275e = new LinkedList<>();
+        this.f54343e = new LinkedList<>();
         c();
     }
 
-    public final void b(c.a.r0.m3.e.a aVar) {
+    public final void b(b.a.r0.n3.e.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
@@ -109,9 +109,9 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.tbds182));
         layoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
         addView(tbImageView, layoutParams);
-        Custom custom = aVar.f22324e;
+        Custom custom = aVar.f21518e;
         if (custom != null && !StringUtils.isNull(custom.package_pic)) {
-            tbImageView.startLoad(aVar.f22324e.package_pic, 10, false);
+            tbImageView.startLoad(aVar.f21518e.package_pic, 10, false);
         }
         tbImageView.setOnClickListener(new a(this, aVar));
     }
@@ -123,15 +123,15 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         }
     }
 
-    public void onBindData(List<c.a.r0.m3.e.a> list) {
+    public void onBindData(List<b.a.r0.n3.e.a> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f57275e.clear();
-        this.f57275e.addAll(list);
+        this.f54343e.clear();
+        this.f54343e.addAll(list);
         removeAllViews();
-        Iterator<c.a.r0.m3.e.a> it = this.f57275e.iterator();
+        Iterator<b.a.r0.n3.e.a> it = this.f54343e.iterator();
         while (it.hasNext()) {
             b(it.next());
         }
@@ -140,7 +140,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
     public void setClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f57276f = bVar;
+            this.f54344f = bVar;
         }
     }
 
@@ -163,7 +163,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
                 return;
             }
         }
-        this.f57275e = new LinkedList<>();
+        this.f54343e = new LinkedList<>();
         c();
     }
 
@@ -186,7 +186,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
                 return;
             }
         }
-        this.f57275e = new LinkedList<>();
+        this.f54343e = new LinkedList<>();
         c();
     }
 }

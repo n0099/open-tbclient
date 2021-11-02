@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.commontab;
 
-import c.a.e.e.p.l;
-import c.a.q0.d1.z;
-import c.a.q0.k0.b.g;
+import b.a.e.e.p.l;
+import b.a.q0.d1.z;
+import b.a.q0.k0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsCommonTabRequestData extends OrmObject implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +50,8 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         this.sortType = 0;
     }
 
-    @Override // c.a.q0.k0.b.i
-    public Object c(boolean z) {
+    @Override // b.a.q0.k0.b.i
+    public Object e(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -64,9 +64,9 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
             builder.tab_name = this.tabName;
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            long j2 = this.lastThreadId;
-            if (j2 >= 0) {
-                builder.last_thread_id = Long.valueOf(j2);
+            long j = this.lastThreadId;
+            if (j >= 0) {
+                builder.last_thread_id = Long.valueOf(j);
             }
             builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
@@ -81,7 +81,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // c.a.q0.k0.b.f
+    @Override // b.a.q0.k0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.q0.k0.b.f
+    @Override // b.a.q0.k0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

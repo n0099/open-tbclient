@@ -8,13 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.fresco.ui.common.DimensionsInfo;
+import com.facebook.fresco.ui.common.OnDrawControllerListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes9.dex */
-public class ForwardingControllerListener<INFO> implements ControllerListener<INFO> {
+/* loaded from: classes11.dex */
+public class ForwardingControllerListener<INFO> implements ControllerListener<INFO>, OnDrawControllerListener<INFO> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FdingControllerListener";
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,10 +121,28 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         }
     }
 
+    @Override // com.facebook.fresco.ui.common.OnDrawControllerListener
+    public void onImageDrawn(String str, INFO info, DimensionsInfo dimensionsInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, info, dimensionsInfo) == null) {
+            int size = this.mListeners.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                try {
+                    ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
+                    if (controllerListener instanceof OnDrawControllerListener) {
+                        ((OnDrawControllerListener) controllerListener).onImageDrawn(str, info, dimensionsInfo);
+                    }
+                } catch (Exception e2) {
+                    onException("InternalListener exception in onImageDrawn", e2);
+                }
+            }
+        }
+    }
+
     @Override // com.facebook.drawee.controller.ControllerListener
     public void onIntermediateImageFailed(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, th) == null) {
             int size = this.mListeners.size();
             for (int i2 = 0; i2 < size; i2++) {
                 try {
@@ -140,7 +160,7 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
     @Override // com.facebook.drawee.controller.ControllerListener
     public void onIntermediateImageSet(String str, @Nullable INFO info) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, info) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, info) == null) {
             int size = this.mListeners.size();
             for (int i2 = 0; i2 < size; i2++) {
                 try {
@@ -158,7 +178,7 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
     @Override // com.facebook.drawee.controller.ControllerListener
     public synchronized void onRelease(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             synchronized (this) {
                 int size = this.mListeners.size();
                 for (int i2 = 0; i2 < size; i2++) {
@@ -178,7 +198,7 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
     @Override // com.facebook.drawee.controller.ControllerListener
     public synchronized void onSubmit(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, obj) == null) {
             synchronized (this) {
                 int size = this.mListeners.size();
                 for (int i2 = 0; i2 < size; i2++) {
@@ -197,7 +217,7 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
 
     public synchronized void removeListener(ControllerListener<? super INFO> controllerListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, controllerListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, controllerListener) == null) {
             synchronized (this) {
                 int indexOf = this.mListeners.indexOf(controllerListener);
                 if (indexOf != -1) {

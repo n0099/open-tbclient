@@ -11,19 +11,19 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.UserCouponStore;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UserCouponStoreResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long serverCurrentTime;
     public List<UserCouponStore> userCouponStoreList;
 
-    public UserCouponStoreResult(long j2, List<UserCouponStore> list) {
+    public UserCouponStoreResult(long j, List<UserCouponStore> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), list};
+            Object[] objArr = {Long.valueOf(j), list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -33,7 +33,7 @@ public class UserCouponStoreResult {
                 return;
             }
         }
-        this.serverCurrentTime = j2;
+        this.serverCurrentTime = j;
         this.userCouponStoreList = list;
     }
 

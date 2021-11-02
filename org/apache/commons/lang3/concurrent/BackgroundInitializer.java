@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BackgroundInitializer<T> implements ConcurrentInitializer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public abstract class BackgroundInitializer<T> implements ConcurrentInitializer<
     public ExecutorService externalExecutor;
     public Future<T> future;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class InitializationTask implements Callable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

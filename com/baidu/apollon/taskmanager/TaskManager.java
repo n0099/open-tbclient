@@ -26,70 +26,68 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class TaskManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long TIMESLICE = 1000;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f38235a;
+    public static final boolean f36243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38236b;
+    public static final String f36244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f38237c = Long.MAX_VALUE;
+    public static final long f36245c = Long.MAX_VALUE;
 
     /* renamed from: f  reason: collision with root package name */
-    public static TaskManager f38238f = null;
+    public static TaskManager f36246f = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38239i = 5;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final int f38240j = 128;
+    public static final int f36247i = 5;
+    public static final int j = 128;
     public static final int k = 1;
     public static HashMap<String, TaskManager> mTskMgrMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f38241d;
+    public long f36248d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Timer f38242e;
+    public Timer f36249e;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashMap<String, ArrayList<Task>> f38243g;
+    public final HashMap<String, ArrayList<Task>> f36250g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashMap<Future<?>, Runnable> f38244h;
+    public final HashMap<Future<?>, Runnable> f36251h;
     public BlockingQueue<Runnable> l;
     public final ThreadFactory m;
     public a n;
     public b o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f38251a;
+        public long f36258a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TaskManager f38252b;
+        public final /* synthetic */ TaskManager f36259b;
         public long mDelay;
         public boolean mIsSerial;
         public long mPeriod;
         public Runnable mRunnable;
         public String mTaskKey;
 
-        public Task(TaskManager taskManager, long j2, long j3, boolean z, String str, Runnable runnable) {
+        public Task(TaskManager taskManager, long j, long j2, boolean z, String str, Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {taskManager, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), str, runnable};
+                Object[] objArr = {taskManager, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), str, runnable};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -99,32 +97,32 @@ public final class TaskManager {
                     return;
                 }
             }
-            this.f38252b = taskManager;
-            this.mDelay = j2;
-            this.f38251a = System.currentTimeMillis() + j2;
-            this.mPeriod = j3;
+            this.f36259b = taskManager;
+            this.mDelay = j;
+            this.f36258a = System.currentTimeMillis() + j;
+            this.mPeriod = j2;
             this.mIsSerial = z;
             this.mRunnable = runnable;
             this.mTaskKey = str;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends ThreadPoolExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TaskManager f38253a;
+        public final /* synthetic */ TaskManager f36260a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(TaskManager taskManager, int i2, int i3, long j2, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
-            super(i2, i3, j2, timeUnit, blockingQueue, threadFactory);
+        public a(TaskManager taskManager, int i2, int i3, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+            super(i2, i3, j, timeUnit, blockingQueue, threadFactory);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {taskManager, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), timeUnit, blockingQueue, threadFactory};
+                Object[] objArr = {taskManager, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), timeUnit, blockingQueue, threadFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
@@ -136,14 +134,14 @@ public final class TaskManager {
                     return;
                 }
             }
-            this.f38253a = taskManager;
+            this.f36260a = taskManager;
         }
 
         @Override // java.util.concurrent.ThreadPoolExecutor
         public void afterExecute(Runnable runnable, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, th) == null) {
-                this.f38253a.f38244h.remove((Future) runnable);
+                this.f36260a.f36251h.remove((Future) runnable);
                 super.afterExecute(runnable, th);
             }
         }
@@ -162,10 +160,10 @@ public final class TaskManager {
                 return;
             }
         }
-        f38235a = ApollonConstants.DEBUG;
-        f38236b = TaskManager.class.getSimpleName();
+        f36243a = ApollonConstants.DEBUG;
+        f36244b = TaskManager.class.getSimpleName();
         mTskMgrMap = new HashMap<>();
-        f38238f = null;
+        f36246f = null;
     }
 
     public TaskManager() {
@@ -182,19 +180,19 @@ public final class TaskManager {
                 return;
             }
         }
-        this.f38241d = Long.MAX_VALUE;
-        this.f38242e = new Timer();
-        this.f38244h = new HashMap<>();
+        this.f36248d = Long.MAX_VALUE;
+        this.f36249e = new Timer();
+        this.f36251h = new HashMap<>();
         this.l = new LinkedBlockingQueue(10);
         this.m = new ThreadFactory(this) { // from class: com.baidu.apollon.taskmanager.TaskManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TaskManager f38245a;
+            public final /* synthetic */ TaskManager f36252a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final AtomicInteger f38246b;
+            public final AtomicInteger f36253b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -211,8 +209,8 @@ public final class TaskManager {
                         return;
                     }
                 }
-                this.f38245a = this;
-                this.f38246b = new AtomicInteger(1);
+                this.f36252a = this;
+                this.f36253b = new AtomicInteger(1);
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -220,14 +218,14 @@ public final class TaskManager {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    return new Thread(runnable, "WalletTask #" + this.f38246b.getAndIncrement());
+                    return new Thread(runnable, "WalletTask #" + this.f36253b.getAndIncrement());
                 }
                 return (Thread) invokeL.objValue;
             }
         };
         this.n = new a(this, 5, 128, 1L, TimeUnit.SECONDS, this.l, this.m);
         this.o = new b();
-        this.f38243g = new HashMap<>();
+        this.f36250g = new HashMap<>();
         if (!ChannelUtils.isSpecailPackage() || (aVar = this.n) == null) {
             return;
         }
@@ -245,8 +243,8 @@ public final class TaskManager {
                 this.o.execute(task.mRunnable);
                 return;
             }
-            this.f38244h.put(this.n.submit(task.mRunnable), task.mRunnable);
-            if (f38235a) {
+            this.f36251h.put(this.n.submit(task.mRunnable), task.mRunnable);
+            if (f36243a) {
                 String str = "execute task, " + task.mTaskKey + " execute time is " + System.currentTimeMillis();
             }
         }
@@ -260,10 +258,10 @@ public final class TaskManager {
             synchronized (TaskManager.class) {
                 if (mTskMgrMap.get(str) == null) {
                     TaskManager taskManager2 = new TaskManager();
-                    f38238f = taskManager2;
+                    f36246f = taskManager2;
                     mTskMgrMap.put(str, taskManager2);
                 }
-                taskManager = f38238f;
+                taskManager = f36246f;
             }
             return taskManager;
         }
@@ -277,16 +275,16 @@ public final class TaskManager {
             if (task == null || task.mRunnable == null) {
                 return false;
             }
-            synchronized (this.f38243g) {
+            synchronized (this.f36250g) {
                 ArrayList<Task> a2 = a(str);
                 if (!a(task, a2)) {
-                    if (task.f38251a <= System.currentTimeMillis()) {
+                    if (task.f36258a <= System.currentTimeMillis()) {
                         c(task);
                     } else if (task.mDelay > 0) {
                         c(task);
                     }
                     if (task.mPeriod > 0) {
-                        task.f38251a = System.currentTimeMillis() + task.mDelay + task.mPeriod;
+                        task.f36258a = System.currentTimeMillis() + task.mDelay + task.mPeriod;
                         a2.add(task);
                         a(task);
                     }
@@ -302,14 +300,14 @@ public final class TaskManager {
     public void cancelAllTasks(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            synchronized (this.f38243g) {
+            synchronized (this.f36250g) {
                 ArrayList<Task> a2 = a(str);
                 Iterator<Task> it = a2.iterator();
                 while (it.hasNext()) {
                     b(it.next());
                 }
                 a2.clear();
-                this.f38243g.remove(str);
+                this.f36250g.remove(str);
             }
         }
     }
@@ -317,7 +315,7 @@ public final class TaskManager {
     public void cancelTask(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            synchronized (this.f38243g) {
+            synchronized (this.f36250g) {
                 ArrayList<Task> a2 = a(str);
                 Iterator<Task> it = a2.iterator();
                 while (it.hasNext()) {
@@ -338,8 +336,8 @@ public final class TaskManager {
                 this.o.a(task.mRunnable);
                 return;
             }
-            for (Future<?> future : this.f38244h.keySet()) {
-                if (this.f38244h.get(future) == task.mRunnable && future != null && (!future.isCancelled() || !future.isDone())) {
+            for (Future<?> future : this.f36251h.keySet()) {
+                if (this.f36251h.get(future) == task.mRunnable && future != null && (!future.isCancelled() || !future.isDone())) {
                     future.cancel(true);
                 }
             }
@@ -350,26 +348,26 @@ public final class TaskManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, task) == null) {
             if (task.mDelay > 0) {
-                a(task, task.f38251a - System.currentTimeMillis());
+                a(task, task.f36258a - System.currentTimeMillis());
             } else {
                 d(task);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedList<Runnable> f38254a;
+        public final LinkedList<Runnable> f36261a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f38255b;
+        public Runnable f36262b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TaskManager f38256c;
+        public final /* synthetic */ TaskManager f36263c;
 
         public b(TaskManager taskManager) {
             Interceptable interceptable = $ic;
@@ -386,18 +384,18 @@ public final class TaskManager {
                     return;
                 }
             }
-            this.f38256c = taskManager;
-            this.f38254a = new LinkedList<>();
+            this.f36263c = taskManager;
+            this.f36261a = new LinkedList<>();
         }
 
         public synchronized void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    Runnable poll = this.f38254a.poll();
-                    this.f38255b = poll;
+                    Runnable poll = this.f36261a.poll();
+                    this.f36262b = poll;
                     if (poll != null) {
-                        this.f38256c.n.execute(this.f38255b);
+                        this.f36263c.n.execute(this.f36262b);
                     }
                 }
             }
@@ -408,15 +406,15 @@ public final class TaskManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
                 synchronized (this) {
-                    this.f38254a.offer(new Runnable(this, runnable) { // from class: com.baidu.apollon.taskmanager.TaskManager.b.1
+                    this.f36261a.offer(new Runnable(this, runnable) { // from class: com.baidu.apollon.taskmanager.TaskManager.b.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Runnable f38257a;
+                        public final /* synthetic */ Runnable f36264a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ b f38258b;
+                        public final /* synthetic */ b f36265b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -433,8 +431,8 @@ public final class TaskManager {
                                     return;
                                 }
                             }
-                            this.f38258b = this;
-                            this.f38257a = runnable;
+                            this.f36265b = this;
+                            this.f36264a = runnable;
                         }
 
                         @Override // java.lang.Runnable
@@ -442,14 +440,14 @@ public final class TaskManager {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    this.f38257a.run();
+                                    this.f36264a.run();
                                 } finally {
-                                    this.f38258b.a();
+                                    this.f36265b.a();
                                 }
                             }
                         }
                     });
-                    if (this.f38255b == null) {
+                    if (this.f36262b == null) {
                         a();
                     }
                 }
@@ -460,7 +458,7 @@ public final class TaskManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
                 synchronized (this) {
-                    this.f38254a.remove(runnable);
+                    this.f36261a.remove(runnable);
                 }
             }
         }
@@ -486,11 +484,11 @@ public final class TaskManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            ArrayList<Task> arrayList = this.f38243g.get(str);
+            ArrayList<Task> arrayList = this.f36250g.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
-            this.f38243g.put(str, arrayList);
+            this.f36250g.put(str, arrayList);
             return arrayList;
         }
         return (ArrayList) invokeL.objValue;
@@ -503,7 +501,7 @@ public final class TaskManager {
             if (task == null || task.mRunnable == null) {
                 return false;
             }
-            synchronized (this.f38243g) {
+            synchronized (this.f36250g) {
                 ArrayList<Task> a2 = a(str);
                 Task a3 = a(task.mTaskKey, a2);
                 if (a3 != null) {
@@ -521,8 +519,8 @@ public final class TaskManager {
     private void a(Task task) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, task) == null) {
-            long j2 = task.f38251a;
-            if (j2 < this.f38241d) {
+            long j2 = task.f36258a;
+            if (j2 < this.f36248d) {
                 a(Math.max(j2 - System.currentTimeMillis(), 1000L));
             }
         }
@@ -531,21 +529,21 @@ public final class TaskManager {
     private void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, this, j2) == null) {
-            if (f38235a) {
+            if (f36243a) {
                 String str = "intervalMillis: " + j2;
             }
-            Timer timer = this.f38242e;
+            Timer timer = this.f36249e;
             if (timer != null) {
                 timer.cancel();
-                this.f38242e = null;
+                this.f36249e = null;
             }
-            this.f38242e = new Timer();
-            this.f38242e.schedule(new TimerTask(this) { // from class: com.baidu.apollon.taskmanager.TaskManager.2
+            this.f36249e = new Timer();
+            this.f36249e.schedule(new TimerTask(this) { // from class: com.baidu.apollon.taskmanager.TaskManager.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TaskManager f38247a;
+                public final /* synthetic */ TaskManager f36254a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -562,14 +560,14 @@ public final class TaskManager {
                             return;
                         }
                     }
-                    this.f38247a = this;
+                    this.f36254a = this;
                 }
 
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f38247a.a();
+                        this.f36254a.a();
                     }
                 }
             }, j2);
@@ -580,31 +578,31 @@ public final class TaskManager {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            boolean z = f38235a;
-            synchronized (this.f38243g) {
+            boolean z = f36243a;
+            synchronized (this.f36250g) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f38241d = Long.MAX_VALUE;
-                for (String str : this.f38243g.keySet()) {
+                this.f36248d = Long.MAX_VALUE;
+                for (String str : this.f36250g.keySet()) {
                     ArrayList arrayList = new ArrayList();
                     Iterator<Task> it = a(str).iterator();
                     while (it.hasNext()) {
                         Task next = it.next();
-                        if (next.f38251a - currentTimeMillis < 1000) {
-                            if (f38235a) {
-                                String str2 = "task.mNextRunTime - current = " + (next.f38251a - currentTimeMillis);
+                        if (next.f36258a - currentTimeMillis < 1000) {
+                            if (f36243a) {
+                                String str2 = "task.mNextRunTime - current = " + (next.f36258a - currentTimeMillis);
                             }
                             c(next);
                             if (next.mPeriod > 0) {
-                                next.f38251a = next.mPeriod + currentTimeMillis;
+                                next.f36258a = next.mPeriod + currentTimeMillis;
                                 arrayList.add(next);
                             }
                         }
-                        if (next.f38251a < this.f38241d) {
-                            this.f38241d = next.f38251a;
+                        if (next.f36258a < this.f36248d) {
+                            this.f36248d = next.f36258a;
                         }
                     }
-                    if (this.f38241d < Long.MAX_VALUE) {
-                        a(this.f38241d - currentTimeMillis);
+                    if (this.f36248d < Long.MAX_VALUE) {
+                        a(this.f36248d - currentTimeMillis);
                     }
                 }
             }
@@ -634,13 +632,13 @@ public final class TaskManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ long f38248a;
+                public final /* synthetic */ long f36255a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Task f38249b;
+                public final /* synthetic */ Task f36256b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ TaskManager f38250c;
+                public final /* synthetic */ TaskManager f36257c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -657,9 +655,9 @@ public final class TaskManager {
                             return;
                         }
                     }
-                    this.f38250c = this;
-                    this.f38248a = j2;
-                    this.f38249b = task;
+                    this.f36257c = this;
+                    this.f36255a = j2;
+                    this.f36256b = task;
                 }
 
                 @Override // java.lang.Runnable
@@ -667,11 +665,11 @@ public final class TaskManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            Thread.sleep(this.f38248a);
+                            Thread.sleep(this.f36255a);
                         } catch (InterruptedException e2) {
                             e2.printStackTrace();
                         }
-                        this.f38250c.d(this.f38249b);
+                        this.f36257c.d(this.f36256b);
                     }
                 }
             });

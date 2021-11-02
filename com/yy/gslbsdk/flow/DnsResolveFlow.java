@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.yy.gslbsdk.DnsResultInfo;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.cache.ExternalCache;
@@ -55,7 +56,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DnsResolveFlow {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DnsResolveFlow";
@@ -140,10 +141,10 @@ public class DnsResolveFlow {
         };
     }
 
-    private void collectStat0(long j2, DnsResultInfo dnsResultInfo) {
+    private void collectStat0(long j, DnsResultInfo dnsResultInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65543, this, j2, dnsResultInfo) == null) {
-            DataCacheMgr.INSTANCE.addDnsCost(SystemClock.uptimeMillis() - j2);
+        if (interceptable == null || interceptable.invokeJL(65543, this, j, dnsResultInfo) == null) {
+            DataCacheMgr.INSTANCE.addDnsCost(SystemClock.uptimeMillis() - j);
             if (dnsResultInfo.mErrorCode != 0) {
                 DataCacheMgr.INSTANCE.addFailedDnsCount();
             } else if (dnsResultInfo.mDataSource == 4) {
@@ -528,7 +529,7 @@ public class DnsResolveFlow {
                                     LogTools.printDebug(DnsResolveFlow.TAG, String.format(Locale.US, "handleHttpDNS.handleOper, HttpDns thread[%s], serverIp: %s, is_https: %b, httpsLevel: %d, requestId: %s", this.val$taskId, this.val$ip, Boolean.valueOf(this.val$https), Integer.valueOf(this.val$httpsLevel), this.val$requestId));
                                     long uptimeMillis = SystemClock.uptimeMillis();
                                     String[] requestHttpDnsV2 = HttpDNSProtocolMgr.requestHttpDnsV2(this.val$host, this.val$ip, false, this.val$https, this.val$requestId);
-                                    if (requestHttpDnsV2 != null && "200".equals(requestHttpDnsV2[0])) {
+                                    if (requestHttpDnsV2 != null && BasicPushStatus.SUCCESS_CODE.equals(requestHttpDnsV2[0])) {
                                         synchronized (this.val$mRequestLock) {
                                             long uptimeMillis2 = SystemClock.uptimeMillis();
                                             LogTools.printDebug(DnsResolveFlow.TAG, String.format(Locale.US, "HttpDns succeed response serverIp: %s, requestId: %s", this.val$ip, this.val$requestId));
@@ -544,7 +545,7 @@ public class DnsResolveFlow {
                                             }
                                             this.val$rsInfo.httpErrCode = 0;
                                             this.val$rsInfo.httpErrMsg = "success";
-                                            long j2 = uptimeMillis2 - uptimeMillis;
+                                            long j = uptimeMillis2 - uptimeMillis;
                                             this.val$mRequestLock.compareAndSet(-1, resInfo.getStatus());
                                             if (resInfo.getStatus() == 6 && resInfo.getDns() != null) {
                                                 for (DnsInfo dnsInfo : resInfo.getDns().values()) {
@@ -557,10 +558,10 @@ public class DnsResolveFlow {
                                             IpVersionController.getInstance().putHttpDNSIntoCache(GlobalTools.APP_CONTEXT, resInfo);
                                             ServerIPInfo serverIPInfo = new ServerIPInfo();
                                             serverIPInfo.setIp(this.val$ip);
-                                            serverIPInfo.setScore(j2);
+                                            serverIPInfo.setScore(j);
                                             IpVersionController.getInstance().resetBestServerIPCache(serverIPInfo);
                                             if (resInfo.getHttpdns().isRe()) {
-                                                QualityDetectFlow.getInstance().addReportData(GlobalTools.HTTPDNS_REPORT_HOST, this.val$ip, j2);
+                                                QualityDetectFlow.getInstance().addReportData(GlobalTools.HTTPDNS_REPORT_HOST, this.val$ip, j);
                                             }
                                             if (ServerIPMgr.getInstance().canUpdate(GlobalTools.APP_CONTEXT, resInfo.getHttpdns().getVer())) {
                                                 ServerIPMgr.getInstance().updateServerIP(GlobalTools.APP_CONTEXT, this.val$ip);
@@ -582,7 +583,7 @@ public class DnsResolveFlow {
                                         this.val$rsInfo.httpErrMsg = requestHttpDnsV2[1];
                                     } else {
                                         StatisticInfo statisticInfo3 = this.val$rsInfo;
-                                        statisticInfo3.httpErrCode = BannerFocusImageViewGroup.f60827f;
+                                        statisticInfo3.httpErrCode = BannerFocusImageViewGroup.f57724f;
                                         statisticInfo3.httpErrMsg = "result is null";
                                     }
                                     if (this.val$requestFailedCount.decrementAndGet() == 0) {
@@ -840,28 +841,28 @@ public class DnsResolveFlow {
         }
     }
 
-    private boolean isDead(long j2) {
+    private boolean isDead(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, this, j2)) == null) ? System.currentTimeMillis() >= j2 + ((long) (GlobalTools.TTL_LIVE_SECOND * 1000)) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, this, j)) == null) ? System.currentTimeMillis() >= j + ((long) (GlobalTools.TTL_LIVE_SECOND * 1000)) : invokeJ.booleanValue;
     }
 
-    private boolean isExpired(long j2) {
+    private boolean isExpired(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, this, j2)) == null) ? System.currentTimeMillis() >= j2 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, this, j)) == null) ? System.currentTimeMillis() >= j : invokeJ.booleanValue;
     }
 
-    private boolean isHostDead(long j2) {
+    private boolean isHostDead(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65555, this, j2)) == null) ? System.currentTimeMillis() >= j2 + ((long) (GlobalTools.TTL_HOST_ALIVE_SECOND * 1000)) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65555, this, j)) == null) ? System.currentTimeMillis() >= j + ((long) (GlobalTools.TTL_HOST_ALIVE_SECOND * 1000)) : invokeJ.booleanValue;
     }
 
-    private boolean isNearlyExpired(long j2) {
+    private boolean isNearlyExpired(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, this, j2)) == null) ? j2 - System.currentTimeMillis() < ((long) GlobalTools.TTL_NEARLY_EXPIRED_TIME_SPAN) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, this, j)) == null) ? j - System.currentTimeMillis() < ((long) GlobalTools.TTL_NEARLY_EXPIRED_TIME_SPAN) : invokeJ.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1023,7 +1024,7 @@ public class DnsResolveFlow {
         String str2;
         String str3;
         String str4;
-        long j2;
+        long j;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)})) == null) {
@@ -1141,7 +1142,7 @@ public class DnsResolveFlow {
                             if (z4) {
                                 str3 = createRequestId;
                                 str4 = "Statistic";
-                                j2 = 5000;
+                                j = 5000;
                                 i2 = 0;
                             } else {
                                 boolean enableExpired = TtlController.getInstance().enableExpired();
@@ -1208,7 +1209,7 @@ public class DnsResolveFlow {
                                         }
                                         return dnsResultInfo;
                                     }
-                                    j2 = 5000;
+                                    j = 5000;
                                 } catch (Throwable th) {
                                     th = th;
                                     str2 = str4;
@@ -1398,7 +1399,7 @@ public class DnsResolveFlow {
                                             }
                                         }
                                     });
-                                    StatisticMgr.getInstance().addTask(threadInfo6, j2);
+                                    StatisticMgr.getInstance().addTask(threadInfo6, j);
                                 }
                                 return dnsResultInfo;
                             } else {

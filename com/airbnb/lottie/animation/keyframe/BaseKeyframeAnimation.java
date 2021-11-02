@@ -8,7 +8,7 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseKeyframeAnimation<K, A> {
     public final KeyframesWrapper<K> keyframesWrapper;
     @Nullable
@@ -21,12 +21,12 @@ public abstract class BaseKeyframeAnimation<K, A> {
     public float cachedStartDelayProgress = -1.0f;
     public float cachedEndProgress = -1.0f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface AnimationListener {
         void onValueChanged();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class EmptyKeyframeWrapper<T> implements KeyframesWrapper<T> {
         public EmptyKeyframeWrapper() {
         }
@@ -62,7 +62,7 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface KeyframesWrapper<T> {
         Keyframe<T> getCurrentKeyframe();
 
@@ -79,7 +79,7 @@ public abstract class BaseKeyframeAnimation<K, A> {
         boolean isValueChanged(float f2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class KeyframesWrapperImpl<T> implements KeyframesWrapper<T> {
         public Keyframe<T> cachedCurrentKeyframe = null;
         public float cachedInterpolatedProgress = -1.0f;
@@ -148,7 +148,7 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class SingleKeyframeWrapper<T> implements KeyframesWrapper<T> {
         public float cachedInterpolatedProgress = -1.0f;
         @NonNull

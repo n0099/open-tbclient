@@ -21,28 +21,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class VideoGestureView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f56196e;
+    public ViewGroup f53323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f56197f;
+    public ImageView f53324f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ProgressBar f56198g;
+    public ProgressBar f53325g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f56199h;
+    public ViewGroup f53326h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f56200i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f56201j;
+    public ImageView f53327i;
+    public TextView j;
     public AudioManager k;
     public int l;
     public int m;
@@ -79,13 +77,13 @@ public class VideoGestureView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.operable_video_gesture, this);
-            this.f56196e = (ViewGroup) findViewById(R.id.video_gesture_progress_zone);
-            this.f56197f = (ImageView) findViewById(R.id.video_gesture_progress_icon);
-            this.f56198g = (ProgressBar) findViewById(R.id.video_gesture_progress_bar);
-            this.f56199h = (ViewGroup) findViewById(R.id.video_gesture_ffrew_zone);
-            this.f56200i = (ImageView) findViewById(R.id.video_gesture_ffrew_icon);
-            this.f56201j = (TextView) findViewById(R.id.video_gesture_ffrew_txt);
-            this.f56196e.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
+            this.f53323e = (ViewGroup) findViewById(R.id.video_gesture_progress_zone);
+            this.f53324f = (ImageView) findViewById(R.id.video_gesture_progress_icon);
+            this.f53325g = (ProgressBar) findViewById(R.id.video_gesture_progress_bar);
+            this.f53326h = (ViewGroup) findViewById(R.id.video_gesture_ffrew_zone);
+            this.f53327i = (ImageView) findViewById(R.id.video_gesture_ffrew_icon);
+            this.j = (TextView) findViewById(R.id.video_gesture_ffrew_txt);
+            this.f53323e.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
             AudioManager audioManager = (AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             this.k = audioManager;
             if (audioManager != null) {
@@ -104,9 +102,9 @@ public class VideoGestureView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z) == null) {
             if (this.q != 2) {
-                this.f56199h.setVisibility(8);
-                this.f56196e.setVisibility(0);
-                this.f56198g.setMax(255);
+                this.f53326h.setVisibility(8);
+                this.f53323e.setVisibility(0);
+                this.f53325g.setMax(255);
                 setBackgroundDrawable(null);
                 this.p = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
                 this.q = 2;
@@ -130,12 +128,12 @@ public class VideoGestureView extends RelativeLayout {
             } else {
                 i2 = R.drawable.ic_icon_pure_video_highlight16_svg;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56197f, i2, R.color.CAM_X0622, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f53324f, i2, R.color.CAM_X0622, null);
             Window window = ((Activity) context).getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.screenBrightness = this.p / 255.0f;
             window.setAttributes(attributes);
-            this.f56198g.setProgress(this.p);
+            this.f53325g.setProgress(this.p);
         }
     }
 
@@ -143,13 +141,13 @@ public class VideoGestureView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
             if (this.q != 3) {
-                this.f56199h.setVisibility(0);
-                this.f56196e.setVisibility(8);
+                this.f53326h.setVisibility(0);
+                this.f53323e.setVisibility(8);
                 setBackgroundResource(R.color.CAM_X0605);
                 this.q = 3;
             }
-            this.f56201j.setText(str);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56200i, z ? R.drawable.ic_icon_pure_video_rewind44_svg : R.drawable.ic_icon_pure_video_forward44_svg, R.color.CAM_X0622, null);
+            this.j.setText(str);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f53327i, z ? R.drawable.ic_icon_pure_video_rewind44_svg : R.drawable.ic_icon_pure_video_forward44_svg, R.color.CAM_X0622, null);
         }
     }
 
@@ -167,9 +165,9 @@ public class VideoGestureView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (this.q != 1) {
-                this.f56199h.setVisibility(8);
-                this.f56196e.setVisibility(0);
-                this.f56198g.setMax(100);
+                this.f53326h.setVisibility(8);
+                this.f53323e.setVisibility(0);
+                this.f53325g.setMax(100);
                 setBackgroundDrawable(null);
                 this.m = this.k.getStreamVolume(3);
                 this.q = 1;
@@ -195,9 +193,9 @@ public class VideoGestureView extends RelativeLayout {
             } else {
                 i3 = R.drawable.ic_icon_pure_video_sound_big16_svg;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56197f, i3, R.color.CAM_X0622, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f53324f, i3, R.color.CAM_X0622, null);
             this.k.setStreamVolume(3, this.m, 0);
-            this.f56198g.setProgress(this.o);
+            this.f53325g.setProgress(this.o);
         }
     }
 

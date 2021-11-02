@@ -1,10 +1,10 @@
 package com.baidu.minivideo.plugin.capture.download.base;
 
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface DownloadTask extends Runnable {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnDownloadListener {
         void onDownloadCanceled();
 
@@ -14,7 +14,7 @@ public interface DownloadTask extends Runnable {
 
         void onDownloadPaused();
 
-        void onDownloadProgress(long j2, long j3);
+        void onDownloadProgress(long j, long j2);
     }
 
     void cancel();

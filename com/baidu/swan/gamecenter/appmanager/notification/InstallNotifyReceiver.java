@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.c1.a;
-import c.a.p0.g.c.i.c;
+import b.a.p0.a.c1.a;
+import b.a.p0.g.c.i.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class InstallNotifyReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PACKAGE_NAME = "key_pkg_name";
@@ -104,7 +104,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            c.a.p0.g.c.a.n().q(stringExtra, this.mOpportunity);
+            b.a.p0.g.c.a.n().q(stringExtra, this.mOpportunity);
         }
     }
 
@@ -152,8 +152,8 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             startInstallPage(intent);
         } else if (c2 != 2) {
         } else {
-            c.a.p0.g.c.h.a.f().l();
-            c.a.p0.g.c.h.a.f().n("todayfirst");
+            b.a.p0.g.c.h.a.f().l();
+            b.a.p0.g.c.h.a.f().n("todayfirst");
         }
     }
 

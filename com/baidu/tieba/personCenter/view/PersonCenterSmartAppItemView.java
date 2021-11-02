@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.e.e.p.k;
-import c.a.r0.n2.e.c;
-import c.a.r0.n2.e.l;
-import c.a.r0.n2.e.m;
-import c.a.r0.v.a;
+import b.a.e.e.p.k;
+import b.a.r0.n2.e.c;
+import b.a.r0.n2.e.l;
+import b.a.r0.n2.e.m;
+import b.a.r0.v.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,22 +36,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonCenterSmartAppItemView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f55880e;
+    public HeadImageView f53029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55881f;
+    public TextView f53030f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f55882g;
+    public ImageView f53031g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f55883h;
+    public c f53032h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppItemView(Context context) {
@@ -94,27 +94,27 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null) {
             return;
         }
-        this.f55883h = cVar;
-        this.f55882g.setVisibility(8);
+        this.f53032h = cVar;
+        this.f53031g.setVisibility(8);
         if (cVar instanceof m) {
             m mVar = (m) cVar;
-            this.f55880e.startLoad(mVar.c(), 10, false, false);
+            this.f53029e.startLoad(mVar.c(), 10, false, false);
             String g2 = mVar.g();
             if (!k.isEmpty(g2)) {
-                this.f55881f.setText(UtilHelper.getFixedText(g2, 5));
+                this.f53030f.setText(UtilHelper.getFixedText(g2, 5));
             } else {
-                this.f55881f.setText(R.string.intelligent_smart_app);
+                this.f53030f.setText(R.string.intelligent_smart_app);
             }
             if (cVar.getType() == 1) {
-                SkinManager.setImageResource(this.f55882g, R.drawable.icon_personal_recommend);
-                this.f55882g.setVisibility(0);
+                SkinManager.setImageResource(this.f53031g, R.drawable.icon_personal_recommend);
+                this.f53031g.setVisibility(0);
             } else {
-                this.f55882g.setVisibility(8);
+                this.f53031g.setVisibility(8);
             }
             setOnClickListener(this);
         } else if (cVar instanceof l) {
-            SkinManager.setImageResource(this.f55880e, R.drawable.icon_personal_more);
-            this.f55881f.setText(R.string.more);
+            SkinManager.setImageResource(this.f53029e, R.drawable.icon_personal_more);
+            this.f53030f.setText(R.string.more);
             setOnClickListener(this);
         }
     }
@@ -122,7 +122,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f55881f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f53030f, R.color.CAM_X0105);
         }
     }
 
@@ -130,7 +130,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            c cVar = this.f55883h;
+            c cVar = this.f53032h;
             if (cVar instanceof m) {
                 m mVar = (m) cVar;
                 if (!a.b(mVar.b(), mVar.f(), "1191000600000000", mVar.e())) {
@@ -163,13 +163,13 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
             int action = motionEvent.getAction();
             if (action == 0) {
                 SkinManager.setBackgroundColor(this, R.color.cp_bg_line_d_alpha50);
-                SkinManager.setViewTextColor(this.f55881f, R.color.cp_cont_b_alpha50);
+                SkinManager.setViewTextColor(this.f53030f, R.color.cp_cont_b_alpha50);
             } else if (action == 1) {
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(this.f55881f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f53030f, R.color.CAM_X0105);
             } else if (action == 3) {
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(this.f55881f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f53030f, R.color.CAM_X0105);
             }
             return super.onTouchEvent(motionEvent);
         }
@@ -218,12 +218,12 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         }
         LayoutInflater.from(context).inflate(R.layout.person_center_smart_app_item_layout, (ViewGroup) this, true);
         HeadImageView headImageView = (HeadImageView) findViewById(R.id.iv_person_center_smart_app_page_item_avatar);
-        this.f55880e = headImageView;
+        this.f53029e = headImageView;
         headImageView.setIsRound(true);
-        this.f55880e.setDefaultResource(R.color.CAM_X0204);
-        this.f55880e.setPlaceHolder(1);
-        this.f55881f = (TextView) findViewById(R.id.tv_person_center_smart_app_page_item_name);
-        this.f55882g = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
+        this.f53029e.setDefaultResource(R.color.CAM_X0204);
+        this.f53029e.setPlaceHolder(1);
+        this.f53030f = (TextView) findViewById(R.id.tv_person_center_smart_app_page_item_name);
+        this.f53031g = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
         onChangeSkinType();
     }
 }

@@ -9,41 +9,42 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.r0.k3.i0.a;
+import b.a.e.e.p.l;
+import b.a.r0.k2.g;
+import b.a.r0.k2.h;
+import b.a.r0.k2.i;
+import b.a.r0.k2.j;
+import b.a.r0.l3.j0.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShowPicCardView extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55772e;
+    public Context f52930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f55773f;
+    public a f52931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f55774g;
+    public TbImageView f52932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f55775h;
+    public LinearLayout f52933h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f55776i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f55777j;
+    public ImageView f52934i;
+    public TextView j;
     public TextView k;
     public View l;
     public boolean m;
@@ -72,25 +73,25 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.l = LayoutInflater.from(this.f55772e).inflate(R.layout.pic_show_cardview_layout, (ViewGroup) this, true);
-            this.f55774g = (TbImageView) findViewById(R.id.pic_img);
-            this.f55775h = (LinearLayout) findViewById(R.id.bottom_ll);
-            this.f55777j = (TextView) findViewById(R.id.title_ll);
-            this.k = (TextView) findViewById(R.id.desc_ll);
-            this.f55776i = (ImageView) findViewById(R.id.show_pic_icon);
+            this.l = LayoutInflater.from(this.f52930e).inflate(j.pic_show_cardview_layout, (ViewGroup) this, true);
+            this.f52932g = (TbImageView) findViewById(i.pic_img);
+            this.f52933h = (LinearLayout) findViewById(i.bottom_ll);
+            this.j = (TextView) findViewById(i.title_ll);
+            this.k = (TextView) findViewById(i.desc_ll);
+            this.f52934i = (ImageView) findViewById(i.show_pic_icon);
         }
     }
 
     public a getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55773f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52931f : (a) invokeV.objValue;
     }
 
     public ImageView getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55776i : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52934i : (ImageView) invokeV.objValue;
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
@@ -105,23 +106,23 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public void onClick(View view) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (aVar = this.f55773f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (aVar = this.f52931f) == null) {
             return;
         }
-        c.a.q0.m.a.l(this.f55772e, aVar.e());
+        b.a.q0.m.a.l(this.f52930e, aVar.e());
     }
 
     public void setData(a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null || this.f55773f == aVar) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null || this.f52931f == aVar) {
             return;
         }
-        this.f55773f = aVar;
+        this.f52931f = aVar;
         if (!StringUtils.isNULL(aVar.f())) {
-            this.f55777j.setVisibility(0);
-            this.f55777j.setText(aVar.f());
+            this.j.setVisibility(0);
+            this.j.setText(aVar.f());
         } else {
-            this.f55777j.setVisibility(8);
+            this.j.setVisibility(8);
         }
         if (!StringUtils.isNULL(aVar.a())) {
             this.k.setVisibility(0);
@@ -130,34 +131,34 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
             this.k.setVisibility(8);
         }
         if (this.m) {
-            this.f55774g.setSupportNoImage(true);
+            this.f52932g.setSupportNoImage(true);
         }
         int d2 = aVar.d();
         int b2 = aVar.b();
         if (d2 <= 0 || b2 <= 0) {
             return;
         }
-        this.f55774g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f55774g.setOnClickListener(this);
-        this.f55774g.setInterceptOnClick(true);
-        this.f55774g.setDefaultResource(R.drawable.icon_click);
-        this.f55774g.startLoad(aVar.c(), 18, false);
-        int k = l.k(this.f55772e) - (l.g(this.f55772e, R.dimen.ds30) * 2);
+        this.f52932g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f52932g.setOnClickListener(this);
+        this.f52932g.setInterceptOnClick(true);
+        this.f52932g.setDefaultResource(h.icon_click);
+        this.f52932g.startLoad(aVar.c(), 18, false);
+        int k = l.k(this.f52930e) - (l.g(this.f52930e, g.ds30) * 2);
         float f2 = b2 / d2;
-        this.f55774g.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f2 > 1.7777778f ? k * 1.7777778f : f2 < 0.75f ? k * 0.75f : k * f2)));
-        removeView(this.f55774g);
-        addView(this.f55774g);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f55775h.getLayoutParams();
+        this.f52932g.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f2 > 1.7777778f ? k * 1.7777778f : f2 < 0.75f ? k * 0.75f : k * f2)));
+        removeView(this.f52932g);
+        addView(this.f52932g);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f52933h.getLayoutParams();
         layoutParams.width = k;
-        layoutParams.height = l.g(this.f55772e, R.dimen.ds110);
-        removeView(this.f55775h);
-        addView(this.f55775h, layoutParams);
+        layoutParams.height = l.g(this.f52930e, g.ds110);
+        removeView(this.f52933h);
+        addView(this.f52933h, layoutParams);
     }
 
     public void setIconResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            SkinManager.setImageResource(this.f55776i, i2);
+            SkinManager.setImageResource(this.f52934i, i2);
         }
     }
 
@@ -209,7 +210,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
             }
         }
         this.m = false;
-        this.f55772e = context;
+        this.f52930e = context;
         a();
     }
 }

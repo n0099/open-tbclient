@@ -13,7 +13,7 @@ import tbclient.Error;
 import tbclient.RedNotify.DataRes;
 import tbclient.RedNotify.RedNotify;
 import tbclient.RedNotify.RedNotifyResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CheckRedNotifyHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

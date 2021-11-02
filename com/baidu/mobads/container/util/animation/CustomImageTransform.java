@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @TargetApi(19)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CustomImageTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static Property<ImageView, Matrix> ANIMATED_TRANSFORM_PROPERTY = null;
@@ -40,7 +40,7 @@ public class CustomImageTransform extends Transition {
     public static final String[] sTransitionProperties;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class MatrixEvaluator implements TypeEvaluator<Matrix> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

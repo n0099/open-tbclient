@@ -399,15 +399,15 @@ public class FragmentAnim {
         }
 
         @Override // android.view.animation.AnimationSet, android.view.animation.Animation
-        public boolean getTransformation(long j2, @NonNull Transformation transformation) {
+        public boolean getTransformation(long j, @NonNull Transformation transformation) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, transformation)) == null) {
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, transformation)) == null) {
                 this.mAnimating = true;
                 if (this.mEnded) {
                     return !this.mTransitionEnded;
                 }
-                if (!super.getTransformation(j2, transformation)) {
+                if (!super.getTransformation(j, transformation)) {
                     this.mEnded = true;
                     OneShotPreDrawListener.add(this.mParent, this);
                 }
@@ -431,15 +431,15 @@ public class FragmentAnim {
         }
 
         @Override // android.view.animation.Animation
-        public boolean getTransformation(long j2, @NonNull Transformation transformation, float f2) {
+        public boolean getTransformation(long j, @NonNull Transformation transformation, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), transformation, Float.valueOf(f2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), transformation, Float.valueOf(f2)})) == null) {
                 this.mAnimating = true;
                 if (this.mEnded) {
                     return !this.mTransitionEnded;
                 }
-                if (!super.getTransformation(j2, transformation, f2)) {
+                if (!super.getTransformation(j, transformation, f2)) {
                     this.mEnded = true;
                     OneShotPreDrawListener.add(this.mParent, this);
                 }

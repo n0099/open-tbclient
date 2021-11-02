@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BankCardErrorMsgView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f63550a;
+    public TextView f60403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f63551b;
+    public TextView f60404b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BankCardErrorMsgView(Context context) {
@@ -48,20 +48,20 @@ public class BankCardErrorMsgView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(ResUtils.layout(context, "wallet_cashdesk_bindcard_errormsg_view"), this);
-            this.f63550a = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_name"));
-            this.f63551b = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_value"));
+            this.f60403a = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_name"));
+            this.f60404b = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_value"));
         }
     }
 
     public void showErrorLayout(CharSequence charSequence, CharSequence charSequence2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, charSequence, charSequence2) == null) {
-            TextView textView = this.f63550a;
+            TextView textView = this.f60403a;
             TextUtils.isEmpty(charSequence);
             textView.setVisibility(8);
-            this.f63550a.setText(charSequence);
-            this.f63551b.setVisibility(TextUtils.isEmpty(charSequence2) ? 4 : 0);
-            this.f63551b.setText(charSequence2);
+            this.f60403a.setText(charSequence);
+            this.f60404b.setVisibility(TextUtils.isEmpty(charSequence2) ? 4 : 0);
+            this.f60404b.setText(charSequence2);
         }
     }
 

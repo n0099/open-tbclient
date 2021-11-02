@@ -466,10 +466,10 @@ public abstract class VersionedParcel {
 
     public abstract long readLong();
 
-    public long readLong(long j2, int i2) {
+    public long readLong(long j, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? !readField(i2) ? j2 : readLong() : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? !readField(i2) ? j : readLong() : invokeCommon.longValue;
     }
 
     public long[] readLongArray(long[] jArr, int i2) {
@@ -841,13 +841,13 @@ public abstract class VersionedParcel {
         }
     }
 
-    public abstract void writeLong(long j2);
+    public abstract void writeLong(long j);
 
-    public void writeLong(long j2, int i2) {
+    public void writeLong(long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
             setOutputField(i2);
-            writeLong(j2);
+            writeLong(j);
         }
     }
 
@@ -1350,8 +1350,8 @@ public abstract class VersionedParcel {
         if (interceptable == null || interceptable.invokeL(1048661, this, jArr) == null) {
             if (jArr != null) {
                 writeInt(jArr.length);
-                for (long j2 : jArr) {
-                    writeLong(j2);
+                for (long j : jArr) {
+                    writeLong(j);
                 }
                 return;
             }

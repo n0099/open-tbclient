@@ -10,14 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PayDialogType {
     public static final /* synthetic */ PayDialogType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final PayDialogType PAY_AMOUNT_DIALOG;
+    public static final PayDialogType PAY_CONFIRM_FINISH_DIALOG;
     public static final PayDialogType PAY_INPUT_DIALOG;
     public static final PayDialogType PAY_NONE_DIALOG;
     public static final PayDialogType PAY_RESULT_DIALOG;
+    public static final PayDialogType PAY_SHOW_GIFT_DIALOG;
     public static final PayDialogType PAY_WAY_DIALOG;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,9 +40,11 @@ public final class PayDialogType {
         PAY_INPUT_DIALOG = new PayDialogType("PAY_INPUT_DIALOG", 1, 2);
         PAY_WAY_DIALOG = new PayDialogType("PAY_WAY_DIALOG", 2, 3);
         PAY_RESULT_DIALOG = new PayDialogType("PAY_RESULT_DIALOG", 3, 4);
-        PayDialogType payDialogType = new PayDialogType("PAY_NONE_DIALOG", 4, 5);
+        PAY_CONFIRM_FINISH_DIALOG = new PayDialogType("PAY_CONFIRM_FINISH_DIALOG", 4, 5);
+        PAY_SHOW_GIFT_DIALOG = new PayDialogType("PAY_SHOW_GIFT_DIALOG", 5, 6);
+        PayDialogType payDialogType = new PayDialogType("PAY_NONE_DIALOG", 6, 7);
         PAY_NONE_DIALOG = payDialogType;
-        $VALUES = new PayDialogType[]{PAY_AMOUNT_DIALOG, PAY_INPUT_DIALOG, PAY_WAY_DIALOG, PAY_RESULT_DIALOG, payDialogType};
+        $VALUES = new PayDialogType[]{PAY_AMOUNT_DIALOG, PAY_INPUT_DIALOG, PAY_WAY_DIALOG, PAY_RESULT_DIALOG, PAY_CONFIRM_FINISH_DIALOG, PAY_SHOW_GIFT_DIALOG, payDialogType};
     }
 
     public PayDialogType(String str, int i2, int i3) {

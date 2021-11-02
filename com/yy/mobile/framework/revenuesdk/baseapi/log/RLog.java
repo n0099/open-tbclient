@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEADER = "MidPay:";
@@ -50,9 +50,10 @@ public class RLog {
 
     public static void addLogDelegate(IRLogDelegate iRLogDelegate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, iRLogDelegate) == null) {
-            logDelegates.add(iRLogDelegate);
+        if (!(interceptable == null || interceptable.invokeL(65538, null, iRLogDelegate) == null) || logDelegates.contains(iRLogDelegate)) {
+            return;
         }
+        logDelegates.add(iRLogDelegate);
     }
 
     public static void debug(Object obj, String str, Object... objArr) {

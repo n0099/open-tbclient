@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import c.a.q0.c0.b;
-import c.a.q0.s.q.a2;
+import b.a.e.e.p.l;
+import b.a.q0.c0.b;
+import b.a.q0.s.q.a2;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -26,29 +26,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ForumsTopicsRecommendView extends ViewGroup implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODULE_NAME = "forum_topics_recommend";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f57018e;
+    public Context f54106e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f57019f;
+    public final int f54107f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f57020g;
+    public final int f54108g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f57021h;
+    public final int f54109h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f57022i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ArrayList<TbImageView> f57023j;
+    public final int f54110i;
+    public ArrayList<TbImageView> j;
     public int k;
     public int l;
     public float m;
@@ -56,22 +54,22 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
     public ArrayList<a2> o;
     public View p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a2 f57024e;
+        public final /* synthetic */ a2 f54111e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f57025f;
+        public final /* synthetic */ int f54112f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f57026g;
+        public final /* synthetic */ TbPageContext f54113g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ForumsTopicsRecommendView f57027h;
+        public final /* synthetic */ ForumsTopicsRecommendView f54114h;
 
         public a(ForumsTopicsRecommendView forumsTopicsRecommendView, a2 a2Var, int i2, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -88,17 +86,17 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
                     return;
                 }
             }
-            this.f57027h = forumsTopicsRecommendView;
-            this.f57024e = a2Var;
-            this.f57025f = i2;
-            this.f57026g = tbPageContext;
+            this.f54114h = forumsTopicsRecommendView;
+            this.f54111e = a2Var;
+            this.f54112f = i2;
+            this.f54113g = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f57026g, new String[]{this.f57024e.b(), null, SingleSquareActivityConfig.makeStatisticsParam(ForumsTopicsRecommendView.MODULE_NAME, String.valueOf(this.f57025f))});
+                UrlManager.getInstance().dealOneLink(this.f54113g, new String[]{this.f54111e.b(), null, SingleSquareActivityConfig.makeStatisticsParam(ForumsTopicsRecommendView.MODULE_NAME, String.valueOf(this.f54112f))});
             }
         }
     }
@@ -131,7 +129,7 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
             this.n = size;
             requestLayout();
             for (int i2 = 0; i2 < size; i2++) {
-                TbImageView tbImageView = this.f57023j.get(i2);
+                TbImageView tbImageView = this.j.get(i2);
                 a2 a2Var = arrayList.get(i2);
                 tbImageView.setVisibility(0);
                 tbImageView.setTag(a2Var.a());
@@ -176,8 +174,8 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
         }
     }
 
-    @Override // c.a.q0.c0.b
-    public void imageLoaded(c.a.e.l.d.a aVar, String str, boolean z) {
+    @Override // b.a.q0.c0.b
+    public void imageLoaded(b.a.e.l.d.a aVar, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048580, this, aVar, str, z) == null) {
             c(str);
@@ -187,7 +185,7 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            Iterator<TbImageView> it = this.f57023j.iterator();
+            Iterator<TbImageView> it = this.j.iterator();
             while (it.hasNext()) {
                 it.next().refresh();
             }
@@ -209,9 +207,9 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
                         paddingLeft = getPaddingLeft();
                     }
                     childAt.layout(paddingLeft, paddingTop, childAt.getMeasuredWidth() + paddingLeft, childAt.getMeasuredHeight() + paddingTop);
-                    paddingLeft += childAt.getMeasuredWidth() + this.f57020g;
+                    paddingLeft += childAt.getMeasuredWidth() + this.f54108g;
                     if (i7 != 0) {
-                        paddingTop += childAt.getMeasuredHeight() + this.f57020g;
+                        paddingTop += childAt.getMeasuredHeight() + this.f54108g;
                     }
                 }
             }
@@ -224,13 +222,13 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
             int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
             int childCount = getChildCount();
-            int i5 = i4 - (this.f57019f * 2);
-            int i6 = (int) ((((i5 - this.f57020g) / 2.0f) * this.m) + 0.5f);
+            int i5 = i4 - (this.f54107f * 2);
+            int i6 = (int) ((((i5 - this.f54108g) / 2.0f) * this.m) + 0.5f);
             for (int i7 = 0; i7 < childCount; i7++) {
-                getChildAt(i7).measure(((i5 - this.f57020g) / 2) + 1073741824, 1073741824 + i6);
+                getChildAt(i7).measure(((i5 - this.f54108g) / 2) + 1073741824, 1073741824 + i6);
             }
             int i8 = this.n / 2;
-            setMeasuredDimension(i4, (i6 * i8) + ((i8 - 1) * this.f57020g) + this.f57022i);
+            setMeasuredDimension(i4, (i6 * i8) + ((i8 - 1) * this.f54108g) + this.f54110i);
         }
     }
 
@@ -239,7 +237,7 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, arrayList)) == null) {
             this.o = b(arrayList);
-            Iterator<TbImageView> it = this.f57023j.iterator();
+            Iterator<TbImageView> it = this.j.iterator();
             while (it.hasNext()) {
                 it.next().setVisibility(8);
             }
@@ -295,26 +293,26 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
                 return;
             }
         }
-        this.f57023j = new ArrayList<>(4);
+        this.j = new ArrayList<>(4);
         this.k = 0;
         this.l = 0;
         this.m = 0.62222224f;
         this.n = 0;
         this.o = null;
         this.p = null;
-        this.f57018e = context;
-        this.f57021h = l.k(context);
-        this.f57019f = context.getResources().getDimensionPixelSize(R.dimen.ds20);
-        this.f57020g = context.getResources().getDimensionPixelSize(R.dimen.ds14);
-        this.f57022i = context.getResources().getDimensionPixelSize(R.dimen.ds22);
+        this.f54106e = context;
+        this.f54109h = l.k(context);
+        this.f54107f = context.getResources().getDimensionPixelSize(R.dimen.ds20);
+        this.f54108g = context.getResources().getDimensionPixelSize(R.dimen.ds14);
+        this.f54110i = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.forums_topics_recommend, (ViewGroup) this, true);
-        this.f57023j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic1));
-        this.f57023j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic2));
-        this.f57023j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic3));
-        this.f57023j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic4));
-        int i4 = this.f57021h;
-        int i5 = this.f57019f;
-        int i6 = ((i4 - (i5 * 2)) - this.f57020g) / 2;
+        this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic1));
+        this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic2));
+        this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic3));
+        this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic4));
+        int i4 = this.f54109h;
+        int i5 = this.f54107f;
+        int i6 = ((i4 - (i5 * 2)) - this.f54108g) / 2;
         this.k = i6;
         this.l = (int) (i6 * this.m);
         setPadding(i5, 0, i5, 0);

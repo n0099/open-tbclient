@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BannerDownloadStateBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_DOWNLOADING = 1;
@@ -27,13 +27,13 @@ public class BannerDownloadStateBar extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f49206e;
+    public View f46679e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49207f;
+    public TextView f46680f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f49208g;
+    public ImageView f46681g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BannerDownloadStateBar(Context context) {
@@ -59,12 +59,12 @@ public class BannerDownloadStateBar extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f49206e = LayoutInflater.from(getContext()).inflate(R.layout.ad_apk_download_action_view, (ViewGroup) this, true);
+            this.f46679e = LayoutInflater.from(getContext()).inflate(R.layout.ad_apk_download_action_view, (ViewGroup) this, true);
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-            this.f49208g = (ImageView) this.f49206e.findViewById(R.id.apk_download_state_icon);
-            this.f49207f = (TextView) this.f49206e.findViewById(R.id.apk_download_state_text);
+            this.f46681g = (ImageView) this.f46679e.findViewById(R.id.apk_download_state_icon);
+            this.f46680f = (TextView) this.f46679e.findViewById(R.id.apk_download_state_text);
             setState(0);
         }
     }
@@ -74,40 +74,40 @@ public class BannerDownloadStateBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             if (i2 == 0) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f49208g.setVisibility(8);
-                this.f49208g.setImageDrawable(null);
-                this.f49207f.setText(R.string.ad_button_download_now);
-                this.f49207f.setTextColor(Color.parseColor("#333333"));
+                this.f46681g.setVisibility(8);
+                this.f46681g.setImageDrawable(null);
+                this.f46680f.setText(R.string.ad_button_download_now);
+                this.f46680f.setTextColor(Color.parseColor("#333333"));
             } else if (i2 == 1) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f49208g.setVisibility(0);
-                this.f49208g.setImageResource(R.drawable.ad_banner_download_pause);
-                this.f49207f.setText(R.string.ad_button_pause);
-                this.f49207f.setTextColor(Color.parseColor("#333333"));
+                this.f46681g.setVisibility(0);
+                this.f46681g.setImageResource(R.drawable.ad_banner_download_pause);
+                this.f46680f.setText(R.string.ad_button_pause);
+                this.f46680f.setTextColor(Color.parseColor("#333333"));
             } else if (i2 == 2) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f49208g.setVisibility(0);
-                this.f49208g.setImageResource(R.drawable.ad_banner_download_resume);
-                this.f49207f.setText(R.string.ad_button_resume);
-                this.f49207f.setTextColor(Color.parseColor("#333333"));
+                this.f46681g.setVisibility(0);
+                this.f46681g.setImageResource(R.drawable.ad_banner_download_resume);
+                this.f46680f.setText(R.string.ad_button_resume);
+                this.f46680f.setTextColor(Color.parseColor("#333333"));
             } else if (i2 == 3) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.f49208g.setVisibility(8);
-                this.f49208g.setImageDrawable(null);
-                this.f49207f.setText(R.string.ad_button_install);
-                this.f49207f.setTextColor(Color.parseColor("#FFFFFF"));
+                this.f46681g.setVisibility(8);
+                this.f46681g.setImageDrawable(null);
+                this.f46680f.setText(R.string.ad_button_install);
+                this.f46680f.setTextColor(Color.parseColor("#FFFFFF"));
             } else if (i2 != 4) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f49208g.setVisibility(8);
-                this.f49208g.setImageDrawable(null);
-                this.f49207f.setText(R.string.ad_button_download_now);
-                this.f49207f.setTextColor(Color.parseColor("#333333"));
+                this.f46681g.setVisibility(8);
+                this.f46681g.setImageDrawable(null);
+                this.f46680f.setText(R.string.ad_button_download_now);
+                this.f46680f.setTextColor(Color.parseColor("#333333"));
             } else {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.f49208g.setVisibility(8);
-                this.f49208g.setImageDrawable(null);
-                this.f49207f.setText(R.string.ad_button_open);
-                this.f49207f.setTextColor(Color.parseColor("#FFFFFF"));
+                this.f46681g.setVisibility(8);
+                this.f46681g.setImageDrawable(null);
+                this.f46680f.setText(R.string.ad_button_open);
+                this.f46680f.setTextColor(Color.parseColor("#FFFFFF"));
             }
         }
     }

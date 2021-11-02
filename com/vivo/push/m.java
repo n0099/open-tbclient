@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ISubscribeAppTagManager;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class m implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f76968a;
+    public final /* synthetic */ List f70317a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f76969b;
+    public final /* synthetic */ LocalAliasTagsManager f70318b;
 
     public m(LocalAliasTagsManager localAliasTagsManager, List list) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class m implements Runnable {
                 return;
             }
         }
-        this.f76969b = localAliasTagsManager;
-        this.f76968a = list;
+        this.f70318b = localAliasTagsManager;
+        this.f70317a = list;
     }
 
     @Override // java.lang.Runnable
@@ -42,14 +42,14 @@ public final class m implements Runnable {
         List list;
         ISubscribeAppTagManager iSubscribeAppTagManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f76968a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f70317a) == null || list.size() <= 0) {
             return;
         }
         HashSet hashSet = new HashSet();
-        for (String str : this.f76968a) {
+        for (String str : this.f70317a) {
             hashSet.add(str);
         }
-        iSubscribeAppTagManager = this.f76969b.mSubscribeAppTagManager;
+        iSubscribeAppTagManager = this.f70318b.mSubscribeAppTagManager;
         iSubscribeAppTagManager.delTagsSuccess(hashSet);
     }
 }

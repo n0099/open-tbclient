@@ -10,7 +10,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ActionResult implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,12 +21,12 @@ public class ActionResult implements IJsonSerialize {
     public int scode;
     public String uri;
 
-    public ActionResult(int i2, String str, long j2, String str2) {
+    public ActionResult(int i2, String str, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, Long.valueOf(j2), str2};
+            Object[] objArr = {Integer.valueOf(i2), str, Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -38,7 +38,7 @@ public class ActionResult implements IJsonSerialize {
         }
         this.scode = i2;
         this.uri = str;
-        this.reqTime = j2;
+        this.reqTime = j;
         this.ret = str2;
         this.rtime = System.currentTimeMillis();
     }
@@ -72,13 +72,13 @@ public class ActionResult implements IJsonSerialize {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionResult(int i2, String str, long j2, String str2, Map<String, String> map) {
-        this(i2, str, j2, str2);
+    public ActionResult(int i2, String str, long j, String str2, Map<String, String> map) {
+        this(i2, str, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {Integer.valueOf(i2), str, Long.valueOf(j2), str2, map};
+            Object[] objArr = {Integer.valueOf(i2), str, Long.valueOf(j), str2, map};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {

@@ -60,15 +60,15 @@ import java.util.regex.Matcher;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f73055a;
+    public static final File f65500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f73056b;
+    public static final File f65501b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -84,8 +84,8 @@ public final class f {
                 return;
             }
         }
-        f73055a = new File("/proc/self/fd");
-        f73056b = new File("/proc/self/task");
+        f65500a = new File("/proc/self/fd");
+        f65501b = new File("/proc/self/task");
     }
 
     public static int a() {
@@ -93,8 +93,8 @@ public final class f {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Objects.requireNonNull(f73055a);
-            if (f73055a.exists() && f73055a.isDirectory() && (listFiles = f73055a.listFiles()) != null) {
+            Objects.requireNonNull(f65500a);
+            if (f65500a.exists() && f65500a.isDirectory() && (listFiles = f65500a.listFiles()) != null) {
                 return listFiles.length;
             }
             return 0;
@@ -254,7 +254,7 @@ public final class f {
             exceptionMessage.mCurrentTimeStamp = System.currentTimeMillis();
             exceptionMessage.mUsageTimeMills = com.kwad.sdk.crash.d.a().h();
             exceptionMessage.mAbi = AbiUtil.b() ? "arm64" : "arm";
-            exceptionMessage.mVersionConflict = TextUtils.equals(exceptionMessage.mVersionCode, "3.3.11");
+            exceptionMessage.mVersionConflict = TextUtils.equals(exceptionMessage.mVersionCode, "3.3.11.4");
             exceptionMessage.mBuildConfigInfo = b(context);
             a(exceptionMessage);
             b(exceptionMessage, context);
@@ -292,17 +292,17 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, exceptionMessage, memoryInfo, context) == null) {
             SystemUtil.a c2 = SystemUtil.c();
-            c2.f73051e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-            c2.f73047a = SystemUtil.a();
+            c2.f65496e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+            c2.f65492a = SystemUtil.a();
             long pss = Debug.getPss();
-            c2.f73050d = pss;
-            memoryInfo.mTotalMB = (int) (c2.f73047a / 1048576);
-            memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f72994a / 1048576.0d);
-            memoryInfo.mJavaHeapMB = (int) (c2.f73051e / 1048576);
-            memoryInfo.mVssMB = (int) (c2.f73048b / 1024);
-            memoryInfo.mRssMB = (int) (c2.f73049c / 1024);
+            c2.f65495d = pss;
+            memoryInfo.mTotalMB = (int) (c2.f65492a / 1048576);
+            memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f65440a / 1048576.0d);
+            memoryInfo.mJavaHeapMB = (int) (c2.f65496e / 1048576);
+            memoryInfo.mVssMB = (int) (c2.f65493b / 1024);
+            memoryInfo.mRssMB = (int) (c2.f65494c / 1024);
             memoryInfo.mPssMB = (int) (pss / 1024);
-            memoryInfo.mThreadsCount = c2.f73052f;
+            memoryInfo.mThreadsCount = c2.f65497f;
             memoryInfo.mFdCount = a();
             if (context != null) {
                 memoryInfo.mAvailableMB = (int) (SystemUtil.c(context) / 1048576);
@@ -311,7 +311,7 @@ public final class f {
             if (memoryInfo.mFdCount > 800) {
                 exceptionMessage.mCrashType = exceptionMessage.getTypeFdOOM();
                 exceptionMessage.mFdOverflow = "True";
-                File[] listFiles = f73055a.listFiles();
+                File[] listFiles = f65500a.listFiles();
                 if (listFiles != null && listFiles.length > 0) {
                     for (File file : listFiles) {
                         try {
@@ -331,7 +331,7 @@ public final class f {
                 }
             }
             exceptionMessage.mThreadOverflow = "False";
-            if (c2.f73052f > 400) {
+            if (c2.f65497f > 400) {
                 exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
                 exceptionMessage.mThreadOverflow = "True";
                 a(memoryInfo);
@@ -370,7 +370,7 @@ public final class f {
     public static void a(MemoryInfo memoryInfo) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, memoryInfo) == null) || (listFiles = f73056b.listFiles()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65549, null, memoryInfo) == null) || (listFiles = f65501b.listFiles()) == null) {
             return;
         }
         for (File file : listFiles) {
@@ -586,7 +586,7 @@ public final class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
             try {
-                sb.append("BuildConfig Version Name: 3.3.11\n");
+                sb.append("BuildConfig Version Name: 3.3.11.4\n");
                 sb.append("PackageInfo CodePath: " + context.getPackageCodePath() + StringUtils.LF);
                 sb.append("PackageInfo ResPath: " + context.getPackageResourcePath() + StringUtils.LF);
                 sb.append("DexPath: " + c(context) + StringUtils.LF);
@@ -612,12 +612,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f72995b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f72996c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f65441b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f65442c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f72997d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f72998e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f65443d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f65444e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {

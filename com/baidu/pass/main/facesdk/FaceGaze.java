@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FaceGaze {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceGaze";
@@ -57,12 +57,12 @@ public class FaceGaze {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native BDFaceGazeInfo nativeGaze(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
+    private native BDFaceGazeInfo nativeGaze(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeGazeModelInit(long j2, byte[] bArr);
+    public native int nativeGazeModelInit(long j, byte[] bArr);
 
-    private native int nativeUninitGazeModel(long j2);
+    private native int nativeUninitGazeModel(long j);
 
     public BDFaceGazeInfo gaze(BDFaceImageInstance bDFaceImageInstance, float[] fArr) {
         InterceptResult invokeLL;

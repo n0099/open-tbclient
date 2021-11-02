@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ARPNode implements IARPNode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,11 +85,11 @@ public class ARPNode implements IARPNode {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.fK;
-            if (j2 == -1) {
+            long j = this.fK;
+            if (j == -1) {
                 return null;
             }
-            long nativeGetParentNodePtr = nativeGetParentNodePtr(j2);
+            long nativeGetParentNodePtr = nativeGetParentNodePtr(j);
             String nativeGetName = nativeGetName(nativeGetParentNodePtr);
             HashMap<String, ARPNode> hashMap = this.fL;
             ARPNode aRPNode = hashMap != null ? hashMap.get(nativeGetName) : null;
@@ -107,10 +107,10 @@ public class ARPNode implements IARPNode {
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
-    public void bindInternal(long j2) {
+    public void bindInternal(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.fK = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.fK = j;
         }
     }
 
@@ -288,43 +288,43 @@ public class ARPNode implements IARPNode {
         return (Vector3f) invokeV.objValue;
     }
 
-    public native long nativeGetChildNodeByName(long j2, String str);
+    public native long nativeGetChildNodeByName(long j, String str);
 
-    public native float[] nativeGetEulerAngles(long j2);
+    public native float[] nativeGetEulerAngles(long j);
 
-    public native String nativeGetName(long j2);
+    public native String nativeGetName(long j);
 
-    public native long nativeGetParentNodePtr(long j2);
+    public native long nativeGetParentNodePtr(long j);
 
-    public native float[] nativeGetPosition(long j2);
+    public native float[] nativeGetPosition(long j);
 
-    public native float[] nativeGetRotateWorldAxis(long j2);
+    public native float[] nativeGetRotateWorldAxis(long j);
 
-    public native float[] nativeGetRotation(long j2);
+    public native float[] nativeGetRotation(long j);
 
-    public native float[] nativeGetScale(long j2);
+    public native float[] nativeGetScale(long j);
 
-    public native float[] nativeGetTransform(long j2);
+    public native float[] nativeGetTransform(long j);
 
-    public native float[] nativeGetWorldPosition(long j2);
+    public native float[] nativeGetWorldPosition(long j);
 
-    public native float[] nativeInitialTransform(long j2);
+    public native float[] nativeInitialTransform(long j);
 
-    public native void nativeSetEulerAngles(long j2, float[] fArr);
+    public native void nativeSetEulerAngles(long j, float[] fArr);
 
-    public native void nativeSetName(long j2, String str);
+    public native void nativeSetName(long j, String str);
 
-    public native void nativeSetPosition(long j2, float[] fArr);
+    public native void nativeSetPosition(long j, float[] fArr);
 
-    public native void nativeSetRotateWorldAxis(long j2, float[] fArr);
+    public native void nativeSetRotateWorldAxis(long j, float[] fArr);
 
-    public native void nativeSetRotation(long j2, float[] fArr);
+    public native void nativeSetRotation(long j, float[] fArr);
 
-    public native void nativeSetTransform(long j2, float[] fArr);
+    public native void nativeSetTransform(long j, float[] fArr);
 
-    public native void nativeSetWorldPosition(long j2, float[] fArr);
+    public native void nativeSetWorldPosition(long j, float[] fArr);
 
-    public native void nativeUpdateUniform(long j2, String str, Object obj);
+    public native void nativeUpdateUniform(long j, String str, Object obj);
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
     public void setEulerAnges(Vector3f vector3f) {
@@ -341,11 +341,11 @@ public class ARPNode implements IARPNode {
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
-            long j2 = this.fK;
-            if (j2 == -1) {
+            long j = this.fK;
+            if (j == -1) {
                 return;
             }
-            nativeSetName(j2, str);
+            nativeSetName(j, str);
         }
     }
 

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 @RequiresApi(27)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, inputStream, arrayPool)) == null) {
-            int attributeInt = new ExifInterface(inputStream).getAttributeInt("Orientation", 1);
+            int attributeInt = new ExifInterface(inputStream).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
             if (attributeInt == 0) {
                 return -1;
             }

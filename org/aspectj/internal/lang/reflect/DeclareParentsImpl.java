@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclareParents;
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeclareParentsImpl implements DeclareParents {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

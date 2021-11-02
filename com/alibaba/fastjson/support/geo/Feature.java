@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 @JSONType(orders = {"type", "id", "bbox", "coordinates", "properties"}, typeName = "Feature")
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Feature extends Geometry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

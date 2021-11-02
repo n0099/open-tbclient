@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class iy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f78390a;
+    public final byte f71329a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f813a;
+    public final String f814a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final short f814a;
+    public final short f815a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public iy() {
@@ -53,16 +53,16 @@ public class iy {
                 return;
             }
         }
-        this.f813a = str;
-        this.f78390a = b2;
-        this.f814a = s;
+        this.f814a = str;
+        this.f71329a = b2;
+        this.f815a = s;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "<TField name:'" + this.f813a + "' type:" + ((int) this.f78390a) + " field-id:" + ((int) this.f814a) + ">";
+            return "<TField name:'" + this.f814a + "' type:" + ((int) this.f71329a) + " field-id:" + ((int) this.f815a) + ">";
         }
         return (String) invokeV.objValue;
     }

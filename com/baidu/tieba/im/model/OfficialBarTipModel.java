@@ -2,9 +2,9 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.f;
-import c.a.r0.l1.f.i.b;
-import c.a.r0.l1.t.d;
+import b.a.e.a.f;
+import b.a.r0.l1.f.i.b;
+import b.a.r0.l1.t.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MASK_TYPE = 12;

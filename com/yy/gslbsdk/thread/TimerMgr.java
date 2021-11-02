@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.HashMap;
 import java.util.Timer;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TimerMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TimerMgr";
@@ -64,18 +64,18 @@ public class TimerMgr {
         return (TimerMgr) invokeV.objValue;
     }
 
-    public int addWorker(TimerTaskInfo timerTaskInfo, long j2, long j3) {
+    public int addWorker(TimerTaskInfo timerTaskInfo, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{timerTaskInfo, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (timerTaskInfo == null || j3 <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{timerTaskInfo, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (timerTaskInfo == null || j2 <= 0) {
                 return 5;
             }
             if (this.workerList.containsKey(timerTaskInfo.getTaskName())) {
                 return 0;
             }
             try {
-                this.mTimer.schedule(timerTaskInfo.getWorker(), j2, j3);
+                this.mTimer.schedule(timerTaskInfo.getWorker(), j, j2);
                 this.workerList.put(timerTaskInfo.getTaskName(), timerTaskInfo);
             } catch (Exception e2) {
                 LogTools.printWarning(TAG, e2);

@@ -1,13 +1,13 @@
 package com.baidu.nps.interfa;
 
-import c.a.e.g.e;
-import c.a.h0.a.a;
+import b.a.e.g.e;
+import b.a.h0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class IThreadManager_ThreadManager_Provider implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class IThreadManager_ThreadManager_Provider implements a {
         }
     }
 
-    @Override // c.a.h0.a.a
+    @Override // b.a.h0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -4,10 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ProxyCacheException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String LIBRARY_VERSION = ". Version: 3.3.11";
+    public static final String LIBRARY_VERSION = ". Version: 3.3.11.4";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,7 +53,7 @@ public class ProxyCacheException extends Exception {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ProxyCacheException(Throwable th) {
-        super("No explanation error. Version: 3.3.11", th);
+        super("No explanation error. Version: 3.3.11.4", th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CmdConfigHttp {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AGREE_ME_HTTP_CMD = 1002211;
@@ -130,6 +130,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_FORUM_MANAGER_RIGHTS = 1003470;
     public static final int CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH = 1003319;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
+    public static final int CMD_GET_GAME_CODE = 1003516;
     public static final int CMD_GET_GAME_RECOMMEND_TAB_INFO = 1003401;
     public static final int CMD_GET_GOD_RECOMMEND = 1003375;
     public static final int CMD_GET_HISTORY_FORUM = 1003394;

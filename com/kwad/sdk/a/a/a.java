@@ -21,50 +21,48 @@ import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.v;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends com.kwad.sdk.core.e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f71320a;
+    public AdTemplate f63805a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f71321b;
+    public KsInterstitialAd.AdInteractionListener f63806b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Dialog f71322c;
+    public Dialog f63807c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f71323d;
+    public com.kwad.sdk.core.download.b.b f63808d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.a.b.b f71324e;
+    public com.kwad.sdk.a.b.b f63809e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public KsAdVideoPlayConfig f71325f;
+    public KsAdVideoPlayConfig f63810f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<a.b> f71326g;
+    public List<a.b> f63811g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.video.videoview.b f71327h;
+    public com.kwad.sdk.core.video.videoview.b f63812h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC1977a f71328i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public b f71329j;
+    public InterfaceC1886a f63813i;
+    public b j;
     public Handler k;
 
     /* renamed from: com.kwad.sdk.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC1977a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC1886a {
         void a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a();
     }
@@ -83,7 +81,7 @@ public class a extends com.kwad.sdk.core.e.b {
             }
         }
         this.k = new Handler(Looper.getMainLooper());
-        this.f71326g = new ArrayList();
+        this.f63811g = new ArrayList();
     }
 
     @Override // com.kwad.sdk.core.e.b
@@ -91,7 +89,7 @@ public class a extends com.kwad.sdk.core.e.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.k.removeCallbacksAndMessages(null);
-            this.f71326g.clear();
+            this.f63811g.clear();
         }
     }
 
@@ -106,19 +104,19 @@ public class a extends com.kwad.sdk.core.e.b {
         com.kwad.sdk.core.video.videoview.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (com.kwad.sdk.core.response.b.a.F(com.kwad.sdk.core.response.b.c.i(this.f71320a)) && (bVar = this.f71327h) != null && bVar.d()) {
-                j.b(this.f71320a);
-                this.f71327h.setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b.a(this.f71320a));
-                this.f71327h.a();
-            } else if ((com.kwad.sdk.core.config.c.af() || z) && com.kwad.sdk.core.download.b.a.a(av.a(view), this.f71320a, new a.InterfaceC1992a(this, z2) { // from class: com.kwad.sdk.a.a.a.1
+            if (com.kwad.sdk.core.response.b.a.F(com.kwad.sdk.core.response.b.c.i(this.f63805a)) && (bVar = this.f63812h) != null && bVar.d()) {
+                j.b(this.f63805a);
+                this.f63812h.setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b.a(this.f63805a));
+                this.f63812h.a();
+            } else if ((com.kwad.sdk.core.config.c.af() || z) && com.kwad.sdk.core.download.b.a.a(av.a(view), this.f63805a, new a.InterfaceC1901a(this, z2) { // from class: com.kwad.sdk.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f71330a;
+                public final /* synthetic */ boolean f63814a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f71331b;
+                public final /* synthetic */ a f63815b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -135,24 +133,24 @@ public class a extends com.kwad.sdk.core.e.b {
                             return;
                         }
                     }
-                    this.f71331b = this;
-                    this.f71330a = z2;
+                    this.f63815b = this;
+                    this.f63814a = z2;
                 }
 
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1992a
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1901a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f71331b.a(this.f71330a);
+                        this.f63815b.a(this.f63814a);
                     }
                 }
-            }, this.f71323d, z) == 0 && this.f71322c != null) {
+            }, this.f63808d, z) == 0 && this.f63807c != null) {
                 this.k.postDelayed(new Runnable(this) { // from class: com.kwad.sdk.a.a.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f71332a;
+                    public final /* synthetic */ a f63816a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -169,14 +167,14 @@ public class a extends com.kwad.sdk.core.e.b {
                                 return;
                             }
                         }
-                        this.f71332a = this;
+                        this.f63816a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f71332a.f71322c.dismiss();
+                            this.f63816a.f63807c.dismiss();
                         }
                     }
                 }, 500L);
@@ -184,35 +182,35 @@ public class a extends com.kwad.sdk.core.e.b {
         }
     }
 
-    public void a(InterfaceC1977a interfaceC1977a) {
+    public void a(InterfaceC1886a interfaceC1886a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC1977a) == null) {
-            this.f71328i = interfaceC1977a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC1886a) == null) {
+            this.f63813i = interfaceC1886a;
         }
     }
 
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f71329j = bVar;
+            this.j = bVar;
         }
     }
 
     public void a(a.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || this.f71326g.contains(bVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || this.f63811g.contains(bVar)) {
             return;
         }
-        this.f71326g.add(bVar);
+        this.f63811g.add(bVar);
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                com.kwad.sdk.core.report.a.a(this.f71320a, (v.a) null);
+                com.kwad.sdk.core.report.a.a(this.f63805a, (v.a) null);
             }
-            KsInterstitialAd.AdInteractionListener adInteractionListener = this.f71321b;
+            KsInterstitialAd.AdInteractionListener adInteractionListener = this.f63806b;
             if (adInteractionListener != null) {
                 adInteractionListener.onAdClicked();
             }
@@ -220,18 +218,18 @@ public class a extends com.kwad.sdk.core.e.b {
     }
 
     public void b() {
-        InterfaceC1977a interfaceC1977a;
+        InterfaceC1886a interfaceC1886a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (interfaceC1977a = this.f71328i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (interfaceC1886a = this.f63813i) == null) {
             return;
         }
-        interfaceC1977a.a();
+        interfaceC1886a.a();
     }
 
     public void c() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (bVar = this.f71329j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (bVar = this.j) == null) {
             return;
         }
         bVar.a();

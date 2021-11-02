@@ -26,6 +26,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     public final int mBehavior;
     public FragmentTransaction mCurTransaction;
     public Fragment mCurrentPrimaryItem;
+    public boolean mExecutingFinishUpdate;
     public final FragmentManager mFragmentManager;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -50,11 +51,11 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         }
     }
 
-    public static String makeFragmentName(int i2, long j2) {
+    public static String makeFragmentName(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            return "android:switcher:" + i2 + ":" + j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            return "android:switcher:" + i2 + ":" + j;
         }
         return (String) invokeCommon.objValue;
     }
@@ -81,10 +82,13 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || (fragmentTransaction = this.mCurTransaction) == null) {
             return;
         }
-        try {
-            fragmentTransaction.commitNowAllowingStateLoss();
-        } catch (IllegalStateException unused) {
-            this.mCurTransaction.commitAllowingStateLoss();
+        if (!this.mExecutingFinishUpdate) {
+            try {
+                this.mExecutingFinishUpdate = true;
+                fragmentTransaction.commitNowAllowingStateLoss();
+            } finally {
+                this.mExecutingFinishUpdate = false;
+            }
         }
         this.mCurTransaction = null;
     }

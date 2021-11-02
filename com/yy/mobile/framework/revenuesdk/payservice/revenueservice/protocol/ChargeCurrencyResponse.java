@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ChargeCurrencyResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,6 +19,7 @@ public class ChargeCurrencyResponse implements IBaseJsonResponse {
     public String closeRiskEnhance;
     public int cmd;
     public String expand;
+    public String message;
     public String orderId;
     public String payChannel;
     public String payMethod;
@@ -63,6 +64,7 @@ public class ChargeCurrencyResponse implements IBaseJsonResponse {
                         this.seq = jSONObject.optString(IAdRequestParam.SEQ);
                         this.usedChannel = jSONObject.optInt("usedChannel");
                         this.result = jSONObject.optInt("result");
+                        this.message = jSONObject.optString("message");
                         this.orderId = jSONObject.optString("orderId");
                         this.payUrl = jSONObject.optString("payUrl");
                         this.traceId = jSONObject.optString("traceId");
@@ -75,8 +77,8 @@ public class ChargeCurrencyResponse implements IBaseJsonResponse {
                             JSONObject jSONObject2 = new JSONObject(optString);
                             PollingModeInfo pollingModeInfo = new PollingModeInfo();
                             this.pollingModeInfo = pollingModeInfo;
-                            pollingModeInfo.times = jSONObject2.optInt("times");
-                            this.pollingModeInfo.interval = jSONObject2.optInt("interval");
+                            pollingModeInfo.totalPollTimes = jSONObject2.optInt("times");
+                            this.pollingModeInfo.pollInterval = jSONObject2.optInt("interval");
                         }
                         RLog.debug("ChargeCurrencyResponse", "jsonObject", jSONObject);
                         return;

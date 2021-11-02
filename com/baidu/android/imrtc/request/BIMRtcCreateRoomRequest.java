@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,14 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcCreateRoomRequest";
@@ -143,7 +143,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                 jSONObject.put("shoubai_uk", IMJni.transBDUID(Utility.readUid(this.mContext)));
                 jSONObject.put("uk", uk);
                 jSONObject.put("rtc_device_id", cuid);
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("signal_sdk_version", 103010L);
                 jSONObject.put("unique_key", "" + currentTimeMillis);
                 jSONObject.put("source", this.mSource);
@@ -181,7 +181,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(byte[] bArr) {
-        long j2;
+        long j;
         JSONException jSONException;
         String str;
         String str2;
@@ -192,13 +192,13 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
             String str5 = new String(bArr);
             LogUtils.e(TAG, "onSuccess :" + str5);
             int i2 = -1;
-            long j3 = -1;
+            long j2 = -1;
             try {
                 JSONObject jSONObject = new JSONObject(str5);
                 int optInt = jSONObject.optInt("error_code", -1);
-                str2 = jSONObject.optString("error_msg", "");
-                j3 = jSONObject.optLong("rtc_userid", -1L);
-                RtcUtility.setRtcUserId(this.mContext, j3);
+                str2 = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                j2 = jSONObject.optLong("rtc_userid", -1L);
+                RtcUtility.setRtcUserId(this.mContext, j2);
                 String optString = jSONObject.optString("rtc_room_id", "");
                 this.mRtcRoomId = optString;
                 RtcUtility.setRtcRoomId(this.mContext, optString);
@@ -209,7 +209,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                     RtcUtility.setRtcAppId(this.mContext, str4);
                     i2 = optInt;
                 } catch (JSONException e2) {
-                    j2 = j3;
+                    j = j2;
                     jSONException = e2;
                     str = str4;
                     str4 = str3;
@@ -217,19 +217,19 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                     str2 = "ERROR_MSG_JSON_PARSE_EXCEPTION";
                     str3 = str4;
                     str4 = str;
-                    j3 = j2;
+                    j2 = j;
                     if (this.mListener == null) {
                     }
                 }
             } catch (JSONException e3) {
-                j2 = j3;
+                j = j2;
                 jSONException = e3;
                 str = "";
             }
             if (this.mListener == null) {
                 BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult = new BIMRtcTokenListener.BIMRTCGetTokeResult();
                 bIMRTCGetTokeResult.roomId = this.mRtcRoomId;
-                bIMRTCGetTokeResult.useId = j3;
+                bIMRTCGetTokeResult.useId = j2;
                 bIMRTCGetTokeResult.token = str3;
                 bIMRTCGetTokeResult.rtcAppId = str4;
                 report(-10, i2);

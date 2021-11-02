@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MetricsWorker implements IMetricsAPI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACT = "mmetric";
@@ -48,12 +48,12 @@ public class MetricsWorker implements IMetricsAPI {
     public String sdkVer;
 
     @Deprecated
-    public MetricsWorker(Context context, int i2, HttpSendController httpSendController, long j2, String str, String str2, String str3, int i3) {
+    public MetricsWorker(Context context, int i2, HttpSendController httpSendController, long j, String str, String str2, String str3, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), httpSendController, Long.valueOf(j2), str, str2, str3, Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i2), httpSendController, Long.valueOf(j), str, str2, str3, Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -66,7 +66,7 @@ public class MetricsWorker implements IMetricsAPI {
         this.count = new AtomicInteger(0);
         this.maxCount = i2;
         this.httpSendController = httpSendController;
-        this.expire = j2;
+        this.expire = j;
         this.appKey = str;
         this.appVer = str2;
         this.context = context;
@@ -183,27 +183,27 @@ public class MetricsWorker implements IMetricsAPI {
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
-    public void reportCount(int i2, String str, String str2, long j2) {
+    public void reportCount(int i2, String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j2)}) == null) {
-            reportCount(i2, str, str2, j2, 1);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j)}) == null) {
+            reportCount(i2, str, str2, j, 1);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
-    public void reportReturnCode(int i2, String str, long j2, String str2) {
+    public void reportReturnCode(int i2, String str, long j, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), str2}) == null) {
-            reportReturnCode(i2, str, j2, str2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j), str2}) == null) {
+            reportReturnCode(i2, str, j, str2, null);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
-    public void reportSrcData(int i2, String str, String str2, long j2, Map<String, String> map) {
+    public void reportSrcData(int i2, String str, String str2, long j, Map<String, String> map) {
         MetricsPkg cutPiece;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j2), map}) == null) {
-            this.pkg.addMetricsValue(new MetricsValue(i2, str, str2, j2, map));
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j), map}) == null) {
+            this.pkg.addMetricsValue(new MetricsValue(i2, str, str2, j, map));
             if (this.count.incrementAndGet() <= this.maxCount || (cutPiece = cutPiece()) == null) {
                 return;
             }
@@ -225,12 +225,12 @@ public class MetricsWorker implements IMetricsAPI {
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
-    public void reportCount(int i2, String str, String str2, long j2, int i3) {
+    public void reportCount(int i2, String str, String str2, long j, int i3) {
         MetricsPkg cutPiece;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j), Integer.valueOf(i3)}) == null) {
             Counter counter = new Counter(i2, str, str2);
-            counter.count(j2, i3);
+            counter.count(j, i3);
             if (!this.pkg.addCounter(counter) || this.count.incrementAndGet() <= this.maxCount || (cutPiece = cutPiece()) == null) {
                 return;
             }
@@ -239,11 +239,11 @@ public class MetricsWorker implements IMetricsAPI {
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
-    public void reportReturnCode(int i2, String str, long j2, String str2, Map<String, String> map) {
+    public void reportReturnCode(int i2, String str, long j, String str2, Map<String, String> map) {
         MetricsPkg cutPiece;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), str2, map}) == null) {
-            this.pkg.addActionResult(new ActionResult(i2, str, j2, str2, map));
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j), str2, map}) == null) {
+            this.pkg.addActionResult(new ActionResult(i2, str, j, str2, map));
             if (this.count.incrementAndGet() <= this.maxCount || (cutPiece = cutPiece()) == null) {
                 return;
             }
@@ -251,12 +251,12 @@ public class MetricsWorker implements IMetricsAPI {
         }
     }
 
-    public MetricsWorker(Context context, int i2, HttpSendController httpSendController, long j2, String str, String str2, String str3) {
+    public MetricsWorker(Context context, int i2, HttpSendController httpSendController, long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), httpSendController, Long.valueOf(j2), str, str2, str3};
+            Object[] objArr = {context, Integer.valueOf(i2), httpSendController, Long.valueOf(j), str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -269,7 +269,7 @@ public class MetricsWorker implements IMetricsAPI {
         this.count = new AtomicInteger(0);
         this.maxCount = i2;
         this.httpSendController = httpSendController;
-        this.expire = j2;
+        this.expire = j;
         this.appKey = str;
         this.appVer = str2;
         this.context = context;

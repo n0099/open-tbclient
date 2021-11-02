@@ -269,10 +269,10 @@ public final class ResourceManagerInternal {
         }
     }
 
-    private synchronized boolean addDrawableToCache(@NonNull Context context, long j2, @NonNull Drawable drawable) {
+    private synchronized boolean addDrawableToCache(@NonNull Context context, long j, @NonNull Drawable drawable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, Long.valueOf(j2), drawable})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, Long.valueOf(j), drawable})) == null) {
             synchronized (this) {
                 Drawable.ConstantState constantState = drawable.getConstantState();
                 if (constantState != null) {
@@ -281,7 +281,7 @@ public final class ResourceManagerInternal {
                         longSparseArray = new LongSparseArray<>();
                         this.mDrawableCaches.put(context, longSparseArray);
                     }
-                    longSparseArray.put(j2, new WeakReference<>(constantState));
+                    longSparseArray.put(j, new WeakReference<>(constantState));
                     return true;
                 }
                 return false;
@@ -379,22 +379,22 @@ public final class ResourceManagerInternal {
         return (ResourceManagerInternal) invokeV.objValue;
     }
 
-    private synchronized Drawable getCachedDrawable(@NonNull Context context, long j2) {
+    private synchronized Drawable getCachedDrawable(@NonNull Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, this, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, this, context, j)) == null) {
             synchronized (this) {
                 LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.mDrawableCaches.get(context);
                 if (longSparseArray == null) {
                     return null;
                 }
-                WeakReference<Drawable.ConstantState> weakReference = longSparseArray.get(j2);
+                WeakReference<Drawable.ConstantState> weakReference = longSparseArray.get(j);
                 if (weakReference != null) {
                     Drawable.ConstantState constantState = weakReference.get();
                     if (constantState != null) {
                         return constantState.newDrawable(context.getResources());
                     }
-                    longSparseArray.remove(j2);
+                    longSparseArray.remove(j);
                 }
                 return null;
             }

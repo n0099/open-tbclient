@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.r0.b0.b;
+import b.a.r0.b0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.r0.w.g.b.b> {
+/* loaded from: classes9.dex */
+public class AlaFrsLiveListGatherRecommendTitleView extends b<b.a.r0.w.g.b.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View m;
@@ -24,7 +24,7 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.r0.w.g.b.b> {
     public TbPageContext p;
     public int q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AlaFrsLiveListGatherRecommendTitleViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.r0.w.g.b.b> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaFrsLiveListGatherRecommendTitleViewHolder(AlaFrsLiveListGatherRecommendTitleView alaFrsLiveListGatherRecommendTitleView) {
-            super(alaFrsLiveListGatherRecommendTitleView.j());
+            super(alaFrsLiveListGatherRecommendTitleView.i());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,22 +71,22 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.r0.w.g.b.b> {
             }
         }
         this.q = 3;
-        View j2 = j();
-        this.m = j2.findViewById(R.id.frs_game_live_recommand_line1);
-        this.n = (TextView) j2.findViewById(R.id.frs_game_live_recommand3);
-        this.o = j2.findViewById(R.id.frs_game_live_recommand_line2);
-        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        View i4 = i();
+        this.m = i4.findViewById(R.id.frs_game_live_recommand_line1);
+        this.n = (TextView) i4.findViewById(R.id.frs_game_live_recommand3);
+        this.o = i4.findViewById(R.id.frs_game_live_recommand_line2);
+        k(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.r0.b0.b
-    public int f() {
+    @Override // b.a.r0.b0.b
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_frs_game_live_recommend_title_view : invokeV.intValue;
     }
 
-    @Override // c.a.r0.b0.b
-    public void l(TbPageContext<?> tbPageContext, int i2) {
+    @Override // b.a.r0.b0.b
+    public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.q == i2) {
             return;
@@ -97,20 +97,20 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.r0.w.g.b.b> {
         this.q = i2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // b.a.r0.b0.b
+    /* renamed from: o */
+    public void j(b.a.r0.w.g.b.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            k(this.p, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.b0.b
-    /* renamed from: p */
-    public void k(c.a.r0.w.g.b.b bVar) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            l(this.p, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
         }
     }
 }

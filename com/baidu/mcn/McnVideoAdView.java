@@ -13,8 +13,8 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import c.a.r0.z2.z;
+import b.a.e.e.p.l;
+import b.a.r0.z2.z;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class McnVideoAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int s;
@@ -36,38 +36,36 @@ public class McnVideoAdView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42638e;
+    public Context f40450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f42639f;
+    public TbImageView f40451f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f42640g;
+    public TextView f40452g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f42641h;
+    public TextView f40453h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f42642i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Animation f42643j;
+    public Animation f40454i;
+    public Animation j;
     public float k;
     public float l;
     public boolean m;
     public boolean n;
-    public c.a.y.a o;
+    public b.a.y.a o;
     public c p;
     public final Handler q;
     public ViewParent r;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ McnVideoAdView f42644a;
+        public final /* synthetic */ McnVideoAdView f40455a;
 
         public a(McnVideoAdView mcnVideoAdView) {
             Interceptable interceptable = $ic;
@@ -84,14 +82,14 @@ public class McnVideoAdView extends FrameLayout {
                     return;
                 }
             }
-            this.f42644a = mcnVideoAdView;
+            this.f40455a = mcnVideoAdView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f42644a.g();
+                this.f40455a.g();
             }
         }
 
@@ -110,13 +108,13 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ McnVideoAdView f42645e;
+        public final /* synthetic */ McnVideoAdView f40456e;
 
         public b(McnVideoAdView mcnVideoAdView) {
             Interceptable interceptable = $ic;
@@ -133,27 +131,27 @@ public class McnVideoAdView extends FrameLayout {
                     return;
                 }
             }
-            this.f42645e = mcnVideoAdView;
+            this.f40456e = mcnVideoAdView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42645e.r == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40456e.r == null) {
                 return;
             }
-            this.f42645e.r.requestDisallowInterceptTouchEvent(false);
-            this.f42645e.r = null;
+            this.f40456e.r.requestDisallowInterceptTouchEvent(false);
+            this.f40456e.r = null;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface c {
-        void a(c.a.y.a aVar);
+        void a(b.a.y.a aVar);
 
-        void b(c.a.y.a aVar);
+        void b(b.a.y.a aVar);
 
-        void c(c.a.y.a aVar);
+        void c(b.a.y.a aVar);
     }
 
     static {
@@ -195,24 +193,24 @@ public class McnVideoAdView extends FrameLayout {
         this.m = false;
         this.n = false;
         this.q = new Handler();
-        this.f42638e = context;
+        this.f40450e = context;
         f();
     }
 
-    private void setData(c.a.y.a aVar) {
+    private void setData(b.a.y.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65543, this, aVar) == null) || aVar == null) {
             return;
         }
         this.o = aVar;
-        this.f42639f.startLoad(aVar.f31251a, 10, false);
-        if (!StringUtils.isNull(aVar.f31252b)) {
-            this.f42640g.setText(aVar.f31252b);
+        this.f40451f.startLoad(aVar.f29946a, 10, false);
+        if (!StringUtils.isNull(aVar.f29947b)) {
+            this.f40452g.setText(aVar.f29947b);
         }
-        if (StringUtils.isNull(aVar.f31253c)) {
+        if (StringUtils.isNull(aVar.f29948c)) {
             return;
         }
-        this.f42641h.setText(aVar.f31253c);
+        this.f40453h.setText(aVar.f29948c);
     }
 
     public final void d() {
@@ -224,19 +222,19 @@ public class McnVideoAdView extends FrameLayout {
 
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f42643j == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.j == null) {
             return;
         }
         clearAnimation();
-        startAnimation(this.f42643j);
+        startAnimation(this.j);
     }
 
     public final void e() {
         Context context;
-        c.a.y.a aVar;
+        b.a.y.a aVar;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f42638e) == null || (aVar = this.o) == null || (str = aVar.f31254d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f40450e) == null || (aVar = this.o) == null || (str = aVar.f29949d) == null) {
             return;
         }
         z.d(context, str, null, null);
@@ -249,17 +247,17 @@ public class McnVideoAdView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.f42638e).inflate(R.layout.mcn_video_ad_layout, this);
-            this.f42639f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
-            this.f42640g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
-            this.f42641h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
-            this.f42639f.setConrers(5);
-            this.f42639f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
-            this.f42639f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
-            this.f42639f.setRadius(l.g(this.f42638e, R.dimen.tbds20));
-            this.f42642i = AnimationUtils.loadAnimation(this.f42638e, R.anim.mcn_video_ad_open_anim);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f42638e, R.anim.mcn_video_ad_close_anim);
-            this.f42643j = loadAnimation;
+            LayoutInflater.from(this.f40450e).inflate(R.layout.mcn_video_ad_layout, this);
+            this.f40451f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
+            this.f40452g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
+            this.f40453h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
+            this.f40451f.setConrers(5);
+            this.f40451f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
+            this.f40451f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
+            this.f40451f.setRadius(l.g(this.f40450e, R.dimen.tbds20));
+            this.f40454i = AnimationUtils.loadAnimation(this.f40450e, R.anim.mcn_video_ad_open_anim);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f40450e, R.anim.mcn_video_ad_close_anim);
+            this.j = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
         }
     }
@@ -344,18 +342,18 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    public void show(c.a.y.a aVar, ViewGroup viewGroup) {
+    public void show(b.a.y.a aVar, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, aVar, viewGroup) == null) {
             showMcnVideoAdWithOutAnim(aVar, viewGroup);
-            if (this.f42642i != null) {
+            if (this.f40454i != null) {
                 clearAnimation();
-                startAnimation(this.f42642i);
+                startAnimation(this.f40454i);
             }
         }
     }
 
-    public void showMcnVideoAdWithOutAnim(c.a.y.a aVar, ViewGroup viewGroup) {
+    public void showMcnVideoAdWithOutAnim(b.a.y.a aVar, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, aVar, viewGroup) == null) {
             this.m = true;
@@ -403,7 +401,7 @@ public class McnVideoAdView extends FrameLayout {
         this.m = false;
         this.n = false;
         this.q = new Handler();
-        this.f42638e = context;
+        this.f40450e = context;
         f();
     }
 
@@ -429,7 +427,7 @@ public class McnVideoAdView extends FrameLayout {
         this.m = false;
         this.n = false;
         this.q = new Handler();
-        this.f42638e = context;
+        this.f40450e = context;
         f();
     }
 }

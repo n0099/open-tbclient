@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.List;
 import okio.BufferedSource;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface PushObserver {
     public static final PushObserver CANCEL = new PushObserver() { // from class: okhttp3.internal.http2.PushObserver.1
         public static /* synthetic */ Interceptable $ic;

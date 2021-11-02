@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.notification.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,19 +26,19 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75304a;
+    public int f67662a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75305b;
+    public String f67663b;
 
     public a() {
-        this.f75304a = 0;
+        this.f67662a = 0;
     }
 
     public a(Parcel parcel) {
-        this.f75304a = 0;
-        this.f75304a = parcel.readInt();
-        this.f75305b = parcel.readString();
+        this.f67662a = 0;
+        this.f67662a = parcel.readInt();
+        this.f67663b = parcel.readString();
     }
 
     public static a a(MessageV3 messageV3) {
@@ -46,10 +46,10 @@ public class a implements Parcelable {
         try {
             c2 = !TextUtils.isEmpty(messageV3.getNotificationMessage()) ? a(new JSONObject(messageV3.getNotificationMessage()).getJSONObject("data").getJSONObject("extra").getJSONObject("no")) : null;
         } catch (Exception e2) {
-            c.l.a.a.a.b("NotifyOption", "parse flyme NotifyOption setting error " + e2.getMessage() + " so get from notificationMessage");
+            b.l.a.a.a.b("NotifyOption", "parse flyme NotifyOption setting error " + e2.getMessage() + " so get from notificationMessage");
             c2 = c(messageV3.getNotificationMessage());
         }
-        c.l.a.a.a.d("NotifyOption", "current notify option is " + c2);
+        b.l.a.a.a.d("NotifyOption", "current notify option is " + c2);
         return c2;
     }
 
@@ -70,7 +70,7 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no such tag NotifyOption";
-        c.l.a.a.a.b("NotifyOption", str);
+        b.l.a.a.a.b("NotifyOption", str);
         return aVar;
     }
 
@@ -88,7 +88,7 @@ public class a implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.l.a.a.a.b("NotifyOption", "parse json string error " + e2.getMessage());
+                b.l.a.a.a.b("NotifyOption", "parse json string error " + e2.getMessage());
             }
             return a(jSONObject);
         }
@@ -103,25 +103,25 @@ public class a implements Parcelable {
             }
             return b(new JSONObject(str).getString("no"));
         } catch (JSONException e2) {
-            c.l.a.a.a.b("NotifyOption", "parse notificationMessage error " + e2.getMessage());
+            b.l.a.a.a.b("NotifyOption", "parse notificationMessage error " + e2.getMessage());
             return null;
         }
     }
 
     public int a() {
-        return this.f75304a;
+        return this.f67662a;
     }
 
     public void a(int i2) {
-        this.f75304a = i2;
+        this.f67662a = i2;
     }
 
     public void a(String str) {
-        this.f75305b = str;
+        this.f67663b = str;
     }
 
     public String b() {
-        return this.f75305b;
+        return this.f67663b;
     }
 
     @Override // android.os.Parcelable
@@ -130,12 +130,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.f75304a + ", notifyKey='" + this.f75305b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "NotifyOption{notifyId=" + this.f67662a + ", notifyKey='" + this.f67663b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f75304a);
-        parcel.writeString(this.f75305b);
+        parcel.writeInt(this.f67662a);
+        parcel.writeString(this.f67663b);
     }
 }

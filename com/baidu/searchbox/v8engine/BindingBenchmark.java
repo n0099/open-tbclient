@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BindingBenchmark {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final V8Engine mEngine;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class JavaObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class BindingBenchmark {
             this.mDouble = 123.456789d;
             this.mString = "123.456789ABCDEF";
             this.mObject = new Object();
-            this.mJSEvent = new JSEvent(a.f39363g);
+            this.mJSEvent = new JSEvent(a.f37312g);
             this.mInt = i2;
         }
 
@@ -80,18 +80,18 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
-    public long invokeAddJavascriptInterface(long j2) {
+    public long invokeAddJavascriptInterface(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            if (j2 > 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (j > 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                for (long j3 = 0; j3 < j2; j3++) {
-                    this.mEngine.addJavascriptInterface(new JavaObject((int) j3), "jsi_" + j3);
+                for (long j2 = 0; j2 < j; j2++) {
+                    this.mEngine.addJavascriptInterface(new JavaObject((int) j2), "jsi_" + j2);
                 }
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                for (long j4 = 0; j4 < j2; j4++) {
-                    this.mEngine.removeJavascriptInterface("jsi_" + j4);
+                for (long j3 = 0; j3 < j; j3++) {
+                    this.mEngine.removeJavascriptInterface("jsi_" + j3);
                 }
                 return currentTimeMillis2;
             }
@@ -101,11 +101,11 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
-    public long invokeJsFunctionArrayBuffer(JsFunction jsFunction, long j2) {
+    public long invokeJsFunctionArrayBuffer(JsFunction jsFunction, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsFunction, j2)) == null) {
-            if (jsFunction == null || j2 <= 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsFunction, j)) == null) {
+            if (jsFunction == null || j <= 0) {
                 return 0L;
             }
             Object[] objArr = new Object[1000];
@@ -117,8 +117,8 @@ public class BindingBenchmark {
             }
             jsFunction.setReleaseMode(false);
             long currentTimeMillis = System.currentTimeMillis();
-            for (long j3 = 0; j3 < j2; j3++) {
-                jsFunction.call(objArr[(int) (j2 % 1000)]);
+            for (long j2 = 0; j2 < j; j2++) {
+                jsFunction.call(objArr[(int) (j % 1000)]);
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             jsFunction.release();
@@ -128,17 +128,17 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
-    public long invokeJsFunctionInt(JsFunction jsFunction, long j2) {
+    public long invokeJsFunctionInt(JsFunction jsFunction, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jsFunction, j2)) == null) {
-            if (jsFunction == null || j2 <= 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jsFunction, j)) == null) {
+            if (jsFunction == null || j <= 0) {
                 return 0L;
             }
             jsFunction.setReleaseMode(false);
             long currentTimeMillis = System.currentTimeMillis();
-            for (long j3 = 0; j3 < j2; j3++) {
-                jsFunction.call(j2);
+            for (long j2 = 0; j2 < j; j2++) {
+                jsFunction.call(j);
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             jsFunction.release();
@@ -148,11 +148,11 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
-    public long invokeJsFunctionObject(JsFunction jsFunction, long j2) {
+    public long invokeJsFunctionObject(JsFunction jsFunction, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, jsFunction, j2)) == null) {
-            if (jsFunction == null || j2 <= 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, jsFunction, j)) == null) {
+            if (jsFunction == null || j <= 0) {
                 return 0L;
             }
             Object[] objArr = new Object[1000];
@@ -161,8 +161,8 @@ public class BindingBenchmark {
             }
             jsFunction.setReleaseMode(false);
             long currentTimeMillis = System.currentTimeMillis();
-            for (long j3 = 0; j3 < j2; j3++) {
-                jsFunction.call(objArr[(int) (j2 % 1000)]);
+            for (long j2 = 0; j2 < j; j2++) {
+                jsFunction.call(objArr[(int) (j % 1000)]);
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             jsFunction.release();
@@ -172,11 +172,11 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
-    public long invokeJsFunctionString(JsFunction jsFunction, long j2) {
+    public long invokeJsFunctionString(JsFunction jsFunction, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, jsFunction, j2)) == null) {
-            if (jsFunction == null || j2 <= 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, jsFunction, j)) == null) {
+            if (jsFunction == null || j <= 0) {
                 return 0L;
             }
             String[] strArr = new String[1000];
@@ -185,8 +185,8 @@ public class BindingBenchmark {
             }
             jsFunction.setReleaseMode(false);
             long currentTimeMillis = System.currentTimeMillis();
-            for (long j3 = 0; j3 < j2; j3++) {
-                jsFunction.call(strArr[(int) (j2 % 1000)]);
+            for (long j2 = 0; j2 < j; j2++) {
+                jsFunction.call(strArr[(int) (j % 1000)]);
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             jsFunction.release();
@@ -196,16 +196,16 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
-    public long invokeJsFunctionVoid(JsFunction jsFunction, long j2) {
+    public long invokeJsFunctionVoid(JsFunction jsFunction, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, jsFunction, j2)) == null) {
-            if (jsFunction == null || j2 <= 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, jsFunction, j)) == null) {
+            if (jsFunction == null || j <= 0) {
                 return 0L;
             }
             jsFunction.setReleaseMode(false);
             long currentTimeMillis = System.currentTimeMillis();
-            for (long j3 = 0; j3 < j2; j3++) {
+            for (long j2 = 0; j2 < j; j2++) {
                 jsFunction.call();
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
@@ -216,17 +216,17 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
-    public long invokeRemoveJavascriptInterface(long j2) {
+    public long invokeRemoveJavascriptInterface(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-            if (j2 > 0) {
-                for (long j3 = 0; j3 < j2; j3++) {
-                    this.mEngine.addJavascriptInterface(new JavaObject((int) j3), "jsi_" + j3);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            if (j > 0) {
+                for (long j2 = 0; j2 < j; j2++) {
+                    this.mEngine.addJavascriptInterface(new JavaObject((int) j2), "jsi_" + j2);
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                for (long j4 = 0; j4 < j2; j4++) {
-                    this.mEngine.removeJavascriptInterface("jsi_" + j4);
+                for (long j3 = 0; j3 < j; j3++) {
+                    this.mEngine.removeJavascriptInterface("jsi_" + j3);
                 }
                 return System.currentTimeMillis() - currentTimeMillis;
             }

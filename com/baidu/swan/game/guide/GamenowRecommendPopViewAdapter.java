@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.p0.f.j.h;
-import c.a.p0.f.j.i;
-import c.a.p0.f.j.n.c;
-import c.a.p0.f.j.r.b;
+import b.a.p0.f.j.h;
+import b.a.p0.f.j.i;
+import b.a.p0.f.j.n.c;
+import b.a.p0.f.j.r.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,27 +21,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f46950e;
+    public Context f44587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<GameGuideConfigInfo.RecommendGameInfo> f46951f;
+    public List<GameGuideConfigInfo.RecommendGameInfo> f44588f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SimpleDraweeView f46952a;
+        public SimpleDraweeView f44589a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f46953b;
+        public TextView f44590b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GamenowRecommendPopViewAdapter gamenowRecommendPopViewAdapter, View view) {
@@ -61,8 +61,8 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
                     return;
                 }
             }
-            this.f46952a = (SimpleDraweeView) view.findViewById(h.dv_icon);
-            this.f46953b = (TextView) view.findViewById(h.tv_name);
+            this.f44589a = (SimpleDraweeView) view.findViewById(h.dv_icon);
+            this.f44590b = (TextView) view.findViewById(h.tv_name);
         }
     }
 
@@ -81,25 +81,25 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
                 return;
             }
         }
-        this.f46950e = context;
-        this.f46951f = list;
+        this.f44587e = context;
+        this.f44588f = list;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46951f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44588f.size() : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int intValue;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view.getTag() == null || (intValue = ((Integer) view.getTag()).intValue()) >= this.f46951f.size()) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view.getTag() == null || (intValue = ((Integer) view.getTag()).intValue()) >= this.f44588f.size()) {
             return;
         }
-        GameGuideConfigInfo.RecommendGameInfo recommendGameInfo = this.f46951f.get(intValue);
+        GameGuideConfigInfo.RecommendGameInfo recommendGameInfo = this.f44588f.get(intValue);
         if (TextUtils.isEmpty(recommendGameInfo.appKey)) {
             return;
         }
@@ -112,11 +112,11 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
     public void onBindViewHolder(a aVar, int i2) {
         GameGuideConfigInfo.RecommendGameInfo recommendGameInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, aVar, i2) == null) || (recommendGameInfo = this.f46951f.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, aVar, i2) == null) || (recommendGameInfo = this.f44588f.get(i2)) == null) {
             return;
         }
-        aVar.f46952a.setController(Fresco.newDraweeControllerBuilder().setUri(recommendGameInfo.iconUrl).build());
-        aVar.f46953b.setText(recommendGameInfo.appName);
+        aVar.f44589a.setController(Fresco.newDraweeControllerBuilder().setUri(recommendGameInfo.iconUrl).build());
+        aVar.f44590b.setText(recommendGameInfo.appName);
         aVar.itemView.setTag(Integer.valueOf(i2));
     }
 
@@ -126,7 +126,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
-            a aVar = new a(this, LayoutInflater.from(this.f46950e).inflate(i.aiapps_gamenow_recommend_item_view, viewGroup, false));
+            a aVar = new a(this, LayoutInflater.from(this.f44587e).inflate(i.aiapps_gamenow_recommend_item_view, viewGroup, false));
             aVar.itemView.setOnClickListener(this);
             return aVar;
         }

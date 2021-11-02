@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.ProtocolException;
 import okhttp3.Protocol;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class StatusLine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_CONTINUE = 100;

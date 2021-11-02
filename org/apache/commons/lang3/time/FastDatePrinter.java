@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentMap;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FastDatePrinter implements DatePrinter, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FULL = 0;
@@ -44,7 +44,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
     public transient Rule[] mRules;
     public final TimeZone mTimeZone;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CharacterLiteral implements Rule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Iso8601_Rule implements Rule {
         public static /* synthetic */ Interceptable $ic;
         public static final Iso8601_Rule ISO8601_HOURS;
@@ -186,12 +186,12 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface NumberRule extends Rule {
         void appendTo(Appendable appendable, int i2) throws IOException;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PaddedNumberField implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,14 +245,14 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Rule {
         void appendTo(Appendable appendable, Calendar calendar) throws IOException;
 
         int estimateLength();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StringLiteral implements Rule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -292,7 +292,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TextField implements Rule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -348,7 +348,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TimeZoneDisplayKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -403,7 +403,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TimeZoneNameRule implements Rule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -454,7 +454,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TimeZoneNumberRule implements Rule {
         public static /* synthetic */ Interceptable $ic;
         public static final TimeZoneNumberRule INSTANCE_COLON;
@@ -528,7 +528,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TwoDigitMonthField implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public static final TwoDigitMonthField INSTANCE;
@@ -591,7 +591,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TwoDigitNumberField implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -646,7 +646,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TwoDigitYearField implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public static final TwoDigitYearField INSTANCE;
@@ -709,7 +709,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UnpaddedMonthField implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public static final UnpaddedMonthField INSTANCE;
@@ -776,7 +776,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UnpaddedNumberField implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -833,7 +833,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class WeekYear implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1387,7 +1387,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DayInWeekField implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1452,7 +1452,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         return (B) invokeLL.objValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TwelveHourField implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1504,7 +1504,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TwentyFourHourField implements NumberRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1578,12 +1578,12 @@ public class FastDatePrinter implements DatePrinter, Serializable {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public String format(long j2) {
+    public String format(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
             Calendar newCalendar = newCalendar();
-            newCalendar.setTimeInMillis(j2);
+            newCalendar.setTimeInMillis(j);
             return applyRulesToString(newCalendar);
         }
         return (String) invokeJ.objValue;
@@ -1609,12 +1609,12 @@ public class FastDatePrinter implements DatePrinter, Serializable {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public StringBuffer format(long j2, StringBuffer stringBuffer) {
+    public StringBuffer format(long j, StringBuffer stringBuffer) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j2, stringBuffer)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, stringBuffer)) == null) {
             Calendar newCalendar = newCalendar();
-            newCalendar.setTimeInMillis(j2);
+            newCalendar.setTimeInMillis(j);
             return (StringBuffer) applyRules(newCalendar, (Calendar) stringBuffer);
         }
         return (StringBuffer) invokeJL.objValue;
@@ -1640,12 +1640,12 @@ public class FastDatePrinter implements DatePrinter, Serializable {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public <B extends Appendable> B format(long j2, B b2) {
+    public <B extends Appendable> B format(long j, B b2) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, b2)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, b2)) == null) {
             Calendar newCalendar = newCalendar();
-            newCalendar.setTimeInMillis(j2);
+            newCalendar.setTimeInMillis(j);
             return (B) applyRules(newCalendar, (Calendar) b2);
         }
         return (B) invokeJL.objValue;

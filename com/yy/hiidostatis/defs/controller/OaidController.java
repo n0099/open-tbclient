@@ -23,7 +23,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class OaidController {
     public static final /* synthetic */ OaidController[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -32,13 +32,13 @@ public final class OaidController {
     public OaidHelper oaidHelper;
 
     /* renamed from: com.yy.hiidostatis.defs.controller.OaidController$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface OaidInitListener {
         void initFinish(boolean z, String str, String str2);
     }
@@ -149,7 +149,7 @@ public final class OaidController {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.oaidHelper.getOaid() : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class OaidHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TIME_OUT = 20000;

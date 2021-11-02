@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,17 +45,17 @@ public class b extends c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             g gVar = new g();
             try {
-                jSONObject = new JSONObject(new String(eVar.f37758b));
+                jSONObject = new JSONObject(new String(eVar.f35781b));
             } catch (JSONException e2) {
-                new b.c(this.f37754a).a(Log.getStackTraceString(e2)).a();
+                new b.c(this.f35777a).a(Log.getStackTraceString(e2)).a();
                 jSONObject = null;
             }
             int optInt = jSONObject != null ? jSONObject.optInt(Constants.KEYS.RET, -1) : -1;
             if (optInt == 2002) {
-                com.baidu.android.pushservice.k.a(this.f37754a).a(null, null, null, null);
-                m.c(this.f37754a);
+                com.baidu.android.pushservice.k.a(this.f35777a).a(null, null, null, null);
+                m.c(this.f35777a);
             }
-            new b.C1609b(this.f37754a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+            new b.C1566b(this.f35777a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
             gVar.a(optInt);
             return gVar;
         }

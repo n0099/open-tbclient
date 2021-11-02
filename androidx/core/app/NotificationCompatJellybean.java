@@ -145,7 +145,7 @@ public class NotificationCompatJellybean {
                     hashSet.add(it.next());
                 }
             }
-            return new RemoteInput(bundle.getString(KEY_RESULT_KEY), bundle.getCharSequence(KEY_LABEL), bundle.getCharSequenceArray(KEY_CHOICES), bundle.getBoolean(KEY_ALLOW_FREE_FORM_INPUT), 0, bundle.getBundle("extras"), hashSet);
+            return new RemoteInput(bundle.getString(KEY_RESULT_KEY), bundle.getCharSequence("label"), bundle.getCharSequenceArray(KEY_CHOICES), bundle.getBoolean(KEY_ALLOW_FREE_FORM_INPUT), 0, bundle.getBundle("extras"), hashSet);
         }
         return (RemoteInput) invokeL.objValue;
     }
@@ -335,7 +335,7 @@ public class NotificationCompatJellybean {
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, remoteInput)) == null) {
             Bundle bundle = new Bundle();
             bundle.putString(KEY_RESULT_KEY, remoteInput.getResultKey());
-            bundle.putCharSequence(KEY_LABEL, remoteInput.getLabel());
+            bundle.putCharSequence("label", remoteInput.getLabel());
             bundle.putCharSequenceArray(KEY_CHOICES, remoteInput.getChoices());
             bundle.putBoolean(KEY_ALLOW_FREE_FORM_INPUT, remoteInput.getAllowFreeFormInput());
             bundle.putBundle("extras", remoteInput.getExtras());

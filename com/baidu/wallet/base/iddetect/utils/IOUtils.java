@@ -14,7 +14,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.net.ServerSocket;
 import java.net.Socket;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IOUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

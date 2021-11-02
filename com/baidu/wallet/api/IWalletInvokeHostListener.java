@@ -1,5 +1,5 @@
 package com.baidu.wallet.api;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IWalletInvokeHostListener {
-    void invokeHostNative(long j2, String str);
+    void invokeHostNative(long j, String str);
 }

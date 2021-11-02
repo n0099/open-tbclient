@@ -39,12 +39,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.f;
-import c.a.e.a.g;
-import c.a.e.a.i;
-import c.a.e.h.f.a;
-import c.a.e.h.j.g.d;
-import c.a.e.l.e.q;
+import b.a.e.a.f;
+import b.a.e.a.g;
+import b.a.e.a.i;
+import b.a.e.h.f.a;
+import b.a.e.h.j.g.d;
+import b.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -59,7 +59,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PluginBaseActivity extends PluginContextWrapper implements LayoutInflater.Factory, KeyEvent.Callback, View.OnCreateContextMenuListener, ComponentCallbacks, i, Handler.Callback, g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_KEYS_DIALER = 1;
@@ -424,7 +424,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.e.a.g
+    @Override // b.a.e.a.g
     public f getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -20,33 +20,33 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RestHttpDNSEnabler {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f69696a = "RestHttpDNSEnabler";
+    public static final String f62134a = "RestHttpDNSEnabler";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f69697b;
+    public static Pattern f62135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ConcurrentHashMap<String, b> f69698c;
+    public static ConcurrentHashMap<String, b> f62136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f69699d;
+    public static long f62137d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f69700e;
+        public final /* synthetic */ Context f62138e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f69701f;
+        public final /* synthetic */ String f62139f;
 
         public a(Context context, String str) {
             Interceptable interceptable = $ic;
@@ -63,18 +63,18 @@ public class RestHttpDNSEnabler {
                     return;
                 }
             }
-            this.f69700e = context;
-            this.f69701f = str;
+            this.f62138e = context;
+            this.f62139f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RestTemplate restTemplate = new RestTemplate(this.f69700e.getApplicationContext());
-                restTemplate.setMessageConverter(new c.f.a.g.b.b());
+                RestTemplate restTemplate = new RestTemplate(this.f62138e.getApplicationContext());
+                restTemplate.setMessageConverter(new b.f.a.g.b.b());
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("dn", this.f69701f));
+                arrayList.add(new RestNameValuePair("dn", this.f62139f));
                 try {
                     String str = (String) restTemplate.d("http://180.76.76.112/", arrayList, "utf-8", String.class);
                     if (str instanceof String) {
@@ -87,8 +87,8 @@ public class RestHttpDNSEnabler {
                         if (TextUtils.isEmpty(trim) || !RestHttpDNSEnabler.c(trim)) {
                             return;
                         }
-                        synchronized (RestHttpDNSEnabler.f69698c) {
-                            RestHttpDNSEnabler.f69698c.put(this.f69701f, new b(trim));
+                        synchronized (RestHttpDNSEnabler.f62136c) {
+                            RestHttpDNSEnabler.f62136c.put(this.f62139f, new b(trim));
                         }
                     }
                 } catch (Exception e2) {
@@ -98,17 +98,17 @@ public class RestHttpDNSEnabler {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f69702a;
+        public String f62140a;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b(String str) {
-            this(str, System.currentTimeMillis(), RestHttpDNSEnabler.f69699d);
+            this(str, System.currentTimeMillis(), RestHttpDNSEnabler.f62137d);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,12 +127,12 @@ public class RestHttpDNSEnabler {
             }
         }
 
-        public b(String str, long j2, long j3) {
+        public b(String str, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -142,7 +142,7 @@ public class RestHttpDNSEnabler {
                     return;
                 }
             }
-            this.f69702a = str;
+            this.f62140a = str;
         }
     }
 
@@ -159,9 +159,9 @@ public class RestHttpDNSEnabler {
                 return;
             }
         }
-        f69697b = Pattern.compile(com.baidu.apollon.restnet.RestHttpDNSEnabler.f38044b);
-        f69698c = new ConcurrentHashMap<>();
-        f69699d = 86400L;
+        f62135b = Pattern.compile(com.baidu.apollon.restnet.RestHttpDNSEnabler.f36060b);
+        f62136c = new ConcurrentHashMap<>();
+        f62137d = 86400L;
     }
 
     public RestHttpDNSEnabler() {
@@ -185,11 +185,11 @@ public class RestHttpDNSEnabler {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, url)) == null) {
             String host = url.getHost();
             String url2 = url.toString();
-            for (Map.Entry<String, b> entry : f69698c.entrySet()) {
+            for (Map.Entry<String, b> entry : f62136c.entrySet()) {
                 String key = entry.getKey();
                 if (key.equals(host) || (ApollonConstants.WALLET_SPECIFIC && key.endsWith("baifubao.com") && host.endsWith("baifubao.com"))) {
-                    synchronized (f69698c) {
-                        replaceFirst = url2.replaceFirst(host, f69698c.get(key).f69702a);
+                    synchronized (f62136c) {
+                        replaceFirst = url2.replaceFirst(host, f62136c.get(key).f62140a);
                     }
                     return replaceFirst;
                 }
@@ -202,15 +202,15 @@ public class RestHttpDNSEnabler {
     public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f69697b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f62135b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) && c(str)) {
-            Iterator<Map.Entry<String, b>> it = f69698c.entrySet().iterator();
+            Iterator<Map.Entry<String, b>> it = f62136c.entrySet().iterator();
             while (it.hasNext()) {
-                if (it.next().getValue().f69702a.equals(str)) {
+                if (it.next().getValue().f62140a.equals(str)) {
                     it.remove();
                     return;
                 }
@@ -222,14 +222,14 @@ public class RestHttpDNSEnabler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
-                if (f69698c.containsKey(str)) {
+                if (f62136c.containsKey(str)) {
                     return;
                 }
                 new Thread(new a(context, str)).start();
                 return;
             }
-            String str2 = f69696a;
-            LogUtil.w(str2, f69696a + " enableHttpDns params context is null or hostName is null.");
+            String str2 = f62134a;
+            LogUtil.w(str2, f62134a + " enableHttpDns params context is null or hostName is null.");
         }
     }
 }

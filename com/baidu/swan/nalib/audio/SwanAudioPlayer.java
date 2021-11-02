@@ -10,8 +10,8 @@ import android.os.Message;
 import android.util.SparseArray;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.l.a.b;
-import c.a.p0.l.a.c;
+import b.a.p0.l.a.b;
+import b.a.p0.l.a.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.MediaStreamTrack;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanAudioPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE_IN_FRAMES = 192;
@@ -54,13 +54,13 @@ public class SwanAudioPlayer {
     public SparseArray<MediaPlayer.OnPreparedListener> mPreparedMap;
     public SparseArray<MediaPlayer.OnSeekCompleteListener> mSeekMap;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAudioPlayer f47241a;
+        public final /* synthetic */ SwanAudioPlayer f44860a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAudioPlayer swanAudioPlayer, Looper looper) {
@@ -80,7 +80,7 @@ public class SwanAudioPlayer {
                     return;
                 }
             }
-            this.f47241a = swanAudioPlayer;
+            this.f44860a = swanAudioPlayer;
         }
 
         @Override // android.os.Handler
@@ -89,37 +89,37 @@ public class SwanAudioPlayer {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == -1) {
-                    MediaPlayer.OnErrorListener onErrorListener = (MediaPlayer.OnErrorListener) this.f47241a.mErrorMap.get(message.arg1);
+                    MediaPlayer.OnErrorListener onErrorListener = (MediaPlayer.OnErrorListener) this.f44860a.mErrorMap.get(message.arg1);
                     if (onErrorListener != null) {
                         onErrorListener.onError(null, message.arg1, message.arg2);
                     }
                 } else if (i2 == 1) {
-                    MediaPlayer.OnPreparedListener onPreparedListener = (MediaPlayer.OnPreparedListener) this.f47241a.mPreparedMap.get(message.arg1);
+                    MediaPlayer.OnPreparedListener onPreparedListener = (MediaPlayer.OnPreparedListener) this.f44860a.mPreparedMap.get(message.arg1);
                     if (onPreparedListener != null) {
                         onPreparedListener.onPrepared(null);
                     }
                 } else if (i2 == 3) {
-                    MediaPlayer.OnSeekCompleteListener onSeekCompleteListener = (MediaPlayer.OnSeekCompleteListener) this.f47241a.mSeekMap.get(message.arg1);
+                    MediaPlayer.OnSeekCompleteListener onSeekCompleteListener = (MediaPlayer.OnSeekCompleteListener) this.f44860a.mSeekMap.get(message.arg1);
                     if (onSeekCompleteListener != null) {
                         onSeekCompleteListener.onSeekComplete(null);
                     }
                 } else if (i2 == 4) {
-                    MediaPlayer.OnCompletionListener onCompletionListener = (MediaPlayer.OnCompletionListener) this.f47241a.mEndMap.get(message.arg1);
+                    MediaPlayer.OnCompletionListener onCompletionListener = (MediaPlayer.OnCompletionListener) this.f44860a.mEndMap.get(message.arg1);
                     if (onCompletionListener != null) {
                         onCompletionListener.onCompletion(null);
                     }
                 } else if (i2 == 5) {
-                    c cVar = (c) this.f47241a.mPausedMap.get(message.arg1);
+                    c cVar = (c) this.f44860a.mPausedMap.get(message.arg1);
                     if (cVar != null) {
                         cVar.onPause();
                     }
                 } else if (i2 == 100) {
-                    this.f47241a.postRunnable(Long.parseLong(message.obj.toString()));
+                    this.f44860a.postRunnable(Long.parseLong(message.obj.toString()));
                 } else if (i2 != 101) {
                 } else {
-                    c.a.p0.l.a.a aVar = (c.a.p0.l.a.a) message.obj;
-                    if (this.f47241a.mAudioRecordListener != null) {
-                        this.f47241a.mAudioRecordListener.a(aVar);
+                    b.a.p0.l.a.a aVar = (b.a.p0.l.a.a) message.obj;
+                    if (this.f44860a.mAudioRecordListener != null) {
+                        this.f44860a.mAudioRecordListener.a(aVar);
                     }
                 }
             }
@@ -193,7 +193,7 @@ public class SwanAudioPlayer {
     public static native void init(int i2, int i3);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void postRunnable(long j2);
+    public native void postRunnable(long j);
 
     public static native void release();
 
@@ -229,15 +229,15 @@ public class SwanAudioPlayer {
 
     public native void play(int i2, float f2, boolean z);
 
-    public void postAudioData(byte[] bArr, long j2) {
+    public void postAudioData(byte[] bArr, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, bArr, j2) == null) || bArr == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, bArr, j) == null) || bArr == null) {
             return;
         }
-        c.a.p0.l.a.a aVar = new c.a.p0.l.a.a();
-        aVar.f11845a = bArr;
-        aVar.f11846b = j2;
-        aVar.f11847c = System.nanoTime();
+        b.a.p0.l.a.a aVar = new b.a.p0.l.a.a();
+        aVar.f11030a = bArr;
+        aVar.f11031b = j;
+        aVar.f11032c = System.nanoTime();
         this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
     }
 
@@ -248,10 +248,10 @@ public class SwanAudioPlayer {
         }
     }
 
-    public void postRunnableFromNative(long j2) {
+    public void postRunnableFromNative(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(100, 0, 0, Long.valueOf(j2)));
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(100, 0, 0, Long.valueOf(j)));
         }
     }
 

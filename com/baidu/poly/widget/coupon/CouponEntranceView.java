@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.e0.c;
-import c.a.e0.f;
-import c.a.e0.g;
-import c.a.e0.k.d.b;
-import c.a.e0.p.a.a;
+import b.a.e0.c;
+import b.a.e0.f;
+import b.a.e0.g;
+import b.a.e0.k.d.b;
+import b.a.e0.p.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,29 +22,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CouponEntranceView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44346e;
+    public ImageView f42106e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44347f;
+    public TextView f42107f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44348g;
+    public TextView f42108g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44349h;
+    public TextView f42109h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f44350i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public a f44351j;
-    public a.C0065a k;
+    public View f42110i;
+    public a j;
+    public a.C0060a k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CouponEntranceView(Context context) {
@@ -70,7 +68,7 @@ public class CouponEntranceView extends FrameLayout {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f44351j = aVar;
+            this.j = aVar;
             h();
         }
     }
@@ -79,38 +77,38 @@ public class CouponEntranceView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(g.coupon_entrance, (ViewGroup) this, true);
-            this.f44346e = (ImageView) findViewById(f.coupon_icon);
-            this.f44349h = (TextView) findViewById(f.coupon_text);
-            this.f44347f = (TextView) findViewById(f.coupon_title);
-            this.f44348g = (TextView) findViewById(f.coupon_subtitle);
-            this.f44350i = findViewById(f.icon_more);
+            this.f42106e = (ImageView) findViewById(f.coupon_icon);
+            this.f42109h = (TextView) findViewById(f.coupon_text);
+            this.f42107f = (TextView) findViewById(f.coupon_title);
+            this.f42108g = (TextView) findViewById(f.coupon_subtitle);
+            this.f42110i = findViewById(f.icon_more);
         }
     }
 
-    public a.C0065a getSelectedItem() {
+    public a.C0060a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (a.C0065a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (a.C0060a) invokeV.objValue;
     }
 
     public void h() {
         String str;
-        List<a.C0065a> list;
+        List<a.C0060a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.k = null;
-            a aVar = this.f44351j;
-            if (!((aVar == null || (list = aVar.f3244b) == null || list.size() <= 0) ? false : true)) {
+            a aVar = this.j;
+            if (!((aVar == null || (list = aVar.f2692b) == null || list.size() <= 0) ? false : true)) {
                 setVisibility(8);
                 return;
             }
-            Iterator<a.C0065a> it = this.f44351j.f3244b.iterator();
+            Iterator<a.C0060a> it = this.j.f2692b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                a.C0065a next = it.next();
-                if (next.f3251g == 1) {
+                a.C0060a next = it.next();
+                if (next.f2699g == 1) {
                     this.k = next;
                     break;
                 }
@@ -120,26 +118,26 @@ public class CouponEntranceView extends FrameLayout {
                 return;
             }
             setVisibility(0);
-            b.c().b(this.f44346e, this.k.f3249e);
-            this.f44347f.setText(this.k.f3246b);
-            a.C0065a c0065a = this.k;
-            if (c0065a.f3245a == -1) {
-                str = c0065a.f3247c;
-                this.f44348g.setVisibility(8);
+            b.c().b(this.f42106e, this.k.f2697e);
+            this.f42107f.setText(this.k.f2694b);
+            a.C0060a c0060a = this.k;
+            if (c0060a.f2693a == -1) {
+                str = c0060a.f2695c;
+                this.f42108g.setVisibility(8);
             } else {
-                str = "-" + a(this.k.f3250f.longValue()) + "元";
-                this.f44348g.setVisibility(0);
-                this.f44348g.setText(this.k.f3247c);
+                str = "-" + a(this.k.f2698f.longValue()) + "元";
+                this.f42108g.setVisibility(0);
+                this.f42108g.setText(this.k.f2695c);
             }
-            this.f44349h.setText(str);
-            if (this.f44351j.f3243a) {
-                this.f44349h.setTextColor(getResources().getColor(c.coupon_description));
-                this.f44350i.setVisibility(0);
+            this.f42109h.setText(str);
+            if (this.j.f2691a) {
+                this.f42109h.setTextColor(getResources().getColor(c.coupon_description));
+                this.f42110i.setVisibility(0);
                 setEnabled(true);
                 return;
             }
-            this.f44349h.setTextColor(getResources().getColor(c.black));
-            this.f44350i.setVisibility(8);
+            this.f42109h.setTextColor(getResources().getColor(c.black));
+            this.f42110i.setVisibility(8);
             setEnabled(false);
         }
     }
@@ -187,9 +185,9 @@ public class CouponEntranceView extends FrameLayout {
         b(context);
     }
 
-    public final String a(long j2) {
+    public final String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? new DecimalFormat("0.00").format((j2 * 1.0d) / 100.0d) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? new DecimalFormat("0.00").format((j * 1.0d) / 100.0d) : (String) invokeJ.objValue;
     }
 }

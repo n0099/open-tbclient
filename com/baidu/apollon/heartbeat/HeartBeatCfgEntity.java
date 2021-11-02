@@ -19,7 +19,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HeartBeatCfgEntity implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEART_BEAT_CFG_UNUSE = "0";
@@ -99,21 +99,21 @@ public class HeartBeatCfgEntity implements NoProguard, Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.equals(this.KA_SWITCH, "1") : invokeV.booleanValue;
     }
 
-    public boolean isValidRequestTime(long j2) {
+    public boolean isValidRequestTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             if (TextUtils.isEmpty(this.KA_CFG_TIME)) {
                 return false;
             }
             long longValue = Long.valueOf(this.KA_CFG_TIME).longValue();
             if (longValue >= 0) {
                 long timeInMillis = Calendar.getInstance().getTimeInMillis() / 1000;
-                if (timeInMillis > j2 + longValue) {
+                if (timeInMillis > j + longValue) {
                     return true;
                 }
                 String str = TAG;
-                LogUtil.w(str, TAG + " isValidRequestTime currentTime:" + timeInMillis + ", lastTime:" + j2 + ", cfgTime:" + longValue);
+                LogUtil.w(str, TAG + " isValidRequestTime currentTime:" + timeInMillis + ", lastTime:" + j + ", cfgTime:" + longValue);
             }
             return false;
         }
@@ -125,9 +125,9 @@ public class HeartBeatCfgEntity implements NoProguard, Serializable {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             String json = JsonUtils.toJson(this);
             if (!TextUtils.isEmpty(json)) {
-                FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + a.f37958b));
+                FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + a.f35977b));
             }
-            c.a(context, c.f37986b, Calendar.getInstance().getTimeInMillis() / 1000);
+            c.a(context, c.f36004b, Calendar.getInstance().getTimeInMillis() / 1000);
         }
     }
 

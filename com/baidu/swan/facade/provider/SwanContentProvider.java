@@ -10,9 +10,9 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.k;
-import c.a.p0.e.n.a.a;
-import c.a.p0.e.n.b.c;
+import b.a.p0.a.k;
+import b.a.p0.e.n.a.a;
+import b.a.p0.e.n.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanContentProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORITY;
@@ -51,7 +51,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        DEBUG = k.f7085a;
+        DEBUG = k.f6397a;
         AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
         sUriMatcher = new UriMatcher(-1);
         sAccreditedSet = new HashSet<>();
@@ -89,7 +89,7 @@ public class SwanContentProvider extends ContentProvider {
                 return true;
             }
             String a2 = c.a(callingPackage);
-            Set<String> a3 = c.a.p0.d.g.c.e().a();
+            Set<String> a3 = b.a.p0.d.g.c.e().a();
             z = (a3 == null || !a3.contains(a2)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);
@@ -147,7 +147,7 @@ public class SwanContentProvider extends ContentProvider {
             if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
                 return 0;
             }
-            return processor.a(uri, str, strArr);
+            return processor.delete(uri, str, strArr);
         }
         return invokeLLL.intValue;
     }
@@ -173,7 +173,7 @@ public class SwanContentProvider extends ContentProvider {
             if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
                 return null;
             }
-            return processor.b(uri, contentValues);
+            return processor.insert(uri, contentValues);
         }
         return (Uri) invokeLL.objValue;
     }
@@ -198,7 +198,7 @@ public class SwanContentProvider extends ContentProvider {
             if (!checkReadPermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
                 return null;
             }
-            return processor.c(uri, strArr, str, strArr2, str2);
+            return processor.query(uri, strArr, str, strArr2, str2);
         }
         return (Cursor) invokeLLLLL.objValue;
     }
@@ -212,7 +212,7 @@ public class SwanContentProvider extends ContentProvider {
             if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
                 return 0;
             }
-            return processor.d(uri, contentValues, str, strArr);
+            return processor.update(uri, contentValues, str, strArr);
         }
         return invokeLLLL.intValue;
     }

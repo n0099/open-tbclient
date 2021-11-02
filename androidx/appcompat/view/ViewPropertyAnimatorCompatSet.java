@@ -150,12 +150,12 @@ public class ViewPropertyAnimatorCompatSet {
         return (ViewPropertyAnimatorCompatSet) invokeLL.objValue;
     }
 
-    public ViewPropertyAnimatorCompatSet setDuration(long j2) {
+    public ViewPropertyAnimatorCompatSet setDuration(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
             if (!this.mIsStarted) {
-                this.mDuration = j2;
+                this.mDuration = j;
             }
             return this;
         }
@@ -194,9 +194,9 @@ public class ViewPropertyAnimatorCompatSet {
         Iterator<ViewPropertyAnimatorCompat> it = this.mAnimators.iterator();
         while (it.hasNext()) {
             ViewPropertyAnimatorCompat next = it.next();
-            long j2 = this.mDuration;
-            if (j2 >= 0) {
-                next.setDuration(j2);
+            long j = this.mDuration;
+            if (j >= 0) {
+                next.setDuration(j);
             }
             Interpolator interpolator = this.mInterpolator;
             if (interpolator != null) {

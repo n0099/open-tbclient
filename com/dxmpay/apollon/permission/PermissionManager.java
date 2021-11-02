@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.NoProguard;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PermissionManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_CODE_CALL_PHONE = 2;
@@ -24,7 +24,7 @@ public class PermissionManager implements NoProguard {
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f69693e;
+    public static int f62131e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -80,10 +80,10 @@ public class PermissionManager implements NoProguard {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0025, code lost:
-        if (c.f.a.f.c.a(r4, r5) == 0) goto L9;
+        if (b.f.a.f.c.a(r4, r5) == 0) goto L9;
      */
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0010, code lost:
-        if (c.f.a.f.c.a(r4, r5) == 0) goto L9;
+        if (b.f.a.f.c.a(r4, r5) == 0) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -110,14 +110,14 @@ public class PermissionManager implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f69693e == 0) {
+            if (f62131e == 0) {
                 try {
-                    f69693e = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                    f62131e = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                 }
             }
-            return f69693e;
+            return f62131e;
         }
         return invokeL.intValue;
     }

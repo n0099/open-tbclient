@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class SharedPreferencesUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CARD_REMIND_GUIDANCE_SHARED_PREFERENCE = "card_remind_guidance_preference";
@@ -101,10 +101,10 @@ public final class SharedPreferencesUtil {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i2)) == null) ? this.mSharedPreferences.getInt(str, i2) : invokeLI.intValue;
     }
 
-    public long getLongPreference(String str, long j2) {
+    public long getLongPreference(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j2)) == null) ? this.mSharedPreferences.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) ? this.mSharedPreferences.getLong(str, j) : invokeLJ.longValue;
     }
 
     public String getStringPreference(String str, String str2) {
@@ -145,10 +145,10 @@ public final class SharedPreferencesUtil {
         }
     }
 
-    public void setLongPreference(String str, long j2) {
+    public void setLongPreference(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j2) == null) {
-            this.mEditor.putLong(str, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j) == null) {
+            this.mEditor.putLong(str, j);
             this.mEditor.commit();
         }
     }

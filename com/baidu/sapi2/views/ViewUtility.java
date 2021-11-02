@@ -12,7 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.a.b;
+import b.a.c0.a.b;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
@@ -25,18 +25,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ViewUtility implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f44962a;
+        public final /* synthetic */ float f42706a;
 
         public a(float f2) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class ViewUtility implements NoProguard {
                     return;
                 }
             }
-            this.f44962a = f2;
+            this.f42706a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -69,7 +69,7 @@ public class ViewUtility implements NoProguard {
                     }
                     return false;
                 } else if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.f44962a);
+                    view.setAlpha(this.f42706a);
                     return false;
                 } else {
                     return false;

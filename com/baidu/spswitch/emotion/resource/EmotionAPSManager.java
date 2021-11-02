@@ -27,7 +27,7 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class EmotionAPSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -46,12 +46,12 @@ public class EmotionAPSManager {
     public volatile boolean mLoaded;
     public Map<String, EmotionResourceInfo> mResourceMap;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface EmotionInstallResultCb {
         void onResult(int i2, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final EmotionAPSManager sINSTANCE;
@@ -294,7 +294,7 @@ public class EmotionAPSManager {
                 return false;
             }
             String lowerCase = str.toLowerCase();
-            return lowerCase.endsWith(RESTORE_SUFFIX) && lowerCase.contains(EMOTION_PACKAGE_NAME_FOR_NORMAL);
+            return lowerCase.endsWith("_lastest.json") && lowerCase.contains(EMOTION_PACKAGE_NAME_FOR_NORMAL);
         }
         return invokeL.booleanValue;
     }
@@ -487,7 +487,7 @@ public class EmotionAPSManager {
             return;
         }
         File emotionRootDir = getEmotionRootDir();
-        File file = new File(emotionRootDir, emotionResourceInfo.mPkgName + RESTORE_SUFFIX);
+        File file = new File(emotionRootDir, emotionResourceInfo.mPkgName + "_lastest.json");
         FileUtils.deleteFile(file);
         FileUtils.saveFile(emotionResourceInfo.toJSONString(), file);
     }
@@ -500,8 +500,8 @@ public class EmotionAPSManager {
                 return false;
             }
             String name = file.getName();
-            for (long j2 : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j2))) {
+            for (long j : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j))) {
                     return true;
                 }
             }
@@ -518,8 +518,8 @@ public class EmotionAPSManager {
                 return false;
             }
             String name = file.getName();
-            for (long j2 : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j2))) {
+            for (long j : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j))) {
                     return false;
                 }
             }

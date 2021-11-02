@@ -10,33 +10,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DownloadParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46908a;
+    public String f44548a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f46909b;
+    public String f44549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46910c;
+    public String f44550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f46911d;
+    public String f44551d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f46912e;
+    public String f44552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f46913f;
+    public long f44553f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class SwanAppDownloadType {
         public static final /* synthetic */ SwanAppDownloadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -146,8 +147,8 @@ public class DownloadParams {
                 return;
             }
         }
-        this.f46908a = str;
-        this.f46909b = str2;
+        this.f44548a = str;
+        this.f44549b = str2;
     }
 
     public JSONObject a() {
@@ -156,12 +157,12 @@ public class DownloadParams {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("url", this.f46908a);
-                jSONObject.put("name", this.f46909b);
-                jSONObject.put("userAgent", this.f46910c);
-                jSONObject.put("contentDisposition", this.f46911d);
-                jSONObject.put("mimeType", this.f46912e);
-                jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f46913f);
+                jSONObject.put("url", this.f44548a);
+                jSONObject.put("name", this.f44549b);
+                jSONObject.put(TTDownloadField.TT_USERAGENT, this.f44550c);
+                jSONObject.put("contentDisposition", this.f44551d);
+                jSONObject.put("mimeType", this.f44552e);
+                jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f44553f);
             } catch (JSONException unused) {
             }
             return jSONObject;
@@ -184,7 +185,7 @@ public class DownloadParams {
                 return;
             }
         }
-        this.f46908a = str;
-        this.f46909b = str2;
+        this.f44548a = str;
+        this.f44549b = str2;
     }
 }

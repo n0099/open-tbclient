@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.k;
+import b.a.e.e.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BarImageView;
@@ -21,28 +21,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Game2GroupShareDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f53318e;
+    public LinearLayout f50569e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f53319f;
+    public EditText f50570f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f53320g;
+    public TbImageView f50571g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BarImageView f53321h;
+    public BarImageView f50572h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f53322i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f53323j;
+    public TextView f50573i;
+    public TextView j;
     public ShareFromGameCenterMsgData k;
     public TextView shareTv;
 
@@ -73,17 +71,17 @@ public class Game2GroupShareDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.game_to_group_share_dialog, this);
             setOrientation(1);
-            this.f53318e = (LinearLayout) findViewById(R.id.game_to_group_share_dialog_content);
-            this.f53323j = (TextView) findViewById(R.id.share_title_view);
-            this.f53319f = (EditText) findViewById(R.id.game_to_group_share_chat_msg);
-            this.f53320g = (TbImageView) findViewById(R.id.game_to_group_share_img);
-            this.f53321h = (BarImageView) findViewById(R.id.game_to_group_share_icon);
-            this.f53322i = (TextView) findViewById(R.id.game_to_group_share_desc);
-            SkinManager.setViewTextColor(this.f53323j, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.f53319f, R.color.CAM_X0105, 2);
-            this.f53319f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            SkinManager.setViewTextColor(this.f53322i, R.color.CAM_X0106, 1);
-            this.f53319f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+            this.f50569e = (LinearLayout) findViewById(R.id.game_to_group_share_dialog_content);
+            this.j = (TextView) findViewById(R.id.share_title_view);
+            this.f50570f = (EditText) findViewById(R.id.game_to_group_share_chat_msg);
+            this.f50571g = (TbImageView) findViewById(R.id.game_to_group_share_img);
+            this.f50572h = (BarImageView) findViewById(R.id.game_to_group_share_icon);
+            this.f50573i = (TextView) findViewById(R.id.game_to_group_share_desc);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.f50570f, R.color.CAM_X0105, 2);
+            this.f50570f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            SkinManager.setViewTextColor(this.f50573i, R.color.CAM_X0106, 1);
+            this.f50570f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
             TextView textView = (TextView) findViewById(R.id.game_to_group_share);
             this.shareTv = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
@@ -94,13 +92,13 @@ public class Game2GroupShareDialogView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f53323j.setText(this.k.getTitle());
-            this.f53320g.setTag(this.k.getImageUrl());
-            this.f53320g.startLoad(this.k.getImageUrl(), 17, false);
-            this.f53321h.setVisibility(0);
-            this.f53321h.setTag(this.k.getShareSourceIcon());
-            this.f53321h.startLoad(this.k.getShareSourceIcon(), 17, false);
-            this.f53322i.setText(this.k.getContent());
+            this.j.setText(this.k.getTitle());
+            this.f50571g.setTag(this.k.getImageUrl());
+            this.f50571g.startLoad(this.k.getImageUrl(), 17, false);
+            this.f50572h.setVisibility(0);
+            this.f50572h.setTag(this.k.getShareSourceIcon());
+            this.f50572h.startLoad(this.k.getShareSourceIcon(), 17, false);
+            this.f50573i.setText(this.k.getContent());
             TextView textView = this.shareTv;
             textView.setText("来自" + this.k.getShareSource());
         }
@@ -109,14 +107,14 @@ public class Game2GroupShareDialogView extends LinearLayout {
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53319f : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50570f : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            EditText editText = this.f53319f;
+            EditText editText = this.f50570f;
             if (editText != null) {
                 return k.charSequence2String(editText.getText(), null);
             }
@@ -128,9 +126,9 @@ public class Game2GroupShareDialogView extends LinearLayout {
     public void hideEditTextCursor() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f53318e.setFocusable(true);
-            this.f53318e.setFocusableInTouchMode(true);
-            this.f53318e.requestFocus();
+            this.f50569e.setFocusable(true);
+            this.f50569e.setFocusableInTouchMode(true);
+            this.f50569e.requestFocus();
         }
     }
 
@@ -145,14 +143,14 @@ public class Game2GroupShareDialogView extends LinearLayout {
     public void setShareData(ShareFromPBMsgData shareFromPBMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareFromPBMsgData) == null) {
-            this.f53323j.setText(shareFromPBMsgData.getTitle());
+            this.j.setText(shareFromPBMsgData.getTitle());
             if (TextUtils.isEmpty(shareFromPBMsgData.getImageUrl())) {
                 shareFromPBMsgData.setImageUrl("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
             }
-            this.f53320g.setTag(shareFromPBMsgData.getImageUrl());
-            this.f53320g.startLoad(shareFromPBMsgData.getImageUrl(), 17, false);
-            this.f53321h.setVisibility(8);
-            this.f53322i.setText(shareFromPBMsgData.getContent());
+            this.f50571g.setTag(shareFromPBMsgData.getImageUrl());
+            this.f50571g.startLoad(shareFromPBMsgData.getImageUrl(), 17, false);
+            this.f50572h.setVisibility(8);
+            this.f50573i.setText(shareFromPBMsgData.getContent());
         }
     }
 

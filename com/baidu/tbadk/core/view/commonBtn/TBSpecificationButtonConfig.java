@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import androidx.annotation.ColorRes;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,40 +18,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WebpType f47966a;
+    public WebpType f45528a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f47967b;
+    public int f45529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f47968c;
+    public int f45530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f47969d;
+    public int f45531d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f47970e;
+    public final int[] f45532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IconType f47971f;
+    public IconType f45533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47972g;
+    public int f45534g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47973h;
+    public int f45535h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f47974i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f47975j;
+    public boolean f45536i;
+    public int j;
     public int k;
     public int l;
     public int m;
@@ -64,7 +62,7 @@ public abstract class TBSpecificationButtonConfig {
     public a t;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class IconType {
         public static final /* synthetic */ IconType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -126,7 +124,7 @@ public abstract class TBSpecificationButtonConfig {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class WebpType {
         public static final /* synthetic */ WebpType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -185,7 +183,7 @@ public abstract class TBSpecificationButtonConfig {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
 
@@ -210,14 +208,14 @@ public abstract class TBSpecificationButtonConfig {
         this.q = true;
         this.r = 0;
         this.s = GradientDrawable.Orientation.LEFT_RIGHT;
-        this.f47970e = new int[2];
-        this.f47975j = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.f45532e = new int[2];
+        this.j = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
         this.k = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
         this.l = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
         this.m = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
         this.n = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
         this.o = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        this.f47972g = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        this.f45534g = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     public abstract Drawable a(float f2);
@@ -227,20 +225,20 @@ public abstract class TBSpecificationButtonConfig {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            IconType iconType = this.f47971f;
+            IconType iconType = this.f45533f;
             if (iconType == IconType.SVG) {
-                int i3 = this.f47973h;
+                int i3 = this.f45535h;
                 if (i3 <= 0) {
-                    i3 = this.f47967b;
+                    i3 = this.f45529b;
                 }
                 drawable = SvgManager.getInstance().getPureDrawableColorInt(i2, SkinManager.getColor(this.r, i3), SvgManager.SvgResourceStateType.NORMAL);
             } else if (iconType == IconType.WEBP) {
-                if (this.f47966a == WebpType.MASK) {
+                if (this.f45528a == WebpType.MASK) {
                     drawable = WebPManager.getMaskDrawable(i2, (WebPManager.ResourceStateType) null);
                 } else {
-                    int i4 = this.f47973h;
+                    int i4 = this.f45535h;
                     if (i4 <= 0) {
-                        i4 = this.f47967b;
+                        i4 = this.f45529b;
                     }
                     drawable = WebPManager.getPureDrawable(i2, SkinManager.getColor(this.r, i4), null);
                 }
@@ -248,7 +246,7 @@ public abstract class TBSpecificationButtonConfig {
                 drawable = SkinManager.getDrawable(this.r, i2);
             }
             if (drawable != null) {
-                int i5 = this.f47972g;
+                int i5 = this.f45534g;
                 drawable.setBounds(0, 0, i5, i5);
             }
             return drawable;
@@ -259,13 +257,13 @@ public abstract class TBSpecificationButtonConfig {
     public Drawable c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b(this.f47970e[0]) : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b(this.f45532e[0]) : (Drawable) invokeV.objValue;
     }
 
     public Drawable d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(this.f47970e[1]) : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(this.f45532e[1]) : (Drawable) invokeV.objValue;
     }
 
     public void e(GradientDrawable.Orientation orientation) {
@@ -284,10 +282,10 @@ public abstract class TBSpecificationButtonConfig {
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 <= 0 || this.f47972g == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 <= 0 || this.f45534g == i2) {
             return;
         }
-        this.f47972g = i2;
+        this.f45534g = i2;
         a aVar = this.t;
         if (aVar != null) {
             aVar.a();
@@ -296,10 +294,10 @@ public abstract class TBSpecificationButtonConfig {
 
     public void h(@ColorRes int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f47973h == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f45535h == i2) {
             return;
         }
-        this.f47973h = i2;
+        this.f45535h = i2;
         a aVar = this.t;
         if (aVar != null) {
             aVar.b();
@@ -309,14 +307,14 @@ public abstract class TBSpecificationButtonConfig {
     public void i(int i2, int i3, IconType iconType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, iconType) == null) {
-            int[] iArr = this.f47970e;
-            if (iArr[0] == i2 && iArr[1] == i3 && this.f47971f == iconType) {
+            int[] iArr = this.f45532e;
+            if (iArr[0] == i2 && iArr[1] == i3 && this.f45533f == iconType) {
                 return;
             }
-            int[] iArr2 = this.f47970e;
+            int[] iArr2 = this.f45532e;
             iArr2[0] = i2;
             iArr2[1] = i3;
-            this.f47971f = iconType;
+            this.f45533f = iconType;
             a aVar = this.t;
             if (aVar != null) {
                 aVar.b();
@@ -346,7 +344,7 @@ public abstract class TBSpecificationButtonConfig {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f47975j = i2;
+            this.j = i2;
             this.k = i2;
         }
     }
@@ -354,7 +352,7 @@ public abstract class TBSpecificationButtonConfig {
     public void m(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-            this.f47975j = i2;
+            this.j = i2;
             this.k = i3;
         }
     }
@@ -369,7 +367,7 @@ public abstract class TBSpecificationButtonConfig {
     public void o(WebpType webpType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, webpType) == null) {
-            this.f47966a = webpType;
+            this.f45528a = webpType;
         }
     }
 }

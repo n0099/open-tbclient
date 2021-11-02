@@ -7,22 +7,22 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import b.q.a.c0;
+import b.q.a.m2;
+import b.q.a.r0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.C1;
-import com.win.opensdk.N;
-import com.win.opensdk.U1;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77534a;
+    public Context f70524a;
 
     public PProvider() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class PProvider extends ContentProvider {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && U1.h(this.f77534a) == 0) {
-            N.d(this.f77534a);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m2.A(this.f70524a) == 0) {
+            r0.E(this.f70524a);
         }
     }
 
@@ -81,15 +81,15 @@ public class PProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Context context = getContext();
-            this.f77534a = context;
+            this.f70524a = context;
             if (context != null) {
-                if (U1.h(context) == 0) {
-                    N.d(this.f77534a);
+                if (m2.A(context) == 0) {
+                    r0.E(this.f70524a);
                     return true;
                 }
                 return true;
             }
-            new Handler(Looper.getMainLooper()).post(new C1(this));
+            new Handler(Looper.getMainLooper()).post(new c0(this));
             return true;
         }
         return invokeV.booleanValue;

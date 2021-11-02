@@ -10,22 +10,22 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f71774a;
+    public long f64250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f71775b;
+    public long f64251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f71776c;
+    public long f64252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f71777d;
+    public int f64253d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public class b {
                 return;
             }
         }
-        this.f71775b = -1L;
+        this.f64251b = -1L;
     }
 
-    public b(@NonNull AdTemplate adTemplate, long j2) {
+    public b(@NonNull AdTemplate adTemplate, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {adTemplate, Long.valueOf(j2)};
+            Object[] objArr = {adTemplate, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -58,11 +58,11 @@ public class b {
                 return;
             }
         }
-        this.f71775b = -1L;
-        this.f71774a = com.kwad.sdk.core.response.b.c.o(adTemplate);
-        this.f71775b = j2;
-        this.f71776c = com.kwad.sdk.core.response.b.c.t(adTemplate);
-        this.f71777d = com.kwad.sdk.core.response.b.c.e(adTemplate);
+        this.f64251b = -1L;
+        this.f64250a = com.kwad.sdk.core.response.b.c.o(adTemplate);
+        this.f64251b = j;
+        this.f64252c = com.kwad.sdk.core.response.b.c.t(adTemplate);
+        this.f64253d = com.kwad.sdk.core.response.b.c.e(adTemplate);
     }
 
     @NonNull
@@ -78,8 +78,8 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("contentType", this.f71777d);
-                jSONObject.put("adStyle", this.f71776c);
+                jSONObject.put("contentType", this.f64253d);
+                jSONObject.put("adStyle", this.f64252c);
             } catch (JSONException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }

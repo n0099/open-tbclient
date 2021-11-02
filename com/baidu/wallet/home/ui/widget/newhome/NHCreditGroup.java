@@ -16,14 +16,14 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NHCreditGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ITEM_LIMIT = 12;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f61604a;
+    public List<BaseItemView> f58489a;
     public LinearLayout mList;
     public NHTitleView mTitle;
 
@@ -45,7 +45,7 @@ public class NHCreditGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61604a = new ArrayList();
+        this.f58489a = new ArrayList();
     }
 
     private void a() {
@@ -59,7 +59,7 @@ public class NHCreditGroup extends BaseItemLayout {
             NHCreditItem nHCreditItem = new NHCreditItem(getContext());
             nHCreditItem.setData(dataItemArr[i2], getWalletInterface());
             this.mList.addView(nHCreditItem);
-            this.f61604a.add(nHCreditItem);
+            this.f58489a.add(nHCreditItem);
         }
     }
 
@@ -67,7 +67,7 @@ public class NHCreditGroup extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61604a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58489a : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -121,6 +121,6 @@ public class NHCreditGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61604a = new ArrayList();
+        this.f58489a = new ArrayList();
     }
 }

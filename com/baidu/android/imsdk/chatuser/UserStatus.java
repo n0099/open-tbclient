@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UserStatus implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<UserStatus> CREATOR;
@@ -70,12 +70,12 @@ public class UserStatus implements Parcelable {
         };
     }
 
-    public UserStatus(long j2, boolean z, long j3) {
+    public UserStatus(long j, boolean z, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -85,9 +85,9 @@ public class UserStatus implements Parcelable {
                 return;
             }
         }
-        this.mUid = j2;
+        this.mUid = j;
         this.mIsOnline = z;
-        this.mLastOnlineTime = j3;
+        this.mLastOnlineTime = j2;
     }
 
     @Override // android.os.Parcelable
@@ -118,10 +118,10 @@ public class UserStatus implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsOnline : invokeV.booleanValue;
     }
 
-    public void setLastOnlineTime(long j2) {
+    public void setLastOnlineTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.mLastOnlineTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.mLastOnlineTime = j;
         }
     }
 
@@ -132,10 +132,10 @@ public class UserStatus implements Parcelable {
         }
     }
 
-    public void setUid(long j2) {
+    public void setUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.mUid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mUid = j;
         }
     }
 

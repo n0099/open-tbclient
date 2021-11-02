@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PushNotifyMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7053886389487061173L;
@@ -103,10 +103,10 @@ public class PushNotifyMessage extends SocketResponsedMessage {
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.groupId = j;
         }
     }
 
@@ -117,17 +117,17 @@ public class PushNotifyMessage extends SocketResponsedMessage {
         }
     }
 
-    public void setNewestMsgId(long j2) {
+    public void setNewestMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.newestMsgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.newestMsgId = j;
         }
     }
 
-    public void setPushTime(long j2) {
+    public void setPushTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.pushTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.pushTime = j;
         }
     }
 

@@ -1,11 +1,12 @@
 package com.baidu.android.util.soloader;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
+import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class SoUtils implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -30,7 +31,7 @@ public final class SoUtils implements NoProGuard {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class SOLOG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
@@ -55,7 +56,7 @@ public final class SoUtils implements NoProGuard {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface SoUbcLoggable {
         void onEvent(String str, String str2);
     }
@@ -73,7 +74,7 @@ public final class SoUtils implements NoProGuard {
                 return;
             }
         }
-        uris = new String[]{"lib/armeabi", "lib/x86", "lib/mips"};
+        uris = new String[]{"lib/arm64", "lib/armeabi", "lib/x86", "lib/mips"};
     }
 
     public SoUtils() {
@@ -97,15 +98,15 @@ public final class SoUtils implements NoProGuard {
             if (inputStream != null && outputStream != null) {
                 try {
                     byte[] bArr = new byte[i2 * 1024];
-                    long j2 = 0;
+                    long j = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            j2 += read;
+                            j += read;
                         } else {
                             outputStream.flush();
-                            return j2;
+                            return j;
                         }
                     }
                 } catch (IOException e2) {
@@ -131,19 +132,9 @@ public final class SoUtils implements NoProGuard {
 
     public static String getSimpleName(String str) {
         InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so")) {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                String substring = (split == null || split.length != 2) ? str : split[0].substring(3);
-                if (DEBUG) {
-                    String str2 = "SoUtils load but the param soName:" + str + ", name:" + substring;
-                }
-                return substring;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split("\\.")) != null && split.length == 2) ? split[0].substring(3) : str : (String) invokeL.objValue;
     }
 
     public static String getUriName(String str, int i2) {
@@ -155,6 +146,8 @@ public final class SoUtils implements NoProGuard {
         return (String) invokeLI.objValue;
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
+    @Deprecated
     public static boolean hasGingerbread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,22 +161,38 @@ public final class SoUtils implements NoProGuard {
         }
     }
 
-    public static void onEvent(String str, String str2) {
+    public static boolean is64Bit() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            SoUbcLoggable soUbcLoggable = sUbcImpl;
-            if (soUbcLoggable != null) {
-                soUbcLoggable.onEvent(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 23) {
+                return Process.is64Bit();
             }
-            if (DEBUG) {
-                String str3 = "onEvent:UbcImpl=" + soUbcLoggable + ";eventId=" + str + ";content=" + str2;
+            if (i2 >= 21) {
+                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+                if (strArr.length > 0) {
+                    return Build.CPU_ABI.equals(strArr[0]);
+                }
+                return false;
             }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static void onEvent(String str, String str2) {
+        SoUbcLoggable soUbcLoggable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || (soUbcLoggable = sUbcImpl) == null) {
+            return;
+        }
+        soUbcLoggable.onEvent(str, str2);
     }
 
     public static void saveLog(HashMap<String, String> hashMap, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65545, null, hashMap, str, str2) == null) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65546, null, hashMap, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
         hashMap.put(str, str2);
@@ -191,7 +200,7 @@ public final class SoUtils implements NoProGuard {
 
     public static void sendLog(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         onEvent("24", str);

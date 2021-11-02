@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r.b;
-import c.a.r.c;
+import b.a.r.b;
+import b.a.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.dxmpay.u;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CuidUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class CuidUtil {
                                 }
                             }
 
-                            @Override // c.a.r.c
+                            @Override // b.a.r.c
                             public void onError(int i2, Throwable th, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, th, bundle) == null) {
@@ -68,7 +68,7 @@ public class CuidUtil {
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
-                            @Override // c.a.r.c
+                            @Override // b.a.r.c
                             public void onResult(String str2, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bundle) == null) {
@@ -113,7 +113,7 @@ public class CuidUtil {
                                 }
                             }
 
-                            @Override // c.a.r.c
+                            @Override // b.a.r.c
                             public void onError(int i2, Throwable th, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, th, bundle) == null) {
@@ -121,7 +121,7 @@ public class CuidUtil {
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
-                            @Override // c.a.r.c
+                            @Override // b.a.r.c
                             public void onResult(String str2, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bundle) == null) || TextUtils.isEmpty(str2)) {
@@ -183,7 +183,7 @@ public class CuidUtil {
                                 }
                             }
 
-                            @Override // c.a.r.c
+                            @Override // b.a.r.c
                             public void onError(int i2, Throwable th, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, th, bundle) == null) {
@@ -191,7 +191,7 @@ public class CuidUtil {
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
-                            @Override // c.a.r.c
+                            @Override // b.a.r.c
                             public void onResult(String str2, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bundle) == null) {

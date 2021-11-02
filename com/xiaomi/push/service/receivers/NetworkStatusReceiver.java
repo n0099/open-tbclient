@@ -27,31 +27,31 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NetworkStatusReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f78585a = 1;
+    public static int f71523a = 1;
 
     /* renamed from: a  reason: collision with other field name */
-    public static BlockingQueue<Runnable> f974a = null;
+    public static BlockingQueue<Runnable> f975a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f975a = null;
+    public static ThreadPoolExecutor f976a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f976a = false;
+    public static boolean f977a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f78586b = 1;
+    public static int f71524b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f78587c = 2;
+    public static int f71525c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f977b;
+    public boolean f978b;
 
     static {
         InterceptResult invokeClinit;
@@ -66,9 +66,9 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f974a = new LinkedBlockingQueue();
-        f975a = new ThreadPoolExecutor(f78585a, f78586b, f78587c, TimeUnit.SECONDS, f974a);
-        f976a = false;
+        f975a = new LinkedBlockingQueue();
+        f976a = new ThreadPoolExecutor(f71523a, f71524b, f71525c, TimeUnit.SECONDS, f975a);
+        f977a = false;
     }
 
     public NetworkStatusReceiver() {
@@ -84,8 +84,8 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.f977b = false;
-        this.f977b = true;
+        this.f978b = false;
+        this.f978b = true;
     }
 
     public NetworkStatusReceiver(Object obj) {
@@ -103,8 +103,8 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.f977b = false;
-        f976a = true;
+        this.f978b = false;
+        f977a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -126,22 +126,22 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 an.a(context).m111c();
             }
             if (bg.b(context)) {
-                if ("syncing".equals(ae.a(context).a(at.f77643a))) {
+                if ("syncing".equals(ae.a(context).a(at.f70606a))) {
                     MiPushClient.disablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77644b))) {
+                if ("syncing".equals(ae.a(context).a(at.f70607b))) {
                     MiPushClient.enablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77645c))) {
+                if ("syncing".equals(ae.a(context).a(at.f70608c))) {
                     MiPushClient.syncAssemblePushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77646d))) {
+                if ("syncing".equals(ae.a(context).a(at.f70609d))) {
                     MiPushClient.syncAssembleFCMPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77647e))) {
+                if ("syncing".equals(ae.a(context).a(at.f70610e))) {
                     MiPushClient.syncAssembleCOSPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77648f))) {
+                if ("syncing".equals(ae.a(context).a(at.f70611f))) {
                     MiPushClient.syncAssembleFTOSPushToken(context);
                 }
                 if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {
@@ -157,15 +157,15 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f976a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f977a : invokeV.booleanValue;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.f977b) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.f978b) {
             return;
         }
-        f975a.execute(new a(this, context));
+        f976a.execute(new a(this, context));
     }
 }

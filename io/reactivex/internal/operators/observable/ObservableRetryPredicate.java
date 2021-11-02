@@ -14,14 +14,14 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableRetryPredicate<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long count;
     public final Predicate<? super Throwable> predicate;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class RepeatObserver<T> extends AtomicInteger implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
@@ -32,12 +32,12 @@ public final class ObservableRetryPredicate<T> extends AbstractObservableWithUps
         public final SequentialDisposable sa;
         public final ObservableSource<? extends T> source;
 
-        public RepeatObserver(Observer<? super T> observer, long j2, Predicate<? super Throwable> predicate, SequentialDisposable sequentialDisposable, ObservableSource<? extends T> observableSource) {
+        public RepeatObserver(Observer<? super T> observer, long j, Predicate<? super Throwable> predicate, SequentialDisposable sequentialDisposable, ObservableSource<? extends T> observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), predicate, sequentialDisposable, observableSource};
+                Object[] objArr = {observer, Long.valueOf(j), predicate, sequentialDisposable, observableSource};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -51,7 +51,7 @@ public final class ObservableRetryPredicate<T> extends AbstractObservableWithUps
             this.sa = sequentialDisposable;
             this.source = observableSource;
             this.predicate = predicate;
-            this.remaining = j2;
+            this.remaining = j;
         }
 
         @Override // io.reactivex.Observer
@@ -66,11 +66,11 @@ public final class ObservableRetryPredicate<T> extends AbstractObservableWithUps
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                long j2 = this.remaining;
-                if (j2 != Long.MAX_VALUE) {
-                    this.remaining = j2 - 1;
+                long j = this.remaining;
+                if (j != Long.MAX_VALUE) {
+                    this.remaining = j - 1;
                 }
-                if (j2 == 0) {
+                if (j == 0) {
                     this.actual.onError(th);
                     return;
                 }
@@ -119,13 +119,13 @@ public final class ObservableRetryPredicate<T> extends AbstractObservableWithUps
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableRetryPredicate(Observable<T> observable, long j2, Predicate<? super Throwable> predicate) {
+    public ObservableRetryPredicate(Observable<T> observable, long j, Predicate<? super Throwable> predicate) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observable, Long.valueOf(j2), predicate};
+            Object[] objArr = {observable, Long.valueOf(j), predicate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -137,7 +137,7 @@ public final class ObservableRetryPredicate<T> extends AbstractObservableWithUps
             }
         }
         this.predicate = predicate;
-        this.count = j2;
+        this.count = j;
     }
 
     @Override // io.reactivex.Observable

@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.core;
 
 import java.util.concurrent.Executor;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface ExecutorSupplier {
     Executor forBackgroundTasks();
 
@@ -12,4 +12,6 @@ public interface ExecutorSupplier {
     Executor forLocalStorageRead();
 
     Executor forLocalStorageWrite();
+
+    Executor forThumbnailProducer();
 }

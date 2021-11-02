@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XLPBottomView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GAP_FIRST = 2;
@@ -18,7 +18,7 @@ public class XLPBottomView extends LinearLayout {
     public Context mAppCtx;
     public OnBottomButtonClickListener mListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class CustomButton extends TextView {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUTTON_HEIGHT = 50;
@@ -60,7 +60,7 @@ public class XLPBottomView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnBottomButtonClickListener {
         void onCancel();
 

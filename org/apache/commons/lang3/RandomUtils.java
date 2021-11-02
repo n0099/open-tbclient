@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RandomUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Random RANDOM;
@@ -97,13 +97,13 @@ public class RandomUtils {
         return invokeII.intValue;
     }
 
-    public static long nextLong(long j2, long j3) {
+    public static long nextLong(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            Validate.isTrue(j3 >= j2, "Start value must be smaller or equal to end value.", new Object[0]);
-            Validate.isTrue(j2 >= 0, "Both range values must be non-negative.", new Object[0]);
-            return j2 == j3 ? j2 : (long) nextDouble(j2, j3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Validate.isTrue(j2 >= j, "Start value must be smaller or equal to end value.", new Object[0]);
+            Validate.isTrue(j >= 0, "Both range values must be non-negative.", new Object[0]);
+            return j == j2 ? j : (long) nextDouble(j, j2);
         }
         return invokeCommon.longValue;
     }

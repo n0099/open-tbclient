@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RouteShareURLOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public class RouteShareURLOption {
     public PlanNode mTo;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class RouteShareMode {
         public static /* synthetic */ Interceptable $ic;
         public static final RouteShareMode BUS_ROUTE_SHARE_MODE;
@@ -29,11 +29,11 @@ public class RouteShareURLOption {
         public static final RouteShareMode FOOT_ROUTE_SHARE_MODE;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ RouteShareMode[] f42011b;
+        public static final /* synthetic */ RouteShareMode[] f39843b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f42012a;
+        public int f39844a;
 
         static {
             InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public class RouteShareURLOption {
             CYCLE_ROUTE_SHARE_MODE = new RouteShareMode("CYCLE_ROUTE_SHARE_MODE", 2, 2);
             RouteShareMode routeShareMode = new RouteShareMode("BUS_ROUTE_SHARE_MODE", 3, 3);
             BUS_ROUTE_SHARE_MODE = routeShareMode;
-            f42011b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
+            f39843b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
         }
 
         public RouteShareMode(String str, int i2, int i3) {
@@ -74,8 +74,8 @@ public class RouteShareURLOption {
                     return;
                 }
             }
-            this.f42012a = -1;
-            this.f42012a = i3;
+            this.f39844a = -1;
+            this.f39844a = i3;
         }
 
         public static RouteShareMode valueOf(String str) {
@@ -87,13 +87,13 @@ public class RouteShareURLOption {
         public static RouteShareMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f42011b.clone() : (RouteShareMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f39843b.clone() : (RouteShareMode[]) invokeV.objValue;
         }
 
         public int getRouteShareMode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42012a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39844a : invokeV.intValue;
         }
     }
 

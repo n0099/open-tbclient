@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class w extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f76889a;
+    public long f70238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f76890b;
+    public int f70239b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w() {
@@ -33,7 +33,7 @@ public final class w extends x {
                 return;
             }
         }
-        this.f76889a = -1L;
+        this.f70238a = -1L;
     }
 
     @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
@@ -41,24 +41,24 @@ public final class w extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("undo_msg_v1", this.f76889a);
-            aVar.a("undo_msg_type_v1", this.f76890b);
+            aVar.a("undo_msg_v1", this.f70238a);
+            aVar.a("undo_msg_type_v1", this.f70239b);
         }
     }
 
     public final long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76889a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70238a : invokeV.longValue;
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j2 = this.f76889a;
-            if (j2 != -1) {
-                return String.valueOf(j2);
+            long j = this.f70238a;
+            if (j != -1) {
+                return String.valueOf(j);
             }
             return null;
         }
@@ -77,8 +77,8 @@ public final class w extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f76889a = aVar.b("undo_msg_v1", this.f76889a);
-            this.f76890b = aVar.b("undo_msg_type_v1", 0);
+            this.f70238a = aVar.b("undo_msg_v1", this.f70238a);
+            this.f70239b = aVar.b("undo_msg_type_v1", 0);
         }
     }
 }

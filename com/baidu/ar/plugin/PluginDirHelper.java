@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
+import com.bytedance.pangle.plugin.Plugin;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PluginDirHelper {
     public static /* synthetic */ Interceptable $ic;
     public static File sBaseDir;
@@ -121,8 +121,8 @@ public class PluginDirHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
             String pluginDalvikCacheDir = getPluginDalvikCacheDir(context, str);
-            String replace = new File(getPluginApkFile(context, str)).getName().replace(File.separator, TNCManager.TNC_PROBE_HEADER_SECEPTOR);
-            if (replace.startsWith(TNCManager.TNC_PROBE_HEADER_SECEPTOR)) {
+            String replace = new File(getPluginApkFile(context, str)).getName().replace(File.separator, "@");
+            if (replace.startsWith("@")) {
                 replace = replace.substring(1);
             }
             return new File(pluginDalvikCacheDir, replace + "@classes.dex").getPath();
@@ -177,7 +177,7 @@ public class PluginDirHelper {
     public static void init(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65551, null, context) == null) && sBaseDir == null) {
-            File file = new File(context.getCacheDir().getParentFile(), "Plugin");
+            File file = new File(context.getCacheDir().getParentFile(), Plugin.TAG);
             sBaseDir = file;
             enforceDirExists(file);
         }

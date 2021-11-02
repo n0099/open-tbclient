@@ -17,13 +17,13 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PHONE_LENGTH = 11;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f69780a;
+    public static long f62217a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -260,13 +260,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - f69780a;
-            LogUtil.logd("timeD=" + j2);
-            if (0 < j2 && j2 < 800) {
-                LogUtil.logd("点的太快了 timeD=" + j2);
+            long j = currentTimeMillis - f62217a;
+            LogUtil.logd("timeD=" + j);
+            if (0 < j && j < 800) {
+                LogUtil.logd("点的太快了 timeD=" + j);
                 return true;
             }
-            f69780a = currentTimeMillis;
+            f62217a = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

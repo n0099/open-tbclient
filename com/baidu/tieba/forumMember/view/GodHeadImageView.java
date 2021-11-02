@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GodHeadImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_SHAPE_FRS_PB_SQUARE = 2;
@@ -34,26 +34,24 @@ public class GodHeadImageView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f50805e;
+    public a f48174e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f50806f;
+    public ImageView f48175f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50807g;
+    public int f48176g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50808h;
+    public int f48177h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50809i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f50810j;
+    public int f48178i;
+    public int j;
     public int k;
     public int l;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends HeadImageView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +82,7 @@ public class GodHeadImageView extends FrameLayout {
         public void onMeasure(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                if (this.s0.f50808h == 1) {
+                if (this.s0.f48177h == 1) {
                     int size = View.MeasureSpec.getSize(i2);
                     int size2 = View.MeasureSpec.getSize(i3);
                     i2 = View.MeasureSpec.makeMeasureSpec(size - this.s0.k, 1073741824);
@@ -131,10 +129,10 @@ public class GodHeadImageView extends FrameLayout {
                 return;
             }
         }
-        this.f50807g = 0;
-        this.f50808h = 0;
-        this.f50809i = 1;
-        this.f50810j = 1;
+        this.f48176g = 0;
+        this.f48177h = 0;
+        this.f48178i = 1;
+        this.j = 1;
         this.k = m;
         this.l = 7;
         c(null);
@@ -146,17 +144,17 @@ public class GodHeadImageView extends FrameLayout {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.GodHeadImageView);
                 this.k = obtainStyledAttributes.getDimensionPixelSize(R$styleable.GodHeadImageView_extra_padding, m);
-                this.f50810j = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_shape_type, this.f50809i);
-                this.f50808h = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_show_type, this.f50807g);
+                this.j = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_shape_type, this.f48178i);
+                this.f48177h = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_show_type, this.f48176g);
                 this.l = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_extra_radius, o);
                 obtainStyledAttributes.recycle();
             }
-            this.f50805e = new a(this, getContext());
-            this.f50806f = new ImageView(getContext());
+            this.f48174e = new a(this, getContext());
+            this.f48175f = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.f50805e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            addView(this.f50805e, layoutParams);
-            addView(this.f50806f, new FrameLayout.LayoutParams(-1, -1));
+            this.f48174e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            addView(this.f48174e, layoutParams);
+            addView(this.f48175f, new FrameLayout.LayoutParams(-1, -1));
             d();
         }
     }
@@ -164,33 +162,33 @@ public class GodHeadImageView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.f50808h;
+            int i2 = this.f48177h;
             if (i2 == 0) {
-                this.f50805e.setPadding(0, 0, 0, 0);
+                this.f48174e.setPadding(0, 0, 0, 0);
             } else if (i2 == 1) {
-                a aVar = this.f50805e;
+                a aVar = this.f48174e;
                 int i3 = n;
                 aVar.setPadding(i3, i3, 0, 0);
             }
-            int i4 = this.f50810j;
+            int i4 = this.j;
             if (i4 == 1) {
-                this.f50805e.setIsRound(true);
-                if (this.f50808h == 0) {
-                    SkinManager.setImageResource(this.f50806f, R.drawable.pic_shen_avatar_big);
+                this.f48174e.setIsRound(true);
+                if (this.f48177h == 0) {
+                    SkinManager.setImageResource(this.f48175f, R.drawable.pic_shen_avatar_big);
                 } else {
-                    SkinManager.setImageResource(this.f50806f, R.drawable.pic_shen_avatar);
+                    SkinManager.setImageResource(this.f48175f, R.drawable.pic_shen_avatar);
                 }
             } else if (i4 == 2) {
-                this.f50805e.setIsRound(false);
-                this.f50805e.setRadius(this.l);
-                SkinManager.setImageResource(this.f50806f, R.drawable.pic_frs_shen_avatar);
+                this.f48174e.setIsRound(false);
+                this.f48174e.setRadius(this.l);
+                SkinManager.setImageResource(this.f48175f, R.drawable.pic_frs_shen_avatar);
             } else if (i4 != 3) {
-                this.f50805e.setIsRound(false);
-                this.f50805e.setRadius(this.l);
-                SkinManager.setImageResource(this.f50806f, R.drawable.pic_shen_avatar_square);
+                this.f48174e.setIsRound(false);
+                this.f48174e.setRadius(this.l);
+                SkinManager.setImageResource(this.f48175f, R.drawable.pic_shen_avatar_square);
             } else {
-                this.f50805e.setIsRound(true);
-                SkinManager.setImageResource(this.f50806f, R.drawable.browser_null_drawable);
+                this.f48174e.setIsRound(true);
+                SkinManager.setImageResource(this.f48175f, R.drawable.browser_null_drawable);
             }
         }
     }
@@ -208,7 +206,7 @@ public class GodHeadImageView extends FrameLayout {
             return;
         }
         this.k = i2;
-        this.f50805e.invalidate();
+        this.f48174e.invalidate();
     }
 
     public void setRadius(int i2) {
@@ -222,7 +220,7 @@ public class GodHeadImageView extends FrameLayout {
     public void setShapeType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f50810j = i2;
+            this.j = i2;
             d();
         }
     }
@@ -230,7 +228,7 @@ public class GodHeadImageView extends FrameLayout {
     public void setShowType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f50808h = i2;
+            this.f48177h = i2;
             d();
         }
     }
@@ -238,7 +236,7 @@ public class GodHeadImageView extends FrameLayout {
     public void startLoad(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.f50805e.startLoad(str, i2, z);
+            this.f48174e.startLoad(str, i2, z);
         }
     }
 
@@ -261,10 +259,10 @@ public class GodHeadImageView extends FrameLayout {
                 return;
             }
         }
-        this.f50807g = 0;
-        this.f50808h = 0;
-        this.f50809i = 1;
-        this.f50810j = 1;
+        this.f48176g = 0;
+        this.f48177h = 0;
+        this.f48178i = 1;
+        this.j = 1;
         this.k = m;
         this.l = 7;
         c(attributeSet);
@@ -289,10 +287,10 @@ public class GodHeadImageView extends FrameLayout {
                 return;
             }
         }
-        this.f50807g = 0;
-        this.f50808h = 0;
-        this.f50809i = 1;
-        this.f50810j = 1;
+        this.f48176g = 0;
+        this.f48177h = 0;
+        this.f48178i = 1;
+        this.j = 1;
         this.k = m;
         this.l = 7;
         c(attributeSet);

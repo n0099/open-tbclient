@@ -18,7 +18,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TlsSniSocketFactory extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class TlsSniSocketFactory extends SSLSocketFactory {
     public HttpsURLConnection conn;
     public HostnameVerifier hostnameVerifier;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class HostnameVerifierEx implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

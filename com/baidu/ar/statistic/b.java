@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b implements k.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,31 +60,31 @@ public class b implements k.a {
         kVar.a(this);
     }
 
-    private Pair<Long, Long> a(long j2, long j3) {
+    private Pair<Long, Long> a(long j, long j2) {
         InterceptResult invokeCommon;
+        long j3;
         long j4;
-        long j5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j6 = this.wu;
-            if (j6 <= 0 || j2 > j6) {
-                j4 = j3 - j2;
-                j5 = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j5 = this.wu;
+            if (j5 <= 0 || j > j5) {
+                j3 = j2 - j;
+                j4 = 0;
             } else {
-                long j7 = this.wv;
-                if (j7 <= 0 || j3 < j7) {
-                    long j8 = this.wu;
-                    j4 = j8 - j2;
-                    j5 = j3 - j8;
+                long j6 = this.wv;
+                if (j6 <= 0 || j2 < j6) {
+                    long j7 = this.wu;
+                    j3 = j7 - j;
+                    j4 = j2 - j7;
                 } else {
-                    j4 = (j6 - j2) + (j7 - j3);
-                    j5 = j7 - j6;
+                    j3 = (j5 - j) + (j6 - j2);
+                    j4 = j6 - j5;
                 }
             }
-            if (j4 < 0) {
-                j4 = 0;
+            if (j3 < 0) {
+                j3 = 0;
             }
-            return new Pair<>(Long.valueOf(j4), Long.valueOf(j5 >= 0 ? j5 : 0L));
+            return new Pair<>(Long.valueOf(j3), Long.valueOf(j4 >= 0 ? j4 : 0L));
         }
         return (Pair) invokeCommon.objValue;
     }
@@ -180,28 +180,28 @@ public class b implements k.a {
         return (String) invokeV.objValue;
     }
 
-    private void x(long j2) {
+    private void x(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, this, j2) == null) {
-            this.wu = j2;
+        if (interceptable == null || interceptable.invokeJ(65544, this, j) == null) {
+            this.wu = j;
         }
     }
 
-    private void y(long j2) {
+    private void y(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, this, j2) == null) {
-            long j3 = this.wu;
-            if (j2 < j3) {
-                j2 = j3;
+        if (interceptable == null || interceptable.invokeJ(65545, this, j) == null) {
+            long j2 = this.wu;
+            if (j < j2) {
+                j = j2;
             }
-            this.wv = j2;
+            this.wv = j;
         }
     }
 
-    public void A(long j2) {
+    public void A(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            y(j2);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            y(j);
         }
     }
 
@@ -358,10 +358,10 @@ public class b implements k.a {
         }
     }
 
-    public void z(long j2) {
+    public void z(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            x(j2);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            x(j);
             synchronized (this.wp) {
                 this.wp.flush();
             }

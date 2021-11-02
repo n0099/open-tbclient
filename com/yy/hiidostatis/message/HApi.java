@@ -4,34 +4,34 @@ import android.content.Context;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.defs.obj.Property;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface HApi {
     @Deprecated
     String getHdid(Context context);
 
     void reportAppsflyer(String str);
 
-    void reportCountEvent(long j2, String str, double d2);
+    void reportCountEvent(long j, String str, double d2);
 
-    void reportCountEvent(long j2, String str, double d2, String str2);
+    void reportCountEvent(long j, String str, double d2, String str2);
 
-    void reportCountEvent(long j2, String str, double d2, String str2, Property property);
+    void reportCountEvent(long j, String str, double d2, String str2, Property property);
 
-    void reportCrash(long j2, String str);
+    void reportCrash(long j, String str);
 
-    void reportCrash(long j2, Throwable th);
+    void reportCrash(long j, Throwable th);
 
-    void reportCustomContent(long j2, String str, String str2);
+    void reportCustomContent(long j, String str, String str2);
 
-    void reportErrorEvent(long j2, String str, String str2, String str3);
+    void reportErrorEvent(long j, String str, String str2, String str3);
 
-    void reportFailure(long j2, String str, String str2, String str3, String str4, String str5);
+    void reportFailure(long j, String str, String str2, String str3, String str4, String str5);
 
     boolean reportFeedBack(String str, String str2, String str3);
 
     void reportLocation(double d2, double d3, double d4);
 
-    void reportLogin(long j2);
+    void reportLogin(long j);
 
     void reportPushToken(String str);
 
@@ -47,11 +47,11 @@ public interface HApi {
 
     void reportStatisticContentWithNoComm(Context context, String str, StatisContent statisContent, boolean z);
 
-    void reportSuccess(long j2, String str, String str2, long j3, String str3);
+    void reportSuccess(long j, String str, String str2, long j2, String str3);
 
-    void reportTimesEvent(long j2, String str);
+    void reportTimesEvent(long j, String str);
 
-    void reportTimesEvent(long j2, String str, String str2);
+    void reportTimesEvent(long j, String str, String str2);
 
-    void reportTimesEvent(long j2, String str, String str2, Property property);
+    void reportTimesEvent(long j, String str, String str2, Property property);
 }

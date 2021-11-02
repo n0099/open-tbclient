@@ -17,7 +17,7 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class KeywordsBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "kywd";
@@ -108,11 +108,11 @@ public class KeywordsBox extends AbstractFullBox {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = 7;
+            long j = 7;
             for (String str : this.keywords) {
-                j2 += Utf8.utf8StringLengthInBytes(str) + 1 + 1;
+                j += Utf8.utf8StringLengthInBytes(str) + 1 + 1;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

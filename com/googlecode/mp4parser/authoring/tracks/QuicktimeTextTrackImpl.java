@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class QuicktimeTextTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
     public List<Line> subs;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Line {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,12 +44,12 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
         public String text;
         public long to;
 
-        public Line(long j2, long j3, String str) {
+        public Line(long j, long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), str};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -59,8 +59,8 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
                     return;
                 }
             }
-            this.from = j2;
-            this.to = j3;
+            this.from = j;
+            this.to = j2;
             this.text = str;
         }
 
@@ -160,17 +160,17 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList<Long> arrayList = new ArrayList();
-            long j2 = 0;
+            long j = 0;
             for (Line line : this.subs) {
-                long j3 = line.from - j2;
-                int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+                long j2 = line.from - j;
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 > 0) {
-                    arrayList.add(Long.valueOf(j3));
+                    arrayList.add(Long.valueOf(j2));
                 } else if (i2 < 0) {
                     throw new Error("Subtitle display times may not intersect");
                 }
                 arrayList.add(Long.valueOf(line.to - line.from));
-                j2 = line.to;
+                j = line.to;
             }
             long[] jArr = new long[arrayList.size()];
             int i3 = 0;
@@ -189,9 +189,9 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            long j2 = 0;
+            long j = 0;
             for (Line line : this.subs) {
-                int i2 = ((line.from - j2) > 0L ? 1 : ((line.from - j2) == 0L ? 0 : -1));
+                int i2 = ((line.from - j) > 0L ? 1 : ((line.from - j) == 0L ? 0 : -1));
                 if (i2 > 0) {
                     linkedList.add(new SampleImpl(ByteBuffer.wrap(new byte[2])));
                 } else if (i2 < 0) {
@@ -204,7 +204,7 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
                     dataOutputStream.write(line.text.getBytes("UTF-8"));
                     dataOutputStream.close();
                     linkedList.add(new SampleImpl(ByteBuffer.wrap(byteArrayOutputStream.toByteArray())));
-                    j2 = line.to;
+                    j = line.to;
                 } catch (IOException unused) {
                     throw new Error("VM is broken. Does not support UTF-8");
                 }

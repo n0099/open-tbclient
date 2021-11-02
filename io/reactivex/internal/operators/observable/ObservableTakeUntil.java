@@ -12,13 +12,13 @@ import io.reactivex.internal.disposables.ArrayCompositeDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.observers.SerializedObserver;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ObservableTakeUntil<T, U> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ObservableSource<? extends U> other;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public final class TakeUntil implements Observer<U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class ObservableTakeUntil<T, U> extends AbstractObservableWithUpstr
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class TakeUntilObserver<T> extends AtomicBoolean implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3451719290311127173L;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GiftTabActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_TYPE = "account_type";
@@ -26,13 +26,13 @@ public class GiftTabActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GiftTabActivityConfig(Context context, long j2, String str, String str2) {
-        this(context, j2, str, str2, FROM_PERSON_CENTER);
+    public GiftTabActivityConfig(Context context, long j, String str, String str2) {
+        this(context, j, str, str2, FROM_PERSON_CENTER);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2};
+            Object[] objArr = {context, Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -55,13 +55,13 @@ public class GiftTabActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GiftTabActivityConfig(Context context, long j2, String str, String str2, String str3) {
+    public GiftTabActivityConfig(Context context, long j, String str, String str2, String str3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2, str3};
+            Object[] objArr = {context, Long.valueOf(j), str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -72,20 +72,20 @@ public class GiftTabActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("gift_receiver_id", j2);
+        getIntent().putExtra("gift_receiver_id", j);
         getIntent().putExtra(GIFT_RECEIVER_NAME, str);
         getIntent().putExtra(GIFT_RECEIVER_NAME_SHOW, str2);
         getIntent().putExtra("from", str3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GiftTabActivityConfig(Context context, long j2, String str, String str2, String str3, int i2) {
+    public GiftTabActivityConfig(Context context, long j, String str, String str2, String str3, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2)};
+            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -98,20 +98,20 @@ public class GiftTabActivityConfig extends IntentConfig {
         }
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
-        getIntent().putExtra("gift_receiver_id", j2);
+        getIntent().putExtra("gift_receiver_id", j);
         getIntent().putExtra(GIFT_RECEIVER_NAME, str);
         getIntent().putExtra(GIFT_RECEIVER_NAME_SHOW, str2);
         getIntent().putExtra("from", str3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GiftTabActivityConfig(Context context, long j2, String str, String str2, String str3, long j3, long j4) {
+    public GiftTabActivityConfig(Context context, long j, String str, String str2, String str3, long j2, long j3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2, str3, Long.valueOf(j3), Long.valueOf(j4)};
+            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -122,11 +122,11 @@ public class GiftTabActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("gift_receiver_id", j2);
+        getIntent().putExtra("gift_receiver_id", j);
         getIntent().putExtra(GIFT_RECEIVER_NAME, str);
         getIntent().putExtra(GIFT_RECEIVER_NAME_SHOW, str2);
         getIntent().putExtra("from", str3);
-        getIntent().putExtra(GIFT_THREAD_ID, j3);
-        getIntent().putExtra(GIFT_POST_ID, j4);
+        getIntent().putExtra(GIFT_THREAD_ID, j2);
+        getIntent().putExtra(GIFT_POST_ID, j3);
     }
 }

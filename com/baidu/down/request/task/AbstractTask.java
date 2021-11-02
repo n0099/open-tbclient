@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractTask implements DownConstants, Comparable<AbstractTask> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DF_SEG_SIZE = 524288;
@@ -225,19 +225,19 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
                 return -1;
             }
             if (i2 == i3) {
-                long j2 = this.mLastNotifyBytes;
-                if (j2 > 0) {
-                    long j3 = this.mTotalLength;
-                    if (j3 > 0) {
-                        long j4 = this.mLastNotifySpeed;
-                        if (j4 > 0) {
-                            long j5 = abstractTask.mLastNotifyBytes;
-                            if (j5 > 0) {
-                                long j6 = abstractTask.mTotalLength;
-                                if (j6 > 0) {
-                                    long j7 = abstractTask.mLastNotifySpeed;
-                                    if (j7 > 0) {
-                                        int i4 = (((j3 - j2) / j4) > ((j6 - j5) / j7) ? 1 : (((j3 - j2) / j4) == ((j6 - j5) / j7) ? 0 : -1));
+                long j = this.mLastNotifyBytes;
+                if (j > 0) {
+                    long j2 = this.mTotalLength;
+                    if (j2 > 0) {
+                        long j3 = this.mLastNotifySpeed;
+                        if (j3 > 0) {
+                            long j4 = abstractTask.mLastNotifyBytes;
+                            if (j4 > 0) {
+                                long j5 = abstractTask.mTotalLength;
+                                if (j5 > 0) {
+                                    long j6 = abstractTask.mLastNotifySpeed;
+                                    if (j6 > 0) {
+                                        int i4 = (((j2 - j) / j3) > ((j5 - j4) / j6) ? 1 : (((j2 - j) / j3) == ((j5 - j4) / j6) ? 0 : -1));
                                         if (i4 > 0) {
                                             return 1;
                                         }
@@ -249,14 +249,14 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
                     }
                 }
                 if (this.mTotalLength == 0) {
-                    long j8 = this.mSizeB;
-                    if (j8 > 0 && abstractTask.mTotalLength == 0) {
-                        long j9 = abstractTask.mSizeB;
-                        if (j9 > 0) {
-                            if (j8 > j9) {
+                    long j7 = this.mSizeB;
+                    if (j7 > 0 && abstractTask.mTotalLength == 0) {
+                        long j8 = abstractTask.mSizeB;
+                        if (j8 > 0) {
+                            if (j7 > j8) {
                                 return 1;
                             }
-                            if (j8 < j9) {
+                            if (j7 < j8) {
                                 return -1;
                             }
                         }

@@ -14,6 +14,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHARSET = "utf-8";
@@ -119,9 +120,9 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                     this.this$0 = this;
                 }
 
-                /* JADX WARN: Removed duplicated region for block: B:79:0x02f2 A[Catch: Exception -> 0x02ee, TryCatch #2 {Exception -> 0x02ee, blocks: (B:75:0x02ea, B:79:0x02f2, B:81:0x02f7), top: B:88:0x02ea }] */
-                /* JADX WARN: Removed duplicated region for block: B:81:0x02f7 A[Catch: Exception -> 0x02ee, TRY_LEAVE, TryCatch #2 {Exception -> 0x02ee, blocks: (B:75:0x02ea, B:79:0x02f2, B:81:0x02f7), top: B:88:0x02ea }] */
-                /* JADX WARN: Removed duplicated region for block: B:88:0x02ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
+                /* JADX WARN: Removed duplicated region for block: B:79:0x02f3 A[Catch: Exception -> 0x02ef, TryCatch #2 {Exception -> 0x02ef, blocks: (B:75:0x02eb, B:79:0x02f3, B:81:0x02f8), top: B:88:0x02eb }] */
+                /* JADX WARN: Removed duplicated region for block: B:81:0x02f8 A[Catch: Exception -> 0x02ef, TRY_LEAVE, TryCatch #2 {Exception -> 0x02ef, blocks: (B:75:0x02eb, B:79:0x02f3, B:81:0x02f8), top: B:88:0x02eb }] */
+                /* JADX WARN: Removed duplicated region for block: B:88:0x02eb A[EXC_TOP_SPLITTER, SYNTHETIC] */
                 @Override // java.lang.Runnable
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
@@ -404,7 +405,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                 ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i3, str2, str3);
             }
             i3 = jSONObject.getInt("error_code");
-            str = jSONObject.getString("error_msg");
+            str = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
             str2 = str;
             str3 = "";
             ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i3, str2, str3);

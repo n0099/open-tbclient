@@ -19,7 +19,7 @@ import okhttp3.Response;
 import okhttp3.internal.Util;
 import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.StreamAllocation;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RealInterceptorChain implements Interceptor.Chain {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

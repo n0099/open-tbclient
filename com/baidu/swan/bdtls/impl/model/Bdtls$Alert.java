@@ -24,7 +24,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
@@ -39,7 +39,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
     public byte memoizedIsInitialized;
     public int memoizedSerializedSize;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a extends AbstractParser<Bdtls$Alert> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,19 +68,19 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$Alert, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f46793e;
+        public int f44440e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f46794f;
+        public int f44441f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f46795g;
+        public ByteString f44442g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
                     return;
                 }
             }
-            this.f46795g = ByteString.EMPTY;
+            this.f44442g = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -153,14 +153,14 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (c.a.p0.c.a.i.a) null);
-                int i2 = this.f46793e;
+                Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (b.a.p0.c.a.i.a) null);
+                int i2 = this.f44440e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                bdtls$Alert.level_ = this.f46794f;
+                bdtls$Alert.level_ = this.f44441f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                bdtls$Alert.description_ = this.f46795g;
+                bdtls$Alert.description_ = this.f44442g;
                 bdtls$Alert.bitField0_ = i3;
                 return bdtls$Alert;
             }
@@ -172,11 +172,11 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f46794f = 0;
-                int i2 = this.f46793e & (-2);
-                this.f46793e = i2;
-                this.f46795g = ByteString.EMPTY;
-                this.f46793e = i2 & (-3);
+                this.f44441f = 0;
+                int i2 = this.f44440e & (-2);
+                this.f44440e = i2;
+                this.f44442g = ByteString.EMPTY;
+                this.f44440e = i2 & (-3);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -208,13 +208,13 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f46793e & 2) == 2 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f44440e & 2) == 2 : invokeV.booleanValue;
         }
 
         public boolean t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f46793e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f44440e & 1) == 1 : invokeV.booleanValue;
         }
 
         public b u(Bdtls$Alert bdtls$Alert) {
@@ -279,8 +279,8 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, byteString)) == null) {
                 if (byteString != null) {
-                    this.f46793e |= 2;
-                    this.f46795g = byteString;
+                    this.f44440e |= 2;
+                    this.f44442g = byteString;
                     return this;
                 }
                 throw null;
@@ -292,8 +292,8 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
-                this.f46793e |= 1;
-                this.f46794f = i2;
+                this.f44440e |= 1;
+                this.f44441f = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -339,7 +339,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         bdtls$Alert.initFields();
     }
 
-    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.p0.c.a.i.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b.a.p0.c.a.i.a aVar) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -468,7 +468,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
     }
 
-    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, c.a.p0.c.a.i.a aVar) {
+    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, b.a.p0.c.a.i.a aVar) {
         this(builder);
     }
 

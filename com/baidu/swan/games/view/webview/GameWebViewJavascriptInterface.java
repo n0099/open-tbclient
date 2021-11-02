@@ -2,8 +2,8 @@ package com.baidu.swan.games.view.webview;
 
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.p0.a.k;
-import c.a.p0.h.o0.h.a;
+import b.a.p0.a.k;
+import b.a.p0.h.o0.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GameWebViewJavascriptInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -34,7 +34,7 @@ public class GameWebViewJavascriptInterface {
                 return;
             }
         }
-        DEBUG = k.f7085a;
+        DEBUG = k.f6397a;
     }
 
     public GameWebViewJavascriptInterface() {
@@ -56,9 +56,9 @@ public class GameWebViewJavascriptInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean z = DEBUG;
-            a E = a.E();
-            if (E != null) {
-                E.close();
+            a D = a.D();
+            if (D != null) {
+                D.close();
             }
         }
     }
@@ -68,9 +68,9 @@ public class GameWebViewJavascriptInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             boolean z = DEBUG;
-            a E = a.E();
-            if (E != null) {
-                E.H();
+            a D = a.D();
+            if (D != null) {
+                D.G();
             }
         }
     }

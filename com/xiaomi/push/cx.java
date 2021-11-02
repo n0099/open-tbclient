@@ -11,22 +11,22 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class cx implements Comparable<cx> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77816a;
+    public int f70778a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f213a;
+    public long f214a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f214a;
+    public String f215a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final LinkedList<cn> f215a;
+    public final LinkedList<cn> f216a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public cx() {
@@ -83,10 +83,10 @@ public class cx implements Comparable<cx> {
                 return;
             }
         }
-        this.f215a = new LinkedList<>();
-        this.f213a = 0L;
-        this.f214a = str;
-        this.f77816a = i2;
+        this.f216a = new LinkedList<>();
+        this.f214a = 0L;
+        this.f215a = str;
+        this.f70778a = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -99,7 +99,7 @@ public class cx implements Comparable<cx> {
             if (cxVar == null) {
                 return 1;
             }
-            return cxVar.f77816a - this.f77816a;
+            return cxVar.f70778a - this.f70778a;
         }
         return invokeL.intValue;
     }
@@ -109,12 +109,12 @@ public class cx implements Comparable<cx> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             synchronized (this) {
-                this.f213a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
-                this.f77816a = jSONObject.getInt("wt");
-                this.f214a = jSONObject.getString("host");
+                this.f214a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
+                this.f70778a = jSONObject.getInt("wt");
+                this.f215a = jSONObject.getString("host");
                 JSONArray jSONArray = jSONObject.getJSONArray("ah");
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    this.f215a.add(new cn().a(jSONArray.getJSONObject(i2)));
+                    this.f216a.add(new cn().a(jSONArray.getJSONObject(i2)));
                 }
             }
             return this;
@@ -129,11 +129,11 @@ public class cx implements Comparable<cx> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 jSONObject = new JSONObject();
-                jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f213a);
-                jSONObject.put("wt", this.f77816a);
-                jSONObject.put("host", this.f214a);
+                jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f214a);
+                jSONObject.put("wt", this.f70778a);
+                jSONObject.put("host", this.f215a);
                 JSONArray jSONArray = new JSONArray();
-                Iterator<cn> it = this.f215a.iterator();
+                Iterator<cn> it = this.f216a.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().m221a());
                 }
@@ -149,19 +149,19 @@ public class cx implements Comparable<cx> {
         if (interceptable == null || interceptable.invokeL(1048579, this, cnVar) == null) {
             synchronized (this) {
                 if (cnVar != null) {
-                    this.f215a.add(cnVar);
+                    this.f216a.add(cnVar);
                     int a2 = cnVar.a();
                     if (a2 > 0) {
-                        this.f77816a += cnVar.a();
+                        this.f70778a += cnVar.a();
                     } else {
                         int i2 = 0;
-                        for (int size = this.f215a.size() - 1; size >= 0 && this.f215a.get(size).a() < 0; size--) {
+                        for (int size = this.f216a.size() - 1; size >= 0 && this.f216a.get(size).a() < 0; size--) {
                             i2++;
                         }
-                        this.f77816a += a2 * i2;
+                        this.f70778a += a2 * i2;
                     }
-                    if (this.f215a.size() > 30) {
-                        this.f77816a -= this.f215a.remove().a();
+                    if (this.f216a.size() > 30) {
+                        this.f70778a -= this.f216a.remove().a();
                     }
                 }
             }
@@ -172,7 +172,7 @@ public class cx implements Comparable<cx> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f214a + ":" + this.f77816a;
+            return this.f215a + ":" + this.f70778a;
         }
         return (String) invokeV.objValue;
     }

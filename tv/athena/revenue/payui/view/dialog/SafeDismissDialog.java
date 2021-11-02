@@ -1,19 +1,74 @@
 package tv.athena.revenue.payui.view.dialog;
 
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import j.a.a.e.n.i;
-/* loaded from: classes2.dex */
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import i.a.a.e.n.n;
+/* loaded from: classes3.dex */
 public class SafeDismissDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f80364e;
+    public b f73218e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Context f73219f;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SafeDismissDialog this$0;
+
+        public b(SafeDismissDialog safeDismissDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {safeDismissDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = safeDismissDialog;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && "tv.athena.revenue.payui.close_all_pay_ui_action".equals(intent.getAction())) {
+                RLog.info("SafeDismissDialog", "onReceive login out");
+                this.this$0.dismiss();
+            }
+        }
+
+        public /* synthetic */ b(SafeDismissDialog safeDismissDialog, a aVar) {
+            this(safeDismissDialog);
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SafeDismissDialog(Context context, int i2) {
@@ -34,14 +89,38 @@ public class SafeDismissDialog extends Dialog {
                 return;
             }
         }
-        this.f80364e = context;
+        this.f73219f = context;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && i.f79529a.a(this.f80364e)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && n.f72367a.a(this.f73219f)) {
             super.dismiss();
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            RLog.info("SafeDismissDialog", "onCreate");
+            this.f73218e = new b(this, null);
+            LocalBroadcastManager.getInstance(getContext()).registerReceiver(this.f73218e, new IntentFilter("tv.athena.revenue.payui.close_all_pay_ui_action"));
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onStop();
+            RLog.info("SafeDismissDialog", MissionEvent.MESSAGE_STOP);
+            if (this.f73218e != null) {
+                LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(this.f73218e);
+                this.f73218e = null;
+            }
         }
     }
 }

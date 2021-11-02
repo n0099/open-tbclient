@@ -8,34 +8,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.db;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class dc extends db.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f77827a;
+    public final /* synthetic */ int f70789a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ db f228a;
+    public final /* synthetic */ db f229a;
 
     /* renamed from: a  reason: collision with other field name */
-    public File f229a;
+    public File f230a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f230a;
+    public final /* synthetic */ String f231a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Date f231a;
+    public final /* synthetic */ Date f232a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f232a;
+    public final /* synthetic */ boolean f233a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f77828b;
+    public final /* synthetic */ String f70790b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final /* synthetic */ Date f233b;
+    public final /* synthetic */ Date f234b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dc(db dbVar, int i2, Date date, Date date2, String str, String str2, boolean z) {
@@ -55,13 +55,13 @@ public class dc extends db.b {
                 return;
             }
         }
-        this.f228a = dbVar;
-        this.f77827a = i2;
-        this.f231a = date;
-        this.f233b = date2;
-        this.f230a = str;
-        this.f77828b = str2;
-        this.f232a = z;
+        this.f229a = dbVar;
+        this.f70789a = i2;
+        this.f232a = date;
+        this.f234b = date2;
+        this.f231a = str;
+        this.f70790b = str2;
+        this.f233a = z;
     }
 
     @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
@@ -69,12 +69,12 @@ public class dc extends db.b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && aa.d()) {
             try {
-                File file = new File(this.f228a.f221a.getExternalFilesDir(null) + "/.logcache");
+                File file = new File(this.f229a.f222a.getExternalFilesDir(null) + "/.logcache");
                 file.mkdirs();
                 if (file.isDirectory()) {
                     da daVar = new da();
-                    daVar.a(this.f77827a);
-                    this.f229a = daVar.a(this.f228a.f221a, this.f231a, this.f233b, file);
+                    daVar.a(this.f70789a);
+                    this.f230a = daVar.a(this.f229a.f222a, this.f232a, this.f234b, file);
                 }
             } catch (NullPointerException unused) {
             }
@@ -86,11 +86,11 @@ public class dc extends db.b {
     public void mo245c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            File file = this.f229a;
+            File file = this.f230a;
             if (file != null && file.exists()) {
-                this.f228a.f222a.add(new db.c(this.f228a, this.f230a, this.f77828b, this.f229a, this.f232a));
+                this.f229a.f223a.add(new db.c(this.f229a, this.f231a, this.f70790b, this.f230a, this.f233a));
             }
-            this.f228a.a(0L);
+            this.f229a.a(0L);
         }
     }
 }

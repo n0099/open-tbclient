@@ -43,6 +43,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
+import com.ss.android.download.api.constant.BaseConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -50,7 +51,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdRemoteClickHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACT_TYPE_APO = 512;
@@ -71,7 +72,7 @@ public class XAdRemoteClickHandler {
     public IOAdEventListener mDlStatusListener;
     public int numOfCheckAPOAppIsAtFront;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class MarketDownloadBackupTask extends BaseTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,7 +222,7 @@ public class XAdRemoteClickHandler {
                     Boolean valueOf = Boolean.valueOf(PackageUtils.isAPOOpenAvailable(appContext, appStoreLink));
                     if (bool.booleanValue()) {
                         try {
-                            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(SDKLogTypeConstants.TYPE_ASL_APO).appendAdInfo(iXAdInstanceInfo).append(XAdRemoteAPKDownloadExtraInfo.APP_STORE_LINK, appStoreLink).append("pk", iXAdInstanceInfo.getAppPackageName()).append("msg", "open_appstore_link").append("canopen", valueOf.booleanValue());
+                            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(550).appendAdInfo(iXAdInstanceInfo).append(XAdRemoteAPKDownloadExtraInfo.APP_STORE_LINK, appStoreLink).append("pk", iXAdInstanceInfo.getAppPackageName()).append("msg", "open_appstore_link").append("canopen", valueOf.booleanValue());
                             append.appendApId(adContainerContext.getAdPlacementId());
                             append.appendProdType(adContainerContext.getAdProd());
                             append.appendAppSid(adContainerContext.getAppsid());
@@ -451,7 +452,7 @@ public class XAdRemoteClickHandler {
                 if (PackageUtils.isAPOOpenAvailable(xBaseAdContainer.getAdContainerContext(), optString, iXAdInstanceInfo, SDKLogTypeConstants.TYPE_APO_CLICK, jSONObject2.optInt("fb_act", 0), jSONObject2.optInt("version", 0))) {
                     StateMachine.event(iXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_APO_OPEN);
                     OpenAppUtils.browserOutside(appContext, optString);
-                    if (optString.contains("market") && !TextUtils.isEmpty(appPackageName)) {
+                    if (optString.contains(BaseConstants.SCHEME_MARKET) && !TextUtils.isEmpty(appPackageName)) {
                         monitorAppInstall(xBaseAdContainer.getAdContainerContext(), iXAdInstanceInfo);
                     }
                     StateMachine.finish(iXAdInstanceInfo.getUniqueId());
@@ -473,7 +474,7 @@ public class XAdRemoteClickHandler {
                     if (!TextUtils.isEmpty(appStoreLink)) {
                         bool2 = Boolean.valueOf(PackageUtils.isAPOOpenAvailable(appContext, appStoreLink));
                         try {
-                            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(SDKLogTypeConstants.TYPE_ASL_APO).appendAdInfo(iXAdInstanceInfo).append(XAdRemoteAPKDownloadExtraInfo.APP_STORE_LINK, appStoreLink).append("pk", appPackageName).append("msg", "open_appstore_link").append("canopen", bool2.booleanValue());
+                            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(550).appendAdInfo(iXAdInstanceInfo).append(XAdRemoteAPKDownloadExtraInfo.APP_STORE_LINK, appStoreLink).append("pk", appPackageName).append("msg", "open_appstore_link").append("canopen", bool2.booleanValue());
                             append.appendApId(xBaseAdContainer.getAdContainerContext().getAdPlacementId());
                             append.appendProdType(xBaseAdContainer.getAdContainerContext().getAdProd());
                             append.appendAppSid(xBaseAdContainer.getAdContainerContext().getAppsid());

@@ -12,7 +12,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.webkit.WebResourceErrorCompat;
 import androidx.webkit.WebViewClientCompat;
-import c.a.q0.m.f;
+import b.a.q0.m.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FlutterWebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterWebViewClient";
@@ -32,7 +32,7 @@ public class FlutterWebViewClient {
     public boolean hasNavigationDelegate;
     public final MethodChannel methodChannel;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class OnNavigationRequestResult implements MethodChannel.Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

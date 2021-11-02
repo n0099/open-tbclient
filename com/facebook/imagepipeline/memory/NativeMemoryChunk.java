@@ -17,7 +17,7 @@ import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class NativeMemoryChunk implements MemoryChunk, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeMemoryChunk";
@@ -81,19 +81,19 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
     public static native long nativeAllocate(int i2);
 
     @DoNotStrip
-    public static native void nativeCopyFromByteArray(long j2, byte[] bArr, int i2, int i3);
+    public static native void nativeCopyFromByteArray(long j, byte[] bArr, int i2, int i3);
 
     @DoNotStrip
-    public static native void nativeCopyToByteArray(long j2, byte[] bArr, int i2, int i3);
+    public static native void nativeCopyToByteArray(long j, byte[] bArr, int i2, int i3);
 
     @DoNotStrip
-    public static native void nativeFree(long j2);
+    public static native void nativeFree(long j);
 
     @DoNotStrip
-    public static native void nativeMemcpy(long j2, long j3, int i2);
+    public static native void nativeMemcpy(long j, long j2, int i2);
 
     @DoNotStrip
-    public static native byte nativeReadByte(long j2);
+    public static native byte nativeReadByte(long j);
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk, java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {

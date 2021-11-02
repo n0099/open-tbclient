@@ -58,7 +58,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver.InstallListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int NOTIF_INC = 10091;
@@ -186,12 +186,12 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
         }
     }
 
-    private String getFormattedSize(long j2) {
+    private String getFormattedSize(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, this, j2)) == null) {
-            long j3 = (j2 / 1024) / 1024;
-            return j3 > 1000 ? String.format(Locale.CHINA, "%.1fG", Float.valueOf(((float) j3) / 1024.0f)) : String.format(Locale.CHINA, "%.1fM", Float.valueOf((float) j3));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, this, j)) == null) {
+            long j2 = (j / 1024) / 1024;
+            return j2 > 1000 ? String.format(Locale.CHINA, "%.1fG", Float.valueOf(((float) j2) / 1024.0f)) : String.format(Locale.CHINA, "%.1fM", Float.valueOf((float) j2));
         }
         return (String) invokeJ.objValue;
     }

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMPaSubscribeMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,12 +26,12 @@ public class IMPaSubscribeMsg extends Message {
     public long mPaId;
     public PaInfo mPaInfo;
 
-    public IMPaSubscribeMsg(Context context, long j2, PaInfo paInfo) {
+    public IMPaSubscribeMsg(Context context, long j, PaInfo paInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), paInfo};
+            Object[] objArr = {context, Long.valueOf(j), paInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -43,7 +43,7 @@ public class IMPaSubscribeMsg extends Message {
         }
         this.mContext = context;
         initCommonParameter(context);
-        this.mPaId = j2;
+        this.mPaId = j;
         this.mPaInfo = paInfo;
         setNeedReplay(true);
         setType(100);

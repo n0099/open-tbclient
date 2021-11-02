@@ -17,7 +17,7 @@ import java.lang.reflect.TypeVariable;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TypeReference<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Type LIST_STRING;

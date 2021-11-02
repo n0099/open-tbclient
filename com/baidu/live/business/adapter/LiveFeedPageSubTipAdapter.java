@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.w.c.a.c;
-import c.a.w.e.g.d;
-import c.a.w.i.f;
+import b.a.w.c.a.c;
+import b.a.w.e.g.d;
+import b.a.w.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,39 +21,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LayoutInflater f40831a;
+    public LayoutInflater f38717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<LiveTabEntity.TabLabelInfo> f40832b;
+    public List<LiveTabEntity.TabLabelInfo> f38718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f40833c;
+    public Context f38719c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f40834d;
+    public boolean f38720d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40835e;
+    public int f38721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f40836f;
+    public float[] f38722f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f40837g;
+    public b f38723g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f40838a;
+        public TextView f38724a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -76,16 +76,16 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewHolder f40839e;
+        public final /* synthetic */ ViewHolder f38725e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LiveFeedPageSubTipAdapter f40840f;
+        public final /* synthetic */ LiveFeedPageSubTipAdapter f38726f;
 
         public a(LiveFeedPageSubTipAdapter liveFeedPageSubTipAdapter, ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
@@ -102,20 +102,20 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
                     return;
                 }
             }
-            this.f40840f = liveFeedPageSubTipAdapter;
-            this.f40839e = viewHolder;
+            this.f38726f = liveFeedPageSubTipAdapter;
+            this.f38725e = viewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40840f.f40837g.a(this.f40839e.itemView, this.f40839e.getLayoutPosition());
+                this.f38726f.f38723g.a(this.f38725e.itemView, this.f38725e.getLayoutPosition());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(View view, int i2);
     }
@@ -135,45 +135,45 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
                 return;
             }
         }
-        this.f40832b = new ArrayList();
-        this.f40835e = 0;
-        this.f40833c = context;
-        this.f40834d = z;
-        this.f40831a = LayoutInflater.from(context);
-        float a2 = c.a.w.b.f.a.a(this.f40833c, 14.0f);
-        this.f40836f = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
+        this.f38718b = new ArrayList();
+        this.f38721e = 0;
+        this.f38719c = context;
+        this.f38720d = z;
+        this.f38717a = LayoutInflater.from(context);
+        float a2 = b.a.w.b.f.a.a(this.f38719c, 14.0f);
+        this.f38722f = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40832b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38718b.size() : invokeV.intValue;
     }
 
     public int getSelectPos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40835e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38721e : invokeV.intValue;
     }
 
     public LiveTabEntity.TabLabelInfo getSelectSubTabInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (LiveTabEntity.TabLabelInfo) d.b(this.f40832b, this.f40835e) : (LiveTabEntity.TabLabelInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (LiveTabEntity.TabLabelInfo) d.b(this.f38718b, this.f38721e) : (LiveTabEntity.TabLabelInfo) invokeV.objValue;
     }
 
     public void setOnItemClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f40837g = bVar;
+            this.f38723g = bVar;
         }
     }
 
     public void setSelectPos(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f40835e = i2;
+            this.f38721e = i2;
         }
     }
 
@@ -183,30 +183,30 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
         if (!(interceptable == null || interceptable.invokeL(1048585, this, list) == null) || d.c(list)) {
             return;
         }
-        List<LiveTabEntity.TabLabelInfo> list2 = this.f40832b;
+        List<LiveTabEntity.TabLabelInfo> list2 = this.f38718b;
         if (list2 != null) {
             list2.clear();
         } else {
-            this.f40832b = new ArrayList();
+            this.f38718b = new ArrayList();
         }
         int i2 = 0;
         while (true) {
-            if (i2 >= this.f40832b.size()) {
+            if (i2 >= this.f38718b.size()) {
                 z = false;
                 break;
             }
-            LiveTabEntity.TabLabelInfo tabLabelInfo = this.f40832b.get(i2);
+            LiveTabEntity.TabLabelInfo tabLabelInfo = this.f38718b.get(i2);
             if (tabLabelInfo != null && tabLabelInfo.selected) {
-                this.f40835e = i2;
+                this.f38721e = i2;
                 z = true;
                 break;
             }
             i2++;
         }
         if (!z) {
-            this.f40835e = 0;
+            this.f38721e = 0;
         }
-        this.f40832b.addAll(list);
+        this.f38718b.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -215,25 +215,25 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
     public void onBindViewHolder(ViewHolder viewHolder, int i2) {
         LiveTabEntity.TabLabelInfo tabLabelInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i2) == null) || (tabLabelInfo = (LiveTabEntity.TabLabelInfo) d.b(this.f40832b, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i2) == null) || (tabLabelInfo = (LiveTabEntity.TabLabelInfo) d.b(this.f38718b, i2)) == null) {
             return;
         }
-        viewHolder.f40838a.setText(tabLabelInfo.name);
-        if (this.f40837g != null) {
+        viewHolder.f38724a.setText(tabLabelInfo.name);
+        if (this.f38723g != null) {
             viewHolder.itemView.setOnClickListener(new a(this, viewHolder));
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadii(this.f40836f);
-        if (i2 == this.f40835e) {
-            viewHolder.f40838a.setTextColor(f.e().a(this.f40833c, this.f40834d, "color_FF33551"));
-            gradientDrawable.setColors(new int[]{f.e().a(this.f40833c, this.f40834d, "color_FF33552"), f.e().a(this.f40833c, this.f40834d, "color_FF33552")});
-            viewHolder.f40838a.setTypeface(Typeface.defaultFromStyle(1));
+        gradientDrawable.setCornerRadii(this.f38722f);
+        if (i2 == this.f38721e) {
+            viewHolder.f38724a.setTextColor(f.e().a(this.f38719c, this.f38720d, "color_FF33551"));
+            gradientDrawable.setColors(new int[]{f.e().a(this.f38719c, this.f38720d, "color_FF33552"), f.e().a(this.f38719c, this.f38720d, "color_FF33552")});
+            viewHolder.f38724a.setTypeface(Typeface.defaultFromStyle(1));
         } else {
-            viewHolder.f40838a.setTextColor(f.e().a(this.f40833c, this.f40834d, "color_525252"));
-            gradientDrawable.setColors(new int[]{f.e().a(this.f40833c, this.f40834d, "color_F5F5F53"), f.e().a(this.f40833c, this.f40834d, "color_F5F5F53")});
-            viewHolder.f40838a.setTypeface(Typeface.defaultFromStyle(0));
+            viewHolder.f38724a.setTextColor(f.e().a(this.f38719c, this.f38720d, "color_525252"));
+            gradientDrawable.setColors(new int[]{f.e().a(this.f38719c, this.f38720d, "color_F5F5F53"), f.e().a(this.f38719c, this.f38720d, "color_F5F5F53")});
+            viewHolder.f38724a.setTypeface(Typeface.defaultFromStyle(0));
         }
-        viewHolder.f40838a.setBackgroundDrawable(gradientDrawable);
+        viewHolder.f38724a.setBackgroundDrawable(gradientDrawable);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -242,9 +242,9 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) {
-            View inflate = this.f40831a.inflate(c.a.w.c.a.d.live_feed_page_sub_tag_layout, (ViewGroup) null);
+            View inflate = this.f38717a.inflate(b.a.w.c.a.d.live_feed_page_sub_tag_layout, (ViewGroup) null);
             ViewHolder viewHolder = new ViewHolder(inflate);
-            viewHolder.f40838a = (TextView) inflate.findViewById(c.tv_item);
+            viewHolder.f38724a = (TextView) inflate.findViewById(c.tv_item);
             return viewHolder;
         }
         return (ViewHolder) invokeLI.objValue;

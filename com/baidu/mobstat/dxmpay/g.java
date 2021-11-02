@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f43800a = 2;
+    public static int f41577a = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -102,7 +102,7 @@ public abstract class g {
 
     private void a(int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) && b() && i2 >= f43800a) {
+        if ((interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) && b() && i2 >= f41577a) {
             Log.println(i2, a(), str);
         }
     }

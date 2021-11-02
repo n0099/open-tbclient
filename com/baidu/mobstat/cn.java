@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface cn extends cq {
     int a() throws ci;
 

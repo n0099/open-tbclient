@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class hf {
     public static /* synthetic */ Interceptable $ic;
     public static final hf A;
@@ -25,37 +25,35 @@ public final class hf {
     public static final hf K;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hf f78116a;
+    public static final hf f71071a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hf[] f475a;
+    public static final /* synthetic */ hf[] f476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hf f78117b;
+    public static final hf f71072b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hf f78118c;
+    public static final hf f71073c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hf f78119d;
+    public static final hf f71074d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hf f78120e;
+    public static final hf f71075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hf f78121f;
+    public static final hf f71076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hf f78122g;
+    public static final hf f71077g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hf f78123h;
+    public static final hf f71078h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hf f78124i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final hf f78125j;
+    public static final hf f71079i;
+    public static final hf j;
     public static final hf k;
     public static final hf l;
     public static final hf m;
@@ -75,7 +73,7 @@ public final class hf {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f476a;
+    public final int f477a;
 
     static {
         InterceptResult invokeClinit;
@@ -90,16 +88,16 @@ public final class hf {
                 return;
             }
         }
-        f78116a = new hf("Registration", 0, 1);
-        f78117b = new hf("UnRegistration", 1, 2);
-        f78118c = new hf("Subscription", 2, 3);
-        f78119d = new hf("UnSubscription", 3, 4);
-        f78120e = new hf("SendMessage", 4, 5);
-        f78121f = new hf("AckMessage", 5, 6);
-        f78122g = new hf("SetConfig", 6, 7);
-        f78123h = new hf("ReportFeedback", 7, 8);
-        f78124i = new hf("Notification", 8, 9);
-        f78125j = new hf("Command", 9, 10);
+        f71071a = new hf("Registration", 0, 1);
+        f71072b = new hf("UnRegistration", 1, 2);
+        f71073c = new hf("Subscription", 2, 3);
+        f71074d = new hf("UnSubscription", 3, 4);
+        f71075e = new hf("SendMessage", 4, 5);
+        f71076f = new hf("AckMessage", 5, 6);
+        f71077g = new hf("SetConfig", 6, 7);
+        f71078h = new hf("ReportFeedback", 7, 8);
+        f71079i = new hf("Notification", 8, 9);
+        j = new hf("Command", 9, 10);
         k = new hf("MultiConnectionBroadcast", 10, 11);
         l = new hf("MultiConnectionResult", 11, 12);
         m = new hf("ConnectionKick", 12, 13);
@@ -128,7 +126,7 @@ public final class hf {
         J = new hf("RevokeMessage", 35, 114);
         hf hfVar = new hf("SimulatorJob", 36, 200);
         K = hfVar;
-        f475a = new hf[]{f78116a, f78117b, f78118c, f78119d, f78120e, f78121f, f78122g, f78123h, f78124i, f78125j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
+        f476a = new hf[]{f71071a, f71072b, f71073c, f71074d, f71075e, f71076f, f71077g, f71078h, f71079i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
     }
 
     public hf(String str, int i2, int i3) {
@@ -149,7 +147,7 @@ public final class hf {
                 return;
             }
         }
-        this.f476a = i3;
+        this.f477a = i3;
     }
 
     public static hf a(int i2) {
@@ -159,25 +157,25 @@ public final class hf {
             if (i2 != 200) {
                 switch (i2) {
                     case 1:
-                        return f78116a;
+                        return f71071a;
                     case 2:
-                        return f78117b;
+                        return f71072b;
                     case 3:
-                        return f78118c;
+                        return f71073c;
                     case 4:
-                        return f78119d;
+                        return f71074d;
                     case 5:
-                        return f78120e;
+                        return f71075e;
                     case 6:
-                        return f78121f;
+                        return f71076f;
                     case 7:
-                        return f78122g;
+                        return f71077g;
                     case 8:
-                        return f78123h;
+                        return f71078h;
                     case 9:
-                        return f78124i;
+                        return f71079i;
                     case 10:
-                        return f78125j;
+                        return j;
                     case 11:
                         return k;
                     case 12:
@@ -260,12 +258,12 @@ public final class hf {
     public static hf[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hf[]) f475a.clone() : (hf[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hf[]) f476a.clone() : (hf[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f476a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f477a : invokeV.intValue;
     }
 }

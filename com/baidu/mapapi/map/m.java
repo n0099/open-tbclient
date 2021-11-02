@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class m implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MapView f41747a;
+    public final /* synthetic */ MapView f39585a;
 
     public m(MapView mapView) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class m implements View.OnClickListener {
                 return;
             }
         }
-        this.f41747a = mapView;
+        this.f39585a = mapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,18 +39,18 @@ public class m implements View.OnClickListener {
         com.baidu.mapsdkplatform.comapi.map.j jVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            jVar = this.f41747a.f41566e;
-            float f2 = jVar.a().f42290b;
-            jVar2 = this.f41747a.f41566e;
+            jVar = this.f39585a.f39415e;
+            float f2 = jVar.a().f40115b;
+            jVar2 = this.f39585a.f39415e;
             ab E = jVar2.a().E();
-            float f3 = E.f42240a - 1.0f;
-            E.f42240a = f3;
+            float f3 = E.f40067a - 1.0f;
+            E.f40067a = f3;
             if (f3 >= f2) {
                 f2 = f3;
             }
-            E.f42240a = f2;
+            E.f40067a = f2;
             BaiduMap.mapStatusReason |= 16;
-            jVar3 = this.f41747a.f41566e;
+            jVar3 = this.f39585a.f39415e;
             jVar3.a().a(E, 300);
         }
     }

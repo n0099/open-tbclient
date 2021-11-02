@@ -21,25 +21,25 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f76802a;
+    public static final Executor f70152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f76803b;
+    public static Object f70153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f76804c;
+    public static Handler f70154c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HandlerThread f76805d;
+    public static HandlerThread f70155d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.open.utils.j$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,8 +58,8 @@ public final class j {
                 return;
             }
         }
-        f76803b = new Object();
-        f76802a = c();
+        f70153b = new Object();
+        f70152a = c();
     }
 
     public j() {
@@ -80,15 +80,15 @@ public final class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f76804c == null) {
+            if (f70154c == null) {
                 synchronized (j.class) {
                     HandlerThread handlerThread = new HandlerThread("SDK_SUB");
-                    f76805d = handlerThread;
+                    f70155d = handlerThread;
                     handlerThread.start();
-                    f76804c = new Handler(f76805d.getLooper());
+                    f70154c = new Handler(f70155d.getLooper());
                 }
             }
-            return f76804c;
+            return f70154c;
         }
         return (Handler) invokeV.objValue;
     }
@@ -123,16 +123,16 @@ public final class j {
         return (Executor) invokeV.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Queue<Runnable> f76806a;
+        public final Queue<Runnable> f70156a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f76807b;
+        public Runnable f70157b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -147,17 +147,17 @@ public final class j {
                     return;
                 }
             }
-            this.f76806a = new LinkedList();
+            this.f70156a = new LinkedList();
         }
 
         public synchronized void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    Runnable poll = this.f76806a.poll();
-                    this.f76807b = poll;
+                    Runnable poll = this.f70156a.poll();
+                    this.f70157b = poll;
                     if (poll != null) {
-                        j.f76802a.execute(poll);
+                        j.f70152a.execute(poll);
                     }
                 }
             }
@@ -168,15 +168,15 @@ public final class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
                 synchronized (this) {
-                    this.f76806a.offer(new Runnable(this, runnable) { // from class: com.tencent.open.utils.j.a.1
+                    this.f70156a.offer(new Runnable(this, runnable) { // from class: com.tencent.open.utils.j.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Runnable f76808a;
+                        public final /* synthetic */ Runnable f70158a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ a f76809b;
+                        public final /* synthetic */ a f70159b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -193,8 +193,8 @@ public final class j {
                                     return;
                                 }
                             }
-                            this.f76809b = this;
-                            this.f76808a = runnable;
+                            this.f70159b = this;
+                            this.f70158a = runnable;
                         }
 
                         @Override // java.lang.Runnable
@@ -202,14 +202,14 @@ public final class j {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    this.f76808a.run();
+                                    this.f70158a.run();
                                 } finally {
-                                    this.f76809b.a();
+                                    this.f70159b.a();
                                 }
                             }
                         }
                     });
-                    if (this.f76807b == null) {
+                    if (this.f70157b == null) {
                         a();
                     }
                 }

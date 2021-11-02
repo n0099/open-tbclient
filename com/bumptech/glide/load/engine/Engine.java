@@ -35,7 +35,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedListener, EngineResource.ResourceListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int JOB_POOL_SIZE = 150;
@@ -52,7 +52,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
     public final ResourceRecycler resourceRecycler;
 
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class DecodeJobFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
     }
 
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class EngineJobFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +234,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class LazyDiskCacheProvider implements DecodeJob.DiskCacheProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -293,7 +293,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class LoadStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -414,10 +414,10 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         return (EngineResource) invokeLZ.objValue;
     }
 
-    public static void logWithTimeAndKey(String str, long j2, Key key) {
+    public static void logWithTimeAndKey(String str, long j, Key key) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, Long.valueOf(j2), key}) == null) {
-            String str2 = str + " in " + LogTime.getElapsedMillis(j2) + "ms, key: " + key;
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, Long.valueOf(j), key}) == null) {
+            String str2 = str + " in " + LogTime.getElapsedMillis(j) + "ms, key: " + key;
         }
     }
 

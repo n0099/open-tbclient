@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.beans.BeanManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LBSTransActivity extends LBSBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "LBSTransActivity";

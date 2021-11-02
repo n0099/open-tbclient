@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                String str = new String(this.f35728b);
+                String str = new String(this.f33835b);
                 StringBuilder sb = new StringBuilder("threadid = ");
                 sb.append(Thread.currentThread().getId());
                 sb.append("; rpc response:  ");
@@ -48,12 +48,12 @@ public final class d extends a {
                 JSONObject jSONObject = new JSONObject(str);
                 int i2 = jSONObject.getInt("resultStatus");
                 if (i2 == 1000) {
-                    return this.f35727a == String.class ? jSONObject.optString("result") : com.alipay.a.a.e.a(jSONObject.optString("result"), this.f35727a);
+                    return this.f33834a == String.class ? jSONObject.optString("result") : com.alipay.a.a.e.a(jSONObject.optString("result"), this.f33834a);
                 }
                 throw new RpcException(Integer.valueOf(i2), jSONObject.optString("tips"));
             } catch (Exception e2) {
                 StringBuilder sb2 = new StringBuilder("response  =");
-                sb2.append(new String(this.f35728b));
+                sb2.append(new String(this.f33835b));
                 sb2.append(":");
                 sb2.append(e2);
                 throw new RpcException((Integer) 10, sb2.toString() == null ? "" : e2.getMessage());

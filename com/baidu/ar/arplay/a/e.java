@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "e";
@@ -39,11 +39,11 @@ public class e {
     public Map<String, Integer> dF;
     public com.baidu.ar.arplay.c.a dG;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,9 +168,9 @@ public class e {
         return (MediaPlayer) invokeL.objValue;
     }
 
-    private void a(a aVar, String str, String str2, int i2, MediaPlayer.OnCompletionListener onCompletionListener, boolean z, String str3, long j2) {
+    private void a(a aVar, String str, String str2, int i2, MediaPlayer.OnCompletionListener onCompletionListener, boolean z, String str3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{aVar, str, str2, Integer.valueOf(i2), onCompletionListener, Boolean.valueOf(z), str3, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{aVar, str, str2, Integer.valueOf(i2), onCompletionListener, Boolean.valueOf(z), str3, Long.valueOf(j)}) == null) {
             try {
                 if (this.dE.containsKey(str)) {
                     b bVar = this.dE.get(str);
@@ -240,7 +240,7 @@ public class e {
                     bVar2.df.setLooping(z);
                     bVar2.df.prepareAsync();
                     com.baidu.ar.arplay.c.b.b(TAG, "wrapper.mMediaPlayer.prepareAsync()");
-                    bVar2.df.setOnPreparedListener(new MediaPlayer.OnPreparedListener(this, bVar2, j2) { // from class: com.baidu.ar.arplay.a.e.5
+                    bVar2.df.setOnPreparedListener(new MediaPlayer.OnPreparedListener(this, bVar2, j) { // from class: com.baidu.ar.arplay.a.e.5
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ e dH;
@@ -252,7 +252,7 @@ public class e {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, bVar2, Long.valueOf(j2)};
+                                Object[] objArr = {this, bVar2, Long.valueOf(j)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i3 = newInitContext.flag;
                                 if ((i3 & 1) != 0) {
@@ -264,7 +264,7 @@ public class e {
                             }
                             this.dH = this;
                             this.dI = bVar2;
-                            this.de = j2;
+                            this.de = j;
                         }
 
                         @Override // android.media.MediaPlayer.OnPreparedListener
@@ -703,10 +703,10 @@ public class e {
         }
     }
 
-    public void a(a aVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2, int i3, String str3, long j2) {
+    public void a(a aVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2, int i3, String str3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{aVar, str, str2, onCompletionListener, Integer.valueOf(i2), Integer.valueOf(i3), str3, Long.valueOf(j2)}) == null) {
-            a(aVar, str, str2, i2, onCompletionListener, false, str3, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{aVar, str, str2, onCompletionListener, Integer.valueOf(i2), Integer.valueOf(i3), str3, Long.valueOf(j)}) == null) {
+            a(aVar, str, str2, i2, onCompletionListener, false, str3, j);
         }
     }
 

@@ -1,5 +1,5 @@
 package com.facebook.drawee.drawable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface VisibilityCallback {
     void onDraw();
 

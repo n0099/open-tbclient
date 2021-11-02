@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LiveInfoResultData extends BaseResultData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2695767546208947458L;

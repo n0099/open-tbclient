@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HttpVersion extends ProtocolVersion implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTP = "HTTP";

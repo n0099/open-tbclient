@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bo extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77760a;
+    public Context f70723a;
 
     public bo(Context context) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class bo extends ai.a {
                 return;
             }
         }
-        this.f77760a = context;
+        this.f70723a = context;
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.f77760a).m78a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.f70723a).m78a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -54,8 +54,8 @@ public class bo extends ai.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (a()) {
-                    com.xiaomi.clientreport.manager.a.a(this.f77760a).c();
-                    com.xiaomi.channel.commonutils.logger.b.c(this.f77760a.getPackageName() + "perf  begin upload");
+                    com.xiaomi.clientreport.manager.a.a(this.f70723a).c();
+                    com.xiaomi.channel.commonutils.logger.b.c(this.f70723a.getPackageName() + "perf  begin upload");
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("fail to send perf data. " + e2);

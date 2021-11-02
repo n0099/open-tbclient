@@ -52,7 +52,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -864,7 +864,7 @@ public class bj {
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
             String a2 = ay.a().a(str);
             if (TextUtils.isEmpty(a2)) {
-                a2 = au.a().a(str, au.a.f43281a);
+                a2 = au.a().a(str, au.a.f41077a);
             }
             return a2 == null ? "" : a2;
         }
@@ -1233,7 +1233,7 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            String a2 = au.a().a(str, au.a.f43282b);
+            String a2 = au.a().a(str, au.a.f41078b);
             return a2 == null ? "" : a2;
         }
         return (String) invokeL.objValue;

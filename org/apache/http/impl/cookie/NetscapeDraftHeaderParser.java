@@ -12,7 +12,7 @@ import org.apache.http.ParseException;
 import org.apache.http.message.ParserCursor;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetscapeDraftHeaderParser {
     public static /* synthetic */ Interceptable $ic;
     public static final NetscapeDraftHeaderParser DEFAULT = null;

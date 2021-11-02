@@ -20,7 +20,7 @@ import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ImageRequestBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class ImageRequestBuilder {
     public Uri mSourceUri;
     public String mTag;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class BuilderException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,7 +355,7 @@ public class ImageRequestBuilder {
         return (ImageRequestBuilder) invokeL.objValue;
     }
 
-    public ImageRequestBuilder setPostprocessor(Postprocessor postprocessor) {
+    public ImageRequestBuilder setPostprocessor(@Nullable Postprocessor postprocessor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, postprocessor)) == null) {

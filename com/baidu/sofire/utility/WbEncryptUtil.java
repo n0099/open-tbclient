@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class WbEncryptUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_LEN = 1024;
-    public static c.a.g0.a.a mWbaes;
+    public static b.a.g0.a.a mWbaes;
     public transient /* synthetic */ FieldHolder $fh;
 
     public WbEncryptUtil() {
@@ -85,7 +85,7 @@ public class WbEncryptUtil {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (WbEncryptUtil.class) {
                 if (mWbaes == null) {
-                    c.a.g0.a.a c2 = WBAESCipherImplement.c();
+                    b.a.g0.a.a c2 = WBAESCipherImplement.c();
                     byte[] loadAssertFile = loadAssertFile(context, "pass-key.face-android");
                     if (loadAssertFile != null && loadAssertFile.length > 0) {
                         mWbaes = c2;

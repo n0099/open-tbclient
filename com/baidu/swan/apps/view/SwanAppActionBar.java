@@ -14,11 +14,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.e;
-import c.a.p0.a.f;
-import c.a.p0.a.g;
-import c.a.p0.a.j;
-import c.a.p0.a.v2.n0;
+import b.a.p0.a.e;
+import b.a.p0.a.f;
+import b.a.p0.a.g;
+import b.a.p0.a.j;
+import b.a.p0.a.v2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,28 +26,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanAppActionBar extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f46661e;
+    public View f44318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f46662f;
+    public TextView f44319f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f46663g;
+    public TextView f44320g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f46664h;
+    public View f44321h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f46665i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public View f46666j;
+    public ImageView f44322i;
+    public View j;
     public ProgressBar k;
     public TextView l;
     public String m;
@@ -63,16 +61,16 @@ public class SwanAppActionBar extends RelativeLayout {
     public c w;
     public boolean x;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GestureDetector f46667e;
+        public final /* synthetic */ GestureDetector f44323e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f46668f;
+        public final /* synthetic */ SwanAppActionBar f44324f;
 
         public a(SwanAppActionBar swanAppActionBar, GestureDetector gestureDetector) {
             Interceptable interceptable = $ic;
@@ -89,25 +87,25 @@ public class SwanAppActionBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f46668f = swanAppActionBar;
-            this.f46667e = gestureDetector;
+            this.f44324f = swanAppActionBar;
+            this.f44323e = gestureDetector;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f46667e.onTouchEvent(motionEvent) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f44323e.onTouchEvent(motionEvent) : invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f46669e;
+        public final /* synthetic */ SwanAppActionBar f44325e;
 
         public b(SwanAppActionBar swanAppActionBar) {
             Interceptable interceptable = $ic;
@@ -124,7 +122,7 @@ public class SwanAppActionBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f46669e = swanAppActionBar;
+            this.f44325e = swanAppActionBar;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
@@ -132,8 +130,8 @@ public class SwanAppActionBar extends RelativeLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                if (this.f46669e.w != null) {
-                    this.f46669e.w.a(this.f46669e);
+                if (this.f44325e.w != null) {
+                    this.f44325e.w.onDoubleClick(this.f44325e);
                 }
                 return super.onDoubleTap(motionEvent);
             }
@@ -144,7 +142,7 @@ public class SwanAppActionBar extends RelativeLayout {
         public boolean onDown(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? !this.f46669e.x : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? !this.f44325e.x : invokeL.booleanValue;
         }
 
         public /* synthetic */ b(SwanAppActionBar swanAppActionBar, a aVar) {
@@ -152,9 +150,9 @@ public class SwanAppActionBar extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface c {
-        void a(View view);
+        void onDoubleClick(View view);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -187,8 +185,8 @@ public class SwanAppActionBar extends RelativeLayout {
             setLeftHomeViewSrc(e.aiapps_action_bar_home_black_selector);
             setRightMenuImageSrc(z ? e.aiapps_action_bar_single_menu_black_selector : e.aiapps_action_bar_menu_black_selector);
             setRightExitImageSrc(e.aiapps_action_bar_exit_black_selector);
-            setRightLineSrc(c.a.p0.a.c.aiapps_action_bar_menu_line_color);
-            setRightZoneBgSrc(z ? c.a.p0.a.c.aiapps_transparent : e.aiapps_action_bar_right_menu_bg);
+            setRightLineSrc(b.a.p0.a.c.aiapps_action_bar_menu_line_color);
+            setRightZoneBgSrc(z ? b.a.p0.a.c.aiapps_transparent : e.aiapps_action_bar_right_menu_bg);
         }
     }
 
@@ -201,8 +199,8 @@ public class SwanAppActionBar extends RelativeLayout {
             setLeftHomeViewSrc(e.aiapps_action_bar_home_white_selector);
             setRightMenuImageSrc(z ? e.aiapps_action_bar_single_menu_white_selector : e.aiapps_action_bar_menu_white_selector);
             setRightExitImageSrc(e.aiapps_action_bar_exit_white_selector);
-            setRightLineSrc(c.a.p0.a.c.aiapps_action_bar_menu_line_white);
-            setRightZoneBgSrc(z ? c.a.p0.a.c.aiapps_transparent : e.aiapps_action_bar_right_menu_bg_solid);
+            setRightLineSrc(b.a.p0.a.c.aiapps_action_bar_menu_line_white);
+            setRightZoneBgSrc(z ? b.a.p0.a.c.aiapps_transparent : e.aiapps_action_bar_right_menu_bg_solid);
         }
     }
 
@@ -221,15 +219,15 @@ public class SwanAppActionBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(g.aiapps_action_bar, this);
-            this.f46661e = findViewById(f.titlebar_left_zone);
+            this.f44318e = findViewById(f.titlebar_left_zone);
             TextView textView = (TextView) findViewById(f.left_first_view);
-            this.f46662f = textView;
+            this.f44319f = textView;
             textView.setCompoundDrawables(c(e.aiapps_action_bar_back_black_selector), null, null, null);
-            this.f46662f.setTextColor(getResources().getColorStateList(c.a.p0.a.c.swan_app_action_bar_operation_btn_selector));
-            this.f46663g = (TextView) findViewById(f.left_second_view);
-            this.f46664h = findViewById(f.titlebar_left_float_zone);
-            this.f46665i = (ImageView) findViewById(f.left_float_back_view);
-            this.f46666j = findViewById(f.titlebar_center_zone);
+            this.f44319f.setTextColor(getResources().getColorStateList(b.a.p0.a.c.swan_app_action_bar_operation_btn_selector));
+            this.f44320g = (TextView) findViewById(f.left_second_view);
+            this.f44321h = findViewById(f.titlebar_left_float_zone);
+            this.f44322i = (ImageView) findViewById(f.left_float_back_view);
+            this.j = findViewById(f.titlebar_center_zone);
             this.k = (ProgressBar) findViewById(f.aiapps_nav_loading_progressbar);
             this.l = (TextView) findViewById(f.title_text_center);
             float f2 = this.o;
@@ -238,7 +236,7 @@ public class SwanAppActionBar extends RelativeLayout {
                 if (f3 != -1.0f) {
                     float f4 = this.q;
                     if (f4 != -1.0f) {
-                        this.f46662f.setShadowLayer(f4, f2, f3, this.n);
+                        this.f44319f.setShadowLayer(f4, f2, f3, this.n);
                     }
                 }
             }
@@ -315,21 +313,21 @@ public class SwanAppActionBar extends RelativeLayout {
     public void setCenterZoneVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f46666j.setVisibility(i2);
+            this.j.setVisibility(i2);
         }
     }
 
     public void setLeftBackViewClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.f46662f.setOnClickListener(onClickListener);
+            this.f44319f.setOnClickListener(onClickListener);
         }
     }
 
     public void setLeftBackViewMinWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f46662f.setMinimumWidth(i2);
+            this.f44319f.setMinimumWidth(i2);
         }
     }
 
@@ -340,15 +338,15 @@ public class SwanAppActionBar extends RelativeLayout {
             if (drawable != null) {
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
-            this.f46662f.setCompoundDrawables(drawable, null, null, null);
-            this.f46662f.setSelected(false);
+            this.f44319f.setCompoundDrawables(drawable, null, null, null);
+            this.f44319f.setSelected(false);
         }
     }
 
     public void setLeftBackViewVisibility(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (textView = this.f46662f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (textView = this.f44319f) == null) {
             return;
         }
         textView.setVisibility(z ? 0 : 8);
@@ -357,28 +355,28 @@ public class SwanAppActionBar extends RelativeLayout {
     public void setLeftFloatBackViewClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            this.f46665i.setOnClickListener(onClickListener);
+            this.f44322i.setOnClickListener(onClickListener);
         }
     }
 
     public void setLeftFloatBackViewSrc(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f46665i.setImageResource(i2);
+            this.f44322i.setImageResource(i2);
         }
     }
 
     public void setLeftFloatZoneVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f46664h.setVisibility(i2);
+            this.f44321h.setVisibility(i2);
         }
     }
 
     public void setLeftHomeViewClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, onClickListener) == null) {
-            this.f46663g.setOnClickListener(onClickListener);
+            this.f44320g.setOnClickListener(onClickListener);
         }
     }
 
@@ -389,22 +387,22 @@ public class SwanAppActionBar extends RelativeLayout {
             if (drawable != null) {
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
-            this.f46663g.setCompoundDrawables(drawable, null, null, null);
-            this.f46663g.setSelected(false);
+            this.f44320g.setCompoundDrawables(drawable, null, null, null);
+            this.f44320g.setSelected(false);
         }
     }
 
     public void setLeftHomeViewVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f46663g.setVisibility(i2);
+            this.f44320g.setVisibility(i2);
         }
     }
 
     public void setLeftZoneVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f46661e.setVisibility(i2);
+            this.f44318e.setVisibility(i2);
         }
     }
 

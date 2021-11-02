@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGenTokenByCuidRequest";
@@ -28,12 +29,12 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     public int mDeviceType;
     public String mKey;
 
-    public IMGetTokenByCuidRequest(Context context, long j2, String str, String str2) {
+    public IMGetTokenByCuidRequest(Context context, long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2};
+            Object[] objArr = {context, Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -46,7 +47,7 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
         this.mAccountType = 6;
         this.mDeviceType = 2;
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mCuid = str;
         this.mKey = str2;
     }
@@ -145,8 +146,8 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
                 str = Constants.ERROR_MSG_SUCCESS;
                 if (has) {
                     i3 = jSONObject.getInt("error_code");
-                    if (jSONObject.has("error_msg")) {
-                        str = jSONObject.getString("error_msg");
+                    if (jSONObject.has(GameCodeGetResponseMsg.PARAM_ERROR_MSG)) {
+                        str = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                     }
                     if (i3 == 0) {
                         str3 = jSONObject.getString("token");

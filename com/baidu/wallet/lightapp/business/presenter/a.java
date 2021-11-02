@@ -18,28 +18,28 @@ import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.baidu.wallet.utils.ImageBase64Utils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f62187a = "a";
+    public static final String f59065a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f62188b;
+    public Activity f59066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LightappBusinessClient f62189c;
+    public LightappBusinessClient f59067c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62190d;
+    public String f59068d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62191e;
+    public int f59069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62192f;
+    public String f59070f;
 
     static {
         InterceptResult invokeClinit;
@@ -71,10 +71,10 @@ public class a {
                 return;
             }
         }
-        this.f62191e = -1;
-        this.f62188b = activity;
-        this.f62189c = lightappBusinessClient;
-        this.f62190d = str;
+        this.f59069e = -1;
+        this.f59066b = activity;
+        this.f59067c = lightappBusinessClient;
+        this.f59068d = str;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[RETURN, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, RETURN, INVOKE, INVOKE, INVOKE, IGET, INVOKE, RETURN, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
@@ -84,30 +84,30 @@ public class a {
             return;
         }
         try {
-            JSONObject jSONObject2 = new JSONObject(this.f62190d);
+            JSONObject jSONObject2 = new JSONObject(this.f59068d);
             String optString = jSONObject2.optString("fixedWidth");
             if (!TextUtils.isEmpty(optString)) {
-                this.f62191e = Integer.parseInt(optString);
-                String str = f62187a;
-                LogUtil.d(str, "fixedWidth = " + this.f62191e);
+                this.f59069e = Integer.parseInt(optString);
+                String str = f59065a;
+                LogUtil.d(str, "fixedWidth = " + this.f59069e);
             }
-            this.f62192f = jSONObject2.optString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
+            this.f59070f = jSONObject2.optString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
             Uri data = intent.getData();
             if (data == null) {
                 jSONObject.put("errCode", LightappConstants.ERRCODE_INNER_ERROR);
                 jSONObject.put("des", "内部错误");
-                this.f62189c.setAlubmPhotoData(1, jSONObject);
+                this.f59067c.setAlubmPhotoData(1, jSONObject);
                 return;
             }
-            ImageBase64Utils.getInstance().getImageBase64(this.f62188b, data, this.f62191e, new ImageBase64Utils.ImageBase64Listener(this, jSONObject) { // from class: com.baidu.wallet.lightapp.business.presenter.a.1
+            ImageBase64Utils.getInstance().getImageBase64(this.f59066b, data, this.f59069e, new ImageBase64Utils.ImageBase64Listener(this, jSONObject) { // from class: com.baidu.wallet.lightapp.business.presenter.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f62193a;
+                public final /* synthetic */ JSONObject f59071a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f62194b;
+                public final /* synthetic */ a f59072b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -124,8 +124,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f62194b = this;
-                    this.f62193a = jSONObject;
+                    this.f59072b = this;
+                    this.f59071a = jSONObject;
                 }
 
                 @Override // com.baidu.wallet.utils.ImageBase64Utils.ImageBase64Listener
@@ -134,9 +134,9 @@ public class a {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {
                         if (TextUtils.isEmpty(str2)) {
                             try {
-                                this.f62193a.put("errCode", LightappConstants.ERRCODE_INNER_ERROR);
-                                this.f62193a.put("des", "内部错误");
-                                this.f62194b.f62189c.setAlubmPhotoData(1, this.f62193a);
+                                this.f59071a.put("errCode", LightappConstants.ERRCODE_INNER_ERROR);
+                                this.f59071a.put("des", "内部错误");
+                                this.f59072b.f59067c.setAlubmPhotoData(1, this.f59071a);
                                 return;
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
@@ -146,14 +146,14 @@ public class a {
                             try {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put("image", str2);
-                                this.f62193a.put("errCode", 0);
-                                this.f62193a.put("des", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-                                this.f62193a.put("data", jSONObject3);
-                                this.f62194b.f62189c.setAlubmPhotoData(0, this.f62193a);
+                                this.f59071a.put("errCode", 0);
+                                this.f59071a.put("des", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                                this.f59071a.put("data", jSONObject3);
+                                this.f59072b.f59067c.setAlubmPhotoData(0, this.f59071a);
                             } catch (JSONException unused) {
-                                this.f62193a.put("errCode", LightappConstants.ERRCODE_INNER_ERROR);
-                                this.f62193a.put("des", "内部错误");
-                                this.f62194b.f62189c.setAlubmPhotoData(1, this.f62193a);
+                                this.f59071a.put("errCode", LightappConstants.ERRCODE_INNER_ERROR);
+                                this.f59071a.put("des", "内部错误");
+                                this.f59072b.f59067c.setAlubmPhotoData(1, this.f59071a);
                             }
                         } catch (JSONException e3) {
                             e3.printStackTrace();

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AccountManager extends BaseManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -228,14 +228,14 @@ public class AccountManager extends BaseManager {
         }
     }
 
-    public static boolean setAppid(Context context, long j2) {
+    public static boolean setAppid(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65557, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65557, null, context, j)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return false;
             }
-            return AccountManagerImpl.getInstance(context).setAppid(j2);
+            return AccountManagerImpl.getInstance(context).setAppid(j);
         }
         return invokeLJ.booleanValue;
     }
@@ -277,10 +277,10 @@ public class AccountManager extends BaseManager {
         }
     }
 
-    public static void setNofityPaid(Context context, long j2) {
+    public static void setNofityPaid(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65562, null, context, j2) == null) {
-            AccountManagerImpl.getInstance(context).setNotifyPaid(j2);
+        if (interceptable == null || interceptable.invokeLJ(65562, null, context, j) == null) {
+            AccountManagerImpl.getInstance(context).setNotifyPaid(j);
         }
     }
 
@@ -314,11 +314,11 @@ public class AccountManager extends BaseManager {
         }
     }
 
-    public static void setZhidaAppid(Context context, long j2, String str, ISwitchZhidaListener iSwitchZhidaListener) {
+    public static void setZhidaAppid(Context context, long j, String str, ISwitchZhidaListener iSwitchZhidaListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, Long.valueOf(j2), str, iSwitchZhidaListener}) == null) {
-            if (!BaseManager.isNullContext(context) && j2 >= 0) {
-                AccountManagerImpl.getInstance(context).setZhidaAppid(j2, str, iSwitchZhidaListener);
+        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, Long.valueOf(j), str, iSwitchZhidaListener}) == null) {
+            if (!BaseManager.isNullContext(context) && j >= 0) {
+                AccountManagerImpl.getInstance(context).setZhidaAppid(j, str, iSwitchZhidaListener);
             } else if (iSwitchZhidaListener != null) {
                 iSwitchZhidaListener.onSwitchZhidaResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
             }

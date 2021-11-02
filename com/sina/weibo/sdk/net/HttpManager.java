@@ -28,7 +28,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HttpManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BOUNDARY;
@@ -116,7 +116,7 @@ public class HttpManager {
 
     public static synchronized String downloadFile(Context context, String str, String str2, String str3) throws WeiboException {
         InterceptResult invokeLLLL;
-        long j2;
+        long j;
         long contentLength;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3)) == null) {
@@ -140,12 +140,12 @@ public class HttpManager {
                     }
                     try {
                         if (file3.exists()) {
-                            j2 = file3.length();
+                            j = file3.length();
                         } else {
                             file3.createNewFile();
-                            j2 = 0;
+                            j = 0;
                         }
-                        createConnect.setRequestProperty("RANGE", "bytes=" + j2);
+                        createConnect.setRequestProperty("RANGE", "bytes=" + j);
                         int responseCode = createConnect.getResponseCode();
                         if (responseCode == 206) {
                             contentLength = 0;
@@ -195,10 +195,10 @@ public class HttpManager {
             StringBuffer stringBuffer = new StringBuffer();
             for (int i2 = 1; i2 < 12; i2++) {
                 long currentTimeMillis = System.currentTimeMillis() + i2;
-                long j2 = currentTimeMillis % 3;
-                if (j2 == 0) {
+                long j = currentTimeMillis % 3;
+                if (j == 0) {
                     stringBuffer.append(((char) currentTimeMillis) % '\t');
-                } else if (j2 == 1) {
+                } else if (j == 1) {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
                 } else {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 97));

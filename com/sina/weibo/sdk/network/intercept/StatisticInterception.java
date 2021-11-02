@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.exception.InterceptException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class StatisticInterception implements IRequestIntercept {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

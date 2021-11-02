@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public final AtomicLong requested;
     public final BasicIntQueueSubscription<T> wip;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class UnicastQueueSubscription extends BasicIntQueueSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4896760517184205454L;
@@ -105,10 +105,10 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.this$0.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.this$0.requested, j);
                 this.this$0.drain();
             }
         }
@@ -256,7 +256,7 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
 
     public void drainRegular(Subscriber<? super T> subscriber) {
         int i2;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(1048580, this, subscriber) != null) {
             return;
@@ -265,18 +265,18 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
         boolean z = !this.delayError;
         int i3 = 1;
         while (true) {
-            long j3 = this.requested.get();
-            long j4 = 0;
+            long j2 = this.requested.get();
+            long j3 = 0;
             while (true) {
-                i2 = (j3 > j4 ? 1 : (j3 == j4 ? 0 : -1));
+                i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
                 if (i2 == 0) {
-                    j2 = j4;
+                    j = j3;
                     break;
                 }
                 boolean z2 = this.done;
                 T poll = spscLinkedArrayQueue.poll();
                 boolean z3 = poll == null;
-                j2 = j4;
+                j = j3;
                 if (checkTerminated(z, z2, z3, subscriber, spscLinkedArrayQueue)) {
                     return;
                 }
@@ -284,13 +284,13 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
                     break;
                 }
                 subscriber.onNext(poll);
-                j4 = 1 + j2;
+                j3 = 1 + j;
             }
             if (i2 == 0 && checkTerminated(z, this.done, spscLinkedArrayQueue.isEmpty(), subscriber, spscLinkedArrayQueue)) {
                 return;
             }
-            if (j2 != 0 && j3 != Long.MAX_VALUE) {
-                this.requested.addAndGet(-j2);
+            if (j != 0 && j2 != Long.MAX_VALUE) {
+                this.requested.addAndGet(-j);
             }
             i3 = this.wip.addAndGet(-i3);
             if (i3 == 0) {

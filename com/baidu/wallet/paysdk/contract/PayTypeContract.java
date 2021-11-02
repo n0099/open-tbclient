@@ -30,10 +30,10 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface PayTypeContract {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Presenter extends NetWorkPresenter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,7 +275,7 @@ public interface PayTypeContract {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Presenter f62760a;
+                    public final /* synthetic */ Presenter f59629a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -292,7 +292,7 @@ public interface PayTypeContract {
                                 return;
                             }
                         }
-                        this.f62760a = this;
+                        this.f59629a = this;
                     }
 
                     @Override // java.util.Comparator

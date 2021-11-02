@@ -1,6 +1,7 @@
 package com.baidu.down.manage;
 
 import android.provider.BaseColumns;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class DownloadConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CTRL_FLAG_AUTO_PAUSED = 2;
@@ -46,7 +47,7 @@ public final class DownloadConstants {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class DestinationMode {
         public static final /* synthetic */ DestinationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -72,7 +73,7 @@ public final class DownloadConstants {
             AUTO = new DestinationMode("AUTO", 0);
             INTERNAL_ONLY = new DestinationMode("INTERNAL_ONLY", 1);
             EXTERNAL_ONLY = new DestinationMode("EXTERNAL_ONLY", 2);
-            DestinationMode destinationMode = new DestinationMode("CUSTOM", 3);
+            DestinationMode destinationMode = new DestinationMode(Key.CUSTOM, 3);
             CUSTOM = destinationMode;
             $VALUES = new DestinationMode[]{AUTO, INTERNAL_ONLY, EXTERNAL_ONLY, destinationMode};
         }
@@ -109,7 +110,7 @@ public final class DownloadConstants {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class DownloadColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_AUTO_PAUSE = "AUTO_PAUSE";

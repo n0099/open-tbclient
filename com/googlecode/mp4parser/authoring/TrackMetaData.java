@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.EditListBox;
 import com.googlecode.mp4parser.util.Matrix;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TrackMetaData implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -189,17 +189,17 @@ public class TrackMetaData implements Cloneable {
         }
     }
 
-    public void setTimescale(long j2) {
+    public void setTimescale(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.timescale = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.timescale = j;
         }
     }
 
-    public void setTrackId(long j2) {
+    public void setTrackId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.trackId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.trackId = j;
         }
     }
 

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SysUpdateObservable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SysUpdateObservable f42578a;
+    public static volatile SysUpdateObservable f40391a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SysUpdateObserver> f42579b;
+    public List<SysUpdateObserver> f40392b;
 
     public SysUpdateObservable() {
         Interceptable interceptable = $ic;
@@ -33,22 +33,22 @@ public class SysUpdateObservable {
                 return;
             }
         }
-        this.f42579b = null;
-        this.f42579b = new ArrayList();
+        this.f40392b = null;
+        this.f40392b = new ArrayList();
     }
 
     public static SysUpdateObservable getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f42578a == null) {
+            if (f40391a == null) {
                 synchronized (SysUpdateObservable.class) {
-                    if (f42578a == null) {
-                        f42578a = new SysUpdateObservable();
+                    if (f40391a == null) {
+                        f40391a = new SysUpdateObservable();
                     }
                 }
             }
-            return f42578a;
+            return f40391a;
         }
         return (SysUpdateObservable) invokeV.objValue;
     }
@@ -56,14 +56,14 @@ public class SysUpdateObservable {
     public void addObserver(SysUpdateObserver sysUpdateObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sysUpdateObserver) == null) {
-            this.f42579b.add(sysUpdateObserver);
+            this.f40392b.add(sysUpdateObserver);
         }
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f42579b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f40392b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.init();
                 }
@@ -74,7 +74,7 @@ public class SysUpdateObservable {
     public void updateNetworkInfo(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f42579b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f40392b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updateNetworkInfo(context);
                 }
@@ -85,7 +85,7 @@ public class SysUpdateObservable {
     public void updateNetworkProxy(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f42579b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f40392b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updateNetworkProxy(context);
                 }
@@ -96,7 +96,7 @@ public class SysUpdateObservable {
     public void updatePhoneInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f42579b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f40392b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updatePhoneInfo();
                 }

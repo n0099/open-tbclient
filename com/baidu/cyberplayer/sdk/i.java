@@ -4,16 +4,16 @@ import android.graphics.Bitmap;
 import android.view.Surface;
 import android.view.View;
 import java.nio.Buffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface i {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(int i2, int i3);
 
         void a(int i2, int i3, Buffer buffer);
 
-        void a(long j2);
+        void a(long j);
 
         boolean a(int i2);
     }

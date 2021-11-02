@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.IntBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EnvDrawText {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f79620a = "EnvDrawText";
+    public static final String f72565a = "EnvDrawText";
     public static boolean bBmpChange;
     public static Bitmap bmp;
     public static int[] buffer;
@@ -123,7 +123,7 @@ public class EnvDrawText {
                 textPaint3.setSubpixelText(true);
                 textPaint3.setAntiAlias(true);
                 if (i22 != 0 && fontCache != null && (aVar = fontCache.get(i22)) != null) {
-                    textPaint3.setTypeface(aVar.f79621a);
+                    textPaint3.setTypeface(aVar.f72566a);
                 }
                 textPaint3.setTextSize(f2);
                 int indexOf2 = str.indexOf(92, 0);
@@ -747,11 +747,11 @@ public class EnvDrawText {
                 a aVar = fontCache.get(i2);
                 if (aVar == null) {
                     a aVar2 = new a();
-                    aVar2.f79621a = typeface;
-                    aVar2.f79622b++;
+                    aVar2.f72566a = typeface;
+                    aVar2.f72567b++;
                     fontCache.put(i2, aVar2);
                 } else {
-                    aVar.f79622b++;
+                    aVar.f72567b++;
                 }
             }
         }
@@ -765,8 +765,8 @@ public class EnvDrawText {
                 if (aVar == null) {
                     return;
                 }
-                int i3 = aVar.f79622b - 1;
-                aVar.f79622b = i3;
+                int i3 = aVar.f72567b - 1;
+                aVar.f72567b = i3;
                 if (i3 == 0) {
                     fontCache.remove(i2);
                 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import okhttp3.Response;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class CookieResponseCallback<T> extends ResponseCallback<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

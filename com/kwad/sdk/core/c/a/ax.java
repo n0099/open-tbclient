@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.config.item.h;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ax implements com.kwad.sdk.core.d<h.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class ax implements com.kwad.sdk.core.d<h.a> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f71866a = jSONObject.optString("imei");
-        aVar.f71867b = jSONObject.optString("oaid");
+        aVar.f64338a = jSONObject.optString("imei");
+        aVar.f64339b = jSONObject.optString("oaid");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class ax implements com.kwad.sdk.core.d<h.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "imei", aVar.f71866a);
-            com.kwad.sdk.utils.q.a(jSONObject, "oaid", aVar.f71867b);
+            com.kwad.sdk.utils.q.a(jSONObject, "imei", aVar.f64338a);
+            com.kwad.sdk.utils.q.a(jSONObject, "oaid", aVar.f64339b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

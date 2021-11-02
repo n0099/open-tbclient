@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.client.result.ResultParser;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class JSONTokener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

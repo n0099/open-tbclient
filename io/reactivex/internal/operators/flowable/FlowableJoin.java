@@ -32,7 +32,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AbstractFlowableWithUpstream<TLeft, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
     public final BiFunction<? super TLeft, ? super TRight, ? extends R> resultSelector;
     public final Function<? super TRight, ? extends Publisher<TRightEnd>> rightEnd;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class JoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements Subscription, FlowableGroupJoin.JoinSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Integer LEFT_CLOSE;
@@ -180,14 +180,14 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                                     errorAll(subscriber);
                                     return;
                                 }
-                                long j2 = this.requested.get();
-                                long j3 = 0;
+                                long j = this.requested.get();
+                                long j2 = 0;
                                 for (TRight tright : this.rights.values()) {
                                     try {
                                         Object obj = (Object) ObjectHelper.requireNonNull(this.resultSelector.apply(poll, tright), "The resultSelector returned a null value");
-                                        if (j3 != j2) {
+                                        if (j2 != j) {
                                             subscriber.onNext(obj);
-                                            j3++;
+                                            j2++;
                                         } else {
                                             ExceptionHelper.addThrowable(this.error, new MissingBackpressureException("Could not emit value due to lack of requests"));
                                             spscLinkedArrayQueue.clear();
@@ -200,8 +200,8 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                                         return;
                                     }
                                 }
-                                if (j3 != 0) {
-                                    BackpressureHelper.produced(this.requested, j3);
+                                if (j2 != 0) {
+                                    BackpressureHelper.produced(this.requested, j2);
                                 }
                             } catch (Throwable th2) {
                                 fail(th2, subscriber, spscLinkedArrayQueue);
@@ -222,14 +222,14 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                                     errorAll(subscriber);
                                     return;
                                 }
-                                long j4 = this.requested.get();
-                                long j5 = 0;
+                                long j3 = this.requested.get();
+                                long j4 = 0;
                                 for (TLeft tleft : this.lefts.values()) {
                                     try {
                                         Object obj2 = (Object) ObjectHelper.requireNonNull(this.resultSelector.apply(tleft, poll), "The resultSelector returned a null value");
-                                        if (j5 != j4) {
+                                        if (j4 != j3) {
                                             subscriber.onNext(obj2);
-                                            j5++;
+                                            j4++;
                                         } else {
                                             ExceptionHelper.addThrowable(this.error, new MissingBackpressureException("Could not emit value due to lack of requests"));
                                             spscLinkedArrayQueue.clear();
@@ -242,8 +242,8 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                                         return;
                                     }
                                 }
-                                if (j5 != 0) {
-                                    BackpressureHelper.produced(this.requested, j5);
+                                if (j4 != 0) {
+                                    BackpressureHelper.produced(this.requested, j4);
                                 }
                             } catch (Throwable th4) {
                                 fail(th4, subscriber, spscLinkedArrayQueue);
@@ -344,10 +344,10 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
             }
         }
     }

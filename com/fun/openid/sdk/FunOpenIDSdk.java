@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FunOpenIDSdk {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String SDK_VERSION = "1.3.4";
+    public static final String SDK_VERSION = "1.3.5";
     public static final String TAG = "FunOpenIDSdk";
     public static boolean logEnabled;
     public static String vivoAppId;
@@ -64,7 +64,7 @@ public class FunOpenIDSdk {
                 } else if (onGetOaidListener == null) {
                     isLogEnabled();
                 } else {
-                    j.f70388a.execute(new e(context, onGetOaidListener));
+                    j.f62903a.execute(new e(context, onGetOaidListener));
                 }
             }
         }

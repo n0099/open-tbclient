@@ -8,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.google.zxing.client.result.ResultParser;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class StringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +245,7 @@ public abstract class StringUtils {
                 str = "0";
             }
             try {
-                return String.valueOf(new BigDecimal(str).multiply(new BigDecimal("100")).setScale(0));
+                return String.valueOf(new BigDecimal(str).multiply(new BigDecimal(HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP)).setScale(0));
             } catch (Exception unused) {
                 return "0";
             }
@@ -260,7 +261,7 @@ public abstract class StringUtils {
                 str = "0";
             }
             try {
-                return new BigDecimal(str).multiply(new BigDecimal("100")).setScale(0);
+                return new BigDecimal(str).multiply(new BigDecimal(HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP)).setScale(0);
             } catch (Exception unused) {
                 return BigDecimal.ZERO;
             }

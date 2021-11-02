@@ -11,45 +11,45 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f74599a;
+    public final int f66975a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f74600b;
+    public final long f66976b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f74601c;
+    public final boolean f66977c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f74602d;
+    public final boolean f66978d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f74603e;
+    public final int f66979e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f74604f;
+    public final boolean f66980f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f74605g;
+    public final boolean f66981g;
 
     /* renamed from: com.kwai.filedownloader.f.e$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f74606a;
+        public static final e f66982a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -65,7 +65,7 @@ public class e {
                     return;
                 }
             }
-            f74606a = new e(null);
+            f66982a = new e(null);
         }
     }
 
@@ -107,9 +107,9 @@ public class e {
         Object obj;
         int i2;
         Object obj2;
-        long j2;
+        long j;
         Object obj3;
-        long j3;
+        long j2;
         int i3;
         ?? r6;
         Interceptable interceptable = $ic;
@@ -164,19 +164,19 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f74602d = true;
+                    this.f66978d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f74600b = j3;
+                    this.f66976b = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
                     }
                     if (str8 == null) {
                     }
-                    if (d.f74598a) {
+                    if (d.f66974a) {
                     }
                 }
                 try {
@@ -196,19 +196,19 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f74602d = true;
+                    this.f66978d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f74600b = j3;
+                    this.f66976b = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
                     }
                     if (str8 == null) {
                     }
-                    if (d.f74598a) {
+                    if (d.f66974a) {
                     }
                 }
                 try {
@@ -227,19 +227,19 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f74602d = true;
+                    this.f66978d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f74600b = j3;
+                    this.f66976b = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
                     }
                     if (str8 == null) {
                     }
-                    if (d.f74598a) {
+                    if (d.f66974a) {
                     }
                 }
                 try {
@@ -251,7 +251,7 @@ public class e {
                         str5 = null;
                         if (e instanceof FileNotFoundException) {
                             e.printStackTrace();
-                        } else if (d.f74598a) {
+                        } else if (d.f66974a) {
                             d.c(e.class, "not found filedownloader.properties", new Object[0]);
                         }
                         if (inputStream2 != null) {
@@ -266,19 +266,19 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f74602d = true;
+                        this.f66978d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f74600b = j3;
+                        this.f66976b = j2;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
                         }
                         if (str8 == null) {
                         }
-                        if (d.f74598a) {
+                        if (d.f66974a) {
                         }
                     }
                     try {
@@ -295,19 +295,19 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f74602d = true;
+                        this.f66978d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f74600b = j3;
+                        this.f66976b = j2;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
                         }
                         if (str8 == null) {
                         }
-                        if (d.f74598a) {
+                        if (d.f66974a) {
                         }
                     }
                 } catch (IOException e9) {
@@ -323,19 +323,19 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f74602d = true;
+                    this.f66978d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f74600b = j3;
+                    this.f66976b = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
                     }
                     if (str8 == null) {
                     }
-                    if (d.f74598a) {
+                    if (d.f66974a) {
                     }
                 }
             } else {
@@ -364,42 +364,42 @@ public class e {
         if (str6 == null) {
             obj = "download.max-network-thread-count";
             i2 = 0;
-            this.f74601c = false;
+            this.f66977c = false;
         } else if (!str6.equals("true") && !str6.equals("false")) {
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", "http.lenient", "true", "false"));
         } else {
             obj = "download.max-network-thread-count";
             i2 = 0;
-            this.f74601c = str6.equals("true");
+            this.f66977c = str6.equals("true");
         }
-        this.f74602d = true;
+        this.f66978d = true;
         if (str2 != null) {
-            this.f74599a = Math.max(i2, Integer.valueOf(str2).intValue());
+            this.f66975a = Math.max(i2, Integer.valueOf(str2).intValue());
         } else {
-            this.f74599a = 65536;
+            this.f66975a = 65536;
         }
         if (str3 != null) {
             obj2 = "download.min-progress-time";
-            j2 = currentTimeMillis;
+            j = currentTimeMillis;
             obj3 = "http.lenient";
-            j3 = Math.max(0L, Long.valueOf(str3).longValue());
+            j2 = Math.max(0L, Long.valueOf(str3).longValue());
         } else {
             obj2 = "download.min-progress-time";
-            j2 = currentTimeMillis;
+            j = currentTimeMillis;
             obj3 = "http.lenient";
-            j3 = 2000;
+            j2 = 2000;
         }
-        this.f74600b = j3;
+        this.f66976b = j2;
         if (str4 != null) {
-            this.f74603e = a(Integer.valueOf(str4).intValue());
+            this.f66979e = a(Integer.valueOf(str4).intValue());
             i3 = 3;
         } else {
             i3 = 3;
-            this.f74603e = 3;
+            this.f66979e = 3;
         }
         if (str7 == null) {
             r6 = 0;
-            this.f74604f = false;
+            this.f66980f = false;
         } else if (!str7.equals("true") && !str7.equals("false")) {
             Object[] objArr = new Object[i3];
             objArr[0] = "file.non-pre-allocation";
@@ -408,10 +408,10 @@ public class e {
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr));
         } else {
             r6 = 0;
-            this.f74604f = str7.equals("true");
+            this.f66980f = str7.equals("true");
         }
         if (str8 == null) {
-            this.f74605g = r6;
+            this.f66981g = r6;
         } else if (!str8.equals("true") && !str8.equals("false")) {
             Object[] objArr2 = new Object[3];
             objArr2[r6] = "broadcast.completed";
@@ -419,21 +419,21 @@ public class e {
             objArr2[2] = "false";
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr2));
         } else {
-            this.f74605g = str8.equals("true");
+            this.f66981g = str8.equals("true");
         }
-        if (d.f74598a) {
+        if (d.f66974a) {
             Object[] objArr3 = new Object[11];
-            objArr3[r6] = Long.valueOf(System.currentTimeMillis() - j2);
+            objArr3[r6] = Long.valueOf(System.currentTimeMillis() - j);
             objArr3[1] = obj3;
-            objArr3[2] = Boolean.valueOf(this.f74601c);
+            objArr3[2] = Boolean.valueOf(this.f66977c);
             objArr3[3] = "process.non-separate";
-            objArr3[4] = Boolean.valueOf(this.f74602d);
+            objArr3[4] = Boolean.valueOf(this.f66978d);
             objArr3[5] = "download.min-progress-step";
-            objArr3[6] = Integer.valueOf(this.f74599a);
+            objArr3[6] = Integer.valueOf(this.f66975a);
             objArr3[7] = obj2;
-            objArr3[8] = Long.valueOf(this.f74600b);
+            objArr3[8] = Long.valueOf(this.f66976b);
             objArr3[9] = obj;
-            objArr3[10] = Integer.valueOf(this.f74603e);
+            objArr3[10] = Integer.valueOf(this.f66979e);
             d.b(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", objArr3);
         }
     }
@@ -462,6 +462,6 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f74606a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f66982a : (e) invokeV.objValue;
     }
 }

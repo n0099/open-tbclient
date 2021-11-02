@@ -14,27 +14,27 @@ import com.baidu.wallet.core.utils.LogUtil;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Vector;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Collection<Collection<c>> f62371a;
+    public Collection<Collection<c>> f59247a;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.g$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f62372a;
+        public static g f59248a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public class g {
                     return;
                 }
             }
-            f62372a = new g(null);
+            f59248a = new g(null);
         }
     }
 
@@ -61,7 +61,7 @@ public class g {
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62372a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59248a : (g) invokeV.objValue;
     }
 
     public void b(Collection<c> collection) {
@@ -69,7 +69,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, collection) == null) || collection == null) {
             return;
         }
-        this.f62371a.remove(collection);
+        this.f59247a.remove(collection);
     }
 
     public float c() {
@@ -97,7 +97,7 @@ public class g {
                 return;
             }
         }
-        this.f62371a = new Vector();
+        this.f59247a = new Vector();
     }
 
     public void a(Collection<c> collection) {
@@ -105,7 +105,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, collection) == null) || collection == null) {
             return;
         }
-        this.f62371a.add(collection);
+        this.f59247a.add(collection);
     }
 
     public int b() {
@@ -113,7 +113,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int i2 = 0;
-            for (Collection<c> collection : this.f62371a) {
+            for (Collection<c> collection : this.f59247a) {
                 i2 += collection.size();
             }
             LogUtil.d("LangbridgeRamMonitor", "UsingCellCount:" + i2);

@@ -24,12 +24,12 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class InstalledAppInfoManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class AppPackageInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -324393456884895874L;
@@ -52,32 +52,26 @@ public class InstalledAppInfoManager {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.appName = "";
         }
     }
 
     public static AppPackageInfo a(@NonNull PackageInfo packageInfo, @Nullable PackageManager packageManager) {
         InterceptResult invokeLL;
-        ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, packageInfo, packageManager)) == null) {
             AppPackageInfo appPackageInfo = new AppPackageInfo();
             appPackageInfo.packageName = packageInfo.packageName;
-            ApplicationInfo applicationInfo2 = packageInfo.applicationInfo;
-            if (applicationInfo2 != null) {
-                appPackageInfo.isSystemApp = a(applicationInfo2) || b(packageInfo.applicationInfo);
+            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
+            if (applicationInfo != null) {
+                appPackageInfo.isSystemApp = a(applicationInfo) || b(packageInfo.applicationInfo);
             }
             appPackageInfo.versionName = packageInfo.versionName;
             appPackageInfo.firstInstallTime = packageInfo.firstInstallTime;
             appPackageInfo.lastUpdateTime = packageInfo.lastUpdateTime;
-            if (packageManager != null && (applicationInfo = packageInfo.applicationInfo) != null) {
-                try {
-                    appPackageInfo.appName = packageManager.getApplicationLabel(applicationInfo).toString();
-                } catch (Throwable th) {
-                    com.kwad.sdk.core.d.a.b(th);
-                }
-            }
             return appPackageInfo;
         }
         return (AppPackageInfo) invokeLL.objValue;

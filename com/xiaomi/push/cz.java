@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public /* synthetic */ class cz {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f77817a;
+    public static final /* synthetic */ int[] f70779a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,53 +27,53 @@ public /* synthetic */ class cz {
             }
         }
         int[] iArr = new int[hf.values().length];
-        f77817a = iArr;
+        f70779a = iArr;
         try {
-            iArr[hf.f78116a.ordinal()] = 1;
+            iArr[hf.f71071a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f77817a[hf.f78117b.ordinal()] = 2;
+            f70779a[hf.f71072b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f77817a[hf.f78118c.ordinal()] = 3;
+            f70779a[hf.f71073c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f77817a[hf.f78119d.ordinal()] = 4;
+            f70779a[hf.f71074d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f77817a[hf.f78120e.ordinal()] = 5;
+            f70779a[hf.f71075e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f77817a[hf.f78121f.ordinal()] = 6;
+            f70779a[hf.f71076f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f77817a[hf.f78122g.ordinal()] = 7;
+            f70779a[hf.f71077g.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            f77817a[hf.f78123h.ordinal()] = 8;
+            f70779a[hf.f71078h.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            f77817a[hf.k.ordinal()] = 9;
+            f70779a[hf.k.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            f77817a[hf.l.ordinal()] = 10;
+            f70779a[hf.l.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
         try {
-            f77817a[hf.f78124i.ordinal()] = 11;
+            f70779a[hf.f71079i.ordinal()] = 11;
         } catch (NoSuchFieldError unused11) {
         }
         try {
-            f77817a[hf.f78125j.ordinal()] = 12;
+            f70779a[hf.j.ordinal()] = 12;
         } catch (NoSuchFieldError unused12) {
         }
     }

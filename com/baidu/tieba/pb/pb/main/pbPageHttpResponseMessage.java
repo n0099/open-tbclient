@@ -1,10 +1,10 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
-import c.a.r0.k2.h.c;
-import c.a.r0.k2.h.e;
-import c.a.r0.k2.k.e.j;
-import c.a.r0.z2.l0.b;
+import b.a.r0.k2.r.d;
+import b.a.r0.k2.r.f;
+import b.a.r0.k2.u.f.j;
+import b.a.r0.z2.l0.b;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,15 +20,15 @@ import tbclient.PbPage.AppealInfo;
 import tbclient.PbPage.DataRes;
 import tbclient.PbPage.PbPageResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public Context context;
     public boolean isFromMark;
-    public c mAppealInfo;
-    public e pbData;
+    public d mAppealInfo;
+    public f pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,16 +51,16 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public c getAppealInfo() {
+    public d getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAppealInfo : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAppealInfo : (d) invokeV.objValue;
     }
 
-    public e getPbData() {
+    public f getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pbData : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pbData : (f) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -111,24 +111,24 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 if (getError() != 4 || pbPageResIdl.data == null) {
                     return;
                 }
-                c cVar = new c();
-                this.mAppealInfo = cVar;
+                d dVar = new d();
+                this.mAppealInfo = dVar;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    cVar.f19797a = appealInfo.source;
-                    cVar.f19799c = appealInfo.appeal_url;
+                    dVar.f18751a = appealInfo.source;
+                    dVar.f18753c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f19798b = simpleForum.name;
+                    this.mAppealInfo.f18752b = simpleForum.name;
                     return;
                 }
                 return;
             }
-            e eVar = new e();
-            this.pbData = eVar;
-            eVar.w0(2);
-            this.pbData.v0(pbPageResIdl.data, this.context);
+            f fVar = new f();
+            this.pbData = fVar;
+            fVar.y0(2);
+            this.pbData.x0(pbPageResIdl.data, this.context);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
                 SimpleForum simpleForum2 = dataRes.forum;

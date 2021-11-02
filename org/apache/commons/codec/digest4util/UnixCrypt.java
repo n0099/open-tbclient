@@ -1,6 +1,5 @@
 package org.apache.commons.codec.digest4util;
 
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,7 +22,7 @@ import com.faceunity.gles.GeneratedTexture;
 import com.google.protobuf.CodedInputStream;
 import java.util.Random;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UnixCrypt {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CON_SALT;
@@ -162,7 +161,7 @@ public class UnixCrypt {
                 int i12 = iArr3[7][((i7 >>> 21) & 15) | ((i7 >>> 22) & 48)] | iArr3[4][i7 & 63] | iArr3[5][((i7 >>> 7) & 3) | ((i7 >>> 8) & 60)] | iArr3[6][(i7 >>> 15) & 63];
                 int i13 = i10 + 1;
                 iArr[i10] = (i12 << 16) | (65535 & i11);
-                int i14 = (i11 >>> 16) | (i12 & SupportMenu.CATEGORY_MASK);
+                int i14 = (i11 >>> 16) | (i12 & (-65536));
                 iArr[i13] = (i14 >>> 28) | (i14 << 4);
                 i9++;
                 i10 = i13 + 1;

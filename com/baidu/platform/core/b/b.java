@@ -10,6 +10,7 @@ import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,16 +20,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44298b = "b";
+    public static final String f42060b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44299c;
+    public String f42061c;
 
     static {
         InterceptResult invokeClinit;
@@ -99,10 +100,10 @@ public class b extends com.baidu.platform.base.d {
                 return false;
             }
             geoCodeResult.setLocation(a(optJSONObject.optJSONObject("location")));
-            geoCodeResult.setAddress(this.f44299c);
+            geoCodeResult.setAddress(this.f42061c);
             geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
             geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
-            geoCodeResult.setLevel(optJSONObject.optString("level"));
+            geoCodeResult.setLevel(optJSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL));
             errorno = SearchResult.ERRORNO.NO_ERROR;
             geoCodeResult.error = errorno;
             return true;
@@ -173,7 +174,7 @@ public class b extends com.baidu.platform.base.d {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f44299c = str;
+            this.f42061c = str;
         }
     }
 }

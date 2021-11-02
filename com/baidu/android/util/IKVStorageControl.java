@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IKVStorageControl {
     public static final IKVStorageControl EMPTY = new IKVStorageControl() { // from class: com.baidu.android.util.IKVStorageControl.1
         public static /* synthetic */ Interceptable $ic;

@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class RimGlobalUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39678a;
+    public static String f37617a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RimGlobalUtils() {
@@ -46,7 +46,7 @@ public final class RimGlobalUtils {
     public static String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f39678a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f37617a : (String) invokeV.objValue;
     }
 
     public static String getZid(Context context) {
@@ -138,7 +138,7 @@ public final class RimGlobalUtils {
     public static void safeShowDialog(BaseActivity baseActivity, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65544, null, baseActivity, i2, str) == null) {
-            f39678a = str;
+            f37617a = str;
             try {
                 baseActivity.getActivity().showDialog(i2);
             } catch (Exception e2) {
@@ -152,7 +152,7 @@ public final class RimGlobalUtils {
     public static void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            f39678a = str;
+            f37617a = str;
         }
     }
 
@@ -169,10 +169,10 @@ public final class RimGlobalUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f39679a;
+                public final /* synthetic */ Context f37618a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f39680b;
+                public final /* synthetic */ View f37619b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -189,15 +189,15 @@ public final class RimGlobalUtils {
                             return;
                         }
                     }
-                    this.f39679a = context;
-                    this.f39680b = view;
+                    this.f37618a = context;
+                    this.f37619b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.f39679a.getSystemService("input_method")).showSoftInput(this.f39680b, 0);
+                        ((InputMethodManager) this.f37618a.getSystemService("input_method")).showSoftInput(this.f37619b, 0);
                     }
                 }
             }, 100L);

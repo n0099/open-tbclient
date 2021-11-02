@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.k;
 import com.baidu.ar.bean.DuMixARConfig;
@@ -25,7 +26,7 @@ import java.util.HashSet;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +37,7 @@ public class b implements k {
     public k.a ju;
     public int jv;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +235,7 @@ public class b implements k {
                 str = Arrays.asList(Build.SUPPORTED_ABIS).toString();
             }
             String uuid = new UUID(("182020" + (Build.BOARD.length() % 10) + (Build.BRAND.length() % 10) + (str.length() % 10) + (Build.DEVICE.length() % 10) + (Build.DISPLAY.length() % 10) + (Build.HOST.length() % 10) + (Build.ID.length() % 10) + (Build.MANUFACTURER.length() % 10) + (Build.MODEL.length() % 10) + (Build.PRODUCT.length() % 10) + (Build.TAGS.length() % 10) + (Build.TYPE.length() % 10) + (Build.USER.length() % 10)).hashCode(), -335774081).toString();
-            String valueOf = !TextUtils.isEmpty(Build.MANUFACTURER) ? String.valueOf(Build.MANUFACTURER.charAt(0)) : "A";
+            String valueOf = !TextUtils.isEmpty(Build.MANUFACTURER) ? String.valueOf(Build.MANUFACTURER.charAt(0)) : ExifInterface.GPS_MEASUREMENT_IN_PROGRESS;
             return valueOf + uuid.replace("-", "").toUpperCase();
         }
         return (String) invokeV.objValue;

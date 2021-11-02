@@ -5,16 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
-import c.a.e.k.f;
-import c.a.e.k.h;
-import c.a.e.k.i;
+import b.a.e.k.f;
+import b.a.e.k.h;
+import b.a.e.k.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TitanDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = true;
@@ -23,16 +23,16 @@ public class TitanDownloadService extends Service {
     public Context mContext;
     public final String pkgName;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f36417e;
+        public final /* synthetic */ f f34493e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f36418f;
+        public final /* synthetic */ TitanDownloadService f34494f;
 
         public a(TitanDownloadService titanDownloadService, f fVar) {
             Interceptable interceptable = $ic;
@@ -49,29 +49,29 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f36418f = titanDownloadService;
-            this.f36417e = fVar;
+            this.f34494f = titanDownloadService;
+            this.f34493e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i.f(this.f36418f.mContext, "com.baidu.titan.patch", this.f36417e);
+                i.f(this.f34494f.mContext, "com.baidu.titan.patch", this.f34493e);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f36419a;
+        public int f34495a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f36420b;
+        public final /* synthetic */ TitanDownloadService f34496b;
 
         public b(TitanDownloadService titanDownloadService, int i2) {
             Interceptable interceptable = $ic;
@@ -88,15 +88,15 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f36420b = titanDownloadService;
-            this.f36419a = i2;
+            this.f34496b = titanDownloadService;
+            this.f34495a = i2;
         }
 
-        @Override // c.a.e.k.f
+        @Override // b.a.e.k.f
         public void a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-                this.f36420b.stopSelf(this.f36419a);
+                this.f34496b.stopSelf(this.f34495a);
             }
         }
     }

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a implements ParamBuilder<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f44316a;
+    public Map<String, String> f42078a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class a implements ParamBuilder<a> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.f44316a == null) {
-                this.f44316a = new LinkedHashMap();
+            if (this.f42078a == null) {
+                this.f42078a = new LinkedHashMap();
             }
-            this.f44316a.put(str, str2);
+            this.f42078a.put(str, str2);
             return this;
         }
         return (a) invokeLL.objValue;
@@ -49,14 +49,14 @@ public class a implements ParamBuilder<a> {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, String> map = this.f44316a;
+            Map<String, String> map = this.f42078a;
             if (map == null || map.isEmpty()) {
                 return null;
             }
             String str = new String();
             int i2 = 0;
-            for (String str2 : this.f44316a.keySet()) {
-                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f44316a.get(str2));
+            for (String str2 : this.f42078a.keySet()) {
+                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f42078a.get(str2));
                 if (i2 == 0) {
                     sb = new StringBuilder();
                 } else {

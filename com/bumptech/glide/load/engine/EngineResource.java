@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class EngineResource<Z> implements Resource<Z> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class EngineResource<Z> implements Resource<Z> {
     public ResourceListener listener;
     public final Resource<Z> resource;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface ResourceListener {
         void onResourceReleased(Key key, EngineResource<?> engineResource);
     }

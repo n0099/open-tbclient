@@ -14,35 +14,35 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class fe {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f77981a;
+    public static final byte[] f70938a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte f381a;
+    public byte f382a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f382a;
+    public int f383a;
 
     /* renamed from: a  reason: collision with other field name */
-    public short f383a;
+    public short f384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f77982b;
+    public byte[] f70939b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f77983a;
+        public static final c f70940a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final d f384a;
+        public static final d f385a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,14 +58,14 @@ public class fe {
                     return;
                 }
             }
-            f77983a = new c();
-            f384a = new d();
+            f70940a = new c();
+            f385a = new d();
         }
 
         public static byte[] a(byte[] bArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? a(bArr, f384a) : (byte[]) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? a(bArr, f385a) : (byte[]) invokeL.objValue;
         }
 
         public static byte[] a(byte[] bArr, b bVar) {
@@ -74,7 +74,7 @@ public class fe {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
                 if (fe.m316a(bArr)) {
                     fe a2 = fe.a(bArr);
-                    return (a2.f381a == 0 || a2.f381a != bVar.a()) ? a2.f77982b : bVar.a(a2.f77982b, a2.f382a);
+                    return (a2.f382a == 0 || a2.f382a != bVar.a()) ? a2.f70939b : bVar.a(a2.f70939b, a2.f383a);
                 }
                 return bArr;
             }
@@ -82,14 +82,14 @@ public class fe {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         byte a();
 
         byte[] a(byte[] bArr, int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class fe {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class d implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -197,7 +197,7 @@ public class fe {
                 return;
             }
         }
-        f77981a = new byte[]{80, 85, 83, 72};
+        f70938a = new byte[]{80, 85, 83, 72};
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -236,11 +236,11 @@ public class fe {
                 return;
             }
         }
-        this.f383a = (short) 1;
-        this.f383a = s;
-        this.f381a = b2;
-        this.f382a = i2;
-        this.f77982b = bArr;
+        this.f384a = (short) 1;
+        this.f384a = s;
+        this.f382a = b2;
+        this.f383a = i2;
+        this.f70939b = bArr;
     }
 
     public static fe a(byte b2, int i2, byte[] bArr) {
@@ -279,7 +279,7 @@ public class fe {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
-            byte[] bArr2 = f77981a;
+            byte[] bArr2 = f70938a;
             return a(bArr2, bArr, bArr2.length);
         }
         return invokeL.booleanValue;

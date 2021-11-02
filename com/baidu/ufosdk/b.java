@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int A = -1;
@@ -38,7 +38,7 @@ public final class b {
     public static float Z = 15.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f59714a = false;
+    public static boolean f56641a = false;
     public static int aa = 200;
     public static HashMap ab = null;
     public static ResumeCallBack ac = null;
@@ -50,31 +50,29 @@ public final class b {
     public static int ai = 600;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59715b = "";
+    public static String f56642b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59716c = "";
+    public static String f56643c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f59717d = "";
+    public static String f56644d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f59718e = 0;
+    public static int f56645e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f59719f = "";
+    public static String f56646f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static Bitmap f59720g = null;
+    public static Bitmap f56647g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f59721h = "";
+    public static String f56648h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f59722i = "";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static int f59723j = 0;
+    public static String f56649i = "";
+    public static int j = 0;
     public static int k = 0;
     public static String l = "";
     public static String m = "";

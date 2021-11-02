@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,17 +66,17 @@ public class e {
     public ConcurrentHashMap<PixelReadParams, PixelReadListener> at;
 
     /* renamed from: d  reason: collision with root package name */
-    public DefaultParams f38462d;
+    public DefaultParams f36460d;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.ar.lua.b f38463f;
+    public com.baidu.ar.lua.b f36461f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.ar.arrender.c f38464g;
+    public com.baidu.ar.arrender.c f36462g;
     public Context mContext;
 
     /* renamed from: com.baidu.ar.e$8  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass8 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] ax;
@@ -120,7 +120,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,7 +218,7 @@ public class e {
         this.aq = false;
         this.ar = true;
         this.mContext = context;
-        this.f38462d = defaultParams;
+        this.f36460d = defaultParams;
         this.as = new a(this, handlerThread.getLooper());
         this.at = new ConcurrentHashMap<>();
     }
@@ -288,7 +288,7 @@ public class e {
                                         return;
                                     }
                                 case 8:
-                                    this.au.f38464g.bw();
+                                    this.au.f36462g.bw();
                                     if (this.au.as != null) {
                                         aVar = this.au.as;
                                         aVar2 = this.au.as;
@@ -329,7 +329,7 @@ public class e {
                 }
             };
             this.ac = cVar;
-            com.baidu.ar.lua.b bVar = this.f38463f;
+            com.baidu.ar.lua.b bVar = this.f36461f;
             if (bVar != null) {
                 bVar.c(cVar);
             }
@@ -383,11 +383,11 @@ public class e {
     public void G() {
         Bitmap createTipBitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f38464g == null || this.W == null || (createTipBitmap = ARAuth.createTipBitmap(this.mContext)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f36462g == null || this.W == null || (createTipBitmap = ARAuth.createTipBitmap(this.mContext)) == null) {
             return;
         }
         float outputWidth = ((this.W.getOutputWidth() * createTipBitmap.getHeight()) * 0.78125f) / (this.W.getOutputHeight() * createTipBitmap.getWidth());
-        this.f38464g.a(createTipBitmap, 0.109375f, (0.25f - outputWidth) / 2.0f, 0.78125f, outputWidth);
+        this.f36462g.a(createTipBitmap, 0.109375f, (0.25f - outputWidth) / 2.0f, 0.78125f, outputWidth);
     }
 
     private void H() {
@@ -417,7 +417,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             H();
-            com.baidu.ar.arrender.c cVar = this.f38464g;
+            com.baidu.ar.arrender.c cVar = this.f36462g;
             if (cVar != null) {
                 cVar.bB();
             }
@@ -450,7 +450,7 @@ public class e {
             if (bVar != null) {
                 bVar.e();
             }
-            com.baidu.ar.arrender.c cVar = this.f38464g;
+            com.baidu.ar.arrender.c cVar = this.f36462g;
             if (cVar != null) {
                 cVar.o(true);
             }
@@ -585,7 +585,7 @@ public class e {
             HashMap hashMap2 = new HashMap();
             hashMap2.put(str2, str3);
             hashMap.put("event_data", hashMap2);
-            com.baidu.ar.lua.b bVar = this.f38463f;
+            com.baidu.ar.lua.b bVar = this.f36461f;
             if (bVar != null) {
                 bVar.b(1902, hashMap);
             }
@@ -665,7 +665,7 @@ public class e {
                 StatisticApi.onEvent(StatisticConstants.EVENT_CASE_FIRST);
             }
             StatisticApi.onEventStart(StatisticConstants.EVENT_CASE_START);
-            if (this.f38464g != null && !TextUtils.isEmpty(str)) {
+            if (this.f36462g != null && !TextUtils.isEmpty(str)) {
                 String substring = str.substring(0, str.lastIndexOf(File.separator + "ar"));
                 this.ai = substring;
                 this.aj = str2;
@@ -673,12 +673,12 @@ public class e {
                 if (aVar != null) {
                     aVar.am(substring);
                 }
-                if (this.f38462d.isUseInputSizeInEngine() || aRType == ARType.FACE || aRType == ARType.VPAS) {
-                    this.f38464g.p(false);
+                if (this.f36460d.isUseInputSizeInEngine() || aRType == ARType.FACE || aRType == ARType.VPAS) {
+                    this.f36462g.p(false);
                 } else {
-                    this.f38464g.p(true);
+                    this.f36462g.p(true);
                 }
-                this.f38464g.L(str);
+                this.f36462g.L(str);
             }
             if (aRType == null || (bVar = this.ad) == null) {
                 return;
@@ -802,7 +802,7 @@ public class e {
             return;
         }
         for (Map.Entry<PixelReadParams, PixelReadListener> entry : this.at.entrySet()) {
-            this.f38464g.createPixelReader(entry.getKey(), entry.getValue());
+            this.f36462g.createPixelReader(entry.getKey(), entry.getValue());
         }
         this.at.clear();
     }
@@ -931,13 +931,13 @@ public class e {
             /* renamed from: b */
             public void run(JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) || this.au.f38464g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) || this.au.f36462g == null) {
                     return;
                 }
                 if (jSONObject != null) {
-                    this.au.f38464g.a(jSONObject);
+                    this.au.f36462g.a(jSONObject);
                 } else if (this.av != null) {
-                    this.au.f38464g.setLocalDeviceGrade(this.av.ag());
+                    this.au.f36462g.setLocalDeviceGrade(this.av.ag());
                 }
             }
         });
@@ -955,10 +955,10 @@ public class e {
     public void a(com.baidu.ar.arrender.c cVar, b bVar, com.baidu.ar.filter.a aVar, com.baidu.ar.lua.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, cVar, bVar, aVar, bVar2) == null) {
-            this.f38464g = cVar;
+            this.f36462g = cVar;
             this.ad = bVar;
             this.B = aVar;
-            this.f38463f = bVar2;
+            this.f36461f = bVar2;
         }
     }
 
@@ -1054,16 +1054,16 @@ public class e {
                 concurrentHashMap.clear();
                 this.at = null;
             }
-            this.f38464g = null;
+            this.f36462g = null;
             this.ad = null;
             this.B = null;
             this.V = null;
             this.W = null;
             this.mContext = null;
-            this.f38462d = null;
+            this.f36460d = null;
             this.ab = null;
             this.ac = null;
-            this.f38463f = null;
+            this.f36461f = null;
             this.as = null;
         }
     }

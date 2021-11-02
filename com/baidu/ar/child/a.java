@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CropAlgo lL;
     public HandlerThread lM;
     public Handler lN;
-    public InterfaceC1634a lO;
+    public InterfaceC1591a lO;
     public boolean lP;
     public boolean lQ;
     public d lR;
@@ -27,12 +27,12 @@ public class a {
     public int mInputWidth;
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1634a {
-        void a(long j2, byte[] bArr, int i2);
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1591a {
+        void a(long j, byte[] bArr, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,12 +70,12 @@ public class a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void handleMessage(Message message);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,34 +210,34 @@ public class a {
         }
     }
 
-    public long a(long j2, byte[] bArr) {
+    public long a(long j, byte[] bArr) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, bArr)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, bArr)) == null) {
+            if (j <= 0) {
                 return 0L;
             }
-            return this.lL.nativeWriteFaceDataToHandel(j2, bArr);
+            return this.lL.nativeWriteFaceDataToHandel(j, bArr);
         }
         return invokeJL.longValue;
     }
 
-    public long a(long j2, byte[] bArr, int i2, int i3, float f2) {
+    public long a(long j, byte[] bArr, int i2, int i3, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), bArr, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
+            if (j <= 0) {
                 return 0L;
             }
-            return this.lL.nativeWriteCameraDataToHandel(j2, bArr, i2, i3, f2);
+            return this.lL.nativeWriteCameraDataToHandel(j, bArr, i2, i3, f2);
         }
         return invokeCommon.longValue;
     }
 
-    public void a(InterfaceC1634a interfaceC1634a) {
+    public void a(InterfaceC1591a interfaceC1591a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1634a) == null) {
-            this.lO = interfaceC1634a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1591a) == null) {
+            this.lO = interfaceC1591a;
         }
     }
 
@@ -262,35 +262,35 @@ public class a {
         handler2.sendMessage(handler2.obtainMessage(1003));
     }
 
-    public float[] i(long j2) {
+    public float[] i(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            if (j <= 0) {
                 return null;
             }
-            return this.lL.nativeTrackingPoints(j2);
+            return this.lL.nativeTrackingPoints(j);
         }
         return (float[]) invokeJ.objValue;
     }
 
-    public float[] j(long j2) {
+    public float[] j(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            if (j <= 0) {
                 return null;
             }
-            return this.lL.nativeGetFaceBoxList(j2);
+            return this.lL.nativeGetFaceBoxList(j);
         }
         return (float[]) invokeJ.objValue;
     }
 
-    public void k(long j2) {
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j) == null) || j <= 0) {
             return;
         }
-        this.lL.nativeWriteTypeToHandle(j2);
+        this.lL.nativeWriteTypeToHandle(j);
     }
 }

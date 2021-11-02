@@ -1,7 +1,7 @@
 package com.baidu.tbadk.download;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.w.e;
+import b.a.q0.w.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DownloadData implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
@@ -27,6 +27,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_AR_RESOURCE = 20;
     public static final int FILE_DOWNLOAD_TYPE_DYNAMIC = 19;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
+    public static final int FILE_DOWNLOAD_TYPE_INSTALL_BACK = 21;
     public static final int FILE_DOWNLOAD_TYPE_MANGA = 14;
     public static final int FILE_DOWNLOAD_TYPE_MUSIC = 17;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
@@ -349,10 +350,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setLength(long j2) {
+    public void setLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
-            this.length = j2;
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+            this.length = j;
         }
     }
 
@@ -398,10 +399,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setSize(long j2) {
+    public void setSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.size = j2;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.size = j;
         }
     }
 

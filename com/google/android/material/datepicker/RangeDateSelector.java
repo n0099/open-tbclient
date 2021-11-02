@@ -34,7 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RangeDateSelector> CREATOR;
@@ -142,10 +142,10 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         }
     }
 
-    private boolean isValidRange(long j2, long j3) {
+    private boolean isValidRange(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 <= j3 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j <= j2 : invokeCommon.booleanValue;
     }
 
     private void setInvalidRange(@NonNull TextInputLayout textInputLayout, @NonNull TextInputLayout textInputLayout2) {
@@ -413,17 +413,17 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
-    public void select(long j2) {
+    public void select(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
             Long l = this.selectedStartItem;
             if (l == null) {
-                this.selectedStartItem = Long.valueOf(j2);
-            } else if (this.selectedEndItem == null && isValidRange(l.longValue(), j2)) {
-                this.selectedEndItem = Long.valueOf(j2);
+                this.selectedStartItem = Long.valueOf(j);
+            } else if (this.selectedEndItem == null && isValidRange(l.longValue(), j)) {
+                this.selectedEndItem = Long.valueOf(j);
             } else {
                 this.selectedEndItem = null;
-                this.selectedStartItem = Long.valueOf(j2);
+                this.selectedStartItem = Long.valueOf(j);
             }
         }
     }

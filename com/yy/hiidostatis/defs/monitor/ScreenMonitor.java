@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ScreenMonitor {
     public static final /* synthetic */ ScreenMonitor[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -76,8 +76,8 @@ public final class ScreenMonitor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = this.lastClickTime;
-            if (j2 == 0 || currentTimeMillis - j2 > 200) {
+            long j = this.lastClickTime;
+            if (j == 0 || currentTimeMillis - j > 200) {
                 this.click++;
             }
             this.lastClickTime = currentTimeMillis;

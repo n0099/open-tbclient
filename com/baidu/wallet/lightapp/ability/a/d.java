@@ -17,30 +17,30 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f61729a;
+    public boolean f58612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f61730b;
+    public Class<?> f58613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f61731c;
+    public Method f58614c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Class<?> f61732d;
+    public Class<?> f58615d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ILightappInvokerCallback f61733a;
+        public ILightappInvokerCallback f58616a;
 
         public a(ILightappInvokerCallback iLightappInvokerCallback) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class d extends com.baidu.wallet.lightapp.ability.b {
                     return;
                 }
             }
-            this.f61733a = iLightappInvokerCallback;
+            this.f58616a = iLightappInvokerCallback;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -65,14 +65,14 @@ public class d extends com.baidu.wallet.lightapp.ability.b {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
-                if (this.f61733a != null) {
+                if (this.f58616a != null) {
                     if ("onResult".equals(method.getName())) {
                         if (objArr != null && objArr.length >= 2) {
-                            this.f61733a.onResult(((Integer) objArr[0]).intValue(), (String) objArr[1]);
+                            this.f58616a.onResult(((Integer) objArr[0]).intValue(), (String) objArr[1]);
                         }
                         return null;
                     }
-                    return method.invoke(this.f61733a, objArr);
+                    return method.invoke(this.f58616a, objArr);
                 }
                 return null;
             }
@@ -93,7 +93,7 @@ public class d extends com.baidu.wallet.lightapp.ability.b {
                 return;
             }
         }
-        this.f61729a = false;
+        this.f58612a = false;
     }
 
     @Override // com.baidu.wallet.lightapp.ability.a
@@ -113,21 +113,21 @@ public class d extends com.baidu.wallet.lightapp.ability.b {
                 LightAppWrapper.getInstance().lightappInvoke(activity, str, iLightappInvokerCallback);
                 return;
             }
-            if (!this.f61729a) {
+            if (!this.f58612a) {
                 try {
-                    this.f61730b = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
+                    this.f58613b = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
                     Class<?> cls = Class.forName("com.baidu.walletfacesdk.LightInvokerCallback");
-                    this.f61732d = cls;
-                    this.f61731c = this.f61730b.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
+                    this.f58615d = cls;
+                    this.f58614c = this.f58613b.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
                 } finally {
                     try {
                     } finally {
                     }
                 }
             }
-            if (this.f61730b != null && this.f61732d != null && this.f61731c != null) {
+            if (this.f58613b != null && this.f58615d != null && this.f58614c != null) {
                 try {
-                    this.f61731c.invoke(null, activity, str, Boolean.valueOf("ONLINE".equals(DebugConfig.getInstance().getEnvironment())), Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.f61732d}, new a(iLightappInvokerCallback)));
+                    this.f58614c.invoke(null, activity, str, Boolean.valueOf("ONLINE".equals(DebugConfig.getInstance().getEnvironment())), Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.f58615d}, new a(iLightappInvokerCallback)));
                     return;
                 } catch (Throwable unused) {
                     a(iLightappInvokerCallback, str2, LightappConstants.ERRCODE_INNER_ERROR, "reflect callNativeVoice fail!", "#callNativeVoiceFail");

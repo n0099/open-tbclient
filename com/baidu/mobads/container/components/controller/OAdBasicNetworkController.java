@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OAdBasicNetworkController extends OAdBasicReceivableController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NETWORK_CHANGED = "network_changed";

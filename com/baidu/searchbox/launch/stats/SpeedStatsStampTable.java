@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SpeedStatsStampTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY = 5037;
@@ -136,6 +136,7 @@ public final class SpeedStatsStampTable {
     public static final int INIT_VERSION_STAMP_KEY = 2015;
     public static final int LAUNCH_TASK_INIT_END_STAMP_KEY = 2003;
     public static final int LOGGER_INIT_END_STAMP_KEY = 1006;
+    public static final int LOGO_ACTIVITY_ON_CREATE_STAMP_KEY = 3048;
     public static final int LOKI_INIT_END_STAMP_KEY = 1007;
     public static final int MAINACTIVITY_CREATE_END_STAMP_KEY = 3028;
     public static final int MAINACTIVITY_CREATE_START_STAMP_KEY = 3002;
@@ -146,12 +147,15 @@ public final class SpeedStatsStampTable {
     public static final int MAINACTIVITY_ONSTART_END_STAMP_KEY = 3030;
     public static final int MAINACTIVITY_ONSTART_START_STAMP_KEY = 3029;
     public static final int MAINACTIVITY_SUPER_CREATE_END_STAMP_KEY = 3003;
-    public static final int MAIN_PAGE_END_STAMP_KEY = 6000;
+    public static final int MAIN_PAGE_END_STAMP_KEY = 7000;
     public static final int MIGRATE_SP_END_STAMP_KEY = 1008;
     public static final int MULTI_DEX_INSTALL_END_STAMP_KEY = 1003;
     public static final int MULTI_DEX_TRICK_END_STAMP_KEY = 1005;
     public static final int NESTED_SCROLL_HEADER_INIT_END_STAMP_KEY = 4013;
     public static final int NESTED_SCROLL_HEADER_INIT_START_STAMP_KEY = 4012;
+    public static final int NEW_LOGO_ACTIVITY_END_STAMP_KEY = 3051;
+    public static final int NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY = 3050;
+    public static final int NEW_LOGO_ACTIVITY_ON_CREATE_START_STAMP_KEY = 3049;
     public static final int NPS_INIT_END_STAMP_KEY = 1011;
     public static final int ON_APP_CREATE_END_STAMP_KEY = 2005;
     public static final int ON_FIRST_DISPATCH_DRAW_END_STAMP_KEY = 5019;
@@ -177,11 +181,13 @@ public final class SpeedStatsStampTable {
     public static final int SEARCHBOX_VIEW_ON_LAYOUT_START_STAMP_KEY = 5009;
     public static final int SEARCHBOX_VIEW_ON_MEASURE_END_STAMP_KEY = 5002;
     public static final int SEARCHBOX_VIEW_ON_MEASURE_START_STAMP_KEY = 5001;
+    public static final int SECOND_DRAW_DISPATCH_STAMP_KEY = 5054;
     public static final int SHAREP_GET_STAMP_KEY = 2011;
     public static final int SPLASHACTIVITY_ADLOAD_START_STAMP_KEY = 3034;
     public static final int SPLASHACTIVITY_ADSHOW_END_STAMP_KEY = 3037;
     public static final int SPLASHACTIVITY_ADSHOW_START_STAMP_KEY = 3036;
     public static final int SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY = 3042;
+    public static final int SPLASHACTIVITY_AD_WILL_CALLSHOW_STAMP_KEY = 3052;
     public static final int SPLASHACTIVITY_ONCREATE_END_STAMP_KEY = 3033;
     public static final int SPLASHACTIVITY_TB_ADLOAD_END_STAMP_KEY = 3035;
     public static final int SPLASH_ACTIVITY_END_STAMP_KEY = 3001;

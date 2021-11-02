@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Header {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteString PSEUDO_PREFIX;

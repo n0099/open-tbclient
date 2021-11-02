@@ -10,7 +10,7 @@ import com.kwad.sdk.core.network.c;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a implements AdHttpProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

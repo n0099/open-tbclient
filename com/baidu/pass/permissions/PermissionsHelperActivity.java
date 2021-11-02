@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PermissionsHelperActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f44230a = 8000;
+    public static final int f41994a = 8000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f44231b = 8001;
+    public static final int f41995b = 8001;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionsDTO f44232c;
+    public PermissionsDTO f41996c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PermissionsCallback f44233d;
+    public PermissionsCallback f41997d;
 
     /* renamed from: e  reason: collision with root package name */
-    public StringBuilder f44234e;
+    public StringBuilder f41998e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44235f;
+    public boolean f41999f;
 
     public PermissionsHelperActivity() {
         Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public class PermissionsHelperActivity extends Activity {
             super.onActivityResult(i2, i3, intent);
             if (i2 == 8000) {
                 if (PassPermissions.getInstance().a(PassPermissions.getInstance().getPermissionsDTO().permissions)) {
-                    this.f44233d.onSuccess();
+                    this.f41997d.onSuccess();
                 } else {
-                    this.f44233d.onFailure(-1);
+                    this.f41997d.onFailure(-1);
                 }
                 finish();
             }
@@ -70,27 +70,27 @@ public class PermissionsHelperActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f44232c = PassPermissions.getInstance().getPermissionsDTO();
+            this.f41996c = PassPermissions.getInstance().getPermissionsDTO();
             PermissionsCallback permissionsCallback = PassPermissions.getInstance().getPermissionsCallback();
-            this.f44233d = permissionsCallback;
-            if (this.f44232c == null) {
+            this.f41997d = permissionsCallback;
+            if (this.f41996c == null) {
                 if (permissionsCallback != null) {
                     permissionsCallback.onFailure(-1);
                 }
                 finish();
                 return;
             }
-            this.f44234e = new StringBuilder();
-            for (String str : this.f44232c.permissions) {
-                this.f44234e.append(str);
+            this.f41998e = new StringBuilder();
+            for (String str : this.f41996c.permissions) {
+                this.f41998e.append(str);
             }
             SharedPreferencesUtil.getInstance(this);
-            if (!((Boolean) SharedPreferencesUtil.get(this.f44234e.toString(), Boolean.FALSE)).booleanValue() && !TextUtils.isEmpty(this.f44232c.dialogTitle)) {
-                new CommonDialog.Builder(this).setTitle(this.f44232c.dialogTitle).setMessage(this.f44232c.dialogMsg).setDarkMode(this.f44232c.isDarkMode).setPositiveBtn(this.f44232c.okBtnTxt, new b(this)).setNegativeButton(this.f44232c.cancleBtnTxt, new a(this)).build().show();
-                this.f44235f = true;
+            if (!((Boolean) SharedPreferencesUtil.get(this.f41998e.toString(), Boolean.FALSE)).booleanValue() && !TextUtils.isEmpty(this.f41996c.dialogTitle)) {
+                new CommonDialog.Builder(this).setTitle(this.f41996c.dialogTitle).setMessage(this.f41996c.dialogMsg).setDarkMode(this.f41996c.isDarkMode).setPositiveBtn(this.f41996c.okBtnTxt, new b(this)).setNegativeButton(this.f41996c.cancleBtnTxt, new a(this)).build().show();
+                this.f41999f = true;
                 return;
             }
-            requestPermissions(this.f44232c.permissions, f44231b);
+            requestPermissions(this.f41996c.permissions, f41995b);
         }
     }
 
@@ -107,8 +107,8 @@ public class PermissionsHelperActivity extends Activity {
             for (int i3 = 0; i3 < strArr.length; i3++) {
                 if (iArr[i3] == 0) {
                     Log.i(PassPermissions.TAG, "Permission check result is permission granted");
-                } else if (TextUtils.isEmpty(this.f44232c.dialogMsg)) {
-                    this.f44233d.onFailure(-1);
+                } else if (TextUtils.isEmpty(this.f41996c.dialogMsg)) {
+                    this.f41997d.onFailure(-1);
                     finish();
                     return;
                 } else {
@@ -118,13 +118,13 @@ public class PermissionsHelperActivity extends Activity {
                     z2 = false;
                 }
             }
-            if (z && !this.f44235f && this.f44232c.showExplainDialogAfterForbid) {
-                new CommonDialog.Builder(this).setTitle(this.f44232c.dialogTitle).setMessage(this.f44232c.dialogMsg).setPositiveBtn(this.f44232c.okBtnTxt, new d(this)).setNegativeButton(this.f44232c.cancleBtnTxt, new c(this)).build().show();
+            if (z && !this.f41999f && this.f41996c.showExplainDialogAfterForbid) {
+                new CommonDialog.Builder(this).setTitle(this.f41996c.dialogTitle).setMessage(this.f41996c.dialogMsg).setPositiveBtn(this.f41996c.okBtnTxt, new d(this)).setNegativeButton(this.f41996c.cancleBtnTxt, new c(this)).build().show();
             } else if (z2) {
-                this.f44233d.onSuccess();
+                this.f41997d.onSuccess();
                 finish();
             } else {
-                this.f44233d.onFailure(-1);
+                this.f41997d.onFailure(-1);
                 finish();
             }
         }

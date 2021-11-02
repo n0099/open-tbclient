@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,11 +24,11 @@ public class au {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
-            long j2 = sharedPreferences.getLong("last_sync_info", -1L);
+            long j = sharedPreferences.getLong("last_sync_info", -1L);
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             long a2 = com.xiaomi.push.service.aq.a(context).a(hk.B.a(), 1209600);
-            if (j2 != -1) {
-                if (Math.abs(currentTimeMillis - j2) <= a2) {
+            if (j != -1) {
+                if (Math.abs(currentTimeMillis - j) <= a2) {
                     return;
                 }
                 a(context, true);

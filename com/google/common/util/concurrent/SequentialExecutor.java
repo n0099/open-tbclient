@@ -1,6 +1,6 @@
 package com.google.common.util.concurrent;
 
-import c.i.d.a.n;
+import b.i.d.a.n;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import java.util.Deque;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.logging.Logger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SequentialExecutor implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger log;
@@ -24,7 +24,7 @@ public final class SequentialExecutor implements Executor {
     public long workerRunCount;
     public WorkerRunningState workerRunningState;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class QueueWorker implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public final class SequentialExecutor implements Executor {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class WorkerRunningState {
         public static final /* synthetic */ WorkerRunningState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -231,9 +231,9 @@ public final class SequentialExecutor implements Executor {
     }
 
     public static /* synthetic */ long access$308(SequentialExecutor sequentialExecutor) {
-        long j2 = sequentialExecutor.workerRunCount;
-        sequentialExecutor.workerRunCount = 1 + j2;
-        return j2;
+        long j = sequentialExecutor.workerRunCount;
+        sequentialExecutor.workerRunCount = 1 + j;
+        return j;
     }
 
     @Override // java.util.concurrent.Executor
@@ -243,7 +243,7 @@ public final class SequentialExecutor implements Executor {
             n.p(runnable);
             synchronized (this.queue) {
                 if (this.workerRunningState != WorkerRunningState.RUNNING && this.workerRunningState != WorkerRunningState.QUEUED) {
-                    long j2 = this.workerRunCount;
+                    long j = this.workerRunCount;
                     Runnable runnable2 = new Runnable(this, runnable) { // from class: com.google.common.util.concurrent.SequentialExecutor.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -285,7 +285,7 @@ public final class SequentialExecutor implements Executor {
                             return;
                         }
                         synchronized (this.queue) {
-                            if (this.workerRunCount == j2 && this.workerRunningState == WorkerRunningState.QUEUING) {
+                            if (this.workerRunCount == j && this.workerRunningState == WorkerRunningState.QUEUING) {
                                 this.workerRunningState = WorkerRunningState.QUEUED;
                             }
                         }

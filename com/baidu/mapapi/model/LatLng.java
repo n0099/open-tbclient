@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class LatLng implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LatLng> CREATOR;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41775a;
+    public static final String f39613a;
     public transient /* synthetic */ FieldHolder $fh;
     public final double latitude;
     public final double latitudeE6;
@@ -36,7 +36,7 @@ public final class LatLng implements Parcelable {
                 return;
             }
         }
-        f41775a = LatLng.class.getSimpleName();
+        f39613a = LatLng.class.getSimpleName();
         CREATOR = new a();
     }
 

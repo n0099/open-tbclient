@@ -2,6 +2,7 @@ package com.tencent.open.log;
 
 import android.text.format.Time;
 import android.util.Log;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f76764a;
+    public static final g f70114a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +32,7 @@ public final class g {
                 return;
             }
         }
-        f76764a = new g();
+        f70114a = new g();
     }
 
     public g() {
@@ -51,27 +52,27 @@ public final class g {
     public final String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 != 1 ? i2 != 2 ? i2 != 4 ? i2 != 8 ? i2 != 16 ? i2 != 32 ? "-" : "A" : "E" : "W" : "I" : "D" : "V" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 != 1 ? i2 != 2 ? i2 != 4 ? i2 != 8 ? i2 != 16 ? i2 != 32 ? "-" : ExifInterface.GPS_MEASUREMENT_IN_PROGRESS : ExifInterface.LONGITUDE_EAST : ExifInterface.LONGITUDE_WEST : "I" : "D" : ExifInterface.GPS_MEASUREMENT_INTERRUPTED : (String) invokeI.objValue;
     }
 
-    public String a(int i2, Thread thread, long j2, String str, String str2, Throwable th) {
+    public String a(int i2, Thread thread, long j, String str, String str2, Throwable th) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j2), str, str2, th})) == null) {
-            long j3 = j2 % 1000;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j), str, str2, th})) == null) {
+            long j2 = j % 1000;
             Time time = new Time();
-            time.set(j2);
+            time.set(j);
             StringBuilder sb = new StringBuilder();
             sb.append(a(i2));
             sb.append('/');
             sb.append(time.format("%Y-%m-%d %H:%M:%S"));
             sb.append('.');
-            if (j3 < 10) {
+            if (j2 < 10) {
                 sb.append("00");
-            } else if (j3 < 100) {
+            } else if (j2 < 100) {
                 sb.append('0');
             }
-            sb.append(j3);
+            sb.append(j2);
             sb.append(' ');
             sb.append('[');
             if (thread == null) {

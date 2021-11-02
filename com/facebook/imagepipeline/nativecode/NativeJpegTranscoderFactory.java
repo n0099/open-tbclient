@@ -12,20 +12,21 @@ import com.facebook.imagepipeline.transcoder.ImageTranscoder;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean mEnsureTranscoderLibraryLoaded;
     public final int mMaxBitmapSize;
     public final boolean mUseDownSamplingRatio;
 
     @DoNotStrip
-    public NativeJpegTranscoderFactory(int i2, boolean z) {
+    public NativeJpegTranscoderFactory(int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -37,6 +38,7 @@ public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
         }
         this.mMaxBitmapSize = i2;
         this.mUseDownSamplingRatio = z;
+        this.mEnsureTranscoderLibraryLoaded = z2;
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoderFactory
@@ -49,7 +51,7 @@ public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
             if (imageFormat != DefaultImageFormats.JPEG) {
                 return null;
             }
-            return new NativeJpegTranscoder(z, this.mMaxBitmapSize, this.mUseDownSamplingRatio);
+            return new NativeJpegTranscoder(z, this.mMaxBitmapSize, this.mUseDownSamplingRatio, this.mEnsureTranscoderLibraryLoaded);
         }
         return (ImageTranscoder) invokeLZ.objValue;
     }

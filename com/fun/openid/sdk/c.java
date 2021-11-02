@@ -20,33 +20,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.a;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.fun.openid.sdk.a f70374a = null;
+    public com.fun.openid.sdk.a f62889a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f70375b = null;
+    public String f62890b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f70376c = null;
+    public String f62891c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f70377d = new Object();
+    public final Object f62892d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f70378e = new a(this);
+    public ServiceConnection f62893e = new a(this);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f70379a;
+        public final /* synthetic */ c f62894a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -63,25 +63,25 @@ public class c {
                     return;
                 }
             }
-            this.f70379a = cVar;
+            this.f62894a = cVar;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            com.fun.openid.sdk.a c1954a;
+            com.fun.openid.sdk.a c1863a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                c cVar = this.f70379a;
-                int i2 = a.AbstractBinderC1953a.f70370a;
+                c cVar = this.f62894a;
+                int i2 = a.AbstractBinderC1862a.f62885a;
                 if (iBinder == null) {
-                    c1954a = null;
+                    c1863a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-                    c1954a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC1953a.C1954a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
+                    c1863a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC1862a.C1863a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
                 }
-                cVar.f70374a = c1954a;
-                synchronized (this.f70379a.f70377d) {
-                    this.f70379a.f70377d.notify();
+                cVar.f62889a = c1863a;
+                synchronized (this.f62894a.f62892d) {
+                    this.f62894a.f62892d.notify();
                 }
             }
         }
@@ -90,17 +90,17 @@ public class c {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f70379a.f70374a = null;
+                this.f62894a.f62889a = null;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f70380a;
+        public static final c f62895a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -116,7 +116,7 @@ public class c {
                     return;
                 }
             }
-            f70380a = new c();
+            f62895a = new c();
         }
     }
 
@@ -125,13 +125,13 @@ public class c {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f70375b)) {
-                this.f70375b = context.getPackageName();
+            if (TextUtils.isEmpty(this.f62890b)) {
+                this.f62890b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f70376c)) {
+            if (TextUtils.isEmpty(this.f62891c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f70375b, 64).signatures;
+                    signatureArr = context.getPackageManager().getPackageInfo(this.f62890b, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                     signatureArr = null;
@@ -152,13 +152,13 @@ public class c {
                         e3.printStackTrace();
                     }
                 }
-                this.f70376c = str2;
+                this.f62891c = str2;
             }
-            com.fun.openid.sdk.a aVar = this.f70374a;
-            String str3 = this.f70375b;
-            String str4 = this.f70376c;
-            a.AbstractBinderC1953a.C1954a c1954a = (a.AbstractBinderC1953a.C1954a) aVar;
-            c1954a.getClass();
+            com.fun.openid.sdk.a aVar = this.f62889a;
+            String str3 = this.f62890b;
+            String str4 = this.f62891c;
+            a.AbstractBinderC1862a.C1863a c1863a = (a.AbstractBinderC1862a.C1863a) aVar;
+            c1863a.getClass();
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -166,7 +166,7 @@ public class c {
                 obtain.writeString(str3);
                 obtain.writeString(str4);
                 obtain.writeString(str);
-                c1954a.f70371a.transact(1, obtain, obtain2, 0);
+                c1863a.f62886a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 String readString = obtain2.readString();
                 obtain2.recycle();

@@ -12,25 +12,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BeanActivity;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CouponBaseActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources mResources;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends Resources {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f63787a;
+        public float f60633a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f63788b;
+        public float f60634b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f63789c;
+        public int f60635c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Resources resources) {
@@ -55,21 +55,21 @@ public class CouponBaseActivity extends BeanActivity {
 
         private void a(DisplayMetrics displayMetrics) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65537, this, displayMetrics) == null) && this.f63787a == 0.0f) {
+            if ((interceptable == null || interceptable.invokeL(65537, this, displayMetrics) == null) && this.f60633a == 0.0f) {
                 float f2 = displayMetrics.density;
                 float f3 = displayMetrics.scaledDensity;
                 float f4 = displayMetrics.widthPixels / 360.0f;
-                this.f63787a = f4;
-                this.f63788b = (f3 / f2) * f4;
-                this.f63789c = (int) (f4 * 160.0f);
+                this.f60633a = f4;
+                this.f60634b = (f3 / f2) * f4;
+                this.f60635c = (int) (f4 * 160.0f);
             }
         }
 
         private void b(DisplayMetrics displayMetrics) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, displayMetrics) == null) {
-                displayMetrics.density = this.f63787a;
-                displayMetrics.densityDpi = this.f63789c;
+                displayMetrics.density = this.f60633a;
+                displayMetrics.densityDpi = this.f60635c;
             }
         }
 

@@ -22,13 +22,13 @@ import java.util.TreeSet;
 import org.apache.commons.lang3.exception.CloneFailedException;
 import org.apache.commons.lang3.mutable.MutableInt;
 import org.apache.commons.lang3.text.StrBuilder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ObjectUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Null NULL;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Null implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7092611880189329093L;
@@ -115,10 +115,10 @@ public class ObjectUtils {
         return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? i2 : invokeI.intValue;
     }
 
-    public static long CONST(long j2) {
+    public static long CONST(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j2)) == null) ? j2 : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) ? j : invokeJ.longValue;
     }
 
     public static <T> T CONST(T t) {

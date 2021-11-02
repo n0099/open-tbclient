@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.q0.b.d;
-import c.a.q0.s.d0.b;
+import b.a.q0.b.d;
+import b.a.q0.s.e0.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LaunchUpPrefetchSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCH_UP_PREFETCH_ENABLE = "launch_up_prefetch";
@@ -65,7 +65,7 @@ public class LaunchUpPrefetchSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.e.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, b.a.e.e.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,12 +27,12 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     public String mBduss;
     public String mKey;
 
-    public IMGetPaidByAppidRequest(Context context, long j2, String str, String str2) {
+    public IMGetPaidByAppidRequest(Context context, long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2};
+            Object[] objArr = {context, Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -43,7 +44,7 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
         }
         this.mContext = context;
         this.mKey = str2;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mBduss = str;
     }
 
@@ -121,7 +122,7 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i2, byte[] bArr) {
         String str;
-        long j2;
+        long j;
         int i3;
         int i4;
         String string;
@@ -138,19 +139,19 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
                     string = Constants.ERROR_MSG_SUCCESS;
                 } else {
                     i4 = jSONObject.getInt("error_code");
-                    string = jSONObject.getString("error_msg");
+                    string = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 }
                 str = string;
                 i3 = i4;
-                j2 = r1;
+                j = r1;
             } catch (JSONException e2) {
                 LogUtils.e("IMGetPaidByAppidRequest", e2.getMessage(), e2);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                j2 = -1;
+                j = -1;
                 i3 = 1010;
             }
-            AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, i3, str, this.mAppid, j2);
+            AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, i3, str, this.mAppid, j);
         }
     }
 

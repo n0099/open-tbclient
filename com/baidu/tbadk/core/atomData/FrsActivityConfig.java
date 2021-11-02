@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.m.b;
-import c.a.e.e.p.l;
-import c.a.q0.b.d;
-import c.a.q0.b.g.a;
-import c.a.q0.d1.f0;
-import c.a.q0.s.q.d2;
-import c.a.r0.x0.n2.k;
-import c.a.r0.z2.y;
+import b.a.e.e.m.b;
+import b.a.e.e.p.l;
+import b.a.q0.b.d;
+import b.a.q0.b.g.a;
+import b.a.q0.d1.f0;
+import b.a.q0.s.q.d2;
+import b.a.r0.x0.x2.k;
+import b.a.r0.z2.y;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -85,6 +85,10 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_PB_CARD_GIFT = "tb_pb_card_gift";
     public static final String GOOD = "good";
     public static final String KEY_ACHIEVEMENT_URL = "key_achievement_url";
+    public static final String KEY_FPS_FRS = "BaToFrs_frs_tran";
+    public static final String KEY_FPS_FRS_FROM = "BaToFrs";
+    public static final String KEY_FPS_FRS_PAGE = "frs";
+    public static final String KEY_FPS_FRS_TYPE = "tran";
     public static final String KEY_REFRESH = "refresh_all";
     public static final String NAME = "name";
     public static final int READ_CHAT = 1;
@@ -195,7 +199,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.q() && a.f12795c != a.d()) {
+            if (d.q() && a.f11959c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));
@@ -204,7 +208,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else {
                 frsRequestData.K(0);
             }
-            frsRequestData.w("forum_name", c.a.e.e.p.k.getUrlEncode(stringExtra));
+            frsRequestData.w("forum_name", b.a.e.e.p.k.getUrlEncode(stringExtra));
             frsRequestData.w("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
@@ -279,11 +283,11 @@ public class FrsActivityConfig extends IntentConfig {
         return (FrsActivityConfig) invokeI.objValue;
     }
 
-    public FrsActivityConfig setFakeThreadId(long j2) {
+    public FrsActivityConfig setFakeThreadId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
-            getIntent().putExtra(FRS_FAKE_THREAD_ID, j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            getIntent().putExtra(FRS_FAKE_THREAD_ID, j);
             return this;
         }
         return (FrsActivityConfig) invokeJ.objValue;

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ActVideoSetting implements Parcelable {
     public static final String ACT_URL = "au";
     public static final String ACT_VIDEO_SETTING = "acts";
@@ -44,7 +44,7 @@ public class ActVideoSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                b.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -69,7 +69,7 @@ public class ActVideoSetting implements Parcelable {
             return actVideoSetting;
         }
         str = "no such tag ActVideoSetting";
-        c.l.a.a.a.b(TAG, str);
+        b.l.a.a.a.b(TAG, str);
         return actVideoSetting;
     }
 

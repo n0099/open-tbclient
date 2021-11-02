@@ -3,9 +3,9 @@ package com.baidu.swan.apps.api.module.network;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import c.a.p0.a.u.c.b;
-import c.a.p0.a.u.c.d;
-import c.a.p0.a.u.e.j.g;
+import b.a.p0.a.u.c.b;
+import b.a.p0.a.u.c.d;
+import b.a.p0.a.u.e.j.g;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwanApiNetworkV8Module {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODULE_NAME = "_naV8Network";
@@ -43,9 +43,9 @@ public class SwanApiNetworkV8Module {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            boolean z = d.f8735c;
-            c.a.p0.a.u.h.b L = this.requestApi.L(jsObject);
-            return L == null ? "" : L.a();
+            boolean z = d.f8000c;
+            b.a.p0.a.u.h.b K = this.requestApi.K(jsObject);
+            return K == null ? "" : K.a();
         }
         return (String) invokeL.objValue;
     }

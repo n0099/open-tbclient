@@ -19,14 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DownloadTask extends IdentifiedTask implements Comparable<DownloadTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +66,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
     public final String url;
     public final boolean wifiRequired;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class TaskHideWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,17 +98,17 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             }
         }
 
-        public static void setLastCallbackProcessTs(DownloadTask downloadTask, long j2) {
+        public static void setLastCallbackProcessTs(DownloadTask downloadTask, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65539, null, downloadTask, j2) == null) {
-                downloadTask.setLastCallbackProcessTs(j2);
+            if (interceptable == null || interceptable.invokeLJ(65539, null, downloadTask, j) == null) {
+                downloadTask.setLastCallbackProcessTs(j);
             }
         }
 
-        public static void setSpeedIncreaseBytes(DownloadTask downloadTask, long j2) {
+        public static void setSpeedIncreaseBytes(DownloadTask downloadTask, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask, j2) == null) {
-                downloadTask.setSpeedIncreaseBytes(j2);
+            if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask, j) == null) {
+                downloadTask.setSpeedIncreaseBytes(j);
             }
         }
     }
@@ -533,10 +532,10 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    public void setLastCallbackProcessTs(long j2) {
+    public void setLastCallbackProcessTs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048618, this, j2) == null) {
-            this.lastCallbackProcessTimestamp.set(j2);
+        if (interceptable == null || interceptable.invokeJ(1048618, this, j) == null) {
+            this.lastCallbackProcessTimestamp.set(j);
         }
     }
 
@@ -547,13 +546,13 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    public void setSpeedIncreaseBytes(long j2) {
+    public void setSpeedIncreaseBytes(long j) {
         SpeedCalculator speedCalculator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) || (speedCalculator = this.speedCalculator) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048620, this, j) == null) || (speedCalculator = this.speedCalculator) == null) {
             return;
         }
-        speedCalculator.downloading(j2);
+        speedCalculator.downloading(j);
     }
 
     public void setTag(Object obj) {
@@ -588,7 +587,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            return super.toString() + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.id + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.url + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.directoryFile.toString() + "/" + this.filenameHolder.get();
+            return super.toString() + "@" + this.id + "@" + this.url + "@" + this.directoryFile.toString() + "/" + this.filenameHolder.get();
         }
         return (String) invokeV.objValue;
     }
@@ -614,7 +613,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.tag : invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEFAULT_AUTO_CALLBACK_TO_UI_THREAD = true;
@@ -926,7 +925,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class MockTaskForCompare extends IdentifiedTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

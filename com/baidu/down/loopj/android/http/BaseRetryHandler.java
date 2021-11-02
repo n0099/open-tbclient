@@ -14,7 +14,7 @@ import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BaseRetryHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

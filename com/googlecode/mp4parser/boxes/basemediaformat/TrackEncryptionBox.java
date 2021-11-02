@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.boxes.AbstractTrackEncryptionBox;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TrackEncryptionBox extends AbstractTrackEncryptionBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tenc";

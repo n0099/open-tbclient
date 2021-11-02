@@ -16,7 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpConnectTaskImpl implements HttpConnectTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -164,11 +164,11 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
             } else {
                 contentLength = httpURLConnection.getContentLength();
             }
-            long j2 = contentLength;
-            if (j2 > 0) {
+            long j = contentLength;
+            if (j > 0) {
                 checkCanceledOrPaused();
                 this.mStatus = 103;
-                this.mOnConnectListener.onConnected(System.currentTimeMillis() - this.mStartTime, j2, z);
+                this.mOnConnectListener.onConnected(System.currentTimeMillis() - this.mStartTime, j, z);
                 return;
             }
             throw new DownloadException(108, "length <= 0");

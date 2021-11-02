@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class er {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f77933a;
+    public static int f70893a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static a f337a;
+    public static a f338a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f338a;
+    public static final String f339a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
 
@@ -50,25 +50,25 @@ public final class er {
                 return;
             }
         }
-        f338a = XMJobService.class.getCanonicalName();
-        f77933a = 0;
+        f339a = XMJobService.class.getCanonicalName();
+        f70893a = 0;
     }
 
     public static synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             synchronized (er.class) {
-                if (f337a == null) {
+                if (f338a == null) {
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("stop alarm.");
-                f337a.a();
+                f338a.a();
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0062, code lost:
-        if (com.xiaomi.push.er.f338a.equals(com.xiaomi.push.t.a(r9, r6.name).getSuperclass().getCanonicalName()) != false) goto L21;
+        if (com.xiaomi.push.er.f339a.equals(com.xiaomi.push.t.a(r9, r6.name).getSuperclass().getCanonicalName()) != false) goto L21;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -92,7 +92,7 @@ public final class er {
                             try {
                                 ServiceInfo serviceInfo = serviceInfoArr[i2];
                                 if ("android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                                    if (!f338a.equals(serviceInfo.name)) {
+                                    if (!f339a.equals(serviceInfo.name)) {
                                         try {
                                         } catch (Exception unused) {
                                         }
@@ -102,7 +102,7 @@ public final class er {
                                         break;
                                     }
                                 }
-                                if (f338a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
+                                if (f339a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
                                     i2 = 1;
                                     break;
                                 }
@@ -115,7 +115,7 @@ public final class er {
                                 }
                                 int i4 = Build.VERSION.SDK_INT;
                                 esVar = new es(applicationContext);
-                                f337a = esVar;
+                                f338a = esVar;
                             }
                         }
                         i2 = i3;
@@ -124,12 +124,12 @@ public final class er {
                     e = e3;
                 }
                 if (i2 != 0 && t.m643a(applicationContext)) {
-                    throw new RuntimeException("Should export service: " + f338a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
+                    throw new RuntimeException("Should export service: " + f339a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
                 }
                 int i42 = Build.VERSION.SDK_INT;
                 esVar = new es(applicationContext);
             }
-            f337a = esVar;
+            f338a = esVar;
         }
     }
 
@@ -137,17 +137,17 @@ public final class er {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, null, context, i2) == null) {
             synchronized (er.class) {
-                int i3 = f77933a;
+                int i3 = f70893a;
                 if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
                     if (i2 == 2) {
-                        f77933a = 2;
+                        f70893a = 2;
                     } else {
-                        f77933a = 0;
+                        f70893a = 0;
                     }
                 }
-                if (i3 != f77933a && f77933a == 2) {
+                if (i3 != f70893a && f70893a == 2) {
                     a();
-                    f337a = new eu(context);
+                    f338a = new eu(context);
                 }
             }
         }
@@ -157,12 +157,12 @@ public final class er {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (er.class) {
-                if (f337a == null) {
+                if (f338a == null) {
                     com.xiaomi.channel.commonutils.logger.b.m73a("timer is not initialized");
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
-                f337a.a(z);
+                f338a.a(z);
             }
         }
     }
@@ -173,10 +173,10 @@ public final class er {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             synchronized (er.class) {
-                if (f337a == null) {
+                if (f338a == null) {
                     return false;
                 }
-                return f337a.m300a();
+                return f338a.m300a();
             }
         }
         return invokeV.booleanValue;

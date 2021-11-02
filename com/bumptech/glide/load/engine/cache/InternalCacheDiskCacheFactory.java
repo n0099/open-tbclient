@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheFactory;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class InternalCacheDiskCacheFactory extends DiskLruCacheFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +35,13 @@ public final class InternalCacheDiskCacheFactory extends DiskLruCacheFactory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public InternalCacheDiskCacheFactory(Context context, long j2) {
-        this(context, "image_manager_disk_cache", j2);
+    public InternalCacheDiskCacheFactory(Context context, long j) {
+        this(context, "image_manager_disk_cache", j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -56,7 +56,7 @@ public final class InternalCacheDiskCacheFactory extends DiskLruCacheFactory {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InternalCacheDiskCacheFactory(Context context, String str, long j2) {
+    public InternalCacheDiskCacheFactory(Context context, String str, long j) {
         super(new DiskLruCacheFactory.CacheDirectoryGetter(context, str) { // from class: com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -95,12 +95,12 @@ public final class InternalCacheDiskCacheFactory extends DiskLruCacheFactory {
                 }
                 return (File) invokeV.objValue;
             }
-        }, j2);
+        }, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2)};
+            Object[] objArr = {context, str, Long.valueOf(j)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

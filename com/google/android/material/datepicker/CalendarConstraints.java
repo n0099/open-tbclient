@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class CalendarConstraints implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CalendarConstraints> CREATOR;
@@ -29,9 +29,9 @@ public final class CalendarConstraints implements Parcelable {
     public final DateValidator validator;
     public final int yearSpan;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface DateValidator extends Parcelable {
-        boolean isValid(long j2);
+        boolean isValid(long j);
     }
 
     static {
@@ -170,13 +170,13 @@ public final class CalendarConstraints implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Arrays.hashCode(new Object[]{this.start, this.end, this.openAt, this.validator}) : invokeV.intValue;
     }
 
-    public boolean isWithinBounds(long j2) {
+    public boolean isWithinBounds(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
-            if (this.start.getDay(1) <= j2) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            if (this.start.getDay(1) <= j) {
                 Month month = this.end;
-                if (j2 <= month.getDay(month.daysInMonth)) {
+                if (j <= month.getDay(month.daysInMonth)) {
                     return true;
                 }
             }
@@ -226,7 +226,7 @@ public final class CalendarConstraints implements Parcelable {
         throw new IllegalArgumentException("start Month cannot be after current Month");
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEEP_COPY_VALIDATOR_KEY = "DEEP_COPY_VALIDATOR_KEY";
@@ -293,33 +293,33 @@ public final class CalendarConstraints implements Parcelable {
         }
 
         @NonNull
-        public Builder setEnd(long j2) {
+        public Builder setEnd(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                this.end = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                this.end = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
         @NonNull
-        public Builder setOpenAt(long j2) {
+        public Builder setOpenAt(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                this.openAt = Long.valueOf(j2);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.openAt = Long.valueOf(j);
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
         @NonNull
-        public Builder setStart(long j2) {
+        public Builder setStart(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.start = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.start = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;

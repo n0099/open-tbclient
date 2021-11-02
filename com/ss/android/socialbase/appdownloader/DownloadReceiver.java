@@ -7,10 +7,6 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import c.p.a.e.a.d;
-import c.p.a.e.a.k;
-import c.p.a.e.b.g.e;
-import c.p.a.e.b.l.f;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,210 +15,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ss.android.socialbase.downloader.depend.z;
+import com.ss.android.socialbase.downloader.downloader.Downloader;
+import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f76081a;
+    public static final String f68882a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f76082b;
-
-    /* loaded from: classes10.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f76083e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f76084f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DownloadReceiver f76085g;
-
-        /* renamed from: com.ss.android.socialbase.appdownloader.DownloadReceiver$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class RunnableC2058a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DownloadInfo f76086e;
-
-            /* renamed from: com.ss.android.socialbase.appdownloader.DownloadReceiver$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes10.dex */
-            public class RunnableC2059a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ RunnableC2058a f76087e;
-
-                public RunnableC2059a(RunnableC2058a runnableC2058a) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC2058a};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f76087e = runnableC2058a;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        try {
-                            if (this.f76087e.f76086e.isSavePathRedirected()) {
-                                f.b0(this.f76087e.f76086e);
-                            }
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                        }
-                    }
-                }
-            }
-
-            public RunnableC2058a(a aVar, DownloadInfo downloadInfo) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, downloadInfo};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f76086e = downloadInfo;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e.A0().execute(new RunnableC2059a(this));
-                }
-            }
-        }
-
-        public a(DownloadReceiver downloadReceiver, Intent intent, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {downloadReceiver, intent, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76085g = downloadReceiver;
-            this.f76083e = intent;
-            this.f76084f = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Uri data;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (data = this.f76083e.getData()) == null) {
-                return;
-            }
-            String schemeSpecificPart = data.getSchemeSpecificPart();
-            d.f u = c.p.a.e.a.e.G().u();
-            if (u != null) {
-                u.a(this.f76084f, schemeSpecificPart);
-            }
-            List<DownloadInfo> p = c.p.a.e.b.g.a.H(this.f76084f).p("application/vnd.android.package-archive");
-            if (p != null) {
-                for (DownloadInfo downloadInfo : p) {
-                    if (downloadInfo != null && d.A(downloadInfo, schemeSpecificPart)) {
-                        c.p.a.e.b.f.e i2 = c.p.a.e.b.g.a.H(this.f76084f).i(downloadInfo.getId());
-                        if (i2 != null && f.O0(i2.a())) {
-                            i2.a(9, downloadInfo, schemeSpecificPart, "");
-                        }
-                        c.p.a.e.b.p.a l = c.p.a.e.b.p.b.a().l(downloadInfo.getId());
-                        if (l != null) {
-                            l.g(null, false);
-                        }
-                        if (c.p.a.e.b.j.a.d(downloadInfo.getId()).b("install_queue_enable", 0) == 1) {
-                            k.d().g(downloadInfo, schemeSpecificPart);
-                        }
-                        this.f76085g.f76082b.postDelayed(new RunnableC2058a(this, downloadInfo), 1000L);
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f76088e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f76089f;
-
-        public b(DownloadReceiver downloadReceiver, Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {downloadReceiver, context, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f76088e = context;
-            this.f76089f = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Intent intent = new Intent(this.f76088e, DownloadHandlerService.class);
-                    intent.setAction(this.f76089f);
-                    this.f76088e.startService(intent);
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
+    public Handler f68883b;
 
     static {
         InterceptResult invokeClinit;
@@ -237,7 +44,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f76081a = DownloadReceiver.class.getSimpleName();
+        f68882a = DownloadReceiver.class.getSimpleName();
     }
 
     public DownloadReceiver() {
@@ -253,7 +60,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.f76082b = new Handler(Looper.getMainLooper());
+        this.f68883b = new Handler(Looper.getMainLooper());
     }
 
     @Override // android.content.BroadcastReceiver
@@ -266,26 +73,212 @@ public class DownloadReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(action)) {
             return;
         }
-        d.e b2 = c.p.a.e.a.e.G().b();
-        if (action.equals("android.intent.action.BOOT_COMPLETED") && (b2 == null || b2.a())) {
-            if (c.p.a.e.b.c.a.e()) {
-                c.p.a.e.b.c.a.c(f76081a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
+        com.ss.android.socialbase.appdownloader.c.c a2 = d.j().a();
+        if (action.equals("android.intent.action.BOOT_COMPLETED") && (a2 == null || a2.a())) {
+            if (com.ss.android.socialbase.downloader.c.a.a()) {
+                com.ss.android.socialbase.downloader.c.a.a(f68882a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_MOUNTED")) {
-            if (c.p.a.e.b.c.a.e()) {
-                c.p.a.e.b.c.a.c(f76081a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
+            if (com.ss.android.socialbase.downloader.c.a.a()) {
+                com.ss.android.socialbase.downloader.c.a.a(f68882a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
             }
             a(context, action);
         } else if (action.equals(PackageChangedReceiver.ACTION_INSTALL) || action.equals("android.intent.action.PACKAGE_REPLACED")) {
-            e.A0().execute(new a(this, intent, context));
+            com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this, intent, context) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ Intent f68884a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ Context f68885b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ DownloadReceiver f68886c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, intent, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f68886c = this;
+                    this.f68884a = intent;
+                    this.f68885b = context;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Uri data;
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (data = this.f68884a.getData()) == null) {
+                        return;
+                    }
+                    String schemeSpecificPart = data.getSchemeSpecificPart();
+                    com.ss.android.socialbase.appdownloader.c.d b2 = d.j().b();
+                    if (b2 != null) {
+                        b2.a(this.f68885b, schemeSpecificPart);
+                    }
+                    List<DownloadInfo> successedDownloadInfosWithMimeType = Downloader.getInstance(this.f68885b).getSuccessedDownloadInfosWithMimeType("application/vnd.android.package-archive");
+                    if (successedDownloadInfosWithMimeType != null) {
+                        for (DownloadInfo downloadInfo : successedDownloadInfosWithMimeType) {
+                            if (downloadInfo != null && c.a(downloadInfo, schemeSpecificPart)) {
+                                z downloadNotificationEventListener = Downloader.getInstance(this.f68885b).getDownloadNotificationEventListener(downloadInfo.getId());
+                                if (downloadNotificationEventListener != null && com.ss.android.socialbase.downloader.i.f.f(downloadNotificationEventListener.a())) {
+                                    downloadNotificationEventListener.a(9, downloadInfo, schemeSpecificPart, "");
+                                }
+                                com.ss.android.socialbase.downloader.notification.a e2 = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
+                                if (e2 != null) {
+                                    e2.a((BaseException) null, false);
+                                }
+                                if (com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("install_queue_enable", 0) == 1) {
+                                    h.a().a(downloadInfo, schemeSpecificPart);
+                                }
+                                this.f68886c.f68883b.postDelayed(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    /* renamed from: a  reason: collision with root package name */
+                                    public final /* synthetic */ DownloadInfo f68887a;
+
+                                    /* renamed from: b  reason: collision with root package name */
+                                    public final /* synthetic */ AnonymousClass1 f68888b;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this, downloadInfo};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i2 = newInitContext.flag;
+                                            if ((i2 & 1) != 0) {
+                                                int i3 = i2 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.f68888b = this;
+                                        this.f68887a = downloadInfo;
+                                    }
+
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                            com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1.1
+                                                public static /* synthetic */ Interceptable $ic;
+                                                public transient /* synthetic */ FieldHolder $fh;
+
+                                                /* renamed from: a  reason: collision with root package name */
+                                                public final /* synthetic */ RunnableC19781 f68889a;
+
+                                                {
+                                                    Interceptable interceptable4 = $ic;
+                                                    if (interceptable4 != null) {
+                                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                                        newInitContext.initArgs = r2;
+                                                        Object[] objArr = {this};
+                                                        interceptable4.invokeUnInit(65536, newInitContext);
+                                                        int i2 = newInitContext.flag;
+                                                        if ((i2 & 1) != 0) {
+                                                            int i3 = i2 & 2;
+                                                            newInitContext.thisArg = this;
+                                                            interceptable4.invokeInitBody(65536, newInitContext);
+                                                            return;
+                                                        }
+                                                    }
+                                                    this.f68889a = this;
+                                                }
+
+                                                @Override // java.lang.Runnable
+                                                public void run() {
+                                                    Interceptable interceptable4 = $ic;
+                                                    if (interceptable4 == null || interceptable4.invokeV(1048576, this) == null) {
+                                                        try {
+                                                            if (this.f68889a.f68887a.isSavePathRedirected()) {
+                                                                com.ss.android.socialbase.downloader.i.f.b(this.f68889a.f68887a);
+                                                            }
+                                                        } catch (Throwable th) {
+                                                            th.printStackTrace();
+                                                        }
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    }
+                                }, 1000L);
+                                return;
+                            }
+                        }
+                    }
+                }
+            });
         }
     }
 
     private void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, this, context, str) == null) && e.g()) {
-            this.f76082b.postDelayed(new b(this, context, str), 2000L);
+        if ((interceptable == null || interceptable.invokeLL(65539, this, context, str) == null) && com.ss.android.socialbase.downloader.downloader.c.G()) {
+            this.f68883b.postDelayed(new Runnable(this, context, str) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ Context f68890a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ String f68891b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ DownloadReceiver f68892c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, context, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f68892c = this;
+                    this.f68890a = context;
+                    this.f68891b = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            Intent intent = new Intent(this.f68890a, DownloadHandlerService.class);
+                            intent.setAction(this.f68891b);
+                            this.f68890a.startService(intent);
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+                }
+            }, 2000L);
         }
     }
 }

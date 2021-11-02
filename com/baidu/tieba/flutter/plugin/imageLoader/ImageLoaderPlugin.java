@@ -7,12 +7,12 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import androidx.annotation.NonNull;
-import c.a.e.a.h;
-import c.a.e.e.l.c;
-import c.a.e.e.l.d;
-import c.a.e.e.p.j;
-import c.a.e.e.p.k;
-import c.a.e.l.d.a;
+import b.a.e.a.h;
+import b.a.e.e.l.c;
+import b.a.e.e.l.d;
+import b.a.e.e.p.j;
+import b.a.e.e.p.k;
+import b.a.e.l.d.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_LOCAL = 1;
@@ -45,7 +45,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ImageLoadingError {
         public static final /* synthetic */ ImageLoadingError[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -171,7 +171,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
             if (k.isEmpty(str)) {
                 return 0;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
+            if ("night".equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
                 i2 = nightResouceId;
             }
             return (!SkinManager.SKIN_TYPE_STR_DARK.equals(str) || (darkResourceId = SkinManager.getDarkResourceId(TbadkCoreApplication.getInst().getResources(), i2)) <= 0) ? i2 : darkResourceId;
@@ -187,7 +187,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
             if (k.isEmpty(str)) {
                 return 0;
             }
-            if (!"default".equals(str) && SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
+            if (!"default".equals(str) && "night".equals(str)) {
                 i2 = 1;
             }
             if (SkinManager.SKIN_TYPE_STR_DARK.equals(str)) {
@@ -241,7 +241,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     private boolean shouldMonitorPerformance(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? c.a.q0.q0.k.d().g() && i2 % 100 == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? b.a.q0.q0.k.d().g() && i2 % 100 == 0 : invokeI.booleanValue;
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderAuto.HostImageLoader
@@ -271,15 +271,15 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, requestParam, result) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            Resources b2 = h.a().b();
-            if (b2 == null) {
+            Resources resources = h.a().getResources();
+            if (resources == null) {
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("key", requestParam.getKey());
             hashMap.put("startTime", Long.valueOf(currentTimeMillis));
             String androidNameFromIos = ResNameTransform.getAndroidNameFromIos(requestParam.getKey());
-            int identifier = b2.getIdentifier(androidNameFromIos, "drawable", BdBaseApplication.getInst().getPackageName());
+            int identifier = resources.getIdentifier(androidNameFromIos, "drawable", BdBaseApplication.getInst().getPackageName());
             int i3 = 1;
             int i4 = 0;
             if (!androidNameFromIos.contains("_mask_") && !androidNameFromIos.contains("_pure_")) {
@@ -287,7 +287,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                 i2 = 4;
                 if (resIdBySkin != 0) {
                     i2 = 5;
-                    Bitmap bitMap = getBitMap(b2, resIdBySkin);
+                    Bitmap bitMap = getBitMap(resources, resIdBySkin);
                     if (bitMap != null) {
                         i2 = 6;
                         hashMap.put(ShaderParams.VALUE_TYPE_STEP, String.valueOf(6));
@@ -372,7 +372,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                     this.val$startLoad = currentTimeMillis;
                 }
 
-                @Override // c.a.e.e.l.c
+                @Override // b.a.e.e.l.c
                 public void onCancelled(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -383,7 +383,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                     }
                 }
 
-                @Override // c.a.e.e.l.c
+                @Override // b.a.e.e.l.c
                 public void onProgressUpdate(Object... objArr) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, objArr) == null) {
@@ -392,7 +392,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.e.e.l.c
+                @Override // b.a.e.e.l.c
                 public void onLoaded(a aVar, String str, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) {
@@ -428,7 +428,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
-            c.a.r0.t0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
+            b.a.r0.t0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -436,7 +436,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
-            c.a.r0.t0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
+            b.a.r0.t0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

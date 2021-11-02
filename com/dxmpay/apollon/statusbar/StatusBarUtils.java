@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class StatusBarUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_BAR_DEFAULT_HEIGHT = 25;
@@ -26,19 +26,19 @@ public class StatusBarUtils {
     public static float sBarAlpha = 0.3f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f69745e;
+        public final /* synthetic */ View f62183e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f69746f;
+        public final /* synthetic */ ViewGroup.LayoutParams f62184f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f69747g;
+        public final /* synthetic */ Context f62185g;
 
         public a(View view, ViewGroup.LayoutParams layoutParams, Context context) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class StatusBarUtils {
                     return;
                 }
             }
-            this.f69745e = view;
-            this.f69746f = layoutParams;
-            this.f69747g = context;
+            this.f62183e = view;
+            this.f62184f = layoutParams;
+            this.f62185g = context;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -66,11 +66,11 @@ public class StatusBarUtils {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 19) {
                 return;
             }
-            this.f69745e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            this.f69746f.height = this.f69745e.getHeight() + StatusBarUtils.getStatusBarHeight(this.f69747g);
-            View view = this.f69745e;
-            view.setPadding(view.getPaddingLeft(), this.f69745e.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f69747g), this.f69745e.getPaddingRight(), this.f69745e.getPaddingBottom());
-            this.f69745e.setLayoutParams(this.f69746f);
+            this.f62183e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            this.f62184f.height = this.f62183e.getHeight() + StatusBarUtils.getStatusBarHeight(this.f62185g);
+            View view = this.f62183e;
+            view.setPadding(view.getPaddingLeft(), this.f62183e.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f62185g), this.f62183e.getPaddingRight(), this.f62183e.getPaddingBottom());
+            this.f62183e.setLayoutParams(this.f62184f);
         }
     }
 

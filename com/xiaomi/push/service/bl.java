@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.bk;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class bl implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bk f78533a;
+    public final /* synthetic */ bk f71471a;
 
     public bl(bk bkVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class bl implements Runnable {
                 return;
             }
         }
-        this.f78533a = bkVar;
+        this.f71471a = bkVar;
     }
 
     @Override // java.lang.Runnable
@@ -38,14 +38,14 @@ public class bl implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                concurrentHashMap = this.f78533a.f941a;
+                concurrentHashMap = this.f71471a.f942a;
                 for (bk.a aVar : concurrentHashMap.values()) {
                     aVar.run();
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m73a("Sync job exception :" + e2.getMessage());
             }
-            this.f78533a.f942a = false;
+            this.f71471a.f943a = false;
         }
     }
 }

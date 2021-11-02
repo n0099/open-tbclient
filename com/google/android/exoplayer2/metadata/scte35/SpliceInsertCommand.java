@@ -3,8 +3,8 @@ package com.google.android.exoplayer2.metadata.scte35;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.i.b.a.i0.l;
-import c.i.b.a.i0.s;
+import b.i.b.a.i0.l;
+import b.i.b.a.i0.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class SpliceInsertCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpliceInsertCommand> CREATOR;
@@ -35,7 +35,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
     public final boolean spliceImmediateFlag;
     public final int uniqueProgramId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<SpliceInsertCommand> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,22 +73,22 @@ public final class SpliceInsertCommand extends SpliceCommand {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f70459a;
+        public final int f62979a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f70460b;
+        public final long f62980b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f70461c;
+        public final long f62981c;
 
-        public /* synthetic */ b(int i2, long j2, long j3, a aVar) {
-            this(i2, j2, j3);
+        public /* synthetic */ b(int i2, long j, long j2, a aVar) {
+            this(i2, j, j2);
         }
 
         public static b a(Parcel parcel) {
@@ -100,18 +100,18 @@ public final class SpliceInsertCommand extends SpliceCommand {
         public void b(Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-                parcel.writeInt(this.f70459a);
-                parcel.writeLong(this.f70460b);
-                parcel.writeLong(this.f70461c);
+                parcel.writeInt(this.f62979a);
+                parcel.writeLong(this.f62980b);
+                parcel.writeLong(this.f62981c);
             }
         }
 
-        public b(int i2, long j2, long j3) {
+        public b(int i2, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -121,9 +121,9 @@ public final class SpliceInsertCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.f70459a = i2;
-            this.f70460b = j2;
-            this.f70461c = j3;
+            this.f62979a = i2;
+            this.f62980b = j;
+            this.f62981c = j2;
         }
     }
 
@@ -147,22 +147,22 @@ public final class SpliceInsertCommand extends SpliceCommand {
         this(parcel);
     }
 
-    public static SpliceInsertCommand parseFromSection(l lVar, long j2, s sVar) {
+    public static SpliceInsertCommand parseFromSection(l lVar, long j, s sVar) {
         InterceptResult invokeCommon;
         List list;
         boolean z;
         boolean z2;
-        long j3;
+        long j2;
         boolean z3;
-        long j4;
+        long j3;
         int i2;
         int i3;
         int i4;
         boolean z4;
         boolean z5;
-        long j5;
+        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{lVar, Long.valueOf(j2), sVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{lVar, Long.valueOf(j), sVar})) == null) {
             long z6 = lVar.z();
             boolean z7 = (lVar.x() & 128) != 0;
             List emptyList = Collections.emptyList();
@@ -170,9 +170,9 @@ public final class SpliceInsertCommand extends SpliceCommand {
                 list = emptyList;
                 z = false;
                 z2 = false;
-                j3 = -9223372036854775807L;
+                j2 = -9223372036854775807L;
                 z3 = false;
-                j4 = -9223372036854775807L;
+                j3 = -9223372036854775807L;
                 i2 = 0;
                 i3 = 0;
                 i4 = 0;
@@ -183,13 +183,13 @@ public final class SpliceInsertCommand extends SpliceCommand {
                 boolean z9 = (x & 64) != 0;
                 boolean z10 = (x & 32) != 0;
                 boolean z11 = (x & 16) != 0;
-                long parseSpliceTime = (!z9 || z11) ? -9223372036854775807L : TimeSignalCommand.parseSpliceTime(lVar, j2);
+                long parseSpliceTime = (!z9 || z11) ? -9223372036854775807L : TimeSignalCommand.parseSpliceTime(lVar, j);
                 if (!z9) {
                     int x2 = lVar.x();
                     ArrayList arrayList = new ArrayList(x2);
                     for (int i5 = 0; i5 < x2; i5++) {
                         int x3 = lVar.x();
-                        long parseSpliceTime2 = !z11 ? TimeSignalCommand.parseSpliceTime(lVar, j2) : -9223372036854775807L;
+                        long parseSpliceTime2 = !z11 ? TimeSignalCommand.parseSpliceTime(lVar, j) : -9223372036854775807L;
                         arrayList.add(new b(x3, parseSpliceTime2, sVar.b(parseSpliceTime2), null));
                     }
                     emptyList = arrayList;
@@ -197,25 +197,25 @@ public final class SpliceInsertCommand extends SpliceCommand {
                 if (z10) {
                     long x4 = lVar.x();
                     boolean z12 = (128 & x4) != 0;
-                    j5 = ((((x4 & 1) << 32) | lVar.z()) * 1000) / 90;
+                    j4 = ((((x4 & 1) << 32) | lVar.z()) * 1000) / 90;
                     z5 = z12;
                 } else {
                     z5 = false;
-                    j5 = -9223372036854775807L;
+                    j4 = -9223372036854775807L;
                 }
                 i2 = lVar.D();
                 z4 = z9;
                 i3 = lVar.x();
                 i4 = lVar.x();
                 list = emptyList;
-                long j6 = parseSpliceTime;
+                long j5 = parseSpliceTime;
                 z3 = z5;
-                j4 = j5;
+                j3 = j4;
                 z2 = z11;
                 z = z8;
-                j3 = j6;
+                j2 = j5;
             }
-            return new SpliceInsertCommand(z6, z7, z, z4, z2, j3, sVar.b(j3), list, z3, j4, i2, i3, i4);
+            return new SpliceInsertCommand(z6, z7, z, z4, z2, j2, sVar.b(j2), list, z3, j3, i2, i3, i4);
         }
         return (SpliceInsertCommand) invokeCommon.objValue;
     }
@@ -244,12 +244,12 @@ public final class SpliceInsertCommand extends SpliceCommand {
         }
     }
 
-    public SpliceInsertCommand(long j2, boolean z, boolean z2, boolean z3, boolean z4, long j3, long j4, List<b> list, boolean z5, long j5, int i2, int i3, int i4) {
+    public SpliceInsertCommand(long j, boolean z, boolean z2, boolean z3, boolean z4, long j2, long j3, List<b> list, boolean z5, long j4, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Long.valueOf(j3), Long.valueOf(j4), list, Boolean.valueOf(z5), Long.valueOf(j5), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Long.valueOf(j2), Long.valueOf(j3), list, Boolean.valueOf(z5), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -259,16 +259,16 @@ public final class SpliceInsertCommand extends SpliceCommand {
                 return;
             }
         }
-        this.spliceEventId = j2;
+        this.spliceEventId = j;
         this.spliceEventCancelIndicator = z;
         this.outOfNetworkIndicator = z2;
         this.programSpliceFlag = z3;
         this.spliceImmediateFlag = z4;
-        this.programSplicePts = j3;
-        this.programSplicePlaybackPositionUs = j4;
+        this.programSplicePts = j2;
+        this.programSplicePlaybackPositionUs = j3;
         this.componentSpliceList = Collections.unmodifiableList(list);
         this.autoReturn = z5;
-        this.breakDurationUs = j5;
+        this.breakDurationUs = j4;
         this.uniqueProgramId = i2;
         this.availNum = i3;
         this.availsExpected = i4;

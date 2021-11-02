@@ -5,29 +5,29 @@ import android.database.DataSetObserver;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.q0.f1.f.a.b;
+import b.a.q0.f1.f.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class AdapterLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f48676e;
+    public boolean f46187e;
     public b mAdapter;
     public DataSetObserver mObserver;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdapterLayout f48677a;
+        public final /* synthetic */ AdapterLayout f46188a;
 
         public a(AdapterLayout adapterLayout) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public abstract class AdapterLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f48677a = adapterLayout;
+            this.f46188a = adapterLayout;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48677a.resetLayout();
+                this.f46188a.resetLayout();
             }
         }
     }
@@ -81,21 +81,21 @@ public abstract class AdapterLayout extends ViewGroup {
         b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || this.f48676e) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || this.f46187e) {
             return;
         }
         bVar.d(dataSetObserver);
-        this.f48676e = true;
+        this.f46187e = true;
     }
 
     public final void b() {
         b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || !this.f48676e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || !this.f46187e) {
             return;
         }
-        this.f48676e = false;
+        this.f46187e = false;
         bVar.e(dataSetObserver);
     }
 
@@ -198,6 +198,6 @@ public abstract class AdapterLayout extends ViewGroup {
                 return;
             }
         }
-        this.f48676e = false;
+        this.f46187e = false;
     }
 }

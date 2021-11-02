@@ -1,0 +1,112 @@
+package b.a.p0.c.a.k;
+
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import b.a.p0.c.a.g;
+import b.a.p0.c.a.i.f;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+/* loaded from: classes.dex */
+public abstract class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f9597a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f9598b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f9599c;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f9597a = false;
+        this.f9598b = 0;
+    }
+
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f9598b = 0;
+            b.a.p0.c.a.d.b().a(str, this);
+        }
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9599c : (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9597a : invokeV.booleanValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f9599c = str;
+        }
+    }
+
+    public abstract void e(IOException iOException);
+
+    public abstract void f(int i2);
+
+    public final String g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            String str = new String(bArr);
+            if (b.a.p0.c.a.a.f9542a) {
+                String str2 = "processResponseData encodeResponseData=" + str;
+            }
+            if (this.f9597a) {
+                f c2 = b.a.p0.c.a.e.f().c(g.l().m(), bArr);
+                if (c2 != null) {
+                    if (!TextUtils.isEmpty(c2.a())) {
+                        str = c2.a();
+                    }
+                    this.f9598b = c2.b().intValue();
+                } else {
+                    this.f9598b = -1;
+                }
+                g.l().m().s(this.f9598b);
+                if (this.f9598b == -1) {
+                    b.a.p0.c.a.d.b().f(false);
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public abstract void h(byte[] bArr);
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f9597a = z;
+        }
+    }
+}

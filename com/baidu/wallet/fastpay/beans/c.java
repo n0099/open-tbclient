@@ -14,22 +14,22 @@ import com.baidu.wallet.fastpay.datamodel.GetOrderResponse;
 import com.baidu.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c extends BaseBean<GetOrderResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61210a;
+    public String f58100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61211b;
+    public String f58101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61212c;
+    public String f58102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61213d;
+    public String f58103d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> c(Context context) {
@@ -49,19 +49,19 @@ public class c extends BaseBean<GetOrderResponse> {
                 return;
             }
         }
-        this.f61210a = "";
-        this.f61211b = "";
-        this.f61212c = "";
-        this.f61213d = "";
+        this.f58100a = "";
+        this.f58101b = "";
+        this.f58102c = "";
+        this.f58103d = "";
     }
 
     public void a(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
-            this.f61210a = str2;
-            this.f61211b = str;
-            this.f61212c = str3;
-            this.f61213d = str4;
+            this.f58100a = str2;
+            this.f58101b = str;
+            this.f58102c = str3;
+            this.f58103d = str4;
         }
     }
 
@@ -79,10 +79,10 @@ public class c extends BaseBean<GetOrderResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f61211b)));
-            arrayList.add(new RestNameValuePair("price", this.f61210a));
-            arrayList.add(new RestNameValuePair("is_huodong_price", this.f61212c));
-            arrayList.add(new RestNameValuePair("device_token", this.f61213d));
+            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f58101b)));
+            arrayList.add(new RestNameValuePair("price", this.f58100a));
+            arrayList.add(new RestNameValuePair("is_huodong_price", this.f58102c));
+            arrayList.add(new RestNameValuePair("device_token", this.f58103d));
             return arrayList;
         }
         return (List) invokeV.objValue;

@@ -10,67 +10,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class b implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<b> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f76000a;
+    public int f68422a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f76001b;
+    public int f68423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f76002c;
+    public String f68424c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f76003d;
+    public int f68425d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f76004e;
+    public String f68426e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f76005f;
-
-    /* loaded from: classes10.dex */
-    public static class a implements Parcelable.Creator<b> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public b createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new b(parcel) : (b) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: b */
-        public b[] newArray(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new b[i2] : (b[]) invokeI.objValue;
-        }
-    }
+    public String f68427f;
 
     static {
         InterceptResult invokeClinit;
@@ -85,7 +47,42 @@ public class b implements Parcelable {
                 return;
             }
         }
-        CREATOR = new a();
+        CREATOR = new Parcelable.Creator<b>() { // from class: com.ss.android.downloadlib.a.b.b.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            /* renamed from: a */
+            public b createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new b(parcel) : (b) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            /* renamed from: a */
+            public b[] newArray(int i2) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new b[i2] : (b[]) invokeI.objValue;
+            }
+        };
     }
 
     public b() {
@@ -101,9 +98,9 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f76002c = "";
-        this.f76004e = "";
-        this.f76005f = "";
+        this.f68424c = "";
+        this.f68426e = "";
+        this.f68427f = "";
     }
 
     @Override // android.os.Parcelable
@@ -125,12 +122,12 @@ public class b implements Parcelable {
             }
             if (obj != null && b.class == obj.getClass()) {
                 b bVar = (b) obj;
-                if (this.f76000a == bVar.f76000a && this.f76001b == bVar.f76001b) {
-                    String str = this.f76002c;
+                if (this.f68422a == bVar.f68422a && this.f68423b == bVar.f68423b) {
+                    String str = this.f68424c;
                     if (str != null) {
-                        return str.equals(bVar.f76002c);
+                        return str.equals(bVar.f68424c);
                     }
-                    if (bVar.f76002c == null) {
+                    if (bVar.f68424c == null) {
                         return true;
                     }
                 }
@@ -144,8 +141,8 @@ public class b implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = ((this.f76000a * 31) + this.f76001b) * 31;
-            String str = this.f76002c;
+            int i2 = ((this.f68422a * 31) + this.f68423b) * 31;
+            String str = this.f68424c;
             return i2 + (str != null ? str.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -161,12 +158,12 @@ public class b implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
-            parcel.writeInt(this.f76000a);
-            parcel.writeInt(this.f76001b);
-            parcel.writeString(this.f76002c);
-            parcel.writeString(this.f76004e);
-            parcel.writeString(this.f76005f);
-            parcel.writeInt(this.f76003d);
+            parcel.writeInt(this.f68422a);
+            parcel.writeInt(this.f68423b);
+            parcel.writeString(this.f68424c);
+            parcel.writeString(this.f68426e);
+            parcel.writeString(this.f68427f);
+            parcel.writeInt(this.f68425d);
         }
     }
 
@@ -185,14 +182,14 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f76002c = "";
-        this.f76004e = "";
-        this.f76005f = "";
-        this.f76000a = parcel.readInt();
-        this.f76001b = parcel.readInt();
-        this.f76002c = parcel.readString();
-        this.f76004e = parcel.readString();
-        this.f76005f = parcel.readString();
-        this.f76003d = parcel.readInt();
+        this.f68424c = "";
+        this.f68426e = "";
+        this.f68427f = "";
+        this.f68422a = parcel.readInt();
+        this.f68423b = parcel.readInt();
+        this.f68424c = parcel.readString();
+        this.f68426e = parcel.readString();
+        this.f68427f = parcel.readString();
+        this.f68425d = parcel.readInt();
     }
 }

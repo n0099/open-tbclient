@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,12 +23,12 @@ public class m {
     public ByteBuffer pI;
     public long pJ;
 
-    public m(long j2) {
+    public m(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -39,7 +39,7 @@ public class m {
             }
         }
         this.pJ = 0L;
-        this.mTimestamp = j2;
+        this.mTimestamp = j;
     }
 
     public void F(boolean z) {
@@ -87,10 +87,10 @@ public class m {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.pG : (FaceAlgoData) invokeV.objValue;
     }
 
-    public void g(long j2) {
+    public void g(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.il = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.il = j;
         }
     }
 
@@ -112,17 +112,17 @@ public class m {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.nN : invokeV.booleanValue;
     }
 
-    public void p(long j2) {
+    public void p(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.pJ = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.pJ = j;
         }
     }
 
-    public void r(long j2) {
+    public void r(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.pF = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.pF = j;
         }
     }
 

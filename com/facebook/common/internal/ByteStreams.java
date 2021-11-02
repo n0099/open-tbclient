@@ -7,26 +7,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.infer.annotation.Nullsafe;
 import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+@Nullsafe(Nullsafe.Mode.STRICT)
+/* loaded from: classes11.dex */
 public final class ByteStreams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_SIZE = 4096;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.internal.ByteStreams$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class FastByteArrayOutputStream extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,14 +82,14 @@ public final class ByteStreams {
         Preconditions.checkNotNull(inputStream);
         Preconditions.checkNotNull(outputStream);
         byte[] bArr = new byte[4096];
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = inputStream.read(bArr);
             if (read == -1) {
-                return j2;
+                return j;
             }
             outputStream.write(bArr, 0, read);
-            j2 += read;
+            j += read;
         }
     }
 

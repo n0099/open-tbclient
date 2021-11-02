@@ -9,19 +9,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
 import java.io.ByteArrayInputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class q extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f73526h;
+    public int f65945h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f73527i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f73528j;
+    public int f65946i;
+    public int j;
     public int k;
     public int l;
     public int m;
@@ -55,13 +53,13 @@ public class q extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f73494a != 13) {
-                throw new PngjException("Bad IDHR len " + dVar.f73494a);
+            if (dVar.f65917a != 13) {
+                throw new PngjException("Bad IDHR len " + dVar.f65917a);
             }
             ByteArrayInputStream b2 = dVar.b();
-            this.f73526h = com.kwad.sdk.pngencrypt.n.b(b2);
-            this.f73527i = com.kwad.sdk.pngencrypt.n.b(b2);
-            this.f73528j = com.kwad.sdk.pngencrypt.n.a(b2);
+            this.f65945h = com.kwad.sdk.pngencrypt.n.b(b2);
+            this.f65946i = com.kwad.sdk.pngencrypt.n.b(b2);
+            this.j = com.kwad.sdk.pngencrypt.n.a(b2);
             this.k = com.kwad.sdk.pngencrypt.n.a(b2);
             this.l = com.kwad.sdk.pngencrypt.n.a(b2);
             this.m = com.kwad.sdk.pngencrypt.n.a(b2);
@@ -72,14 +70,14 @@ public class q extends aa {
     public void a(com.kwad.sdk.pngencrypt.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) {
-            b(this.f73473e.f73566a);
-            c(this.f73473e.f73567b);
-            d(this.f73473e.f73568c);
-            int i2 = this.f73473e.f73570e ? 4 : 0;
-            if (this.f73473e.f73572g) {
+            b(this.f65898e.f65977a);
+            c(this.f65898e.f65978b);
+            d(this.f65898e.f65979c);
+            int i2 = this.f65898e.f65981e ? 4 : 0;
+            if (this.f65898e.f65983g) {
                 i2++;
             }
-            if (!this.f73473e.f73571f) {
+            if (!this.f65898e.f65982f) {
                 i2 += 2;
             }
             e(i2);
@@ -92,40 +90,40 @@ public class q extends aa {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f73526h = i2;
+            this.f65945h = i2;
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73526h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65945h : invokeV.intValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f73527i = i2;
+            this.f65946i = i2;
         }
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f73527i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65946i : invokeV.intValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f73528j = i2;
+            this.j = i2;
         }
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f73528j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j : invokeV.intValue;
     }
 
     public void e(int i2) {
@@ -187,10 +185,10 @@ public class q extends aa {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.f73526h < 1 || this.f73527i < 1 || this.l != 0 || this.m != 0) {
+            if (this.f65945h < 1 || this.f65946i < 1 || this.l != 0 || this.m != 0) {
                 throw new PngjException("bad IHDR: col/row/compmethod/filmethod invalid");
             }
-            int i2 = this.f73528j;
+            int i2 = this.j;
             if (i2 != 1 && i2 != 2 && i2 != 4 && i2 != 8 && i2 != 16) {
                 throw new PngjException("bad IHDR: bitdepth invalid");
             }
@@ -202,7 +200,7 @@ public class q extends aa {
             if (i4 != 0) {
                 if (i4 != 6 && i4 != 2) {
                     if (i4 == 3) {
-                        if (this.f73528j == 16) {
+                        if (this.j == 16) {
                             throw new PngjException("bad IHDR: bitdepth invalid");
                         }
                         return;
@@ -210,7 +208,7 @@ public class q extends aa {
                         throw new PngjException("bad IHDR: invalid colormodel");
                     }
                 }
-                int i5 = this.f73528j;
+                int i5 = this.j;
                 if (i5 != 8 && i5 != 16) {
                     throw new PngjException("bad IHDR: bitdepth invalid");
                 }

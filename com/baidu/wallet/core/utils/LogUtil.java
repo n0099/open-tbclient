@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61148a = "LogUtil";
+    public static final String f58038a = "LogUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f61149b = false;
+    public static final boolean f58039b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f61150c = false;
+    public static final boolean f58040c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f61151d = false;
+    public static final boolean f58041d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f61152e = false;
+    public static final boolean f58042e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f61153f = false;
+    public static final boolean f58043f = false;
     public transient /* synthetic */ FieldHolder $fh;
 
     public LogUtil() {
@@ -49,7 +49,7 @@ public final class LogUtil {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            d(f61148a, str);
+            d(f58038a, str);
         }
     }
 

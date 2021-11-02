@@ -9,45 +9,45 @@ import com.baidu.webkit.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public C1874a f64159a;
+    public C1833a f61002a;
 
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C1874a {
+    /* loaded from: classes11.dex */
+    public class C1833a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f64160a;
+        public boolean f61003a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f64161b;
+        public boolean f61004b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f64162c;
+        public long f61005c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f64163d;
+        public long f61006d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f64164e;
+        public boolean f61007e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f64165f;
+        public boolean f61008f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Map<String, Long> f64166g;
+        public Map<String, Long> f61009g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f64167h;
+        public final /* synthetic */ a f61010h;
 
-        public C1874a(a aVar) {
+        public C1833a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,27 +62,27 @@ public final class a {
                     return;
                 }
             }
-            this.f64167h = aVar;
-            this.f64161b = true;
-            this.f64162c = -1L;
-            this.f64163d = -1L;
-            this.f64166g = new HashMap();
+            this.f61010h = aVar;
+            this.f61004b = true;
+            this.f61005c = -1L;
+            this.f61006d = -1L;
+            this.f61009g = new HashMap();
         }
 
-        public /* synthetic */ C1874a(a aVar, byte b2) {
+        public /* synthetic */ C1833a(a aVar, byte b2) {
             this(aVar);
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f64160a = false;
-                this.f64161b = true;
-                this.f64162c = -1L;
-                this.f64163d = -1L;
-                this.f64164e = false;
-                this.f64165f = false;
-                this.f64166g.clear();
+                this.f61003a = false;
+                this.f61004b = true;
+                this.f61005c = -1L;
+                this.f61006d = -1L;
+                this.f61007e = false;
+                this.f61008f = false;
+                this.f61009g.clear();
             }
         }
     }
@@ -106,23 +106,23 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f64159a != null && this.f64159a.f64165f) {
+                if (this.f61002a != null && this.f61002a.f61008f) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("coldbootfirst", this.f64159a.f64160a);
-                    jSONObject.put("loadasycsearch", this.f64159a.f64161b);
-                    jSONObject.put("starttosearch", this.f64159a.f64162c);
-                    jSONObject.put("starttofragment", this.f64159a.f64163d);
-                    jSONObject.put("state50", this.f64159a.f64164e);
-                    for (String str : this.f64159a.f64166g.keySet()) {
-                        jSONObject.put(str, this.f64159a.f64166g.get(str));
+                    jSONObject.put("coldbootfirst", this.f61002a.f61003a);
+                    jSONObject.put("loadasycsearch", this.f61002a.f61004b);
+                    jSONObject.put("starttosearch", this.f61002a.f61005c);
+                    jSONObject.put("starttofragment", this.f61002a.f61006d);
+                    jSONObject.put("state50", this.f61002a.f61007e);
+                    for (String str : this.f61002a.f61009g.keySet()) {
+                        jSONObject.put(str, this.f61002a.f61009g.get(str));
                     }
-                    this.f64159a.a();
+                    this.f61002a.a();
                     return jSONObject;
                 }
                 return null;
             } catch (Throwable th) {
                 Log.printStackTrace(th);
-                this.f64159a.a();
+                this.f61002a.a();
                 return null;
             }
         }

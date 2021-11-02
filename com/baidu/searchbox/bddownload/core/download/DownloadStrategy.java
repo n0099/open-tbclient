@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DownloadStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FOUR_CONNECTION_UPPER_LIMIT = 104857600;
@@ -43,7 +43,7 @@ public class DownloadStrategy {
     public Boolean isHasAccessNetworkStatePermission;
     public ConnectivityManager manager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ResumeAvailableResponseCheck {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,20 +122,20 @@ public class DownloadStrategy {
         this.manager = null;
     }
 
-    public int determineBlockCount(@NonNull DownloadTask downloadTask, long j2) {
+    public int determineBlockCount(@NonNull DownloadTask downloadTask, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, downloadTask, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, downloadTask, j)) == null) {
             if (downloadTask.getSetConnectionCount() != null) {
                 return downloadTask.getSetConnectionCount().intValue();
             }
-            if (j2 < 5242880) {
+            if (j < 5242880) {
                 return 1;
             }
-            if (j2 < 52428800) {
+            if (j < 52428800) {
                 return 2;
             }
-            return j2 < 104857600 ? 3 : 4;
+            return j < 104857600 ? 3 : 4;
         }
         return invokeLJ.intValue;
     }
@@ -187,18 +187,18 @@ public class DownloadStrategy {
         return (ResumeFailedCause) invokeCommon.objValue;
     }
 
-    public boolean inspectAnotherSameInfo(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j2) {
+    public boolean inspectAnotherSameInfo(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j) {
         InterceptResult invokeCommon;
         BreakpointStore breakpointStore;
         BreakpointInfo findAnotherInfoFromCompare;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, breakpointInfo, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, breakpointInfo, Long.valueOf(j)})) == null) {
             if (downloadTask.isFilenameFromResponse() && (findAnotherInfoFromCompare = (breakpointStore = BdDownload.with().breakpointStore()).findAnotherInfoFromCompare(downloadTask, breakpointInfo)) != null) {
                 breakpointStore.remove(findAnotherInfoFromCompare.getId());
                 if (findAnotherInfoFromCompare.getTotalOffset() <= BdDownload.with().downloadStrategy().reuseIdledSameInfoThresholdBytes()) {
                     return false;
                 }
-                if ((findAnotherInfoFromCompare.getEtag() == null || findAnotherInfoFromCompare.getEtag().equals(breakpointInfo.getEtag())) && findAnotherInfoFromCompare.getTotalLength() == j2 && findAnotherInfoFromCompare.getFile() != null && findAnotherInfoFromCompare.getFile().exists()) {
+                if ((findAnotherInfoFromCompare.getEtag() == null || findAnotherInfoFromCompare.getEtag().equals(breakpointInfo.getEtag())) && findAnotherInfoFromCompare.getTotalLength() == j && findAnotherInfoFromCompare.getFile() != null && findAnotherInfoFromCompare.getFile().exists()) {
                     breakpointInfo.reuseBlocks(findAnotherInfoFromCompare);
                     Util.d(TAG, "Reuse another same info: " + breakpointInfo);
                     return true;
@@ -338,14 +338,14 @@ public class DownloadStrategy {
                         length = file.length();
                     }
                 }
-                long j2 = length;
-                afterCompleted.addBlock(new BlockInfo(0L, j2, j2));
+                long j = length;
+                afterCompleted.addBlock(new BlockInfo(0L, j, j));
             }
             DownloadTask.TaskHideWrapper.setBreakpointInfo(downloadTask, afterCompleted);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class FilenameHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

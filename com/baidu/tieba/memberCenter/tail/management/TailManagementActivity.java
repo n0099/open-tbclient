@@ -2,9 +2,9 @@ package com.baidu.tieba.memberCenter.tail.management;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.r0.y1.h.c.a;
-import c.a.r0.y1.h.c.d;
-import c.a.r0.y1.h.c.e;
+import b.a.r0.y1.h.c.a;
+import b.a.r0.y1.h.c.d;
+import b.a.r0.y1.h.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.y1.h.c.a mAdapter;
+    public b.a.r0.y1.h.c.a mAdapter;
     public d mModel;
     public View.OnClickListener mNavBtnClickListener;
     public a.f mRefreshCallbackListener;
     public e mView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TailManagementActivity f54418a;
+        public final /* synthetic */ TailManagementActivity f51608a;
 
         public a(TailManagementActivity tailManagementActivity) {
             Interceptable interceptable = $ic;
@@ -45,31 +45,31 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     return;
                 }
             }
-            this.f54418a = tailManagementActivity;
+            this.f51608a = tailManagementActivity;
         }
 
-        @Override // c.a.r0.y1.h.c.a.f
+        @Override // b.a.r0.y1.h.c.a.f
         public void callback() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean g2 = this.f54418a.mModel.g();
-                if (this.f54418a.mModel.h().size() == 0 && g2) {
-                    g2 = !this.f54418a.mModel.g();
-                    this.f54418a.mModel.l(g2);
+                boolean g2 = this.f51608a.mModel.g();
+                if (this.f51608a.mModel.h().size() == 0 && g2) {
+                    g2 = !this.f51608a.mModel.g();
+                    this.f51608a.mModel.l(g2);
                 }
-                TailManagementActivity tailManagementActivity = this.f54418a;
+                TailManagementActivity tailManagementActivity = this.f51608a;
                 tailManagementActivity.mView.e(g2, tailManagementActivity.mModel.h().size() == 0);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailManagementActivity f54419e;
+        public final /* synthetic */ TailManagementActivity f51609e;
 
         public b(TailManagementActivity tailManagementActivity) {
             Interceptable interceptable = $ic;
@@ -86,21 +86,21 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     return;
                 }
             }
-            this.f54419e = tailManagementActivity;
+            this.f51609e = tailManagementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f54419e.mView.a()) {
-                    this.f54419e.finish();
-                } else if (view == this.f54419e.mView.b()) {
-                    boolean z = !this.f54419e.mModel.g();
-                    this.f54419e.mModel.l(z);
-                    TailManagementActivity tailManagementActivity = this.f54419e;
+                if (view == this.f51609e.mView.a()) {
+                    this.f51609e.finish();
+                } else if (view == this.f51609e.mView.b()) {
+                    boolean z = !this.f51609e.mModel.g();
+                    this.f51609e.mModel.l(z);
+                    TailManagementActivity tailManagementActivity = this.f51609e;
                     tailManagementActivity.mView.e(z, tailManagementActivity.mModel.h().size() == 0);
-                    this.f54419e.mAdapter.j();
+                    this.f51609e.mAdapter.j();
                 }
             }
         }
@@ -140,7 +140,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             super.onCreate(bundle);
             setContentView(R.layout.tail_management_activity);
             this.mModel = new d(getPageContext());
-            this.mAdapter = new c.a.r0.y1.h.c.a(getPageContext(), this.mModel, this.mRefreshCallbackListener);
+            this.mAdapter = new b.a.r0.y1.h.c.a(getPageContext(), this.mModel, this.mRefreshCallbackListener);
             e eVar = new e(this, this.mNavBtnClickListener);
             this.mView = eVar;
             eVar.d(this.mAdapter);

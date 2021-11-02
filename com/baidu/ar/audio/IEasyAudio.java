@@ -1,5 +1,5 @@
 package com.baidu.ar.audio;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IEasyAudio {
     void release();
 

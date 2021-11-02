@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TiffUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Class<?> TAG;
@@ -23,13 +23,13 @@ public class TiffUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imageutils.TiffUtil$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class TiffHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,9 +106,7 @@ public class TiffUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{inputStream, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i2 >= 10 && StreamProcessor.readPackedInt(inputStream, 2, z) == 3 && StreamProcessor.readPackedInt(inputStream, 4, z) == 1) {
-                int readPackedInt = StreamProcessor.readPackedInt(inputStream, 2, z);
-                StreamProcessor.readPackedInt(inputStream, 2, z);
-                return readPackedInt;
+                return StreamProcessor.readPackedInt(inputStream, 2, z);
             }
             return 0;
         }

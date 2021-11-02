@@ -33,7 +33,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MP3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BIT_RATE;
@@ -53,7 +53,7 @@ public class MP3TrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class MP3Header {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,11 +144,11 @@ public class MP3TrackImpl extends AbstractTrack {
         double size = this.samples.size() / d2;
         LinkedList linkedList = new LinkedList();
         Iterator<Sample> it = this.samples.iterator();
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int i2 = 0;
             if (!it.hasNext()) {
-                this.avgBitRate = (int) ((j2 * 8) / size);
+                this.avgBitRate = (int) ((j * 8) / size);
                 this.sampleDescriptionBox = new SampleDescriptionBox();
                 AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
                 audioSampleEntry.setChannelCount(this.firstHeader.channelCount);
@@ -181,7 +181,7 @@ public class MP3TrackImpl extends AbstractTrack {
                 return;
             }
             int size2 = (int) it.next().getSize();
-            j2 += size2;
+            j += size2;
             linkedList.add(Integer.valueOf(size2));
             while (linkedList.size() > d2) {
                 linkedList.pop();

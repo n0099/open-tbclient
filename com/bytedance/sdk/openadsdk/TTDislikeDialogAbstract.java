@@ -6,28 +6,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.dislike.TTDislikeListView;
-import com.bytedance.sdk.openadsdk.dislike.a.a;
-import com.bytedance.sdk.openadsdk.dislike.c.b;
-import com.bytedance.sdk.openadsdk.dislike.ui.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class TTDislikeDialogAbstract extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f65756a;
+    public View f61577a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f65757b;
+    public TTDislikeController f61578b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TTDislikeDialogAbstract(@NonNull Context context) {
+    public TTDislikeDialogAbstract(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,16 +46,16 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f65757b == null || this.f65756a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f61578b == null || this.f61577a == null) {
             return;
         }
         int[] tTDislikeListViewIds = getTTDislikeListViewIds();
         if (tTDislikeListViewIds != null && tTDislikeListViewIds.length > 0) {
             for (int i2 : tTDislikeListViewIds) {
-                View findViewById = this.f65756a.findViewById(i2);
+                View findViewById = this.f61577a.findViewById(i2);
                 if (findViewById != null) {
                     if (findViewById instanceof TTDislikeListView) {
-                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f65757b);
+                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f61578b);
                     } else {
                         throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                     }
@@ -70,6 +68,15 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
         throw new IllegalArgumentException("dislike选项列表为空，请设置TTDislikeListView");
     }
 
+    public void b() {
+        TTDislikeController tTDislikeController;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tTDislikeController = this.f61578b) == null) {
+            return;
+        }
+        tTDislikeController.onDislikeEvent(getContext(), true);
+    }
+
     public abstract int getLayoutId();
 
     public abstract ViewGroup.LayoutParams getLayoutParams();
@@ -79,13 +86,13 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             View inflate = LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) null);
-            this.f65756a = inflate;
+            this.f61577a = inflate;
             if (inflate != null) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                View view = this.f65756a;
+                View view = this.f61577a;
                 if (layoutParams == null) {
                     layoutParams = new ViewGroup.LayoutParams(-1, -1);
                 }
@@ -97,10 +104,10 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
         }
     }
 
-    public void setDislikeModel(b bVar) {
+    public void setDislikeModel(TTDislikeController tTDislikeController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f65757b = bVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tTDislikeController) == null) {
+            this.f61578b = tTDislikeController;
             a();
         }
     }
@@ -108,32 +115,24 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.show();
-            b bVar = this.f65757b;
-            if (bVar == null || bVar.a() == null) {
-                return;
-            }
-            if (this instanceof c) {
-                a.a().a(getContext(), this.f65757b, "ad_explation_show");
-            } else {
-                a.a().a(getContext(), this.f65757b, "ad_explation_personality_show");
-            }
+            b();
         }
     }
 
     public void startPersonalizePromptActivity() {
-        b bVar;
+        TTDislikeController tTDislikeController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.f65757b) == null || bVar.a() == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tTDislikeController = this.f61578b) == null) {
             return;
         }
-        a.b().a(getContext(), this.f65757b, true);
-        a.a().a(getContext(), this.f65757b, "ad_explation_personality_click");
+        tTDislikeController.openWebPage(getContext(), true);
+        this.f61578b.onDislikeEvent(getContext(), false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TTDislikeDialogAbstract(@NonNull Context context, int i2) {
+    public TTDislikeDialogAbstract(Context context, int i2) {
         super(context, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

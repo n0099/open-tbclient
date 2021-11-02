@@ -17,25 +17,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BannerLayoutForAd extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BannerFocusImageViewGroup f60843a;
+    public BannerFocusImageViewGroup f57739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f60844b;
+    public LinearLayout f57740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BannerBaseItemInfo[] f60845c;
+    public BannerBaseItemInfo[] f57741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60846d;
+    public int f57742d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60847e;
+    public int f57743e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BannerLayoutForAd(Context context) {
@@ -61,10 +61,10 @@ public class BannerLayoutForAd extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_banner_vip"), this);
-            this.f60843a = (BannerFocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_banner_gallery"));
-            this.f60844b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_banner_indicators"));
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f60843a.getLayoutParams();
-            int displayWidth = (DisplayUtils.getDisplayWidth(getContext()) - this.f60846d) - this.f60847e;
+            this.f57739a = (BannerFocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_banner_gallery"));
+            this.f57740b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_banner_indicators"));
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f57739a.getLayoutParams();
+            int displayWidth = (DisplayUtils.getDisplayWidth(getContext()) - this.f57742d) - this.f57743e;
             int i2 = (displayWidth * Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID) / 750;
             if (layoutParams == null) {
                 layoutParams = new FrameLayout.LayoutParams(displayWidth, i2);
@@ -72,15 +72,15 @@ public class BannerLayoutForAd extends RelativeLayout {
                 layoutParams.width = displayWidth;
                 layoutParams.height = i2;
             }
-            this.f60843a.setChildLeft(getPaddingLeft());
-            this.f60843a.setLayoutParams(layoutParams);
-            this.f60843a.setChildLeft(this.f60846d);
-            this.f60843a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos(this) { // from class: com.baidu.wallet.base.widget.banner.BannerLayoutForAd.1
+            this.f57739a.setChildLeft(getPaddingLeft());
+            this.f57739a.setLayoutParams(layoutParams);
+            this.f57739a.setChildLeft(this.f57742d);
+            this.f57739a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos(this) { // from class: com.baidu.wallet.base.widget.banner.BannerLayoutForAd.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BannerLayoutForAd f60848a;
+                public final /* synthetic */ BannerLayoutForAd f57744a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -97,7 +97,7 @@ public class BannerLayoutForAd extends RelativeLayout {
                             return;
                         }
                     }
-                    this.f60848a = this;
+                    this.f57744a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.CurrFocusImagePos
@@ -106,8 +106,8 @@ public class BannerLayoutForAd extends RelativeLayout {
                     if (interceptable2 == null || interceptable2.invokeII(1048576, this, i3, i4) == null) {
                         int i5 = 0;
                         while (i5 < i4) {
-                            if (this.f60848a.f60844b.getChildAt(i5) != null) {
-                                this.f60848a.f60844b.getChildAt(i5).setSelected(i5 == i3);
+                            if (this.f57744a.f57740b.getChildAt(i5) != null) {
+                                this.f57744a.f57740b.getChildAt(i5).setSelected(i5 == i3);
                             }
                             i5++;
                         }
@@ -121,7 +121,7 @@ public class BannerLayoutForAd extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BannerBaseItemInfo[] bannerBaseItemInfoArr = this.f60845c;
+            BannerBaseItemInfo[] bannerBaseItemInfoArr = this.f57741c;
             return bannerBaseItemInfoArr != null && bannerBaseItemInfoArr.length > 0;
         }
         return invokeV.booleanValue;
@@ -130,30 +130,30 @@ public class BannerLayoutForAd extends RelativeLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f60843a.setFocusConfigInfo(this.f60845c, "");
+            this.f57739a.setFocusConfigInfo(this.f57741c, "");
             int drawable = ResUtils.drawable(getContext(), "wallet_base_indicators");
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 7.0f), DisplayUtils.dip2px(getContext(), 2.0f));
-            if (this.f60845c.length > 1) {
+            if (this.f57741c.length > 1) {
                 int i2 = 0;
-                while (i2 < this.f60845c.length) {
+                while (i2 < this.f57741c.length) {
                     View view = new View(getContext());
                     view.setBackgroundResource(drawable);
                     view.setSelected(i2 == 0);
-                    this.f60844b.addView(view, layoutParams);
+                    this.f57740b.addView(view, layoutParams);
                     layoutParams.leftMargin = DisplayUtils.dip2px(getContext(), 6.0f);
                     i2++;
                 }
-                this.f60844b.setVisibility(0);
+                this.f57740b.setVisibility(0);
                 return;
             }
-            this.f60844b.setVisibility(8);
+            this.f57740b.setVisibility(8);
         }
     }
 
     public void setConfigData(BannerBaseItemInfo[] bannerBaseItemInfoArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bannerBaseItemInfoArr) == null) {
-            this.f60845c = bannerBaseItemInfoArr;
+            this.f57741c = bannerBaseItemInfoArr;
             if (isDataValide()) {
                 removeAllViews();
                 initView();
@@ -165,22 +165,22 @@ public class BannerLayoutForAd extends RelativeLayout {
     public void setMaiDianData(String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f60843a;
+            BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f57739a;
             if (bannerFocusImageViewGroup != null) {
                 bannerFocusImageViewGroup.setMaiDianDataKey(str);
             }
             if (list == null || list.size() <= 0) {
                 return;
             }
-            this.f60843a.setMaindian_public_value(list);
+            this.f57739a.setMaindian_public_value(list);
         }
     }
 
     public void setMarginLeftAndRight(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            this.f60846d = i2;
-            this.f60847e = i3;
+            this.f57742d = i2;
+            this.f57743e = i3;
         }
     }
 

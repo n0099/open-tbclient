@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetPoisByLocation.DataReq;
 import tbclient.GetPoisByLocation.GetPoisByLocationReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LocationSocketRequestMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

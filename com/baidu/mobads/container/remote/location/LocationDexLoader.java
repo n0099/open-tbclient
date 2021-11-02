@@ -30,7 +30,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LocationDexLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "loc tiny String";
@@ -46,7 +46,7 @@ public class LocationDexLoader {
     public TelephonyManager mTeleman;
 
     /* renamed from: com.baidu.mobads.container.remote.location.LocationDexLoader$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -402,7 +402,7 @@ public class LocationDexLoader {
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class BDCellInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

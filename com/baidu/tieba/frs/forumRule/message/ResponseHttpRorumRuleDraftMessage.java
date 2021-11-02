@@ -4,13 +4,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ForumRuleBaseData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponseHttpRorumRuleDraftMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class ResponseHttpRorumRuleDraftMessage extends JsonHttpResponsedMessage 
             return;
         }
         setError(parseInt);
-        setErrorString(jSONObject.optString("error_msg"));
+        setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
     }
 
     public ForumRuleBaseData getData() {

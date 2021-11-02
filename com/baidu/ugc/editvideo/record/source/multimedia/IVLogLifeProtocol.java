@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IVLogLifeProtocol {
     void onDestroy();
 

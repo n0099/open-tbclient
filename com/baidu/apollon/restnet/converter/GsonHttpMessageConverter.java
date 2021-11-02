@@ -18,12 +18,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f38101a;
+    public static final Charset f36115a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
                 return;
             }
         }
-        f38101a = Charset.forName("UTF-8");
+        f36115a = Charset.forName("UTF-8");
     }
 
     public GsonHttpMessageConverter() {
@@ -63,7 +63,7 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
             if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
                 return Charset.forName(aVar.j());
             }
-            return f38101a;
+            return f36115a;
         }
         return (Charset) invokeL.objValue;
     }

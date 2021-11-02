@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mainTab.videoRedIcon;
 
 import android.text.TextUtils;
-import c.a.q0.d1.z;
+import b.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.VideoRedIcon.DataReq;
 import tbclient.VideoRedIcon.VideoRedIconReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VideoRedIconRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_VIDEO_TAB = "video_tab";

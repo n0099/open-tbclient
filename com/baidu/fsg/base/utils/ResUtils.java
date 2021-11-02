@@ -21,40 +21,38 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ResUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39664a = "id";
+    public static final String f37604a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39665b = "string";
+    public static final String f37605b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39666c = "layout";
+    public static final String f37606c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39667d = "style";
+    public static final String f37607d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39668e = "drawable";
+    public static final String f37608e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39669f = "color";
+    public static final String f37609f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39670g = "array";
+    public static final String f37610g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39671h = "attr";
+    public static final String f37611h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39672i = "dimen";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f39673j = "xml";
+    public static final String f37612i = "dimen";
+    public static final String j = "xml";
     public static final String k = "integer";
     public static final String l = "raw";
     public static Context m;

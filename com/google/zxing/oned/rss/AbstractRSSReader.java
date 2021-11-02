@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.oned.OneDReader;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractRSSReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MAX_AVG_VARIANCE = 0.2f;

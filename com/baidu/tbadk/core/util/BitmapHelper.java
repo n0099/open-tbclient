@@ -16,8 +16,8 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.m;
-import c.a.e.l.d.a;
+import b.a.e.e.p.m;
+import b.a.e.l.d.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -39,7 +39,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BitmapHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_2_BITMAP_MUL = 10;
@@ -950,7 +950,7 @@ public class BitmapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
             try {
-                int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
+                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
                 if (attributeInt != 3) {
                     if (attributeInt != 6) {
                         return attributeInt != 8 ? 0 : 270;
@@ -1348,7 +1348,7 @@ public class BitmapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65584, null, context, uri, i2)) == null) {
             try {
-                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42346a);
+                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f40168a);
             } catch (Throwable unused) {
                 parcelFileDescriptor = null;
             }

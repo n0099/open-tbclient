@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.q0.s.q.a;
-import c.a.q0.s.u.c;
+import b.a.q0.s.q.a;
+import b.a.q0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
@@ -22,19 +22,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RecommendInfoLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f38837e;
+    public LinearLayout f36808e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BarImageView f38838f;
+    public BarImageView f36809f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f38839g;
+    public TextView f36810g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendInfoLayout(Context context) {
@@ -61,19 +61,19 @@ public class RecommendInfoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.thread_recommend_info_layout, (ViewGroup) this, true);
-            this.f38837e = (LinearLayout) inflate.findViewById(R.id.recommend_layout);
-            this.f38838f = (BarImageView) inflate.findViewById(R.id.recommend_forum_avatar);
-            this.f38839g = (TextView) inflate.findViewById(R.id.recommend_info_view);
+            this.f36808e = (LinearLayout) inflate.findViewById(R.id.recommend_layout);
+            this.f36809f = (BarImageView) inflate.findViewById(R.id.recommend_forum_avatar);
+            this.f36810g = (TextView) inflate.findViewById(R.id.recommend_info_view);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c d2 = c.d(this.f38837e);
+            c d2 = c.d(this.f36808e);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0209);
-            c d3 = c.d(this.f38839g);
+            c d3 = c.d(this.f36810g);
             d3.A(R.string.F_X01);
             d3.z(R.dimen.T_X09);
             d3.v(R.color.CAM_X0107);
@@ -88,18 +88,18 @@ public class RecommendInfoLayout extends RelativeLayout {
         }
         String str = threadRecommendInfoData.forumAvatar;
         if (!TextUtils.isEmpty(str)) {
-            this.f38838f.setVisibility(0);
-            this.f38838f.startLoad(str, 10, false);
+            this.f36809f.setVisibility(0);
+            this.f36809f.startLoad(str, 10, false);
         } else {
-            this.f38838f.setVisibility(8);
+            this.f36809f.setVisibility(8);
         }
         String str2 = threadRecommendInfoData.forumName;
         String str3 = threadRecommendInfoData.recommendReason;
         if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            this.f38839g.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, "...") + TbadkCoreApplication.getInst().getString(R.string.forum) + str3);
+            this.f36810g.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, "...") + TbadkCoreApplication.getInst().getString(R.string.forum) + str3);
         } else if (TextUtils.isEmpty(str3)) {
         } else {
-            this.f38839g.setText(str3);
+            this.f36810g.setText(str3);
         }
     }
 

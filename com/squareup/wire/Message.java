@@ -21,7 +21,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class Message {
     public static /* synthetic */ Interceptable $ic;
     public static final Wire WIRE;
@@ -31,7 +31,7 @@ public abstract class Message {
     public transient boolean haveCachedSerializedSize;
     public transient UnknownFieldMap unknownFields;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Builder<T extends Message> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,10 +86,10 @@ public abstract class Message {
             }
         }
 
-        public void addFixed64(int i2, long j2) {
+        public void addFixed64(int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                ensureUnknownFieldMap().addFixed64(i2, Long.valueOf(j2));
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                ensureUnknownFieldMap().addFixed64(i2, Long.valueOf(j));
             }
         }
 
@@ -100,10 +100,10 @@ public abstract class Message {
             }
         }
 
-        public void addVarint(int i2, long j2) {
+        public void addVarint(int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                ensureUnknownFieldMap().addVarint(i2, Long.valueOf(j2));
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                ensureUnknownFieldMap().addVarint(i2, Long.valueOf(j));
             }
         }
 
@@ -139,7 +139,7 @@ public abstract class Message {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Datatype {
         public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
         public static /* synthetic */ Interceptable $ic;
@@ -410,7 +410,7 @@ public abstract class Message {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Label {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ Label[] ENUM$VALUES;

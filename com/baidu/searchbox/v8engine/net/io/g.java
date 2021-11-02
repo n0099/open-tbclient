@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final transient byte[][] f45129f;
+    public final transient byte[][] f42863f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final transient int[] f45130g;
+    public final transient int[] f42864g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(a aVar, int i2) {
@@ -37,38 +37,38 @@ public final class g extends d {
                 return;
             }
         }
-        j.a(aVar.f45114b, 0L, i2);
-        e eVar = aVar.f45113a;
+        j.a(aVar.f42848b, 0L, i2);
+        e eVar = aVar.f42847a;
         int i5 = 0;
         int i6 = 0;
         int i7 = 0;
         while (i6 < i2) {
-            int i8 = eVar.f45122c;
-            int i9 = eVar.f45121b;
+            int i8 = eVar.f42856c;
+            int i9 = eVar.f42855b;
             if (i8 != i9) {
                 i6 += i8 - i9;
                 i7++;
-                eVar = eVar.f45125f;
+                eVar = eVar.f42859f;
             } else {
                 throw new AssertionError("s.limit == s.pos");
             }
         }
-        this.f45129f = new byte[i7];
-        this.f45130g = new int[i7 * 2];
-        e eVar2 = aVar.f45113a;
+        this.f42863f = new byte[i7];
+        this.f42864g = new int[i7 * 2];
+        e eVar2 = aVar.f42847a;
         int i10 = 0;
         while (i5 < i2) {
-            this.f45129f[i10] = eVar2.f45120a;
-            i5 += eVar2.f45122c - eVar2.f45121b;
+            this.f42863f[i10] = eVar2.f42854a;
+            i5 += eVar2.f42856c - eVar2.f42855b;
             if (i5 > i2) {
                 i5 = i2;
             }
-            int[] iArr = this.f45130g;
+            int[] iArr = this.f42864g;
             iArr[i10] = i5;
-            iArr[this.f45129f.length + i10] = eVar2.f45121b;
-            eVar2.f45123d = true;
+            iArr[this.f42863f.length + i10] = eVar2.f42855b;
+            eVar2.f42857d = true;
             i10++;
-            eVar2 = eVar2.f45125f;
+            eVar2 = eVar2.f42859f;
         }
     }
 
@@ -96,7 +96,7 @@ public final class g extends d {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f45130g[this.f45129f.length - 1] : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42864g[this.f42863f.length - 1] : invokeV.intValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
@@ -104,17 +104,17 @@ public final class g extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int[] iArr = this.f45130g;
-            byte[][] bArr = this.f45129f;
+            int[] iArr = this.f42864g;
+            byte[][] bArr = this.f42863f;
             byte[] bArr2 = new byte[iArr[bArr.length - 1]];
             int length = bArr.length;
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                int[] iArr2 = this.f45130g;
+                int[] iArr2 = this.f42864g;
                 int i4 = iArr2[length + i2];
                 int i5 = iArr2[i2];
-                System.arraycopy(this.f45129f[i2], i4, bArr2, i3, i5 - i3);
+                System.arraycopy(this.f42863f[i2], i4, bArr2, i3, i5 - i3);
                 i2++;
                 i3 = i5;
             }
@@ -147,17 +147,17 @@ public final class g extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i2 = this.f45118d;
+            int i2 = this.f42852d;
             if (i2 != 0) {
                 return i2;
             }
-            int length = this.f45129f.length;
+            int length = this.f42863f.length;
             int i3 = 0;
             int i4 = 0;
             int i5 = 1;
             while (i3 < length) {
-                byte[] bArr = this.f45129f[i3];
-                int[] iArr = this.f45130g;
+                byte[] bArr = this.f42863f[i3];
+                int[] iArr = this.f42864g;
                 int i6 = iArr[length + i3];
                 int i7 = iArr[i3];
                 int i8 = (i7 - i4) + i6;
@@ -168,7 +168,7 @@ public final class g extends d {
                 i3++;
                 i4 = i7;
             }
-            this.f45118d = i5;
+            this.f42852d = i5;
             return i5;
         }
         return invokeV.intValue;
@@ -185,7 +185,7 @@ public final class g extends d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            int binarySearch = Arrays.binarySearch(this.f45130g, 0, this.f45129f.length, i2 + 1);
+            int binarySearch = Arrays.binarySearch(this.f42864g, 0, this.f42863f.length, i2 + 1);
             return binarySearch >= 0 ? binarySearch : ~binarySearch;
         }
         return invokeI.intValue;
@@ -203,11 +203,11 @@ public final class g extends d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            j.a(this.f45130g[this.f45129f.length - 1], i2, 1L);
+            j.a(this.f42864g[this.f42863f.length - 1], i2, 1L);
             int b2 = b(i2);
-            int i3 = b2 == 0 ? 0 : this.f45130g[b2 - 1];
-            int[] iArr = this.f45130g;
-            byte[][] bArr = this.f45129f;
+            int i3 = b2 == 0 ? 0 : this.f42864g[b2 - 1];
+            int[] iArr = this.f42864g;
+            byte[][] bArr = this.f42863f;
             return bArr[b2][(i2 - i3) + iArr[bArr.length + b2]];
         }
         return invokeI.byteValue;
@@ -223,10 +223,10 @@ public final class g extends d {
             }
             int b2 = b(i2);
             while (i4 > 0) {
-                int i5 = b2 == 0 ? 0 : this.f45130g[b2 - 1];
-                int min = Math.min(i4, ((this.f45130g[b2] - i5) + i5) - i2);
-                int[] iArr = this.f45130g;
-                byte[][] bArr = this.f45129f;
+                int i5 = b2 == 0 ? 0 : this.f42864g[b2 - 1];
+                int min = Math.min(i4, ((this.f42864g[b2] - i5) + i5) - i2);
+                int[] iArr = this.f42864g;
+                byte[][] bArr = this.f42863f;
                 if (!dVar.a(i3, bArr[b2], (i2 - i5) + iArr[bArr.length + b2], min)) {
                     return false;
                 }
@@ -250,10 +250,10 @@ public final class g extends d {
             }
             int b2 = b(i2);
             while (i4 > 0) {
-                int i5 = b2 == 0 ? 0 : this.f45130g[b2 - 1];
-                int min = Math.min(i4, ((this.f45130g[b2] - i5) + i5) - i2);
-                int[] iArr = this.f45130g;
-                byte[][] bArr2 = this.f45129f;
+                int i5 = b2 == 0 ? 0 : this.f42864g[b2 - 1];
+                int min = Math.min(i4, ((this.f42864g[b2] - i5) + i5) - i2);
+                int[] iArr = this.f42864g;
+                byte[][] bArr2 = this.f42863f;
                 if (!j.a(bArr2[b2], (i2 - i5) + iArr[bArr2.length + b2], bArr, i3, min)) {
                     return false;
                 }

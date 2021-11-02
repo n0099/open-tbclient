@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BDFaceInstance {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,10 +32,10 @@ public class BDFaceInstance {
 
     private native long nativeGetDefautlInstance();
 
-    private void setIndex(long j2) {
+    private void setIndex(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65539, this, j2) == null) {
-            this.index = j2;
+        if (interceptable == null || interceptable.invokeJ(65539, this, j) == null) {
+            this.index = j;
         }
     }
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.i;
+import b.a.p0.a.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.BdDatePicker;
 import com.baidu.swan.apps.res.widget.dialog.SwanAppPickerDialog;
@@ -14,46 +14,44 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DatePickerDialog extends SwanAppPickerDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdDatePicker f46479g;
+    public BdDatePicker f44146g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46480h;
+    public int f44147h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46481i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f46482j;
+    public int f44148i;
+    public int j;
     public String k;
     public boolean l;
     public Date m;
     public Date n;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a extends SwanAppPickerDialog.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Date f46483e;
+        public Date f44149e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Date f46484f;
+        public Date f44150f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Date f46485g;
+        public Date f44151g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f46486h;
+        public String f44152h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f46487i;
+        public boolean f44153i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -81,19 +79,19 @@ public class DatePickerDialog extends SwanAppPickerDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 DatePickerDialog datePickerDialog = (DatePickerDialog) super.a();
-                datePickerDialog.setFields(this.f46486h);
-                datePickerDialog.setDisabled(this.f46487i);
-                Date date = this.f46485g;
+                datePickerDialog.setFields(this.f44152h);
+                datePickerDialog.setDisabled(this.f44153i);
+                Date date = this.f44151g;
                 if (date != null) {
                     datePickerDialog.setYear(date.getYear() + 1900);
-                    datePickerDialog.setMonth(this.f46485g.getMonth() + 1);
-                    datePickerDialog.setDay(this.f46485g.getDate());
+                    datePickerDialog.setMonth(this.f44151g.getMonth() + 1);
+                    datePickerDialog.setDay(this.f44151g.getDate());
                 }
-                Date date2 = this.f46483e;
+                Date date2 = this.f44149e;
                 if (date2 != null) {
                     datePickerDialog.setStartDate(date2);
                 }
-                Date date3 = this.f46484f;
+                Date date3 = this.f44150f;
                 if (date3 != null) {
                     datePickerDialog.setEndDate(date3);
                 }
@@ -113,7 +111,7 @@ public class DatePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f46487i = z;
+                this.f44153i = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -123,7 +121,7 @@ public class DatePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
-                this.f46484f = date;
+                this.f44150f = date;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -133,7 +131,7 @@ public class DatePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f46486h = str;
+                this.f44152h = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -143,7 +141,7 @@ public class DatePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, date)) == null) {
-                this.f46485g = date;
+                this.f44151g = date;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -153,7 +151,7 @@ public class DatePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, date)) == null) {
-                this.f46483e = date;
+                this.f44149e = date;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -184,38 +182,38 @@ public class DatePickerDialog extends SwanAppPickerDialog {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f46479g = new BdDatePicker(getContext());
+            this.f44146g = new BdDatePicker(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 1;
-            this.f46479g.setLayoutParams(layoutParams);
-            this.f46479g.setScrollCycle(true);
-            this.f46479g.setStartDate(this.m);
-            this.f46479g.setEndDate(this.n);
-            this.f46479g.setYear(this.f46480h);
-            this.f46479g.setMonth(this.f46481i);
-            this.f46479g.setDay(this.f46482j);
-            this.f46479g.updateDatas();
-            this.f46479g.setFields(this.k);
-            this.f46479g.setDisabled(this.l);
+            this.f44146g.setLayoutParams(layoutParams);
+            this.f44146g.setScrollCycle(true);
+            this.f44146g.setStartDate(this.m);
+            this.f44146g.setEndDate(this.n);
+            this.f44146g.setYear(this.f44147h);
+            this.f44146g.setMonth(this.f44148i);
+            this.f44146g.setDay(this.j);
+            this.f44146g.updateDatas();
+            this.f44146g.setFields(this.k);
+            this.f44146g.setDisabled(this.l);
         }
     }
 
     public final boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f46479g.isWheelViewVisible(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f44146g.isWheelViewVisible(str) : invokeL.booleanValue;
     }
 
     public int getDay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46479g.getDay() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44146g.getDay() : invokeV.intValue;
     }
 
     public int getMonth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46479g.getMonth() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44146g.getMonth() : invokeV.intValue;
     }
 
     public String getSelectedDate() {
@@ -241,7 +239,7 @@ public class DatePickerDialog extends SwanAppPickerDialog {
     public int getYear() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f46479g.getYear() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f44146g.getYear() : invokeV.intValue;
     }
 
     @Override // android.app.Dialog
@@ -249,14 +247,14 @@ public class DatePickerDialog extends SwanAppPickerDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             b();
-            getBuilder().j(this.f46479g);
+            getBuilder().j(this.f44146g);
         }
     }
 
     public void setDay(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f46482j = i2;
+            this.j = i2;
         }
     }
 
@@ -284,7 +282,7 @@ public class DatePickerDialog extends SwanAppPickerDialog {
     public void setMonth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f46481i = i2;
+            this.f44148i = i2;
         }
     }
 
@@ -298,7 +296,7 @@ public class DatePickerDialog extends SwanAppPickerDialog {
     public void setYear(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f46480h = i2;
+            this.f44147h = i2;
         }
     }
 

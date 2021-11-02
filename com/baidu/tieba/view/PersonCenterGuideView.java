@@ -13,6 +13,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,28 +25,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonCenterGuideView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58353e;
+    public boolean f55352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f58354f;
+    public TbImageView f55353f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f58355g;
+    public TextView f55354g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f58356h;
+    public ImageView f55355h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f58357i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public RotateAnimation f58358j;
+    public View f55356i;
+    public RotateAnimation j;
     public AlphaAnimation k;
     public AnimationSet l;
     public ObjectAnimator m;
@@ -54,13 +53,13 @@ public class PersonCenterGuideView extends RelativeLayout {
     public Animation.AnimationListener p;
     public final CustomMessageListener q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterGuideView f58359a;
+        public final /* synthetic */ PersonCenterGuideView f55357a;
 
         public a(PersonCenterGuideView personCenterGuideView) {
             Interceptable interceptable = $ic;
@@ -77,14 +76,14 @@ public class PersonCenterGuideView extends RelativeLayout {
                     return;
                 }
             }
-            this.f58359a = personCenterGuideView;
+            this.f55357a = personCenterGuideView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f58359a.i();
+                this.f55357a.i();
             }
         }
 
@@ -103,13 +102,13 @@ public class PersonCenterGuideView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterGuideView f58360a;
+        public final /* synthetic */ PersonCenterGuideView f55358a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PersonCenterGuideView personCenterGuideView, int i2) {
@@ -129,21 +128,21 @@ public class PersonCenterGuideView extends RelativeLayout {
                     return;
                 }
             }
-            this.f58360a = personCenterGuideView;
+            this.f55358a = personCenterGuideView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f58360a.f58353e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f55358a.f55352e) {
                 return;
             }
-            this.f58360a.f58353e = true;
-            this.f58360a.setVisibility(0);
-            this.f58360a.f58357i.setVisibility(4);
-            this.f58360a.f58354f.startAnimation(this.f58360a.l);
-            c.a.q0.s.d0.b.j().t("has_shown_person_center_guide", this.f58360a.f58353e);
+            this.f55358a.f55352e = true;
+            this.f55358a.setVisibility(0);
+            this.f55358a.f55356i.setVisibility(4);
+            this.f55358a.f55353f.startAnimation(this.f55358a.l);
+            b.a.q0.s.e0.b.j().t("has_shown_person_center_guide", this.f55358a.f55352e);
         }
     }
 
@@ -165,7 +164,7 @@ public class PersonCenterGuideView extends RelativeLayout {
                 return;
             }
         }
-        this.f58353e = false;
+        this.f55352e = false;
         this.p = new a(this);
         this.q = new b(this, 2921423);
         h(context);
@@ -182,7 +181,7 @@ public class PersonCenterGuideView extends RelativeLayout {
             if (animationSet != null) {
                 animationSet.cancel();
             }
-            RotateAnimation rotateAnimation = this.f58358j;
+            RotateAnimation rotateAnimation = this.j;
             if (rotateAnimation != null) {
                 rotateAnimation.cancel();
             }
@@ -198,23 +197,23 @@ public class PersonCenterGuideView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.person_center_header_guide_layout, this);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.person_center_header_guide_circle);
-            this.f58354f = tbImageView;
+            this.f55353f = tbImageView;
             tbImageView.setIsRound(true);
-            this.f58357i = findViewById(R.id.person_center_header_guide_tip_container);
-            this.f58355g = (TextView) findViewById(R.id.person_center_header_guide_tip);
-            this.f58356h = (ImageView) findViewById(R.id.person_center_header_guide_close);
+            this.f55356i = findViewById(R.id.person_center_header_guide_tip_container);
+            this.f55354g = (TextView) findViewById(R.id.person_center_header_guide_tip);
+            this.f55355h = (ImageView) findViewById(R.id.person_center_header_guide_close);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-            this.f58358j = rotateAnimation;
+            this.j = rotateAnimation;
             rotateAnimation.setDuration(660L);
-            this.f58358j.setAnimationListener(this.p);
+            this.j.setAnimationListener(this.p);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             this.k = alphaAnimation;
             alphaAnimation.setDuration(660L);
             AnimationSet animationSet = new AnimationSet(true);
             this.l = animationSet;
-            animationSet.addAnimation(this.f58358j);
+            animationSet.addAnimation(this.j);
             this.l.addAnimation(this.k);
-            this.f58353e = c.a.q0.s.d0.b.j().g("has_shown_person_center_guide", false);
+            this.f55352e = b.a.q0.s.e0.b.j().g("has_shown_person_center_guide", false);
         }
     }
 
@@ -229,12 +228,12 @@ public class PersonCenterGuideView extends RelativeLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f58357i.setVisibility(0);
+            this.f55356i.setVisibility(0);
             if (this.m == null) {
-                this.m = ObjectAnimator.ofFloat(this.f58357i, "translationX", -this.f58355g.getWidth(), 0.0f);
+                this.m = ObjectAnimator.ofFloat(this.f55356i, Key.TRANSLATION_X, -this.f55354g.getWidth(), 0.0f);
             }
             if (this.o == null) {
-                this.n = ObjectAnimator.ofFloat(this.f58357i, "alpha", 0.0f, 1.0f);
+                this.n = ObjectAnimator.ofFloat(this.f55356i, Key.ALPHA, 0.0f, 1.0f);
             }
             if (this.o == null) {
                 AnimatorSet animatorSet = new AnimatorSet();
@@ -258,10 +257,10 @@ public class PersonCenterGuideView extends RelativeLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setImageResource(this.f58354f, R.drawable.person_center_head_guide_circle);
-            SkinManager.setImageResource(this.f58356h, R.drawable.icon_topbar_close_white_n);
-            SkinManager.setViewTextColor(this.f58355g, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.f58357i, R.drawable.person_center_header_guide_tip_bg);
+            SkinManager.setImageResource(this.f55353f, R.drawable.person_center_head_guide_circle);
+            SkinManager.setImageResource(this.f55355h, R.drawable.icon_topbar_close_white_n);
+            SkinManager.setViewTextColor(this.f55354g, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.f55356i, R.drawable.person_center_header_guide_tip_bg);
         }
     }
 
@@ -294,7 +293,7 @@ public class PersonCenterGuideView extends RelativeLayout {
                 return;
             }
         }
-        this.f58353e = false;
+        this.f55352e = false;
         this.p = new a(this);
         this.q = new b(this, 2921423);
         h(context);
@@ -319,7 +318,7 @@ public class PersonCenterGuideView extends RelativeLayout {
                 return;
             }
         }
-        this.f58353e = false;
+        this.f55352e = false;
         this.p = new a(this);
         this.q = new b(this, 2921423);
         h(context);

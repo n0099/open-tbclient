@@ -5,21 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.b;
-import i.c;
-import i.j;
-import i.k;
+import h.b;
+import h.c;
+import h.j;
+import h.k;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber extends j<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final SequentialSubscription f79731e;
+    /* renamed from: i  reason: collision with root package name */
+    public final SequentialSubscription f72596i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class ConcatInnerSubscriber extends AtomicInteger implements c {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7233503139645205620L;
@@ -44,32 +44,32 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             this.this$0 = completableOnSubscribeConcat$CompletableConcatSubscriber;
         }
 
-        @Override // i.c
+        @Override // h.c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.this$0.b();
+                this.this$0.g();
             }
         }
 
-        @Override // i.c
+        @Override // h.c
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.this$0.c(th);
+                this.this$0.h(th);
             }
         }
 
-        @Override // i.c
+        @Override // h.c
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-                this.this$0.f79731e.set(kVar);
+                this.this$0.f72596i.set(kVar);
             }
         }
     }
 
-    public abstract void b();
+    public abstract void g();
 
-    public abstract void c(Throwable th);
+    public abstract void h(Throwable th);
 }

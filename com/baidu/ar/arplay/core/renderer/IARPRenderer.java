@@ -11,7 +11,7 @@ import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelRotation;
 import java.lang.ref.SoftReference;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IARPRenderer {
     String addOutputSurface(Surface surface, int i2, int i3);
 
@@ -47,7 +47,7 @@ public interface IARPRenderer {
 
     void destroyPixelReaderByPreFilterID(PixelReadParams pixelReadParams, PixelReadListener pixelReadListener);
 
-    void destroyTexture(long j2);
+    void destroyTexture(long j);
 
     String getDefaultLuaPath();
 
@@ -55,19 +55,19 @@ public interface IARPRenderer {
 
     void getSnapShot(TakePictureCallback takePictureCallback, int i2, int i3, int i4, Rect rect);
 
-    int getTextureId(long j2);
+    int getTextureId(long j);
 
     boolean isFrontCamera();
 
     void loadDefaultFilterLuaPath(String str);
 
-    void onFrameRenderFinished(long j2);
+    void onFrameRenderFinished(long j);
 
-    void onFrameRenderStarted(long j2);
+    void onFrameRenderStarted(long j);
 
-    void onSnapShotFinished(Bitmap bitmap, long j2);
+    void onSnapShotFinished(Bitmap bitmap, long j);
 
-    boolean pixelReadCallback(ByteBuffer byteBuffer, long j2, int i2, int i3, int i4, int i5, int i6, String str, int i7, int i8);
+    boolean pixelReadCallback(ByteBuffer byteBuffer, long j, int i2, int i3, int i4, int i5, int i6, String str, int i7, int i8);
 
     void purgeMemory();
 
@@ -75,7 +75,7 @@ public interface IARPRenderer {
 
     void removeOutputTargetByAddr(String str);
 
-    void render(long j2);
+    void render(long j);
 
     void runAsyncOnRenderContext(Runnable runnable);
 
@@ -85,7 +85,7 @@ public interface IARPRenderer {
 
     void runSyncOnRenderContext(Runnable runnable);
 
-    void setAlgoPts(long j2);
+    void setAlgoPts(long j);
 
     void setCameraFace(boolean z);
 
@@ -119,5 +119,5 @@ public interface IARPRenderer {
 
     void updateOutputSurfaceRotation(String str, PixelRotation pixelRotation);
 
-    void uploadPixelToTextureFromPath(long j2, String str);
+    void uploadPixelToTextureFromPath(long j, String str);
 }

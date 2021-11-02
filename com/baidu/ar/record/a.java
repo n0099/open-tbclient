@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements FrameRenderListener, IRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "a";
@@ -46,7 +46,7 @@ public class a implements FrameRenderListener, IRecord {
     public long ud;
 
     /* renamed from: com.baidu.ar.record.a$3  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation;
         public static /* synthetic */ Interceptable $ic;
@@ -241,9 +241,9 @@ public class a implements FrameRenderListener, IRecord {
                     }
 
                     @Override // com.baidu.ar.audio.EasyAudioCallback
-                    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j2) {
+                    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                             this.ue.a(byteBuffer, i2);
                         }
                     }
@@ -400,18 +400,18 @@ public class a implements FrameRenderListener, IRecord {
     }
 
     @Override // com.baidu.ar.arrender.FrameRenderListener
-    public void onRenderFinished(long j2) {
+    public void onRenderFinished(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || this.tV == null || this.ub) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.tV == null || this.ub) {
             return;
         }
         this.tV.onVideoFrameAvailable(System.nanoTime() - this.ud);
     }
 
     @Override // com.baidu.ar.arrender.FrameRenderListener
-    public void onRenderStarted(long j2) {
+    public void onRenderStarted(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
         }
     }
 
@@ -442,16 +442,16 @@ public class a implements FrameRenderListener, IRecord {
     }
 
     @Override // com.baidu.ar.record.IRecord
-    public void startRecord(String str, long j2, RecordCallback recordCallback) {
+    public void startRecord(String str, long j, RecordCallback recordCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j2), recordCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j), recordCallback}) == null) {
             ft();
             fu();
             this.tU = recordCallback;
             EncoderParams encoderParams = this.tW;
             if (encoderParams != null) {
                 encoderParams.setOutputFile(str);
-                this.tW.setOutputTotalMs(j2);
+                this.tW.setOutputTotalMs(j);
             }
             IEasyAudio iEasyAudio = this.tY;
             if (iEasyAudio != null) {

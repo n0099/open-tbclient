@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.f;
-import i.j;
-import i.k;
-import i.o.a.a;
-import i.o.a.n;
+import h.d;
+import h.f;
+import h.j;
+import h.k;
+import h.o.a.a;
+import h.o.a.l;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements f, k, d.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3852313036005250360L;
@@ -31,16 +31,16 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
     public Throwable error;
     public final K key;
     public final AtomicBoolean once;
-    public final n<?, K, T> parent;
+    public final l<?, K, T> parent;
     public final Queue<Object> queue;
     public final AtomicLong requested;
 
-    public OperatorGroupBy$State(int i2, n<?, K, T> nVar, K k, boolean z) {
+    public OperatorGroupBy$State(int i2, l<?, K, T> lVar, K k, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), nVar, k, Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i2), lVar, k, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -51,7 +51,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
             }
         }
         this.queue = new ConcurrentLinkedQueue();
-        this.parent = nVar;
+        this.parent = lVar;
         this.key = k;
         this.delayError = z;
         this.cancelled = new AtomicBoolean();
@@ -60,7 +60,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         this.requested = new AtomicLong();
     }
 
-    @Override // i.n.b
+    @Override // h.d.a, h.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }
@@ -71,7 +71,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), jVar, Boolean.valueOf(z3)})) == null) {
             if (this.cancelled.get()) {
                 this.queue.clear();
-                this.parent.b(this.key);
+                this.parent.g(this.key);
                 return true;
             } else if (z) {
                 if (z3) {
@@ -118,9 +118,9 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                 if (checkTerminated(this.done, queue.isEmpty(), jVar, z)) {
                     return;
                 }
-                long j2 = this.requested.get();
-                long j3 = 0;
-                while (j3 != j2) {
+                long j = this.requested.get();
+                long j2 = 0;
+                while (j2 != j) {
                     boolean z2 = this.done;
                     Object poll = queue.poll();
                     boolean z3 = poll == null;
@@ -131,13 +131,13 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                         break;
                     }
                     jVar.onNext((Object) NotificationLite.e(poll));
-                    j3++;
+                    j2++;
                 }
-                if (j3 != 0) {
-                    if (j2 != Long.MAX_VALUE) {
-                        a.g(this.requested, j3);
+                if (j2 != 0) {
+                    if (j != Long.MAX_VALUE) {
+                        a.g(this.requested, j2);
                     }
-                    this.parent.f79022e.request(j3);
+                    this.parent.f71929i.request(j2);
                 }
             }
             i2 = addAndGet(-i2);
@@ -150,7 +150,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
     }
 
-    @Override // i.k
+    @Override // h.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -187,25 +187,25 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
     }
 
-    @Override // i.f
-    public void request(long j2) {
+    @Override // h.f
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i2 < 0) {
-                throw new IllegalArgumentException("n >= required but it was " + j2);
+                throw new IllegalArgumentException("n >= required but it was " + j);
             } else if (i2 != 0) {
-                a.b(this.requested, j2);
+                a.b(this.requested, j);
                 drain();
             }
         }
     }
 
-    @Override // i.k
+    @Override // h.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {
-            this.parent.b(this.key);
+            this.parent.g(this.key);
         }
     }
 
@@ -213,8 +213,8 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
             if (this.once.compareAndSet(false, true)) {
-                jVar.add(this);
-                jVar.setProducer(this);
+                jVar.b(this);
+                jVar.f(this);
                 this.actual.lazySet(jVar);
                 drain();
                 return;

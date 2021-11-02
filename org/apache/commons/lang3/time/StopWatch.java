@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StopWatch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long NANO_2_MILLIS = 1000000;
@@ -22,14 +22,14 @@ public class StopWatch {
     public long stopTime;
 
     /* renamed from: org.apache.commons.lang3.time.StopWatch$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SplitState {
         public static final /* synthetic */ SplitState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -89,7 +89,7 @@ public class StopWatch {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -408,8 +408,8 @@ public class StopWatch {
 
     public long getNanoTime() {
         InterceptResult invokeV;
+        long j;
         long j2;
-        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             State state = this.runningState;
@@ -418,16 +418,16 @@ public class StopWatch {
                     return 0L;
                 }
                 if (state == State.RUNNING) {
-                    j2 = System.nanoTime();
-                    j3 = this.startTime;
+                    j = System.nanoTime();
+                    j2 = this.startTime;
                 } else {
                     throw new RuntimeException("Illegal running state has occurred.");
                 }
             } else {
-                j2 = this.stopTime;
-                j3 = this.startTime;
+                j = this.stopTime;
+                j2 = this.startTime;
             }
-            return j2 - j3;
+            return j - j2;
         }
         return invokeV.longValue;
     }

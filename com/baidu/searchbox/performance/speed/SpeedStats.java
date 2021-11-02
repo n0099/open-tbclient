@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.k;
-import c.a.q0.s.d0.b;
+import b.a.e.e.p.k;
+import b.a.q0.s.e0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
@@ -45,7 +45,7 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TO_ACTIVITY_DELAY = 300;
@@ -196,7 +196,10 @@ public class SpeedStats {
                             HashMap hashMap = new HashMap();
                             hashMap.put("duration", calculateDuration);
                             if (!TextUtils.equals(this.this$0.mUbcType, SpeedStatsUtils.UBC_TYPE_HOT_LAUNCH)) {
-                                hashMap.put(SpeedStatsUtils.UBC_KEY_USER_PERCEPTION_COST, String.valueOf(this.this$0.mSpeedStatsManager.getAppUserPerceptionLaunchDuration()));
+                                long appUserPerceptionLaunchDuration = this.this$0.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - SpeedStatsManager.getInstance().getSplashActivityDuration();
+                                if (appUserPerceptionLaunchDuration > 50 && appUserPerceptionLaunchDuration < 60000) {
+                                    hashMap.put(SpeedStatsUtils.UBC_KEY_USER_PERCEPTION_COST, String.valueOf(appUserPerceptionLaunchDuration));
+                                }
                             }
                             String calculateStage = this.this$0.calculateStage();
                             if (SpeedStats.DEBUG) {
@@ -866,7 +869,7 @@ public class SpeedStats {
         if (interceptable == null || interceptable.invokeL(1048596, this, context) == null) {
             this.isMainPageStatsEnd = true;
             if (this.mSpeedStatsManager.getStatsFlag()) {
-                this.mSpeedStatsManager.addStatsTimeStamp(6000);
+                this.mSpeedStatsManager.addStatsTimeStamp(7000);
                 if (!checkValid()) {
                     resetMainActivityStatsPeriod();
                     return;

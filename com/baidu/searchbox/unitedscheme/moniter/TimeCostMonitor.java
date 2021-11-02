@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TimeCostMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -37,12 +37,12 @@ public class TimeCostMonitor {
         DEBUG = AppConfig.isDebug();
     }
 
-    public TimeCostMonitor(TimeCostHandler timeCostHandler, long j2) {
+    public TimeCostMonitor(TimeCostHandler timeCostHandler, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {timeCostHandler, Long.valueOf(j2)};
+            Object[] objArr = {timeCostHandler, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -53,7 +53,7 @@ public class TimeCostMonitor {
             }
         }
         this.mTimeoutHandler = timeCostHandler;
-        this.mThresholdValue = j2;
+        this.mThresholdValue = j;
         this.mEventRecorder = new Hashtable<>();
     }
 

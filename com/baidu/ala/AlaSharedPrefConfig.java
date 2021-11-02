@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaSharedPrefConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME = "ala_live_tab_notifi_close_time";

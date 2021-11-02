@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.webview.jshandler.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.b.b.c f73898b;
+    public com.kwad.sdk.reward.b.b.c f66298b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f73899c;
+    public boolean f66299c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             j().findViewById(R.id.ksad_video_play_bar_h5).setVisibility(8);
             super.a();
-            if (this.f73899c) {
-                this.f73898b.a(((com.kwad.sdk.reward.d) this).f73944a);
+            if (this.f66299c) {
+                this.f66298b.a(((com.kwad.sdk.reward.d) this).f66343a);
             }
         }
     }
@@ -49,9 +49,9 @@ public class d extends a {
     public void a(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            float f2 = ((com.kwad.sdk.reward.d) this).f73944a.f73608g.getResources().getDisplayMetrics().density;
-            aVar.f72840a = (int) ((((com.kwad.sdk.reward.d) this).f73944a.f73608g.getResources().getDisplayMetrics().widthPixels / f2) + 0.5f);
-            aVar.f72841b = (int) ((((com.kwad.sdk.reward.d) this).f73944a.f73608g.getResources().getDisplayMetrics().heightPixels / f2) + 0.5f);
+            float f2 = ((com.kwad.sdk.reward.d) this).f66343a.f66017g.getResources().getDisplayMetrics().density;
+            aVar.f65290a = (int) ((((com.kwad.sdk.reward.d) this).f66343a.f66017g.getResources().getDisplayMetrics().widthPixels / f2) + 0.5f);
+            aVar.f65291b = (int) ((((com.kwad.sdk.reward.d) this).f66343a.f66017g.getResources().getDisplayMetrics().heightPixels / f2) + 0.5f);
         }
     }
 
@@ -61,7 +61,7 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.b();
             com.kwad.sdk.reward.b.b.c cVar = new com.kwad.sdk.reward.b.b.c();
-            this.f73898b = cVar;
+            this.f66298b = cVar;
             cVar.a(j());
             j().findViewById(f()).setVisibility(0);
         }
@@ -72,8 +72,8 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.c();
-            if (this.f73899c) {
-                this.f73898b.g();
+            if (this.f66299c) {
+                this.f66298b.g();
             }
         }
     }
@@ -96,8 +96,8 @@ public class d extends a {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f73898b.a(((com.kwad.sdk.reward.d) this).f73944a);
-            this.f73899c = true;
+            this.f66298b.a(((com.kwad.sdk.reward.d) this).f66343a);
+            this.f66299c = true;
         }
     }
 }

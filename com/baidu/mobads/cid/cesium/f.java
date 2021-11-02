@@ -18,16 +18,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42860a;
+    public Context f40668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f42861b;
+    public c f40669b;
 
     public f(Context context, c cVar) {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class f {
                 return;
             }
         }
-        this.f42860a = context;
-        this.f42861b = cVar;
+        this.f40668a = context;
+        this.f40669b = cVar;
     }
 
     private e a() {
@@ -65,18 +65,18 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
-            List<b> b2 = this.f42861b.b(context);
+            List<b> b2 = this.f40669b.b(context);
             e eVar = null;
             if (b2 != null) {
-                String str = com.baidu.fsg.face.base.b.c.f39845g;
+                String str = com.baidu.fsg.face.base.b.c.f37774g;
                 File filesDir = context.getFilesDir();
-                if (!com.baidu.fsg.face.base.b.c.f39845g.equals(filesDir.getName())) {
+                if (!com.baidu.fsg.face.base.b.c.f37774g.equals(filesDir.getName())) {
                     String str2 = "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath();
                     str = filesDir.getName();
                 }
                 for (b bVar : b2) {
-                    if (!bVar.f42724d) {
-                        File file = new File(new File(bVar.f42721a.dataDir, str), "libcuid.so");
+                    if (!bVar.f40534d) {
+                        File file = new File(new File(bVar.f40531a.dataDir, str), "libcuid.so");
                         if (file.exists() && (eVar = e.b(com.baidu.mobads.cid.cesium.f.c.a(file))) != null) {
                             break;
                         }
@@ -97,7 +97,7 @@ public class f {
     private boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) ? this.f42860a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) ? this.f40668a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
     }
 
     private String c(String str) {
@@ -105,7 +105,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
             try {
-                return Settings.System.getString(this.f42860a.getContentResolver(), str);
+                return Settings.System.getString(this.f40668a.getContentResolver(), str);
             } catch (Exception e2) {
                 com.baidu.mobads.cid.cesium.f.c.a(e2);
                 return null;
@@ -165,7 +165,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            e a2 = a(this.f42860a);
+            e a2 = a(this.f40668a);
             if (a2 == null) {
                 a2 = e.b(c("com.baidu.deviceid.v2"));
             }

@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AnnotationUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final ToStringStyle TO_STRING_STYLE;

@@ -1,5 +1,5 @@
 package com.baidu.mobads.sdk.api;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface SplashAdListener {
     void onADLoaded(RsplashType rsplashType, int i2);
 

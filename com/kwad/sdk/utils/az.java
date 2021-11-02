@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class az {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,13 +23,13 @@ public class az {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ WebView f74285a;
+                    public final /* synthetic */ WebView f66668a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f74286b;
+                    public final /* synthetic */ String f66669b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ ValueCallback f74287c;
+                    public final /* synthetic */ ValueCallback f66670c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -46,16 +46,16 @@ public class az {
                                 return;
                             }
                         }
-                        this.f74285a = webView;
-                        this.f74286b = str;
-                        this.f74287c = valueCallback;
+                        this.f66668a = webView;
+                        this.f66669b = str;
+                        this.f66670c = valueCallback;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f74285a.evaluateJavascript(this.f74286b, this.f74287c);
+                            this.f66668a.evaluateJavascript(this.f66669b, this.f66670c);
                         }
                     }
                 });

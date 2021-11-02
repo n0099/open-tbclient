@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RestMultipartEntity {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] MULTIPART_CHARS;
@@ -29,7 +29,7 @@ public class RestMultipartEntity {
     public boolean mIsSetLast;
     public ByteArrayOutputStream mOut;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class CountingOutputStream extends FilterOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,13 +38,13 @@ public class RestMultipartEntity {
         public long transferred;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CountingOutputStream(long j2, OutputStream outputStream, ProgressListener progressListener) {
+        public CountingOutputStream(long j, OutputStream outputStream, ProgressListener progressListener) {
             super(outputStream);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), outputStream, progressListener};
+                Object[] objArr = {Long.valueOf(j), outputStream, progressListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -55,7 +55,7 @@ public class RestMultipartEntity {
                     return;
                 }
             }
-            this.length = j2;
+            this.length = j;
             this.transferred = 0L;
             this.listener = progressListener;
         }
@@ -65,11 +65,11 @@ public class RestMultipartEntity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 ((FilterOutputStream) this).out.write(i2);
-                long j2 = this.transferred + 1;
-                this.transferred = j2;
+                long j = this.transferred + 1;
+                this.transferred = j;
                 ProgressListener progressListener = this.listener;
                 if (progressListener != null) {
-                    progressListener.transferred(j2, this.length);
+                    progressListener.transferred(j, this.length);
                 }
             }
         }
@@ -79,19 +79,19 @@ public class RestMultipartEntity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
                 ((FilterOutputStream) this).out.write(bArr, i2, i3);
-                long j2 = this.transferred + i3;
-                this.transferred = j2;
+                long j = this.transferred + i3;
+                this.transferred = j;
                 ProgressListener progressListener = this.listener;
                 if (progressListener != null) {
-                    progressListener.transferred(j2, this.length);
+                    progressListener.transferred(j, this.length);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface ProgressListener {
-        void transferred(long j2, long j3);
+        void transferred(long j, long j2);
     }
 
     static {

@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f39399a;
+    public View f37346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RotateAnimation f39400b;
+    public RotateAnimation f37347b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -72,13 +72,13 @@ public class a extends Dialog {
             setContentView(ResUtils.layout(getContext(), "rim_base_dialog_common_loading_layout"));
             setCanceledOnTouchOutside(false);
             setCancelable(false);
-            this.f39399a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
+            this.f37346a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-            this.f39400b = rotateAnimation;
+            this.f37347b = rotateAnimation;
             rotateAnimation.setRepeatCount(-1);
-            this.f39400b.setDuration(1000L);
-            this.f39400b.setInterpolator(new LinearInterpolator());
-            this.f39399a.startAnimation(this.f39400b);
+            this.f37347b.setDuration(1000L);
+            this.f37347b.setInterpolator(new LinearInterpolator());
+            this.f37346a.startAnimation(this.f37347b);
         }
     }
 }

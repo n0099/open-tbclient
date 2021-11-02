@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TransitRoutePlanOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class TransitRoutePlanOption {
     public PlanNode mTo;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class TransitPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final TransitPolicy EBUS_NO_SUBWAY;
@@ -27,11 +27,11 @@ public class TransitRoutePlanOption {
         public static final TransitPolicy EBUS_WALK_FIRST;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TransitPolicy[] f41996b;
+        public static final /* synthetic */ TransitPolicy[] f39829b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41997a;
+        public int f39830a;
 
         static {
             InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class TransitRoutePlanOption {
             EBUS_WALK_FIRST = new TransitPolicy("EBUS_WALK_FIRST", 2, 3);
             TransitPolicy transitPolicy = new TransitPolicy("EBUS_NO_SUBWAY", 3, 4);
             EBUS_NO_SUBWAY = transitPolicy;
-            f41996b = new TransitPolicy[]{EBUS_TIME_FIRST, EBUS_TRANSFER_FIRST, EBUS_WALK_FIRST, transitPolicy};
+            f39829b = new TransitPolicy[]{EBUS_TIME_FIRST, EBUS_TRANSFER_FIRST, EBUS_WALK_FIRST, transitPolicy};
         }
 
         public TransitPolicy(String str, int i2, int i3) {
@@ -72,8 +72,8 @@ public class TransitRoutePlanOption {
                     return;
                 }
             }
-            this.f41997a = 0;
-            this.f41997a = i3;
+            this.f39830a = 0;
+            this.f39830a = i3;
         }
 
         public static TransitPolicy valueOf(String str) {
@@ -85,13 +85,13 @@ public class TransitRoutePlanOption {
         public static TransitPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransitPolicy[]) f41996b.clone() : (TransitPolicy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransitPolicy[]) f39829b.clone() : (TransitPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41997a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39830a : invokeV.intValue;
         }
     }
 

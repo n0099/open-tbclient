@@ -12,7 +12,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class WireInput {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType = null;
     public static /* synthetic */ Interceptable $ic = null;
@@ -103,10 +103,10 @@ public final class WireInput {
         return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? (-(i2 & 1)) ^ (i2 >>> 1) : invokeI.intValue;
     }
 
-    public static long decodeZigZag64(long j2) {
+    public static long decodeZigZag64(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j2)) == null) ? (-(j2 & 1)) ^ (j2 >>> 1) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j)) == null) ? (-(j & 1)) ^ (j >>> 1) : invokeJ.longValue;
     }
 
     public static WireInput newInstance(byte[] bArr) {
@@ -363,12 +363,12 @@ public final class WireInput {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (int i2 = 0; i2 < 64; i2 += 7) {
                 byte readRawByte = readRawByte();
-                j2 |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
+                j |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
                 if ((readRawByte & ByteCompanionObject.MIN_VALUE) == 0) {
-                    return j2;
+                    return j;
                 }
             }
             throw new IOException(ENCOUNTERED_A_MALFORMED_VARINT);

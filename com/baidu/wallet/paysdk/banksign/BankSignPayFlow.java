@@ -10,24 +10,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.ActLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BankSignPayFlow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Action f62664a;
+    public Action f59534a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.banksign.a f62665b;
+    public com.baidu.wallet.paysdk.banksign.a f59535b;
 
     /* renamed from: com.baidu.wallet.paysdk.banksign.BankSignPayFlow$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f62666a;
+        public static final /* synthetic */ int[] f59536a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,48 +44,48 @@ public class BankSignPayFlow {
                 }
             }
             int[] iArr = new int[Action.values().length];
-            f62666a = iArr;
+            f59536a = iArr;
             try {
                 iArr[Action.ShowGuide.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f62666a[Action.Fail.ordinal()] = 2;
+                f59536a[Action.Fail.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f62666a[Action.Unknown.ordinal()] = 3;
+                f59536a[Action.Unknown.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f62666a[Action.JumpResign.ordinal()] = 4;
+                f59536a[Action.JumpResign.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f62666a[Action.Pay.ordinal()] = 5;
+                f59536a[Action.Pay.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f62666a[Action.BindCard.ordinal()] = 6;
+                f59536a[Action.BindCard.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f62666a[Action.Cancel.ordinal()] = 7;
+                f59536a[Action.Cancel.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f62666a[Action.FirstFail.ordinal()] = 8;
+                f59536a[Action.FirstFail.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f62666a[Action.ChangePayType.ordinal()] = 9;
+                f59536a[Action.ChangePayType.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -160,12 +160,12 @@ public class BankSignPayFlow {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankSignPayFlow f62667a;
+        public static BankSignPayFlow f59537a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -181,7 +181,7 @@ public class BankSignPayFlow {
                     return;
                 }
             }
-            f62667a = new BankSignPayFlow(null);
+            f59537a = new BankSignPayFlow(null);
         }
     }
 
@@ -192,7 +192,7 @@ public class BankSignPayFlow {
     public static BankSignPayFlow a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62667a : (BankSignPayFlow) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59537a : (BankSignPayFlow) invokeV.objValue;
     }
 
     public BankSignPayFlow() {
@@ -208,8 +208,8 @@ public class BankSignPayFlow {
                 return;
             }
         }
-        this.f62664a = Action.Null;
-        this.f62665b = new b();
+        this.f59534a = Action.Null;
+        this.f59535b = new b();
     }
 
     public void a(Action action) {
@@ -218,39 +218,39 @@ public class BankSignPayFlow {
             if (action == null) {
                 action = Action.Null;
             }
-            this.f62664a = action;
+            this.f59534a = action;
         }
     }
 
     public void a(Context context) {
         Action action;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f62665b == null || (action = this.f62664a) == null || Action.Null == action) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f59535b == null || (action = this.f59534a) == null || Action.Null == action) {
             return;
         }
-        switch (AnonymousClass1.f62666a[action.ordinal()]) {
+        switch (AnonymousClass1.f59536a[action.ordinal()]) {
             case 1:
-                this.f62665b.e(context);
+                this.f59535b.e(context);
                 return;
             case 2:
             case 3:
             case 4:
-                this.f62665b.b(context);
+                this.f59535b.b(context);
                 return;
             case 5:
-                this.f62665b.a();
+                this.f59535b.a();
                 return;
             case 6:
-                this.f62665b.c(context);
-                this.f62664a = Action.Cancel;
+                this.f59535b.c(context);
+                this.f59534a = Action.Cancel;
                 return;
             case 7:
             case 8:
-                this.f62665b.a(context);
+                this.f59535b.a(context);
                 return;
             case 9:
-                this.f62665b.d(context);
-                this.f62664a = Action.Cancel;
+                this.f59535b.d(context);
+                this.f59534a = Action.Cancel;
                 return;
             default:
                 return;

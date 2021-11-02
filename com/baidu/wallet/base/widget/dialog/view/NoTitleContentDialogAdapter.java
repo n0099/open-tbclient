@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.WalletDialog;
 import com.baidu.wallet.base.widget.dialog.binding.NoTitleContentDialogBinding;
 import com.baidu.wallet.base.widget.dialog.model.ContentDialogModel;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ContentDialogModel f60909a;
+    public ContentDialogModel f57805a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NoTitleContentDialogAdapter f60910a;
+        public final /* synthetic */ NoTitleContentDialogAdapter f57806a;
         public final NoTitleContentDialogBinding binding;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
                     return;
                 }
             }
-            this.f60910a = noTitleContentDialogAdapter;
+            this.f57806a = noTitleContentDialogAdapter;
             this.binding = noTitleContentDialogBinding;
         }
     }
@@ -68,7 +68,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
                 return;
             }
         }
-        this.f60909a = contentDialogModel;
+        this.f57805a = contentDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f60909a);
+            baseHolder.binding.setViewModel(this.f57805a);
         }
     }
 

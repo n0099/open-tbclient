@@ -133,7 +133,7 @@ import java.util.regex.Pattern;
 import javax.sql.DataSource;
 import javax.sql.RowSet;
 import javax.xml.datatype.XMLGregorianCalendar;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ParserConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTOTYPE_ACCEPT = "fastjson.parser.autoTypeAccept";
@@ -172,7 +172,7 @@ public class ParserConfig {
     public final SymbolTable symbolTable;
     public final ConcurrentMap<String, Class<?>> typeMapping;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface AutoTypeCheckHandler {
         Class<?> handler(String str, Class<?> cls, int i2);
     }
@@ -888,13 +888,13 @@ public class ParserConfig {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:160:0x02f2  */
-    /* JADX WARN: Removed duplicated region for block: B:168:0x0300 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:171:0x0306 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:177:0x0314  */
-    /* JADX WARN: Removed duplicated region for block: B:202:0x0396  */
-    /* JADX WARN: Removed duplicated region for block: B:205:0x039c  */
-    /* JADX WARN: Removed duplicated region for block: B:209:0x03c8  */
+    /* JADX WARN: Removed duplicated region for block: B:160:0x02f3  */
+    /* JADX WARN: Removed duplicated region for block: B:168:0x0301 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:171:0x0307 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x0315  */
+    /* JADX WARN: Removed duplicated region for block: B:202:0x0397  */
+    /* JADX WARN: Removed duplicated region for block: B:205:0x039d  */
+    /* JADX WARN: Removed duplicated region for block: B:209:0x03c9  */
     /* JADX WARN: Removed duplicated region for block: B:55:0x00e2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -939,34 +939,34 @@ public class ParserConfig {
                                 long fnv1a_642 = TypeUtils.fnv1a_64(replace);
                                 boolean z4 = Arrays.binarySearch(INTERNAL_WHITELIST_HASHCODES, fnv1a_642) >= 0;
                                 if (this.internalDenyHashCodes != null) {
-                                    long j2 = charAt2;
+                                    long j = charAt2;
                                     int i4 = 3;
                                     while (i4 < replace.length()) {
-                                        long charAt3 = (j2 ^ replace.charAt(i4)) * 1099511628211L;
+                                        long charAt3 = (j ^ replace.charAt(i4)) * 1099511628211L;
                                         if (Arrays.binarySearch(this.internalDenyHashCodes, charAt3) >= 0) {
                                             throw new JSONException("autoType is not support. " + str);
                                         }
                                         i4++;
-                                        j2 = charAt3;
+                                        j = charAt3;
                                     }
                                 }
                                 if (!z4 && (this.autoTypeSupport || z)) {
-                                    long j3 = charAt2;
+                                    long j2 = charAt2;
                                     int i5 = 3;
                                     while (i5 < replace.length()) {
-                                        long j4 = charAt2;
-                                        j3 = (replace.charAt(i5) ^ j3) * 1099511628211L;
-                                        if (Arrays.binarySearch(this.acceptHashCodes, j3) >= 0 && (loadClass = TypeUtils.loadClass(str, this.defaultClassLoader, true)) != null) {
+                                        long j3 = charAt2;
+                                        j2 = (replace.charAt(i5) ^ j2) * 1099511628211L;
+                                        if (Arrays.binarySearch(this.acceptHashCodes, j2) >= 0 && (loadClass = TypeUtils.loadClass(str, this.defaultClassLoader, true)) != null) {
                                             return loadClass;
                                         }
-                                        if (Arrays.binarySearch(this.denyHashCodes, j3) >= 0 && TypeUtils.getClassFromMapping(str) == null && Arrays.binarySearch(this.acceptHashCodes, fnv1a_642) < 0) {
+                                        if (Arrays.binarySearch(this.denyHashCodes, j2) >= 0 && TypeUtils.getClassFromMapping(str) == null && Arrays.binarySearch(this.acceptHashCodes, fnv1a_642) < 0) {
                                             throw new JSONException("autoType is not support. " + str);
                                         }
                                         i5++;
-                                        charAt2 = j4;
+                                        charAt2 = j3;
                                     }
                                 }
-                                long j5 = charAt2;
+                                long j4 = charAt2;
                                 Class<?> classFromMapping = TypeUtils.getClassFromMapping(str);
                                 if (classFromMapping == null) {
                                     classFromMapping = this.deserializers.findClass(str);
@@ -986,7 +986,7 @@ public class ParserConfig {
                                 if (!this.autoTypeSupport) {
                                     int i6 = 3;
                                     while (i6 < replace.length()) {
-                                        long charAt4 = (j5 ^ replace.charAt(i6)) * 1099511628211L;
+                                        long charAt4 = (j4 ^ replace.charAt(i6)) * 1099511628211L;
                                         if (Arrays.binarySearch(this.denyHashCodes, charAt4) < 0) {
                                             if (Arrays.binarySearch(this.acceptHashCodes, charAt4) >= 0) {
                                                 Class<?> loadClass2 = TypeUtils.loadClass(str, this.defaultClassLoader, true);
@@ -999,7 +999,7 @@ public class ParserConfig {
                                                 throw new JSONException("type not match. " + str + LoadErrorCode.TOKEN_NEXT + cls.getName());
                                             }
                                             i6++;
-                                            j5 = charAt4;
+                                            j4 = charAt4;
                                         } else {
                                             throw new JSONException("autoType is not support. " + str);
                                         }
@@ -1015,16 +1015,32 @@ public class ParserConfig {
                                     if (resourceAsStream != null) {
                                         try {
                                             try {
-                                                ClassReader classReader = new ClassReader(resourceAsStream, true);
                                                 try {
-                                                    TypeCollector typeCollector = new TypeCollector("<clinit>", new Class[0]);
-                                                    classReader.accept(typeCollector);
-                                                    z2 = typeCollector.hasJsonType();
-                                                } catch (Exception unused) {
+                                                    ClassReader classReader = new ClassReader(resourceAsStream, true);
+                                                    try {
+                                                        TypeCollector typeCollector = new TypeCollector("<clinit>", new Class[0]);
+                                                        classReader.accept(typeCollector);
+                                                        z2 = typeCollector.hasJsonType();
+                                                    } catch (Exception unused) {
+                                                        inputStream2 = resourceAsStream;
+                                                        IOUtils.close(inputStream2);
+                                                        z2 = false;
+                                                        int i7 = Feature.SupportAutoType.mask;
+                                                        if (this.autoTypeSupport) {
+                                                        }
+                                                        if (!z3) {
+                                                        }
+                                                        classFromMapping = TypeUtils.loadClass(str, this.defaultClassLoader, !z3 || z2);
+                                                        if (classFromMapping != null) {
+                                                        }
+                                                        if (z3) {
+                                                        }
+                                                    }
+                                                } catch (Exception unused2) {
                                                     inputStream2 = resourceAsStream;
                                                     IOUtils.close(inputStream2);
                                                     z2 = false;
-                                                    int i7 = Feature.SupportAutoType.mask;
+                                                    int i72 = Feature.SupportAutoType.mask;
                                                     if (this.autoTypeSupport) {
                                                     }
                                                     if (!z3) {
@@ -1035,32 +1051,19 @@ public class ParserConfig {
                                                     if (z3) {
                                                     }
                                                 }
-                                            } catch (Exception unused2) {
-                                                inputStream2 = resourceAsStream;
-                                                IOUtils.close(inputStream2);
-                                                z2 = false;
-                                                int i72 = Feature.SupportAutoType.mask;
-                                                if (this.autoTypeSupport) {
-                                                }
-                                                if (!z3) {
-                                                }
-                                                classFromMapping = TypeUtils.loadClass(str, this.defaultClassLoader, !z3 || z2);
-                                                if (classFromMapping != null) {
-                                                }
-                                                if (z3) {
-                                                }
+                                            } catch (Throwable th) {
+                                                th = th;
+                                                inputStream = resourceAsStream;
+                                                IOUtils.close(inputStream);
+                                                throw th;
                                             }
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            inputStream = resourceAsStream;
-                                            IOUtils.close(inputStream);
-                                            throw th;
+                                        } catch (Exception unused3) {
                                         }
                                     } else {
                                         z2 = false;
                                     }
                                     IOUtils.close(resourceAsStream);
-                                } catch (Exception unused3) {
+                                } catch (Exception unused4) {
                                     inputStream2 = null;
                                 } catch (Throwable th2) {
                                     th = th2;

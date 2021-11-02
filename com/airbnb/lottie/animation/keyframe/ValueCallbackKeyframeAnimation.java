@@ -5,7 +5,7 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieFrameInfo;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ValueCallbackKeyframeAnimation<K, A> extends BaseKeyframeAnimation<K, A> {
     public final LottieFrameInfo<A> frameInfo;
     public final A valueCallbackValue;

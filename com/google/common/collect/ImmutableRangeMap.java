@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.c.a1;
-import c.i.d.c.o1;
+import b.i.d.a.n;
+import b.i.d.c.a1;
+import b.i.d.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableRangeMap<Comparable<?>, Object> EMPTY;
@@ -30,7 +30,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     public final transient ImmutableList<Range<K>> ranges;
     public final transient ImmutableList<V> values;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class SerializedForm<K extends Comparable<?>, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -83,13 +83,13 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class a<K extends Comparable<?>, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Map.Entry<Range<K>, V>> f70871a;
+        public final List<Map.Entry<Range<K>, V>> f63370a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -104,26 +104,26 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
                     return;
                 }
             }
-            this.f70871a = Lists.i();
+            this.f63370a = Lists.i();
         }
 
         public ImmutableRangeMap<K, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Collections.sort(this.f70871a, Range.rangeLexOrdering().onKeys());
-                ImmutableList.a aVar = new ImmutableList.a(this.f70871a.size());
-                ImmutableList.a aVar2 = new ImmutableList.a(this.f70871a.size());
-                for (int i2 = 0; i2 < this.f70871a.size(); i2++) {
-                    Range<K> key = this.f70871a.get(i2).getKey();
+                Collections.sort(this.f63370a, Range.rangeLexOrdering().onKeys());
+                ImmutableList.a aVar = new ImmutableList.a(this.f63370a.size());
+                ImmutableList.a aVar2 = new ImmutableList.a(this.f63370a.size());
+                for (int i2 = 0; i2 < this.f63370a.size(); i2++) {
+                    Range<K> key = this.f63370a.get(i2).getKey();
                     if (i2 > 0) {
-                        Range<K> key2 = this.f70871a.get(i2 - 1).getKey();
+                        Range<K> key2 = this.f63370a.get(i2 - 1).getKey();
                         if (key.isConnected(key2) && !key.intersection(key2).isEmpty()) {
                             throw new IllegalArgumentException("Overlapping ranges: range " + key2 + " overlaps with entry " + key);
                         }
                     }
                     aVar.h(key);
-                    aVar2.h(this.f70871a.get(i2).getValue());
+                    aVar2.h(this.f63370a.get(i2).getValue());
                 }
                 return new ImmutableRangeMap<>(aVar.j(), aVar2.j());
             }
@@ -137,7 +137,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
                 n.p(range);
                 n.p(v);
                 n.k(!range.isEmpty(), "Range must not be empty, but was %s", range);
-                this.f70871a.add(Maps.l(range, v));
+                this.f63370a.add(Maps.l(range, v));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -344,7 +344,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.a1
+    @Override // b.i.d.c.a1
     public ImmutableMap<Range<K>, V> asMapOfRanges() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -468,7 +468,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
                     return super.m53asDescendingMapOfRanges();
                 }
 
-                @Override // com.google.common.collect.ImmutableRangeMap, c.i.d.c.a1
+                @Override // com.google.common.collect.ImmutableRangeMap, b.i.d.c.a1
                 public /* bridge */ /* synthetic */ Map asMapOfRanges() {
                     return super.asMapOfRanges();
                 }

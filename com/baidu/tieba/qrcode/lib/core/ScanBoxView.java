@@ -21,7 +21,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.w2.b.a.a;
+import b.a.r0.w2.b.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ScanBoxView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,23 +64,21 @@ public class ScanBoxView extends View {
     public Bitmap c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f56347e;
+    public Bitmap f53466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f56348f;
+    public Bitmap f53467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f56349g;
+    public Bitmap f53468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f56350h;
+    public Bitmap f53469h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f56351i;
+    public int f53470i;
     public Bitmap i0;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f56352j;
+    public int j;
     public Bitmap j0;
     public Rect k;
     public float k0;
@@ -145,7 +143,7 @@ public class ScanBoxView extends View {
         this.F = false;
         this.G = 0;
         this.H = false;
-        this.f56351i = a.b(context, 2.0f);
+        this.f53470i = a.b(context, 2.0f);
         this.K = null;
         this.L = a.f(context, 14.0f);
         this.M = -1;
@@ -273,10 +271,10 @@ public class ScanBoxView extends View {
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             this.n.reset();
             this.n.setAntiAlias(false);
-            canvas.drawBitmap(this.f56347e, getMainFrameLeft(), getMainFrameTop(), this.n);
-            canvas.drawBitmap(this.f56348f, getMainFrameRight() - this.f56347e.getWidth(), getMainFrameTop(), this.n);
-            canvas.drawBitmap(this.f56349g, getMainFrameLeft(), getMainFrameBottom() - this.f56347e.getHeight(), this.n);
-            canvas.drawBitmap(this.f56350h, getMainFrameRight() - this.f56347e.getWidth(), getMainFrameBottom() - this.f56347e.getHeight(), this.n);
+            canvas.drawBitmap(this.f53466e, getMainFrameLeft(), getMainFrameTop(), this.n);
+            canvas.drawBitmap(this.f53467f, getMainFrameRight() - this.f53466e.getWidth(), getMainFrameTop(), this.n);
+            canvas.drawBitmap(this.f53468g, getMainFrameLeft(), getMainFrameBottom() - this.f53466e.getHeight(), this.n);
+            canvas.drawBitmap(this.f53469h, getMainFrameRight() - this.f53466e.getWidth(), getMainFrameBottom() - this.f53466e.getHeight(), this.n);
         }
     }
 
@@ -616,17 +614,17 @@ public class ScanBoxView extends View {
             int i2 = this.q;
             options.outWidth = i2;
             options.outHeight = i2;
-            this.f56347e = BitmapHelper.getResBitmap(this.o0, R.drawable.icon_scan_upperleft, options);
+            this.f53466e = BitmapHelper.getResBitmap(this.o0, R.drawable.icon_scan_upperleft, options);
             Matrix matrix = new Matrix();
             matrix.postRotate(90.0f);
-            Bitmap bitmap = this.f56347e;
-            this.f56348f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f56347e.getHeight(), matrix, false);
+            Bitmap bitmap = this.f53466e;
+            this.f53467f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f53466e.getHeight(), matrix, false);
             matrix.postRotate(180.0f);
-            Bitmap bitmap2 = this.f56347e;
-            this.f56349g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f56347e.getHeight(), matrix, false);
+            Bitmap bitmap2 = this.f53466e;
+            this.f53468g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f53466e.getHeight(), matrix, false);
             matrix.postRotate(270.0f);
-            Bitmap bitmap3 = this.f56347e;
-            this.f56350h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f56347e.getHeight(), matrix, false);
+            Bitmap bitmap3 = this.f53466e;
+            this.f53469h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f53466e.getHeight(), matrix, false);
         }
     }
 
@@ -764,7 +762,7 @@ public class ScanBoxView extends View {
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
             if (this.H) {
                 if (this.V == null) {
-                    this.m += this.f56351i;
+                    this.m += this.f53470i;
                     int i2 = this.w;
                     Bitmap bitmap = this.B;
                     if (bitmap != null) {
@@ -775,7 +773,7 @@ public class ScanBoxView extends View {
                         Rect rect = this.k;
                         float f3 = this.k0;
                         if (i2 + f2 > rect.right - f3 || f2 < rect.left + f3) {
-                            this.f56351i = -this.f56351i;
+                            this.f53470i = -this.f53470i;
                         }
                     } else {
                         float f4 = this.m + i2;
@@ -786,7 +784,7 @@ public class ScanBoxView extends View {
                         }
                     }
                 } else {
-                    float f6 = this.a0 + this.f56351i;
+                    float f6 = this.a0 + this.f53470i;
                     this.a0 = f6;
                     Rect rect3 = this.k;
                     float f7 = this.k0;
@@ -795,7 +793,7 @@ public class ScanBoxView extends View {
                     }
                 }
             } else if (this.V == null) {
-                this.l += this.f56351i;
+                this.l += this.f53470i;
                 int i3 = this.w;
                 Bitmap bitmap2 = this.B;
                 if (bitmap2 != null) {
@@ -806,7 +804,7 @@ public class ScanBoxView extends View {
                     Rect rect4 = this.k;
                     float f9 = this.k0;
                     if (i3 + f8 > rect4.bottom - f9 || f8 < rect4.top + f9) {
-                        this.f56351i = -this.f56351i;
+                        this.f53470i = -this.f53470i;
                     }
                 } else {
                     float f10 = this.l + i3;
@@ -817,7 +815,7 @@ public class ScanBoxView extends View {
                     }
                 }
             } else {
-                float f12 = this.W + this.f56351i;
+                float f12 = this.W + this.f53470i;
                 this.W = f12;
                 Rect rect6 = this.k;
                 float f13 = this.k0;
@@ -825,9 +823,9 @@ public class ScanBoxView extends View {
                     this.W = rect6.top + f13 + 0.5f;
                 }
             }
-            long j2 = this.f56352j;
+            long j = this.j;
             Rect rect7 = this.k;
-            postInvalidateDelayed(j2, rect7.left, rect7.top, rect7.right, rect7.bottom);
+            postInvalidateDelayed(j, rect7.left, rect7.top, rect7.right, rect7.bottom);
         }
     }
 
@@ -953,12 +951,12 @@ public class ScanBoxView extends View {
             if (this.H) {
                 this.K = this.J;
                 this.t = this.u;
-                this.f56352j = (int) (((this.E * 1.0f) * this.f56351i) / this.s);
+                this.j = (int) (((this.E * 1.0f) * this.f53470i) / this.s);
             } else {
                 this.K = this.I;
                 int i2 = this.s;
                 this.t = i2;
-                this.f56352j = (int) (((this.E * 1.0f) * this.f56351i) / i2);
+                this.j = (int) (((this.E * 1.0f) * this.f53470i) / i2);
             }
             if (!TextUtils.isEmpty(this.K)) {
                 if (this.P) {

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
     public static Handler yi;
@@ -29,10 +29,10 @@ public class r {
         yi = new Handler(Looper.getMainLooper());
     }
 
-    public static void a(Runnable runnable, long j2) {
+    public static void a(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, runnable, j2) == null) {
-            yi.postDelayed(runnable, j2);
+        if (interceptable == null || interceptable.invokeLJ(65537, null, runnable, j) == null) {
+            yi.postDelayed(runnable, j);
         }
     }
 

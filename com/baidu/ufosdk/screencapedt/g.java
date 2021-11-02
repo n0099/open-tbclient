@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class g implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f59801a;
+    public final /* synthetic */ ScreenCapEditActivity f56726a;
 
     public g(ScreenCapEditActivity screenCapEditActivity) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class g implements View.OnClickListener {
                 return;
             }
         }
-        this.f59801a = screenCapEditActivity;
+        this.f56726a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,12 +41,12 @@ public final class g implements View.OnClickListener {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            imageView = this.f59801a.f59782e;
+            imageView = this.f56726a.f56708e;
             if (imageView != null) {
-                bitmap = this.f59801a.f59784g;
+                bitmap = this.f56726a.f56710g;
                 if (bitmap != null) {
-                    this.f59801a.a(true);
-                    handler = this.f59801a.N;
+                    this.f56726a.a(true);
+                    handler = this.f56726a.N;
                     handler.obtainMessage(0).sendToTarget();
                 }
             }

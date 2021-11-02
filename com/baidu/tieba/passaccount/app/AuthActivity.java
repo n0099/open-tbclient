@@ -7,8 +7,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.a.f;
-import c.a.c0.a.g;
+import b.a.c0.a.f;
+import b.a.c0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccountManager;
@@ -32,7 +32,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AuthActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_AUTH_TOKEN = "EXTRA_AUTH_TOKEN";
@@ -50,13 +50,13 @@ public class AuthActivity extends BaseActivity {
     public String tpl;
     public int type;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements SapiWebView.OnBackCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54867a;
+        public final /* synthetic */ AuthActivity f52030a;
 
         public a(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -73,25 +73,25 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54867a = authActivity;
+            this.f52030a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
         public void onBack() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54867a.goBack();
+                this.f52030a.goBack();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements SapiWebView.OnFinishCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54868a;
+        public final /* synthetic */ AuthActivity f52031a;
 
         public b(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -108,25 +108,25 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54868a = authActivity;
+            this.f52031a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54868a.onClose();
+                this.f52031a.onClose();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements SapiWebView.WebviewClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54869a;
+        public final /* synthetic */ AuthActivity f52032a;
 
         public c(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54869a = authActivity;
+            this.f52032a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
@@ -161,7 +161,7 @@ public class AuthActivity extends BaseActivity {
                 if (TextUtils.isEmpty(queryParameter)) {
                     return;
                 }
-                this.f54869a.finishActivity(true, queryParameter);
+                this.f52032a.finishActivity(true, queryParameter);
             }
         }
 
@@ -173,13 +173,13 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d implements SapiWebView.ChangePwdCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54870a;
+        public final /* synthetic */ AuthActivity f52033a;
 
         public d(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -196,14 +196,14 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54870a = authActivity;
+            this.f52033a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54870a.finishActivity(true, null);
+                this.f52033a.finishActivity(true, null);
             }
         }
     }
@@ -230,13 +230,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
             int i2 = this.type;
             if (i2 == 0) {
-                c.a.r0.i2.d.b.f().b(z, str);
+                b.a.r0.i2.d.b.f().b(z, str);
             } else if (i2 == 1) {
-                c.a.r0.i2.d.b.f().e(z);
+                b.a.r0.i2.d.b.f().e(z);
             } else if (i2 == 2) {
-                c.a.r0.i2.d.b.f().c(z);
+                b.a.r0.i2.d.b.f().c(z);
             } else {
-                c.a.r0.i2.d.b.f().a(null);
+                b.a.r0.i2.d.b.f().a(null);
             }
             finish();
         }

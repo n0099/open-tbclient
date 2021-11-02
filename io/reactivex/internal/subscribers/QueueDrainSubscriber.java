@@ -16,7 +16,7 @@ import io.reactivex.internal.util.BackpressureHelper;
 import io.reactivex.internal.util.QueueDrain;
 import io.reactivex.internal.util.QueueDrainHelper;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriberPad4 implements FlowableSubscriber<T>, QueueDrain<U, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,9 +94,9 @@ public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriber
             Subscriber<? super V> subscriber = this.actual;
             SimplePlainQueue<U> simplePlainQueue = this.queue;
             if (fastEnter()) {
-                long j2 = this.requested.get();
-                if (j2 != 0) {
-                    if (accept(subscriber, u) && j2 != Long.MAX_VALUE) {
+                long j = this.requested.get();
+                if (j != 0) {
+                    if (accept(subscriber, u) && j != Long.MAX_VALUE) {
                         produced(1L);
                     }
                     if (leave(-1) == 0) {
@@ -123,10 +123,10 @@ public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriber
             Subscriber<? super V> subscriber = this.actual;
             SimplePlainQueue<U> simplePlainQueue = this.queue;
             if (fastEnter()) {
-                long j2 = this.requested.get();
-                if (j2 != 0) {
+                long j = this.requested.get();
+                if (j != 0) {
                     if (simplePlainQueue.isEmpty()) {
-                        if (accept(subscriber, u) && j2 != Long.MAX_VALUE) {
+                        if (accept(subscriber, u) && j != Long.MAX_VALUE) {
                             produced(1L);
                         }
                         if (leave(-1) == 0) {
@@ -159,10 +159,10 @@ public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriber
     }
 
     @Override // io.reactivex.internal.util.QueueDrain
-    public final long produced(long j2) {
+    public final long produced(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) ? this.requested.addAndGet(-j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) ? this.requested.addAndGet(-j) : invokeJ.longValue;
     }
 
     @Override // io.reactivex.internal.util.QueueDrain
@@ -172,10 +172,10 @@ public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriber
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.requested.get() : invokeV.longValue;
     }
 
-    public final void requested(long j2) {
+    public final void requested(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-            BackpressureHelper.add(this.requested, j2);
+        if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && SubscriptionHelper.validate(j)) {
+            BackpressureHelper.add(this.requested, j);
         }
     }
 }

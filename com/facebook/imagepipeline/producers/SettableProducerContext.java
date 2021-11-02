@@ -6,28 +6,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.common.Priority;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.request.ImageRequest;
+import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SettableProducerContext extends BaseProducerContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SettableProducerContext(ProducerContext producerContext) {
-        this(producerContext.getImageRequest(), producerContext.getId(), producerContext.getListener(), producerContext.getCallerContext(), producerContext.getLowestPermittedRequestLevel(), producerContext.isPrefetch(), producerContext.isIntermediateResultExpected(), producerContext.getPriority());
+        this(producerContext.getImageRequest(), producerContext.getId(), producerContext.getUiComponentId(), producerContext.getProducerListener(), producerContext.getCallerContext(), producerContext.getLowestPermittedRequestLevel(), producerContext.isPrefetch(), producerContext.isIntermediateResultExpected(), producerContext.getPriority(), producerContext.getImagePipelineConfig());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
+            newInitContext.initArgs = r3;
             Object[] objArr = {producerContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((ImageRequest) objArr2[0], (String) objArr2[1], (ProducerListener) objArr2[2], objArr2[3], (ImageRequest.RequestLevel) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Boolean) objArr2[6]).booleanValue(), (Priority) objArr2[7]);
+                this((ImageRequest) objArr2[0], (String) objArr2[1], (String) objArr2[2], (ProducerListener2) objArr2[3], objArr2[4], (ImageRequest.RequestLevel) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Boolean) objArr2[7]).booleanValue(), (Priority) objArr2[8], (ImagePipelineConfig) objArr2[9]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,18 +60,18 @@ public class SettableProducerContext extends BaseProducerContext {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SettableProducerContext(ImageRequest imageRequest, ProducerContext producerContext) {
-        this(imageRequest, producerContext.getId(), producerContext.getListener(), producerContext.getCallerContext(), producerContext.getLowestPermittedRequestLevel(), producerContext.isPrefetch(), producerContext.isIntermediateResultExpected(), producerContext.getPriority());
+        this(imageRequest, producerContext.getId(), producerContext.getUiComponentId(), producerContext.getProducerListener(), producerContext.getCallerContext(), producerContext.getLowestPermittedRequestLevel(), producerContext.isPrefetch(), producerContext.isIntermediateResultExpected(), producerContext.getPriority(), producerContext.getImagePipelineConfig());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
+            newInitContext.initArgs = r3;
             Object[] objArr = {imageRequest, producerContext};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((ImageRequest) objArr2[0], (String) objArr2[1], (ProducerListener) objArr2[2], objArr2[3], (ImageRequest.RequestLevel) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Boolean) objArr2[6]).booleanValue(), (Priority) objArr2[7]);
+                this((ImageRequest) objArr2[0], (String) objArr2[1], (String) objArr2[2], (ProducerListener2) objArr2[3], objArr2[4], (ImageRequest.RequestLevel) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Boolean) objArr2[7]).booleanValue(), (Priority) objArr2[8], (ImagePipelineConfig) objArr2[9]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -78,21 +80,42 @@ public class SettableProducerContext extends BaseProducerContext {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SettableProducerContext(ImageRequest imageRequest, String str, ProducerListener producerListener, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        super(imageRequest, str, producerListener, obj, requestLevel, z, z2, priority);
+    public SettableProducerContext(ImageRequest imageRequest, String str, ProducerListener2 producerListener2, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority, ImagePipelineConfig imagePipelineConfig) {
+        super(imageRequest, str, producerListener2, obj, requestLevel, z, z2, priority, imagePipelineConfig);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {imageRequest, str, producerListener, obj, requestLevel, Boolean.valueOf(z), Boolean.valueOf(z2), priority};
+            Object[] objArr = {imageRequest, str, producerListener2, obj, requestLevel, Boolean.valueOf(z), Boolean.valueOf(z2), priority, imagePipelineConfig};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((ImageRequest) objArr2[0], (String) objArr2[1], (ProducerListener) objArr2[2], objArr2[3], (ImageRequest.RequestLevel) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Boolean) objArr2[6]).booleanValue(), (Priority) objArr2[7]);
+                super((ImageRequest) objArr2[0], (String) objArr2[1], (ProducerListener2) objArr2[2], objArr2[3], (ImageRequest.RequestLevel) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Boolean) objArr2[6]).booleanValue(), (Priority) objArr2[7], (ImagePipelineConfig) objArr2[8]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SettableProducerContext(ImageRequest imageRequest, String str, @Nullable String str2, ProducerListener2 producerListener2, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority, ImagePipelineConfig imagePipelineConfig) {
+        super(imageRequest, str, str2, producerListener2, obj, requestLevel, z, z2, priority, imagePipelineConfig);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {imageRequest, str, str2, producerListener2, obj, requestLevel, Boolean.valueOf(z), Boolean.valueOf(z2), priority, imagePipelineConfig};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ImageRequest) objArr2[0], (String) objArr2[1], (String) objArr2[2], (ProducerListener2) objArr2[3], objArr2[4], (ImageRequest.RequestLevel) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Boolean) objArr2[7]).booleanValue(), (Priority) objArr2[8], (ImagePipelineConfig) objArr2[9]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }

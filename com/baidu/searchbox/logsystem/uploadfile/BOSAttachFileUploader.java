@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 @Singleton
 @Service
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BOSAttachFileUploader extends BaseAttachFileUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BIZ_CRASH = "crash";

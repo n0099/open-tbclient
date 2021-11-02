@@ -25,7 +25,7 @@ import java.nio.charset.Charset;
 import java.util.List;
 import kotlin.text.Typography;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class SerializeWriter extends Writer {
     public static /* synthetic */ Interceptable $ic;
     public static int BUFFER_THRESHOLD;
@@ -291,7 +291,7 @@ public final class SerializeWriter extends Writer {
     }
 
     public void computeFeatures() {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.quoteFieldNames = (this.features & SerializerFeature.QuoteFieldNames.mask) != 0;
@@ -308,11 +308,11 @@ public final class SerializeWriter extends Writer {
             boolean z = (this.features & SerializerFeature.BrowserSecure.mask) != 0;
             this.browserSecure = z;
             if (z) {
-                j2 = 5764610843043954687L;
+                j = 5764610843043954687L;
             } else {
-                j2 = (this.features & SerializerFeature.WriteSlashAsSpecial.mask) != 0 ? 140758963191807L : 21474836479L;
+                j = (this.features & SerializerFeature.WriteSlashAsSpecial.mask) != 0 ? 140758963191807L : 21474836479L;
             }
-            this.sepcialBits = j2;
+            this.sepcialBits = j;
         }
     }
 
@@ -535,7 +535,7 @@ public final class SerializeWriter extends Writer {
                         int i11 = ((bArr[i2] & 255) << 10) | (i10 == 2 ? (bArr[i3] & 255) << 2 : 0);
                         write(cArr[i11 >> 12]);
                         write(cArr[(i11 >>> 6) & 63]);
-                        write(i10 == 2 ? cArr[i11 & 63] : a.f36026h);
+                        write(i10 == 2 ? cArr[i11 & 63] : a.f34124h);
                         write(61);
                     }
                     write(c2);
@@ -570,8 +570,8 @@ public final class SerializeWriter extends Writer {
                 char[] cArr3 = this.buf;
                 cArr3[i5 - 5] = cArr[i23 >> 12];
                 cArr3[i5 - 4] = cArr[(i23 >>> 6) & 63];
-                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f36026h;
-                this.buf[i5 - 2] = a.f36026h;
+                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f34124h;
+                this.buf[i5 - 2] = a.f34124h;
             }
             this.buf[i5 - 1] = c2;
         }
@@ -1039,11 +1039,11 @@ public final class SerializeWriter extends Writer {
         }
     }
 
-    public void writeLong(long j2) {
+    public void writeLong(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048630, this, j2) == null) {
-            boolean z = isEnabled(SerializerFeature.BrowserCompatible) && !isEnabled(SerializerFeature.WriteClassName) && (j2 > 9007199254740991L || j2 < -9007199254740991L);
-            if (j2 == Long.MIN_VALUE) {
+        if (interceptable == null || interceptable.invokeJ(1048630, this, j) == null) {
+            boolean z = isEnabled(SerializerFeature.BrowserCompatible) && !isEnabled(SerializerFeature.WriteClassName) && (j > 9007199254740991L || j < -9007199254740991L);
+            if (j == Long.MIN_VALUE) {
                 if (z) {
                     write("\"-9223372036854775808\"");
                     return;
@@ -1052,7 +1052,7 @@ public final class SerializeWriter extends Writer {
                     return;
                 }
             }
-            int stringSize = j2 < 0 ? IOUtils.stringSize(-j2) + 1 : IOUtils.stringSize(j2);
+            int stringSize = j < 0 ? IOUtils.stringSize(-j) + 1 : IOUtils.stringSize(j);
             int i2 = this.count + stringSize;
             if (z) {
                 i2 += 2;
@@ -1062,7 +1062,7 @@ public final class SerializeWriter extends Writer {
                     expandCapacity(i2);
                 } else {
                     char[] cArr = new char[stringSize];
-                    IOUtils.getChars(j2, stringSize, cArr);
+                    IOUtils.getChars(j, stringSize, cArr);
                     if (z) {
                         write(34);
                         write(cArr, 0, stringSize);
@@ -1077,19 +1077,19 @@ public final class SerializeWriter extends Writer {
                 char[] cArr2 = this.buf;
                 cArr2[this.count] = '\"';
                 int i3 = i2 - 1;
-                IOUtils.getChars(j2, i3, cArr2);
+                IOUtils.getChars(j, i3, cArr2);
                 this.buf[i3] = '\"';
             } else {
-                IOUtils.getChars(j2, i2, this.buf);
+                IOUtils.getChars(j, i2, this.buf);
             }
             this.count = i2;
         }
     }
 
-    public void writeLongAndChar(long j2, char c2) throws IOException {
+    public void writeLongAndChar(long j, char c2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Long.valueOf(j2), Character.valueOf(c2)}) == null) {
-            writeLong(j2);
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Long.valueOf(j), Character.valueOf(c2)}) == null) {
+            writeLong(j);
             write(c2);
         }
     }
@@ -2215,18 +2215,18 @@ public final class SerializeWriter extends Writer {
         }
     }
 
-    public void writeFieldValue(char c2, String str, long j2) {
+    public void writeFieldValue(char c2, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2), str, Long.valueOf(j2)}) == null) {
-            if (j2 != Long.MIN_VALUE && this.quoteFieldNames && !isEnabled(SerializerFeature.BrowserCompatible.mask)) {
-                int stringSize = j2 < 0 ? IOUtils.stringSize(-j2) + 1 : IOUtils.stringSize(j2);
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2), str, Long.valueOf(j)}) == null) {
+            if (j != Long.MIN_VALUE && this.quoteFieldNames && !isEnabled(SerializerFeature.BrowserCompatible.mask)) {
+                int stringSize = j < 0 ? IOUtils.stringSize(-j) + 1 : IOUtils.stringSize(j);
                 int length = str.length();
                 int i2 = this.count + length + 4 + stringSize;
                 if (i2 > this.buf.length) {
                     if (this.writer != null) {
                         write(c2);
                         writeFieldName(str);
-                        writeLong(j2);
+                        writeLong(j);
                         return;
                     }
                     expandCapacity(i2);
@@ -2241,12 +2241,12 @@ public final class SerializeWriter extends Writer {
                 char[] cArr2 = this.buf;
                 cArr2[i4 + 1] = this.keySeperator;
                 cArr2[i4 + 2] = ':';
-                IOUtils.getChars(j2, this.count, cArr2);
+                IOUtils.getChars(j, this.count, cArr2);
                 return;
             }
             write(c2);
             writeFieldName(str);
-            writeLong(j2);
+            writeLong(j);
         }
     }
 

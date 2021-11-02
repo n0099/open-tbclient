@@ -6,23 +6,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiTinyDataClient;
 import com.xiaomi.push.hj;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class z implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MiTinyDataClient.a.C2101a f77683a;
+    public final /* synthetic */ MiTinyDataClient.a.C2028a f70646a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ hj f104a;
+    public final /* synthetic */ hj f105a;
 
-    public z(MiTinyDataClient.a.C2101a c2101a, hj hjVar) {
+    public z(MiTinyDataClient.a.C2028a c2028a, hj hjVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c2101a, hjVar};
+            Object[] objArr = {c2028a, hjVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,16 +32,16 @@ public class z implements Runnable {
                 return;
             }
         }
-        this.f77683a = c2101a;
-        this.f104a = hjVar;
+        this.f70646a = c2028a;
+        this.f105a = hjVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f77683a.f58a.add(this.f104a);
-            this.f77683a.a();
+            this.f70646a.f59a.add(this.f105a);
+            this.f70646a.a();
         }
     }
 }

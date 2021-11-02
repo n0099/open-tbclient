@@ -11,6 +11,7 @@ import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,19 +23,19 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
     public String mKey;
 
-    public IMUserQueryRequest(Context context, long j2) {
+    public IMUserQueryRequest(Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,7 +46,7 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -123,7 +124,7 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
                     str = Constants.ERROR_MSG_SUCCESS;
                 } else {
                     i3 = jSONObject.getInt("error_code");
-                    str = jSONObject.optString("error_msg", "");
+                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
             } catch (JSONException e2) {
                 LogUtils.e("IMUserQueryRequest", "JSONException", e2);
@@ -156,13 +157,13 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public IMUserQueryRequest(Context context, long j2, String str) {
-        this(context, j2);
+    public IMUserQueryRequest(Context context, long j, String str) {
+        this(context, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

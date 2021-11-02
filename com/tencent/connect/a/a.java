@@ -14,30 +14,30 @@ import com.tencent.open.a.d;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.g;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class<?> f76431a;
+    public static Class<?> f69792a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f76432b;
+    public static Class<?> f69793b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f76433c;
+    public static Method f69794c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f76434d;
+    public static Method f69795d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f76435e;
+    public static Method f69796e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Method f76436f;
+    public static Method f69797f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f76437g;
+    public static boolean f69798g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,9 +66,9 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65539, null, context, qQToken) == null) {
             try {
                 if (a(context, qQToken)) {
-                    f76436f.invoke(f76431a, Boolean.TRUE);
+                    f69797f.invoke(f69792a, Boolean.TRUE);
                 } else {
-                    f76436f.invoke(f76431a, Boolean.FALSE);
+                    f69797f.invoke(f69792a, Boolean.FALSE);
                 }
             } catch (Exception e2) {
                 SLog.e("OpenConfig", "checkStatStatus exception: " + e2.toString());
@@ -81,21 +81,21 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, qQToken) == null) {
             String str = "Aqc" + qQToken.getAppId();
             try {
-                f76431a = Class.forName("com.tencent.stat.StatConfig");
+                f69792a = Class.forName("com.tencent.stat.StatConfig");
                 Class<?> cls = Class.forName("com.tencent.stat.StatService");
-                f76432b = cls;
-                f76433c = cls.getMethod("reportQQ", Context.class, String.class);
-                f76434d = f76432b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
-                f76435e = f76432b.getMethod("commitEvents", Context.class, Integer.TYPE);
-                f76436f = f76431a.getMethod("setEnableStatService", Boolean.TYPE);
+                f69793b = cls;
+                f69794c = cls.getMethod("reportQQ", Context.class, String.class);
+                f69795d = f69793b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
+                f69796e = f69793b.getMethod("commitEvents", Context.class, Integer.TYPE);
+                f69797f = f69792a.getMethod("setEnableStatService", Boolean.TYPE);
                 b(context, qQToken);
-                f76431a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f76431a, Boolean.FALSE);
-                f76431a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f76431a, Boolean.TRUE);
-                f76431a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f76431a, 1440);
+                f69792a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f69792a, Boolean.FALSE);
+                f69792a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f69792a, Boolean.TRUE);
+                f69792a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f69792a, 1440);
                 Class<?> cls2 = Class.forName("com.tencent.stat.StatReportStrategy");
-                f76431a.getMethod("setStatSendStrategy", cls2).invoke(f76431a, cls2.getField("PERIOD").get(null));
-                f76432b.getMethod("startStatService", Context.class, String.class, String.class).invoke(f76432b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
-                f76437g = true;
+                f69792a.getMethod("setStatSendStrategy", cls2).invoke(f69792a, cls2.getField("PERIOD").get(null));
+                f69793b.getMethod("startStatService", Context.class, String.class, String.class).invoke(f69793b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
+                f69798g = true;
             } catch (Exception e2) {
                 SLog.e("OpenConfig", "start4QQConnect exception: " + e2.toString());
             }
@@ -108,11 +108,11 @@ public class a {
             if (!TextUtils.isEmpty(qQToken.getOpenId())) {
                 d.a().a(qQToken.getOpenId(), qQToken.getAppId(), "2", "1", "11", "0", "0", "0");
             }
-            if (f76437g) {
+            if (f69798g) {
                 b(context, qQToken);
                 if (qQToken.getOpenId() != null) {
                     try {
-                        f76433c.invoke(f76432b, context, qQToken.getOpenId());
+                        f69794c.invoke(f69793b, context, qQToken.getOpenId());
                     } catch (Exception e2) {
                         SLog.e("OpenConfig", "reportQQ exception: " + e2.toString());
                     }
@@ -123,10 +123,10 @@ public class a {
 
     public static void a(Context context, QQToken qQToken, String str, String... strArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, context, qQToken, str, strArr) == null) && f76437g) {
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, context, qQToken, str, strArr) == null) && f69798g) {
             b(context, qQToken);
             try {
-                f76434d.invoke(f76432b, context, str, strArr);
+                f69795d.invoke(f69793b, context, str, strArr);
             } catch (Exception e2) {
                 SLog.e("OpenConfig", "trackCustomEvent exception: " + e2.toString());
             }

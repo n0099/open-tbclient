@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.digest4util.XXHash32;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f42715a;
+    public final byte[] f40525a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f42716b;
+    public final int[] f40526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f42717c;
+    public final byte[] f40527c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f42718d;
+    public final int f40528d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42719e;
+    public int f40529e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42720f;
+    public int f40530f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public j() {
@@ -65,10 +65,10 @@ public class j {
                 return;
             }
         }
-        this.f42715a = new byte[1];
-        this.f42716b = new int[4];
-        this.f42717c = new byte[16];
-        this.f42718d = i2;
+        this.f40525a = new byte[1];
+        this.f40526b = new int[4];
+        this.f40527c = new byte[16];
+        this.f40528d = i2;
         b();
     }
 
@@ -83,11 +83,11 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i2, i3)) == null) {
             if (i3 <= 8) {
-                long j2 = 0;
+                long j = 0;
                 for (int i4 = 0; i4 < i3; i4++) {
-                    j2 |= (bArr[i2 + i4] & 255) << (i4 * 8);
+                    j |= (bArr[i2 + i4] & 255) << (i4 * 8);
                 }
-                return j2;
+                return j;
             }
             throw new IllegalArgumentException("can't read more than eight bytes into a long value");
         }
@@ -97,8 +97,8 @@ public class j {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            int[] iArr = this.f42716b;
-            int i2 = this.f42718d;
+            int[] iArr = this.f40526b;
+            int i2 = this.f40528d;
             iArr[0] = i2 + XXHash32.PRIME1 + XXHash32.PRIME2;
             iArr[1] = XXHash32.PRIME2 + i2;
             iArr[2] = i2;
@@ -109,7 +109,7 @@ public class j {
     private void b(byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, bArr, i2) == null) {
-            int[] iArr = this.f42716b;
+            int[] iArr = this.f40526b;
             int i3 = iArr[0];
             int i4 = iArr[1];
             int i5 = iArr[2];
@@ -118,12 +118,12 @@ public class j {
             int rotateLeft2 = Integer.rotateLeft(i4 + (a(bArr, i2 + 4) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
             int rotateLeft3 = Integer.rotateLeft(i5 + (a(bArr, i2 + 8) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
             int rotateLeft4 = Integer.rotateLeft(i6 + (a(bArr, i2 + 12) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-            int[] iArr2 = this.f42716b;
+            int[] iArr2 = this.f40526b;
             iArr2[0] = rotateLeft;
             iArr2[1] = rotateLeft2;
             iArr2[2] = rotateLeft3;
             iArr2[3] = rotateLeft4;
-            this.f42720f = 0;
+            this.f40530f = 0;
         }
     }
 
@@ -132,14 +132,14 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i2 = 0;
-            int rotateLeft = (this.f42719e > 16 ? Integer.rotateLeft(this.f42716b[0], 1) + Integer.rotateLeft(this.f42716b[1], 7) + Integer.rotateLeft(this.f42716b[2], 12) + Integer.rotateLeft(this.f42716b[3], 18) : this.f42716b[2] + XXHash32.PRIME5) + this.f42719e;
-            int i3 = this.f42720f - 4;
+            int rotateLeft = (this.f40529e > 16 ? Integer.rotateLeft(this.f40526b[0], 1) + Integer.rotateLeft(this.f40526b[1], 7) + Integer.rotateLeft(this.f40526b[2], 12) + Integer.rotateLeft(this.f40526b[3], 18) : this.f40526b[2] + XXHash32.PRIME5) + this.f40529e;
+            int i3 = this.f40530f - 4;
             while (i2 <= i3) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.f42717c, i2) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
+                rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.f40527c, i2) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
                 i2 += 4;
             }
-            while (i2 < this.f42720f) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + ((this.f42717c[i2] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
+            while (i2 < this.f40530f) {
+                rotateLeft = Integer.rotateLeft(rotateLeft + ((this.f40527c[i2] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
                 i2++;
             }
             int i4 = (rotateLeft ^ (rotateLeft >>> 15)) * XXHash32.PRIME2;
@@ -154,18 +154,18 @@ public class j {
         if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) || i3 <= 0) {
             return;
         }
-        this.f42719e += i3;
+        this.f40529e += i3;
         int i4 = i2 + i3;
-        int i5 = this.f42720f;
+        int i5 = this.f40530f;
         if (i5 + i3 < 16) {
-            System.arraycopy(bArr, i2, this.f42717c, i5, i3);
-            this.f42720f += i3;
+            System.arraycopy(bArr, i2, this.f40527c, i5, i3);
+            this.f40530f += i3;
             return;
         }
         if (i5 > 0) {
             int i6 = 16 - i5;
-            System.arraycopy(bArr, i2, this.f42717c, i5, i6);
-            b(this.f42717c, 0);
+            System.arraycopy(bArr, i2, this.f40527c, i5, i6);
+            b(this.f40527c, 0);
             i2 += i6;
         }
         int i7 = i4 - 16;
@@ -175,8 +175,8 @@ public class j {
         }
         if (i2 < i4) {
             int i8 = i4 - i2;
-            this.f42720f = i8;
-            System.arraycopy(bArr, i2, this.f42717c, 0, i8);
+            this.f40530f = i8;
+            System.arraycopy(bArr, i2, this.f40527c, 0, i8);
         }
     }
 }

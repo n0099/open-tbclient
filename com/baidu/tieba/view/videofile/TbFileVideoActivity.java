@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.annotation.RawRes;
-import c.a.q0.s.s.i;
-import c.a.r0.x3.g;
+import b.a.q0.s.s.i;
+import b.a.r0.y3.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -35,14 +35,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener mAfterJumpWriteActivityListener;
     public TBLottieAnimationView mCaptureGuide;
     public RelativeLayout mCaptureGuideContainer;
-    public c.a.r0.g0.a.a mEditManager;
+    public b.a.r0.g0.a.a mEditManager;
     public int mFileFrom;
     public QmFilterItem mFilterItem;
     public TbMultiMediaData mMultiMediaData;
@@ -53,13 +53,13 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
     public View mRootView;
     public VideoInfo mVideoInfo;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbFileVideoActivity f58547a;
+        public final /* synthetic */ TbFileVideoActivity f55532a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TbFileVideoActivity tbFileVideoActivity, int i2) {
@@ -79,7 +79,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     return;
                 }
             }
-            this.f58547a = tbFileVideoActivity;
+            this.f55532a = tbFileVideoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,18 +87,18 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f58547a.finish();
+                this.f55532a.finish();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbFileVideoActivity f58548e;
+        public final /* synthetic */ TbFileVideoActivity f55533e;
 
         public b(TbFileVideoActivity tbFileVideoActivity) {
             Interceptable interceptable = $ic;
@@ -115,26 +115,26 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     return;
                 }
             }
-            this.f58548e = tbFileVideoActivity;
+            this.f55533e = tbFileVideoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f58548e.mCaptureGuide.pauseAnimation();
-                this.f58548e.mCaptureGuideContainer.setVisibility(8);
+                this.f55533e.mCaptureGuide.pauseAnimation();
+                this.f55533e.mCaptureGuideContainer.setVisibility(8);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbFileVideoActivity f58549e;
+        public final /* synthetic */ TbFileVideoActivity f55534e;
 
         public c(TbFileVideoActivity tbFileVideoActivity) {
             Interceptable interceptable = $ic;
@@ -151,25 +151,25 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     return;
                 }
             }
-            this.f58549e = tbFileVideoActivity;
+            this.f55534e = tbFileVideoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f58549e.onBackPressed();
+                this.f55534e.onBackPressed();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbFileVideoActivity f58550e;
+        public final /* synthetic */ TbFileVideoActivity f55535e;
 
         public d(TbFileVideoActivity tbFileVideoActivity) {
             Interceptable interceptable = $ic;
@@ -186,50 +186,50 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     return;
                 }
             }
-            this.f58550e = tbFileVideoActivity;
+            this.f55535e = tbFileVideoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                long j2 = this.f58550e.mMultiMediaData.start;
-                long j3 = this.f58550e.mMultiMediaData.end;
-                this.f58550e.mMultiMediaData.start = ((float) this.f58550e.mEditManager.getFrom()) * this.f58550e.mMultiMediaData.getCurrentSpeed();
-                this.f58550e.mMultiMediaData.end = ((float) this.f58550e.mEditManager.d()) * this.f58550e.mMultiMediaData.getCurrentSpeed();
-                if (this.f58550e.mFileFrom != 1) {
-                    if (this.f58550e.mFileFrom == 2) {
+                long j = this.f55535e.mMultiMediaData.start;
+                long j2 = this.f55535e.mMultiMediaData.end;
+                this.f55535e.mMultiMediaData.start = ((float) this.f55535e.mEditManager.getFrom()) * this.f55535e.mMultiMediaData.getCurrentSpeed();
+                this.f55535e.mMultiMediaData.end = ((float) this.f55535e.mEditManager.d()) * this.f55535e.mMultiMediaData.getCurrentSpeed();
+                if (this.f55535e.mFileFrom != 1) {
+                    if (this.f55535e.mFileFrom == 2) {
                         Intent intent = new Intent();
-                        intent.putExtra("enter_anim_values", g.a(this.f58550e.mPreviewView));
-                        intent.putExtra(TbEditVideoActivityConfig.KEY_EDIT_VIDEO_DATA, (Parcelable) this.f58550e.mMultiMediaData);
-                        this.f58550e.setResult(-1, intent);
-                        this.f58550e.finish();
+                        intent.putExtra("enter_anim_values", g.a(this.f55535e.mPreviewView));
+                        intent.putExtra(TbEditVideoActivityConfig.KEY_EDIT_VIDEO_DATA, (Parcelable) this.f55535e.mMultiMediaData);
+                        this.f55535e.setResult(-1, intent);
+                        this.f55535e.finish();
                         return;
                     }
                     return;
                 }
-                TbEditVideoActivityConfig tbEditVideoActivityConfig = new TbEditVideoActivityConfig(this.f58550e.getPageContext().getPageActivity());
-                tbEditVideoActivityConfig.getIntent().putExtras(this.f58550e.getIntent());
-                tbEditVideoActivityConfig.setMultiMediaData(this.f58550e.mMultiMediaData);
+                TbEditVideoActivityConfig tbEditVideoActivityConfig = new TbEditVideoActivityConfig(this.f55535e.getPageContext().getPageActivity());
+                tbEditVideoActivityConfig.getIntent().putExtras(this.f55535e.getIntent());
+                tbEditVideoActivityConfig.setMultiMediaData(this.f55535e.mMultiMediaData);
                 tbEditVideoActivityConfig.setVideoFrom(1);
-                tbEditVideoActivityConfig.setVideoRatio(this.f58550e.mEditManager.getRatio());
+                tbEditVideoActivityConfig.setVideoRatio(this.f55535e.mEditManager.getRatio());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921582, tbEditVideoActivityConfig));
-                this.f58550e.mMultiMediaData.start = j2;
-                this.f58550e.mMultiMediaData.end = j3;
+                this.f55535e.mMultiMediaData.start = j;
+                this.f55535e.mMultiMediaData.end = j2;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class e implements i.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f58551e;
+        public final /* synthetic */ PopupDialog f55536e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbFileVideoActivity f58552f;
+        public final /* synthetic */ TbFileVideoActivity f55537f;
 
         public e(TbFileVideoActivity tbFileVideoActivity, PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -246,22 +246,22 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     return;
                 }
             }
-            this.f58552f = tbFileVideoActivity;
-            this.f58551e = popupDialog;
+            this.f55537f = tbFileVideoActivity;
+            this.f55536e = popupDialog;
         }
 
-        @Override // c.a.q0.s.s.i.e
+        @Override // b.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
                 if (i2 == 0) {
                     Intent intent = new Intent();
-                    intent.putExtra("enter_anim_values", g.a(this.f58552f.mPreviewView));
-                    this.f58552f.setResult(0, intent);
-                    this.f58552f.finish();
+                    intent.putExtra("enter_anim_values", g.a(this.f55537f.mPreviewView));
+                    this.f55537f.setResult(0, intent);
+                    this.f55537f.finish();
                     return;
                 }
-                this.f58551e.dismiss();
+                this.f55536e.dismiss();
             }
         }
     }
@@ -285,8 +285,8 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
     private void backDialogShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            c.a.r0.g0.a.a aVar = this.mEditManager;
-            if (aVar != null && aVar.f()) {
+            b.a.r0.g0.a.a aVar = this.mEditManager;
+            if (aVar != null && aVar.g()) {
                 PopupDialog popupDialog = new PopupDialog(getPageContext(), new i(getPageContext().getPageActivity()));
                 popupDialog.setDefaultContentView(getResources().getString(R.string.edit_video_back_dialog_title), new String[]{getResources().getString(R.string.quit)}, new e(this, popupDialog));
                 popupDialog.showDialog();
@@ -308,14 +308,14 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             int color = getResources().getColor(R.color.CAM_X0105);
             this.mPreviewView.setGlClearColor((Color.red(color) * 1.0f) / 255.0f, (Color.green(color) * 1.0f) / 255.0f, (Color.blue(color) * 1.0f) / 255.0f, (Color.alpha(color) * 1.0f) / 255.0f);
             this.mMultiMediaEditLayout = (MultiMediaEditLayout) findViewById(R.id.multi_media_edit_layout);
-            c.a.r0.g0.a.c cVar = new c.a.r0.g0.a.c(getPageContext(), this.mPreviewView, this.mMultiMediaEditLayout, this.mMultiMediaData, this.mFileFrom, getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false));
+            b.a.r0.g0.a.c cVar = new b.a.r0.g0.a.c(getPageContext(), this.mPreviewView, this.mMultiMediaEditLayout, this.mMultiMediaData, this.mFileFrom, getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false));
             this.mEditManager = cVar;
             cVar.a(this.mFilterItem);
             int i2 = this.mFileFrom;
             if (i2 == 2) {
-                this.mEditManager.g(true);
+                this.mEditManager.h(true);
             } else if (i2 == 1) {
-                this.mEditManager.g(false);
+                this.mEditManager.h(false);
             }
         }
     }
@@ -345,11 +345,11 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             ImageView imageView = (ImageView) findViewById(R.id.iv_play);
             this.mPreviewPlay = imageView;
             imageView.setOnClickListener(this);
-            if (c.a.q0.s.d0.b.j().g("key_file_video_clip_tail_tip_show", false)) {
+            if (b.a.q0.s.e0.b.j().g("key_file_video_clip_tail_tip_show", false)) {
                 return;
             }
             showBottomTip(R.string.file_video_clip_tips);
-            c.a.q0.s.d0.b.j().t("key_file_video_clip_tail_tip_show", true);
+            b.a.q0.s.e0.b.j().t("key_file_video_clip_tail_tip_show", true);
         }
     }
 
@@ -358,18 +358,18 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         if (!(interceptable == null || interceptable.invokeI(65546, this, i2) == null) || i2 <= 0) {
             return;
         }
-        c.a.r0.f0.e eVar = new c.a.r0.f0.e(getPageContext(), this.mMultiMediaEditLayout);
-        eVar.g0(R.drawable.bg_tip_blue_up_right);
-        eVar.L(4);
-        eVar.h0(true);
-        eVar.j0(-UtilHelper.getDimenPixelSize(R.dimen.tbds78));
-        eVar.k0(UtilHelper.getDimenPixelSize(R.dimen.tbds19));
-        eVar.X(R.color.CAM_X0101);
-        eVar.e0(R.dimen.T_X08);
-        eVar.P(R.dimen.T_X08);
-        eVar.a0(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-        eVar.d0(UtilHelper.getDimenPixelSize(R.dimen.tbds44));
-        eVar.l0(getResources().getString(i2));
+        b.a.r0.f0.g gVar = new b.a.r0.f0.g(getPageContext(), this.mMultiMediaEditLayout);
+        gVar.g0(R.drawable.bg_tip_blue_up_right);
+        gVar.L(4);
+        gVar.h0(true);
+        gVar.j0(-UtilHelper.getDimenPixelSize(R.dimen.tbds78));
+        gVar.k0(UtilHelper.getDimenPixelSize(R.dimen.tbds19));
+        gVar.X(R.color.CAM_X0101);
+        gVar.e0(R.dimen.T_X08);
+        gVar.P(R.dimen.T_X08);
+        gVar.a0(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+        gVar.d0(UtilHelper.getDimenPixelSize(R.dimen.tbds44));
+        gVar.l0(getResources().getString(i2));
     }
 
     private void showGuideView(@RawRes int i2) {
@@ -378,7 +378,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             if (this.mCaptureGuideContainer == null) {
                 RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.capture_guide_view_container);
                 this.mCaptureGuideContainer = relativeLayout;
-                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(relativeLayout);
+                b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(relativeLayout);
                 d2.e(R.string.A_X09);
                 d2.f(R.color.CAM_X0611);
             }
@@ -389,7 +389,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             this.mCaptureGuide.setAnimation(i2);
             this.mCaptureGuide.loop(true);
             this.mCaptureGuide.playAnimation();
-            c.a.e.e.m.e.a().postDelayed(new b(this), 3000L);
+            b.a.e.e.m.e.a().postDelayed(new b(this), 3000L);
         }
     }
 
@@ -430,13 +430,13 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             super.onClick(view);
             if (view.getId() == R.id.iv_play || view.getId() == R.id.file_preview_view) {
-                if (!c.a.q0.s.d0.b.j().g("key_file_video_clip_play_pause_show", false)) {
+                if (!b.a.q0.s.e0.b.j().g("key_file_video_clip_play_pause_show", false)) {
                     if (view.getId() == R.id.iv_play) {
                         showGuideView(R.raw.file_edit_play_pause);
                     }
-                    c.a.q0.s.d0.b.j().t("key_file_video_clip_play_pause_show", true);
+                    b.a.q0.s.e0.b.j().t("key_file_video_clip_play_pause_show", true);
                 }
-                c.a.r0.g0.a.a aVar = this.mEditManager;
+                b.a.r0.g0.a.a aVar = this.mEditManager;
                 if (aVar != null) {
                     if (aVar.isPlaying()) {
                         this.mEditManager.pause();
@@ -461,7 +461,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                 VideoInfo videoInfo = (VideoInfo) getIntent().getSerializableExtra(WriteActivityConfig.VIDEO_INFO);
                 this.mVideoInfo = videoInfo;
                 if (videoInfo != null) {
-                    this.mMultiMediaData = c.a.r0.c4.l.c.d.d.a(videoInfo);
+                    this.mMultiMediaData = b.a.r0.c4.l.c.d.d.a(videoInfo);
                 } else {
                     this.mMultiMediaData = (TbMultiMediaData) getIntent().getParcelableExtra(TbFileVideoActivityConfig.MULTI_MEDIA_DATA);
                 }
@@ -479,7 +479,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            c.a.r0.g0.a.a aVar = this.mEditManager;
+            b.a.r0.g0.a.a aVar = this.mEditManager;
             if (aVar != null) {
                 aVar.onDestroy();
             }
@@ -491,7 +491,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            c.a.r0.g0.a.a aVar = this.mEditManager;
+            b.a.r0.g0.a.a aVar = this.mEditManager;
             if (aVar != null) {
                 aVar.onPause();
             }
@@ -507,7 +507,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             if (view != null) {
                 view.setSystemUiVisibility(4100);
             }
-            c.a.r0.g0.a.a aVar = this.mEditManager;
+            b.a.r0.g0.a.a aVar = this.mEditManager;
             if (aVar != null) {
                 aVar.onResume();
                 this.mPreviewPlay.setImageDrawable(getResources().getDrawable(R.drawable.icon_pure_video_edit_play));

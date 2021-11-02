@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
-import com.facebook.imagepipeline.cache.CountingMemoryCache;
-/* loaded from: classes9.dex */
-public class BitmapMemoryCacheTrimStrategy implements CountingMemoryCache.CacheTrimStrategy {
+import com.facebook.imagepipeline.cache.MemoryCache;
+/* loaded from: classes11.dex */
+public class BitmapMemoryCacheTrimStrategy implements MemoryCache.CacheTrimStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BitmapMemoryCacheTrimStrategy";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.cache.BitmapMemoryCacheTrimStrategy$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$memory$MemoryTrimType;
         public static /* synthetic */ Interceptable $ic;
@@ -76,7 +76,7 @@ public class BitmapMemoryCacheTrimStrategy implements CountingMemoryCache.CacheT
         }
     }
 
-    @Override // com.facebook.imagepipeline.cache.CountingMemoryCache.CacheTrimStrategy
+    @Override // com.facebook.imagepipeline.cache.MemoryCache.CacheTrimStrategy
     public double getTrimRatio(MemoryTrimType memoryTrimType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

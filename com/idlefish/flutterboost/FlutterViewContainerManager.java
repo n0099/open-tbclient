@@ -3,7 +3,7 @@ package com.idlefish.flutterboost;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.p3.a;
+import b.a.r0.q3.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FlutterViewContainerManager implements IContainerManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class FlutterViewContainerManager implements IContainerManager {
     public final Set<ContainerRef> mRefs;
     public final Stack<IContainerRecord> mShowRecord;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class ContainerRef {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class FlutterViewContainerManager implements IContainerManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface OnResult {
         void onResult(Map<String, Object> map);
     }

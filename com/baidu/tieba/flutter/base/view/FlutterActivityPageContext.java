@@ -7,8 +7,8 @@ import android.graphics.drawable.Animatable;
 import android.view.View;
 import android.view.animation.Animation;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.c.g.a;
-import c.a.q0.s.c;
+import b.a.e.c.g.a;
+import b.a.q0.s.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FlutterActivityPageContext<T> implements TbPageContext<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class FlutterActivityPageContext<T> implements TbPageContext<T> {
         this.activity = flutterPageActivity;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, c.a.e.a.f
+    @Override // com.baidu.tbadk.TbPageContext, b.a.e.a.f
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,35 +59,35 @@ public class FlutterActivityPageContext<T> implements TbPageContext<T> {
     }
 
     /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.tieba.flutter.base.view.FlutterPageActivity<T>, T] */
-    @Override // com.baidu.tbadk.TbPageContext, c.a.e.a.f
+    @Override // com.baidu.tbadk.TbPageContext, b.a.e.a.f
     public T getOrignalPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.activity : (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, c.a.e.a.f
+    @Override // com.baidu.tbadk.TbPageContext, b.a.e.a.f
     public Activity getPageActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.activity.getActivity() : (Activity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, c.a.e.a.f
+    @Override // com.baidu.tbadk.TbPageContext, b.a.e.a.f
     public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.activity.getResources() : (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, c.a.e.a.f
+    @Override // com.baidu.tbadk.TbPageContext, b.a.e.a.f
     public String getString(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? getResources().getString(i2) : (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, c.a.e.a.f
+    @Override // com.baidu.tbadk.TbPageContext, b.a.e.a.f
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class FlutterActivityPageContext<T> implements TbPageContext<T> {
         }
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, c.a.e.a.f
+    @Override // com.baidu.tbadk.TbPageContext, b.a.e.a.f
     public void sendMessage(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, message) == null) {
@@ -168,7 +168,7 @@ public class FlutterActivityPageContext<T> implements TbPageContext<T> {
         }
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, c.a.e.a.f
+    @Override // com.baidu.tbadk.TbPageContext, b.a.e.a.f
     public void registerListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, messageListener) == null) {

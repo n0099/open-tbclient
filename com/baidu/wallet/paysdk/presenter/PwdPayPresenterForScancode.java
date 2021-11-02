@@ -33,7 +33,7 @@ import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PwdPayPresenterForScancode f62992a;
+                public final /* synthetic */ PwdPayPresenterForScancode f59859a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -93,7 +93,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                     }
-                    this.f62992a = this;
+                    this.f59859a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -115,8 +115,8 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                         BaseBean baseBean = (BaseBean) obj;
-                        baseBean.setBeanParams(this.f62992a.mOrderInfo.sp_no, this.f62992a.mOrderInfo.order_no, this.f62992a.mOrderInfo.pay_code, "");
-                        baseBean.setResponseCallback(this.f62992a);
+                        baseBean.setBeanParams(this.f59859a.mOrderInfo.sp_no, this.f59859a.mOrderInfo.order_no, this.f59859a.mOrderInfo.pay_code, "");
+                        baseBean.setResponseCallback(this.f59859a);
                         baseBean.execBean();
                     }
                 }

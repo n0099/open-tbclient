@@ -10,38 +10,38 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.e0.e;
-import c.a.e0.f;
-import c.a.e0.g;
-import c.a.e0.k.d.b;
+import b.a.e0.e;
+import b.a.e0.f;
+import b.a.e0.g;
+import b.a.e0.k.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44341e;
+    public ImageView f42101e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44342f;
+    public TextView f42102f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44343g;
+    public TextView f42103g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f44344h;
+    public ImageView f42104h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC1695a f44345i;
+    public InterfaceC1652a f42105i;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1695a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC1652a {
         void a();
     }
 
@@ -66,45 +66,45 @@ public class a extends RelativeLayout implements View.OnClickListener {
         }
     }
 
-    public void a(o oVar, InterfaceC1695a interfaceC1695a) {
+    public void a(o oVar, InterfaceC1652a interfaceC1652a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, interfaceC1695a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, interfaceC1652a) == null) {
             String displayName = oVar.getDisplayName();
             String S = oVar.S();
             String icon = oVar.getIcon();
             int P = oVar.P();
             int N = oVar.N();
-            b.c().b(this.f44341e, icon);
-            this.f44342f.setText(displayName);
+            b.c().b(this.f42101e, icon);
+            this.f42102f.setText(displayName);
             if (P == 1) {
-                this.f44344h.setImageResource(e.channel_checked);
+                this.f42104h.setImageResource(e.channel_checked);
             } else {
-                this.f44344h.setImageResource(e.unchecked);
+                this.f42104h.setImageResource(e.unchecked);
             }
             if (1 == N) {
-                this.f44345i = interfaceC1695a;
+                this.f42105i = interfaceC1652a;
             } else {
-                this.f44341e.setAlpha(0.4f);
-                this.f44342f.setAlpha(0.4f);
-                this.f44343g.setAlpha(0.4f);
-                this.f44344h.setVisibility(8);
+                this.f42101e.setAlpha(0.4f);
+                this.f42102f.setAlpha(0.4f);
+                this.f42103g.setAlpha(0.4f);
+                this.f42104h.setVisibility(8);
             }
             if (!TextUtils.isEmpty(S)) {
                 String M = oVar.M();
                 if (!TextUtils.isEmpty(M)) {
                     try {
-                        this.f44343g.setTextColor(Color.parseColor(M));
+                        this.f42103g.setTextColor(Color.parseColor(M));
                     } catch (Exception unused) {
                     }
                 }
-                this.f44343g.setText(S);
+                this.f42103g.setText(S);
                 return;
             }
-            this.f44343g.setVisibility(8);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f44342f.getLayoutParams();
+            this.f42103g.setVisibility(8);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42102f.getLayoutParams();
             layoutParams.addRule(15);
             layoutParams.topMargin = 0;
-            this.f44342f.setLayoutParams(layoutParams);
+            this.f42102f.setLayoutParams(layoutParams);
         }
     }
 
@@ -112,22 +112,22 @@ public class a extends RelativeLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(g.view_channel_list_item, (ViewGroup) this, true);
-            this.f44341e = (ImageView) findViewById(f.channel_icon_view);
-            this.f44342f = (TextView) findViewById(f.channel_name_view);
-            this.f44343g = (TextView) findViewById(f.channel_desc_view);
-            this.f44344h = (ImageView) findViewById(f.channel_select_view);
+            this.f42101e = (ImageView) findViewById(f.channel_icon_view);
+            this.f42102f = (TextView) findViewById(f.channel_name_view);
+            this.f42103g = (TextView) findViewById(f.channel_desc_view);
+            this.f42104h = (ImageView) findViewById(f.channel_select_view);
             setOnClickListener(this);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC1695a interfaceC1695a;
+        InterfaceC1652a interfaceC1652a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (interfaceC1695a = this.f44345i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (interfaceC1652a = this.f42105i) == null) {
             return;
         }
-        interfaceC1695a.a();
+        interfaceC1652a.a();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

@@ -5,40 +5,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class a extends com.kwad.sdk.core.response.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72579a;
+    public int f65034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72580b;
+    public String f65035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f72581c;
+    public int f65036c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f72582d;
+    public int f65037d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f72583e;
+    public String f65038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f72584f;
+    public String f65039f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f72585g;
+    public int f65040g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f72586h;
+    public int f65041h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f72587i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f72588j;
+    public int f65042i;
+    public int j;
     public transient List<AdTemplate> k;
 
     public a() {
@@ -54,10 +52,10 @@ public class a extends com.kwad.sdk.core.response.a.a {
                 return;
             }
         }
-        this.f72581c = 1;
-        this.f72585g = 1;
-        this.f72586h = 1;
-        this.f72587i = 1;
-        this.f72588j = 1;
+        this.f65036c = 1;
+        this.f65040g = 1;
+        this.f65041h = 1;
+        this.f65042i = 1;
+        this.j = 1;
     }
 }

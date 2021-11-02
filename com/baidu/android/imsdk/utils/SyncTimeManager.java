@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SyncTimeManager {
     public static /* synthetic */ Interceptable $ic;
     public static long lightAppId;
@@ -67,19 +67,19 @@ public class SyncTimeManager {
         return invokeL.longValue;
     }
 
-    public static void writeFriendGroupInfoSyncTime(Context context, long j2) {
+    public static void writeFriendGroupInfoSyncTime(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, j) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
-            edit.putLong(Constants.FRINEDGROUP_PREFIX + Utility.getUK(context) + lightAppId, j2).commit();
+            edit.putLong(Constants.FRINEDGROUP_PREFIX + Utility.getUK(context) + lightAppId, j).commit();
         }
     }
 
-    public static void writeUserInfoSyncTime(Context context, long j2) {
+    public static void writeUserInfoSyncTime(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, context, j) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
-            edit.putLong(Constants.USERINFO_PREFIX + Utility.getUK(context) + lightAppId, j2).commit();
+            edit.putLong(Constants.USERINFO_PREFIX + Utility.getUK(context) + lightAppId, j).commit();
         }
     }
 }

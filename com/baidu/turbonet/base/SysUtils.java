@@ -14,12 +14,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SysUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f59449a;
+    public static Boolean f56384a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -112,10 +112,10 @@ public class SysUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f59449a == null) {
-                f59449a = Boolean.valueOf(b());
+            if (f56384a == null) {
+                f56384a = Boolean.valueOf(b());
             }
-            return f59449a.booleanValue();
+            return f56384a.booleanValue();
         }
         return invokeV.booleanValue;
     }

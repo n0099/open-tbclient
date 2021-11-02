@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.k;
-import i.m.a;
-import i.n.d;
-import i.r.c;
+import h.k;
+import h.m.a;
+import h.n.d;
+import h.r.c;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CancellableSubscription extends AtomicReference<d> implements k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5718521705281392066L;
@@ -37,14 +37,14 @@ public final class CancellableSubscription extends AtomicReference<d> implements
         }
     }
 
-    @Override // i.k
+    @Override // h.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == null : invokeV.booleanValue;
     }
 
-    @Override // i.k
+    @Override // h.k
     public void unsubscribe() {
         d andSet;
         Interceptable interceptable = $ic;

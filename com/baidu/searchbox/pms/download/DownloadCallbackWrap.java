@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DownloadCallbackWrap implements InnerCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -139,14 +139,14 @@ public class DownloadCallbackWrap implements InnerCallback {
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
-    public void onProgress(PackageInfo packageInfo, long j2, long j3) {
+    public void onProgress(PackageInfo packageInfo, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{packageInfo, Long.valueOf(j2), Long.valueOf(j3)}) == null) || packageInfo == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) || packageInfo == null) {
             return;
         }
-        packageInfo.currentSize = j2;
-        packageInfo.totalSize = j3;
-        this.mCallback.onDownloadProgress(packageInfo, j2, j3);
+        packageInfo.currentSize = j;
+        packageInfo.totalSize = j2;
+        this.mCallback.onDownloadProgress(packageInfo, j, j2);
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback

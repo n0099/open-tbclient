@@ -16,20 +16,19 @@ import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetOneInfoRequest";
@@ -39,12 +38,12 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public ArrayList<Long> mPaids;
     public long mUk;
 
-    public IMPaGetOneInfoRequest(Context context, String str, ArrayList<Long> arrayList, long j2, long j3) {
+    public IMPaGetOneInfoRequest(Context context, String str, ArrayList<Long> arrayList, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, arrayList, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {context, str, arrayList, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -55,9 +54,9 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
-        this.mUk = j3;
+        this.mUk = j2;
         this.mPaids = arrayList;
     }
 
@@ -131,9 +130,9 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                 jSONObject.put("is_https", true);
                 jSONObject.put("sign", getSignByMd5Error(bduss, currentTimeMillis, this.mAppid, md5));
                 jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+                jSONObject.put("device_type", 2);
                 jSONObject.put("account_type", AccountManagerImpl.getInstance(this.mContext).getLoginType());
                 if (AccountManager.isCuidLogin(this.mContext)) {
                     jSONObject.put("token", AccountManager.getToken(this.mContext));
@@ -156,7 +155,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x01df  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x01e3  */
     /* JADX WARN: Removed duplicated region for block: B:61:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
@@ -177,7 +176,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         try {
             jSONObject = new JSONObject(str2);
             i3 = jSONObject.getInt("error_code");
-            str = jSONObject.optString("error_msg", "");
+            str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
         } catch (JSONException e2) {
             e = e2;
             arrayList = null;

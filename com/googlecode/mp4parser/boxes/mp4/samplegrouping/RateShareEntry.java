@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RateShareEntry extends GroupEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "rash";
@@ -26,7 +26,7 @@ public class RateShareEntry extends GroupEntry {
     public short operationPointCut;
     public short targetRateShare;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

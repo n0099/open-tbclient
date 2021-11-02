@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FastLoginFeature {
     public static final /* synthetic */ FastLoginFeature[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +28,7 @@ public final class FastLoginFeature {
     public transient /* synthetic */ FieldHolder $fh;
     public String mStrValue;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface SSOLoginType {
         public static final String HONOR = "glory_login";
         public static final String HUAWEI = "huawei_login";

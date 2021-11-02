@@ -12,7 +12,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 import protobuf.LogStat.DataReq;
 import protobuf.LogStat.LogStatReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RequestSendPVTJMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_KD_MREAD = "kd_mread";

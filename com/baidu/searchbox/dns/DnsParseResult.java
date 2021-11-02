@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DnsParseResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_STACK_TYPE_BOTH = 3;
@@ -39,8 +39,8 @@ public class DnsParseResult {
     public static final int TYPE_LOCAL = 0;
     public static final int TYPE_LOCAL_ASYNC_HTTP = 1000;
     public transient /* synthetic */ FieldHolder $fh;
-    public int l;
-    public List<String> m;
+    public int k;
+    public List<String> l;
     public int stackType;
     public int type;
 
@@ -61,19 +61,19 @@ public class DnsParseResult {
         }
         this.stackType = 0;
         if (list != null && !list.isEmpty()) {
-            this.m = Collections.unmodifiableList(list);
+            this.l = Collections.unmodifiableList(list);
         } else {
-            this.m = null;
+            this.l = null;
         }
         this.type = i2;
-        this.l = i3;
+        this.k = i3;
         this.stackType = i4;
     }
 
     public List<String> getIpList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (List) invokeV.objValue;
     }
 
     public int getStackType() {
@@ -85,7 +85,7 @@ public class DnsParseResult {
     public int getSubType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public int getType() {
@@ -101,8 +101,8 @@ public class DnsParseResult {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.type);
-                jSONObject.put("subType", this.l);
-                jSONObject.put("ipList", new JSONArray((Collection) this.m));
+                jSONObject.put("subType", this.k);
+                jSONObject.put("ipList", new JSONArray((Collection) this.l));
                 jSONObject.put("stackType", this.stackType);
             } catch (JSONException e2) {
                 e2.printStackTrace();

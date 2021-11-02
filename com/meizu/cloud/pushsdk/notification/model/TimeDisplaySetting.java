@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TimeDisplaySetting implements Parcelable {
     public static final Parcelable.Creator<TimeDisplaySetting> CREATOR = new Parcelable.Creator<TimeDisplaySetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +47,7 @@ public class TimeDisplaySetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                b.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -75,7 +75,7 @@ public class TimeDisplaySetting implements Parcelable {
             return timeDisplaySetting;
         }
         str = "no such tag time_display_setting";
-        c.l.a.a.a.b(TAG, str);
+        b.l.a.a.a.b(TAG, str);
         return timeDisplaySetting;
     }
 

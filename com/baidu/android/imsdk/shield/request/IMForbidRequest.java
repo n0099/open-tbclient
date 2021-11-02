@@ -8,16 +8,15 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMForbidRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMForbidRequest";
@@ -27,12 +26,12 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
     public int type;
     public long uid;
 
-    public IMForbidRequest(Context context, long j2, long j3, int i2, String str) {
+    public IMForbidRequest(Context context, long j, long j2, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), str};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -43,10 +42,10 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.uid = j3;
+        this.uid = j2;
         this.type = i2;
         this.key = str;
-        this.touk = j2;
+        this.touk = j;
     }
 
     private int getReportType() {
@@ -129,9 +128,9 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
                 jSONObject.put("uk_from", uk);
                 jSONObject.put("uk_to", this.touk);
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+                jSONObject.put("device_type", 2);
                 jSONObject.put("timestamp", currentTimeMillis);
                 int i2 = 1;
                 jSONObject.put("reason", 1);
@@ -177,7 +176,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str3);
                 int optInt = jSONObject.optInt("error_code");
-                String optString = jSONObject.optString("error_msg");
+                String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 z2 = jSONObject.optBoolean("display_toast", false);
                 str = z2 ? jSONObject.optString("toast", "") : "";
                 z = z2;

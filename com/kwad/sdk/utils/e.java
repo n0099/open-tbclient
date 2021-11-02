@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.material.internal.ManufacturerUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f74297a;
+    public static final Map<String, String> f66680a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,17 +40,17 @@ public class e {
             }
         }
         HashMap hashMap = new HashMap();
-        f74297a = hashMap;
+        f66680a = hashMap;
         hashMap.put("HUAWEI", "com.huawei.appmarket");
-        f74297a.put("OPPO", "com.oppo.market");
-        f74297a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
-        f74297a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        f74297a.put("OnePlus", "com.oppo.market");
-        f74297a.put("Meizu", "com.meizu.mstore");
-        f74297a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
-        f74297a.put("SMARTISAN", "com.smartisanos.appstore");
-        f74297a.put("Realme", "com.oppo.market");
-        f74297a.put("HONOR", "com.huawei.appmarket");
+        f66680a.put("OPPO", "com.oppo.market");
+        f66680a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
+        f66680a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
+        f66680a.put("OnePlus", "com.oppo.market");
+        f66680a.put("Meizu", "com.meizu.mstore");
+        f66680a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
+        f66680a.put("SMARTISAN", "com.smartisanos.appstore");
+        f66680a.put("Realme", "com.oppo.market");
+        f66680a.put("HONOR", "com.huawei.appmarket");
     }
 
     public static boolean a(Context context, String str) {
@@ -84,7 +84,7 @@ public class e {
                 str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
             }
             try {
-                String str3 = f74297a.get(Build.BRAND);
+                String str3 = f66680a.get(Build.BRAND);
                 Intent parseUri = Intent.parseUri(str, 1);
                 parseUri.addFlags(268435456);
                 for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {

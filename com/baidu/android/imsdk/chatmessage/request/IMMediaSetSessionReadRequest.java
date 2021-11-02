@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaSetSessionReadRequest";
@@ -31,12 +32,12 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
     public String mKey;
     public long mLastTime;
 
-    public IMMediaSetSessionReadRequest(Context context, long j2, long j3, String str) {
+    public IMMediaSetSessionReadRequest(Context context, long j, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), str};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -49,8 +50,8 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -2;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j2;
-        this.mLastTime = j3;
+        this.mContacter = j;
+        this.mLastTime = j2;
         this.mKey = str;
     }
 
@@ -138,7 +139,7 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i3 = jSONObject.optInt("error_code", 0);
-                str = jSONObject.optString("error_msg");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 if (i3 == 0) {
                     if (this.mContactorType == -1) {
                         ArrayList arrayList = new ArrayList();
@@ -165,12 +166,12 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaSetSessionReadRequest(Context context, long j2, int i2, long j3, String str, long j4, String str2) {
+    public IMMediaSetSessionReadRequest(Context context, long j, int i2, long j2, String str, long j3, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), str2};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Long.valueOf(j3), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -183,11 +184,11 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -2;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j2;
-        this.mLastTime = j4;
+        this.mContacter = j;
+        this.mLastTime = j3;
         this.mKey = str2;
         this.mContactorType = i2;
-        this.mContactorPauid = j3;
+        this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }
 }

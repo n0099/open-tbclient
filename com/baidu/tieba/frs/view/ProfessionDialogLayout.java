@@ -8,38 +8,42 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.e.e.p.l;
+import b.a.e.e.p.l;
+import b.a.r0.x0.b1;
+import b.a.r0.x0.c1;
+import b.a.r0.x0.d1;
+import b.a.r0.x0.e1;
+import b.a.r0.x0.f1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ProfessionDialogLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnClickListener f51848e;
+    public View.OnClickListener f49177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f51849f;
+    public View.OnClickListener f49178f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f51850g;
+    public Context f49179g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ProfessionDialogLayout f51851e;
+        public final /* synthetic */ ProfessionDialogLayout f49180e;
 
         public a(ProfessionDialogLayout professionDialogLayout) {
             Interceptable interceptable = $ic;
@@ -56,26 +60,26 @@ public class ProfessionDialogLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f51851e = professionDialogLayout;
+            this.f49180e = professionDialogLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51851e.f51849f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49180e.f49178f == null) {
                 return;
             }
-            this.f51851e.f51849f.onClick(view);
+            this.f49180e.f49178f.onClick(view);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ProfessionDialogLayout f51852e;
+        public final /* synthetic */ ProfessionDialogLayout f49181e;
 
         public b(ProfessionDialogLayout professionDialogLayout) {
             Interceptable interceptable = $ic;
@@ -92,16 +96,16 @@ public class ProfessionDialogLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f51852e = professionDialogLayout;
+            this.f49181e = professionDialogLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51852e.f51848e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49181e.f49177e == null) {
                 return;
             }
-            this.f51852e.f51848e.onClick(view);
+            this.f49181e.f49177e.onClick(view);
         }
     }
 
@@ -130,18 +134,18 @@ public class ProfessionDialogLayout extends LinearLayout {
         int k;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, tbImageView) == null) {
-            int g2 = l.g(this.f51850g, R.dimen.ds40);
-            if (UtilHelper.getRealScreenOrientation(this.f51850g) == 2) {
-                k = l.i(this.f51850g);
+            int g2 = l.g(this.f49179g, c1.ds40);
+            if (UtilHelper.getRealScreenOrientation(this.f49179g) == 2) {
+                k = l.i(this.f49179g);
             } else {
-                k = l.k(this.f51850g);
+                k = l.k(this.f49179g);
             }
             int i2 = k - (g2 * 2);
             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = (i2 * 558) / 992;
             tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setRadius(l.g(this.f51850g, R.dimen.ds16));
+            tbImageView.setRadius(l.g(this.f49179g, c1.ds16));
             tbImageView.setConrers(3);
             tbImageView.setIsBitmapPic(true);
         }
@@ -150,33 +154,33 @@ public class ProfessionDialogLayout extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f51850g = context;
-            LayoutInflater.from(context).inflate(R.layout.profession_dialog_layout, this);
+            this.f49179g = context;
+            LayoutInflater.from(context).inflate(f1.profession_dialog_layout, this);
             setOrientation(1);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.img_bg);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.desc_1), R.color.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.desc_2), R.color.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.button), R.color.CAM_X0302);
+            TbImageView tbImageView = (TbImageView) findViewById(e1.img_bg);
+            SkinManager.setViewTextColor((TextView) findViewById(e1.desc_1), b1.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(e1.desc_2), b1.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(e1.button), b1.CAM_X0302);
             setImageAttribute(tbImageView);
-            SkinManager.setImageResource(tbImageView, R.drawable.img_frs_professinal_popup);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.close_btn);
-            SkinManager.setImageResource(tbImageView2, R.drawable.icon_prefession_popup_close_n);
+            SkinManager.setImageResource(tbImageView, d1.img_frs_professinal_popup);
+            TbImageView tbImageView2 = (TbImageView) findViewById(e1.close_btn);
+            SkinManager.setImageResource(tbImageView2, d1.icon_prefession_popup_close_n);
             tbImageView2.setOnClickListener(new a(this));
-            findViewById(R.id.button).setOnClickListener(new b(this));
+            findViewById(e1.button).setOnClickListener(new b(this));
         }
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f51848e = onClickListener;
+            this.f49177e = onClickListener;
         }
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f51849f = onClickListener;
+            this.f49178f = onClickListener;
         }
     }
 

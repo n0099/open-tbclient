@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.bq;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEFAULT_EVENT_ENCRYPTED = true;
@@ -29,7 +29,7 @@ public class Config {
     public long mPerfUploadFrequency;
     public boolean mPerfUploadSwitchOpen;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,11 +89,11 @@ public class Config {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setEventUploadFrequency(long j2) {
+        public Builder setEventUploadFrequency(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.mEventUploadFrequency = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.mEventUploadFrequency = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -109,21 +109,21 @@ public class Config {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setMaxFileLength(long j2) {
+        public Builder setMaxFileLength(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-                this.mMaxFileLength = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+                this.mMaxFileLength = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setPerfUploadFrequency(long j2) {
+        public Builder setPerfUploadFrequency(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-                this.mPerfUploadFrequency = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                this.mPerfUploadFrequency = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;

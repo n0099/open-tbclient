@@ -18,7 +18,7 @@ import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;
@@ -490,13 +490,13 @@ public class JsonWriter implements Closeable, Flushable {
         return (JsonWriter) invokeCommon.objValue;
     }
 
-    public JsonWriter value(long j2) throws IOException {
+    public JsonWriter value(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
             writeDeferredName();
             beforeValue();
-            this.out.write(Long.toString(j2));
+            this.out.write(Long.toString(j));
             return this;
         }
         return (JsonWriter) invokeJ.objValue;

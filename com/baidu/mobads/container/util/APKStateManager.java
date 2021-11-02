@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class APKStateManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long APK_INFO_TIMEOUT;
@@ -196,45 +196,45 @@ public class APKStateManager {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, context, str)) == null) ? context == null ? "" : context.getSharedPreferences(APK_LIST_FILE_NAME, 0).getString(str, "") : (String) invokeLL.objValue;
     }
 
-    private long judgeAppsState(PackageManager packageManager, String str, int i2, long j2) {
+    private long judgeAppsState(PackageManager packageManager, String str, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{packageManager, str, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{packageManager, str, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             try {
                 RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
                 String str2 = TAG;
                 remoteXAdLogger.d(str2, "judge pkg :" + str);
                 packageManager.getApplicationInfo(str, 0);
-                return setApkInstalled(j2, i2);
+                return setApkInstalled(j, i2);
             } catch (PackageManager.NameNotFoundException unused) {
-                return setApkUnInstalled(j2, i2);
+                return setApkUnInstalled(j, i2);
             } catch (Exception unused2) {
-                return setApkUnInstalled(j2, i2);
+                return setApkUnInstalled(j, i2);
             }
         }
         return invokeCommon.longValue;
     }
 
-    private long setApkInstalled(long j2, int i2) {
+    private long setApkInstalled(long j, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
             RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
             String str = TAG;
-            remoteXAdLogger.d(str, "setApkInstalled, current state :" + j2 + ", position :" + i2);
-            return j2 | (1 << i2);
+            remoteXAdLogger.d(str, "setApkInstalled, current state :" + j + ", position :" + i2);
+            return j | (1 << i2);
         }
         return invokeCommon.longValue;
     }
 
-    private long setApkUnInstalled(long j2, int i2) {
+    private long setApkUnInstalled(long j, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
             RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
             String str = TAG;
-            remoteXAdLogger.d(str, "setApkInstalled, current state :" + j2 + ", position :" + i2);
-            return j2 & (~(1 << i2));
+            remoteXAdLogger.d(str, "setApkInstalled, current state :" + j + ", position :" + i2);
+            return j & (~(1 << i2));
         }
         return invokeCommon.longValue;
     }
@@ -267,13 +267,13 @@ public class APKStateManager {
         }
     }
 
-    private void setLong(Context context, String str, long j2) {
+    private void setLong(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{context, str, Long.valueOf(j2)}) == null) || context == null || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{context, str, Long.valueOf(j)}) == null) || context == null || j <= 0) {
             return;
         }
         SharedPreferences.Editor edit = context.getSharedPreferences(APK_LIST_FILE_NAME, 0).edit();
-        edit.putLong(str, j2);
+        edit.putLong(str, j);
         if (Build.VERSION.SDK_INT >= 9) {
             edit.apply();
         } else {
@@ -317,20 +317,20 @@ public class APKStateManager {
                     } else {
                         String[] doubleCheckPkgArrays = doubleCheckPkgArrays(str);
                         if (doubleCheckPkgArrays != null && doubleCheckPkgArrays.length != 0) {
-                            long j2 = 1;
+                            long j = 1;
                             int i4 = 0;
                             while (i4 < doubleCheckPkgArrays.length && i4 < 64) {
                                 int i5 = i4 + 1;
-                                j2 = judgeAppsState(packageManager, doubleCheckPkgArrays[i4], i5, j2);
+                                j = judgeAppsState(packageManager, doubleCheckPkgArrays[i4], i5, j);
                                 RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
                                 String str2 = TAG;
-                                remoteXAdLogger.d(str2, "actionToProbo : i=" + i3 + ", j=" + i4 + "pkg=" + doubleCheckPkgArrays[i2] + ", state=" + j2);
+                                remoteXAdLogger.d(str2, "actionToProbo : i=" + i3 + ", j=" + i4 + "pkg=" + doubleCheckPkgArrays[i2] + ", state=" + j);
                                 i4 = i5;
                             }
                             if (i3 > 0) {
                                 sb.append(",");
                             }
-                            sb.append(j2);
+                            sb.append(j);
                         } else {
                             if (i3 > 0) {
                                 sb.append(",");
@@ -360,13 +360,13 @@ public class APKStateManager {
                     for (int i2 = 0; i2 < allOriginPkgList.length && i2 < iADEXArray.length; i2++) {
                         String[] doubleCheckPkgArrays = doubleCheckPkgArrays(allOriginPkgList[i2]);
                         if (doubleCheckPkgArrays != null && doubleCheckPkgArrays.length != 0) {
-                            long j2 = iADEXArray[i2];
+                            long j = iADEXArray[i2];
                             int i3 = 0;
                             while (true) {
                                 if (i3 >= doubleCheckPkgArrays.length || i3 >= 64) {
                                     break;
                                 } else if (str.equals(doubleCheckPkgArrays[i3])) {
-                                    iADEXArray[i2] = judgeAppsState(packageManager, str, i3 + 1, j2);
+                                    iADEXArray[i2] = judgeAppsState(packageManager, str, i3 + 1, j);
                                     z = true;
                                     break;
                                 } else {
